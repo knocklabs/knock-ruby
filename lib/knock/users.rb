@@ -77,7 +77,8 @@ module Knock
       def set_channel_data(id:, channel_id:, channel_data:)
         request = put_request(
           auth: true,
-          path: "/v1/users/#{id}/channel_data/#{channel_id}"
+          path: "/v1/users/#{id}/channel_data/#{channel_id}",
+          body: { "data": channel_data }
         )
 
         execute_request(request: request)
