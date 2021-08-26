@@ -112,6 +112,25 @@ Knock::Preferences.set(
 Knock::Preferences.get(user_id: "jhammond")
 ```
 
+### Getting and setting channel data
+
+```ruby
+require "knockapi"
+Knock.key = "sk_12345"
+
+# Set channel data for an APNS
+Knock::Users.set_channel_data(
+  id: "jhammond",
+  channel_id: KNOCK_APNS_CHANNEL_ID,
+  channel_data: {
+    'tokens': [apns_token]
+  }
+)
+
+# Get channel data for the APNS channel
+Knock::Users.get_channel_data(user_id: "jhammond", channel_id: KNOCK_APNS_CHANNEL_ID)
+```
+
 ### Cancelling workflows
 
 ```ruby
