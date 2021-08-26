@@ -51,6 +51,37 @@ module Knock
 
         execute_request(request: request)
       end
+
+      # Get user's channel data for the given channel id
+      #
+      # @param [String] id the user ID
+      # @param [String] channel_id target channel ID
+      #
+      # @return [Hash] channel data
+      def get_channel_data(id:, channel_id:)
+        request = get_request(
+          auth: true,
+          path: "/v1/users/#{id}/channel_data/#{channel_id}"
+        )
+
+        execute_request(request: request)
+      end
+
+      # Upserts user's channel data for the given channel id
+      #
+      # @param [String] id the user ID
+      # @param [String] channel_id target channel ID
+      # @param [String] channel_data channel data
+      #
+      # @return [Hash] channel data
+      def set_channel_data(id:, channel_id:, channel_data:)
+        request = put_request(
+          auth: true,
+          path: "/v1/users/#{id}/channel_data/#{channel_id}"
+        )
+
+        execute_request(request: request)
+      end
     end
   end
 end
