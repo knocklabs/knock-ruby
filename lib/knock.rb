@@ -25,6 +25,8 @@ module Knock
   autoload :Preferences, "knock/preferences"
   autoload :Users, "knock/users"
   autoload :Workflows, "knock/workflows"
+  autoload :BulkOperations, "knock/bulk_operations"
+  autoload :Objects, "knock/objects"
 
   # Errors
   autoload :APIError, "knock/errors"

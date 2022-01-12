@@ -11,8 +11,8 @@ module Knock
       # Triggers the workflow with the given key
       #
       # @param [String] key The workflow key
-      # @param [String] actor The actor ID
-      # @param [Array<String>] recipients The recipient IDs
+      # @param [String, Hash] actor The actor identifier
+      # @param [Array<String, Hash>] recipients The recipient identifiers
       # @param [Hash] data The data to pass to the workflow
       # @param [String] cancellation_key An optional key to identify this workflow
       #  invocation for cancelling
@@ -41,7 +41,7 @@ module Knock
       #
       # @param [String] key The workflow key
       # @param [String] cancellation_key The cancellation key
-      # @param [Array<String>] recipients The recipient IDs to cancel for
+      # @param [Array<String, Hash>] recipients The recipient identifiers
       #
       # @return [Hash] - Cancellation result
       def cancel(key:, cancellation_key:, recipients: nil)
