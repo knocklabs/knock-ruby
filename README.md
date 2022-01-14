@@ -98,7 +98,7 @@ require "knockapi"
 Knock.key = "sk_12345"
 
 # Set an entire preference set
-Knock::Preferences.set(
+Knock::Users.set_preferences(
   user_id: "jhammond",
   channel_types: { email: true, sms: false },
   workflows: {
@@ -109,7 +109,7 @@ Knock::Preferences.set(
 )
 
 # Get an entire preference set
-Knock::Preferences.get(user_id: "jhammond")
+Knock::Users.get_preferences(user_id: "jhammond")
 ```
 
 ### Getting and setting channel data
