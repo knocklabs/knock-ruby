@@ -101,6 +101,22 @@ module Knock
         execute_request(request: request)
       end
 
+      # Merges the user specified with `from_user_id` into the user specified with `user_id`.
+      #
+      # @param [String] id The user id to merge into.
+      # @param [String] from_user_id The user id to merge from
+      #
+      # @return [Hash] the merged User
+      def merge(id:, from_user_id:)
+        request = post_request(
+          auth: true,
+          path: "/v1/users/#{id}/merge",
+          body: { from_user_id: from_user_id }
+        )
+
+        execute_request(request: request)
+      end
+
       ##
       # Preferences
       ##
