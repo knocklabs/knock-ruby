@@ -11,7 +11,7 @@ module Knock
       # Triggers the workflow with the given key
       #
       # @param [String] key The workflow key
-      # @param [String, Hash] actor The actor identifier
+      # @param [String, Hash] actor The actor identifier (optional)
       # @param [Array<String, Hash>] recipients The recipient identifiers
       # @param [Hash] data The data to pass to the workflow
       # @param [String] cancellation_key An optional key to identify this workflow
