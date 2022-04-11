@@ -120,6 +120,23 @@ module Knock
 
         execute_request(request: request)
       end
+
+      # Get object's messages
+      #
+      # @param [String] collection The collection the object is in
+      # @param [String] id The object id
+      # @param [Hash] options Options to pass to the messages endpoint query
+      #
+      # @return [Hash] Paginated messages response
+      def get_messages(collection:, id:, options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/objects/#{collection}/#{id}/messages",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
     end
   end
 end

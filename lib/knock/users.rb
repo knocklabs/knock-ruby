@@ -316,6 +316,26 @@ module Knock
 
         execute_request(request: request)
       end
+
+      ##
+      # Messages
+      ##
+
+      # Get user's messages
+      #
+      # @param [String] id the user ID
+      # @param [Hash] options Options to pass to the messages endpoint query
+      #
+      # @return [Hash] Paginated messages response
+      def get_messages(id:, options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/users/#{id}/messages",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
     end
   end
 end

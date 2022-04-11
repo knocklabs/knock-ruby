@@ -27,6 +27,7 @@ module Knock
   autoload :Workflows, "knock/workflows"
   autoload :BulkOperations, "knock/bulk_operations"
   autoload :Objects, "knock/objects"
+  autoload :Messages, "knock/messages"
 
   # Errors
   autoload :APIError, "knock/errors"
