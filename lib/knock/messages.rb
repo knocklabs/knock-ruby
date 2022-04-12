@@ -8,6 +8,21 @@ module Knock
       include Base
       include Client
 
+      # Retrieves a paginated list of messages for the provided environment
+      #
+      # @param [Hash] options Options to pass to the messages endpoint query
+      #
+      # @return [Hash] Paginated list of Message records
+      def list(options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/messages",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
+
       # Retrieves a Message
       #
       # @param [String] id The message id
