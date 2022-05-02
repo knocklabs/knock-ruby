@@ -111,7 +111,7 @@ module Knock
         request = post_request(
           auth: true,
           path: "/v1/users/#{id}/merge",
-          body: { from_user_id: from_user_id }
+          body: {from_user_id: from_user_id}
         )
 
         execute_request(request: request)
@@ -312,6 +312,22 @@ module Knock
           auth: true,
           path: "/v1/users/#{id}/channel_data/#{channel_id}",
           body: {data: channel_data}
+        )
+
+        execute_request(request: request)
+      end
+
+      # Unsets user's channel data for the given channel id
+      #
+      # @param [String] id the user ID
+      # @param [String] channel_id target channel ID
+      # @param [Hash] channel_data channel data
+      #
+      # @return [Hash] channel data
+      def unset_channel_data(id:, channel_id:)
+        request = delete_request(
+          auth: true,
+          path: "/v1/users/#{id}/channel_data/#{channel_id}"
         )
 
         execute_request(request: request)
