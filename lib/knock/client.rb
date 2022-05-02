@@ -20,8 +20,6 @@ module Knock
 
       if response.body and response.body != "" do
         JSON.parse(response.body) 
-      else
-        nil
       end
     end
 
