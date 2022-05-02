@@ -18,7 +18,11 @@ module Knock
       http_status = response.code.to_i
       handle_error_response(response: response) if http_status >= 400
 
-      JSON.parse(response.body)
+      if response.body and response.body != "" do
+        JSON.parse(response.body) 
+      else
+        nil
+      end
     end
 
     def get_request(path:, auth: false, params: {}, access_token: nil)

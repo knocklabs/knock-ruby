@@ -8,6 +8,8 @@ module Knock
       include Base
       include Client
 
+      DEFAULT_PREFERENCE_SET_ID = "default"
+
       # Retrieves an Object in a collection
       #
       # @param [String] collection The collection the object is in
@@ -158,11 +160,12 @@ module Knock
       # Preferences
       ##
 
-      # Returns all preference sets for the user
+      # Returns all preference sets for the object
       #
-      # @param [String] user_id The ID of the user to retrieve preferences for
+      # @param [String] collection The collection the object is in
+      # @param [String] id The object id
       #
-      # @return [Hash] The preference sets
+      # @return [Array] The preference sets
       def get_all_preferences(collection:, id:)
         endpoint = "/v1/objects/#{collection}/#{id}/preferences"
 
@@ -175,7 +178,7 @@ module Knock
       end
 
       # Gets a single preference set, defaults to the 'default' set
-      # for the user given.
+      # for the object given.
       #
       # @param [String] collection The collection the object is in
       # @param [String] id The object id
