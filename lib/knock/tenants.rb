@@ -1,5 +1,7 @@
-require "net/http"
-require "uri"
+# frozen_string_literal: true
+
+require 'net/http'
+require 'uri'
 
 module Knock
   # Methods for interacting with tenants in Knock
@@ -8,16 +10,15 @@ module Knock
       include Base
       include Client
 
-      DEFAULT_PREFERENCE_SET_ID = "default"
+      DEFAULT_PREFERENCE_SET_ID = 'default'
 
       # Retrieves all Tenants in environment
       #
-      #
       # @return [Hash] Paginated list of Tenant records
-      def list(id:)
+      def list
         request = get_request(
           auth: true,
-          path: "/v1/tenants"
+          path: '/v1/tenants'
         )
 
         execute_request(request: request)
@@ -41,13 +42,13 @@ module Knock
       #
       # @param [String] id The Tenant id
       # @param [Hash] data The data to set on the Tenant
-      # 
+      #
       # @return [Hash] The Tenant
-      def set(id:, data: {})
+      def set(id:, name: '', settings: {})
         request = put_request(
           auth: true,
           path: "/v1/tenants/#{id}",
-          body: data
+          body: { name: name, settings: settings }
         )
 
         execute_request(request: request)
@@ -67,5 +68,5 @@ module Knock
         execute_request(request: request)
       end
     end
-
+  end
 end

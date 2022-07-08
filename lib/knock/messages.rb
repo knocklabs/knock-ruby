@@ -1,5 +1,7 @@
-require "net/http"
-require "uri"
+# frozen_string_literal: true
+
+require 'net/http'
+require 'uri'
 
 module Knock
   # Methods for interacting with messages in Knock
@@ -16,7 +18,7 @@ module Knock
       def list(options: {})
         request = get_request(
           auth: true,
-          path: "/v1/messages",
+          path: '/v1/messages',
           params: options
         )
 
@@ -85,4 +87,3 @@ module Knock
     end
   end
 end
-

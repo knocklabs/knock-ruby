@@ -1,5 +1,7 @@
-require "net/http"
-require "uri"
+# frozen_string_literal: true
+
+require 'net/http'
+require 'uri'
 
 module Knock
   # Provides convienience methods for working with users
@@ -8,7 +10,7 @@ module Knock
       include Base
       include Client
 
-      DEFAULT_PREFERENCE_SET_ID = "default"
+      DEFAULT_PREFERENCE_SET_ID = 'default'
 
       # Identifies the user
       #
@@ -34,8 +36,8 @@ module Knock
       def bulk_identify(users: [])
         request = post_request(
           auth: true,
-          path: "/v1/users/bulk/identify",
-          body: {users: users}
+          path: '/v1/users/bulk/identify',
+          body: { users: users }
         )
 
         execute_request(request: request)
@@ -77,8 +79,8 @@ module Knock
       def bulk_delete(user_ids: [])
         request = post_request(
           auth: true,
-          path: "/v1/users/bulk/delete",
-          body: {user_ids: user_ids}
+          path: '/v1/users/bulk/delete',
+          body: { user_ids: user_ids }
         )
 
         execute_request(request: request)
@@ -111,7 +113,7 @@ module Knock
         request = post_request(
           auth: true,
           path: "/v1/users/#{id}/merge",
-          body: {from_user_id: from_user_id}
+          body: { from_user_id: from_user_id }
         )
 
         execute_request(request: request)
@@ -198,12 +200,10 @@ module Knock
         preferences: {},
         preference_set: DEFAULT_PREFERENCE_SET_ID
       )
-        endpoint = "/v1/users/bulk/preferences"
+        endpoint = '/v1/users/bulk/preferences'
 
         # Put the preference set id if it doesn't already exist
-        unless preferences.has_key("id")
-          preferences["id"] = preference_set
-        end
+        preferences['id'] = preference_set unless preferences.has_key('id')
 
         request = put_request(
           auth: true,
@@ -231,7 +231,7 @@ module Knock
         request = put_request(
           auth: true,
           path: endpoint,
-          body: {subscribed: setting}
+          body: { subscribed: setting }
         )
 
         execute_request(request: request)
@@ -247,7 +247,7 @@ module Knock
       #
       # @return [Hash] The preference set
       def set_workflow_preferences(user_id:, workflow:, setting:, preference_set: DEFAULT_PREFERENCE_SET_ID)
-        params = setting.is_a?(Hash) ? setting : {subscribed: setting}
+        params = setting.is_a?(Hash) ? setting : { subscribed: setting }
         endpoint = "/v1/users/#{user_id}/preferences/#{preference_set}/workflows/#{workflow}"
 
         request = put_request(
@@ -269,7 +269,7 @@ module Knock
       #
       # @return [Hash] The preference set
       def set_category_preferences(user_id:, category:, setting:, preference_set: DEFAULT_PREFERENCE_SET_ID)
-        params = setting.is_a?(Hash) ? setting : {subscribed: setting}
+        params = setting.is_a?(Hash) ? setting : { subscribed: setting }
         endpoint = "/v1/users/#{user_id}/preferences/#{preference_set}/categories/#{category}"
 
         request = put_request(
@@ -311,7 +311,7 @@ module Knock
         request = put_request(
           auth: true,
           path: "/v1/users/#{id}/channel_data/#{channel_id}",
-          body: {data: channel_data}
+          body: { data: channel_data }
         )
 
         execute_request(request: request)

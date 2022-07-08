@@ -1,5 +1,7 @@
-require "net/http"
-require "uri"
+# frozen_string_literal: true
+
+require 'net/http'
+require 'uri'
 
 module Knock
   # Provides convienience methods for working with preferences (deprecated)
