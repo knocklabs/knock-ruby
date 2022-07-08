@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 module Knock
+  # Knock specific errors
   class KnockError < StandardError
-    attr_reader :http_status
-    attr_reader :request_id
+    attr_reader :http_status, :request_id
 
     def initialize(message: nil, error: nil, error_description: nil, http_status: nil, request_id: nil)
+      super
       @message = message
       @error = error
       @error_description = error_description
@@ -12,8 +15,8 @@ module Knock
     end
 
     def to_s
-      status_string = @http_status.nil? ? "" : "Status #{@http_status}, "
-      id_string = @request_id.nil? ? "" : " - request ID: #{@request_id}"
+      status_string = @http_status.nil? ? '' : "Status #{@http_status}, "
+      id_string = @request_id.nil? ? '' : " - request ID: #{@request_id}"
 
       if @error && @error_description
         error_string = "error: #{@error}, error_description: #{@error_description}"

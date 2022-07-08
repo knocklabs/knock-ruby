@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-require "knock/version"
-require "json"
+require 'knock/version'
+require 'json'
 
+# Setup for Knock client
 module Knock
-  API_HOSTNAME = ENV["KNOCK_API_HOSTNAME"] || "api.knock.app"
+  API_HOSTNAME = ENV['KNOCK_API_HOSTNAME'] || 'api.knock.app'
 
   def self.key=(value)
     Base.key = value
@@ -15,26 +16,27 @@ module Knock
   end
 
   def self.key!
-    key || raise("Knock.key not set")
+    key || raise('Knock.key not set')
   end
 
-  autoload :Base, "knock/base"
-  autoload :Client, "knock/client"
+  autoload :Base, 'knock/base'
+  autoload :Client, 'knock/client'
 
   # Resources
-  autoload :Preferences, "knock/preferences"
-  autoload :Users, "knock/users"
-  autoload :Workflows, "knock/workflows"
-  autoload :BulkOperations, "knock/bulk_operations"
-  autoload :Objects, "knock/objects"
-  autoload :Messages, "knock/messages"
+  autoload :Preferences, 'knock/preferences'
+  autoload :Users, 'knock/users'
+  autoload :Workflows, 'knock/workflows'
+  autoload :BulkOperations, 'knock/bulk_operations'
+  autoload :Objects, 'knock/objects'
+  autoload :Tenants, 'knock/tenants'
+  autoload :Messages, 'knock/messages'
 
   # Errors
-  autoload :APIError, "knock/errors"
-  autoload :AuthenticationError, "knock/errors"
-  autoload :InvalidRequestError, "knock/errors"
+  autoload :APIError, 'knock/errors'
+  autoload :AuthenticationError, 'knock/errors'
+  autoload :InvalidRequestError, 'knock/errors'
 
-  key = ENV["KNOCK_API_KEY"]
+  key = ENV['KNOCK_API_KEY']
   Knock.key = key unless key.nil?
 
   # Triggers the workflow with the given key
