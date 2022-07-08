@@ -2,7 +2,7 @@ require "net/http"
 require "uri"
 
 module Knock
-  # Provides convienience methods for working with bulk operations
+  # Methods for interacting with objects in Knock
   module Objects
     class << self
       include Base
