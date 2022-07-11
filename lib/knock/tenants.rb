@@ -41,15 +41,14 @@ module Knock
       # Upserts a Tenant
       #
       # @param [String] id The Tenant id
-      # @param [String] name The Tenant name
-      # @param [Hash] settings The settings to set on the Tenant
+      # @param [Hash] tenant_data The data to set on the Tenant
       #
       # @return [Hash] The Tenant
-      def set(id:, name: '', settings: {})
+      def set(id:, tenant_data: {})
         request = put_request(
           auth: true,
           path: "/v1/tenants/#{id}",
-          body: { name: name, settings: settings }
+          body: tenant_data
         )
 
         execute_request(request: request)
