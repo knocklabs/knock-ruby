@@ -6,8 +6,8 @@ module Knock
     def client
       return @client if defined?(@client)
 
-      @client = Net::HTTP.new(Knock::API_HOSTNAME, 443)
-      @client.use_ssl = true
+      @client = Net::HTTP.new(Knock::API_HOSTNAME, 4001)
+      @client.use_ssl = false
 
       @client
     end

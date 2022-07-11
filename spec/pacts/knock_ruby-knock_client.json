@@ -1,0 +1,30 @@
+{
+  "consumer": {
+    "name": "Knock Ruby"
+  },
+  "provider": {
+    "name": "Knock Client"
+  },
+  "interactions": [
+    {
+      "description": "a request for a tenant",
+      "providerState": "tenants exists",
+      "request": {
+        "method": "get",
+        "path": "/v1/tenants",
+        "query": ""
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

@@ -1,3 +1,4 @@
+require 'pry'
 # frozen_string_literal: true
 
 require 'net/http'
@@ -14,13 +15,16 @@ module Knock
 
       # Retrieves all Tenants in environment
       #
+      # @param [Hash] options Options to pass to the tenants endpoint query
+      #
       # @return [Hash] Paginated list of Tenant records
-      def list
+      def list(options: {})
         request = get_request(
           auth: true,
-          path: '/v1/tenants'
+          path: '/v1/tenants',
+          params: options
         )
-
+        
         execute_request(request: request)
       end
 

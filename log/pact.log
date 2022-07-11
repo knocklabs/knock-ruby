@@ -1,0 +1,184 @@
+# Logfile created on 2022-07-11 15:50:13 -0400 by logger.rb/v1.5.0
+I, [2022-07-11T15:50:13.234244 #24318]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001011f7000> on port 4000...
+I, [2022-07-11T15:50:13.342358 #24318]  INFO -- : Started on port 4000
+I, [2022-07-11T15:53:55.098179 #24537]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001089efc60> on port 4000...
+I, [2022-07-11T15:53:55.214566 #24537]  INFO -- : Started on port 4000
+I, [2022-07-11T15:54:10.833797 #24683]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000108dc37b0> on port 4000...
+I, [2022-07-11T15:54:10.944467 #24683]  INFO -- : Started on port 4000
+I, [2022-07-11T15:54:10.971598 #24683]  INFO -- : Clearing all expectations
+I, [2022-07-11T15:54:10.974558 #24683]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T15:54:11.660390 #24683] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T15:56:02.073817 #24879]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001064cd658> on port 4000...
+I, [2022-07-11T15:56:02.184640 #24879]  INFO -- : Started on port 4000
+I, [2022-07-11T15:56:15.837429 #25025]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000108dc63e8> on port 4000...
+I, [2022-07-11T15:56:15.947599 #25025]  INFO -- : Started on port 4000
+I, [2022-07-11T15:56:36.201110 #25178]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000108dfd910> on port 4000...
+I, [2022-07-11T15:56:36.314068 #25178]  INFO -- : Started on port 4000
+I, [2022-07-11T15:56:36.339787 #25178]  INFO -- : Clearing all expectations
+I, [2022-07-11T15:56:36.342192 #25178]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T15:56:36.671202 #25178] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T15:57:19.471286 #25341]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000102986b30> on port 4000...
+I, [2022-07-11T15:57:19.581399 #25341]  INFO -- : Started on port 4000
+I, [2022-07-11T15:57:19.607151 #25341]  INFO -- : Clearing all expectations
+I, [2022-07-11T15:57:19.609582 #25341]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T15:57:19.828096 #25341] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T15:57:38.193423 #25506]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000104ff2378> on port 4000...
+I, [2022-07-11T15:57:38.305669 #25506]  INFO -- : Started on port 4000
+I, [2022-07-11T15:57:38.323386 #25506]  INFO -- : Clearing all expectations
+I, [2022-07-11T15:57:38.541057 #25506]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T15:57:38.786355 #25506] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:02:14.800631 #25759]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000100b21f50> on port 4000...
+I, [2022-07-11T16:02:14.913085 #25759]  INFO -- : Started on port 4000
+I, [2022-07-11T16:02:14.938594 #25759]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:02:14.963717 #25759]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:02:14.967610 #25759] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:03:04.552109 #25933]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001049d5990> on port 4000...
+I, [2022-07-11T16:03:04.664187 #25933]  INFO -- : Started on port 4000
+I, [2022-07-11T16:03:04.689325 #25933]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:03:04.719606 #25933]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:03:04.724924 #25933] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:03:22.805823 #26078]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000104a4d940> on port 4000...
+I, [2022-07-11T16:03:22.918102 #26078]  INFO -- : Started on port 4000
+I, [2022-07-11T16:03:22.947183 #26078]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:03:22.970847 #26078]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:03:22.975089 #26078] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:04:29.621892 #26263]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001014573e0> on port 4000...
+I, [2022-07-11T16:04:29.732441 #26263]  INFO -- : Started on port 4000
+I, [2022-07-11T16:04:29.759719 #26263]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:04:29.766903 #26263]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:04:29.770011 #26263] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:07:24.608318 #26462]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x000000010420d8e8> on port 4000...
+I, [2022-07-11T16:07:24.720440 #26462]  INFO -- : Started on port 4000
+I, [2022-07-11T16:07:24.748175 #26462]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:07:24.752303 #26462]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:07:24.759734 #26462] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:07:50.862649 #26600]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000104989838> on port 4000...
+I, [2022-07-11T16:07:50.976436 #26600]  INFO -- : Started on port 4000
+I, [2022-07-11T16:07:51.002045 #26600]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:07:51.005507 #26600]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:07:51.009840 #26600] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:08:16.228142 #26754]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000104e1bb80> on port 4000...
+I, [2022-07-11T16:08:16.338953 #26754]  INFO -- : Started on port 4000
+I, [2022-07-11T16:08:16.365617 #26754]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:08:16.370315 #26754]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:08:16.374929 #26754] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:10:37.747258 #26927]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000106b4a418> on port 4000...
+I, [2022-07-11T16:10:37.858701 #26927]  INFO -- : Started on port 4000
+I, [2022-07-11T16:10:37.874613 #26927]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:10:37.879131 #26927]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:10:37.887461 #26927] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:11:31.652858 #27090]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000100b364c8> on port 4000...
+I, [2022-07-11T16:11:31.769727 #27090]  INFO -- : Started on port 4000
+I, [2022-07-11T16:11:31.795293 #27090]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:11:31.800663 #27090]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:11:31.803362 #27090] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:12:03.569970 #27252]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001086da598> on port 4000...
+I, [2022-07-11T16:12:03.681508 #27252]  INFO -- : Started on port 4000
+I, [2022-07-11T16:12:03.705501 #27252]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:12:03.710724 #27252]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:12:03.712940 #27252] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:12:08.301855 #27387]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x000000010068a190> on port 4000...
+I, [2022-07-11T16:12:08.412298 #27387]  INFO -- : Started on port 4000
+I, [2022-07-11T16:12:08.437829 #27387]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:12:08.443726 #27387]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:12:08.446482 #27387] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:12:17.141948 #27532]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001052325c0> on port 4000...
+I, [2022-07-11T16:12:17.255521 #27532]  INFO -- : Started on port 4000
+I, [2022-07-11T16:12:17.270842 #27532]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:12:17.274502 #27532]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:12:17.279152 #27532] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:12:28.175146 #27684]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000100ee9520> on port 4000...
+I, [2022-07-11T16:12:28.290503 #27684]  INFO -- : Started on port 4000
+I, [2022-07-11T16:12:28.314972 #27684]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:12:28.322797 #27684]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:12:28.325064 #27684] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:13:19.894236 #29089]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x000000010286d230> on port 4000...
+I, [2022-07-11T16:13:20.004856 #29089]  INFO -- : Started on port 4000
+I, [2022-07-11T16:13:20.031056 #29089]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:13:20.035764 #29089]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:13:20.038321 #29089] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:15:07.460257 #30530]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001050f3d08> on port 4000...
+I, [2022-07-11T16:15:07.571061 #30530]  INFO -- : Started on port 4000
+I, [2022-07-11T16:15:07.596306 #30530]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:15:24.386243 #30530]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:15:24.399004 #30530] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:16:24.077164 #30704]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x000000010982c350> on port 4000...
+I, [2022-07-11T16:16:24.188345 #30704]  INFO -- : Started on port 4000
+I, [2022-07-11T16:16:24.212626 #30704]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:17:15.313125 #30704]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:17:15.324247 #30704] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:17:44.168253 #30878]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000106204868> on port 4000...
+I, [2022-07-11T16:17:44.279249 #30878]  INFO -- : Started on port 4000
+I, [2022-07-11T16:17:44.294811 #30878]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:18:00.778578 #30878]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:18:00.823999 #30878] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:18:38.132351 #31056]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000104febc80> on port 4000...
+I, [2022-07-11T16:18:38.243778 #31056]  INFO -- : Started on port 4000
+I, [2022-07-11T16:18:38.268291 #31056]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:18:56.104007 #31056]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:18:56.113766 #31056] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:21:43.207137 #31254]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000104673c70> on port 4000...
+I, [2022-07-11T16:21:43.321842 #31254]  INFO -- : Started on port 4000
+I, [2022-07-11T16:21:43.369337 #31254]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:22:52.915390 #31254]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:22:52.925309 #31254] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:25:02.074394 #31458]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x000000010106ac28> on port 4000...
+I, [2022-07-11T16:25:02.184436 #31458]  INFO -- : Started on port 4000
+I, [2022-07-11T16:25:02.215466 #31458]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:25:15.532117 #31458]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:25:15.548433 #31458] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:27:13.099694 #31652]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000105878498> on port 4000...
+I, [2022-07-11T16:27:13.209946 #31652]  INFO -- : Started on port 4000
+I, [2022-07-11T16:27:13.235292 #31652]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:27:13.324325 #31652]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:27:13.328538 #31652] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:27:28.085132 #31812]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x000000010815bce8> on port 4000...
+I, [2022-07-11T16:27:28.200960 #31812]  INFO -- : Started on port 4000
+I, [2022-07-11T16:27:28.225740 #31812]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:27:36.715305 #31812]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:27:36.718551 #31812] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:29:48.146628 #31994]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000104a88478> on port 4000...
+I, [2022-07-11T16:29:48.259531 #31994]  INFO -- : Started on port 4000
+I, [2022-07-11T16:29:48.274205 #31994]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:29:52.010562 #31994]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:29:52.023168 #31994] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:30:03.787201 #32160]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000106fde1f0> on port 4000...
+I, [2022-07-11T16:30:03.905945 #32160]  INFO -- : Started on port 4000
+I, [2022-07-11T16:30:03.933076 #32160]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:30:05.782580 #32160]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:30:05.793203 #32160] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:30:31.667134 #32344]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000109048ad0> on port 4000...
+I, [2022-07-11T16:30:31.777963 #32344]  INFO -- : Started on port 4000
+I, [2022-07-11T16:30:31.803700 #32344]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:30:31.895423 #32344]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:30:31.899028 #32344] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:30:39.878714 #32496]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001041f8858> on port 4000...
+I, [2022-07-11T16:30:39.990077 #32496]  INFO -- : Started on port 4000
+I, [2022-07-11T16:30:40.015461 #32496]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:30:40.428210 #32496]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:30:40.432276 #32496] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:32:00.391987 #32689]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001045f85c0> on port 4000...
+I, [2022-07-11T16:32:00.502247 #32689]  INFO -- : Started on port 4000
+I, [2022-07-11T16:32:00.529578 #32689]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:32:00.857820 #32689]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:32:00.860951 #32689] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:36:21.714176 #34504]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000106ba1150> on port 4000...
+I, [2022-07-11T16:36:22.276528 #34504]  INFO -- : Started on port 4000
+I, [2022-07-11T16:36:22.307562 #34504]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:36:22.588207 #34504]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:36:22.591026 #34504] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:38:38.599231 #34685]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x0000000108be8c88> on port 4000...
+I, [2022-07-11T16:38:39.187316 #34685]  INFO -- : Started on port 4000
+I, [2022-07-11T16:38:39.217461 #34685]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:38:39.510142 #34685]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:38:39.515088 #34685] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:40:01.857996 #34854]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x000000010445fc68> on port 4000...
+I, [2022-07-11T16:40:02.474820 #34854]  INFO -- : Started on port 4000
+I, [2022-07-11T16:40:02.499686 #34854]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:40:02.586621 #34854]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:40:02.589712 #34854] DEBUG -- : Supposed to be stopping
+I, [2022-07-11T16:40:22.263031 #35025]  INFO -- : Starting app Knock Client #<Pact::MockService::App:0x00000001035cdda8> on port 4000...
+I, [2022-07-11T16:40:22.823149 #35025]  INFO -- : Started on port 4000
+I, [2022-07-11T16:40:22.848012 #35025]  INFO -- : Clearing all expectations
+I, [2022-07-11T16:40:23.094003 #35025]  INFO -- : Verifying interactions for Knock list_tenants returns a tenant
+D, [2022-07-11T16:40:23.097883 #35025] DEBUG -- : Supposed to be stopping

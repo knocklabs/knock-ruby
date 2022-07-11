@@ -1,0 +1,2 @@
+I, [2022-07-11T16:40:22.849586 #35025]  INFO -- : Cleared interactions for example "Knock list_tenants returns a tenant"
+I, [2022-07-11T16:40:23.094994 #35025]  INFO -- : Verifying - interactions matched for example "Knock list_tenants returns a tenant"
