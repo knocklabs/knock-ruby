@@ -18,7 +18,7 @@ module Knock
       http_status = response.code.to_i
       handle_error_response(response: response) if http_status >= 400
 
-      if response.body and response.body != "" do
+      if response.body and response.body != ""
         JSON.parse(response.body) 
       end
     end
