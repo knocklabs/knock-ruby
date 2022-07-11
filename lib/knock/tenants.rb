@@ -41,7 +41,8 @@ module Knock
       # Upserts a Tenant
       #
       # @param [String] id The Tenant id
-      # @param [Hash] data The data to set on the Tenant
+      # @param [String] name The Tenant name
+      # @param [Hash] settings The settings to set on the Tenant
       #
       # @return [Hash] The Tenant
       def set(id:, name: '', settings: {})
