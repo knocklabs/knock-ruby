@@ -1,14 +1,17 @@
-require "net/http"
-require "uri"
+# frozen_string_literal: true
+
+require 'net/http'
+require 'uri'
 
 module Knock
-  # Provides convienience methods for working with bulk operations
+  # Methods for interacting with objects in Knock
+  # rubocop:disable Metrics/ModuleLength
   module Objects
     class << self
       include Base
       include Client
 
-      DEFAULT_PREFERENCE_SET_ID = "default"
+      DEFAULT_PREFERENCE_SET_ID = 'default'
 
       # Retrieves an Object in a collection
       #
@@ -52,7 +55,7 @@ module Knock
         request = post_request(
           auth: true,
           path: "/v1/objects/#{collection}/bulk/set",
-          body: {objects: objects}
+          body: { objects: objects }
         )
 
         execute_request(request: request)
@@ -83,7 +86,7 @@ module Knock
         request = post_request(
           auth: true,
           path: "/v1/objects/#{collection}/bulk/delete",
-          body: {object_ids: object_ids}
+          body: { object_ids: object_ids }
         )
 
         execute_request(request: request)
@@ -117,7 +120,7 @@ module Knock
         request = put_request(
           auth: true,
           path: "/v1/objects/#{collection}/#{id}/channel_data/#{channel_id}",
-          body: {data: channel_data}
+          body: { data: channel_data }
         )
 
         execute_request(request: request)
@@ -206,6 +209,7 @@ module Knock
       # @param [Hash] categories The categories hash to set
       #
       # @return [Hash] The preference set
+
       def set_preferences(
         collection:,
         id:,
@@ -238,13 +242,17 @@ module Knock
       # @param [Bool] setting Whether the channel type is enabled or not
       #
       # @return [Hash] The preference set
-      def set_channel_type_preferences(collection:, id:, channel_type:, setting:, preference_set: DEFAULT_PREFERENCE_SET_ID)
+      def set_channel_type_preferences(collection:,
+                                       id:,
+                                       channel_type:,
+                                       setting:,
+                                       preference_set: DEFAULT_PREFERENCE_SET_ID)
         endpoint = "/v1/objects/#{collection}/#{id}/preferences/#{preference_set}/channel_types/#{channel_type}"
 
         request = put_request(
           auth: true,
           path: endpoint,
-          body: {subscribed: setting}
+          body: { subscribed: setting }
         )
 
         execute_request(request: request)
@@ -261,7 +269,7 @@ module Knock
       #
       # @return [Hash] The preference set
       def set_workflow_preferences(collection:, id:, workflow:, setting:, preference_set: DEFAULT_PREFERENCE_SET_ID)
-        params = setting.is_a?(Hash) ? setting : {subscribed: setting}
+        params = setting.is_a?(Hash) ? setting : { subscribed: setting }
         endpoint = "/v1/objects/#{collection}/#{id}/preferences/#{preference_set}/workflows/#{workflow}"
 
         request = put_request(
@@ -284,7 +292,7 @@ module Knock
       #
       # @return [Hash] The preference set
       def set_category_preferences(collection:, id:, category:, setting:, preference_set: DEFAULT_PREFERENCE_SET_ID)
-        params = setting.is_a?(Hash) ? setting : {subscribed: setting}
+        params = setting.is_a?(Hash) ? setting : { subscribed: setting }
         endpoint = "/v1/objects/#{collection}/#{id}/preferences/#{preference_set}/categories/#{category}"
 
         request = put_request(
@@ -297,4 +305,5 @@ module Knock
       end
     end
   end
+  # rubocop:enable Metrics/ModuleLength
 end

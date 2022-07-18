@@ -1,5 +1,7 @@
-require "net/http"
-require "uri"
+# frozen_string_literal: true
+
+require 'net/http'
+require 'uri'
 
 module Knock
   # Provides convienience methods for working with preferences (deprecated)
@@ -36,7 +38,7 @@ module Knock
       # @param [String] preference_set The preference set ID (defaults to `default`)
       # @param [Hash] preferences The preferences hash to set
       #
-      #  @return [Hash] The preference set
+      # @return [Hash] The preference set
       # @deprecated Please use {#Knock::Users.set_preferences} instead
       def update(
         user_id:,
