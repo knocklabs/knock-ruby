@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'json'
 require 'net/http'
 require 'uri'
 
@@ -16,6 +17,8 @@ module Knock
       #
       # @return [Hash] Paginated list of Message records
       def list(options: {})
+        options[:trigger_data] = JSON.generate(options[:trigger_data]) if options[:trigger_data]
+
         request = get_request(
           auth: true,
           path: '/v1/messages',
@@ -60,6 +63,8 @@ module Knock
       #
       # @return [Hash] Paginated Message's activities
       def get_activities(id:, options: {})
+        options[:trigger_data] = JSON.generate(options[:trigger_data]) if options[:trigger_data]
+
         request = get_request(
           auth: true,
           path: "/v1/messages/#{id}/activities",

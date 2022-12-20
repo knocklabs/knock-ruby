@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'json'
 require 'net/http'
 require 'uri'
 
@@ -95,6 +96,8 @@ module Knock
       #
       # @return [Hash] the feed response
       def get_feed(id:, channel_id:, options: {})
+        options[:trigger_data] = JSON.generate(options[:trigger_data]) if options[:trigger_data]
+
         request = get_request(
           auth: true,
           path: "/v1/users/#{id}/feeds/#{channel_id}",
@@ -345,6 +348,8 @@ module Knock
       #
       # @return [Hash] Paginated messages response
       def get_messages(id:, options: {})
+        options[:trigger_data] = JSON.generate(options[:trigger_data]) if options[:trigger_data]
+
         request = get_request(
           auth: true,
           path: "/v1/users/#{id}/messages",
