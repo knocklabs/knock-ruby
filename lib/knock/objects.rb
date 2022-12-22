@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'json'
 require 'net/http'
 require 'uri'
 
@@ -150,6 +151,8 @@ module Knock
       #
       # @return [Hash] Paginated messages response
       def get_messages(collection:, id:, options: {})
+        options[:trigger_data] = JSON.generate(options[:trigger_data]) if options[:trigger_data]
+
         request = get_request(
           auth: true,
           path: "/v1/objects/#{collection}/#{id}/messages",
