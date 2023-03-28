@@ -45,7 +45,7 @@ module Knock
       request
     end
 
-    def delete_request(path:, auth: false, params: {})
+    def delete_request(path:, auth: false, params: {}, body: nil)
       uri = URI(path)
       uri.query = URI.encode_www_form(params) if params
 
@@ -54,6 +54,7 @@ module Knock
         'Content-Type' => 'application/json'
       )
 
+      request.body = body.to_json if body
       request['Authorization'] = "Bearer #{Knock.key!}" if auth
       request['User-Agent'] = user_agent
       request

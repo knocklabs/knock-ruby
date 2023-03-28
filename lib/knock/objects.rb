@@ -306,6 +306,58 @@ module Knock
 
         execute_request(request: request)
       end
+
+      # Lists all subscriptiopns for the given object
+      #
+      # @param [String] collection The collection the object is in
+      # @param [String] id The object id
+      # @param [Hash] options Options to pass to the subscriptions endpoint
+      #
+      # @return [Hash] Paginated subscriptions response
+      def list_subscriptions(collection:, id:, options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/objects/#{collection}/#{id}/subscriptions",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
+
+      # Creates a set of subscriptions for the recipients on the object
+      #
+      # @param [String] collection The collection the object is in
+      # @param [String] id The object id
+      # @param [Array<String, Hash>] recipients An array of recipients
+      # @param [Hash] properties A set of custom properties to set on the subscriptions
+      #
+      # @return [Array<Hash>] List of created subscriptions
+      def add_subscriptions(collection:, id:, recipients: [], properties: {})
+        request = post_request(
+          auth: true,
+          path: "/v1/objects/#{collection}/#{id}/subscriptions",
+          body: { recipients: recipients, properties: properties }
+        )
+
+        execute_request(request: request)
+      end
+
+      # Removes subscriptions for the recipients on the object
+      #
+      # @param [String] collection The collection the object is in
+      # @param [String] id The object id
+      # @param [Array<String, Hash>] recipients An array of recipients
+      #
+      # @return [Array<Hash>] List of deleted subscriptions
+      def delete_subscriptions(collection:, id:, recipients: [])
+        request = delete_request(
+          auth: true,
+          path: "/v1/objects/#{collection}/#{id}/subscriptions",
+          body: { recipients: recipients }
+        )
+
+        execute_request(request: request)
+      end
     end
   end
   # rubocop:enable Metrics/ModuleLength
