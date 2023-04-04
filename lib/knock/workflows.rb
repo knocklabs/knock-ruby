@@ -23,7 +23,7 @@ module Knock
       #  duplicate workflow invocations
       #
       # @return [Hash] A workflow trigger result
-      def trigger(key:, actor:, recipients:, data: {}, cancellation_key: nil, tenant: nil, idempotency_key: nil)
+      def trigger(key:, actor:, recipients:, data: {}, cancellation_key: nil, tenant: nil, idempotency_key: nil) # rubocop:disable Metrics/ParameterLists
         attrs = {
           actor: actor,
           recipients: recipients,
