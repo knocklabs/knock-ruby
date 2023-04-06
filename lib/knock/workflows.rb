@@ -19,9 +19,11 @@ module Knock
       # @param [String] cancellation_key An optional key to identify this workflow
       #  invocation for cancelling
       # @param [String] tenant An optional tenant identifier
+      # @param [String] idempotency_key An optional idempotency key to prevent
+      #  duplicate workflow invocations
       #
       # @return [Hash] A workflow trigger result
-      def trigger(key:, actor:, recipients:, data: {}, cancellation_key: nil, tenant: nil)
+      def trigger(key:, actor:, recipients:, data: {}, cancellation_key: nil, tenant: nil, idempotency_key: nil) # rubocop:disable Metrics/ParameterLists
         attrs = {
           actor: actor,
           recipients: recipients,
@@ -33,7 +35,8 @@ module Knock
         request = post_request(
           auth: true,
           path: "/v1/workflows/#{key}/trigger",
-          body: attrs
+          body: attrs,
+          idempotency_key: idempotency_key
         )
 
         execute_request(request: request)

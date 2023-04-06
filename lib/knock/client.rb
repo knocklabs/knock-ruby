@@ -37,11 +37,12 @@ module Knock
       request
     end
 
-    def post_request(path:, auth: false, _idempotency_key: nil, body: nil)
+    def post_request(path:, auth: false, idempotency_key: nil, body: nil)
       request = Net::HTTP::Post.new(path, 'Content-Type' => 'application/json')
       request.body = body.to_json if body
       request['Authorization'] = "Bearer #{Knock.key!}" if auth
       request['User-Agent'] = user_agent
+      request['Idempotency-Key'] = idempotency_key if idempotency_key
       request
     end
 
@@ -60,11 +61,12 @@ module Knock
       request
     end
 
-    def put_request(path:, auth: false, _idempotency_key: nil, body: nil)
+    def put_request(path:, auth: false, idempotency_key: nil, body: nil)
       request = Net::HTTP::Put.new(path, 'Content-Type' => 'application/json')
       request.body = body.to_json if body
       request['Authorization'] = "Bearer #{Knock.key!}" if auth
       request['User-Agent'] = user_agent
+      request['Idempotency-Key'] = idempotency_key if idempotency_key
       request
     end
 
