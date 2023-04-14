@@ -358,6 +358,23 @@ module Knock
 
         execute_request(request: request)
       end
+
+      # Get object's schedules
+      #
+      # @param [String] collection The collection the object is in
+      # @param [String] id The object id
+      # @param [Hash] options Options to pass to the schedules endpoint query
+      #
+      # @return [Hash] Paginated schedules response
+      def get_schedules(collection:, id:, options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/objects/#{collection}/#{id}/schedules",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
     end
   end
   # rubocop:enable Metrics/ModuleLength
