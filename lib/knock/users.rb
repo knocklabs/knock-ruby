@@ -45,6 +45,23 @@ module Knock
         execute_request(request: request)
       end
 
+      # Retrieves paginated users for the provided environment
+      #
+      # @param [Hash] options Options to pass to the paginated users endpoint query.
+      # These include:
+      # - page_size: size of page to be returned (max: 50)
+      # - after:  after cursor for pagination
+      # - before: before cursor for pagination
+      def list(options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/users",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
+
       # Retrieves the given user
       #
       # @param [String] id The user ID
