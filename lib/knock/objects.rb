@@ -29,6 +29,23 @@ module Knock
         execute_request(request: request)
       end
 
+      # Retrieves paginated objects in a collection for the provided environment
+      #
+      # @param [Hash] options Options to pass to the paginated users endpoint query.
+      # These include:
+      # - page_size: size of page to be returned (max: 50)
+      # - after:  after cursor for pagination
+      # - before: before cursor for pagination
+      def list(collection:, options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/objects/#{collection}",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
+
       # Upserts an Object in a collection
       #
       # @param [String] collection The collection the object is in
@@ -312,6 +329,10 @@ module Knock
       # @param [String] collection The collection the object is in
       # @param [String] id The object id
       # @param [Hash] options Options to pass to the subscriptions endpoint
+      # These include:
+      # - page_size: size of page to be returned (max: 50)
+      # - after:  after cursor for pagination
+      # - before: before cursor for pagination
       #
       # @return [Hash] Paginated subscriptions response
       def list_subscriptions(collection:, id:, options: {})
@@ -370,6 +391,29 @@ module Knock
         request = get_request(
           auth: true,
           path: "/v1/objects/#{collection}/#{id}/schedules",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
+
+      # Get object's subscriptions as recipient
+      #
+      # @param [String] collection The collection the object is in
+      # @param [String] id The object id
+      # @param [Hash] options Options to pass to the subscriptions endpoint query
+      # These include:
+      # - page_size: size of page to be returned (max: 50)
+      # - after:  after cursor for pagination
+      # - before: before cursor for pagination
+      #
+      # @return [Hash] Paginated subscriptions response
+      def get_subscriptions(collection:, id:, options: {})
+        options[:mode] = 'recipient'
+
+        request = get_request(
+          auth: true,
+          path: "/v1/objects/#{collection}/#{id}/subscriptions",
           params: options
         )
 
