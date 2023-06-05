@@ -401,7 +401,7 @@ module Knock
       #
       # @return [Hash] Paginated subscriptions response
       def get_subscriptions(collection:, id:, options: {})
-        options[:mode] = "recipient"
+        options[:mode] = 'recipient'
 
         request = get_request(
           auth: true,

@@ -55,7 +55,7 @@ module Knock
       def list(options: {})
         request = get_request(
           auth: true,
-          path: "/v1/users",
+          path: '/v1/users',
           params: options
         )
 
