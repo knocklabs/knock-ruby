@@ -329,6 +329,10 @@ module Knock
       # @param [String] collection The collection the object is in
       # @param [String] id The object id
       # @param [Hash] options Options to pass to the subscriptions endpoint
+      # These include:
+      # - page_size: size of page to be returned (max: 50)
+      # - after:  after cursor for pagination
+      # - before: before cursor for pagination
       #
       # @return [Hash] Paginated subscriptions response
       def list_subscriptions(collection:, id:, options: {})
@@ -398,6 +402,10 @@ module Knock
       # @param [String] collection The collection the object is in
       # @param [String] id The object id
       # @param [Hash] options Options to pass to the subscriptions endpoint query
+      # These include:
+      # - page_size: size of page to be returned (max: 50)
+      # - after:  after cursor for pagination
+      # - before: before cursor for pagination
       #
       # @return [Hash] Paginated subscriptions response
       def get_subscriptions(collection:, id:, options: {})
