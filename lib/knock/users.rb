@@ -395,6 +395,26 @@ module Knock
 
         execute_request(request: request)
       end
+
+      ##
+      # Subscriptions
+      ##
+
+      # Get user's subscriptions
+      #
+      # @param [String] id the user ID
+      # @param [Hash] options Options to pass to the subscriptions endpoint query
+      #
+      # @return [Hash] Paginated subscriptions response
+      def get_subscriptions(id:, options: {})
+        request = get_request(
+          auth: true,
+          path: "/v1/users/#{id}/subscriptions",
+          params: options
+        )
+
+        execute_request(request: request)
+      end
     end
   end
   # rubocop:enable Metrics/ModuleLength
