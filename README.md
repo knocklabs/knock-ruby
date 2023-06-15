@@ -34,7 +34,7 @@ Knock.key = 'sk_12345'
 ### Identifying users
 
 ```ruby
-require "knockapi"
+require "knock"
 
 Knock.key = "sk_12345"
 
@@ -50,7 +50,7 @@ Knock::Users.identify(
 ### Sending notifies (triggering workflows)
 
 ```ruby
-require "knockapi"
+require "knock"
 
 Knock.key = "sk_12345"
 
@@ -74,7 +74,7 @@ Knock::Workflows.trigger(
 ### Retrieving users
 
 ```ruby
-require "knockapi"
+require "knock"
 
 Knock.key = "sk_12345"
 
@@ -84,7 +84,7 @@ Knock::Users.get(id: "jhammond")
 ### Deleting users
 
 ```ruby
-require "knockapi"
+require "knock"
 
 Knock.key = "sk_12345"
 
@@ -94,7 +94,7 @@ Knock::Users.delete(id: "jhammond")
 ### Preferences
 
 ```ruby
-require "knockapi"
+require "knock"
 Knock.key = "sk_12345"
 
 # Set an entire preference set
@@ -115,7 +115,7 @@ Knock::Users.get_preferences(user_id: "jhammond")
 ### Getting and setting channel data
 
 ```ruby
-require "knockapi"
+require "knock"
 Knock.key = "sk_12345"
 
 # Set channel data for an APNS
@@ -134,7 +134,7 @@ Knock::Users.get_channel_data(user_id: "jhammond", channel_id: KNOCK_APNS_CHANNE
 ### Cancelling workflows
 
 ```ruby
-require "knockapi"
+require "knock"
 Knock.key = "sk_12345"
 
 Knock::Workflows.cancel(
