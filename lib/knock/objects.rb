@@ -363,6 +363,23 @@ module Knock
         execute_request(request: request)
       end
 
+      # Creates a bulk operation to create subscriptions for a set recipients to
+      # a set of objects within the given collection.
+      #
+      # @param [String] collection The collection the objects are in.
+      # @param [Array<Hash>] subscriptions The set of subscriptions to create.
+      #
+      # @return [Hash] a BulkOperation
+      def bulk_add_subscriptions(collection:, subscriptions: [])
+        request = post_request(
+          auth: true,
+          path: "/v1/objects/#{collection}/bulk/subscriptions/add",
+          body: { subscriptions: subscriptions }
+        )
+
+        execute_request(request: request)
+      end
+
       # Removes subscriptions for the recipients on the object
       #
       # @param [String] collection The collection the object is in
