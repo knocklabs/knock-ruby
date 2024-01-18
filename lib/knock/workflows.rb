@@ -18,7 +18,7 @@ module Knock
       # @param [Hash] data The data to pass to the workflow
       # @param [String] cancellation_key An optional key to identify this workflow
       #  invocation for cancelling
-      # @param [String] tenant An optional tenant identifier
+      # @param [String, Hash] tenant An optional tenant identifier or a set of tenant attributes
       # @param [String] idempotency_key An optional idempotency key to prevent
       #  duplicate workflow invocations
       #
@@ -72,7 +72,7 @@ module Knock
       # @param [Array<String, Hash>] recipients The recipient identifiers
       # @param [Array<Hash>] repeats The repeat rules for when to schedule the workflow run
       # @param [Hash] data Parameters to be used as variables on the workflow run
-      # @param [String] tenant An optional tenant identifier
+      # @param [String, Hash] tenant An optional tenant identifier or a set of tenant attributes
 
       def create_schedules(key:, recipients:, repeats:, scheduled_at: nil, data: {}, actor: nil, tenant: nil)
         attrs = {
