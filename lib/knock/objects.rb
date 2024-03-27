@@ -333,6 +333,7 @@ module Knock
       # - page_size: size of page to be returned (max: 50)
       # - after:  after cursor for pagination
       # - before: before cursor for pagination
+      # - recipients: list of recipient identifiers to filter subscribers of the object
       #
       # @return [Hash] Paginated subscriptions response
       def list_subscriptions(collection:, id:, options: {})
