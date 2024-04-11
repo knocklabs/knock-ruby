@@ -6,12 +6,7 @@ module Knock
     include Kernel
 
     def client
-      return @client if defined?(@client)
-
-      @client = Net::HTTP.new(Knock::API_HOSTNAME, 443)
-      @client.use_ssl = true
-
-      @client
+      Thread.current[:knock_client] ||= build_client
     end
 
     def execute_request(request:)
@@ -120,6 +115,12 @@ module Knock
       errors.map do |error|
         "#{error['field']}: #{error['message']} (#{error['type']})"
       end.join('; ')
+    end
+
+    def build_client
+      client = Net::HTTP.new(Knock::API_HOSTNAME, 443)
+      client.use_ssl = true
+      client
     end
   end
 end
