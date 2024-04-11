@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    knockapi (0.4.11)
+    knockapi (0.4.12)
 
 GEM
   remote: https://rubygems.org/
