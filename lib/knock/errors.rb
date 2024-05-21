@@ -42,4 +42,7 @@ module Knock
   # InvalidRequestError is raised when a request is initiated with invalid
   # parameters.
   class InvalidRequestError < KnockError; end
+
+  # TimeoutError is raised when the HTTP request to the API times out
+  class TimeoutError < KnockError; end
 end

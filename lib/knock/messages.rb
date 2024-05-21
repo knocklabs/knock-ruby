@@ -8,7 +8,6 @@ module Knock
   # Methods for interacting with messages in Knock
   module Messages
     class << self
-      include Base
       include Client
 
       # Retrieves a paginated list of messages for the provided environment

@@ -26,7 +26,10 @@ Or, you may set the key yourself in an initializer:
 
 ```ruby
 # /config/initializers/knock.rb
-Knock.key = 'sk_12345'
+Knock.configure do |config|
+  config.key = '[your api key]'
+  config.timeout = 120
+end
 ```
 
 ## Usage
@@ -34,10 +37,6 @@ Knock.key = 'sk_12345'
 ### Identifying users
 
 ```ruby
-require "knock"
-
-Knock.key = "sk_12345"
-
 Knock::Users.identify(
   id: "jhammond",
   data: {
@@ -50,10 +49,6 @@ Knock::Users.identify(
 ### Sending notifies (triggering workflows)
 
 ```ruby
-require "knock"
-
-Knock.key = "sk_12345"
-
 # The key of the workflow (from Knock dashboard)
 Knock::Workflows.trigger(
   key: "dinosaurs-loose",
@@ -74,29 +69,18 @@ Knock::Workflows.trigger(
 ### Retrieving users
 
 ```ruby
-require "knock"
-
-Knock.key = "sk_12345"
-
 Knock::Users.get(id: "jhammond")
 ```
 
 ### Deleting users
 
 ```ruby
-require "knock"
-
-Knock.key = "sk_12345"
-
 Knock::Users.delete(id: "jhammond")
 ```
 
 ### Preferences
 
 ```ruby
-require "knock"
-Knock.key = "sk_12345"
-
 # Set an entire preference set
 Knock::Users.set_preferences(
   user_id: "jhammond",
@@ -115,9 +99,6 @@ Knock::Users.get_preferences(user_id: "jhammond")
 ### Getting and setting channel data
 
 ```ruby
-require "knock"
-Knock.key = "sk_12345"
-
 # Set channel data for an APNS
 Knock::Users.set_channel_data(
   id: "jhammond",
@@ -134,9 +115,6 @@ Knock::Users.get_channel_data(user_id: "jhammond", channel_id: KNOCK_APNS_CHANNE
 ### Cancelling workflows
 
 ```ruby
-require "knock"
-Knock.key = "sk_12345"
-
 Knock::Workflows.cancel(
   key: "dinosaurs-loose",
   cancellation_key: trigger_alert.id,

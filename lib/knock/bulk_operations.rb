@@ -7,7 +7,6 @@ module Knock
   # Provides convienience methods for working with bulk operations
   module BulkOperations
     class << self
-      include Base
       include Client
 
       # Retrieves the given bulk operation

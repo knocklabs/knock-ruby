@@ -7,7 +7,6 @@ module Knock
   # Methods for interacting with workflows in Knock
   module Workflows
     class << self
-      include Base
       include Client
 
       # Triggers the workflow with the given key

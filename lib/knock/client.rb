@@ -6,16 +6,22 @@ module Knock
     include Kernel
 
     def client
-      return @client if defined?(@client)
-
-      @client = Net::HTTP.new(Knock::API_HOSTNAME, 443)
-      @client.use_ssl = true
-
-      @client
+      Net::HTTP.new(Knock.config.api_hostname, 443).tap do |http_client|
+        http_client.use_ssl = true
+        http_client.open_timeout = Knock.config.timeout
+        http_client.read_timeout = Knock.config.timeout
+        http_client.write_timeout = Knock.config.timeout if RUBY_VERSION >= '2.6.0'
+      end
     end
 
     def execute_request(request:)
-      response = client.request(request)
+      begin
+        response = client.request(request)
+      rescue Net::OpenTimeout, Net::ReadTimeout, Net::WriteTimeout
+        raise TimeoutError.new(
+          message: 'API Timeout Error',
+        )
+      end
 
       http_status = response.code.to_i
       handle_error_response(response: response) if http_status >= 400
@@ -32,7 +38,7 @@ module Knock
         'Content-Type' => 'application/json'
       )
 
-      request['Authorization'] = "Bearer #{access_token || Knock.key!}" if auth
+      request['Authorization'] = "Bearer #{access_token || Knock.config.key!}" if auth
       request['User-Agent'] = user_agent
       request
     end
@@ -40,7 +46,7 @@ module Knock
     def post_request(path:, auth: false, idempotency_key: nil, body: nil)
       request = Net::HTTP::Post.new(path, 'Content-Type' => 'application/json')
       request.body = body.to_json if body
-      request['Authorization'] = "Bearer #{Knock.key!}" if auth
+      request['Authorization'] = "Bearer #{Knock.config.key!}" if auth
       request['User-Agent'] = user_agent
       request['Idempotency-Key'] = idempotency_key if idempotency_key
       request
@@ -56,7 +62,7 @@ module Knock
       )
 
       request.body = body.to_json if body
-      request['Authorization'] = "Bearer #{Knock.key!}" if auth
+      request['Authorization'] = "Bearer #{Knock.config.key!}" if auth
       request['User-Agent'] = user_agent
       request
     end
@@ -64,7 +70,7 @@ module Knock
     def put_request(path:, auth: false, idempotency_key: nil, body: nil)
       request = Net::HTTP::Put.new(path, 'Content-Type' => 'application/json')
       request.body = body.to_json if body
-      request['Authorization'] = "Bearer #{Knock.key!}" if auth
+      request['Authorization'] = "Bearer #{Knock.config.key!}" if auth
       request['User-Agent'] = user_agent
       request['Idempotency-Key'] = idempotency_key if idempotency_key
       request

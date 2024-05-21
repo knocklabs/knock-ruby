@@ -2,25 +2,39 @@
 
 require 'knock/version'
 require 'json'
+require 'knock/configuration'
 
 # Setup for Knock client
 module Knock
-  API_HOSTNAME = ENV['KNOCK_API_HOSTNAME'] || 'api.knock.app'
+  def self.default_config
+    Configuration.new.tap do |config|
+      config.api_hostname = ENV['KNOCK_API_HOSTNAME'] || 'knock.app'
+      config.key = ENV['KNOCK_API_KEY']
+    end
+  end
+
+  def self.config
+    @config ||= default_config
+  end
+
+  def self.configure
+    yield(config)
+  end
 
   def self.key=(value)
-    Base.key = value
+    warn '`Knock.key=` is deprecated. Use `Knock.configure` instead.'
+
+    config.key = value
   end
 
   def self.key
-    Base.key
-  end
-
-  def self.key!
-    key || raise('Knock.key not set')
+    warn '`Knock.key` is deprecated. Use `Knock.configure` instead.'
+    config.key
   end
 
   autoload :Base, 'knock/base'
   autoload :Client, 'knock/client'
+  autoload :Configuration, 'knock/configuration'
 
   # Resources
   autoload :Preferences, 'knock/preferences'
@@ -35,9 +49,7 @@ module Knock
   autoload :APIError, 'knock/errors'
   autoload :AuthenticationError, 'knock/errors'
   autoload :InvalidRequestError, 'knock/errors'
-
-  key = ENV['KNOCK_API_KEY']
-  Knock.key = key unless key.nil?
+  autoload :TimeoutError, 'knock/errors'
 
   # Triggers the workflow with the given key
   #
