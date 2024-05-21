@@ -8,7 +8,7 @@ require 'knock/configuration'
 module Knock
   def self.default_config
     Configuration.new.tap do |config|
-      config.api_hostname = ENV['KNOCK_API_HOSTNAME'] || 'knock.app'
+      config.api_hostname = ENV['KNOCK_API_HOSTNAME'] || 'api.knock.app'
       config.key = ENV['KNOCK_API_KEY']
     end
   end
