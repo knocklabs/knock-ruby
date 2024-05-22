@@ -2,6 +2,7 @@
 
 module Knock
   # A Net::HTTP based API client for interacting with the Knock API
+  # rubocop:disable Metrics/ModuleLength
   module Client
     include Kernel
 
@@ -19,7 +20,7 @@ module Knock
         response = client.request(request)
       rescue Net::OpenTimeout, Net::ReadTimeout, Net::WriteTimeout
         raise TimeoutError.new(
-          message: 'API Timeout Error',
+          message: 'API Timeout Error'
         )
       end
 
@@ -128,4 +129,5 @@ module Knock
       end.join('; ')
     end
   end
+  # rubocop:enable Metrics/ModuleLength
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # typed: false
 require_relative '../lib/knock'
 
@@ -54,7 +55,7 @@ describe Knock::Configuration do
         expect do
           Knock.config.key!
         end.to raise_error(
-          '`Knock.config.key` not set',
+          '`Knock.config.key` not set'
         )
       end
     end
