@@ -7,7 +7,6 @@ module Knock
   # Provides convienience methods for working with preferences (deprecated)
   module Preferences
     class << self
-      include Base
       include Client
 
       # Returns all preference sets for the user

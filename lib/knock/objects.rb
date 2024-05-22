@@ -9,7 +9,6 @@ module Knock
   # rubocop:disable Metrics/ModuleLength
   module Objects
     class << self
-      include Base
       include Client
 
       DEFAULT_PREFERENCE_SET_ID = 'default'

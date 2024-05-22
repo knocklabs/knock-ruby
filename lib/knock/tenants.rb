@@ -7,7 +7,6 @@ module Knock
   # Methods for interacting with tenants in Knock
   module Tenants
     class << self
-      include Base
       include Client
 
       # Retrieves all Tenants in environment
