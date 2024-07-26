@@ -116,6 +116,12 @@ module Knock
           http_status: http_status,
           request_id: response['x-request-id']
         )
+      when 429
+        raise APIError.new(
+          message: json['message'],
+          http_status: http_status,
+          request_id: response['x-request-id']
+        )
       end
     end
 
