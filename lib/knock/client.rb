@@ -82,6 +82,8 @@ module Knock
     end
 
     # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/MethodLength
 
     def handle_error_response(response:)
       http_status = response.code.to_i
@@ -116,10 +118,18 @@ module Knock
           http_status: http_status,
           request_id: response['x-request-id']
         )
+      when 429
+        raise APIError.new(
+          message: json['message'],
+          http_status: http_status,
+          request_id: response['x-request-id']
+        )
       end
     end
 
     # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/MethodLength
 
     private
 
