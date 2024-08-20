@@ -43,6 +43,15 @@ module Knock
   # parameters.
   class InvalidRequestError < KnockError; end
 
+  # RateLimitExceededError is raised when the rate limit for the API has been hit
+  class RateLimitExceededError < KnockError; end
+
+  # NotFoundError is raised when a resource is not found
+  class NotFoundError < KnockError; end
+
   # TimeoutError is raised when the HTTP request to the API times out
   class TimeoutError < KnockError; end
+
+  # UnprocessableEntityError is raised when a request is made that cannot be processed
+  class UnprocessableEntityError < KnockError; end
 end
