@@ -103,7 +103,7 @@ module Knock
           request_id: response['x-request-id']
         )
       when 404
-        raise APIError.new(
+        raise NotFoundError.new(
           message: json['message'],
           http_status: http_status,
           request_id: response['x-request-id']
@@ -113,12 +113,18 @@ module Knock
         errors = extract_error(json['errors']) if json['errors']
         message += " (#{errors})" if errors
 
-        raise InvalidRequestError.new(
+        raise UnprocessableEntityError.new(
           message: message,
           http_status: http_status,
           request_id: response['x-request-id']
         )
       when 429
+        raise RateLimitExceededError.new(
+          message: json['message'],
+          http_status: http_status,
+          request_id: response['x-request-id']
+        )
+      else
         raise APIError.new(
           message: json['message'],
           http_status: http_status,
