@@ -49,7 +49,10 @@ module Knock
   autoload :APIError, 'knock/errors'
   autoload :AuthenticationError, 'knock/errors'
   autoload :InvalidRequestError, 'knock/errors'
+  autoload :NotFoundError, 'knock/errors'
+  autoload :RateLimitExceededError, 'knock/errors'
   autoload :TimeoutError, 'knock/errors'
+  autoload :UnprocessableEntityError, 'knock/errors'
 
   # Triggers the workflow with the given key
   #
