@@ -66,22 +66,22 @@ module Knock
       # Creates schedule instances for all recipients for the given
       # workflow.
       #
-      # @param [String] key The workflow key
-      # @param [Array<String, Hash>] recipients The recipient identifiers
-      # @param [Array<Hash>] repeats The repeat rules for when to schedule the workflow run
-      # @param [Hash] options Additional options for the schedule
+      # @param [Hash] options The schedule options
+      # @option options [String] :key The workflow key
+      # @option options [Array<String, Hash>] :recipients The recipient identifiers
+      # @option options [Array<Hash>] :repeats The repeat rules for when to schedule the workflow run
       # @option options [String, Hash] :actor An optional actor identifier
       # @option options [Time, String, nil] :scheduled_at When the schedule should start
       # @option options [Time, String, nil] :ending_at When the schedule should end
       # @option options [Hash] :data Parameters to be used as variables
       # @option options [String, Hash] :tenant An optional tenant identifier
 
-      def create_schedules(key:, recipients:, repeats:, options: {})
+      def create_schedules(options = {})
         attrs = {
-          workflow: key,
+          workflow: options.fetch(:key),
           actor: options[:actor],
-          recipients: recipients,
-          repeats: repeats,
+          recipients: options.fetch(:recipients),
+          repeats: options.fetch(:repeats),
           data: options[:data] || {},
           tenant: options[:tenant],
           scheduled_at: options[:scheduled_at],
