@@ -67,13 +67,19 @@ module Knock
       # workflow.
       #
       # @param [String] key The workflow key
-      # @param [String, Hash] actor An optional actor identifier to be used when trigger the workflow
       # @param [Array<String, Hash>] recipients The recipient identifiers
       # @param [Array<Hash>] repeats The repeat rules for when to schedule the workflow run
+      # @param [String, Hash] actor An optional actor identifier to be used when trigger the workflow
+      # @param [Time, String, nil] scheduled_at When the schedule should start
+      # @param [Time, String, nil] ending_at When the schedule should end
       # @param [Hash] data Parameters to be used as variables on the workflow run
       # @param [String, Hash] tenant An optional tenant identifier or a set of tenant attributes
 
-      def create_schedules(key:, recipients:, repeats:, scheduled_at: nil, data: {}, actor: nil, tenant: nil)
+      def create_schedules(
+        key:, recipients:, repeats:,
+        scheduled_at: nil, ending_at: nil, data: {},
+        actor: nil, tenant: nil
+      )
         attrs = {
           workflow: key,
           actor: actor,
@@ -81,7 +87,8 @@ module Knock
           repeats: repeats,
           data: data,
           tenant: tenant,
-          scheduled_at: scheduled_at
+          scheduled_at: scheduled_at,
+          ending_at: ending_at
         }
 
         request = post_request(
@@ -97,7 +104,7 @@ module Knock
       #
       # @param [Array<String>] schedule_ids The ids of the schedules to be updated
       # @param [Hash] schedule_attrs The attributes to be used to update the schedules
-      #   Possible attributes: actor, repeats, data and tenant
+      #   Possible attributes: actor, repeats, data, tenant, ending_at
 
       def update_schedules(schedule_ids:, schedule_attrs:)
         attrs = {
