@@ -75,7 +75,16 @@ module Knock
       # @param [Hash] data Parameters to be used as variables on the workflow run
       # @param [String, Hash] tenant An optional tenant identifier or a set of tenant attributes
 
-      def create_schedules(key:, recipients:, repeats:, scheduled_at: nil, ending_at: nil, data: {}, actor: nil, tenant: nil)
+      def create_schedules(
+        key:,
+        recipients:,
+        repeats:,
+        scheduled_at: nil,
+        ending_at: nil,
+        data: {},
+        actor: nil,
+        tenant: nil
+      )
         attrs = {
           workflow: key,
           actor: actor,
