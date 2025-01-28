@@ -223,7 +223,7 @@ module Knock
         endpoint = '/v1/users/bulk/preferences'
 
         # Put the preference set id if it doesn't already exist
-        preferences['id'] = preference_set unless preferences.has_key?('id')
+        preferences['id'] = preference_set unless preferences.key?('id')
 
         request = post_request(
           auth: true,
