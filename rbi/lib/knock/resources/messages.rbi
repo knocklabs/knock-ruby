@@ -103,7 +103,7 @@ module Knock
           page_size: Integer,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::EntriesCursor[Knock::Models::MessageListDeliveryLogsResponse])
+          .returns(Knock::EntriesCursor[Knock::Models::MessageDeliveryLog])
       end
       def list_delivery_logs(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       end

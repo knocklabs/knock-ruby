@@ -2,7 +2,7 @@
 
 module Knock
   module Models
-    class MessageListDeliveryLogsResponse < Knock::BaseModel
+    class MessageDeliveryLog < Knock::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -26,14 +26,14 @@ module Knock
       # @!attribute request
       #   A message delivery log request
       #
-      #   @return [Knock::Models::MessageListDeliveryLogsResponse::Request]
-      required :request, -> { Knock::Models::MessageListDeliveryLogsResponse::Request }
+      #   @return [Knock::Models::MessageDeliveryLog::Request]
+      required :request, -> { Knock::Models::MessageDeliveryLog::Request }
 
       # @!attribute response
       #   A message delivery log response
       #
-      #   @return [Knock::Models::MessageListDeliveryLogsResponse::Response]
-      required :response, -> { Knock::Models::MessageListDeliveryLogsResponse::Response }
+      #   @return [Knock::Models::MessageDeliveryLog::Response]
+      required :response, -> { Knock::Models::MessageDeliveryLog::Response }
 
       # @!attribute service_name
       #
@@ -47,8 +47,8 @@ module Knock
       #   # @param _typename [String]
       #   # @param environment_id [String]
       #   # @param inserted_at [String]
-      #   # @param request [Knock::Models::MessageListDeliveryLogsResponse::Request]
-      #   # @param response [Knock::Models::MessageListDeliveryLogsResponse::Response]
+      #   # @param request [Knock::Models::MessageDeliveryLog::Request]
+      #   # @param response [Knock::Models::MessageDeliveryLog::Response]
       #   # @param service_name [String]
       #   #
       #   def initialize(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:, **) = super
@@ -59,7 +59,7 @@ module Knock
         # @!attribute [r] body
         #
         #   @return [String, Hash{Symbol=>Object}, nil]
-        optional :body, union: -> { Knock::Models::MessageListDeliveryLogsResponse::Request::Body }
+        optional :body, union: -> { Knock::Models::MessageDeliveryLog::Request::Body }
 
         # @!parse
         #   # @return [String, Hash{Symbol=>Object}]
@@ -81,13 +81,11 @@ module Knock
 
         # @!attribute [r] method_
         #
-        #   @return [Symbol, Knock::Models::MessageListDeliveryLogsResponse::Request::Method, nil]
-        optional :method_,
-                 enum: -> { Knock::Models::MessageListDeliveryLogsResponse::Request::Method },
-                 api_name: :method
+        #   @return [Symbol, Knock::Models::MessageDeliveryLog::Request::Method, nil]
+        optional :method_, enum: -> { Knock::Models::MessageDeliveryLog::Request::Method }, api_name: :method
 
         # @!parse
-        #   # @return [Symbol, Knock::Models::MessageListDeliveryLogsResponse::Request::Method]
+        #   # @return [Symbol, Knock::Models::MessageDeliveryLog::Request::Method]
         #   attr_writer :method_
 
         # @!attribute [r] path
@@ -110,7 +108,7 @@ module Knock
         #   # @param body [String, Hash{Symbol=>Object}]
         #   # @param headers [Hash{Symbol=>Object}, nil]
         #   # @param host [String]
-        #   # @param method_ [Symbol, Knock::Models::MessageListDeliveryLogsResponse::Request::Method]
+        #   # @param method_ [Symbol, Knock::Models::MessageDeliveryLog::Request::Method]
         #   # @param path [String]
         #   # @param query [String, nil]
         #   #
@@ -125,7 +123,7 @@ module Knock
 
           variant String
 
-          variant Knock::Models::MessageListDeliveryLogsResponse::Request::Body::UnionMember1Map
+          variant Knock::Models::MessageDeliveryLog::Request::Body::UnionMember1Map
         end
 
         # @abstract
@@ -145,7 +143,7 @@ module Knock
         # @!attribute [r] body
         #
         #   @return [String, Hash{Symbol=>Object}, nil]
-        optional :body, union: -> { Knock::Models::MessageListDeliveryLogsResponse::Response::Body }
+        optional :body, union: -> { Knock::Models::MessageDeliveryLog::Response::Body }
 
         # @!parse
         #   # @return [String, Hash{Symbol=>Object}]
@@ -183,7 +181,7 @@ module Knock
 
           variant String
 
-          variant Knock::Models::MessageListDeliveryLogsResponse::Response::Body::UnionMember1Map
+          variant Knock::Models::MessageDeliveryLog::Response::Body::UnionMember1Map
         end
       end
     end

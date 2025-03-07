@@ -154,7 +154,7 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::EntriesCursor<Knock::Models::MessageListDeliveryLogsResponse>]
+      # @return [Knock::EntriesCursor<Knock::Models::MessageDeliveryLog>]
       #
       def list_delivery_logs(message_id, params = {})
         parsed, options = Knock::Models::MessageListDeliveryLogsParams.dump_request(params)
@@ -163,7 +163,7 @@ module Knock
           path: ["v1/messages/%0s/delivery_logs", message_id],
           query: parsed,
           page: Knock::EntriesCursor,
-          model: Knock::Models::MessageListDeliveryLogsResponse,
+          model: Knock::Models::MessageDeliveryLog,
           options: options
         )
       end

@@ -18,6 +18,9 @@ module Knock
     # @return [String]
     attr_reader :bearer_token
 
+    # @return [Knock::Resources::Recipients]
+    attr_reader :recipients
+
     # @return [Knock::Resources::Users]
     attr_reader :users
 
@@ -96,6 +99,7 @@ module Knock
         max_retry_delay: max_retry_delay
       )
 
+      @recipients = Knock::Resources::Recipients.new(client: self)
       @users = Knock::Resources::Users.new(client: self)
       @objects = Knock::Resources::Objects.new(client: self)
       @tenants = Knock::Resources::Tenants.new(client: self)

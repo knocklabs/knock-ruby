@@ -1,0 +1,7 @@
+module Knock
+  module Resources
+    class Recipients
+      def initialize: (client: Knock::Client) -> void
+    end
+  end
+end

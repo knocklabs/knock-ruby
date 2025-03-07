@@ -10,6 +10,8 @@ module Knock
 
     attr_reader bearer_token: String
 
+    attr_reader recipients: Knock::Resources::Recipients
+
     attr_reader users: Knock::Resources::Users
 
     attr_reader objects: Knock::Resources::Objects

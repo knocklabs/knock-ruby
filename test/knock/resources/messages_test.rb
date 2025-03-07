@@ -200,7 +200,7 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
 
     row = response.to_enum.first
     assert_pattern do
-      row => Knock::Models::MessageListDeliveryLogsResponse
+      row => Knock::Models::MessageDeliveryLog
     end
 
     assert_pattern do
@@ -209,8 +209,8 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
         _typename: String,
         environment_id: String,
         inserted_at: String,
-        request: Knock::Models::MessageListDeliveryLogsResponse::Request,
-        response: Knock::Models::MessageListDeliveryLogsResponse::Response,
+        request: Knock::Models::MessageDeliveryLog::Request,
+        response: Knock::Models::MessageDeliveryLog::Response,
         service_name: String
       }
     end

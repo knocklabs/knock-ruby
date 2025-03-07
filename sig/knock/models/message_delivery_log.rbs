@@ -1,17 +1,17 @@
 module Knock
   module Models
-    type message_list_delivery_logs_response =
+    type message_delivery_log =
       {
         id: String,
         _typename: String,
         environment_id: String,
         inserted_at: String,
-        request: Knock::Models::MessageListDeliveryLogsResponse::Request,
-        response: Knock::Models::MessageListDeliveryLogsResponse::Response,
+        request: Knock::Models::MessageDeliveryLog::Request,
+        response: Knock::Models::MessageDeliveryLog::Response,
         service_name: String
       }
 
-    class MessageListDeliveryLogsResponse < Knock::BaseModel
+    class MessageDeliveryLog < Knock::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String
@@ -20,9 +20,9 @@ module Knock
 
       attr_accessor inserted_at: String
 
-      attr_accessor request: Knock::Models::MessageListDeliveryLogsResponse::Request
+      attr_accessor request: Knock::Models::MessageDeliveryLog::Request
 
-      attr_accessor response: Knock::Models::MessageListDeliveryLogsResponse::Response
+      attr_accessor response: Knock::Models::MessageDeliveryLog::Response
 
       attr_accessor service_name: String
 
@@ -32,33 +32,30 @@ module Knock
           _typename: String,
           environment_id: String,
           inserted_at: String,
-          request: Knock::Models::MessageListDeliveryLogsResponse::Request,
-          response: Knock::Models::MessageListDeliveryLogsResponse::Response,
+          request: Knock::Models::MessageDeliveryLog::Request,
+          response: Knock::Models::MessageDeliveryLog::Response,
           service_name: String
         ) -> void
-        | (
-          ?Knock::Models::message_list_delivery_logs_response
-          | Knock::BaseModel data
-        ) -> void
+        | (?Knock::Models::message_delivery_log | Knock::BaseModel data) -> void
 
-      def to_hash: -> Knock::Models::message_list_delivery_logs_response
+      def to_hash: -> Knock::Models::message_delivery_log
 
       type request =
         {
-          body: Knock::Models::MessageListDeliveryLogsResponse::Request::body,
+          body: Knock::Models::MessageDeliveryLog::Request::body,
           headers: ::Hash[Symbol, top]?,
           host: String,
-          method_: Knock::Models::MessageListDeliveryLogsResponse::Request::method_,
+          method_: Knock::Models::MessageDeliveryLog::Request::method_,
           path: String,
           query: String?
         }
 
       class Request < Knock::BaseModel
-        attr_reader body: Knock::Models::MessageListDeliveryLogsResponse::Request::body?
+        attr_reader body: Knock::Models::MessageDeliveryLog::Request::body?
 
         def body=: (
-          Knock::Models::MessageListDeliveryLogsResponse::Request::body
-        ) -> Knock::Models::MessageListDeliveryLogsResponse::Request::body
+          Knock::Models::MessageDeliveryLog::Request::body
+        ) -> Knock::Models::MessageDeliveryLog::Request::body
 
         attr_accessor headers: ::Hash[Symbol, top]?
 
@@ -66,11 +63,11 @@ module Knock
 
         def host=: (String) -> String
 
-        attr_reader method_: Knock::Models::MessageListDeliveryLogsResponse::Request::method_?
+        attr_reader method_: Knock::Models::MessageDeliveryLog::Request::method_?
 
         def method_=: (
-          Knock::Models::MessageListDeliveryLogsResponse::Request::method_
-        ) -> Knock::Models::MessageListDeliveryLogsResponse::Request::method_
+          Knock::Models::MessageDeliveryLog::Request::method_
+        ) -> Knock::Models::MessageDeliveryLog::Request::method_
 
         attr_reader path: String?
 
@@ -80,19 +77,18 @@ module Knock
 
         def initialize:
           (
-            body: Knock::Models::MessageListDeliveryLogsResponse::Request::body,
+            body: Knock::Models::MessageDeliveryLog::Request::body,
             headers: ::Hash[Symbol, top]?,
             host: String,
-            method_: Knock::Models::MessageListDeliveryLogsResponse::Request::method_,
+            method_: Knock::Models::MessageDeliveryLog::Request::method_,
             path: String,
             query: String?
           ) -> void
           | (
-            ?Knock::Models::MessageListDeliveryLogsResponse::request
-            | Knock::BaseModel data
+            ?Knock::Models::MessageDeliveryLog::request | Knock::BaseModel data
           ) -> void
 
-        def to_hash: -> Knock::Models::MessageListDeliveryLogsResponse::request
+        def to_hash: -> Knock::Models::MessageDeliveryLog::request
 
         type body = String | ::Hash[Symbol, top]
 
@@ -113,23 +109,23 @@ module Knock
           DELETE: :DELETE
           PATCH: :PATCH
 
-          def self.values: -> ::Array[Knock::Models::MessageListDeliveryLogsResponse::Request::method_]
+          def self.values: -> ::Array[Knock::Models::MessageDeliveryLog::Request::method_]
         end
       end
 
       type response =
         {
-          body: Knock::Models::MessageListDeliveryLogsResponse::Response::body,
+          body: Knock::Models::MessageDeliveryLog::Response::body,
           headers: ::Hash[Symbol, top]?,
           status: Integer
         }
 
       class Response < Knock::BaseModel
-        attr_reader body: Knock::Models::MessageListDeliveryLogsResponse::Response::body?
+        attr_reader body: Knock::Models::MessageDeliveryLog::Response::body?
 
         def body=: (
-          Knock::Models::MessageListDeliveryLogsResponse::Response::body
-        ) -> Knock::Models::MessageListDeliveryLogsResponse::Response::body
+          Knock::Models::MessageDeliveryLog::Response::body
+        ) -> Knock::Models::MessageDeliveryLog::Response::body
 
         attr_accessor headers: ::Hash[Symbol, top]?
 
@@ -139,16 +135,15 @@ module Knock
 
         def initialize:
           (
-            body: Knock::Models::MessageListDeliveryLogsResponse::Response::body,
+            body: Knock::Models::MessageDeliveryLog::Response::body,
             headers: ::Hash[Symbol, top]?,
             status: Integer
           ) -> void
           | (
-            ?Knock::Models::MessageListDeliveryLogsResponse::response
-            | Knock::BaseModel data
+            ?Knock::Models::MessageDeliveryLog::response | Knock::BaseModel data
           ) -> void
 
-        def to_hash: -> Knock::Models::MessageListDeliveryLogsResponse::response
+        def to_hash: -> Knock::Models::MessageDeliveryLog::response
 
         type body = String | ::Hash[Symbol, top]
 

@@ -74,14 +74,14 @@ module Knock
           String message_id,
           ?Knock::Models::MessageListDeliveryLogsParams
           | ::Hash[Symbol, top] params
-        ) -> Knock::EntriesCursor[Knock::Models::MessageListDeliveryLogsResponse]
+        ) -> Knock::EntriesCursor[Knock::Models::MessageDeliveryLog]
         | (
           String message_id,
           after: String,
           before: String,
           page_size: Integer,
           request_options: Knock::request_opts
-        ) -> Knock::EntriesCursor[Knock::Models::MessageListDeliveryLogsResponse]
+        ) -> Knock::EntriesCursor[Knock::Models::MessageDeliveryLog]
 
       def list_events:
         (

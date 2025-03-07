@@ -14,6 +14,10 @@ module Knock
     def bearer_token
     end
 
+    sig { returns(Knock::Resources::Recipients) }
+    def recipients
+    end
+
     sig { returns(Knock::Resources::Users) }
     def users
     end

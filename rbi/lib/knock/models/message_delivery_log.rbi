@@ -2,7 +2,7 @@
 
 module Knock
   module Models
-    class MessageListDeliveryLogsResponse < Knock::BaseModel
+    class MessageDeliveryLog < Knock::BaseModel
       sig { returns(String) }
       def id
       end
@@ -35,24 +35,20 @@ module Knock
       def inserted_at=(_)
       end
 
-      sig { returns(Knock::Models::MessageListDeliveryLogsResponse::Request) }
+      sig { returns(Knock::Models::MessageDeliveryLog::Request) }
       def request
       end
 
-      sig do
-        params(_: Knock::Models::MessageListDeliveryLogsResponse::Request)
-          .returns(Knock::Models::MessageListDeliveryLogsResponse::Request)
-      end
+      sig { params(_: Knock::Models::MessageDeliveryLog::Request).returns(Knock::Models::MessageDeliveryLog::Request) }
       def request=(_)
       end
 
-      sig { returns(Knock::Models::MessageListDeliveryLogsResponse::Response) }
+      sig { returns(Knock::Models::MessageDeliveryLog::Response) }
       def response
       end
 
       sig do
-        params(_: Knock::Models::MessageListDeliveryLogsResponse::Response)
-          .returns(Knock::Models::MessageListDeliveryLogsResponse::Response)
+        params(_: Knock::Models::MessageDeliveryLog::Response).returns(Knock::Models::MessageDeliveryLog::Response)
       end
       def response=(_)
       end
@@ -71,8 +67,8 @@ module Knock
           _typename: String,
           environment_id: String,
           inserted_at: String,
-          request: Knock::Models::MessageListDeliveryLogsResponse::Request,
-          response: Knock::Models::MessageListDeliveryLogsResponse::Response,
+          request: Knock::Models::MessageDeliveryLog::Request,
+          response: Knock::Models::MessageDeliveryLog::Response,
           service_name: String
         )
           .void
@@ -88,8 +84,8 @@ module Knock
               _typename: String,
               environment_id: String,
               inserted_at: String,
-              request: Knock::Models::MessageListDeliveryLogsResponse::Request,
-              response: Knock::Models::MessageListDeliveryLogsResponse::Response,
+              request: Knock::Models::MessageDeliveryLog::Request,
+              response: Knock::Models::MessageDeliveryLog::Response,
               service_name: String
             }
           )

@@ -863,11 +863,11 @@ module Knock
   #
   # @example
   # ```ruby
-  # # `channel_data` is a `Knock::Models::ChannelData`
-  # channel_data => {
-  #   _typename: _typename,
-  #   channel_id: channel_id,
-  #   data: data
+  # # `condition` is a `Knock::Models::Condition`
+  # condition => {
+  #   argument: argument,
+  #   operator: operator,
+  #   variable: variable
   # }
   # ```
   class BaseModel
