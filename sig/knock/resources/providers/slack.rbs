@@ -19,13 +19,13 @@ module Knock
             String channel_id,
             Knock::Models::Providers::SlackListChannelsParams
             | ::Hash[Symbol, top] params
-          ) -> Knock::SlackChannelsCursor[Knock::Models::Providers::SlackListChannelsResponse]
+          ) -> Knock::Models::Providers::SlackListChannelsResponse
           | (
             String channel_id,
             access_token_object: String,
             query_options: Knock::Models::Providers::SlackListChannelsParams::QueryOptions,
             request_options: Knock::request_opts
-          ) -> Knock::SlackChannelsCursor[Knock::Models::Providers::SlackListChannelsResponse]
+          ) -> Knock::Models::Providers::SlackListChannelsResponse
 
         def revoke_access:
           (

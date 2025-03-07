@@ -22,7 +22,7 @@ module Knock
             query_options: Knock::Models::Providers::SlackListChannelsParams::QueryOptions,
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::SlackChannelsCursor[Knock::Models::Providers::SlackListChannelsResponse])
+            .returns(Knock::Models::Providers::SlackListChannelsResponse)
         end
         def list_channels(channel_id, access_token_object:, query_options: nil, request_options: {})
         end

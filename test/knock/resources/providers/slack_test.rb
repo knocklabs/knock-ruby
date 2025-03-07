@@ -29,26 +29,13 @@ class Knock::Test::Resources::Providers::SlackTest < Knock::Test::ResourceTest
     response = @knock.providers.slack.list_channels("channel_id", access_token_object: "access_token_object")
 
     assert_pattern do
-      response => Knock::SlackChannelsCursor
-    end
-
-    page = response.next_page
-    assert_pattern do
-      page => Knock::SlackChannelsCursor
-    end
-
-    row = response.to_enum.first
-    assert_pattern do
-      row => Knock::Models::Providers::SlackListChannelsResponse
+      response => Knock::Models::Providers::SlackListChannelsResponse
     end
 
     assert_pattern do
-      row => {
-        id: String,
-        context_team_id: String,
-        is_im: Knock::BooleanModel,
-        is_private: Knock::BooleanModel,
-        name: String
+      response => {
+        next_cursor: String | nil,
+        slack_channels: ^(Knock::ArrayOf[Knock::Models::Providers::SlackListChannelsResponse::SlackChannel])
       }
     end
   end
