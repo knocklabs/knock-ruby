@@ -20,7 +20,7 @@ module Knock
             workflows: T::Array[String],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Channels::BulkUpdateMessageStatusResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def update_message_status(
           action,

@@ -14,7 +14,7 @@ class Knock::Test::Resources::Channels::BulkTest < Knock::Test::ResourceTest
     )
 
     assert_pattern do
-      response => Knock::Models::Channels::BulkUpdateMessageStatusResponse
+      response => Knock::Models::BulkOperation
     end
 
     assert_pattern do
@@ -25,12 +25,12 @@ class Knock::Test::Resources::Channels::BulkTest < Knock::Test::ResourceTest
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knock::Models::Channels::BulkUpdateMessageStatusResponse::Status,
+        status: Knock::Models::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knock::ArrayOf[Knock::Models::Channels::BulkUpdateMessageStatusResponse::ErrorItem]) | nil,
+        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }

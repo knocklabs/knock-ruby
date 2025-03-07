@@ -13,7 +13,7 @@ module Knock
             )
           )
         )
-          .returns(Knock::Models::BulkOperationGetResponse)
+          .returns(Knock::Models::BulkOperation)
       end
       def get(id, request_options: {})
       end

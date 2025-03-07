@@ -2,18 +2,18 @@ module Knock
   module Models
     type audience_list_members_response =
       {
-        entries: ::Array[Knock::Models::AudienceListMembersResponse::Entry],
+        entries: ::Array[Knock::Models::AudienceMember],
         page_info: Knock::Models::AudienceListMembersResponse::PageInfo
       }
 
     class AudienceListMembersResponse < Knock::BaseModel
-      attr_accessor entries: ::Array[Knock::Models::AudienceListMembersResponse::Entry]
+      attr_accessor entries: ::Array[Knock::Models::AudienceMember]
 
       attr_accessor page_info: Knock::Models::AudienceListMembersResponse::PageInfo
 
       def initialize:
         (
-          entries: ::Array[Knock::Models::AudienceListMembersResponse::Entry],
+          entries: ::Array[Knock::Models::AudienceMember],
           page_info: Knock::Models::AudienceListMembersResponse::PageInfo
         ) -> void
         | (
@@ -21,42 +21,6 @@ module Knock
         ) -> void
 
       def to_hash: -> Knock::Models::audience_list_members_response
-
-      type entry =
-        {
-          _typename: String,
-          added_at: Time,
-          user: Knock::Models::User,
-          user_id: String,
-          tenant: String?
-        }
-
-      class Entry < Knock::BaseModel
-        attr_accessor _typename: String
-
-        attr_accessor added_at: Time
-
-        attr_accessor user: Knock::Models::User
-
-        attr_accessor user_id: String
-
-        attr_accessor tenant: String?
-
-        def initialize:
-          (
-            _typename: String,
-            added_at: Time,
-            user: Knock::Models::User,
-            user_id: String,
-            tenant: String?
-          ) -> void
-          | (
-            ?Knock::Models::AudienceListMembersResponse::entry
-            | Knock::BaseModel data
-          ) -> void
-
-        def to_hash: -> Knock::Models::AudienceListMembersResponse::entry
-      end
 
       type page_info =
         {

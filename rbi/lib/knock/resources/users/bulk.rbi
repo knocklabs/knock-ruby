@@ -9,7 +9,7 @@ module Knock
             body_user_ids: T::Array[String],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Users::BulkDeleteResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def delete(body_user_ids:, request_options: {})
         end
@@ -19,7 +19,7 @@ module Knock
             users: T::Array[Knock::Models::InlineIdentifyUserRequest],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Users::BulkIdentifyResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def identify(users:, request_options: {})
         end
@@ -30,7 +30,7 @@ module Knock
             user_ids: T::Array[String],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Users::BulkSetPreferencesResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def set_preferences(preferences:, user_ids:, request_options: {})
         end

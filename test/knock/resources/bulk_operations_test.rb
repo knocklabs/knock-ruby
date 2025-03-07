@@ -11,7 +11,7 @@ class Knock::Test::Resources::BulkOperationsTest < Knock::Test::ResourceTest
     response = @knock.bulk_operations.get("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
-      response => Knock::Models::BulkOperationGetResponse
+      response => Knock::Models::BulkOperation
     end
 
     assert_pattern do
@@ -22,12 +22,12 @@ class Knock::Test::Resources::BulkOperationsTest < Knock::Test::ResourceTest
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knock::Models::BulkOperationGetResponse::Status,
+        status: Knock::Models::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperationGetResponse::ErrorItem]) | nil,
+        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }

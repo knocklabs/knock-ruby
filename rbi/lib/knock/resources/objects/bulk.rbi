@@ -10,7 +10,7 @@ module Knock
             object_ids: T::Array[String],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Objects::BulkDeleteResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def delete(collection, object_ids:, request_options: {})
         end
@@ -21,7 +21,7 @@ module Knock
             subscriptions: T::Array[Knock::Models::Objects::BulkAddSubscriptionsParams::Subscription],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Objects::BulkAddSubscriptionsResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def add_subscriptions(collection, subscriptions:, request_options: {})
         end
@@ -32,7 +32,7 @@ module Knock
             objects: T::Array[Knock::Models::InlineObjectRequest],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Objects::BulkSetResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def set(collection, objects:, request_options: {})
         end

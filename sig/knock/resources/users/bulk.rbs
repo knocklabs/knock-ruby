@@ -5,32 +5,32 @@ module Knock
         def delete:
           (
             Knock::Models::Users::BulkDeleteParams | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Users::BulkDeleteResponse
+          ) -> Knock::Models::BulkOperation
           | (
             body_user_ids: ::Array[String],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Users::BulkDeleteResponse
+          ) -> Knock::Models::BulkOperation
 
         def identify:
           (
             Knock::Models::Users::BulkIdentifyParams
             | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Users::BulkIdentifyResponse
+          ) -> Knock::Models::BulkOperation
           | (
             users: ::Array[Knock::Models::InlineIdentifyUserRequest],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Users::BulkIdentifyResponse
+          ) -> Knock::Models::BulkOperation
 
         def set_preferences:
           (
             Knock::Models::Users::BulkSetPreferencesParams
             | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Users::BulkSetPreferencesResponse
+          ) -> Knock::Models::BulkOperation
           | (
             preferences: Knock::Models::PreferenceSetRequest,
             user_ids: ::Array[String],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Users::BulkSetPreferencesResponse
+          ) -> Knock::Models::BulkOperation
 
         def initialize: (client: Knock::Client) -> void
       end

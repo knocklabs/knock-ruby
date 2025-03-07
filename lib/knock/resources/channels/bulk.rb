@@ -37,7 +37,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Channels::BulkUpdateMessageStatusResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def update_message_status(action, params)
           parsed, options = Knock::Models::Channels::BulkUpdateMessageStatusParams.dump_request(params)
@@ -48,7 +48,7 @@ module Knock
             method: :post,
             path: ["v1/channels/%0s/messages/bulk/%1s", channel_id, action],
             body: parsed,
-            model: Knock::Models::Channels::BulkUpdateMessageStatusResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end

@@ -94,7 +94,7 @@ module Knock
         (
           String id,
           Knock::Models::ObjectListMessagesParams | ::Hash[Symbol, top] params
-        ) -> Knock::EntriesCursor[Knock::Models::ObjectListMessagesResponse]
+        ) -> Knock::EntriesCursor[Knock::Models::Message]
         | (
           String id,
           collection: String,
@@ -112,7 +112,7 @@ module Knock
           workflow_recipient_run_id: String,
           workflow_run_id: String,
           request_options: Knock::request_opts
-        ) -> Knock::EntriesCursor[Knock::Models::ObjectListMessagesResponse]
+        ) -> Knock::EntriesCursor[Knock::Models::Message]
 
       def list_preferences:
         (

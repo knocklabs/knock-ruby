@@ -14,7 +14,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Objects::BulkDeleteResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def delete(collection, params)
           parsed, options = Knock::Models::Objects::BulkDeleteParams.dump_request(params)
@@ -22,7 +22,7 @@ module Knock
             method: :post,
             path: ["v1/objects/%0s/bulk/delete", collection],
             query: parsed,
-            model: Knock::Models::Objects::BulkDeleteResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end
@@ -38,7 +38,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Objects::BulkAddSubscriptionsResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def add_subscriptions(collection, params)
           parsed, options = Knock::Models::Objects::BulkAddSubscriptionsParams.dump_request(params)
@@ -46,7 +46,7 @@ module Knock
             method: :post,
             path: ["v1/objects/%0s/bulk/subscriptions/add", collection],
             body: parsed,
-            model: Knock::Models::Objects::BulkAddSubscriptionsResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end
@@ -61,7 +61,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Objects::BulkSetResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def set(collection, params)
           parsed, options = Knock::Models::Objects::BulkSetParams.dump_request(params)
@@ -69,7 +69,7 @@ module Knock
             method: :post,
             path: ["v1/objects/%0s/bulk/set", collection],
             body: parsed,
-            model: Knock::Models::Objects::BulkSetResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end

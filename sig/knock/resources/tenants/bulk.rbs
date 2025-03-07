@@ -6,20 +6,20 @@ module Knock
           (
             Knock::Models::Tenants::BulkDeleteParams
             | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Tenants::BulkDeleteResponse
+          ) -> Knock::Models::BulkOperation
           | (
             tenant_ids: ::Array[String],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Tenants::BulkDeleteResponse
+          ) -> Knock::Models::BulkOperation
 
         def set:
           (
             Knock::Models::Tenants::BulkSetParams | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Tenants::BulkSetResponse
+          ) -> Knock::Models::BulkOperation
           | (
             tenants: ::Array[Knock::Models::inline_tenant_request],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Tenants::BulkSetResponse
+          ) -> Knock::Models::BulkOperation
 
         def initialize: (client: Knock::Client) -> void
       end

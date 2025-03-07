@@ -111,7 +111,7 @@ module Knock
           workflow_run_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::EntriesCursor[Knock::Models::ObjectListMessagesResponse])
+          .returns(Knock::EntriesCursor[Knock::Models::Message])
       end
       def list_messages(
         id,

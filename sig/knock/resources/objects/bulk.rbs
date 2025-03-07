@@ -7,35 +7,35 @@ module Knock
             String collection,
             Knock::Models::Objects::BulkDeleteParams
             | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Objects::BulkDeleteResponse
+          ) -> Knock::Models::BulkOperation
           | (
             String collection,
             object_ids: ::Array[String],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Objects::BulkDeleteResponse
+          ) -> Knock::Models::BulkOperation
 
         def add_subscriptions:
           (
             String collection,
             Knock::Models::Objects::BulkAddSubscriptionsParams
             | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Objects::BulkAddSubscriptionsResponse
+          ) -> Knock::Models::BulkOperation
           | (
             String collection,
             subscriptions: ::Array[Knock::Models::Objects::BulkAddSubscriptionsParams::Subscription],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Objects::BulkAddSubscriptionsResponse
+          ) -> Knock::Models::BulkOperation
 
         def set:
           (
             String collection,
             Knock::Models::Objects::BulkSetParams | ::Hash[Symbol, top] params
-          ) -> Knock::Models::Objects::BulkSetResponse
+          ) -> Knock::Models::BulkOperation
           | (
             String collection,
             objects: ::Array[Knock::Models::InlineObjectRequest],
             request_options: Knock::request_opts
-          ) -> Knock::Models::Objects::BulkSetResponse
+          ) -> Knock::Models::BulkOperation
 
         def initialize: (client: Knock::Client) -> void
       end

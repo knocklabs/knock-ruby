@@ -11,13 +11,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::BulkOperationGetResponse]
+      # @return [Knock::Models::BulkOperation]
       #
       def get(id, params = {})
         @client.request(
           method: :get,
           path: ["v1/bulk_operations/%0s", id],
-          model: Knock::Models::BulkOperationGetResponse,
+          model: Knock::Models::BulkOperation,
           options: params[:request_options]
         )
       end

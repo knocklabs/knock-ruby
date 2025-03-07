@@ -24,7 +24,7 @@ module Knock
           workflow_run_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::EntriesCursor[Knock::Models::MessageListResponse])
+          .returns(Knock::EntriesCursor[Knock::Models::Message])
       end
       def list(
         after: nil,
@@ -49,7 +49,7 @@ module Knock
           message_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageArchiveResponse)
+          .returns(Knock::Models::Message)
       end
       def archive(message_id, request_options: {})
       end
@@ -59,7 +59,7 @@ module Knock
           message_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageGetResponse)
+          .returns(Knock::Models::Message)
       end
       def get(message_id, request_options: {})
       end
@@ -83,7 +83,7 @@ module Knock
           trigger_data: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::ItemsCursor[Knock::Models::MessageListActivitiesResponse])
+          .returns(Knock::ItemsCursor[Knock::Models::Activity])
       end
       def list_activities(
         message_id,
@@ -116,7 +116,7 @@ module Knock
           page_size: Integer,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::EntriesCursor[Knock::Models::MessageListEventsResponse])
+          .returns(Knock::EntriesCursor[Knock::Models::MessageEvent])
       end
       def list_events(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       end
@@ -127,7 +127,7 @@ module Knock
           metadata: T::Hash[Symbol, T.anything],
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageMarkAsInteractedResponse)
+          .returns(Knock::Models::Message)
       end
       def mark_as_interacted(message_id, metadata: nil, request_options: {})
       end
@@ -137,7 +137,7 @@ module Knock
           message_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageMarkAsReadResponse)
+          .returns(Knock::Models::Message)
       end
       def mark_as_read(message_id, request_options: {})
       end
@@ -147,7 +147,7 @@ module Knock
           message_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageMarkAsSeenResponse)
+          .returns(Knock::Models::Message)
       end
       def mark_as_seen(message_id, request_options: {})
       end
@@ -157,7 +157,7 @@ module Knock
           message_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageMarkAsUnreadResponse)
+          .returns(Knock::Models::Message)
       end
       def mark_as_unread(message_id, request_options: {})
       end
@@ -167,7 +167,7 @@ module Knock
           message_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageMarkAsUnseenResponse)
+          .returns(Knock::Models::Message)
       end
       def mark_as_unseen(message_id, request_options: {})
       end
@@ -177,7 +177,7 @@ module Knock
           message_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knock::Models::MessageUnarchiveResponse)
+          .returns(Knock::Models::Message)
       end
       def unarchive(message_id, request_options: {})
       end

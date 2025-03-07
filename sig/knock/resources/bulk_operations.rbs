@@ -5,11 +5,11 @@ module Knock
         (
           String id,
           ?Knock::Models::BulkOperationGetParams | ::Hash[Symbol, top] params
-        ) -> Knock::Models::BulkOperationGetResponse
+        ) -> Knock::Models::BulkOperation
         | (
           String id,
           request_options: Knock::request_opts
-        ) -> Knock::Models::BulkOperationGetResponse
+        ) -> Knock::Models::BulkOperation
 
       def initialize: (client: Knock::Client) -> void
     end

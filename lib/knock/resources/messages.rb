@@ -38,7 +38,7 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::EntriesCursor<Knock::Models::MessageListResponse>]
+      # @return [Knock::EntriesCursor<Knock::Models::Message>]
       #
       def list(params = {})
         parsed, options = Knock::Models::MessageListParams.dump_request(params)
@@ -47,7 +47,7 @@ module Knock
           path: "v1/messages",
           query: parsed,
           page: Knock::EntriesCursor,
-          model: Knock::Models::MessageListResponse,
+          model: Knock::Models::Message,
           options: options
         )
       end
@@ -60,13 +60,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageArchiveResponse]
+      # @return [Knock::Models::Message]
       #
       def archive(message_id, params = {})
         @client.request(
           method: :put,
           path: ["v1/messages/%0s/archived", message_id],
-          model: Knock::Models::MessageArchiveResponse,
+          model: Knock::Models::Message,
           options: params[:request_options]
         )
       end
@@ -79,13 +79,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageGetResponse]
+      # @return [Knock::Models::Message]
       #
       def get(message_id, params = {})
         @client.request(
           method: :get,
           path: ["v1/messages/%0s", message_id],
-          model: Knock::Models::MessageGetResponse,
+          model: Knock::Models::Message,
           options: params[:request_options]
         )
       end
@@ -126,7 +126,7 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::ItemsCursor<Knock::Models::MessageListActivitiesResponse>]
+      # @return [Knock::ItemsCursor<Knock::Models::Activity>]
       #
       def list_activities(message_id, params = {})
         parsed, options = Knock::Models::MessageListActivitiesParams.dump_request(params)
@@ -135,7 +135,7 @@ module Knock
           path: ["v1/messages/%0s/activities", message_id],
           query: parsed,
           page: Knock::ItemsCursor,
-          model: Knock::Models::MessageListActivitiesResponse,
+          model: Knock::Models::Activity,
           options: options
         )
       end
@@ -182,7 +182,7 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::EntriesCursor<Knock::Models::MessageListEventsResponse>]
+      # @return [Knock::EntriesCursor<Knock::Models::MessageEvent>]
       #
       def list_events(message_id, params = {})
         parsed, options = Knock::Models::MessageListEventsParams.dump_request(params)
@@ -191,7 +191,7 @@ module Knock
           path: ["v1/messages/%0s/events", message_id],
           query: parsed,
           page: Knock::EntriesCursor,
-          model: Knock::Models::MessageListEventsResponse,
+          model: Knock::Models::MessageEvent,
           options: options
         )
       end
@@ -206,7 +206,7 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageMarkAsInteractedResponse]
+      # @return [Knock::Models::Message]
       #
       def mark_as_interacted(message_id, params = {})
         parsed, options = Knock::Models::MessageMarkAsInteractedParams.dump_request(params)
@@ -214,7 +214,7 @@ module Knock
           method: :put,
           path: ["v1/messages/%0s/interacted", message_id],
           body: parsed,
-          model: Knock::Models::MessageMarkAsInteractedResponse,
+          model: Knock::Models::Message,
           options: options
         )
       end
@@ -227,13 +227,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageMarkAsReadResponse]
+      # @return [Knock::Models::Message]
       #
       def mark_as_read(message_id, params = {})
         @client.request(
           method: :put,
           path: ["v1/messages/%0s/read", message_id],
-          model: Knock::Models::MessageMarkAsReadResponse,
+          model: Knock::Models::Message,
           options: params[:request_options]
         )
       end
@@ -246,13 +246,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageMarkAsSeenResponse]
+      # @return [Knock::Models::Message]
       #
       def mark_as_seen(message_id, params = {})
         @client.request(
           method: :put,
           path: ["v1/messages/%0s/seen", message_id],
-          model: Knock::Models::MessageMarkAsSeenResponse,
+          model: Knock::Models::Message,
           options: params[:request_options]
         )
       end
@@ -265,13 +265,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageMarkAsUnreadResponse]
+      # @return [Knock::Models::Message]
       #
       def mark_as_unread(message_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/messages/%0s/unread", message_id],
-          model: Knock::Models::MessageMarkAsUnreadResponse,
+          model: Knock::Models::Message,
           options: params[:request_options]
         )
       end
@@ -284,13 +284,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageMarkAsUnseenResponse]
+      # @return [Knock::Models::Message]
       #
       def mark_as_unseen(message_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/messages/%0s/unseen", message_id],
-          model: Knock::Models::MessageMarkAsUnseenResponse,
+          model: Knock::Models::Message,
           options: params[:request_options]
         )
       end
@@ -303,13 +303,13 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::Models::MessageUnarchiveResponse]
+      # @return [Knock::Models::Message]
       #
       def unarchive(message_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/messages/%0s/unarchived", message_id],
-          model: Knock::Models::MessageUnarchiveResponse,
+          model: Knock::Models::Message,
           options: params[:request_options]
         )
       end

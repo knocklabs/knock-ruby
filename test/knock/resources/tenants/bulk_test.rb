@@ -11,7 +11,7 @@ class Knock::Test::Resources::Tenants::BulkTest < Knock::Test::ResourceTest
     response = @knock.tenants.bulk.delete(tenant_ids: ["string"])
 
     assert_pattern do
-      response => Knock::Models::Tenants::BulkDeleteResponse
+      response => Knock::Models::BulkOperation
     end
 
     assert_pattern do
@@ -22,12 +22,12 @@ class Knock::Test::Resources::Tenants::BulkTest < Knock::Test::ResourceTest
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knock::Models::Tenants::BulkDeleteResponse::Status,
+        status: Knock::Models::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knock::ArrayOf[Knock::Models::Tenants::BulkDeleteResponse::ErrorItem]) | nil,
+        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }
@@ -42,7 +42,7 @@ class Knock::Test::Resources::Tenants::BulkTest < Knock::Test::ResourceTest
     response = @knock.tenants.bulk.set(tenants: ["string"])
 
     assert_pattern do
-      response => Knock::Models::Tenants::BulkSetResponse
+      response => Knock::Models::BulkOperation
     end
 
     assert_pattern do
@@ -53,12 +53,12 @@ class Knock::Test::Resources::Tenants::BulkTest < Knock::Test::ResourceTest
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knock::Models::Tenants::BulkSetResponse::Status,
+        status: Knock::Models::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knock::ArrayOf[Knock::Models::Tenants::BulkSetResponse::ErrorItem]) | nil,
+        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }

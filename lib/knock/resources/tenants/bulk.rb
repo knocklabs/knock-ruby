@@ -12,7 +12,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Tenants::BulkDeleteResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def delete(params)
           parsed, options = Knock::Models::Tenants::BulkDeleteParams.dump_request(params)
@@ -20,7 +20,7 @@ module Knock
             method: :post,
             path: "v1/tenants/bulk/delete",
             query: parsed,
-            model: Knock::Models::Tenants::BulkDeleteResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end
@@ -33,7 +33,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Tenants::BulkSetResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def set(params)
           parsed, options = Knock::Models::Tenants::BulkSetParams.dump_request(params)
@@ -41,7 +41,7 @@ module Knock
             method: :post,
             path: "v1/tenants/bulk/set",
             body: parsed,
-            model: Knock::Models::Tenants::BulkSetResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end

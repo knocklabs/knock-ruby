@@ -28,7 +28,7 @@ class Knock::Test::Resources::AudiencesTest < Knock::Test::ResourceTest
 
     assert_pattern do
       response => {
-        entries: ^(Knock::ArrayOf[Knock::Models::AudienceListMembersResponse::Entry]),
+        entries: ^(Knock::ArrayOf[Knock::Models::AudienceMember]),
         page_info: Knock::Models::AudienceListMembersResponse::PageInfo
       }
     end

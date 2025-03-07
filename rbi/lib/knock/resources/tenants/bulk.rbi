@@ -9,7 +9,7 @@ module Knock
             tenant_ids: T::Array[String],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Tenants::BulkDeleteResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def delete(tenant_ids:, request_options: {})
         end
@@ -19,7 +19,7 @@ module Knock
             tenants: T::Array[T.any(String, Knock::Models::TenantRequest)],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knock::Models::Tenants::BulkSetResponse)
+            .returns(Knock::Models::BulkOperation)
         end
         def set(tenants:, request_options: {})
         end

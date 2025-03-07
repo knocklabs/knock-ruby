@@ -21,29 +21,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
 
     row = response.to_enum.first
     assert_pattern do
-      row => Knock::Models::MessageListResponse
+      row => Knock::Models::Message
     end
 
     assert_pattern do
       row => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageListResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageListResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageListResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageListResponse::Source | nil,
-        status: Knock::Models::MessageListResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -59,29 +59,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.archive("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageArchiveResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageArchiveResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageArchiveResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageArchiveResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageArchiveResponse::Source | nil,
-        status: Knock::Models::MessageArchiveResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -97,29 +97,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.get("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageGetResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageGetResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageGetResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageGetResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageGetResponse::Source | nil,
-        status: Knock::Models::MessageGetResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -166,7 +166,7 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
 
     row = response.to_enum.first
     assert_pattern do
-      row => Knock::Models::MessageListActivitiesResponse
+      row => Knock::Models::Activity
     end
 
     assert_pattern do
@@ -234,7 +234,7 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
 
     row = response.to_enum.first
     assert_pattern do
-      row => Knock::Models::MessageListEventsResponse
+      row => Knock::Models::MessageEvent
     end
 
     assert_pattern do
@@ -242,8 +242,8 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
         id: String,
         _typename: String,
         inserted_at: Time,
-        recipient: Knock::Models::MessageListEventsResponse::Recipient,
-        type: Knock::Models::MessageListEventsResponse::Type,
+        recipient: Knock::Models::MessageEvent::Recipient,
+        type: Knock::Models::MessageEvent::Type,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil
       }
     end
@@ -257,29 +257,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.mark_as_interacted("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageMarkAsInteractedResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageMarkAsInteractedResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageMarkAsInteractedResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageMarkAsInteractedResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageMarkAsInteractedResponse::Source | nil,
-        status: Knock::Models::MessageMarkAsInteractedResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -295,29 +295,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.mark_as_read("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageMarkAsReadResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageMarkAsReadResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageMarkAsReadResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageMarkAsReadResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageMarkAsReadResponse::Source | nil,
-        status: Knock::Models::MessageMarkAsReadResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -333,29 +333,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.mark_as_seen("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageMarkAsSeenResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageMarkAsSeenResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageMarkAsSeenResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageMarkAsSeenResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageMarkAsSeenResponse::Source | nil,
-        status: Knock::Models::MessageMarkAsSeenResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -371,29 +371,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.mark_as_unread("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageMarkAsUnreadResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageMarkAsUnreadResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageMarkAsUnreadResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageMarkAsUnreadResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageMarkAsUnreadResponse::Source | nil,
-        status: Knock::Models::MessageMarkAsUnreadResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -409,29 +409,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.mark_as_unseen("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageMarkAsUnseenResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageMarkAsUnseenResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageMarkAsUnseenResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageMarkAsUnseenResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageMarkAsUnseenResponse::Source | nil,
-        status: Knock::Models::MessageMarkAsUnseenResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -447,29 +447,29 @@ class Knock::Test::Resources::MessagesTest < Knock::Test::ResourceTest
     response = @knock.messages.unarchive("message_id")
 
     assert_pattern do
-      response => Knock::Models::MessageUnarchiveResponse
+      response => Knock::Models::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knock::ArrayOf[union: Knock::Models::MessageUnarchiveResponse::Actor]) | nil,
+        actors: ^(Knock::ArrayOf[union: Knock::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,
-        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::MessageUnarchiveResponse::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knock::ArrayOf[enum: Knock::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knock::HashOf[Knock::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knock::Models::MessageUnarchiveResponse::Recipient | nil,
+        recipient: Knock::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knock::Models::MessageUnarchiveResponse::Source | nil,
-        status: Knock::Models::MessageUnarchiveResponse::Status | nil,
+        source: Knock::Models::Message::Source | nil,
+        status: Knock::Models::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil

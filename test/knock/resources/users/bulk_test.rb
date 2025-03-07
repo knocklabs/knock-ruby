@@ -11,7 +11,7 @@ class Knock::Test::Resources::Users::BulkTest < Knock::Test::ResourceTest
     response = @knock.users.bulk.delete(query_user_ids: ["string"], body_user_ids: %w[user_1 user_2])
 
     assert_pattern do
-      response => Knock::Models::Users::BulkDeleteResponse
+      response => Knock::Models::BulkOperation
     end
 
     assert_pattern do
@@ -22,12 +22,12 @@ class Knock::Test::Resources::Users::BulkTest < Knock::Test::ResourceTest
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knock::Models::Users::BulkDeleteResponse::Status,
+        status: Knock::Models::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knock::ArrayOf[Knock::Models::Users::BulkDeleteResponse::ErrorItem]) | nil,
+        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }
@@ -42,7 +42,7 @@ class Knock::Test::Resources::Users::BulkTest < Knock::Test::ResourceTest
     response = @knock.users.bulk.identify(users: [{id: "user_1"}])
 
     assert_pattern do
-      response => Knock::Models::Users::BulkIdentifyResponse
+      response => Knock::Models::BulkOperation
     end
 
     assert_pattern do
@@ -53,12 +53,12 @@ class Knock::Test::Resources::Users::BulkTest < Knock::Test::ResourceTest
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knock::Models::Users::BulkIdentifyResponse::Status,
+        status: Knock::Models::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knock::ArrayOf[Knock::Models::Users::BulkIdentifyResponse::ErrorItem]) | nil,
+        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }
@@ -73,7 +73,7 @@ class Knock::Test::Resources::Users::BulkTest < Knock::Test::ResourceTest
     response = @knock.users.bulk.set_preferences(preferences: {}, user_ids: %w[user_1 user_2])
 
     assert_pattern do
-      response => Knock::Models::Users::BulkSetPreferencesResponse
+      response => Knock::Models::BulkOperation
     end
 
     assert_pattern do
@@ -84,12 +84,12 @@ class Knock::Test::Resources::Users::BulkTest < Knock::Test::ResourceTest
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knock::Models::Users::BulkSetPreferencesResponse::Status,
+        status: Knock::Models::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knock::ArrayOf[Knock::Models::Users::BulkSetPreferencesResponse::ErrorItem]) | nil,
+        error_items: ^(Knock::ArrayOf[Knock::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }

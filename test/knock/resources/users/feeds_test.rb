@@ -46,7 +46,7 @@ class Knock::Test::Resources::Users::FeedsTest < Knock::Test::ResourceTest
       row => {
         id: String,
         _typename: String,
-        activities: ^(Knock::ArrayOf[Knock::Models::Users::FeedListItemsResponse::Activity]),
+        activities: ^(Knock::ArrayOf[Knock::Models::Activity]),
         actors: ^(Knock::ArrayOf[union: Knock::Models::Recipient]),
         blocks: ^(Knock::ArrayOf[union: Knock::Models::Users::FeedListItemsResponse::Block]),
         data: ^(Knock::HashOf[Knock::Unknown]) | nil,

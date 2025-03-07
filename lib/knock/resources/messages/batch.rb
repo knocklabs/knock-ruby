@@ -12,7 +12,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Array<Knock::Models::Messages::BatchArchiveResponseItem>]
+        # @return [Array<Knock::Models::Message>]
         #
         def archive(params)
           parsed, options = Knock::Models::Messages::BatchArchiveParams.dump_request(params)
@@ -20,7 +20,7 @@ module Knock
             method: :post,
             path: "v1/messages/batch/archived",
             body: parsed,
-            model: Knock::ArrayOf[Knock::Models::Messages::BatchArchiveResponseItem],
+            model: Knock::ArrayOf[Knock::Models::Message],
             options: options
           )
         end
@@ -56,7 +56,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Array<Knock::Models::Messages::BatchMarkAsInteractedResponseItem>]
+        # @return [Array<Knock::Models::Message>]
         #
         def mark_as_interacted(params)
           parsed, options = Knock::Models::Messages::BatchMarkAsInteractedParams.dump_request(params)
@@ -64,7 +64,7 @@ module Knock
             method: :post,
             path: "v1/messages/batch/interacted",
             body: parsed,
-            model: Knock::ArrayOf[Knock::Models::Messages::BatchMarkAsInteractedResponseItem],
+            model: Knock::ArrayOf[Knock::Models::Message],
             options: options
           )
         end
@@ -77,7 +77,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Array<Knock::Models::Messages::BatchMarkAsReadResponseItem>]
+        # @return [Array<Knock::Models::Message>]
         #
         def mark_as_read(params)
           parsed, options = Knock::Models::Messages::BatchMarkAsReadParams.dump_request(params)
@@ -85,7 +85,7 @@ module Knock
             method: :post,
             path: "v1/messages/batch/read",
             body: parsed,
-            model: Knock::ArrayOf[Knock::Models::Messages::BatchMarkAsReadResponseItem],
+            model: Knock::ArrayOf[Knock::Models::Message],
             options: options
           )
         end
@@ -98,7 +98,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Array<Knock::Models::Messages::BatchMarkAsSeenResponseItem>]
+        # @return [Array<Knock::Models::Message>]
         #
         def mark_as_seen(params)
           parsed, options = Knock::Models::Messages::BatchMarkAsSeenParams.dump_request(params)
@@ -106,7 +106,7 @@ module Knock
             method: :post,
             path: "v1/messages/batch/seen",
             body: parsed,
-            model: Knock::ArrayOf[Knock::Models::Messages::BatchMarkAsSeenResponseItem],
+            model: Knock::ArrayOf[Knock::Models::Message],
             options: options
           )
         end
@@ -119,7 +119,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Array<Knock::Models::Messages::BatchMarkAsUnreadResponseItem>]
+        # @return [Array<Knock::Models::Message>]
         #
         def mark_as_unread(params)
           parsed, options = Knock::Models::Messages::BatchMarkAsUnreadParams.dump_request(params)
@@ -127,7 +127,7 @@ module Knock
             method: :post,
             path: "v1/messages/batch/unread",
             body: parsed,
-            model: Knock::ArrayOf[Knock::Models::Messages::BatchMarkAsUnreadResponseItem],
+            model: Knock::ArrayOf[Knock::Models::Message],
             options: options
           )
         end
@@ -140,7 +140,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Array<Knock::Models::Messages::BatchMarkAsUnseenResponseItem>]
+        # @return [Array<Knock::Models::Message>]
         #
         def mark_as_unseen(params)
           parsed, options = Knock::Models::Messages::BatchMarkAsUnseenParams.dump_request(params)
@@ -148,7 +148,7 @@ module Knock
             method: :post,
             path: "v1/messages/batch/unseen",
             body: parsed,
-            model: Knock::ArrayOf[Knock::Models::Messages::BatchMarkAsUnseenResponseItem],
+            model: Knock::ArrayOf[Knock::Models::Message],
             options: options
           )
         end
@@ -161,7 +161,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Array<Knock::Models::Messages::BatchUnarchiveResponseItem>]
+        # @return [Array<Knock::Models::Message>]
         #
         def unarchive(params)
           parsed, options = Knock::Models::Messages::BatchUnarchiveParams.dump_request(params)
@@ -169,7 +169,7 @@ module Knock
             method: :post,
             path: "v1/messages/batch/unarchived",
             body: parsed,
-            model: Knock::ArrayOf[Knock::Models::Messages::BatchUnarchiveResponseItem],
+            model: Knock::ArrayOf[Knock::Models::Message],
             options: options
           )
         end

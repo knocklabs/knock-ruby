@@ -243,7 +243,7 @@ module Knock
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
-      # @return [Knock::EntriesCursor<Knock::Models::ObjectListMessagesResponse>]
+      # @return [Knock::EntriesCursor<Knock::Models::Message>]
       #
       def list_messages(id, params)
         parsed, options = Knock::Models::ObjectListMessagesParams.dump_request(params)
@@ -255,7 +255,7 @@ module Knock
           path: ["v1/objects/%0s/%1s/messages", collection, id],
           query: parsed,
           page: Knock::EntriesCursor,
-          model: Knock::Models::ObjectListMessagesResponse,
+          model: Knock::Models::Message,
           options: options
         )
       end

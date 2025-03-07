@@ -12,7 +12,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Users::BulkDeleteResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def delete(params)
           parsed, options = Knock::Models::Users::BulkDeleteParams.dump_request(params)
@@ -22,7 +22,7 @@ module Knock
             path: "v1/users/bulk/delete",
             query: parsed.slice(*query_params),
             body: parsed.except(*query_params),
-            model: Knock::Models::Users::BulkDeleteResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end
@@ -35,7 +35,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Users::BulkIdentifyResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def identify(params)
           parsed, options = Knock::Models::Users::BulkIdentifyParams.dump_request(params)
@@ -43,7 +43,7 @@ module Knock
             method: :post,
             path: "v1/users/bulk/identify",
             body: parsed,
-            model: Knock::Models::Users::BulkIdentifyResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end
@@ -58,7 +58,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Users::BulkSetPreferencesResponse]
+        # @return [Knock::Models::BulkOperation]
         #
         def set_preferences(params)
           parsed, options = Knock::Models::Users::BulkSetPreferencesParams.dump_request(params)
@@ -66,7 +66,7 @@ module Knock
             method: :post,
             path: "v1/users/bulk/preferences",
             body: parsed,
-            model: Knock::Models::Users::BulkSetPreferencesResponse,
+            model: Knock::Models::BulkOperation,
             options: options
           )
         end
