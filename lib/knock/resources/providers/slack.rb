@@ -39,7 +39,7 @@ module Knock
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
-        # @return [Knock::Models::Providers::SlackListChannelsResponse]
+        # @return [Knock::SlackChannelsCursor<Knock::Models::Providers::SlackListChannelsResponse>]
         #
         def list_channels(channel_id, params)
           parsed, options = Knock::Models::Providers::SlackListChannelsParams.dump_request(params)
@@ -47,6 +47,7 @@ module Knock
             method: :get,
             path: ["v1/providers/slack/%0s/channels", channel_id],
             query: parsed,
+            page: Knock::SlackChannelsCursor,
             model: Knock::Models::Providers::SlackListChannelsResponse,
             options: options
           )
