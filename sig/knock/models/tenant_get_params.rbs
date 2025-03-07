@@ -1,0 +1,16 @@
+module Knock
+  module Models
+    type tenant_get_params = {  } & Knock::request_parameters
+
+    class TenantGetParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      def initialize:
+        (request_options: Knock::request_opts) -> void
+        | (?Knock::Models::tenant_get_params | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::tenant_get_params
+    end
+  end
+end

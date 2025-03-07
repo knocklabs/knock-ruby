@@ -1,0 +1,57 @@
+module Knock
+  module Models
+    type message_list_activities_response =
+      {
+        id: String,
+        _typename: String,
+        actor: Knock::Models::recipient?,
+        data: ::Hash[Symbol, top]?,
+        inserted_at: Time,
+        recipient: Knock::Models::recipient,
+        updated_at: Time
+      }
+
+    class MessageListActivitiesResponse < Knock::BaseModel
+      attr_reader id: String?
+
+      def id=: (String) -> String
+
+      attr_reader _typename: String?
+
+      def _typename=: (String) -> String
+
+      attr_accessor actor: Knock::Models::recipient?
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      attr_reader inserted_at: Time?
+
+      def inserted_at=: (Time) -> Time
+
+      attr_reader recipient: Knock::Models::recipient?
+
+      def recipient=: (Knock::Models::recipient) -> Knock::Models::recipient
+
+      attr_reader updated_at: Time?
+
+      def updated_at=: (Time) -> Time
+
+      def initialize:
+        (
+          id: String,
+          _typename: String,
+          actor: Knock::Models::recipient?,
+          data: ::Hash[Symbol, top]?,
+          inserted_at: Time,
+          recipient: Knock::Models::recipient,
+          updated_at: Time
+        ) -> void
+        | (
+          ?Knock::Models::message_list_activities_response
+          | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::message_list_activities_response
+    end
+  end
+end

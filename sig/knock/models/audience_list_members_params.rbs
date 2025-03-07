@@ -1,0 +1,18 @@
+module Knock
+  module Models
+    type audience_list_members_params = {  } & Knock::request_parameters
+
+    class AudienceListMembersParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      def initialize:
+        (request_options: Knock::request_opts) -> void
+        | (
+          ?Knock::Models::audience_list_members_params | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::audience_list_members_params
+    end
+  end
+end

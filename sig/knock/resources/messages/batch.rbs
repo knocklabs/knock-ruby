@@ -1,0 +1,90 @@
+module Knock
+  module Resources
+    class Messages
+      class Batch
+        def archive:
+          (
+            Knock::Models::Messages::BatchArchiveParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_archive_response
+          | (
+            message_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_archive_response
+
+        def get_content:
+          (
+            Knock::Models::Messages::BatchGetContentParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_get_content_response
+          | (
+            message_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_get_content_response
+
+        def mark_as_interacted:
+          (
+            Knock::Models::Messages::BatchMarkAsInteractedParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_mark_as_interacted_response
+          | (
+            message_ids: ::Array[String],
+            metadata: ::Hash[Symbol, top]?,
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_mark_as_interacted_response
+
+        def mark_as_read:
+          (
+            Knock::Models::Messages::BatchMarkAsReadParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_mark_as_read_response
+          | (
+            message_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_mark_as_read_response
+
+        def mark_as_seen:
+          (
+            Knock::Models::Messages::BatchMarkAsSeenParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_mark_as_seen_response
+          | (
+            message_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_mark_as_seen_response
+
+        def mark_as_unread:
+          (
+            Knock::Models::Messages::BatchMarkAsUnreadParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_mark_as_unread_response
+          | (
+            message_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_mark_as_unread_response
+
+        def mark_as_unseen:
+          (
+            Knock::Models::Messages::BatchMarkAsUnseenParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_mark_as_unseen_response
+          | (
+            message_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_mark_as_unseen_response
+
+        def unarchive:
+          (
+            Knock::Models::Messages::BatchUnarchiveParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Messages::batch_unarchive_response
+          | (
+            message_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Messages::batch_unarchive_response
+
+        def initialize: (client: Knock::Client) -> void
+      end
+    end
+  end
+end

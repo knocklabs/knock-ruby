@@ -1,0 +1,102 @@
+module Knock
+  module Models
+    type preference_set_channel_types =
+      {
+        chat: Knock::Models::PreferenceSetChannelTypes::chat,
+        email: Knock::Models::PreferenceSetChannelTypes::email,
+        http: Knock::Models::PreferenceSetChannelTypes::http,
+        in_app_feed: Knock::Models::PreferenceSetChannelTypes::in_app_feed,
+        push: Knock::Models::PreferenceSetChannelTypes::push,
+        sms: Knock::Models::PreferenceSetChannelTypes::sms
+      }
+
+    class PreferenceSetChannelTypes < Knock::BaseModel
+      attr_reader chat: Knock::Models::PreferenceSetChannelTypes::chat?
+
+      def chat=: (
+        Knock::Models::PreferenceSetChannelTypes::chat
+      ) -> Knock::Models::PreferenceSetChannelTypes::chat
+
+      attr_reader email: Knock::Models::PreferenceSetChannelTypes::email?
+
+      def email=: (
+        Knock::Models::PreferenceSetChannelTypes::email
+      ) -> Knock::Models::PreferenceSetChannelTypes::email
+
+      attr_reader http: Knock::Models::PreferenceSetChannelTypes::http?
+
+      def http=: (
+        Knock::Models::PreferenceSetChannelTypes::http
+      ) -> Knock::Models::PreferenceSetChannelTypes::http
+
+      attr_reader in_app_feed: Knock::Models::PreferenceSetChannelTypes::in_app_feed?
+
+      def in_app_feed=: (
+        Knock::Models::PreferenceSetChannelTypes::in_app_feed
+      ) -> Knock::Models::PreferenceSetChannelTypes::in_app_feed
+
+      attr_reader push: Knock::Models::PreferenceSetChannelTypes::push?
+
+      def push=: (
+        Knock::Models::PreferenceSetChannelTypes::push
+      ) -> Knock::Models::PreferenceSetChannelTypes::push
+
+      attr_reader sms: Knock::Models::PreferenceSetChannelTypes::sms?
+
+      def sms=: (
+        Knock::Models::PreferenceSetChannelTypes::sms
+      ) -> Knock::Models::PreferenceSetChannelTypes::sms
+
+      def initialize:
+        (
+          chat: Knock::Models::PreferenceSetChannelTypes::chat,
+          email: Knock::Models::PreferenceSetChannelTypes::email,
+          http: Knock::Models::PreferenceSetChannelTypes::http,
+          in_app_feed: Knock::Models::PreferenceSetChannelTypes::in_app_feed,
+          push: Knock::Models::PreferenceSetChannelTypes::push,
+          sms: Knock::Models::PreferenceSetChannelTypes::sms
+        ) -> void
+        | (
+          ?Knock::Models::preference_set_channel_types | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::preference_set_channel_types
+
+      type chat = bool | Knock::Models::PreferenceSetChannelTypeSetting
+
+      class Chat < Knock::Union
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSetChannelTypeSetting]]
+      end
+
+      type email = bool | Knock::Models::PreferenceSetChannelTypeSetting
+
+      class Email < Knock::Union
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSetChannelTypeSetting]]
+      end
+
+      type http = bool | Knock::Models::PreferenceSetChannelTypeSetting
+
+      class HTTP < Knock::Union
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSetChannelTypeSetting]]
+      end
+
+      type in_app_feed = bool | Knock::Models::PreferenceSetChannelTypeSetting
+
+      class InAppFeed < Knock::Union
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSetChannelTypeSetting]]
+      end
+
+      type push = bool | Knock::Models::PreferenceSetChannelTypeSetting
+
+      class Push < Knock::Union
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSetChannelTypeSetting]]
+      end
+
+      type sms = bool | Knock::Models::PreferenceSetChannelTypeSetting
+
+      class SMS < Knock::Union
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSetChannelTypeSetting]]
+      end
+    end
+  end
+end

@@ -1,0 +1,34 @@
+module Knock
+  module Models
+    type inline_identify_user_request =
+      {
+        id: String,
+        channel_data: Knock::Models::inline_channel_data_request?,
+        created_at: Time?,
+        preferences: Knock::Models::inline_preference_set_request?
+      }
+
+    class InlineIdentifyUserRequest < Knock::BaseModel
+      attr_accessor id: String
+
+      attr_accessor channel_data: Knock::Models::inline_channel_data_request?
+
+      attr_accessor created_at: Time?
+
+      attr_accessor preferences: Knock::Models::inline_preference_set_request?
+
+      def initialize:
+        (
+          id: String,
+          channel_data: Knock::Models::inline_channel_data_request?,
+          created_at: Time?,
+          preferences: Knock::Models::inline_preference_set_request?
+        ) -> void
+        | (
+          ?Knock::Models::inline_identify_user_request | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::inline_identify_user_request
+    end
+  end
+end

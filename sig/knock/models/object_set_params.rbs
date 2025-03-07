@@ -1,0 +1,33 @@
+module Knock
+  module Models
+    type object_set_params =
+      {
+        collection: String,
+        channel_data: Knock::Models::inline_channel_data_request?,
+        preferences: Knock::Models::inline_preference_set_request?
+      }
+      & Knock::request_parameters
+
+    class ObjectSetParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      attr_accessor collection: String
+
+      attr_accessor channel_data: Knock::Models::inline_channel_data_request?
+
+      attr_accessor preferences: Knock::Models::inline_preference_set_request?
+
+      def initialize:
+        (
+          collection: String,
+          channel_data: Knock::Models::inline_channel_data_request?,
+          preferences: Knock::Models::inline_preference_set_request?,
+          request_options: Knock::request_opts
+        ) -> void
+        | (?Knock::Models::object_set_params | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::object_set_params
+    end
+  end
+end

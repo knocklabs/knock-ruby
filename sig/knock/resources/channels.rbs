@@ -1,0 +1,9 @@
+module Knock
+  module Resources
+    class Channels
+      attr_reader bulk: Knock::Resources::Channels::Bulk
+
+      def initialize: (client: Knock::Client) -> void
+    end
+  end
+end

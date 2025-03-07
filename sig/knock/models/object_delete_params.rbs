@@ -1,0 +1,19 @@
+module Knock
+  module Models
+    type object_delete_params =
+      { collection: String } & Knock::request_parameters
+
+    class ObjectDeleteParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      attr_accessor collection: String
+
+      def initialize:
+        (collection: String, request_options: Knock::request_opts) -> void
+        | (?Knock::Models::object_delete_params | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::object_delete_params
+    end
+  end
+end

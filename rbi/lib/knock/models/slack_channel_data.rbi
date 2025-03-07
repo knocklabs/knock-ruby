@@ -1,0 +1,182 @@
+# typed: strong
+
+module Knock
+  module Models
+    class SlackChannelData < Knock::BaseModel
+      sig do
+        returns(
+          T::Array[
+          T.any(
+            Knock::Models::SlackChannelData::Connection::SlackTokenConnection,
+            Knock::Models::SlackChannelData::Connection::SlackIncomingWebhookConnection
+          )
+          ]
+        )
+      end
+      def connections
+      end
+
+      sig do
+        params(
+          _: T::Array[
+          T.any(
+            Knock::Models::SlackChannelData::Connection::SlackTokenConnection,
+            Knock::Models::SlackChannelData::Connection::SlackIncomingWebhookConnection
+          )
+          ]
+        )
+          .returns(
+            T::Array[
+            T.any(
+              Knock::Models::SlackChannelData::Connection::SlackTokenConnection,
+              Knock::Models::SlackChannelData::Connection::SlackIncomingWebhookConnection
+            )
+            ]
+          )
+      end
+      def connections=(_)
+      end
+
+      sig { returns(T.nilable(Knock::Models::SlackChannelData::Token)) }
+      def token
+      end
+
+      sig do
+        params(_: T.nilable(Knock::Models::SlackChannelData::Token))
+          .returns(T.nilable(Knock::Models::SlackChannelData::Token))
+      end
+      def token=(_)
+      end
+
+      sig do
+        params(
+          connections: T::Array[
+          T.any(
+            Knock::Models::SlackChannelData::Connection::SlackTokenConnection,
+            Knock::Models::SlackChannelData::Connection::SlackIncomingWebhookConnection
+          )
+          ],
+          token: T.nilable(Knock::Models::SlackChannelData::Token)
+        )
+          .void
+      end
+      def initialize(connections:, token: nil)
+      end
+
+      sig do
+        override
+          .returns(
+            {
+              connections: T::Array[
+              T.any(
+                Knock::Models::SlackChannelData::Connection::SlackTokenConnection,
+                Knock::Models::SlackChannelData::Connection::SlackIncomingWebhookConnection
+              )
+              ],
+              token: T.nilable(Knock::Models::SlackChannelData::Token)
+            }
+          )
+      end
+      def to_hash
+      end
+
+      class Connection < Knock::Union
+        abstract!
+
+        class SlackTokenConnection < Knock::BaseModel
+          sig { returns(T.nilable(String)) }
+          def access_token
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def access_token=(_)
+          end
+
+          sig { returns(T.nilable(String)) }
+          def channel_id
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def channel_id=(_)
+          end
+
+          sig { returns(T.nilable(String)) }
+          def user_id
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def user_id=(_)
+          end
+
+          sig do
+            params(
+              access_token: T.nilable(String),
+              channel_id: T.nilable(String),
+              user_id: T.nilable(String)
+            ).void
+          end
+          def initialize(access_token: nil, channel_id: nil, user_id: nil)
+          end
+
+          sig do
+            override
+              .returns({
+                         access_token: T.nilable(String),
+                         channel_id: T.nilable(String),
+                         user_id: T.nilable(String)
+                       })
+          end
+          def to_hash
+          end
+        end
+
+        class SlackIncomingWebhookConnection < Knock::BaseModel
+          sig { returns(String) }
+          def url
+          end
+
+          sig { params(_: String).returns(String) }
+          def url=(_)
+          end
+
+          sig { params(url: String).void }
+          def initialize(url:)
+          end
+
+          sig { override.returns({url: String}) }
+          def to_hash
+          end
+        end
+
+        class << self
+          sig do
+            override
+              .returns(
+                [[NilClass, Knock::Models::SlackChannelData::Connection::SlackTokenConnection], [NilClass, Knock::Models::SlackChannelData::Connection::SlackIncomingWebhookConnection]]
+              )
+          end
+          private def variants
+          end
+        end
+      end
+
+      class Token < Knock::BaseModel
+        sig { returns(T.nilable(String)) }
+        def access_token
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def access_token=(_)
+        end
+
+        sig { params(access_token: T.nilable(String)).void }
+        def initialize(access_token:)
+        end
+
+        sig { override.returns({access_token: T.nilable(String)}) }
+        def to_hash
+        end
+      end
+    end
+  end
+end

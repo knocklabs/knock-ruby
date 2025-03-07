@@ -1,0 +1,76 @@
+module Knock
+  module Models
+    type discord_channel_data =
+      { connections: ::Array[Knock::Models::DiscordChannelData::connection] }
+
+    class DiscordChannelData < Knock::BaseModel
+      attr_accessor connections: ::Array[Knock::Models::DiscordChannelData::connection]
+
+      def initialize:
+        (
+          connections: ::Array[Knock::Models::DiscordChannelData::connection]
+        ) -> void
+        | (?Knock::Models::discord_channel_data | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::discord_channel_data
+
+      type connection =
+        Knock::Models::DiscordChannelData::Connection::DiscordChannelConnection
+        | Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+
+      class Connection < Knock::Union
+        type discord_channel_connection = { channel_id: String }
+
+        class DiscordChannelConnection < Knock::BaseModel
+          attr_accessor channel_id: String
+
+          def initialize:
+            (channel_id: String) -> void
+            | (
+              ?Knock::Models::DiscordChannelData::Connection::discord_channel_connection
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::DiscordChannelData::Connection::discord_channel_connection
+        end
+
+        type discord_incoming_webhook_connection =
+          {
+            incoming_webhook: Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+          }
+
+        class DiscordIncomingWebhookConnection < Knock::BaseModel
+          attr_accessor incoming_webhook: Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+
+          def initialize:
+            (
+              incoming_webhook: Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+            ) -> void
+            | (
+              ?Knock::Models::DiscordChannelData::Connection::discord_incoming_webhook_connection
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::DiscordChannelData::Connection::discord_incoming_webhook_connection
+
+          type incoming_webhook = { url: String }
+
+          class IncomingWebhook < Knock::BaseModel
+            attr_accessor url: String
+
+            def initialize:
+              (url: String) -> void
+              | (
+                ?Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::incoming_webhook
+                | Knock::BaseModel data
+              ) -> void
+
+            def to_hash: -> Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::incoming_webhook
+          end
+        end
+
+        private def self.variants: -> [[nil, Knock::Models::DiscordChannelData::Connection::DiscordChannelConnection], [nil, Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]]
+      end
+    end
+  end
+end

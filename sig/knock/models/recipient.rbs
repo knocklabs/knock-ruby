@@ -1,0 +1,9 @@
+module Knock
+  module Models
+    type recipient = Knock::Models::User | Knock::Models::Object
+
+    class Recipient < Knock::Union
+      private def self.variants: -> [[nil, Knock::Models::User], [nil, Knock::Models::Object]]
+    end
+  end
+end

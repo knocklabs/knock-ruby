@@ -1,0 +1,165 @@
+module Knock
+  module Models
+    type message_list_delivery_logs_response =
+      {
+        id: String,
+        _typename: String,
+        environment_id: String,
+        inserted_at: String,
+        request: Knock::Models::MessageListDeliveryLogsResponse::Request,
+        response: Knock::Models::MessageListDeliveryLogsResponse::Response,
+        service_name: String
+      }
+
+    class MessageListDeliveryLogsResponse < Knock::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor environment_id: String
+
+      attr_accessor inserted_at: String
+
+      attr_accessor request: Knock::Models::MessageListDeliveryLogsResponse::Request
+
+      attr_accessor response: Knock::Models::MessageListDeliveryLogsResponse::Response
+
+      attr_accessor service_name: String
+
+      def initialize:
+        (
+          id: String,
+          _typename: String,
+          environment_id: String,
+          inserted_at: String,
+          request: Knock::Models::MessageListDeliveryLogsResponse::Request,
+          response: Knock::Models::MessageListDeliveryLogsResponse::Response,
+          service_name: String
+        ) -> void
+        | (
+          ?Knock::Models::message_list_delivery_logs_response
+          | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::message_list_delivery_logs_response
+
+      type request =
+        {
+          body: Knock::Models::MessageListDeliveryLogsResponse::Request::body,
+          headers: ::Hash[Symbol, top]?,
+          host: String,
+          method_: Knock::Models::MessageListDeliveryLogsResponse::Request::method_,
+          path: String,
+          query: String?
+        }
+
+      class Request < Knock::BaseModel
+        attr_reader body: Knock::Models::MessageListDeliveryLogsResponse::Request::body?
+
+        def body=: (
+          Knock::Models::MessageListDeliveryLogsResponse::Request::body
+        ) -> Knock::Models::MessageListDeliveryLogsResponse::Request::body
+
+        attr_accessor headers: ::Hash[Symbol, top]?
+
+        attr_reader host: String?
+
+        def host=: (String) -> String
+
+        attr_reader method_: Knock::Models::MessageListDeliveryLogsResponse::Request::method_?
+
+        def method_=: (
+          Knock::Models::MessageListDeliveryLogsResponse::Request::method_
+        ) -> Knock::Models::MessageListDeliveryLogsResponse::Request::method_
+
+        attr_reader path: String?
+
+        def path=: (String) -> String
+
+        attr_accessor query: String?
+
+        def initialize:
+          (
+            body: Knock::Models::MessageListDeliveryLogsResponse::Request::body,
+            headers: ::Hash[Symbol, top]?,
+            host: String,
+            method_: Knock::Models::MessageListDeliveryLogsResponse::Request::method_,
+            path: String,
+            query: String?
+          ) -> void
+          | (
+            ?Knock::Models::MessageListDeliveryLogsResponse::request
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::MessageListDeliveryLogsResponse::request
+
+        type body = String | ::Hash[Symbol, top]
+
+        class Body < Knock::Union
+          type union_member1_map = ::Hash[Symbol, top]
+
+          UnionMember1Map: union_member1_map
+
+          private def self.variants: -> [[nil, String], [nil, ::Hash[Symbol, top]]]
+        end
+
+        type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
+
+        class Method < Knock::Enum
+          GET: :GET
+          POST: :POST
+          PUT: :PUT
+          DELETE: :DELETE
+          PATCH: :PATCH
+
+          def self.values: -> ::Array[Knock::Models::MessageListDeliveryLogsResponse::Request::method_]
+        end
+      end
+
+      type response =
+        {
+          body: Knock::Models::MessageListDeliveryLogsResponse::Response::body,
+          headers: ::Hash[Symbol, top]?,
+          status: Integer
+        }
+
+      class Response < Knock::BaseModel
+        attr_reader body: Knock::Models::MessageListDeliveryLogsResponse::Response::body?
+
+        def body=: (
+          Knock::Models::MessageListDeliveryLogsResponse::Response::body
+        ) -> Knock::Models::MessageListDeliveryLogsResponse::Response::body
+
+        attr_accessor headers: ::Hash[Symbol, top]?
+
+        attr_reader status: Integer?
+
+        def status=: (Integer) -> Integer
+
+        def initialize:
+          (
+            body: Knock::Models::MessageListDeliveryLogsResponse::Response::body,
+            headers: ::Hash[Symbol, top]?,
+            status: Integer
+          ) -> void
+          | (
+            ?Knock::Models::MessageListDeliveryLogsResponse::response
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::MessageListDeliveryLogsResponse::response
+
+        type body = String | ::Hash[Symbol, top]
+
+        class Body < Knock::Union
+          type union_member1_map = ::Hash[Symbol, top]
+
+          UnionMember1Map: union_member1_map
+
+          private def self.variants: -> [[nil, String], [nil, ::Hash[Symbol, top]]]
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,9 @@
+module Knock
+  module Models
+    type inline_tenant_request = String | Knock::Models::TenantRequest
+
+    class InlineTenantRequest < Knock::Union
+      private def self.variants: -> [[nil, String], [nil, Knock::Models::TenantRequest]]
+    end
+  end
+end

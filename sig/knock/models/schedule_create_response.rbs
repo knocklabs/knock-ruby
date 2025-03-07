@@ -1,0 +1,7 @@
+module Knock
+  module Models
+    type schedule_create_response = ::Array[Knock::Models::Schedule]
+
+    ScheduleCreateResponse: schedule_create_response
+  end
+end

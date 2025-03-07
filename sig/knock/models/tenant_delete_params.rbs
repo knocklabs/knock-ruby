@@ -1,0 +1,16 @@
+module Knock
+  module Models
+    type tenant_delete_params = {  } & Knock::request_parameters
+
+    class TenantDeleteParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      def initialize:
+        (request_options: Knock::request_opts) -> void
+        | (?Knock::Models::tenant_delete_params | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::tenant_delete_params
+    end
+  end
+end

@@ -1,0 +1,11 @@
+module Knock
+  module Resources
+    class Providers
+      attr_reader slack: Knock::Resources::Providers::Slack
+
+      attr_reader ms_teams: Knock::Resources::Providers::MsTeams
+
+      def initialize: (client: Knock::Client) -> void
+    end
+  end
+end

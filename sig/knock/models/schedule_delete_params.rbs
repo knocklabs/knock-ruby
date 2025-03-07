@@ -1,0 +1,24 @@
+module Knock
+  module Models
+    type schedule_delete_params =
+      { schedule_ids: ::Array[String] } & Knock::request_parameters
+
+    class ScheduleDeleteParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      attr_accessor schedule_ids: ::Array[String]
+
+      def initialize:
+        (
+          schedule_ids: ::Array[String],
+          request_options: Knock::request_opts
+        ) -> void
+        | (
+          ?Knock::Models::schedule_delete_params | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::schedule_delete_params
+    end
+  end
+end

@@ -1,0 +1,17 @@
+module Knock
+  module Resources
+    class BulkOperations
+      def get:
+        (
+          String id,
+          ?Knock::Models::BulkOperationGetParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::BulkOperationGetResponse
+        | (
+          String id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::BulkOperationGetResponse
+
+      def initialize: (client: Knock::Client) -> void
+    end
+  end
+end

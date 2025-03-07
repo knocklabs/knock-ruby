@@ -1,0 +1,42 @@
+module Knock
+  module Models
+    module Providers
+      type slack_check_auth_response =
+        {
+          connection: Knock::Models::Providers::SlackCheckAuthResponse::Connection
+        }
+
+      class SlackCheckAuthResponse < Knock::BaseModel
+        attr_accessor connection: Knock::Models::Providers::SlackCheckAuthResponse::Connection
+
+        def initialize:
+          (
+            connection: Knock::Models::Providers::SlackCheckAuthResponse::Connection
+          ) -> void
+          | (
+            ?Knock::Models::Providers::slack_check_auth_response
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Providers::slack_check_auth_response
+
+        type connection = { ok: bool, reason: String? }
+
+        class Connection < Knock::BaseModel
+          attr_accessor ok: bool
+
+          attr_accessor reason: String?
+
+          def initialize:
+            (ok: bool, reason: String?) -> void
+            | (
+              ?Knock::Models::Providers::SlackCheckAuthResponse::connection
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::Providers::SlackCheckAuthResponse::connection
+        end
+      end
+    end
+  end
+end

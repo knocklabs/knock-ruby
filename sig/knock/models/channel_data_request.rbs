@@ -1,0 +1,27 @@
+module Knock
+  module Models
+    type channel_data_request =
+      { data: Knock::Models::ChannelDataRequest::data }
+
+    class ChannelDataRequest < Knock::BaseModel
+      attr_accessor data: Knock::Models::ChannelDataRequest::data
+
+      def initialize:
+        (data: Knock::Models::ChannelDataRequest::data) -> void
+        | (?Knock::Models::channel_data_request | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::channel_data_request
+
+      type data =
+        Knock::Models::PushChannelData
+        | Knock::Models::OneSignalChannelData
+        | Knock::Models::SlackChannelData
+        | Knock::Models::MsTeamsChannelData
+        | Knock::Models::DiscordChannelData
+
+      class Data < Knock::Union
+        private def self.variants: -> [[nil, Knock::Models::PushChannelData], [nil, Knock::Models::OneSignalChannelData], [nil, Knock::Models::SlackChannelData], [nil, Knock::Models::MsTeamsChannelData], [nil, Knock::Models::DiscordChannelData]]
+      end
+    end
+  end
+end

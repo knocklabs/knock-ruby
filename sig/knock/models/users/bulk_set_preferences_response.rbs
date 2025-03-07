@@ -1,0 +1,111 @@
+module Knock
+  module Models
+    module Users
+      type bulk_set_preferences_response =
+        {
+          id: String,
+          _typename: String,
+          estimated_total_rows: Integer,
+          inserted_at: Time,
+          name: String,
+          processed_rows: Integer,
+          status: Knock::Models::Users::BulkSetPreferencesResponse::status,
+          success_count: Integer,
+          updated_at: Time,
+          completed_at: Time?,
+          error_count: Integer,
+          error_items: ::Array[Knock::Models::Users::BulkSetPreferencesResponse::ErrorItem],
+          failed_at: Time?,
+          started_at: Time?
+        }
+
+      class BulkSetPreferencesResponse < Knock::BaseModel
+        attr_accessor id: String
+
+        attr_accessor _typename: String
+
+        attr_accessor estimated_total_rows: Integer
+
+        attr_accessor inserted_at: Time
+
+        attr_accessor name: String
+
+        attr_accessor processed_rows: Integer
+
+        attr_accessor status: Knock::Models::Users::BulkSetPreferencesResponse::status
+
+        attr_accessor success_count: Integer
+
+        attr_accessor updated_at: Time
+
+        attr_accessor completed_at: Time?
+
+        attr_reader error_count: Integer?
+
+        def error_count=: (Integer) -> Integer
+
+        attr_reader error_items: ::Array[Knock::Models::Users::BulkSetPreferencesResponse::ErrorItem]?
+
+        def error_items=: (
+          ::Array[Knock::Models::Users::BulkSetPreferencesResponse::ErrorItem]
+        ) -> ::Array[Knock::Models::Users::BulkSetPreferencesResponse::ErrorItem]
+
+        attr_accessor failed_at: Time?
+
+        attr_accessor started_at: Time?
+
+        def initialize:
+          (
+            id: String,
+            _typename: String,
+            estimated_total_rows: Integer,
+            inserted_at: Time,
+            name: String,
+            processed_rows: Integer,
+            status: Knock::Models::Users::BulkSetPreferencesResponse::status,
+            success_count: Integer,
+            updated_at: Time,
+            completed_at: Time?,
+            error_count: Integer,
+            error_items: ::Array[Knock::Models::Users::BulkSetPreferencesResponse::ErrorItem],
+            failed_at: Time?,
+            started_at: Time?
+          ) -> void
+          | (
+            ?Knock::Models::Users::bulk_set_preferences_response
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Users::bulk_set_preferences_response
+
+        type status = :queued | :processing | :completed | :failed
+
+        class Status < Knock::Enum
+          QUEUED: :queued
+          PROCESSING: :processing
+          COMPLETED: :completed
+          FAILED: :failed
+
+          def self.values: -> ::Array[Knock::Models::Users::BulkSetPreferencesResponse::status]
+        end
+
+        type error_item = { id: String, collection: String? }
+
+        class ErrorItem < Knock::BaseModel
+          attr_accessor id: String
+
+          attr_accessor collection: String?
+
+          def initialize:
+            (id: String, collection: String?) -> void
+            | (
+              ?Knock::Models::Users::BulkSetPreferencesResponse::error_item
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::Users::BulkSetPreferencesResponse::error_item
+        end
+      end
+    end
+  end
+end

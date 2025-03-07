@@ -1,0 +1,34 @@
+module Knock
+  module Models
+    module Users
+      type bulk_set_preferences_params =
+        {
+          preferences: Knock::Models::PreferenceSetRequest,
+          user_ids: ::Array[String]
+        }
+        & Knock::request_parameters
+
+      class BulkSetPreferencesParams < Knock::BaseModel
+        extend Knock::RequestParameters::Converter
+        include Knock::RequestParameters
+
+        attr_accessor preferences: Knock::Models::PreferenceSetRequest
+
+        attr_accessor user_ids: ::Array[String]
+
+        def initialize:
+          (
+            preferences: Knock::Models::PreferenceSetRequest,
+            user_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> void
+          | (
+            ?Knock::Models::Users::bulk_set_preferences_params
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Users::bulk_set_preferences_params
+      end
+    end
+  end
+end

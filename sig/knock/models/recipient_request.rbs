@@ -1,0 +1,12 @@
+module Knock
+  module Models
+    type recipient_request =
+      String
+      | Knock::Models::InlineIdentifyUserRequest
+      | Knock::Models::InlineObjectRequest
+
+    class RecipientRequest < Knock::Union
+      private def self.variants: -> [[nil, String], [nil, Knock::Models::InlineIdentifyUserRequest], [nil, Knock::Models::InlineObjectRequest]]
+    end
+  end
+end

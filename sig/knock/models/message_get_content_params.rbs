@@ -1,0 +1,18 @@
+module Knock
+  module Models
+    type message_get_content_params = {  } & Knock::request_parameters
+
+    class MessageGetContentParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      def initialize:
+        (request_options: Knock::request_opts) -> void
+        | (
+          ?Knock::Models::message_get_content_params | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::message_get_content_params
+    end
+  end
+end

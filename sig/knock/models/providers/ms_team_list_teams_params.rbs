@@ -1,0 +1,73 @@
+module Knock
+  module Models
+    module Providers
+      type ms_team_list_teams_params =
+        {
+          ms_teams_tenant_object: String,
+          query_options: Knock::Models::Providers::MsTeamListTeamsParams::QueryOptions
+        }
+        & Knock::request_parameters
+
+      class MsTeamListTeamsParams < Knock::BaseModel
+        extend Knock::RequestParameters::Converter
+        include Knock::RequestParameters
+
+        attr_accessor ms_teams_tenant_object: String
+
+        attr_reader query_options: Knock::Models::Providers::MsTeamListTeamsParams::QueryOptions?
+
+        def query_options=: (
+          Knock::Models::Providers::MsTeamListTeamsParams::QueryOptions
+        ) -> Knock::Models::Providers::MsTeamListTeamsParams::QueryOptions
+
+        def initialize:
+          (
+            ms_teams_tenant_object: String,
+            query_options: Knock::Models::Providers::MsTeamListTeamsParams::QueryOptions,
+            request_options: Knock::request_opts
+          ) -> void
+          | (
+            ?Knock::Models::Providers::ms_team_list_teams_params
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Providers::ms_team_list_teams_params
+
+        type query_options =
+          { filter: String, select_: String, skiptoken: String, top: Integer }
+
+        class QueryOptions < Knock::BaseModel
+          attr_reader filter: String?
+
+          def filter=: (String) -> String
+
+          attr_reader select_: String?
+
+          def select_=: (String) -> String
+
+          attr_reader skiptoken: String?
+
+          def skiptoken=: (String) -> String
+
+          attr_reader top: Integer?
+
+          def top=: (Integer) -> Integer
+
+          def initialize:
+            (
+              filter: String,
+              select_: String,
+              skiptoken: String,
+              top: Integer
+            ) -> void
+            | (
+              ?Knock::Models::Providers::MsTeamListTeamsParams::query_options
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::Providers::MsTeamListTeamsParams::query_options
+        end
+      end
+    end
+  end
+end

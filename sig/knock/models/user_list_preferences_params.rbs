@@ -1,0 +1,18 @@
+module Knock
+  module Models
+    type user_list_preferences_params = {  } & Knock::request_parameters
+
+    class UserListPreferencesParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      def initialize:
+        (request_options: Knock::request_opts) -> void
+        | (
+          ?Knock::Models::user_list_preferences_params | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::user_list_preferences_params
+    end
+  end
+end

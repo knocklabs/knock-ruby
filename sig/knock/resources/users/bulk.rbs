@@ -1,0 +1,39 @@
+module Knock
+  module Resources
+    class Users
+      class Bulk
+        def delete:
+          (
+            Knock::Models::Users::BulkDeleteParams | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Users::BulkDeleteResponse
+          | (
+            body_user_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Users::BulkDeleteResponse
+
+        def identify:
+          (
+            Knock::Models::Users::BulkIdentifyParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Users::BulkIdentifyResponse
+          | (
+            users: ::Array[Knock::Models::InlineIdentifyUserRequest],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Users::BulkIdentifyResponse
+
+        def set_preferences:
+          (
+            Knock::Models::Users::BulkSetPreferencesParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Users::BulkSetPreferencesResponse
+          | (
+            preferences: Knock::Models::PreferenceSetRequest,
+            user_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Users::BulkSetPreferencesResponse
+
+        def initialize: (client: Knock::Client) -> void
+      end
+    end
+  end
+end

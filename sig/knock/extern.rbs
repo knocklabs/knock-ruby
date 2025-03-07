@@ -1,0 +1,4 @@
+module Knock
+  module Extern
+  end
+end

@@ -1,0 +1,8 @@
+module Knock
+  module Models
+    type inline_preference_set_request =
+      ::Hash[Symbol, Knock::Models::PreferenceSetRequest]
+
+    InlinePreferenceSetRequest: inline_preference_set_request
+  end
+end

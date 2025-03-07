@@ -1,0 +1,256 @@
+module Knock
+  module Models
+    module Messages
+      type batch_unarchive_response_item =
+        {
+          id: String,
+          _typename: String,
+          actors: ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::actor],
+          archived_at: Time?,
+          channel_id: String,
+          clicked_at: Time?,
+          data: ::Hash[Symbol, top]?,
+          engagement_statuses: ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::engagement_status],
+          inserted_at: Time,
+          interacted_at: Time?,
+          link_clicked_at: Time?,
+          metadata: ::Hash[Symbol, top]?,
+          read_at: Time?,
+          recipient: Knock::Models::Messages::BatchUnarchiveResponseItem::recipient,
+          scheduled_at: Time?,
+          seen_at: Time?,
+          source: Knock::Models::Messages::BatchUnarchiveResponseItem::Source,
+          status: Knock::Models::Messages::BatchUnarchiveResponseItem::status,
+          tenant: String?,
+          updated_at: Time,
+          workflow: String?
+        }
+
+      class BatchUnarchiveResponseItem < Knock::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader _typename: String?
+
+        def _typename=: (String) -> String
+
+        attr_reader actors: ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::actor]?
+
+        def actors=: (
+          ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::actor]
+        ) -> ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::actor]
+
+        attr_accessor archived_at: Time?
+
+        attr_reader channel_id: String?
+
+        def channel_id=: (String) -> String
+
+        attr_accessor clicked_at: Time?
+
+        attr_accessor data: ::Hash[Symbol, top]?
+
+        attr_reader engagement_statuses: ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::engagement_status]?
+
+        def engagement_statuses=: (
+          ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::engagement_status]
+        ) -> ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::engagement_status]
+
+        attr_reader inserted_at: Time?
+
+        def inserted_at=: (Time) -> Time
+
+        attr_accessor interacted_at: Time?
+
+        attr_accessor link_clicked_at: Time?
+
+        attr_accessor metadata: ::Hash[Symbol, top]?
+
+        attr_accessor read_at: Time?
+
+        attr_reader recipient: Knock::Models::Messages::BatchUnarchiveResponseItem::recipient?
+
+        def recipient=: (
+          Knock::Models::Messages::BatchUnarchiveResponseItem::recipient
+        ) -> Knock::Models::Messages::BatchUnarchiveResponseItem::recipient
+
+        attr_accessor scheduled_at: Time?
+
+        attr_accessor seen_at: Time?
+
+        attr_reader source: Knock::Models::Messages::BatchUnarchiveResponseItem::Source?
+
+        def source=: (
+          Knock::Models::Messages::BatchUnarchiveResponseItem::Source
+        ) -> Knock::Models::Messages::BatchUnarchiveResponseItem::Source
+
+        attr_reader status: Knock::Models::Messages::BatchUnarchiveResponseItem::status?
+
+        def status=: (
+          Knock::Models::Messages::BatchUnarchiveResponseItem::status
+        ) -> Knock::Models::Messages::BatchUnarchiveResponseItem::status
+
+        attr_accessor tenant: String?
+
+        attr_reader updated_at: Time?
+
+        def updated_at=: (Time) -> Time
+
+        attr_accessor workflow: String?
+
+        def initialize:
+          (
+            id: String,
+            _typename: String,
+            actors: ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::actor],
+            archived_at: Time?,
+            channel_id: String,
+            clicked_at: Time?,
+            data: ::Hash[Symbol, top]?,
+            engagement_statuses: ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::engagement_status],
+            inserted_at: Time,
+            interacted_at: Time?,
+            link_clicked_at: Time?,
+            metadata: ::Hash[Symbol, top]?,
+            read_at: Time?,
+            recipient: Knock::Models::Messages::BatchUnarchiveResponseItem::recipient,
+            scheduled_at: Time?,
+            seen_at: Time?,
+            source: Knock::Models::Messages::BatchUnarchiveResponseItem::Source,
+            status: Knock::Models::Messages::BatchUnarchiveResponseItem::status,
+            tenant: String?,
+            updated_at: Time,
+            workflow: String?
+          ) -> void
+          | (
+            ?Knock::Models::Messages::batch_unarchive_response_item
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Messages::batch_unarchive_response_item
+
+        type actor =
+          String
+          | Knock::Models::Messages::BatchUnarchiveResponseItem::Actor::ObjectReference
+
+        class Actor < Knock::Union
+          type object_reference = { id: String, collection: String }
+
+          class ObjectReference < Knock::BaseModel
+            attr_accessor id: String
+
+            attr_accessor collection: String
+
+            def initialize:
+              (id: String, collection: String) -> void
+              | (
+                ?Knock::Models::Messages::BatchUnarchiveResponseItem::Actor::object_reference
+                | Knock::BaseModel data
+              ) -> void
+
+            def to_hash: -> Knock::Models::Messages::BatchUnarchiveResponseItem::Actor::object_reference
+          end
+
+          private def self.variants: -> [[nil, String], [nil, Knock::Models::Messages::BatchUnarchiveResponseItem::Actor::ObjectReference]]
+        end
+
+        type engagement_status =
+          :seen | :read | :interacted | :link_clicked | :archived
+
+        class EngagementStatus < Knock::Enum
+          SEEN: :seen
+          READ: :read
+          INTERACTED: :interacted
+          LINK_CLICKED: :link_clicked
+          ARCHIVED: :archived
+
+          def self.values: -> ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::engagement_status]
+        end
+
+        type recipient =
+          String
+          | Knock::Models::Messages::BatchUnarchiveResponseItem::Recipient::ObjectReference
+
+        class Recipient < Knock::Union
+          type object_reference = { id: String, collection: String }
+
+          class ObjectReference < Knock::BaseModel
+            attr_accessor id: String
+
+            attr_accessor collection: String
+
+            def initialize:
+              (id: String, collection: String) -> void
+              | (
+                ?Knock::Models::Messages::BatchUnarchiveResponseItem::Recipient::object_reference
+                | Knock::BaseModel data
+              ) -> void
+
+            def to_hash: -> Knock::Models::Messages::BatchUnarchiveResponseItem::Recipient::object_reference
+          end
+
+          private def self.variants: -> [[nil, String], [nil, Knock::Models::Messages::BatchUnarchiveResponseItem::Recipient::ObjectReference]]
+        end
+
+        type source =
+          {
+            _typename: String,
+            categories: ::Array[String],
+            key: String,
+            version_id: String
+          }
+
+        class Source < Knock::BaseModel
+          attr_accessor _typename: String
+
+          attr_accessor categories: ::Array[String]
+
+          attr_accessor key: String
+
+          attr_accessor version_id: String
+
+          def initialize:
+            (
+              _typename: String,
+              categories: ::Array[String],
+              key: String,
+              version_id: String
+            ) -> void
+            | (
+              ?Knock::Models::Messages::BatchUnarchiveResponseItem::source
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::Messages::BatchUnarchiveResponseItem::source
+        end
+
+        type status =
+          :queued
+          | :sent
+          | :delivered
+          | :delivery_attempted
+          | :undelivered
+          | :not_sent
+          | :bounced
+
+        class Status < Knock::Enum
+          QUEUED: :queued
+          SENT: :sent
+          DELIVERED: :delivered
+          DELIVERY_ATTEMPTED: :delivery_attempted
+          UNDELIVERED: :undelivered
+          NOT_SENT: :not_sent
+          BOUNCED: :bounced
+
+          def self.values: -> ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem::status]
+        end
+      end
+
+      type batch_unarchive_response =
+        ::Array[Knock::Models::Messages::BatchUnarchiveResponseItem]
+
+      BatchUnarchiveResponse: batch_unarchive_response
+    end
+  end
+end

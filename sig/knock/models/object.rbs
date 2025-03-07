@@ -1,0 +1,36 @@
+module Knock
+  module Models
+    type object =
+      {
+        id: String,
+        _typename: String,
+        collection: String,
+        updated_at: Time,
+        created_at: Time?
+      }
+
+    class Object < Knock::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor collection: String
+
+      attr_accessor updated_at: Time
+
+      attr_accessor created_at: Time?
+
+      def initialize:
+        (
+          id: String,
+          _typename: String,
+          collection: String,
+          updated_at: Time,
+          created_at: Time?
+        ) -> void
+        | (?Knock::Models::object | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::object
+    end
+  end
+end

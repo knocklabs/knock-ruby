@@ -1,0 +1,245 @@
+module Knock
+  module Models
+    type message_list_response =
+      {
+        id: String,
+        _typename: String,
+        actors: ::Array[Knock::Models::MessageListResponse::actor],
+        archived_at: Time?,
+        channel_id: String,
+        clicked_at: Time?,
+        data: ::Hash[Symbol, top]?,
+        engagement_statuses: ::Array[Knock::Models::MessageListResponse::engagement_status],
+        inserted_at: Time,
+        interacted_at: Time?,
+        link_clicked_at: Time?,
+        metadata: ::Hash[Symbol, top]?,
+        read_at: Time?,
+        recipient: Knock::Models::MessageListResponse::recipient,
+        scheduled_at: Time?,
+        seen_at: Time?,
+        source: Knock::Models::MessageListResponse::Source,
+        status: Knock::Models::MessageListResponse::status,
+        tenant: String?,
+        updated_at: Time,
+        workflow: String?
+      }
+
+    class MessageListResponse < Knock::BaseModel
+      attr_reader id: String?
+
+      def id=: (String) -> String
+
+      attr_reader _typename: String?
+
+      def _typename=: (String) -> String
+
+      attr_reader actors: ::Array[Knock::Models::MessageListResponse::actor]?
+
+      def actors=: (
+        ::Array[Knock::Models::MessageListResponse::actor]
+      ) -> ::Array[Knock::Models::MessageListResponse::actor]
+
+      attr_accessor archived_at: Time?
+
+      attr_reader channel_id: String?
+
+      def channel_id=: (String) -> String
+
+      attr_accessor clicked_at: Time?
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      attr_reader engagement_statuses: ::Array[Knock::Models::MessageListResponse::engagement_status]?
+
+      def engagement_statuses=: (
+        ::Array[Knock::Models::MessageListResponse::engagement_status]
+      ) -> ::Array[Knock::Models::MessageListResponse::engagement_status]
+
+      attr_reader inserted_at: Time?
+
+      def inserted_at=: (Time) -> Time
+
+      attr_accessor interacted_at: Time?
+
+      attr_accessor link_clicked_at: Time?
+
+      attr_accessor metadata: ::Hash[Symbol, top]?
+
+      attr_accessor read_at: Time?
+
+      attr_reader recipient: Knock::Models::MessageListResponse::recipient?
+
+      def recipient=: (
+        Knock::Models::MessageListResponse::recipient
+      ) -> Knock::Models::MessageListResponse::recipient
+
+      attr_accessor scheduled_at: Time?
+
+      attr_accessor seen_at: Time?
+
+      attr_reader source: Knock::Models::MessageListResponse::Source?
+
+      def source=: (
+        Knock::Models::MessageListResponse::Source
+      ) -> Knock::Models::MessageListResponse::Source
+
+      attr_reader status: Knock::Models::MessageListResponse::status?
+
+      def status=: (
+        Knock::Models::MessageListResponse::status
+      ) -> Knock::Models::MessageListResponse::status
+
+      attr_accessor tenant: String?
+
+      attr_reader updated_at: Time?
+
+      def updated_at=: (Time) -> Time
+
+      attr_accessor workflow: String?
+
+      def initialize:
+        (
+          id: String,
+          _typename: String,
+          actors: ::Array[Knock::Models::MessageListResponse::actor],
+          archived_at: Time?,
+          channel_id: String,
+          clicked_at: Time?,
+          data: ::Hash[Symbol, top]?,
+          engagement_statuses: ::Array[Knock::Models::MessageListResponse::engagement_status],
+          inserted_at: Time,
+          interacted_at: Time?,
+          link_clicked_at: Time?,
+          metadata: ::Hash[Symbol, top]?,
+          read_at: Time?,
+          recipient: Knock::Models::MessageListResponse::recipient,
+          scheduled_at: Time?,
+          seen_at: Time?,
+          source: Knock::Models::MessageListResponse::Source,
+          status: Knock::Models::MessageListResponse::status,
+          tenant: String?,
+          updated_at: Time,
+          workflow: String?
+        ) -> void
+        | (
+          ?Knock::Models::message_list_response | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::message_list_response
+
+      type actor =
+        String | Knock::Models::MessageListResponse::Actor::ObjectReference
+
+      class Actor < Knock::Union
+        type object_reference = { id: String, collection: String }
+
+        class ObjectReference < Knock::BaseModel
+          attr_accessor id: String
+
+          attr_accessor collection: String
+
+          def initialize:
+            (id: String, collection: String) -> void
+            | (
+              ?Knock::Models::MessageListResponse::Actor::object_reference
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::MessageListResponse::Actor::object_reference
+        end
+
+        private def self.variants: -> [[nil, String], [nil, Knock::Models::MessageListResponse::Actor::ObjectReference]]
+      end
+
+      type engagement_status =
+        :seen | :read | :interacted | :link_clicked | :archived
+
+      class EngagementStatus < Knock::Enum
+        SEEN: :seen
+        READ: :read
+        INTERACTED: :interacted
+        LINK_CLICKED: :link_clicked
+        ARCHIVED: :archived
+
+        def self.values: -> ::Array[Knock::Models::MessageListResponse::engagement_status]
+      end
+
+      type recipient =
+        String | Knock::Models::MessageListResponse::Recipient::ObjectReference
+
+      class Recipient < Knock::Union
+        type object_reference = { id: String, collection: String }
+
+        class ObjectReference < Knock::BaseModel
+          attr_accessor id: String
+
+          attr_accessor collection: String
+
+          def initialize:
+            (id: String, collection: String) -> void
+            | (
+              ?Knock::Models::MessageListResponse::Recipient::object_reference
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::MessageListResponse::Recipient::object_reference
+        end
+
+        private def self.variants: -> [[nil, String], [nil, Knock::Models::MessageListResponse::Recipient::ObjectReference]]
+      end
+
+      type source =
+        {
+          _typename: String,
+          categories: ::Array[String],
+          key: String,
+          version_id: String
+        }
+
+      class Source < Knock::BaseModel
+        attr_accessor _typename: String
+
+        attr_accessor categories: ::Array[String]
+
+        attr_accessor key: String
+
+        attr_accessor version_id: String
+
+        def initialize:
+          (
+            _typename: String,
+            categories: ::Array[String],
+            key: String,
+            version_id: String
+          ) -> void
+          | (
+            ?Knock::Models::MessageListResponse::source | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::MessageListResponse::source
+      end
+
+      type status =
+        :queued
+        | :sent
+        | :delivered
+        | :delivery_attempted
+        | :undelivered
+        | :not_sent
+        | :bounced
+
+      class Status < Knock::Enum
+        QUEUED: :queued
+        SENT: :sent
+        DELIVERED: :delivered
+        DELIVERY_ATTEMPTED: :delivery_attempted
+        UNDELIVERED: :undelivered
+        NOT_SENT: :not_sent
+        BOUNCED: :bounced
+
+        def self.values: -> ::Array[Knock::Models::MessageListResponse::status]
+      end
+    end
+  end
+end

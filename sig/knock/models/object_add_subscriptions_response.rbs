@@ -1,0 +1,8 @@
+module Knock
+  module Models
+    type object_add_subscriptions_response =
+      ::Array[Knock::Models::Subscription]
+
+    ObjectAddSubscriptionsResponse: object_add_subscriptions_response
+  end
+end

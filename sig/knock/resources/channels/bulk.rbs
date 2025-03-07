@@ -1,0 +1,31 @@
+module Knock
+  module Resources
+    class Channels
+      class Bulk
+        def update_message_status:
+          (
+            Knock::Models::Channels::BulkUpdateMessageStatusParams::action action,
+            Knock::Models::Channels::BulkUpdateMessageStatusParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Channels::BulkUpdateMessageStatusResponse
+          | (
+            Knock::Models::Channels::BulkUpdateMessageStatusParams::action action,
+            channel_id: String,
+            archived: Knock::Models::Channels::BulkUpdateMessageStatusParams::archived,
+            delivery_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
+            engagement_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
+            has_tenant: bool,
+            newer_than: Time,
+            older_than: Time,
+            recipient_ids: ::Array[String],
+            tenants: ::Array[String],
+            trigger_data: String,
+            workflows: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Channels::BulkUpdateMessageStatusResponse
+
+        def initialize: (client: Knock::Client) -> void
+      end
+    end
+  end
+end

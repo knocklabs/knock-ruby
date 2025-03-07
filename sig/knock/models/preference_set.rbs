@@ -1,0 +1,100 @@
+module Knock
+  module Models
+    type preference_set =
+      {
+        id: String,
+        _typename: String,
+        categories: ::Hash[Symbol, Knock::Models::PreferenceSet::category]?,
+        channel_types: Knock::Models::PreferenceSetChannelTypes?,
+        workflows: ::Hash[Symbol, Knock::Models::PreferenceSet::workflow]?
+      }
+
+    class PreferenceSet < Knock::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor categories: ::Hash[Symbol, Knock::Models::PreferenceSet::category]?
+
+      attr_accessor channel_types: Knock::Models::PreferenceSetChannelTypes?
+
+      attr_accessor workflows: ::Hash[Symbol, Knock::Models::PreferenceSet::workflow]?
+
+      def initialize:
+        (
+          id: String,
+          _typename: String,
+          categories: ::Hash[Symbol, Knock::Models::PreferenceSet::category]?,
+          channel_types: Knock::Models::PreferenceSetChannelTypes?,
+          workflows: ::Hash[Symbol, Knock::Models::PreferenceSet::workflow]?
+        ) -> void
+        | (?Knock::Models::preference_set | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::preference_set
+
+      type category =
+        bool
+        | Knock::Models::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
+
+      class Category < Knock::Union
+        type preference_set_workflow_category_setting_object =
+          {
+            channel_types: Knock::Models::PreferenceSetChannelTypes?,
+            conditions: ::Array[Knock::Models::Condition]?
+          }
+
+        class PreferenceSetWorkflowCategorySettingObject < Knock::BaseModel
+          attr_accessor channel_types: Knock::Models::PreferenceSetChannelTypes?
+
+          attr_accessor conditions: ::Array[Knock::Models::Condition]?
+
+          def initialize:
+            (
+              channel_types: Knock::Models::PreferenceSetChannelTypes?,
+              conditions: ::Array[Knock::Models::Condition]?
+            ) -> void
+            | (
+              ?Knock::Models::PreferenceSet::Category::preference_set_workflow_category_setting_object
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::PreferenceSet::Category::preference_set_workflow_category_setting_object
+        end
+
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject]]
+      end
+
+      type workflow =
+        bool
+        | Knock::Models::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
+
+      class Workflow < Knock::Union
+        type preference_set_workflow_category_setting_object =
+          {
+            channel_types: Knock::Models::PreferenceSetChannelTypes?,
+            conditions: ::Array[Knock::Models::Condition]?
+          }
+
+        class PreferenceSetWorkflowCategorySettingObject < Knock::BaseModel
+          attr_accessor channel_types: Knock::Models::PreferenceSetChannelTypes?
+
+          attr_accessor conditions: ::Array[Knock::Models::Condition]?
+
+          def initialize:
+            (
+              channel_types: Knock::Models::PreferenceSetChannelTypes?,
+              conditions: ::Array[Knock::Models::Condition]?
+            ) -> void
+            | (
+              ?Knock::Models::PreferenceSet::Workflow::preference_set_workflow_category_setting_object
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::PreferenceSet::Workflow::preference_set_workflow_category_setting_object
+        end
+
+        private def self.variants: -> [[nil, bool], [nil, Knock::Models::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject]]
+      end
+    end
+  end
+end

@@ -1,0 +1,84 @@
+module Knock
+  module Models
+    module Providers
+      type slack_list_channels_params =
+        {
+          access_token_object: String,
+          query_options: Knock::Models::Providers::SlackListChannelsParams::QueryOptions
+        }
+        & Knock::request_parameters
+
+      class SlackListChannelsParams < Knock::BaseModel
+        extend Knock::RequestParameters::Converter
+        include Knock::RequestParameters
+
+        attr_accessor access_token_object: String
+
+        attr_reader query_options: Knock::Models::Providers::SlackListChannelsParams::QueryOptions?
+
+        def query_options=: (
+          Knock::Models::Providers::SlackListChannelsParams::QueryOptions
+        ) -> Knock::Models::Providers::SlackListChannelsParams::QueryOptions
+
+        def initialize:
+          (
+            access_token_object: String,
+            query_options: Knock::Models::Providers::SlackListChannelsParams::QueryOptions,
+            request_options: Knock::request_opts
+          ) -> void
+          | (
+            ?Knock::Models::Providers::slack_list_channels_params
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Providers::slack_list_channels_params
+
+        type query_options =
+          {
+            cursor: String,
+            exclude_archived: bool,
+            limit: Integer,
+            team_id: String,
+            types: String
+          }
+
+        class QueryOptions < Knock::BaseModel
+          attr_reader cursor: String?
+
+          def cursor=: (String) -> String
+
+          attr_reader exclude_archived: bool?
+
+          def exclude_archived=: (bool) -> bool
+
+          attr_reader limit: Integer?
+
+          def limit=: (Integer) -> Integer
+
+          attr_reader team_id: String?
+
+          def team_id=: (String) -> String
+
+          attr_reader types: String?
+
+          def types=: (String) -> String
+
+          def initialize:
+            (
+              cursor: String,
+              exclude_archived: bool,
+              limit: Integer,
+              team_id: String,
+              types: String
+            ) -> void
+            | (
+              ?Knock::Models::Providers::SlackListChannelsParams::query_options
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::Providers::SlackListChannelsParams::query_options
+        end
+      end
+    end
+  end
+end

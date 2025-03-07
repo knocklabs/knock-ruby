@@ -1,0 +1,29 @@
+module Knock
+  module Models
+    type user_get_preferences_params =
+      { user_id: String, tenant: String } & Knock::request_parameters
+
+    class UserGetPreferencesParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      attr_accessor user_id: String
+
+      attr_reader tenant: String?
+
+      def tenant=: (String) -> String
+
+      def initialize:
+        (
+          user_id: String,
+          tenant: String,
+          request_options: Knock::request_opts
+        ) -> void
+        | (
+          ?Knock::Models::user_get_preferences_params | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::user_get_preferences_params
+    end
+  end
+end

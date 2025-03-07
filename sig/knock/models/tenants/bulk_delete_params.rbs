@@ -1,0 +1,26 @@
+module Knock
+  module Models
+    module Tenants
+      type bulk_delete_params =
+        { tenant_ids: ::Array[String] } & Knock::request_parameters
+
+      class BulkDeleteParams < Knock::BaseModel
+        extend Knock::RequestParameters::Converter
+        include Knock::RequestParameters
+
+        attr_accessor tenant_ids: ::Array[String]
+
+        def initialize:
+          (
+            tenant_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> void
+          | (
+            ?Knock::Models::Tenants::bulk_delete_params | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Tenants::bulk_delete_params
+      end
+    end
+  end
+end

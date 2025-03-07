@@ -1,0 +1,18 @@
+module Knock
+  module Models
+    type message_mark_as_unread_params = {  } & Knock::request_parameters
+
+    class MessageMarkAsUnreadParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      def initialize:
+        (request_options: Knock::request_opts) -> void
+        | (
+          ?Knock::Models::message_mark_as_unread_params | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::message_mark_as_unread_params
+    end
+  end
+end

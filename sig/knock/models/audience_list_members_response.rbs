@@ -1,0 +1,94 @@
+module Knock
+  module Models
+    type audience_list_members_response =
+      {
+        entries: ::Array[Knock::Models::AudienceListMembersResponse::Entry],
+        page_info: Knock::Models::AudienceListMembersResponse::PageInfo
+      }
+
+    class AudienceListMembersResponse < Knock::BaseModel
+      attr_accessor entries: ::Array[Knock::Models::AudienceListMembersResponse::Entry]
+
+      attr_accessor page_info: Knock::Models::AudienceListMembersResponse::PageInfo
+
+      def initialize:
+        (
+          entries: ::Array[Knock::Models::AudienceListMembersResponse::Entry],
+          page_info: Knock::Models::AudienceListMembersResponse::PageInfo
+        ) -> void
+        | (
+          ?Knock::Models::audience_list_members_response | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::audience_list_members_response
+
+      type entry =
+        {
+          _typename: String,
+          added_at: Time,
+          user: Knock::Models::User,
+          user_id: String,
+          tenant: String?
+        }
+
+      class Entry < Knock::BaseModel
+        attr_accessor _typename: String
+
+        attr_accessor added_at: Time
+
+        attr_accessor user: Knock::Models::User
+
+        attr_accessor user_id: String
+
+        attr_accessor tenant: String?
+
+        def initialize:
+          (
+            _typename: String,
+            added_at: Time,
+            user: Knock::Models::User,
+            user_id: String,
+            tenant: String?
+          ) -> void
+          | (
+            ?Knock::Models::AudienceListMembersResponse::entry
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::AudienceListMembersResponse::entry
+      end
+
+      type page_info =
+        {
+          _typename: String,
+          page_size: Integer,
+          after: String?,
+          before: String?
+        }
+
+      class PageInfo < Knock::BaseModel
+        attr_accessor _typename: String
+
+        attr_accessor page_size: Integer
+
+        attr_accessor after: String?
+
+        attr_accessor before: String?
+
+        def initialize:
+          (
+            _typename: String,
+            page_size: Integer,
+            after: String?,
+            before: String?
+          ) -> void
+          | (
+            ?Knock::Models::AudienceListMembersResponse::page_info
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::AudienceListMembersResponse::page_info
+      end
+    end
+  end
+end

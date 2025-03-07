@@ -1,0 +1,18 @@
+module Knock
+  module Models
+    type object_get_params = { collection: String } & Knock::request_parameters
+
+    class ObjectGetParams < Knock::BaseModel
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      attr_accessor collection: String
+
+      def initialize:
+        (collection: String, request_options: Knock::request_opts) -> void
+        | (?Knock::Models::object_get_params | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::object_get_params
+    end
+  end
+end

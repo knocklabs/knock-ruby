@@ -1,0 +1,8 @@
+module Knock
+  module Models
+    type inline_channel_data_request =
+      ::Hash[Symbol, Knock::Models::ChannelDataRequest]
+
+    InlineChannelDataRequest: inline_channel_data_request
+  end
+end

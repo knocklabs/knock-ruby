@@ -1,0 +1,60 @@
+module Knock
+  module Resources
+    class Schedules
+      def create:
+        (
+          Knock::Models::ScheduleCreateParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::schedule_create_response
+        | (
+          recipients: ::Array[Knock::Models::ScheduleCreateParams::recipient],
+          repeats: ::Array[Knock::Models::ScheduleRepeatRule],
+          workflow: String,
+          data: ::Hash[Symbol, top]?,
+          ending_at: Time?,
+          scheduled_at: Time?,
+          tenant: Knock::Models::inline_tenant_request?,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::schedule_create_response
+
+      def update:
+        (
+          Knock::Models::ScheduleUpdateParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::schedule_update_response
+        | (
+          schedule_ids: ::Array[String],
+          actor: Knock::Models::recipient_request?,
+          data: ::Hash[Symbol, top]?,
+          ending_at: Time?,
+          repeats: ::Array[Knock::Models::ScheduleRepeatRule],
+          scheduled_at: Time?,
+          tenant: Knock::Models::inline_tenant_request?,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::schedule_update_response
+
+      def list:
+        (
+          Knock::Models::ScheduleListParams | ::Hash[Symbol, top] params
+        ) -> Knock::EntriesCursor[Knock::Models::Schedule]
+        | (
+          workflow: String,
+          after: String,
+          before: String,
+          page_size: Integer,
+          recipients: ::Array[Knock::Models::ScheduleListParams::recipient],
+          tenant: String,
+          request_options: Knock::request_opts
+        ) -> Knock::EntriesCursor[Knock::Models::Schedule]
+
+      def delete:
+        (
+          Knock::Models::ScheduleDeleteParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::schedule_delete_response
+        | (
+          schedule_ids: ::Array[String],
+          request_options: Knock::request_opts
+        ) -> Knock::Models::schedule_delete_response
+
+      def initialize: (client: Knock::Client) -> void
+    end
+  end
+end

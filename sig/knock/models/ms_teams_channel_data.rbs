@@ -1,0 +1,101 @@
+module Knock
+  module Models
+    type ms_teams_channel_data =
+      {
+        connections: ::Array[Knock::Models::MsTeamsChannelData::connection],
+        ms_teams_tenant_id: String?
+      }
+
+    class MsTeamsChannelData < Knock::BaseModel
+      attr_accessor connections: ::Array[Knock::Models::MsTeamsChannelData::connection]
+
+      attr_accessor ms_teams_tenant_id: String?
+
+      def initialize:
+        (
+          connections: ::Array[Knock::Models::MsTeamsChannelData::connection],
+          ms_teams_tenant_id: String?
+        ) -> void
+        | (
+          ?Knock::Models::ms_teams_channel_data | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::ms_teams_channel_data
+
+      type connection =
+        Knock::Models::MsTeamsChannelData::Connection::MsTeamsTokenConnection
+        | Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+
+      class Connection < Knock::Union
+        type ms_teams_token_connection =
+          {
+            ms_teams_channel_id: String?,
+            ms_teams_team_id: String?,
+            ms_teams_tenant_id: String?,
+            ms_teams_user_id: String?
+          }
+
+        class MsTeamsTokenConnection < Knock::BaseModel
+          attr_accessor ms_teams_channel_id: String?
+
+          attr_accessor ms_teams_team_id: String?
+
+          attr_accessor ms_teams_tenant_id: String?
+
+          attr_accessor ms_teams_user_id: String?
+
+          def initialize:
+            (
+              ms_teams_channel_id: String?,
+              ms_teams_team_id: String?,
+              ms_teams_tenant_id: String?,
+              ms_teams_user_id: String?
+            ) -> void
+            | (
+              ?Knock::Models::MsTeamsChannelData::Connection::ms_teams_token_connection
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::MsTeamsChannelData::Connection::ms_teams_token_connection
+        end
+
+        type ms_teams_incoming_webhook_connection =
+          {
+            incoming_webhook: Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+          }
+
+        class MsTeamsIncomingWebhookConnection < Knock::BaseModel
+          attr_accessor incoming_webhook: Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+
+          def initialize:
+            (
+              incoming_webhook: Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+            ) -> void
+            | (
+              ?Knock::Models::MsTeamsChannelData::Connection::ms_teams_incoming_webhook_connection
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::MsTeamsChannelData::Connection::ms_teams_incoming_webhook_connection
+
+          type incoming_webhook = { url: String }
+
+          class IncomingWebhook < Knock::BaseModel
+            attr_accessor url: String
+
+            def initialize:
+              (url: String) -> void
+              | (
+                ?Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::incoming_webhook
+                | Knock::BaseModel data
+              ) -> void
+
+            def to_hash: -> Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::incoming_webhook
+          end
+        end
+
+        private def self.variants: -> [[nil, Knock::Models::MsTeamsChannelData::Connection::MsTeamsTokenConnection], [nil, Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]]
+      end
+    end
+  end
+end

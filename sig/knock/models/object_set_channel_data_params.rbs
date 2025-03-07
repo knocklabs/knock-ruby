@@ -1,0 +1,27 @@
+module Knock
+  module Models
+    type object_set_channel_data_params =
+      { collection: String, object_id_: String } & Knock::request_parameters
+
+    class ObjectSetChannelDataParams < Knock::Models::ChannelDataRequest
+      extend Knock::RequestParameters::Converter
+      include Knock::RequestParameters
+
+      attr_accessor collection: String
+
+      attr_accessor object_id_: String
+
+      def initialize:
+        (
+          collection: String,
+          object_id_: String,
+          request_options: Knock::request_opts
+        ) -> void
+        | (
+          ?Knock::Models::object_set_channel_data_params | Knock::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knock::Models::object_set_channel_data_params
+    end
+  end
+end

@@ -1,0 +1,28 @@
+module Knock
+  module Resources
+    class Tenants
+      class Bulk
+        def delete:
+          (
+            Knock::Models::Tenants::BulkDeleteParams
+            | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Tenants::BulkDeleteResponse
+          | (
+            tenant_ids: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Tenants::BulkDeleteResponse
+
+        def set:
+          (
+            Knock::Models::Tenants::BulkSetParams | ::Hash[Symbol, top] params
+          ) -> Knock::Models::Tenants::BulkSetResponse
+          | (
+            tenants: ::Array[Knock::Models::inline_tenant_request],
+            request_options: Knock::request_opts
+          ) -> Knock::Models::Tenants::BulkSetResponse
+
+        def initialize: (client: Knock::Client) -> void
+      end
+    end
+  end
+end

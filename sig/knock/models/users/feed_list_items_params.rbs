@@ -1,0 +1,116 @@
+module Knock
+  module Models
+    module Users
+      type feed_list_items_params =
+        {
+          user_id: String,
+          after: String,
+          archived: Knock::Models::Users::FeedListItemsParams::archived,
+          before: String,
+          has_tenant: bool,
+          page_size: Integer,
+          source: String,
+          status: Knock::Models::Users::FeedListItemsParams::status,
+          tenant: String,
+          trigger_data: String,
+          workflow_categories: ::Array[String]
+        }
+        & Knock::request_parameters
+
+      class FeedListItemsParams < Knock::BaseModel
+        extend Knock::RequestParameters::Converter
+        include Knock::RequestParameters
+
+        attr_accessor user_id: String
+
+        attr_reader after: String?
+
+        def after=: (String) -> String
+
+        attr_reader archived: Knock::Models::Users::FeedListItemsParams::archived?
+
+        def archived=: (
+          Knock::Models::Users::FeedListItemsParams::archived
+        ) -> Knock::Models::Users::FeedListItemsParams::archived
+
+        attr_reader before: String?
+
+        def before=: (String) -> String
+
+        attr_reader has_tenant: bool?
+
+        def has_tenant=: (bool) -> bool
+
+        attr_reader page_size: Integer?
+
+        def page_size=: (Integer) -> Integer
+
+        attr_reader source: String?
+
+        def source=: (String) -> String
+
+        attr_reader status: Knock::Models::Users::FeedListItemsParams::status?
+
+        def status=: (
+          Knock::Models::Users::FeedListItemsParams::status
+        ) -> Knock::Models::Users::FeedListItemsParams::status
+
+        attr_reader tenant: String?
+
+        def tenant=: (String) -> String
+
+        attr_reader trigger_data: String?
+
+        def trigger_data=: (String) -> String
+
+        attr_reader workflow_categories: ::Array[String]?
+
+        def workflow_categories=: (::Array[String]) -> ::Array[String]
+
+        def initialize:
+          (
+            user_id: String,
+            after: String,
+            archived: Knock::Models::Users::FeedListItemsParams::archived,
+            before: String,
+            has_tenant: bool,
+            page_size: Integer,
+            source: String,
+            status: Knock::Models::Users::FeedListItemsParams::status,
+            tenant: String,
+            trigger_data: String,
+            workflow_categories: ::Array[String],
+            request_options: Knock::request_opts
+          ) -> void
+          | (
+            ?Knock::Models::Users::feed_list_items_params
+            | Knock::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knock::Models::Users::feed_list_items_params
+
+        type archived = :exclude | :include | :only
+
+        class Archived < Knock::Enum
+          EXCLUDE: :exclude
+          INCLUDE: :include
+          ONLY: :only
+
+          def self.values: -> ::Array[Knock::Models::Users::FeedListItemsParams::archived]
+        end
+
+        type status = :unread | :read | :unseen | :seen | :all
+
+        class Status < Knock::Enum
+          UNREAD: :unread
+          READ: :read
+          UNSEEN: :unseen
+          SEEN: :seen
+          ALL: :all
+
+          def self.values: -> ::Array[Knock::Models::Users::FeedListItemsParams::status]
+        end
+      end
+    end
+  end
+end

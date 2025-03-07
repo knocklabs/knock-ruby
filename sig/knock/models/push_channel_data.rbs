@@ -1,0 +1,15 @@
+module Knock
+  module Models
+    type push_channel_data = { tokens: ::Array[String] }
+
+    class PushChannelData < Knock::BaseModel
+      attr_accessor tokens: ::Array[String]
+
+      def initialize:
+        (tokens: ::Array[String]) -> void
+        | (?Knock::Models::push_channel_data | Knock::BaseModel data) -> void
+
+      def to_hash: -> Knock::Models::push_channel_data
+    end
+  end
+end

@@ -1,0 +1,164 @@
+module Knock
+  module Resources
+    class Messages
+      attr_reader batch: Knock::Resources::Messages::Batch
+
+      def list:
+        (
+          ?Knock::Models::MessageListParams | ::Hash[Symbol, top] params
+        ) -> Knock::EntriesCursor[Knock::Models::MessageListResponse]
+        | (
+          after: String,
+          before: String,
+          channel_id: String,
+          engagement_status: ::Array[Knock::Models::MessageListParams::engagement_status],
+          message_ids: ::Array[String],
+          page_size: Integer,
+          source: String,
+          status: ::Array[Knock::Models::MessageListParams::status],
+          tenant: String,
+          trigger_data: String,
+          workflow_categories: ::Array[String],
+          workflow_recipient_run_id: String,
+          workflow_run_id: String,
+          request_options: Knock::request_opts
+        ) -> Knock::EntriesCursor[Knock::Models::MessageListResponse]
+
+      def archive:
+        (
+          String message_id,
+          ?Knock::Models::MessageArchiveParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageArchiveResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageArchiveResponse
+
+      def get:
+        (
+          String message_id,
+          ?Knock::Models::MessageGetParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageGetResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageGetResponse
+
+      def get_content:
+        (
+          String message_id,
+          ?Knock::Models::MessageGetContentParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageGetContentResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageGetContentResponse
+
+      def list_activities:
+        (
+          String message_id,
+          ?Knock::Models::MessageListActivitiesParams
+          | ::Hash[Symbol, top] params
+        ) -> Knock::ItemsCursor[Knock::Models::MessageListActivitiesResponse]
+        | (
+          String message_id,
+          after: String,
+          before: String,
+          page_size: Integer,
+          trigger_data: String,
+          request_options: Knock::request_opts
+        ) -> Knock::ItemsCursor[Knock::Models::MessageListActivitiesResponse]
+
+      def list_delivery_logs:
+        (
+          String message_id,
+          ?Knock::Models::MessageListDeliveryLogsParams
+          | ::Hash[Symbol, top] params
+        ) -> Knock::EntriesCursor[Knock::Models::MessageListDeliveryLogsResponse]
+        | (
+          String message_id,
+          after: String,
+          before: String,
+          page_size: Integer,
+          request_options: Knock::request_opts
+        ) -> Knock::EntriesCursor[Knock::Models::MessageListDeliveryLogsResponse]
+
+      def list_events:
+        (
+          String message_id,
+          ?Knock::Models::MessageListEventsParams | ::Hash[Symbol, top] params
+        ) -> Knock::EntriesCursor[Knock::Models::MessageListEventsResponse]
+        | (
+          String message_id,
+          after: String,
+          before: String,
+          page_size: Integer,
+          request_options: Knock::request_opts
+        ) -> Knock::EntriesCursor[Knock::Models::MessageListEventsResponse]
+
+      def mark_as_interacted:
+        (
+          String message_id,
+          ?Knock::Models::MessageMarkAsInteractedParams
+          | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageMarkAsInteractedResponse
+        | (
+          String message_id,
+          metadata: ::Hash[Symbol, top],
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageMarkAsInteractedResponse
+
+      def mark_as_read:
+        (
+          String message_id,
+          ?Knock::Models::MessageMarkAsReadParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageMarkAsReadResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageMarkAsReadResponse
+
+      def mark_as_seen:
+        (
+          String message_id,
+          ?Knock::Models::MessageMarkAsSeenParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageMarkAsSeenResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageMarkAsSeenResponse
+
+      def mark_as_unread:
+        (
+          String message_id,
+          ?Knock::Models::MessageMarkAsUnreadParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageMarkAsUnreadResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageMarkAsUnreadResponse
+
+      def mark_as_unseen:
+        (
+          String message_id,
+          ?Knock::Models::MessageMarkAsUnseenParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageMarkAsUnseenResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageMarkAsUnseenResponse
+
+      def unarchive:
+        (
+          String message_id,
+          ?Knock::Models::MessageUnarchiveParams | ::Hash[Symbol, top] params
+        ) -> Knock::Models::MessageUnarchiveResponse
+        | (
+          String message_id,
+          request_options: Knock::request_opts
+        ) -> Knock::Models::MessageUnarchiveResponse
+
+      def initialize: (client: Knock::Client) -> void
+    end
+  end
+end
