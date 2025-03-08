@@ -7,11 +7,6 @@ module Knock
       #   extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      # @!attribute collection
-      #
-      #   @return [String]
-      required :collection, String
-
       # @!attribute [r] after
       #   The cursor to fetch entries after
       #
@@ -144,7 +139,6 @@ module Knock
       #   attr_writer :workflow_run_id
 
       # @!parse
-      #   # @param collection [String]
       #   # @param after [String]
       #   # @param before [String]
       #   # @param channel_id [String]
@@ -161,7 +155,6 @@ module Knock
       #   # @param request_options [Knock::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
-      #     collection:,
       #     after: nil,
       #     before: nil,
       #     channel_id: nil,

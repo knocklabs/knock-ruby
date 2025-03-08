@@ -7,14 +7,6 @@ module Knock
         extend Knock::RequestParameters::Converter
         include Knock::RequestParameters
 
-        sig { returns(String) }
-        def channel_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def channel_id=(_)
-        end
-
         sig { returns(T.nilable(Symbol)) }
         def archived
         end
@@ -97,7 +89,6 @@ module Knock
 
         sig do
           params(
-            channel_id: String,
             archived: Symbol,
             delivery_status: Symbol,
             engagement_status: Symbol,
@@ -113,7 +104,6 @@ module Knock
             .returns(T.attached_class)
         end
         def self.new(
-          channel_id:,
           archived: nil,
           delivery_status: nil,
           engagement_status: nil,
@@ -132,7 +122,6 @@ module Knock
           override
             .returns(
               {
-                channel_id: String,
                 archived: Symbol,
                 delivery_status: Symbol,
                 engagement_status: Symbol,

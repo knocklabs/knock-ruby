@@ -7,11 +7,6 @@ module Knock
       #   extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      # @!attribute user_id
-      #
-      #   @return [String]
-      required :user_id, String
-
       # @!attribute [r] tenant
       #   Tenant ID
       #
@@ -23,11 +18,10 @@ module Knock
       #   attr_writer :tenant
 
       # @!parse
-      #   # @param user_id [String]
       #   # @param tenant [String]
       #   # @param request_options [Knock::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(user_id:, tenant: nil, request_options: {}, **) = super
+      #   def initialize(tenant: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | Knock::BaseModel) -> void
     end

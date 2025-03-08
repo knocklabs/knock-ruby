@@ -6,14 +6,6 @@ module Knock
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      sig { returns(String) }
-      def collection
-      end
-
-      sig { params(_: String).returns(String) }
-      def collection=(_)
-      end
-
       sig { returns(T.nilable(String)) }
       def after
       end
@@ -56,7 +48,6 @@ module Knock
 
       sig do
         params(
-          collection: String,
           after: String,
           before: String,
           page_size: Integer,
@@ -66,14 +57,13 @@ module Knock
         )
           .returns(T.attached_class)
       end
-      def self.new(collection:, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
+      def self.new(after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       end
 
       sig do
         override
           .returns(
             {
-              collection: String,
               after: String,
               before: String,
               page_size: Integer,

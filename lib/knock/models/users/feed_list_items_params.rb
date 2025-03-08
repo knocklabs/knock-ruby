@@ -8,11 +8,6 @@ module Knock
         #   extend Knock::RequestParameters::Converter
         include Knock::RequestParameters
 
-        # @!attribute user_id
-        #
-        #   @return [String]
-        required :user_id, String
-
         # @!attribute [r] after
         #   The cursor to fetch entries after
         #
@@ -114,7 +109,6 @@ module Knock
         #   attr_writer :workflow_categories
 
         # @!parse
-        #   # @param user_id [String]
         #   # @param after [String]
         #   # @param archived [Symbol, Knock::Models::Users::FeedListItemsParams::Archived]
         #   # @param before [String]
@@ -128,7 +122,6 @@ module Knock
         #   # @param request_options [Knock::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(
-        #     user_id:,
         #     after: nil,
         #     archived: nil,
         #     before: nil,

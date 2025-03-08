@@ -1,8 +1,0 @@
-module Knock
-  module Models
-    type object_list_preferences_response =
-      ::Array[Knock::Models::PreferenceSet]
-
-    ObjectListPreferencesResponse: object_list_preferences_response
-  end
-end

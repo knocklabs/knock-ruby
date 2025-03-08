@@ -7,14 +7,6 @@ module Knock
         extend Knock::RequestParameters::Converter
         include Knock::RequestParameters
 
-        sig { returns(String) }
-        def user_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def user_id=(_)
-        end
-
         sig { returns(T.nilable(String)) }
         def after
         end
@@ -97,7 +89,6 @@ module Knock
 
         sig do
           params(
-            user_id: String,
             after: String,
             archived: Symbol,
             before: String,
@@ -113,7 +104,6 @@ module Knock
             .returns(T.attached_class)
         end
         def self.new(
-          user_id:,
           after: nil,
           archived: nil,
           before: nil,
@@ -132,7 +122,6 @@ module Knock
           override
             .returns(
               {
-                user_id: String,
                 after: String,
                 archived: Symbol,
                 before: String,

@@ -16,28 +16,28 @@ module Knock
 
       def delete:
         (
-          String id,
+          String tenant_id,
           ?Knock::Models::TenantDeleteParams | ::Hash[Symbol, top] params
         ) -> String
-        | (String id, request_options: Knock::request_opts) -> String
+        | (String tenant_id, request_options: Knock::request_opts) -> String
 
       def get:
         (
-          String id,
+          String tenant_id,
           ?Knock::Models::TenantGetParams | ::Hash[Symbol, top] params
         ) -> Knock::Models::Tenant
         | (
-          String id,
+          String tenant_id,
           request_options: Knock::request_opts
         ) -> Knock::Models::Tenant
 
       def set:
         (
-          String id,
+          String tenant_id,
           ?Knock::Models::TenantSetParams | ::Hash[Symbol, top] params
         ) -> Knock::Models::Tenant
         | (
-          String id,
+          String tenant_id,
           channel_data: Knock::Models::inline_channel_data_request?,
           preferences: Knock::Models::inline_preference_set_request?,
           settings: Knock::Models::TenantSetParams::Settings,

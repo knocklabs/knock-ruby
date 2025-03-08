@@ -37,7 +37,7 @@ class Knock::Test::Resources::TenantsTest < Knock::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.tenants.delete("id")
+    response = @knock.tenants.delete("tenant_id")
 
     assert_pattern do
       response => String
@@ -49,7 +49,7 @@ class Knock::Test::Resources::TenantsTest < Knock::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.tenants.get("id")
+    response = @knock.tenants.get("tenant_id")
 
     assert_pattern do
       response => Knock::Models::Tenant
@@ -68,7 +68,7 @@ class Knock::Test::Resources::TenantsTest < Knock::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.tenants.set("id")
+    response = @knock.tenants.set("tenant_id")
 
     assert_pattern do
       response => Knock::Models::Tenant

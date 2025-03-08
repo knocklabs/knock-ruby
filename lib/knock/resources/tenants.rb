@@ -34,7 +34,7 @@ module Knock
 
       # Delete a tenant
       #
-      # @param id [String] The ID of the tenant
+      # @param tenant_id [String] The ID of the tenant
       #
       # @param params [Knock::Models::TenantDeleteParams, Hash{Symbol=>Object}] .
       #
@@ -42,10 +42,10 @@ module Knock
       #
       # @return [String]
       #
-      def delete(id, params = {})
+      def delete(tenant_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/tenants/%0s", id],
+          path: ["v1/tenants/%0s", tenant_id],
           model: String,
           options: params[:request_options]
         )
@@ -53,7 +53,7 @@ module Knock
 
       # Get a tenant
       #
-      # @param id [String] The ID of the tenant
+      # @param tenant_id [String] The ID of the tenant
       #
       # @param params [Knock::Models::TenantGetParams, Hash{Symbol=>Object}] .
       #
@@ -61,10 +61,10 @@ module Knock
       #
       # @return [Knock::Models::Tenant]
       #
-      def get(id, params = {})
+      def get(tenant_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/tenants/%0s", id],
+          path: ["v1/tenants/%0s", tenant_id],
           model: Knock::Models::Tenant,
           options: params[:request_options]
         )
@@ -72,7 +72,7 @@ module Knock
 
       # Set a tenant
       #
-      # @param id [String] The ID of the tenant
+      # @param tenant_id [String] The ID of the tenant
       #
       # @param params [Knock::Models::TenantSetParams, Hash{Symbol=>Object}] .
       #
@@ -86,11 +86,11 @@ module Knock
       #
       # @return [Knock::Models::Tenant]
       #
-      def set(id, params = {})
+      def set(tenant_id, params = {})
         parsed, options = Knock::Models::TenantSetParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/tenants/%0s", id],
+          path: ["v1/tenants/%0s", tenant_id],
           body: parsed,
           model: Knock::Models::Tenant,
           options: options

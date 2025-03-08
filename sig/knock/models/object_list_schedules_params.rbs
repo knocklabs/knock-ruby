@@ -2,7 +2,6 @@ module Knock
   module Models
     type object_list_schedules_params =
       {
-        collection: String,
         after: String,
         before: String,
         page_size: Integer,
@@ -14,8 +13,6 @@ module Knock
     class ObjectListSchedulesParams < Knock::BaseModel
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
-
-      attr_accessor collection: String
 
       attr_reader after: String?
 
@@ -39,7 +36,6 @@ module Knock
 
       def initialize:
         (
-          collection: String,
           after: String,
           before: String,
           page_size: Integer,

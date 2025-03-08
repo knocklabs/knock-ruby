@@ -8,7 +8,7 @@ module Knock
         #
         # @param params [Knock::Models::Users::BulkDeleteParams, Hash{Symbol=>Object}] .
         #
-        #   @option params [Array<String>] :body_user_ids Body param:
+        #   @option params [Array<String>] :user_ids
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
@@ -16,12 +16,10 @@ module Knock
         #
         def delete(params)
           parsed, options = Knock::Models::Users::BulkDeleteParams.dump_request(params)
-          query_params = [:user_ids]
           @client.request(
             method: :post,
             path: "v1/users/bulk/delete",
-            query: parsed.slice(*query_params),
-            body: parsed.except(*query_params),
+            body: parsed,
             model: Knock::Models::BulkOperation,
             options: options
           )

@@ -6,14 +6,6 @@ module Knock
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      sig { returns(String) }
-      def collection
-      end
-
-      sig { params(_: String).returns(String) }
-      def collection=(_)
-      end
-
       sig do
         returns(
           T::Array[T.any(String, Knock::Models::InlineIdentifyUserRequest, Knock::Models::InlineObjectRequest)]
@@ -35,20 +27,18 @@ module Knock
 
       sig do
         params(
-          collection: String,
           recipients: T::Array[T.any(String, Knock::Models::InlineIdentifyUserRequest, Knock::Models::InlineObjectRequest)],
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
       end
-      def self.new(collection:, recipients:, request_options: {})
+      def self.new(recipients:, request_options: {})
       end
 
       sig do
         override
           .returns(
             {
-              collection: String,
               recipients: T::Array[T.any(String, Knock::Models::InlineIdentifyUserRequest, Knock::Models::InlineObjectRequest)],
               request_options: Knock::RequestOptions
             }

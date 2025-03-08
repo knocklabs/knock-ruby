@@ -3,7 +3,6 @@ module Knock
     module Channels
       type bulk_update_message_status_params =
         {
-          channel_id: String,
           archived: Knock::Models::Channels::BulkUpdateMessageStatusParams::archived,
           delivery_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
           engagement_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
@@ -20,8 +19,6 @@ module Knock
       class BulkUpdateMessageStatusParams < Knock::BaseModel
         extend Knock::RequestParameters::Converter
         include Knock::RequestParameters
-
-        attr_accessor channel_id: String
 
         attr_reader archived: Knock::Models::Channels::BulkUpdateMessageStatusParams::archived?
 
@@ -71,7 +68,6 @@ module Knock
 
         def initialize:
           (
-            channel_id: String,
             archived: Knock::Models::Channels::BulkUpdateMessageStatusParams::archived,
             delivery_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
             engagement_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,

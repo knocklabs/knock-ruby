@@ -8,11 +8,6 @@ module Knock
         #   extend Knock::RequestParameters::Converter
         include Knock::RequestParameters
 
-        # @!attribute channel_id
-        #
-        #   @return [String]
-        required :channel_id, String
-
         # @!attribute [r] archived
         #
         #   @return [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::Archived, nil]
@@ -106,7 +101,6 @@ module Knock
         #   attr_writer :workflows
 
         # @!parse
-        #   # @param channel_id [String]
         #   # @param archived [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::Archived]
         #   # @param delivery_status [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus]
         #   # @param engagement_status [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus]
@@ -120,7 +114,6 @@ module Knock
         #   # @param request_options [Knock::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(
-        #     channel_id:,
         #     archived: nil,
         #     delivery_status: nil,
         #     engagement_status: nil,

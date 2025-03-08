@@ -3,15 +3,12 @@
 require_relative "../../test_helper"
 
 class Knock::Test::Resources::Channels::BulkTest < Knock::Test::ResourceTest
-  def test_update_message_status_required_params
+  def test_update_message_status
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.channels.bulk.update_message_status(
-      :seen,
-      channel_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-    )
+    response = @knock.channels.bulk.update_message_status("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", :seen)
 
     assert_pattern do
       response => Knock::Models::BulkOperation

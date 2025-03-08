@@ -7,11 +7,6 @@ module Knock
       #   extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      # @!attribute collection
-      #
-      #   @return [String]
-      required :collection, String
-
       # @!attribute channel_data
       #   Allows inline setting channel data for a recipient
       #
@@ -25,12 +20,11 @@ module Knock
       optional :preferences, -> { Knock::HashOf[Knock::Models::PreferenceSetRequest] }, nil?: true
 
       # @!parse
-      #   # @param collection [String]
       #   # @param channel_data [Hash{Symbol=>Knock::Models::ChannelDataRequest}, nil]
       #   # @param preferences [Hash{Symbol=>Knock::Models::PreferenceSetRequest}, nil]
       #   # @param request_options [Knock::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(collection:, channel_data: nil, preferences: nil, request_options: {}, **) = super
+      #   def initialize(channel_data: nil, preferences: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | Knock::BaseModel) -> void
     end

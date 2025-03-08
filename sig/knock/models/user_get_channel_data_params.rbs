@@ -1,16 +1,13 @@
 module Knock
   module Models
-    type user_get_channel_data_params =
-      { user_id: String } & Knock::request_parameters
+    type user_get_channel_data_params = {  } & Knock::request_parameters
 
     class UserGetChannelDataParams < Knock::BaseModel
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      attr_accessor user_id: String
-
       def initialize:
-        (user_id: String, request_options: Knock::request_opts) -> void
+        (request_options: Knock::request_opts) -> void
         | (
           ?Knock::Models::user_get_channel_data_params | Knock::BaseModel data
         ) -> void

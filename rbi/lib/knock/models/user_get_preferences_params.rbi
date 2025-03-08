@@ -6,14 +6,6 @@ module Knock
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      sig { returns(String) }
-      def user_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def user_id=(_)
-      end
-
       sig { returns(T.nilable(String)) }
       def tenant
       end
@@ -23,17 +15,13 @@ module Knock
       end
 
       sig do
-        params(
-          user_id: String,
-          tenant: String,
-          request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
-        )
+        params(tenant: String, request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           .returns(T.attached_class)
       end
-      def self.new(user_id:, tenant: nil, request_options: {})
+      def self.new(tenant: nil, request_options: {})
       end
 
-      sig { override.returns({user_id: String, tenant: String, request_options: Knock::RequestOptions}) }
+      sig { override.returns({tenant: String, request_options: Knock::RequestOptions}) }
       def to_hash
       end
     end

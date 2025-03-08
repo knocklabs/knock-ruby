@@ -8,7 +8,7 @@ class Knock::Test::Resources::Users::BulkTest < Knock::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.bulk.delete(query_user_ids: ["string"], body_user_ids: %w[user_1 user_2])
+    response = @knock.users.bulk.delete(user_ids: %w[user_1 user_2])
 
     assert_pattern do
       response => Knock::Models::BulkOperation

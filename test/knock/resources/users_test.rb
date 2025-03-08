@@ -103,12 +103,12 @@ class Knock::Test::Resources::UsersTest < Knock::Test::ResourceTest
     end
   end
 
-  def test_get_channel_data_required_params
+  def test_get_channel_data
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.get_channel_data("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", user_id: "user_id")
+    response = @knock.users.get_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
       response => Knock::Models::ChannelData
@@ -123,12 +123,12 @@ class Knock::Test::Resources::UsersTest < Knock::Test::ResourceTest
     end
   end
 
-  def test_get_preferences_required_params
+  def test_get_preferences
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.get_preferences("id", user_id: "user_id")
+    response = @knock.users.get_preferences("user_id", "default")
 
     assert_pattern do
       response => Knock::Models::PreferenceSet
@@ -309,8 +309,8 @@ class Knock::Test::Resources::UsersTest < Knock::Test::ResourceTest
     )
 
     response = @knock.users.set_channel_data(
+      "user_id",
       "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      user_id: "user_id",
       data: {tokens: ["push_token_1"]}
     )
 
@@ -327,12 +327,12 @@ class Knock::Test::Resources::UsersTest < Knock::Test::ResourceTest
     end
   end
 
-  def test_set_preferences_required_params
+  def test_set_preferences
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.set_preferences("id", user_id: "user_id")
+    response = @knock.users.set_preferences("user_id", "default")
 
     assert_pattern do
       response => Knock::Models::PreferenceSet
@@ -349,12 +349,12 @@ class Knock::Test::Resources::UsersTest < Knock::Test::ResourceTest
     end
   end
 
-  def test_unset_channel_data_required_params
+  def test_unset_channel_data
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.unset_channel_data("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", user_id: "user_id")
+    response = @knock.users.unset_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
       response => String

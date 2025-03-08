@@ -2,7 +2,6 @@ module Knock
   module Models
     type object_list_messages_params =
       {
-        collection: String,
         after: String,
         before: String,
         channel_id: String,
@@ -22,8 +21,6 @@ module Knock
     class ObjectListMessagesParams < Knock::BaseModel
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
-
-      attr_accessor collection: String
 
       attr_reader after: String?
 
@@ -83,7 +80,6 @@ module Knock
 
       def initialize:
         (
-          collection: String,
           after: String,
           before: String,
           channel_id: String,

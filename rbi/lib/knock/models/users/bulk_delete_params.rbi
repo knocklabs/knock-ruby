@@ -8,24 +8,24 @@ module Knock
         include Knock::RequestParameters
 
         sig { returns(T::Array[String]) }
-        def body_user_ids
+        def user_ids
         end
 
         sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def body_user_ids=(_)
+        def user_ids=(_)
         end
 
         sig do
           params(
-            body_user_ids: T::Array[String],
+            user_ids: T::Array[String],
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
             .returns(T.attached_class)
         end
-        def self.new(body_user_ids:, request_options: {})
+        def self.new(user_ids:, request_options: {})
         end
 
-        sig { override.returns({body_user_ids: T::Array[String], request_options: Knock::RequestOptions}) }
+        sig { override.returns({user_ids: T::Array[String], request_options: Knock::RequestOptions}) }
         def to_hash
         end
       end

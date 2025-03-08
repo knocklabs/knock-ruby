@@ -102,51 +102,44 @@ module Knock
 
       # Get channel data
       #
+      # @param user_id [String] The user ID
+      #
       # @param channel_id [String] The channel ID
       #
       # @param params [Knock::Models::UserGetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :user_id The user ID
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knock::Models::ChannelData]
       #
-      def get_channel_data(channel_id, params)
-        parsed, options = Knock::Models::UserGetChannelDataParams.dump_request(params)
-        user_id = parsed.delete(:user_id) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
+      def get_channel_data(user_id, channel_id, params = {})
         @client.request(
           method: :get,
           path: ["v1/users/%0s/channel_data/%1s", user_id, channel_id],
           model: Knock::Models::ChannelData,
-          options: options
+          options: params[:request_options]
         )
       end
 
       # Get preference set
       #
-      # @param id [String] Path param: Preference set ID
+      # @param user_id [String] User ID
+      #
+      # @param preference_set_id [String] Preference set ID
       #
       # @param params [Knock::Models::UserGetPreferencesParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [String] :user_id Path param: User ID
-      #
-      #   @option params [String] :tenant Query param: Tenant ID
+      #   @option params [String] :tenant Tenant ID
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knock::Models::PreferenceSet]
       #
-      def get_preferences(id, params)
+      def get_preferences(user_id, preference_set_id, params = {})
         parsed, options = Knock::Models::UserGetPreferencesParams.dump_request(params)
-        user_id = parsed.delete(:user_id) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
         @client.request(
           method: :get,
-          path: ["v1/users/%0s/preferences/%1s", user_id, id],
+          path: ["v1/users/%0s/preferences/%1s", user_id, preference_set_id],
           query: parsed,
           model: Knock::Models::PreferenceSet,
           options: options
@@ -306,23 +299,20 @@ module Knock
 
       # Set channel data
       #
-      # @param channel_id [String] Path param: The channel ID
+      # @param user_id [String] The user ID
+      #
+      # @param channel_id [String] The channel ID
       #
       # @param params [Knock::Models::UserSetChannelDataParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [String] :user_id Path param: The user ID
-      #
-      #   @option params [Knock::Models::PushChannelData, Knock::Models::OneSignalChannelData, Knock::Models::SlackChannelData, Knock::Models::MsTeamsChannelData, Knock::Models::DiscordChannelData] :data Body param: Channel data for push providers
+      #   @option params [Knock::Models::PushChannelData, Knock::Models::OneSignalChannelData, Knock::Models::SlackChannelData, Knock::Models::MsTeamsChannelData, Knock::Models::DiscordChannelData] :data Channel data for push providers
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knock::Models::ChannelData]
       #
-      def set_channel_data(channel_id, params)
+      def set_channel_data(user_id, channel_id, params)
         parsed, options = Knock::Models::UserSetChannelDataParams.dump_request(params)
-        user_id = parsed.delete(:user_id) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
         @client.request(
           method: :put,
           path: ["v1/users/%0s/channel_data/%1s", user_id, channel_id],
@@ -335,32 +325,29 @@ module Knock
       # Updates a complete preference set for a user. This is a destructive operation
       #   that will replace the existing preference set for the user.
       #
-      # @param id [String] Path param: Preference set ID
+      # @param user_id [String] User ID
+      #
+      # @param preference_set_id [String] Preference set ID
       #
       # @param params [Knock::Models::UserSetPreferencesParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [String] :user_id Path param: User ID
+      #   @option params [Hash{Symbol=>Boolean, Knock::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] :categories A setting for a preference set, where the key in the object is the category, and
+      #     the values are the preference settings for that category.
       #
-      #   @option params [Hash{Symbol=>Boolean, Knock::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] :categories Body param: A setting for a preference set, where the key in the object is the
-      #     category, and the values are the preference settings for that category.
+      #   @option params [Knock::Models::PreferenceSetChannelTypes, nil] :channel_types Channel type preferences
       #
-      #   @option params [Knock::Models::PreferenceSetChannelTypes, nil] :channel_types Body param: Channel type preferences
-      #
-      #   @option params [Hash{Symbol=>Boolean, Knock::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] :workflows Body param: A setting for a preference set, where the key in the object is the
-      #     workflow key, and the values are the preference settings for that workflow.
+      #   @option params [Hash{Symbol=>Boolean, Knock::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] :workflows A setting for a preference set, where the key in the object is the workflow key,
+      #     and the values are the preference settings for that workflow.
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knock::Models::PreferenceSet]
       #
-      def set_preferences(id, params)
+      def set_preferences(user_id, preference_set_id, params = {})
         parsed, options = Knock::Models::UserSetPreferencesParams.dump_request(params)
-        user_id = parsed.delete(:user_id) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
         @client.request(
           method: :put,
-          path: ["v1/users/%0s/preferences/%1s", user_id, id],
+          path: ["v1/users/%0s/preferences/%1s", user_id, preference_set_id],
           body: parsed,
           model: Knock::Models::PreferenceSet,
           options: options
@@ -369,26 +356,22 @@ module Knock
 
       # Unset channel data
       #
+      # @param user_id [String] The user ID
+      #
       # @param channel_id [String] The channel ID
       #
       # @param params [Knock::Models::UserUnsetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :user_id The user ID
       #
       #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
       #
-      def unset_channel_data(channel_id, params)
-        parsed, options = Knock::Models::UserUnsetChannelDataParams.dump_request(params)
-        user_id = parsed.delete(:user_id) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
+      def unset_channel_data(user_id, channel_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/users/%0s/channel_data/%1s", user_id, channel_id],
           model: String,
-          options: options
+          options: params[:request_options]
         )
       end
 

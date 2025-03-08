@@ -58,25 +58,25 @@ module Knock
 
       sig do
         params(
-          channel_id: String,
           user_id: String,
+          channel_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::ChannelData)
       end
-      def get_channel_data(channel_id, user_id:, request_options: {})
+      def get_channel_data(user_id, channel_id, request_options: {})
       end
 
       sig do
         params(
-          id: String,
           user_id: String,
+          preference_set_id: String,
           tenant: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::PreferenceSet)
       end
-      def get_preferences(id, user_id:, tenant: nil, request_options: {})
+      def get_preferences(user_id, preference_set_id, tenant: nil, request_options: {})
       end
 
       sig do
@@ -177,8 +177,8 @@ module Knock
 
       sig do
         params(
-          channel_id: String,
           user_id: String,
+          channel_id: String,
           data: T.any(
             Knock::Models::PushChannelData,
             Knock::Models::OneSignalChannelData,
@@ -190,13 +190,13 @@ module Knock
         )
           .returns(Knock::Models::ChannelData)
       end
-      def set_channel_data(channel_id, user_id:, data:, request_options: {})
+      def set_channel_data(user_id, channel_id, data:, request_options: {})
       end
 
       sig do
         params(
-          id: String,
           user_id: String,
+          preference_set_id: String,
           categories: T.nilable(
             T::Hash[
             Symbol,
@@ -221,8 +221,8 @@ module Knock
           .returns(Knock::Models::PreferenceSet)
       end
       def set_preferences(
-        id,
-        user_id:,
+        user_id,
+        preference_set_id,
         categories: nil,
         channel_types: nil,
         workflows: nil,
@@ -232,13 +232,13 @@ module Knock
 
       sig do
         params(
-          channel_id: String,
           user_id: String,
+          channel_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(String)
       end
-      def unset_channel_data(channel_id, user_id:, request_options: {})
+      def unset_channel_data(user_id, channel_id, request_options: {})
       end
 
       sig { params(client: Knock::Client).returns(T.attached_class) }

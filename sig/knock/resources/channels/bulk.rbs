@@ -4,13 +4,14 @@ module Knock
       class Bulk
         def update_message_status:
           (
+            String channel_id,
             Knock::Models::Channels::BulkUpdateMessageStatusParams::action action,
-            Knock::Models::Channels::BulkUpdateMessageStatusParams
+            ?Knock::Models::Channels::BulkUpdateMessageStatusParams
             | ::Hash[Symbol, top] params
           ) -> Knock::Models::BulkOperation
           | (
+            String channel_id,
             Knock::Models::Channels::BulkUpdateMessageStatusParams::action action,
-            channel_id: String,
             archived: Knock::Models::Channels::BulkUpdateMessageStatusParams::archived,
             delivery_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
             engagement_status: Knock::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,

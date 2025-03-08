@@ -7,7 +7,7 @@ module Knock
             Knock::Models::Users::BulkDeleteParams | ::Hash[Symbol, top] params
           ) -> Knock::Models::BulkOperation
           | (
-            body_user_ids: ::Array[String],
+            user_ids: ::Array[String],
             request_options: Knock::request_opts
           ) -> Knock::Models::BulkOperation
 

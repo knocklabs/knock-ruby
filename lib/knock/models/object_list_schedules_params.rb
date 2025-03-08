@@ -7,11 +7,6 @@ module Knock
       #   extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      # @!attribute collection
-      #
-      #   @return [String]
-      required :collection, String
-
       # @!attribute [r] after
       #   The cursor to fetch entries after
       #
@@ -63,7 +58,6 @@ module Knock
       #   attr_writer :workflow
 
       # @!parse
-      #   # @param collection [String]
       #   # @param after [String]
       #   # @param before [String]
       #   # @param page_size [Integer]
@@ -71,7 +65,7 @@ module Knock
       #   # @param workflow [String]
       #   # @param request_options [Knock::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(collection:, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {}, **) = super
+      #   def initialize(after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | Knock::BaseModel) -> void
     end

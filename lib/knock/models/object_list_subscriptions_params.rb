@@ -7,11 +7,6 @@ module Knock
       #   extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      # @!attribute collection
-      #
-      #   @return [String]
-      required :collection, String
-
       # @!attribute [r] after
       #   The cursor to fetch entries after
       #
@@ -42,6 +37,16 @@ module Knock
       #   # @return [Symbol, Knock::Models::ObjectListSubscriptionsParams::Mode]
       #   attr_writer :mode
 
+      # @!attribute [r] objects
+      #   Objects to filter by (only used if mode is `recipient`)
+      #
+      #   @return [Array<String, Knock::Models::ObjectListSubscriptionsParams::Object::ObjectReference>, nil]
+      optional :objects, -> { Knock::ArrayOf[union: Knock::Models::ObjectListSubscriptionsParams::Object] }
+
+      # @!parse
+      #   # @return [Array<String, Knock::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
+      #   attr_writer :objects
+
       # @!attribute [r] page_size
       #   The page size to fetch
       #
@@ -64,15 +69,15 @@ module Knock
       #   attr_writer :recipients
 
       # @!parse
-      #   # @param collection [String]
       #   # @param after [String]
       #   # @param before [String]
       #   # @param mode [Symbol, Knock::Models::ObjectListSubscriptionsParams::Mode]
+      #   # @param objects [Array<String, Knock::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
       #   # @param page_size [Integer]
       #   # @param recipients [Array<String, Knock::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
       #   # @param request_options [Knock::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(collection:, after: nil, before: nil, mode: nil, page_size: nil, recipients: nil, request_options: {}, **) = super
+      #   def initialize(after: nil, before: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | Knock::BaseModel) -> void
 
@@ -84,6 +89,42 @@ module Knock
         OBJECT = :object
 
         finalize!
+      end
+
+      # @abstract
+      #
+      # A reference to a recipient, either a user identifier (string) or an object
+      #   reference (id, collection).
+      class Object < Knock::Union
+        # A user identifier
+        variant String
+
+        # An object reference to a recipient
+        variant -> { Knock::Models::ObjectListSubscriptionsParams::Object::ObjectReference }
+
+        class ObjectReference < Knock::BaseModel
+          # @!attribute id
+          #   An object identifier
+          #
+          #   @return [String]
+          required :id, String
+
+          # @!attribute collection
+          #   The collection the object belongs to
+          #
+          #   @return [String]
+          required :collection, String
+
+          # @!parse
+          #   # An object reference to a recipient
+          #   #
+          #   # @param id [String]
+          #   # @param collection [String]
+          #   #
+          #   def initialize(id:, collection:, **) = super
+
+          # def initialize: (Hash | Knock::BaseModel) -> void
+        end
       end
 
       # @abstract

@@ -2,10 +2,10 @@ module Knock
   module Models
     type object_list_subscriptions_params =
       {
-        collection: String,
         after: String,
         before: String,
         mode: Knock::Models::ObjectListSubscriptionsParams::mode,
+        objects: ::Array[Knock::Models::ObjectListSubscriptionsParams::object],
         page_size: Integer,
         recipients: ::Array[Knock::Models::ObjectListSubscriptionsParams::recipient]
       }
@@ -14,8 +14,6 @@ module Knock
     class ObjectListSubscriptionsParams < Knock::BaseModel
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
-
-      attr_accessor collection: String
 
       attr_reader after: String?
 
@@ -31,6 +29,12 @@ module Knock
         Knock::Models::ObjectListSubscriptionsParams::mode
       ) -> Knock::Models::ObjectListSubscriptionsParams::mode
 
+      attr_reader objects: ::Array[Knock::Models::ObjectListSubscriptionsParams::object]?
+
+      def objects=: (
+        ::Array[Knock::Models::ObjectListSubscriptionsParams::object]
+      ) -> ::Array[Knock::Models::ObjectListSubscriptionsParams::object]
+
       attr_reader page_size: Integer?
 
       def page_size=: (Integer) -> Integer
@@ -43,10 +47,10 @@ module Knock
 
       def initialize:
         (
-          collection: String,
           after: String,
           before: String,
           mode: Knock::Models::ObjectListSubscriptionsParams::mode,
+          objects: ::Array[Knock::Models::ObjectListSubscriptionsParams::object],
           page_size: Integer,
           recipients: ::Array[Knock::Models::ObjectListSubscriptionsParams::recipient],
           request_options: Knock::request_opts
@@ -65,6 +69,31 @@ module Knock
         OBJECT: :object
 
         def self.values: -> ::Array[Knock::Models::ObjectListSubscriptionsParams::mode]
+      end
+
+      type object =
+        String
+        | Knock::Models::ObjectListSubscriptionsParams::Object::ObjectReference
+
+      class Object < Knock::Union
+        type object_reference = { id: String, collection: String }
+
+        class ObjectReference < Knock::BaseModel
+          attr_accessor id: String
+
+          attr_accessor collection: String
+
+          def initialize:
+            (id: String, collection: String) -> void
+            | (
+              ?Knock::Models::ObjectListSubscriptionsParams::Object::object_reference
+              | Knock::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knock::Models::ObjectListSubscriptionsParams::Object::object_reference
+        end
+
+        private def self.variants: -> [[nil, String], [nil, Knock::Models::ObjectListSubscriptionsParams::Object::ObjectReference]]
       end
 
       type recipient =

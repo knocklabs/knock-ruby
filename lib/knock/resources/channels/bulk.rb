@@ -9,41 +9,38 @@ module Knock
         #   parameter, where the action is a status change action (e.g. `archive`,
         #   `unarchive`).
         #
-        # @param action [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::Action] Path param: The action to perform on the messages
+        # @param channel_id [String] The ID of the channel to update messages for
+        #
+        # @param action [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::Action] The action to perform on the messages
         #
         # @param params [Knock::Models::Channels::BulkUpdateMessageStatusParams, Hash{Symbol=>Object}] .
         #
-        #   @option params [String] :channel_id Path param: The ID of the channel to update messages for
+        #   @option params [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::Archived] :archived
         #
-        #   @option params [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::Archived] :archived Body param:
+        #   @option params [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] :delivery_status
         #
-        #   @option params [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] :delivery_status Body param:
+        #   @option params [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus] :engagement_status
         #
-        #   @option params [Symbol, Knock::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus] :engagement_status Body param:
+        #   @option params [Boolean] :has_tenant
         #
-        #   @option params [Boolean] :has_tenant Body param:
+        #   @option params [Time] :newer_than
         #
-        #   @option params [Time] :newer_than Body param:
+        #   @option params [Time] :older_than
         #
-        #   @option params [Time] :older_than Body param:
+        #   @option params [Array<String>] :recipient_ids
         #
-        #   @option params [Array<String>] :recipient_ids Body param:
+        #   @option params [Array<String>] :tenants
         #
-        #   @option params [Array<String>] :tenants Body param:
+        #   @option params [String] :trigger_data
         #
-        #   @option params [String] :trigger_data Body param:
-        #
-        #   @option params [Array<String>] :workflows Body param:
+        #   @option params [Array<String>] :workflows
         #
         #   @option params [Knock::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knock::Models::BulkOperation]
         #
-        def update_message_status(action, params)
+        def update_message_status(channel_id, action, params = {})
           parsed, options = Knock::Models::Channels::BulkUpdateMessageStatusParams.dump_request(params)
-          channel_id = parsed.delete(:channel_id) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
           @client.request(
             method: :post,
             path: ["v1/channels/%0s/messages/bulk/%1s", channel_id, action],

@@ -22,80 +22,80 @@ module Knock
 
       sig do
         params(
-          id: String,
           collection: String,
+          object_id_: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(String)
       end
-      def delete(id, collection:, request_options: {})
+      def delete(collection, object_id_, request_options: {})
       end
 
       sig do
         params(
-          object_id_: String,
           collection: String,
+          object_id_: String,
           recipients: T::Array[T.any(String, Knock::Models::InlineIdentifyUserRequest, Knock::Models::InlineObjectRequest)],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::ObjectAddSubscriptionsResponse)
       end
-      def add_subscriptions(object_id_, collection:, recipients:, properties: nil, request_options: {})
+      def add_subscriptions(collection, object_id_, recipients:, properties: nil, request_options: {})
       end
 
       sig do
         params(
-          object_id_: String,
           collection: String,
+          object_id_: String,
           recipients: T::Array[T.any(String, Knock::Models::InlineIdentifyUserRequest, Knock::Models::InlineObjectRequest)],
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::ObjectDeleteSubscriptionsResponse)
       end
-      def delete_subscriptions(object_id_, collection:, recipients:, request_options: {})
+      def delete_subscriptions(collection, object_id_, recipients:, request_options: {})
       end
 
       sig do
         params(
-          id: String,
           collection: String,
+          object_id_: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::Object)
       end
-      def get(id, collection:, request_options: {})
+      def get(collection, object_id_, request_options: {})
       end
 
       sig do
         params(
-          channel_id: String,
           collection: String,
           object_id_: String,
+          channel_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::ChannelData)
       end
-      def get_channel_data(channel_id, collection:, object_id_:, request_options: {})
+      def get_channel_data(collection, object_id_, channel_id, request_options: {})
       end
 
       sig do
         params(
-          id: String,
           collection: String,
           object_id_: String,
+          preference_set_id: String,
           tenant: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::PreferenceSet)
       end
-      def get_preferences(id, collection:, object_id_:, tenant: nil, request_options: {})
+      def get_preferences(collection, object_id_, preference_set_id, tenant: nil, request_options: {})
       end
 
       sig do
         params(
-          id: String,
           collection: String,
+          object_id_: String,
           after: String,
           before: String,
           channel_id: String,
@@ -114,8 +114,8 @@ module Knock
           .returns(Knock::EntriesCursor[Knock::Models::Message])
       end
       def list_messages(
-        id,
-        collection:,
+        collection,
+        object_id_,
         after: nil,
         before: nil,
         channel_id: nil,
@@ -135,19 +135,8 @@ module Knock
 
       sig do
         params(
+          collection: String,
           object_id_: String,
-          collection: String,
-          request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
-        )
-          .returns(Knock::Models::ObjectListPreferencesResponse)
-      end
-      def list_preferences(object_id_, collection:, request_options: {})
-      end
-
-      sig do
-        params(
-          id: String,
-          collection: String,
           after: String,
           before: String,
           page_size: Integer,
@@ -158,8 +147,8 @@ module Knock
           .returns(Knock::EntriesCursor[Knock::Models::Schedule])
       end
       def list_schedules(
-        id,
-        collection:,
+        collection,
+        object_id_,
         after: nil,
         before: nil,
         page_size: nil,
@@ -171,11 +160,12 @@ module Knock
 
       sig do
         params(
-          object_id_: String,
           collection: String,
+          object_id_: String,
           after: String,
           before: String,
           mode: Symbol,
+          objects: T::Array[T.any(String, Knock::Models::ObjectListSubscriptionsParams::Object::ObjectReference)],
           page_size: Integer,
           recipients: T::Array[T.any(String, Knock::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)],
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
@@ -183,11 +173,12 @@ module Knock
           .returns(Knock::EntriesCursor[Knock::Models::Subscription])
       end
       def list_subscriptions(
+        collection,
         object_id_,
-        collection:,
         after: nil,
         before: nil,
         mode: nil,
+        objects: nil,
         page_size: nil,
         recipients: nil,
         request_options: {}
@@ -196,22 +187,22 @@ module Knock
 
       sig do
         params(
-          id: String,
           collection: String,
+          object_id_: String,
           channel_data: T.nilable(Knock::Models::InlineChannelDataRequest),
           preferences: T.nilable(Knock::Models::InlinePreferenceSetRequest),
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knock::Models::Object)
       end
-      def set(id, collection:, channel_data: nil, preferences: nil, request_options: {})
+      def set(collection, object_id_, channel_data: nil, preferences: nil, request_options: {})
       end
 
       sig do
         params(
-          channel_id: String,
           collection: String,
           object_id_: String,
+          channel_id: String,
           data: T.any(
             Knock::Models::PushChannelData,
             Knock::Models::OneSignalChannelData,
@@ -223,14 +214,14 @@ module Knock
         )
           .returns(Knock::Models::ChannelData)
       end
-      def set_channel_data(channel_id, collection:, object_id_:, data:, request_options: {})
+      def set_channel_data(collection, object_id_, channel_id, data:, request_options: {})
       end
 
       sig do
         params(
-          id: String,
           collection: String,
           object_id_: String,
+          preference_set_id: String,
           categories: T.nilable(
             T::Hash[
             Symbol,
@@ -255,9 +246,9 @@ module Knock
           .returns(Knock::Models::PreferenceSet)
       end
       def set_preferences(
-        id,
-        collection:,
-        object_id_:,
+        collection,
+        object_id_,
+        preference_set_id,
         categories: nil,
         channel_types: nil,
         workflows: nil,
@@ -267,14 +258,14 @@ module Knock
 
       sig do
         params(
-          channel_id: String,
           collection: String,
           object_id_: String,
+          channel_id: String,
           request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(String)
       end
-      def unset_channel_data(channel_id, collection:, object_id_:, request_options: {})
+      def unset_channel_data(collection, object_id_, channel_id, request_options: {})
       end
 
       sig { params(client: Knock::Client).returns(T.attached_class) }

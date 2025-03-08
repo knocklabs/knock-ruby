@@ -6,14 +6,6 @@ module Knock
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      sig { returns(String) }
-      def collection
-      end
-
-      sig { params(_: String).returns(String) }
-      def collection=(_)
-      end
-
       sig { returns(T.nilable(Knock::Models::InlineChannelDataRequest)) }
       def channel_data
       end
@@ -38,21 +30,19 @@ module Knock
 
       sig do
         params(
-          collection: String,
           channel_data: T.nilable(Knock::Models::InlineChannelDataRequest),
           preferences: T.nilable(Knock::Models::InlinePreferenceSetRequest),
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
       end
-      def self.new(collection:, channel_data: nil, preferences: nil, request_options: {})
+      def self.new(channel_data: nil, preferences: nil, request_options: {})
       end
 
       sig do
         override
           .returns(
             {
-              collection: String,
               channel_data: T.nilable(Knock::Models::InlineChannelDataRequest),
               preferences: T.nilable(Knock::Models::InlinePreferenceSetRequest),
               request_options: Knock::RequestOptions

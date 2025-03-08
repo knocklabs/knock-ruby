@@ -6,12 +6,12 @@ module Knock
       class Bulk
         sig do
           params(
-            body_user_ids: T::Array[String],
+            user_ids: T::Array[String],
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
             .returns(Knock::Models::BulkOperation)
         end
-        def delete(body_user_ids:, request_options: {})
+        def delete(user_ids:, request_options: {})
         end
 
         sig do

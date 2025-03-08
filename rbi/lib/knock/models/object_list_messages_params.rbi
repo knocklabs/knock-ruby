@@ -6,14 +6,6 @@ module Knock
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      sig { returns(String) }
-      def collection
-      end
-
-      sig { params(_: String).returns(String) }
-      def collection=(_)
-      end
-
       sig { returns(T.nilable(String)) }
       def after
       end
@@ -120,7 +112,6 @@ module Knock
 
       sig do
         params(
-          collection: String,
           after: String,
           before: String,
           channel_id: String,
@@ -139,7 +130,6 @@ module Knock
           .returns(T.attached_class)
       end
       def self.new(
-        collection:,
         after: nil,
         before: nil,
         channel_id: nil,
@@ -161,7 +151,6 @@ module Knock
         override
           .returns(
             {
-              collection: String,
               after: String,
               before: String,
               channel_id: String,

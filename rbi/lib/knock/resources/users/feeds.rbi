@@ -6,19 +6,19 @@ module Knock
       class Feeds
         sig do
           params(
-            id: String,
             user_id: String,
+            channel_id: String,
             request_options: T.nilable(T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
           )
             .returns(Knock::Models::Users::FeedGetSettingsResponse)
         end
-        def get_settings(id, user_id:, request_options: {})
+        def get_settings(user_id, channel_id, request_options: {})
         end
 
         sig do
           params(
-            id: String,
             user_id: String,
+            channel_id: String,
             after: String,
             archived: Symbol,
             before: String,
@@ -34,8 +34,8 @@ module Knock
             .returns(Knock::EntriesCursor[Knock::Models::Users::FeedListItemsResponse])
         end
         def list_items(
-          id,
-          user_id:,
+          user_id,
+          channel_id,
           after: nil,
           archived: nil,
           before: nil,

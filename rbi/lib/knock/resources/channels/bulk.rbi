@@ -6,8 +6,8 @@ module Knock
       class Bulk
         sig do
           params(
-            action: Symbol,
             channel_id: String,
+            action: Symbol,
             archived: Symbol,
             delivery_status: Symbol,
             engagement_status: Symbol,
@@ -23,8 +23,8 @@ module Knock
             .returns(Knock::Models::BulkOperation)
         end
         def update_message_status(
+          channel_id,
           action,
-          channel_id:,
           archived: nil,
           delivery_status: nil,
           engagement_status: nil,

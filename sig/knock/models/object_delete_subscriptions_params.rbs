@@ -1,23 +1,17 @@
 module Knock
   module Models
     type object_delete_subscriptions_params =
-      {
-        collection: String,
-        recipients: ::Array[Knock::Models::recipient_request]
-      }
+      { recipients: ::Array[Knock::Models::recipient_request] }
       & Knock::request_parameters
 
     class ObjectDeleteSubscriptionsParams < Knock::BaseModel
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      attr_accessor collection: String
-
       attr_accessor recipients: ::Array[Knock::Models::recipient_request]
 
       def initialize:
         (
-          collection: String,
           recipients: ::Array[Knock::Models::recipient_request],
           request_options: Knock::request_opts
         ) -> void

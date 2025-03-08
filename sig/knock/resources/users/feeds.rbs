@@ -4,25 +4,27 @@ module Knock
       class Feeds
         def get_settings:
           (
-            String id,
-            Knock::Models::Users::FeedGetSettingsParams
+            String user_id,
+            String channel_id,
+            ?Knock::Models::Users::FeedGetSettingsParams
             | ::Hash[Symbol, top] params
           ) -> Knock::Models::Users::FeedGetSettingsResponse
           | (
-            String id,
-            user_id: String,
+            String user_id,
+            String channel_id,
             request_options: Knock::request_opts
           ) -> Knock::Models::Users::FeedGetSettingsResponse
 
         def list_items:
           (
-            String id,
-            Knock::Models::Users::FeedListItemsParams
+            String user_id,
+            String channel_id,
+            ?Knock::Models::Users::FeedListItemsParams
             | ::Hash[Symbol, top] params
           ) -> Knock::EntriesCursor[Knock::Models::Users::FeedListItemsResponse]
           | (
-            String id,
-            user_id: String,
+            String user_id,
+            String channel_id,
             after: String,
             archived: Knock::Models::Users::FeedListItemsParams::archived,
             before: String,

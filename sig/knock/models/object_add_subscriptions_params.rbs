@@ -2,7 +2,6 @@ module Knock
   module Models
     type object_add_subscriptions_params =
       {
-        collection: String,
         recipients: ::Array[Knock::Models::recipient_request],
         properties: ::Hash[Symbol, top]?
       }
@@ -12,15 +11,12 @@ module Knock
       extend Knock::RequestParameters::Converter
       include Knock::RequestParameters
 
-      attr_accessor collection: String
-
       attr_accessor recipients: ::Array[Knock::Models::recipient_request]
 
       attr_accessor properties: ::Hash[Symbol, top]?
 
       def initialize:
         (
-          collection: String,
           recipients: ::Array[Knock::Models::recipient_request],
           properties: ::Hash[Symbol, top]?,
           request_options: Knock::request_opts

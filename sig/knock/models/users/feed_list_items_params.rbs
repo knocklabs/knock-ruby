@@ -3,7 +3,6 @@ module Knock
     module Users
       type feed_list_items_params =
         {
-          user_id: String,
           after: String,
           archived: Knock::Models::Users::FeedListItemsParams::archived,
           before: String,
@@ -20,8 +19,6 @@ module Knock
       class FeedListItemsParams < Knock::BaseModel
         extend Knock::RequestParameters::Converter
         include Knock::RequestParameters
-
-        attr_accessor user_id: String
 
         attr_reader after: String?
 
@@ -69,7 +66,6 @@ module Knock
 
         def initialize:
           (
-            user_id: String,
             after: String,
             archived: Knock::Models::Users::FeedListItemsParams::archived,
             before: String,
