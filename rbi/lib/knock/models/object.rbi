@@ -51,9 +51,9 @@ module Knock
           updated_at: Time,
           created_at: T.nilable(Time)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, _typename:, collection:, updated_at:, created_at: nil)
+      def self.new(id:, _typename:, collection:, updated_at:, created_at: nil)
       end
 
       sig do

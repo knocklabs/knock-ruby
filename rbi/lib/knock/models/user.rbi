@@ -87,9 +87,9 @@ module Knock
           phone_number: T.nilable(String),
           timezone: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         _typename:,
         updated_at:,

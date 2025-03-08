@@ -11,8 +11,8 @@ module Knock
       def conditions=(_)
       end
 
-      sig { params(conditions: T::Array[Knock::Models::Condition]).void }
-      def initialize(conditions:)
+      sig { params(conditions: T::Array[Knock::Models::Condition]).returns(T.attached_class) }
+      def self.new(conditions:)
       end
 
       sig { override.returns({conditions: T::Array[Knock::Models::Condition]}) }

@@ -135,9 +135,9 @@ module Knock
           failed_at: T.nilable(Time),
           started_at: T.nilable(Time)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         _typename:,
         estimated_total_rows:,
@@ -211,8 +211,8 @@ module Knock
         def collection=(_)
         end
 
-        sig { params(id: String, collection: T.nilable(String)).void }
-        def initialize(id:, collection: nil)
+        sig { params(id: String, collection: T.nilable(String)).returns(T.attached_class) }
+        def self.new(id:, collection: nil)
         end
 
         sig { override.returns({id: String, collection: T.nilable(String)}) }

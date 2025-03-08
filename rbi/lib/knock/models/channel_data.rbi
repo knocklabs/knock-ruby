@@ -68,9 +68,9 @@ module Knock
             Knock::Models::OneSignalChannelData
           )
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(_typename:, channel_id:, data:)
+      def self.new(_typename:, channel_id:, data:)
       end
 
       sig do

@@ -91,9 +91,9 @@ module Knock
           tenant: T.nilable(T.any(String, Knock::Models::TenantRequest)),
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         schedule_ids:,
         actor: nil,
         data: nil,

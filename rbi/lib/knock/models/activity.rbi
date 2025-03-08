@@ -77,17 +77,9 @@ module Knock
           recipient: T.any(Knock::Models::User, Knock::Models::Object),
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        id: nil,
-        _typename: nil,
-        actor: nil,
-        data: nil,
-        inserted_at: nil,
-        recipient: nil,
-        updated_at: nil
-      )
+      def self.new(id: nil, _typename: nil, actor: nil, data: nil, inserted_at: nil, recipient: nil, updated_at: nil)
       end
 
       sig do

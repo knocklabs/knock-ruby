@@ -28,9 +28,9 @@ module Knock
             next_cursor: T.nilable(String),
             slack_channels: T::Array[Knock::Models::Providers::SlackListChannelsResponse::SlackChannel]
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(next_cursor:, slack_channels:)
+        def self.new(next_cursor:, slack_channels:)
         end
 
         sig do
@@ -93,9 +93,10 @@ module Knock
               is_im: T::Boolean,
               is_private: T::Boolean,
               name: String
-            ).void
+            )
+              .returns(T.attached_class)
           end
-          def initialize(id:, context_team_id:, is_im:, is_private:, name:)
+          def self.new(id:, context_team_id:, is_im:, is_private:, name:)
           end
 
           sig do

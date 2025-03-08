@@ -75,17 +75,9 @@ module Knock
           recipients: T::Array[T.any(String, Knock::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)],
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        collection:,
-        after: nil,
-        before: nil,
-        mode: nil,
-        page_size: nil,
-        recipients: nil,
-        request_options: {}
-      )
+      def self.new(collection:, after: nil, before: nil, mode: nil, page_size: nil, recipients: nil, request_options: {})
       end
 
       sig do
@@ -138,8 +130,8 @@ module Knock
           def collection=(_)
           end
 
-          sig { params(id: String, collection: String).void }
-          def initialize(id:, collection:)
+          sig { params(id: String, collection: String).returns(T.attached_class) }
+          def self.new(id:, collection:)
           end
 
           sig { override.returns({id: String, collection: String}) }

@@ -15,8 +15,8 @@ module Knock
         def features=(_)
         end
 
-        sig { params(features: Knock::Models::Users::FeedGetSettingsResponse::Features).void }
-        def initialize(features:)
+        sig { params(features: Knock::Models::Users::FeedGetSettingsResponse::Features).returns(T.attached_class) }
+        def self.new(features:)
         end
 
         sig { override.returns({features: Knock::Models::Users::FeedGetSettingsResponse::Features}) }
@@ -32,8 +32,8 @@ module Knock
           def branding_required=(_)
           end
 
-          sig { params(branding_required: T::Boolean).void }
-          def initialize(branding_required:)
+          sig { params(branding_required: T::Boolean).returns(T.attached_class) }
+          def self.new(branding_required:)
           end
 
           sig { override.returns({branding_required: T::Boolean}) }

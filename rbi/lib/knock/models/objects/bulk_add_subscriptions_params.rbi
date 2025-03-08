@@ -23,9 +23,9 @@ module Knock
             subscriptions: T::Array[Knock::Models::Objects::BulkAddSubscriptionsParams::Subscription],
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(subscriptions:, request_options: {})
+        def self.new(subscriptions:, request_options: {})
         end
 
         sig do
@@ -84,9 +84,9 @@ module Knock
               recipients: T::Array[T.any(String, Knock::Models::InlineIdentifyUserRequest, Knock::Models::InlineObjectRequest)],
               properties: T.nilable(T::Hash[Symbol, T.anything])
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(id:, recipients:, properties: nil)
+          def self.new(id:, recipients:, properties: nil)
           end
 
           sig do

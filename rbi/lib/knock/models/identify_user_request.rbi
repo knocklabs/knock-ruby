@@ -39,9 +39,9 @@ module Knock
           created_at: T.nilable(Time),
           preferences: T.nilable(Knock::Models::InlinePreferenceSetRequest)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(channel_data: nil, created_at: nil, preferences: nil)
+      def self.new(channel_data: nil, created_at: nil, preferences: nil)
       end
 
       sig do

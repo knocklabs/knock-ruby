@@ -71,9 +71,9 @@ module Knock
           response: Knock::Models::MessageDeliveryLog::Response,
           service_name: String
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:)
+      def self.new(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:)
       end
 
       sig do
@@ -160,9 +160,9 @@ module Knock
             path: String,
             query: T.nilable(String)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil)
+        def self.new(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil)
         end
 
         sig do
@@ -250,9 +250,9 @@ module Knock
             headers: T.nilable(T::Hash[Symbol, T.anything]),
             status: Integer
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(body: nil, headers: nil, status: nil)
+        def self.new(body: nil, headers: nil, status: nil)
         end
 
         sig do

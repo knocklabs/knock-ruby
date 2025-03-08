@@ -51,9 +51,9 @@ module Knock
           user_id: String,
           tenant: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(_typename:, added_at:, user:, user_id:, tenant: nil)
+      def self.new(_typename:, added_at:, user:, user_id:, tenant: nil)
       end
 
       sig do

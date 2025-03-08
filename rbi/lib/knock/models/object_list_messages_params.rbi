@@ -136,9 +136,9 @@ module Knock
           workflow_run_id: String,
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         collection:,
         after: nil,
         before: nil,

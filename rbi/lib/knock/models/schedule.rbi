@@ -124,9 +124,9 @@ module Knock
           next_occurrence_at: T.nilable(Time),
           tenant: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         inserted_at:,
         recipient:,

@@ -62,8 +62,8 @@ module Knock
       def set(id, channel_data: nil, preferences: nil, settings: nil, request_options: {})
       end
 
-      sig { params(client: Knock::Client).void }
-      def initialize(client:)
+      sig { params(client: Knock::Client).returns(T.attached_class) }
+      def self.new(client:)
       end
     end
   end

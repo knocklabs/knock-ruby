@@ -69,17 +69,9 @@ module Knock
           interval: Integer,
           minutes: T.nilable(Integer)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        _typename:,
-        frequency:,
-        day_of_month: nil,
-        days: nil,
-        hours: nil,
-        interval: nil,
-        minutes: nil
-      )
+      def self.new(_typename:, frequency:, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil)
       end
 
       sig do

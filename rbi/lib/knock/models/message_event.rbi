@@ -65,9 +65,9 @@ module Knock
           type: Symbol,
           data: T.nilable(T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, _typename:, inserted_at:, recipient:, type:, data: nil)
+      def self.new(id:, _typename:, inserted_at:, recipient:, type:, data: nil)
       end
 
       sig do
@@ -106,8 +106,8 @@ module Knock
           def collection=(_)
           end
 
-          sig { params(id: String, collection: String).void }
-          def initialize(id:, collection:)
+          sig { params(id: String, collection: String).returns(T.attached_class) }
+          def self.new(id:, collection:)
           end
 
           sig { override.returns({id: String, collection: String}) }

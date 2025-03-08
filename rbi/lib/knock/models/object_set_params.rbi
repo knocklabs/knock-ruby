@@ -43,9 +43,9 @@ module Knock
           preferences: T.nilable(Knock::Models::InlinePreferenceSetRequest),
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(collection:, channel_data: nil, preferences: nil, request_options: {})
+      def self.new(collection:, channel_data: nil, preferences: nil, request_options: {})
       end
 
       sig do

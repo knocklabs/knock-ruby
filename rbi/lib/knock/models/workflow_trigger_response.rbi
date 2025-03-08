@@ -11,8 +11,8 @@ module Knock
       def workflow_run_id=(_)
       end
 
-      sig { params(workflow_run_id: String).void }
-      def initialize(workflow_run_id:)
+      sig { params(workflow_run_id: String).returns(T.attached_class) }
+      def self.new(workflow_run_id:)
       end
 
       sig { override.returns({workflow_run_id: String}) }

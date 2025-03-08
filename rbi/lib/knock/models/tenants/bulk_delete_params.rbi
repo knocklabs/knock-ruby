@@ -20,9 +20,9 @@ module Knock
             tenant_ids: T::Array[String],
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(tenant_ids:, request_options: {})
+        def self.new(tenant_ids:, request_options: {})
         end
 
         sig { override.returns({tenant_ids: T::Array[String], request_options: Knock::RequestOptions}) }

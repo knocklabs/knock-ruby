@@ -15,12 +15,10 @@ module Knock
       end
 
       sig do
-        params(
-          collection: String,
-          request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        params(collection: String, request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything]))
+          .returns(T.attached_class)
       end
-      def initialize(collection:, request_options: {})
+      def self.new(collection:, request_options: {})
       end
 
       sig { override.returns({collection: String, request_options: Knock::RequestOptions}) }

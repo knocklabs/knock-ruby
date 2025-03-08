@@ -116,9 +116,9 @@ module Knock
             ]
           )
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, _typename:, categories: nil, channel_types: nil, workflows: nil)
+      def self.new(id:, _typename:, categories: nil, channel_types: nil, workflows: nil)
       end
 
       sig do
@@ -177,9 +177,9 @@ module Knock
               channel_types: T.nilable(Knock::Models::PreferenceSetChannelTypes),
               conditions: T.nilable(T::Array[Knock::Models::Condition])
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(channel_types: nil, conditions: nil)
+          def self.new(channel_types: nil, conditions: nil)
           end
 
           sig do
@@ -238,9 +238,9 @@ module Knock
               channel_types: T.nilable(Knock::Models::PreferenceSetChannelTypes),
               conditions: T.nilable(T::Array[Knock::Models::Condition])
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(channel_types: nil, conditions: nil)
+          def self.new(channel_types: nil, conditions: nil)
           end
 
           sig do

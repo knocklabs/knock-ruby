@@ -78,9 +78,9 @@ module Knock
             inserted_at: Time,
             message_id: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(_typename:, data:, inserted_at:, message_id:)
+        def self.new(_typename:, data:, inserted_at:, message_id:)
         end
 
         sig do
@@ -191,19 +191,9 @@ module Knock
                 cc: T.nilable(String),
                 reply_to: T.nilable(String)
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
-              _typename:,
-              from:,
-              html_body:,
-              subject_line:,
-              text_body:,
-              to:,
-              bcc: nil,
-              cc: nil,
-              reply_to: nil
-            )
+            def self.new(_typename:, from:, html_body:, subject_line:, text_body:, to:, bcc: nil, cc: nil, reply_to: nil)
             end
 
             sig do
@@ -251,8 +241,8 @@ module Knock
             def to=(_)
             end
 
-            sig { params(_typename: String, body: String, to: String).void }
-            def initialize(_typename:, body:, to:)
+            sig { params(_typename: String, body: String, to: String).returns(T.attached_class) }
+            def self.new(_typename:, body:, to:)
             end
 
             sig { override.returns({_typename: String, body: String, to: String}) }
@@ -316,9 +306,9 @@ module Knock
                 title: String,
                 data: T.nilable(T::Hash[Symbol, T.anything])
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(token:, _typename:, body:, title:, data: nil)
+            def self.new(token:, _typename:, body:, title:, data: nil)
             end
 
             sig do
@@ -387,9 +377,9 @@ module Knock
                 template: Knock::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
                 metadata: T.nilable(T::Hash[Symbol, T.anything])
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(_typename:, connection:, template:, metadata: nil)
+            def self.new(_typename:, connection:, template:, metadata: nil)
             end
 
             sig do
@@ -463,9 +453,9 @@ module Knock
                   json_content: T.nilable(T::Hash[Symbol, T.anything]),
                   summary: T.nilable(String)
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(blocks: nil, json_content: nil, summary: nil)
+              def self.new(blocks: nil, json_content: nil, summary: nil)
               end
 
               sig do
@@ -508,8 +498,8 @@ module Knock
                 def type=(_)
                 end
 
-                sig { params(content: String, name: String, type: Symbol).void }
-                def initialize(content:, name:, type:)
+                sig { params(content: String, name: String, type: Symbol).returns(T.attached_class) }
+                def self.new(content:, name:, type:)
                 end
 
                 sig { override.returns({content: String, name: String, type: Symbol}) }
@@ -585,9 +575,9 @@ module Knock
                 )
                 ]
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(_typename:, blocks:)
+            def self.new(_typename:, blocks:)
             end
 
             sig do
@@ -643,8 +633,15 @@ module Knock
                 def type=(_)
                 end
 
-                sig { params(content: String, name: String, rendered: String, type: Symbol).void }
-                def initialize(content:, name:, rendered:, type:)
+                sig do
+                  params(
+                    content: String,
+                    name: String,
+                    rendered: String,
+                    type: Symbol
+                  ).returns(T.attached_class)
+                end
+                def self.new(content:, name:, rendered:, type:)
                 end
 
                 sig { override.returns({content: String, name: String, rendered: String, type: Symbol}) }
@@ -715,9 +712,9 @@ module Knock
                     name: String,
                     type: Symbol
                   )
-                    .void
+                    .returns(T.attached_class)
                 end
-                def initialize(buttons:, name:, type:)
+                def self.new(buttons:, name:, type:)
                 end
 
                 sig do
@@ -760,8 +757,8 @@ module Knock
                   def name=(_)
                   end
 
-                  sig { params(action: String, label: String, name: String).void }
-                  def initialize(action:, label:, name:)
+                  sig { params(action: String, label: String, name: String).returns(T.attached_class) }
+                  def self.new(action:, label:, name:)
                   end
 
                   sig { override.returns({action: String, label: String, name: String}) }

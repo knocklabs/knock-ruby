@@ -205,9 +205,9 @@ module Knock
           updated_at: Time,
           workflow: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id: nil,
         _typename: nil,
         actors: nil,
@@ -283,8 +283,8 @@ module Knock
           def collection=(_)
           end
 
-          sig { params(id: String, collection: String).void }
-          def initialize(id:, collection:)
+          sig { params(id: String, collection: String).returns(T.attached_class) }
+          def self.new(id:, collection:)
           end
 
           sig { override.returns({id: String, collection: String}) }
@@ -335,8 +335,8 @@ module Knock
           def collection=(_)
           end
 
-          sig { params(id: String, collection: String).void }
-          def initialize(id:, collection:)
+          sig { params(id: String, collection: String).returns(T.attached_class) }
+          def self.new(id:, collection:)
           end
 
           sig { override.returns({id: String, collection: String}) }
@@ -384,8 +384,11 @@ module Knock
         def version_id=(_)
         end
 
-        sig { params(_typename: String, categories: T::Array[String], key: String, version_id: String).void }
-        def initialize(_typename:, categories:, key:, version_id:)
+        sig do
+          params(_typename: String, categories: T::Array[String], key: String, version_id: String)
+            .returns(T.attached_class)
+        end
+        def self.new(_typename:, categories:, key:, version_id:)
         end
 
         sig do

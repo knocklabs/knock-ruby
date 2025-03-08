@@ -50,9 +50,9 @@ module Knock
             Knock::Models::DiscordChannelData
           )
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(data:)
+      def self.new(data:)
       end
 
       sig do

@@ -23,9 +23,9 @@ module Knock
             tenants: T::Array[T.any(String, Knock::Models::TenantRequest)],
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(tenants:, request_options: {})
+        def self.new(tenants:, request_options: {})
         end
 
         sig do

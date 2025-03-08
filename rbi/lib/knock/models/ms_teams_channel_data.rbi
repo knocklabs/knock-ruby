@@ -55,9 +55,9 @@ module Knock
           ],
           ms_teams_tenant_id: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(connections:, ms_teams_tenant_id: nil)
+      def self.new(connections:, ms_teams_tenant_id: nil)
       end
 
       sig do
@@ -120,14 +120,9 @@ module Knock
               ms_teams_tenant_id: T.nilable(String),
               ms_teams_user_id: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
-            ms_teams_channel_id: nil,
-            ms_teams_team_id: nil,
-            ms_teams_tenant_id: nil,
-            ms_teams_user_id: nil
-          )
+          def self.new(ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil)
           end
 
           sig do
@@ -163,9 +158,9 @@ module Knock
             params(
               incoming_webhook: Knock::Models::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(incoming_webhook:)
+          def self.new(incoming_webhook:)
           end
 
           sig do
@@ -188,8 +183,8 @@ module Knock
             def url=(_)
             end
 
-            sig { params(url: String).void }
-            def initialize(url:)
+            sig { params(url: String).returns(T.attached_class) }
+            def self.new(url:)
             end
 
             sig { override.returns({url: String}) }

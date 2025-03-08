@@ -17,9 +17,9 @@ module Knock
 
         sig do
           params(ms_teams_channels: T::Array[Knock::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel])
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(ms_teams_channels:)
+        def self.new(ms_teams_channels:)
         end
 
         sig do
@@ -89,16 +89,9 @@ module Knock
               is_archived: T::Boolean,
               membership_type: String
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
-            id:,
-            display_name:,
-            created_date_time: nil,
-            description: nil,
-            is_archived: nil,
-            membership_type: nil
-          )
+          def self.new(id:, display_name:, created_date_time: nil, description: nil, is_archived: nil, membership_type: nil)
           end
 
           sig do

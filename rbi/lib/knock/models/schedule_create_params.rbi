@@ -83,9 +83,9 @@ module Knock
           tenant: T.nilable(T.any(String, Knock::Models::TenantRequest)),
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         recipients:,
         repeats:,
         workflow:,
@@ -135,8 +135,8 @@ module Knock
           def collection=(_)
           end
 
-          sig { params(id: String, collection: String).void }
-          def initialize(id:, collection:)
+          sig { params(id: String, collection: String).returns(T.attached_class) }
+          def self.new(id:, collection:)
           end
 
           sig { override.returns({id: String, collection: String}) }

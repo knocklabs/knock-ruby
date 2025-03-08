@@ -22,9 +22,9 @@ module Knock
           members: T::Array[Knock::Models::AudienceAddMembersParams::Member],
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(members:, request_options: {})
+      def self.new(members:, request_options: {})
       end
 
       sig do
@@ -53,8 +53,10 @@ module Knock
         def tenant=(_)
         end
 
-        sig { params(user: Knock::Models::InlineIdentifyUserRequest, tenant: T.nilable(String)).void }
-        def initialize(user:, tenant: nil)
+        sig do
+          params(user: Knock::Models::InlineIdentifyUserRequest, tenant: T.nilable(String)).returns(T.attached_class)
+        end
+        def self.new(user:, tenant: nil)
         end
 
         sig { override.returns({user: Knock::Models::InlineIdentifyUserRequest, tenant: T.nilable(String)}) }

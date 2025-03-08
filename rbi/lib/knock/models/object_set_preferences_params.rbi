@@ -28,9 +28,9 @@ module Knock
           object_id_: String,
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(collection:, object_id_:, request_options: {})
+      def self.new(collection:, object_id_:, request_options: {})
       end
 
       sig do

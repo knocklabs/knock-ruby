@@ -20,9 +20,9 @@ module Knock
             message_ids: T::Array[String],
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(message_ids:, request_options: {})
+        def self.new(message_ids:, request_options: {})
         end
 
         sig { override.returns({message_ids: T::Array[String], request_options: Knock::RequestOptions}) }

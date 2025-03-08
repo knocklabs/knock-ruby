@@ -27,9 +27,9 @@ module Knock
           entries: T::Array[Knock::Models::AudienceMember],
           page_info: Knock::Models::AudienceListMembersResponse::PageInfo
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(entries:, page_info:)
+      def self.new(entries:, page_info:)
       end
 
       sig do
@@ -78,14 +78,10 @@ module Knock
         end
 
         sig do
-          params(
-            _typename: String,
-            page_size: Integer,
-            after: T.nilable(String),
-            before: T.nilable(String)
-          ).void
+          params(_typename: String, page_size: Integer, after: T.nilable(String), before: T.nilable(String))
+            .returns(T.attached_class)
         end
-        def initialize(_typename:, page_size:, after: nil, before: nil)
+        def self.new(_typename:, page_size:, after: nil, before: nil)
         end
 
         sig do

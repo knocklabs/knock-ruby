@@ -37,9 +37,9 @@ module Knock
           tenant: T.nilable(String),
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(cancellation_key:, recipients: nil, tenant: nil, request_options: {})
+      def self.new(cancellation_key:, recipients: nil, tenant: nil, request_options: {})
       end
 
       sig do

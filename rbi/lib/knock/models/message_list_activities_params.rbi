@@ -46,9 +46,9 @@ module Knock
           trigger_data: String,
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
+      def self.new(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
       end
 
       sig do

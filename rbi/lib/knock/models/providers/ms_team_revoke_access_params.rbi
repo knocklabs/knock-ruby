@@ -20,9 +20,9 @@ module Knock
             ms_teams_tenant_object: String,
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(ms_teams_tenant_object:, request_options: {})
+        def self.new(ms_teams_tenant_object:, request_options: {})
         end
 
         sig { override.returns({ms_teams_tenant_object: String, request_options: Knock::RequestOptions}) }

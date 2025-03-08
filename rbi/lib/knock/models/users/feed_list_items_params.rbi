@@ -110,9 +110,9 @@ module Knock
             workflow_categories: T::Array[String],
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           user_id:,
           after: nil,
           archived: nil,

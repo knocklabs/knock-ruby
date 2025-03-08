@@ -65,9 +65,9 @@ module Knock
           updated_at: Time,
           properties: T.nilable(T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil)
+      def self.new(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil)
       end
 
       sig do

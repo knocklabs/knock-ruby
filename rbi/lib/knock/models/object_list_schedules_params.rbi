@@ -64,17 +64,9 @@ module Knock
           workflow: String,
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        collection:,
-        after: nil,
-        before: nil,
-        page_size: nil,
-        tenant: nil,
-        workflow: nil,
-        request_options: {}
-      )
+      def self.new(collection:, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       end
 
       sig do

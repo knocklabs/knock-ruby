@@ -28,9 +28,9 @@ module Knock
             ms_teams_teams: T::Array[Knock::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam],
             skip_token: T.nilable(String)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(ms_teams_teams:, skip_token:)
+        def self.new(ms_teams_teams:, skip_token:)
         end
 
         sig do
@@ -70,8 +70,10 @@ module Knock
           def description=(_)
           end
 
-          sig { params(id: String, display_name: String, description: T.nilable(String)).void }
-          def initialize(id:, display_name:, description: nil)
+          sig do
+            params(id: String, display_name: String, description: T.nilable(String)).returns(T.attached_class)
+          end
+          def self.new(id:, display_name:, description: nil)
           end
 
           sig { override.returns({id: String, display_name: String, description: T.nilable(String)}) }

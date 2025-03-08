@@ -19,8 +19,8 @@ module Knock
       def _typename=(_)
       end
 
-      sig { params(id: String, _typename: String).void }
-      def initialize(id:, _typename:)
+      sig { params(id: String, _typename: String).returns(T.attached_class) }
+      def self.new(id:, _typename:)
       end
 
       sig { override.returns({id: String, _typename: String}) }

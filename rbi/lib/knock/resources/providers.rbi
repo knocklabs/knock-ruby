@@ -11,8 +11,8 @@ module Knock
       def ms_teams
       end
 
-      sig { params(client: Knock::Client).void }
-      def initialize(client:)
+      sig { params(client: Knock::Client).returns(T.attached_class) }
+      def self.new(client:)
       end
     end
   end

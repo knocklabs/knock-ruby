@@ -11,8 +11,8 @@ module Knock
       def player_ids=(_)
       end
 
-      sig { params(player_ids: T::Array[String]).void }
-      def initialize(player_ids:)
+      sig { params(player_ids: T::Array[String]).returns(T.attached_class) }
+      def self.new(player_ids:)
       end
 
       sig { override.returns({player_ids: T::Array[String]}) }

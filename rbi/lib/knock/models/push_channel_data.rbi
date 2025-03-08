@@ -11,8 +11,8 @@ module Knock
       def tokens=(_)
       end
 
-      sig { params(tokens: T::Array[String]).void }
-      def initialize(tokens:)
+      sig { params(tokens: T::Array[String]).returns(T.attached_class) }
+      def self.new(tokens:)
       end
 
       sig { override.returns({tokens: T::Array[String]}) }

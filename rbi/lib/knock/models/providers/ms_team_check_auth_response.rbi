@@ -15,8 +15,10 @@ module Knock
         def connection=(_)
         end
 
-        sig { params(connection: Knock::Models::Providers::MsTeamCheckAuthResponse::Connection).void }
-        def initialize(connection:)
+        sig do
+          params(connection: Knock::Models::Providers::MsTeamCheckAuthResponse::Connection).returns(T.attached_class)
+        end
+        def self.new(connection:)
         end
 
         sig { override.returns({connection: Knock::Models::Providers::MsTeamCheckAuthResponse::Connection}) }
@@ -40,8 +42,8 @@ module Knock
           def reason=(_)
           end
 
-          sig { params(ok: T::Boolean, reason: T.nilable(String)).void }
-          def initialize(ok:, reason: nil)
+          sig { params(ok: T::Boolean, reason: T.nilable(String)).returns(T.attached_class) }
+          def self.new(ok:, reason: nil)
           end
 
           sig { override.returns({ok: T::Boolean, reason: T.nilable(String)}) }

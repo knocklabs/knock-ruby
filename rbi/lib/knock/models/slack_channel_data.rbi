@@ -58,9 +58,9 @@ module Knock
           ],
           token: T.nilable(Knock::Models::SlackChannelData::Token)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(connections:, token: nil)
+      def self.new(connections:, token: nil)
       end
 
       sig do
@@ -109,13 +109,10 @@ module Knock
           end
 
           sig do
-            params(
-              access_token: T.nilable(String),
-              channel_id: T.nilable(String),
-              user_id: T.nilable(String)
-            ).void
+            params(access_token: T.nilable(String), channel_id: T.nilable(String), user_id: T.nilable(String))
+              .returns(T.attached_class)
           end
-          def initialize(access_token: nil, channel_id: nil, user_id: nil)
+          def self.new(access_token: nil, channel_id: nil, user_id: nil)
           end
 
           sig do
@@ -139,8 +136,8 @@ module Knock
           def url=(_)
           end
 
-          sig { params(url: String).void }
-          def initialize(url:)
+          sig { params(url: String).returns(T.attached_class) }
+          def self.new(url:)
           end
 
           sig { override.returns({url: String}) }
@@ -169,8 +166,8 @@ module Knock
         def access_token=(_)
         end
 
-        sig { params(access_token: T.nilable(String)).void }
-        def initialize(access_token:)
+        sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
+        def self.new(access_token:)
         end
 
         sig { override.returns({access_token: T.nilable(String)}) }

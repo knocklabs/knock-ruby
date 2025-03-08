@@ -32,9 +32,9 @@ module Knock
             query_options: Knock::Models::Providers::MsTeamListTeamsParams::QueryOptions,
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(ms_teams_tenant_object:, query_options: nil, request_options: {})
+        def self.new(ms_teams_tenant_object:, query_options: nil, request_options: {})
         end
 
         sig do
@@ -83,8 +83,10 @@ module Knock
           def top=(_)
           end
 
-          sig { params(filter: String, select_: String, skiptoken: String, top: Integer).void }
-          def initialize(filter: nil, select_: nil, skiptoken: nil, top: nil)
+          sig do
+            params(filter: String, select_: String, skiptoken: String, top: Integer).returns(T.attached_class)
+          end
+          def self.new(filter: nil, select_: nil, skiptoken: nil, top: nil)
           end
 
           sig { override.returns({filter: String, select_: String, skiptoken: String, top: Integer}) }

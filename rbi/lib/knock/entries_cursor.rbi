@@ -43,8 +43,8 @@ module Knock
       def after=(_)
       end
 
-      sig { params(after: String).void }
-      def initialize(after: nil)
+      sig { params(after: String).returns(T.attached_class) }
+      def self.new(after: nil)
       end
 
       sig { override.returns({after: String}) }

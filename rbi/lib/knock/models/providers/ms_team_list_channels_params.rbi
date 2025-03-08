@@ -41,9 +41,9 @@ module Knock
             query_options: Knock::Models::Providers::MsTeamListChannelsParams::QueryOptions,
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
+        def self.new(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
         end
 
         sig do
@@ -77,8 +77,8 @@ module Knock
           def select_=(_)
           end
 
-          sig { params(filter: String, select_: String).void }
-          def initialize(filter: nil, select_: nil)
+          sig { params(filter: String, select_: String).returns(T.attached_class) }
+          def self.new(filter: nil, select_: nil)
           end
 
           sig { override.returns({filter: String, select_: String}) }

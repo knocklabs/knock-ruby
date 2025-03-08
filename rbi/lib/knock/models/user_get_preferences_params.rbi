@@ -28,9 +28,9 @@ module Knock
           tenant: String,
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(user_id:, tenant: nil, request_options: {})
+      def self.new(user_id:, tenant: nil, request_options: {})
       end
 
       sig { override.returns({user_id: String, tenant: String, request_options: Knock::RequestOptions}) }

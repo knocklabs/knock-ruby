@@ -67,17 +67,9 @@ module Knock
           tenant: String,
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        workflow:,
-        after: nil,
-        before: nil,
-        page_size: nil,
-        recipients: nil,
-        tenant: nil,
-        request_options: {}
-      )
+      def self.new(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {})
       end
 
       sig do
@@ -117,8 +109,8 @@ module Knock
           def collection=(_)
           end
 
-          sig { params(id: String, collection: String).void }
-          def initialize(id:, collection:)
+          sig { params(id: String, collection: String).returns(T.attached_class) }
+          def self.new(id:, collection:)
           end
 
           sig { override.returns({id: String, collection: String}) }

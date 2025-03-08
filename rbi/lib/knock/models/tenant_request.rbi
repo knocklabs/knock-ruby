@@ -48,9 +48,9 @@ module Knock
           preferences: T.nilable(Knock::Models::InlinePreferenceSetRequest),
           settings: Knock::Models::TenantRequest::Settings
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, channel_data: nil, preferences: nil, settings: nil)
+      def self.new(id:, channel_data: nil, preferences: nil, settings: nil)
       end
 
       sig do
@@ -95,9 +95,9 @@ module Knock
             branding: Knock::Models::TenantRequest::Settings::Branding,
             preference_set: T.nilable(Knock::Models::PreferenceSetRequest)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(branding: nil, preference_set: nil)
+        def self.new(branding: nil, preference_set: nil)
         end
 
         sig do
@@ -152,9 +152,9 @@ module Knock
               primary_color: T.nilable(String),
               primary_color_contrast: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
+          def self.new(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
           end
 
           sig do

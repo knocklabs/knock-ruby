@@ -15,8 +15,8 @@ module Knock
         def connection=(_)
         end
 
-        sig { params(connection: Knock::Models::Providers::SlackCheckAuthResponse::Connection).void }
-        def initialize(connection:)
+        sig { params(connection: Knock::Models::Providers::SlackCheckAuthResponse::Connection).returns(T.attached_class) }
+        def self.new(connection:)
         end
 
         sig { override.returns({connection: Knock::Models::Providers::SlackCheckAuthResponse::Connection}) }
@@ -40,8 +40,8 @@ module Knock
           def reason=(_)
           end
 
-          sig { params(ok: T::Boolean, reason: T.nilable(String)).void }
-          def initialize(ok:, reason: nil)
+          sig { params(ok: T::Boolean, reason: T.nilable(String)).returns(T.attached_class) }
+          def self.new(ok:, reason: nil)
           end
 
           sig { override.returns({ok: T::Boolean, reason: T.nilable(String)}) }

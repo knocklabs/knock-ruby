@@ -27,8 +27,10 @@ module Knock
       def variable=(_)
       end
 
-      sig { params(argument: T.nilable(String), operator: Symbol, variable: String).void }
-      def initialize(argument:, operator:, variable:)
+      sig do
+        params(argument: T.nilable(String), operator: Symbol, variable: String).returns(T.attached_class)
+      end
+      def self.new(argument:, operator:, variable:)
       end
 
       sig { override.returns({argument: T.nilable(String), operator: Symbol, variable: String}) }

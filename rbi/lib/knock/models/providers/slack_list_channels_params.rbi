@@ -32,9 +32,9 @@ module Knock
             query_options: Knock::Models::Providers::SlackListChannelsParams::QueryOptions,
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(access_token_object:, query_options: nil, request_options: {})
+        def self.new(access_token_object:, query_options: nil, request_options: {})
         end
 
         sig do
@@ -98,9 +98,10 @@ module Knock
               limit: Integer,
               team_id: String,
               types: String
-            ).void
+            )
+              .returns(T.attached_class)
           end
-          def initialize(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil)
+          def self.new(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil)
           end
 
           sig do

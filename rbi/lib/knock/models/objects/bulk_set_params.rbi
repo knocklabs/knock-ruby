@@ -23,9 +23,9 @@ module Knock
             objects: T::Array[Knock::Models::InlineObjectRequest],
             request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(objects:, request_options: {})
+        def self.new(objects:, request_options: {})
         end
 
         sig do

@@ -38,8 +38,8 @@ module Knock
         def revoke_access(channel_id, access_token_object:, request_options: {})
         end
 
-        sig { params(client: Knock::Client).void }
-        def initialize(client:)
+        sig { params(client: Knock::Client).returns(T.attached_class) }
+        def self.new(client:)
         end
       end
     end

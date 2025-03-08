@@ -71,9 +71,9 @@ module Knock
         initial_retry_delay: Float,
         max_retry_delay: Float
       )
-        .void
+        .returns(T.attached_class)
     end
-    def initialize(
+    def self.new(
       base_url: nil,
       bearer_token: ENV["KNOCK_API_KEY"],
       max_retries: DEFAULT_MAX_RETRIES,

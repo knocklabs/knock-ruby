@@ -39,9 +39,9 @@ module Knock
           recipients: T::Array[T.any(String, Knock::Models::InlineIdentifyUserRequest, Knock::Models::InlineObjectRequest)],
           request_options: T.any(Knock::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(collection:, recipients:, request_options: {})
+      def self.new(collection:, recipients:, request_options: {})
       end
 
       sig do

@@ -208,9 +208,9 @@ module Knock
             read_at: T.nilable(String),
             seen_at: T.nilable(String)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           _typename:,
           activities:,
@@ -301,8 +301,10 @@ module Knock
             def type=(_)
             end
 
-            sig { params(content: String, name: String, rendered: String, type: Symbol).void }
-            def initialize(content:, name:, rendered:, type:)
+            sig do
+              params(content: String, name: String, rendered: String, type: Symbol).returns(T.attached_class)
+            end
+            def self.new(content:, name:, rendered:, type:)
             end
 
             sig { override.returns({content: String, name: String, rendered: String, type: Symbol}) }
@@ -365,9 +367,9 @@ module Knock
                 name: String,
                 type: Symbol
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(buttons:, name:, type:)
+            def self.new(buttons:, name:, type:)
             end
 
             sig do
@@ -408,8 +410,8 @@ module Knock
               def name=(_)
               end
 
-              sig { params(action: String, label: String, name: String).void }
-              def initialize(action:, label:, name:)
+              sig { params(action: String, label: String, name: String).returns(T.attached_class) }
+              def self.new(action:, label:, name:)
               end
 
               sig { override.returns({action: String, label: String, name: String}) }
@@ -476,9 +478,10 @@ module Knock
           end
 
           sig do
-            params(_typename: String, categories: T::Array[String], key: String, version_id: String).void
+            params(_typename: String, categories: T::Array[String], key: String, version_id: String)
+              .returns(T.attached_class)
           end
-          def initialize(_typename:, categories:, key:, version_id:)
+          def self.new(_typename:, categories:, key:, version_id:)
           end
 
           sig do

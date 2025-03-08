@@ -46,9 +46,9 @@ module Knock
           )
           ]
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(connections:)
+      def self.new(connections:)
       end
 
       sig do
@@ -79,8 +79,8 @@ module Knock
           def channel_id=(_)
           end
 
-          sig { params(channel_id: String).void }
-          def initialize(channel_id:)
+          sig { params(channel_id: String).returns(T.attached_class) }
+          def self.new(channel_id:)
           end
 
           sig { override.returns({channel_id: String}) }
@@ -106,9 +106,9 @@ module Knock
             params(
               incoming_webhook: Knock::Models::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(incoming_webhook:)
+          def self.new(incoming_webhook:)
           end
 
           sig do
@@ -131,8 +131,8 @@ module Knock
             def url=(_)
             end
 
-            sig { params(url: String).void }
-            def initialize(url:)
+            sig { params(url: String).returns(T.attached_class) }
+            def self.new(url:)
             end
 
             sig { override.returns({url: String}) }

@@ -78,9 +78,9 @@ module Knock
           push: T.any(T::Boolean, Knock::Models::PreferenceSetChannelTypeSetting),
           sms: T.any(T::Boolean, Knock::Models::PreferenceSetChannelTypeSetting)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil)
+      def self.new(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil)
       end
 
       sig do
