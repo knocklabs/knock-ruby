@@ -1,0 +1,16 @@
+module Knock
+  class SlackChannelsCursor[Elem]
+    include Knock::BasePage[Elem]
+
+    attr_accessor next_cursor: String
+
+    attr_accessor slack_channels: ::Array[Elem]
+
+    def initialize: (
+      client: Knock::BaseClient,
+      req: Knock::BaseClient::request_components,
+      headers: ::Hash[String, String],
+      page_data: ::Hash[Symbol, top]
+    ) -> void
+  end
+end
