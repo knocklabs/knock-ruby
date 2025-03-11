@@ -1,0 +1,16 @@
+module Knockapi
+  class SlackChannelsCursor[Elem]
+    include Knockapi::BasePage[Elem]
+
+    attr_accessor next_cursor: String
+
+    attr_accessor slack_channels: ::Array[Elem]
+
+    def initialize: (
+      client: Knockapi::BaseClient,
+      req: Knockapi::BaseClient::request_components,
+      headers: ::Hash[String, String],
+      page_data: ::Hash[Symbol, top]
+    ) -> void
+  end
+end

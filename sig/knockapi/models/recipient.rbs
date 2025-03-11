@@ -1,0 +1,9 @@
+module Knockapi
+  module Models
+    type recipient = Knockapi::Models::User | Knockapi::Models::Object
+
+    class Recipient < Knockapi::Union
+      private def self.variants: -> [[nil, Knockapi::Models::User], [nil, Knockapi::Models::Object]]
+    end
+  end
+end

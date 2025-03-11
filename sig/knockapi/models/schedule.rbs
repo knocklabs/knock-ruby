@@ -1,0 +1,66 @@
+module Knockapi
+  module Models
+    type schedule =
+      {
+        id: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient,
+        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        updated_at: Time,
+        workflow: String,
+        _typename: String,
+        actor: Knockapi::Models::recipient?,
+        data: ::Hash[Symbol, top]?,
+        last_occurrence_at: Time?,
+        next_occurrence_at: Time?,
+        tenant: String?
+      }
+
+    class Schedule < Knockapi::BaseModel
+      attr_accessor id: String
+
+      attr_accessor inserted_at: Time
+
+      attr_accessor recipient: Knockapi::Models::recipient
+
+      attr_accessor repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]
+
+      attr_accessor updated_at: Time
+
+      attr_accessor workflow: String
+
+      attr_reader _typename: String?
+
+      def _typename=: (String) -> String
+
+      attr_accessor actor: Knockapi::Models::recipient?
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      attr_accessor last_occurrence_at: Time?
+
+      attr_accessor next_occurrence_at: Time?
+
+      attr_accessor tenant: String?
+
+      def initialize:
+        (
+          id: String,
+          inserted_at: Time,
+          recipient: Knockapi::Models::recipient,
+          repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+          updated_at: Time,
+          workflow: String,
+          _typename: String,
+          actor: Knockapi::Models::recipient?,
+          data: ::Hash[Symbol, top]?,
+          last_occurrence_at: Time?,
+          next_occurrence_at: Time?,
+          tenant: String?
+        ) -> void
+        | (?Knockapi::Models::schedule | Knockapi::BaseModel data) -> void
+
+      def to_hash: -> Knockapi::Models::schedule
+    end
+  end
+end

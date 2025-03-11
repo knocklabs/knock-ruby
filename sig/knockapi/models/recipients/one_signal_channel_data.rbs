@@ -1,0 +1,20 @@
+module Knockapi
+  module Models
+    module Recipients
+      type one_signal_channel_data = { player_ids: ::Array[String] }
+
+      class OneSignalChannelData < Knockapi::BaseModel
+        attr_accessor player_ids: ::Array[String]
+
+        def initialize:
+          (player_ids: ::Array[String]) -> void
+          | (
+            ?Knockapi::Models::Recipients::one_signal_channel_data
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Recipients::one_signal_channel_data
+      end
+    end
+  end
+end

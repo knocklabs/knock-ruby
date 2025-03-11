@@ -1,0 +1,10 @@
+module Knockapi
+  module Models
+    module Recipients
+      type inline_preference_set_request =
+        ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]
+
+      InlinePreferenceSetRequest: inline_preference_set_request
+    end
+  end
+end

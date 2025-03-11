@@ -1,0 +1,164 @@
+module Knockapi
+  module Models
+    type message_delivery_log =
+      {
+        id: String,
+        _typename: String,
+        environment_id: String,
+        inserted_at: String,
+        request: Knockapi::Models::MessageDeliveryLog::Request,
+        response: Knockapi::Models::MessageDeliveryLog::Response,
+        service_name: String
+      }
+
+    class MessageDeliveryLog < Knockapi::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor environment_id: String
+
+      attr_accessor inserted_at: String
+
+      attr_accessor request: Knockapi::Models::MessageDeliveryLog::Request
+
+      attr_accessor response: Knockapi::Models::MessageDeliveryLog::Response
+
+      attr_accessor service_name: String
+
+      def initialize:
+        (
+          id: String,
+          _typename: String,
+          environment_id: String,
+          inserted_at: String,
+          request: Knockapi::Models::MessageDeliveryLog::Request,
+          response: Knockapi::Models::MessageDeliveryLog::Response,
+          service_name: String
+        ) -> void
+        | (
+          ?Knockapi::Models::message_delivery_log | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::message_delivery_log
+
+      type request =
+        {
+          body: Knockapi::Models::MessageDeliveryLog::Request::body,
+          headers: ::Hash[Symbol, top]?,
+          host: String,
+          method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
+          path: String,
+          query: String?
+        }
+
+      class Request < Knockapi::BaseModel
+        attr_reader body: Knockapi::Models::MessageDeliveryLog::Request::body?
+
+        def body=: (
+          Knockapi::Models::MessageDeliveryLog::Request::body
+        ) -> Knockapi::Models::MessageDeliveryLog::Request::body
+
+        attr_accessor headers: ::Hash[Symbol, top]?
+
+        attr_reader host: String?
+
+        def host=: (String) -> String
+
+        attr_reader method_: Knockapi::Models::MessageDeliveryLog::Request::method_?
+
+        def method_=: (
+          Knockapi::Models::MessageDeliveryLog::Request::method_
+        ) -> Knockapi::Models::MessageDeliveryLog::Request::method_
+
+        attr_reader path: String?
+
+        def path=: (String) -> String
+
+        attr_accessor query: String?
+
+        def initialize:
+          (
+            body: Knockapi::Models::MessageDeliveryLog::Request::body,
+            headers: ::Hash[Symbol, top]?,
+            host: String,
+            method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
+            path: String,
+            query: String?
+          ) -> void
+          | (
+            ?Knockapi::Models::MessageDeliveryLog::request
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::MessageDeliveryLog::request
+
+        type body = String | ::Hash[Symbol, top]
+
+        class Body < Knockapi::Union
+          type union_member1_map = ::Hash[Symbol, top]
+
+          UnionMember1Map: union_member1_map
+
+          private def self.variants: -> [[nil, String], [nil, ::Hash[Symbol, top]]]
+        end
+
+        type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
+
+        class Method < Knockapi::Enum
+          GET: :GET
+          POST: :POST
+          PUT: :PUT
+          DELETE: :DELETE
+          PATCH: :PATCH
+
+          def self.values: -> ::Array[Knockapi::Models::MessageDeliveryLog::Request::method_]
+        end
+      end
+
+      type response =
+        {
+          body: Knockapi::Models::MessageDeliveryLog::Response::body,
+          headers: ::Hash[Symbol, top]?,
+          status: Integer
+        }
+
+      class Response < Knockapi::BaseModel
+        attr_reader body: Knockapi::Models::MessageDeliveryLog::Response::body?
+
+        def body=: (
+          Knockapi::Models::MessageDeliveryLog::Response::body
+        ) -> Knockapi::Models::MessageDeliveryLog::Response::body
+
+        attr_accessor headers: ::Hash[Symbol, top]?
+
+        attr_reader status: Integer?
+
+        def status=: (Integer) -> Integer
+
+        def initialize:
+          (
+            body: Knockapi::Models::MessageDeliveryLog::Response::body,
+            headers: ::Hash[Symbol, top]?,
+            status: Integer
+          ) -> void
+          | (
+            ?Knockapi::Models::MessageDeliveryLog::response
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::MessageDeliveryLog::response
+
+        type body = String | ::Hash[Symbol, top]
+
+        class Body < Knockapi::Union
+          type union_member1_map = ::Hash[Symbol, top]
+
+          UnionMember1Map: union_member1_map
+
+          private def self.variants: -> [[nil, String], [nil, ::Hash[Symbol, top]]]
+        end
+      end
+    end
+  end
+end

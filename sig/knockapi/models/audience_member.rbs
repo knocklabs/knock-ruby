@@ -1,0 +1,38 @@
+module Knockapi
+  module Models
+    type audience_member =
+      {
+        _typename: String,
+        added_at: Time,
+        user: Knockapi::Models::User,
+        user_id: String,
+        tenant: String?
+      }
+
+    class AudienceMember < Knockapi::BaseModel
+      attr_accessor _typename: String
+
+      attr_accessor added_at: Time
+
+      attr_accessor user: Knockapi::Models::User
+
+      attr_accessor user_id: String
+
+      attr_accessor tenant: String?
+
+      def initialize:
+        (
+          _typename: String,
+          added_at: Time,
+          user: Knockapi::Models::User,
+          user_id: String,
+          tenant: String?
+        ) -> void
+        | (
+          ?Knockapi::Models::audience_member | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::audience_member
+    end
+  end
+end

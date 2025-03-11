@@ -1,0 +1,19 @@
+module Knockapi
+  module Models
+    type object_set_channel_data_params = {  } & Knockapi::request_parameters
+
+    class ObjectSetChannelDataParams < Knockapi::Models::Recipients::ChannelDataRequest
+      extend Knockapi::RequestParameters::Converter
+      include Knockapi::RequestParameters
+
+      def initialize:
+        (request_options: Knockapi::request_opts) -> void
+        | (
+          ?Knockapi::Models::object_set_channel_data_params
+          | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::object_set_channel_data_params
+    end
+  end
+end

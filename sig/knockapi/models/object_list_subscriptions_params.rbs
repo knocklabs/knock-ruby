@@ -1,0 +1,125 @@
+module Knockapi
+  module Models
+    type object_list_subscriptions_params =
+      {
+        after: String,
+        before: String,
+        mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+        objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+        page_size: Integer,
+        recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
+      }
+      & Knockapi::request_parameters
+
+    class ObjectListSubscriptionsParams < Knockapi::BaseModel
+      extend Knockapi::RequestParameters::Converter
+      include Knockapi::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader mode: Knockapi::Models::ObjectListSubscriptionsParams::mode?
+
+      def mode=: (
+        Knockapi::Models::ObjectListSubscriptionsParams::mode
+      ) -> Knockapi::Models::ObjectListSubscriptionsParams::mode
+
+      attr_reader objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object]?
+
+      def objects=: (
+        ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object]
+      ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object]
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      attr_reader recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]?
+
+      def recipients=: (
+        ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
+      ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
+
+      def initialize:
+        (
+          after: String,
+          before: String,
+          mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+          objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+          page_size: Integer,
+          recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
+          request_options: Knockapi::request_opts
+        ) -> void
+        | (
+          ?Knockapi::Models::object_list_subscriptions_params
+          | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::object_list_subscriptions_params
+
+      type mode = :recipient | :object
+
+      class Mode < Knockapi::Enum
+        RECIPIENT: :recipient
+        OBJECT: :object
+
+        def self.values: -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::mode]
+      end
+
+      type object =
+        String
+        | Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference
+
+      class Object < Knockapi::Union
+        type object_reference = { id: String, collection: String }
+
+        class ObjectReference < Knockapi::BaseModel
+          attr_accessor id: String
+
+          attr_accessor collection: String
+
+          def initialize:
+            (id: String, collection: String) -> void
+            | (
+              ?Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
+              | Knockapi::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
+        end
+
+        private def self.variants: -> [[nil, String], [nil, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]]
+      end
+
+      type recipient =
+        String
+        | Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference
+
+      class Recipient < Knockapi::Union
+        type object_reference = { id: String, collection: String }
+
+        class ObjectReference < Knockapi::BaseModel
+          attr_accessor id: String
+
+          attr_accessor collection: String
+
+          def initialize:
+            (id: String, collection: String) -> void
+            | (
+              ?Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
+              | Knockapi::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
+        end
+
+        private def self.variants: -> [[nil, String], [nil, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]]
+      end
+    end
+  end
+end

@@ -1,7 +1,0 @@
-module Knock
-  module Models
-    type schedule_delete_response = ::Array[Knock::Models::Schedule]
-
-    ScheduleDeleteResponse: schedule_delete_response
-  end
-end

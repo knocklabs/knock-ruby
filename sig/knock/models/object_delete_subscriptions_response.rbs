@@ -1,8 +1,0 @@
-module Knock
-  module Models
-    type object_delete_subscriptions_response =
-      ::Array[Knock::Models::Subscription]
-
-    ObjectDeleteSubscriptionsResponse: object_delete_subscriptions_response
-  end
-end

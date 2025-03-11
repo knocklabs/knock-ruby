@@ -1,0 +1,17 @@
+module Knockapi
+  module Resources
+    class BulkOperations
+      def get:
+        (
+          String id,
+          ?Knockapi::Models::BulkOperationGetParams | ::Hash[Symbol, top] params
+        ) -> Knockapi::Models::BulkOperation
+        | (
+          String id,
+          request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

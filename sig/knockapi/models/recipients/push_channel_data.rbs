@@ -1,0 +1,20 @@
+module Knockapi
+  module Models
+    module Recipients
+      type push_channel_data = { tokens: ::Array[String] }
+
+      class PushChannelData < Knockapi::BaseModel
+        attr_accessor tokens: ::Array[String]
+
+        def initialize:
+          (tokens: ::Array[String]) -> void
+          | (
+            ?Knockapi::Models::Recipients::push_channel_data
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Recipients::push_channel_data
+      end
+    end
+  end
+end

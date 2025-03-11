@@ -1,0 +1,34 @@
+module Knockapi
+  module Models
+    module Users
+      type bulk_set_preferences_params =
+        {
+          preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
+          user_ids: ::Array[String]
+        }
+        & Knockapi::request_parameters
+
+      class BulkSetPreferencesParams < Knockapi::BaseModel
+        extend Knockapi::RequestParameters::Converter
+        include Knockapi::RequestParameters
+
+        attr_accessor preferences: Knockapi::Models::Recipients::PreferenceSetRequest
+
+        attr_accessor user_ids: ::Array[String]
+
+        def initialize:
+          (
+            preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
+            user_ids: ::Array[String],
+            request_options: Knockapi::request_opts
+          ) -> void
+          | (
+            ?Knockapi::Models::Users::bulk_set_preferences_params
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Users::bulk_set_preferences_params
+      end
+    end
+  end
+end

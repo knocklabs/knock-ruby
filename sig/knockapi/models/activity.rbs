@@ -1,0 +1,56 @@
+module Knockapi
+  module Models
+    type activity =
+      {
+        id: String,
+        _typename: String,
+        actor: Knockapi::Models::recipient?,
+        data: ::Hash[Symbol, top]?,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient,
+        updated_at: Time
+      }
+
+    class Activity < Knockapi::BaseModel
+      attr_reader id: String?
+
+      def id=: (String) -> String
+
+      attr_reader _typename: String?
+
+      def _typename=: (String) -> String
+
+      attr_accessor actor: Knockapi::Models::recipient?
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      attr_reader inserted_at: Time?
+
+      def inserted_at=: (Time) -> Time
+
+      attr_reader recipient: Knockapi::Models::recipient?
+
+      def recipient=: (
+        Knockapi::Models::recipient
+      ) -> Knockapi::Models::recipient
+
+      attr_reader updated_at: Time?
+
+      def updated_at=: (Time) -> Time
+
+      def initialize:
+        (
+          id: String,
+          _typename: String,
+          actor: Knockapi::Models::recipient?,
+          data: ::Hash[Symbol, top]?,
+          inserted_at: Time,
+          recipient: Knockapi::Models::recipient,
+          updated_at: Time
+        ) -> void
+        | (?Knockapi::Models::activity | Knockapi::BaseModel data) -> void
+
+      def to_hash: -> Knockapi::Models::activity
+    end
+  end
+end

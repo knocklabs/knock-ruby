@@ -1,0 +1,27 @@
+module Knockapi
+  module Models
+    module Users
+      type bulk_delete_params =
+        { user_ids: ::Array[String] } & Knockapi::request_parameters
+
+      class BulkDeleteParams < Knockapi::BaseModel
+        extend Knockapi::RequestParameters::Converter
+        include Knockapi::RequestParameters
+
+        attr_accessor user_ids: ::Array[String]
+
+        def initialize:
+          (
+            user_ids: ::Array[String],
+            request_options: Knockapi::request_opts
+          ) -> void
+          | (
+            ?Knockapi::Models::Users::bulk_delete_params
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Users::bulk_delete_params
+      end
+    end
+  end
+end

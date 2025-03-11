@@ -1,0 +1,21 @@
+module Knockapi
+  module Models
+    module Recipients
+      type preference_set_channel_type_setting =
+        { conditions: ::Array[Knockapi::Models::Condition] }
+
+      class PreferenceSetChannelTypeSetting < Knockapi::BaseModel
+        attr_accessor conditions: ::Array[Knockapi::Models::Condition]
+
+        def initialize:
+          (conditions: ::Array[Knockapi::Models::Condition]) -> void
+          | (
+            ?Knockapi::Models::Recipients::preference_set_channel_type_setting
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Recipients::preference_set_channel_type_setting
+      end
+    end
+  end
+end

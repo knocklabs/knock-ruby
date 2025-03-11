@@ -1,0 +1,49 @@
+module Knockapi
+  module Models
+    type audience_remove_members_params =
+      {
+        members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member]
+      }
+      & Knockapi::request_parameters
+
+    class AudienceRemoveMembersParams < Knockapi::BaseModel
+      extend Knockapi::RequestParameters::Converter
+      include Knockapi::RequestParameters
+
+      attr_accessor members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member]
+
+      def initialize:
+        (
+          members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
+          request_options: Knockapi::request_opts
+        ) -> void
+        | (
+          ?Knockapi::Models::audience_remove_members_params
+          | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::audience_remove_members_params
+
+      type member =
+        { user: Knockapi::Models::InlineIdentifyUserRequest, tenant: String? }
+
+      class Member < Knockapi::BaseModel
+        attr_accessor user: Knockapi::Models::InlineIdentifyUserRequest
+
+        attr_accessor tenant: String?
+
+        def initialize:
+          (
+            user: Knockapi::Models::InlineIdentifyUserRequest,
+            tenant: String?
+          ) -> void
+          | (
+            ?Knockapi::Models::AudienceRemoveMembersParams::member
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::AudienceRemoveMembersParams::member
+      end
+    end
+  end
+end

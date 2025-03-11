@@ -1,0 +1,229 @@
+module Knockapi
+  module Models
+    module Users
+      type feed_list_items_response =
+        {
+          id: String,
+          _typename: String,
+          activities: ::Array[Knockapi::Models::Activity],
+          actors: ::Array[Knockapi::Models::recipient],
+          blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block],
+          data: ::Hash[Symbol, top]?,
+          inserted_at: String,
+          source: Knockapi::Models::Users::FeedListItemsResponse::Source,
+          tenant: String?,
+          total_activities: Integer,
+          total_actors: Integer,
+          updated_at: String,
+          archived_at: String?,
+          clicked_at: String?,
+          interacted_at: String?,
+          link_clicked_at: String?,
+          read_at: String?,
+          seen_at: String?
+        }
+
+      class FeedListItemsResponse < Knockapi::BaseModel
+        attr_accessor id: String
+
+        attr_accessor _typename: String
+
+        attr_accessor activities: ::Array[Knockapi::Models::Activity]
+
+        attr_accessor actors: ::Array[Knockapi::Models::recipient]
+
+        attr_accessor blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block]
+
+        attr_accessor data: ::Hash[Symbol, top]?
+
+        attr_accessor inserted_at: String
+
+        attr_accessor source: Knockapi::Models::Users::FeedListItemsResponse::Source
+
+        attr_accessor tenant: String?
+
+        attr_accessor total_activities: Integer
+
+        attr_accessor total_actors: Integer
+
+        attr_accessor updated_at: String
+
+        attr_accessor archived_at: String?
+
+        attr_accessor clicked_at: String?
+
+        attr_accessor interacted_at: String?
+
+        attr_accessor link_clicked_at: String?
+
+        attr_accessor read_at: String?
+
+        attr_accessor seen_at: String?
+
+        def initialize:
+          (
+            id: String,
+            _typename: String,
+            activities: ::Array[Knockapi::Models::Activity],
+            actors: ::Array[Knockapi::Models::recipient],
+            blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block],
+            data: ::Hash[Symbol, top]?,
+            inserted_at: String,
+            source: Knockapi::Models::Users::FeedListItemsResponse::Source,
+            tenant: String?,
+            total_activities: Integer,
+            total_actors: Integer,
+            updated_at: String,
+            archived_at: String?,
+            clicked_at: String?,
+            interacted_at: String?,
+            link_clicked_at: String?,
+            read_at: String?,
+            seen_at: String?
+          ) -> void
+          | (
+            ?Knockapi::Models::Users::feed_list_items_response
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Users::feed_list_items_response
+
+        type block =
+          Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock
+          | Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+
+        class Block < Knockapi::Union
+          type message_in_app_feed_content_block =
+            {
+              content: String,
+              name: String,
+              rendered: String,
+              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
+            }
+
+          class MessageInAppFeedContentBlock < Knockapi::BaseModel
+            attr_accessor content: String
+
+            attr_accessor name: String
+
+            attr_accessor rendered: String
+
+            attr_accessor type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
+
+            def initialize:
+              (
+                content: String,
+                name: String,
+                rendered: String,
+                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
+              ) -> void
+              | (
+                ?Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_content_block
+                | Knockapi::BaseModel data
+              ) -> void
+
+            def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_content_block
+
+            type type_ = :markdown | :text
+
+            class Type < Knockapi::Enum
+              MARKDOWN: :markdown
+              TEXT: :text
+
+              def self.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_]
+            end
+          end
+
+          type message_in_app_feed_button_set_block =
+            {
+              buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
+              name: String,
+              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
+            }
+
+          class MessageInAppFeedButtonSetBlock < Knockapi::BaseModel
+            attr_accessor buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button]
+
+            attr_accessor name: String
+
+            attr_accessor type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
+
+            def initialize:
+              (
+                buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
+                name: String,
+                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
+              ) -> void
+              | (
+                ?Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_button_set_block
+                | Knockapi::BaseModel data
+              ) -> void
+
+            def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_button_set_block
+
+            type button = { action: String, label: String, name: String }
+
+            class Button < Knockapi::BaseModel
+              attr_accessor action: String
+
+              attr_accessor label: String
+
+              attr_accessor name: String
+
+              def initialize:
+                (action: String, label: String, name: String) -> void
+                | (
+                  ?Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::button
+                  | Knockapi::BaseModel data
+                ) -> void
+
+              def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::button
+            end
+
+            type type_ = :button_set
+
+            class Type < Knockapi::Enum
+              BUTTON_SET: :button_set
+
+              def self.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_]
+            end
+          end
+
+          private def self.variants: -> [[nil, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock], [nil, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]]
+        end
+
+        type source =
+          {
+            _typename: String,
+            categories: ::Array[String],
+            key: String,
+            version_id: String
+          }
+
+        class Source < Knockapi::BaseModel
+          attr_accessor _typename: String
+
+          attr_accessor categories: ::Array[String]
+
+          attr_accessor key: String
+
+          attr_accessor version_id: String
+
+          def initialize:
+            (
+              _typename: String,
+              categories: ::Array[String],
+              key: String,
+              version_id: String
+            ) -> void
+            | (
+              ?Knockapi::Models::Users::FeedListItemsResponse::source
+              | Knockapi::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::source
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,50 @@
+module Knockapi
+  module Resources
+    class Tenants
+      attr_reader bulk: Knockapi::Resources::Tenants::Bulk
+
+      def list:
+        (
+          ?Knockapi::Models::TenantListParams | ::Hash[Symbol, top] params
+        ) -> Knockapi::EntriesCursor[Knockapi::Models::Tenant]
+        | (
+          after: String,
+          before: String,
+          page_size: Integer,
+          request_options: Knockapi::request_opts
+        ) -> Knockapi::EntriesCursor[Knockapi::Models::Tenant]
+
+      def delete:
+        (
+          String tenant_id,
+          ?Knockapi::Models::TenantDeleteParams | ::Hash[Symbol, top] params
+        ) -> String
+        | (String tenant_id, request_options: Knockapi::request_opts) -> String
+
+      def get:
+        (
+          String tenant_id,
+          ?Knockapi::Models::TenantGetParams | ::Hash[Symbol, top] params
+        ) -> Knockapi::Models::Tenant
+        | (
+          String tenant_id,
+          request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Tenant
+
+      def set:
+        (
+          String tenant_id,
+          ?Knockapi::Models::TenantSetParams | ::Hash[Symbol, top] params
+        ) -> Knockapi::Models::Tenant
+        | (
+          String tenant_id,
+          channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+          preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+          settings: Knockapi::Models::TenantSetParams::Settings,
+          request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Tenant
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

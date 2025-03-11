@@ -1,0 +1,71 @@
+module Knockapi
+  module Models
+    module Providers
+      type ms_team_list_channels_response =
+        {
+          ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
+        }
+
+      class MsTeamListChannelsResponse < Knockapi::BaseModel
+        attr_accessor ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
+
+        def initialize:
+          (
+            ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
+          ) -> void
+          | (
+            ?Knockapi::Models::Providers::ms_team_list_channels_response
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::ms_team_list_channels_response
+
+        type ms_teams_channel =
+          {
+            id: String,
+            display_name: String,
+            created_date_time: String,
+            description: String?,
+            is_archived: bool,
+            membership_type: String
+          }
+
+        class MsTeamsChannel < Knockapi::BaseModel
+          attr_accessor id: String
+
+          attr_accessor display_name: String
+
+          attr_reader created_date_time: String?
+
+          def created_date_time=: (String) -> String
+
+          attr_accessor description: String?
+
+          attr_reader is_archived: bool?
+
+          def is_archived=: (bool) -> bool
+
+          attr_reader membership_type: String?
+
+          def membership_type=: (String) -> String
+
+          def initialize:
+            (
+              id: String,
+              display_name: String,
+              created_date_time: String,
+              description: String?,
+              is_archived: bool,
+              membership_type: String
+            ) -> void
+            | (
+              ?Knockapi::Models::Providers::MsTeamListChannelsResponse::ms_teams_channel
+              | Knockapi::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knockapi::Models::Providers::MsTeamListChannelsResponse::ms_teams_channel
+        end
+      end
+    end
+  end
+end

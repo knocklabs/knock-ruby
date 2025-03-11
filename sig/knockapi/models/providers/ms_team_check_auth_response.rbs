@@ -1,0 +1,42 @@
+module Knockapi
+  module Models
+    module Providers
+      type ms_team_check_auth_response =
+        {
+          connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
+        }
+
+      class MsTeamCheckAuthResponse < Knockapi::BaseModel
+        attr_accessor connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
+
+        def initialize:
+          (
+            connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
+          ) -> void
+          | (
+            ?Knockapi::Models::Providers::ms_team_check_auth_response
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::ms_team_check_auth_response
+
+        type connection = { ok: bool, reason: String? }
+
+        class Connection < Knockapi::BaseModel
+          attr_accessor ok: bool
+
+          attr_accessor reason: String?
+
+          def initialize:
+            (ok: bool, reason: String?) -> void
+            | (
+              ?Knockapi::Models::Providers::MsTeamCheckAuthResponse::connection
+              | Knockapi::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knockapi::Models::Providers::MsTeamCheckAuthResponse::connection
+        end
+      end
+    end
+  end
+end

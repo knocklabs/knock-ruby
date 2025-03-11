@@ -1,9 +1,0 @@
-module Knock
-  module Models
-    module Messages
-      type batch_mark_as_interacted_response = ::Array[Knock::Models::Message]
-
-      BatchMarkAsInteractedResponse: batch_mark_as_interacted_response
-    end
-  end
-end

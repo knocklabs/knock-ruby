@@ -1,0 +1,29 @@
+module Knockapi
+  class ItemsCursor[Elem]
+    include Knockapi::BasePage[Elem]
+
+    attr_accessor items: ::Array[Elem]
+
+    attr_accessor page_info: PageInfo
+
+    def initialize: (
+      client: Knockapi::BaseClient,
+      req: Knockapi::BaseClient::request_components,
+      headers: ::Hash[String, String],
+      page_data: ::Hash[Symbol, top]
+    ) -> void
+
+    type page_info = { after: String }
+    class PageInfo < Knockapi::BaseModel
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      def initialize:
+        (after: String) -> void
+        | (?page_info | Knockapi::BaseModel data) -> void
+
+      def to_hash: -> page_info
+    end
+  end
+end

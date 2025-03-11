@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+module Knockapi
+  module Models
+    module Recipients
+      class OneSignalChannelData < Knockapi::BaseModel
+        # @!attribute player_ids
+        #   The OneSignal player IDs
+        #
+        #   @return [Array<String>]
+        required :player_ids, Knockapi::ArrayOf[String]
+
+        # @!parse
+        #   # OneSignal channel data
+        #   #
+        #   # @param player_ids [Array<String>]
+        #   #
+        #   def initialize(player_ids:, **) = super
+
+        # def initialize: (Hash | Knockapi::BaseModel) -> void
+      end
+    end
+  end
+end

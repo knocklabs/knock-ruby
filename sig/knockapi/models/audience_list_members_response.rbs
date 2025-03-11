@@ -1,0 +1,59 @@
+module Knockapi
+  module Models
+    type audience_list_members_response =
+      {
+        entries: ::Array[Knockapi::Models::AudienceMember],
+        page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+      }
+
+    class AudienceListMembersResponse < Knockapi::BaseModel
+      attr_accessor entries: ::Array[Knockapi::Models::AudienceMember]
+
+      attr_accessor page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+
+      def initialize:
+        (
+          entries: ::Array[Knockapi::Models::AudienceMember],
+          page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+        ) -> void
+        | (
+          ?Knockapi::Models::audience_list_members_response
+          | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::audience_list_members_response
+
+      type page_info =
+        {
+          _typename: String,
+          page_size: Integer,
+          after: String?,
+          before: String?
+        }
+
+      class PageInfo < Knockapi::BaseModel
+        attr_accessor _typename: String
+
+        attr_accessor page_size: Integer
+
+        attr_accessor after: String?
+
+        attr_accessor before: String?
+
+        def initialize:
+          (
+            _typename: String,
+            page_size: Integer,
+            after: String?,
+            before: String?
+          ) -> void
+          | (
+            ?Knockapi::Models::AudienceListMembersResponse::page_info
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::AudienceListMembersResponse::page_info
+      end
+    end
+  end
+end

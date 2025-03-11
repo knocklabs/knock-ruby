@@ -35,7 +35,7 @@ Layout/LineLength:
   AllowedPatterns:
     - "^\\s*#.*$"
     - ^require(_relative)?
-    - "Knock::(Models|Resources)::"
+    - "Knockapi::(Models|Resources)::"
   Max: 110
 
 Layout/MultilineArrayLineBreaks:

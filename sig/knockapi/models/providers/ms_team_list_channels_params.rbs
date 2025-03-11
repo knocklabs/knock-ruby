@@ -1,0 +1,63 @@
+module Knockapi
+  module Models
+    module Providers
+      type ms_team_list_channels_params =
+        {
+          ms_teams_tenant_object: String,
+          team_id: String,
+          query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions
+        }
+        & Knockapi::request_parameters
+
+      class MsTeamListChannelsParams < Knockapi::BaseModel
+        extend Knockapi::RequestParameters::Converter
+        include Knockapi::RequestParameters
+
+        attr_accessor ms_teams_tenant_object: String
+
+        attr_accessor team_id: String
+
+        attr_reader query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions?
+
+        def query_options=: (
+          Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions
+        ) -> Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions
+
+        def initialize:
+          (
+            ms_teams_tenant_object: String,
+            team_id: String,
+            query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
+            request_options: Knockapi::request_opts
+          ) -> void
+          | (
+            ?Knockapi::Models::Providers::ms_team_list_channels_params
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::ms_team_list_channels_params
+
+        type query_options = { filter: String, select_: String }
+
+        class QueryOptions < Knockapi::BaseModel
+          attr_reader filter: String?
+
+          def filter=: (String) -> String
+
+          attr_reader select_: String?
+
+          def select_=: (String) -> String
+
+          def initialize:
+            (filter: String, select_: String) -> void
+            | (
+              ?Knockapi::Models::Providers::MsTeamListChannelsParams::query_options
+              | Knockapi::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knockapi::Models::Providers::MsTeamListChannelsParams::query_options
+        end
+      end
+    end
+  end
+end

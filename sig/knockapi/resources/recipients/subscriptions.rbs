@@ -1,0 +1,9 @@
+module Knockapi
+  module Resources
+    class Recipients
+      class Subscriptions
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

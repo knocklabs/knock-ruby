@@ -1,0 +1,25 @@
+# typed: strong
+
+module Knockapi
+  module Models
+    module Recipients
+      class PreferenceSetChannelTypeSetting < Knockapi::BaseModel
+        sig { returns(T::Array[Knockapi::Models::Condition]) }
+        def conditions
+        end
+
+        sig { params(_: T::Array[Knockapi::Models::Condition]).returns(T::Array[Knockapi::Models::Condition]) }
+        def conditions=(_)
+        end
+
+        sig { params(conditions: T::Array[Knockapi::Models::Condition]).returns(T.attached_class) }
+        def self.new(conditions:)
+        end
+
+        sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
+        def to_hash
+        end
+      end
+    end
+  end
+end

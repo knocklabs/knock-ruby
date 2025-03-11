@@ -1,9 +1,0 @@
-module Knock
-  module Models
-    module Messages
-      type batch_archive_response = ::Array[Knock::Models::Message]
-
-      BatchArchiveResponse: batch_archive_response
-    end
-  end
-end

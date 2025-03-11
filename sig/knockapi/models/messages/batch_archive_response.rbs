@@ -1,0 +1,9 @@
+module Knockapi
+  module Models
+    module Messages
+      type batch_archive_response = ::Array[Knockapi::Models::Message]
+
+      BatchArchiveResponse: batch_archive_response
+    end
+  end
+end

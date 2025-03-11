@@ -1,0 +1,96 @@
+module Knockapi
+  module Models
+    type tenant_request =
+      {
+        id: String,
+        channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        settings: Knockapi::Models::TenantRequest::Settings
+      }
+
+    class TenantRequest < Knockapi::BaseModel
+      attr_accessor id: String
+
+      attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
+
+      attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+
+      attr_reader settings: Knockapi::Models::TenantRequest::Settings?
+
+      def settings=: (
+        Knockapi::Models::TenantRequest::Settings
+      ) -> Knockapi::Models::TenantRequest::Settings
+
+      def initialize:
+        (
+          id: String,
+          channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+          preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+          settings: Knockapi::Models::TenantRequest::Settings
+        ) -> void
+        | (?Knockapi::Models::tenant_request | Knockapi::BaseModel data) -> void
+
+      def to_hash: -> Knockapi::Models::tenant_request
+
+      type settings =
+        {
+          branding: Knockapi::Models::TenantRequest::Settings::Branding,
+          preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
+        }
+
+      class Settings < Knockapi::BaseModel
+        attr_reader branding: Knockapi::Models::TenantRequest::Settings::Branding?
+
+        def branding=: (
+          Knockapi::Models::TenantRequest::Settings::Branding
+        ) -> Knockapi::Models::TenantRequest::Settings::Branding
+
+        attr_accessor preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
+
+        def initialize:
+          (
+            branding: Knockapi::Models::TenantRequest::Settings::Branding,
+            preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
+          ) -> void
+          | (
+            ?Knockapi::Models::TenantRequest::settings
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::TenantRequest::settings
+
+        type branding =
+          {
+            icon_url: String?,
+            logo_url: String?,
+            primary_color: String?,
+            primary_color_contrast: String?
+          }
+
+        class Branding < Knockapi::BaseModel
+          attr_accessor icon_url: String?
+
+          attr_accessor logo_url: String?
+
+          attr_accessor primary_color: String?
+
+          attr_accessor primary_color_contrast: String?
+
+          def initialize:
+            (
+              icon_url: String?,
+              logo_url: String?,
+              primary_color: String?,
+              primary_color_contrast: String?
+            ) -> void
+            | (
+              ?Knockapi::Models::TenantRequest::Settings::branding
+              | Knockapi::BaseModel data
+            ) -> void
+
+          def to_hash: -> Knockapi::Models::TenantRequest::Settings::branding
+        end
+      end
+    end
+  end
+end

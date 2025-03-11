@@ -1,0 +1,54 @@
+module Knockapi
+  module Models
+    type user_list_schedules_params =
+      {
+        after: String,
+        before: String,
+        page_size: Integer,
+        tenant: String,
+        workflow: String
+      }
+      & Knockapi::request_parameters
+
+    class UserListSchedulesParams < Knockapi::BaseModel
+      extend Knockapi::RequestParameters::Converter
+      include Knockapi::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      attr_reader tenant: String?
+
+      def tenant=: (String) -> String
+
+      attr_reader workflow: String?
+
+      def workflow=: (String) -> String
+
+      def initialize:
+        (
+          after: String,
+          before: String,
+          page_size: Integer,
+          tenant: String,
+          workflow: String,
+          request_options: Knockapi::request_opts
+        ) -> void
+        | (
+          ?Knockapi::Models::user_list_schedules_params
+          | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::user_list_schedules_params
+    end
+  end
+end

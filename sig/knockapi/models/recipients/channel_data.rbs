@@ -1,0 +1,44 @@
+module Knockapi
+  module Models
+    module Recipients
+      type recipients_channel_data =
+        {
+          _typename: String,
+          channel_id: String,
+          data: Knockapi::Models::Recipients::RecipientsChannelData::data
+        }
+
+      class RecipientsChannelData < Knockapi::BaseModel
+        attr_accessor _typename: String
+
+        attr_accessor channel_id: String
+
+        attr_accessor data: Knockapi::Models::Recipients::RecipientsChannelData::data
+
+        def initialize:
+          (
+            _typename: String,
+            channel_id: String,
+            data: Knockapi::Models::Recipients::RecipientsChannelData::data
+          ) -> void
+          | (
+            ?Knockapi::Models::Recipients::recipients_channel_data
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Recipients::recipients_channel_data
+
+        type data =
+          Knockapi::Models::Recipients::PushChannelData
+          | Knockapi::Models::Recipients::SlackChannelData
+          | Knockapi::Models::Recipients::MsTeamsChannelData
+          | Knockapi::Models::Recipients::DiscordChannelData
+          | Knockapi::Models::Recipients::OneSignalChannelData
+
+        class Data < Knockapi::Union
+          private def self.variants: -> [[nil, Knockapi::Models::Recipients::PushChannelData], [nil, Knockapi::Models::Recipients::SlackChannelData], [nil, Knockapi::Models::Recipients::MsTeamsChannelData], [nil, Knockapi::Models::Recipients::DiscordChannelData], [nil, Knockapi::Models::Recipients::OneSignalChannelData]]
+        end
+      end
+    end
+  end
+end

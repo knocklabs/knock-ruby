@@ -1,0 +1,7 @@
+module Knockapi
+  module Models
+    type schedule_update_response = ::Array[Knockapi::Models::Schedule]
+
+    ScheduleUpdateResponse: schedule_update_response
+  end
+end

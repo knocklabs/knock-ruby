@@ -6,7 +6,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
 
-Documentation for the most recent release of this gem can be found [on RubyDoc](https://gemdocs.org/gems/knock/latest).
+Documentation for the most recent release of this gem can be found [on RubyDoc](https://gemdocs.org/gems/knockapi/latest).
 
 The underlying REST API documentation can be found on [docs.knock.app](https://docs.knock.app).
 
@@ -15,7 +15,7 @@ The underlying REST API documentation can be found on [docs.knock.app](https://d
 To use this gem during the beta, install directly from GitHub with Bundler by adding the following to your application's `Gemfile`:
 
 ```ruby
-gem "knock", git: "https://github.com/stainless-sdks/knock-ruby", branch: "main"
+gem "knockapi", git: "https://github.com/stainless-sdks/knock-ruby", branch: "main"
 ```
 
 To fetch an initial copy of the gem:
@@ -27,16 +27,16 @@ bundle install
 To update the version used by your application when updates are pushed to GitHub:
 
 ```sh
-bundle update knock
+bundle update knockapi
 ```
 
 ## Usage
 
 ```ruby
 require "bundler/setup"
-require "knock"
+require "knockapi"
 
-knock = Knock::Client.new(
+knock = Knockapi::Client.new(
   bearer_token: "My Bearer Token" # defaults to ENV["KNOCK_API_KEY"]
 )
 
@@ -72,12 +72,12 @@ end
 
 ### Errors
 
-When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `Knock::Error` will be thrown:
+When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `Knockapi::Error` will be thrown:
 
 ```ruby
 begin
   user = knock.users.get("dnedry")
-rescue Knock::Error => e
+rescue Knockapi::Error => e
   puts(e.status) # 400
 end
 ```
@@ -108,7 +108,7 @@ You can use the `max_retries` option to configure or disable this:
 
 ```ruby
 # Configure the default for all requests:
-knock = Knock::Client.new(
+knock = Knockapi::Client.new(
   max_retries: 0 # default is 2
 )
 
@@ -126,7 +126,7 @@ You can use the `timeout` option to configure or disable this:
 
 ```ruby
 # Configure the default for all requests:
-knock = Knock::Client.new(
+knock = Knockapi::Client.new(
   timeout: nil # default is 60
 )
 
@@ -140,7 +140,7 @@ This library is written with [Sorbet type definitions](https://sorbet.org/docs/r
 
 What this means is that while you can use Sorbet to type check your code statically, and benefit from the [Sorbet Language Server](https://sorbet.org/docs/lsp) in your editor, there is no runtime type checking and execution overhead from Sorbet itself.
 
-Due to limitations with the Sorbet type system, where a method otherwise can take an instance of `Knock::BaseModel` class, you will need to use the `**` splat operator to pass the arguments:
+Due to limitations with the Sorbet type system, where a method otherwise can take an instance of `Knockapi::BaseModel` class, you will need to use the `**` splat operator to pass the arguments:
 
 ```ruby
 model = WorkflowTriggerParams.new(

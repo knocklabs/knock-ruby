@@ -1,0 +1,41 @@
+module Knockapi
+  module Models
+    module Providers
+      type slack_list_channels_response =
+        {
+          id: String,
+          context_team_id: String,
+          is_im: bool,
+          is_private: bool,
+          name: String
+        }
+
+      class SlackListChannelsResponse < Knockapi::BaseModel
+        attr_accessor id: String
+
+        attr_accessor context_team_id: String
+
+        attr_accessor is_im: bool
+
+        attr_accessor is_private: bool
+
+        attr_accessor name: String
+
+        def initialize:
+          (
+            id: String,
+            context_team_id: String,
+            is_im: bool,
+            is_private: bool,
+            name: String
+          ) -> void
+          | (
+            ?Knockapi::Models::Providers::slack_list_channels_response
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::slack_list_channels_response
+      end
+    end
+  end
+end

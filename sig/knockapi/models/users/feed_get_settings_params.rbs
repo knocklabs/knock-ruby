@@ -1,0 +1,21 @@
+module Knockapi
+  module Models
+    module Users
+      type feed_get_settings_params = {  } & Knockapi::request_parameters
+
+      class FeedGetSettingsParams < Knockapi::BaseModel
+        extend Knockapi::RequestParameters::Converter
+        include Knockapi::RequestParameters
+
+        def initialize:
+          (request_options: Knockapi::request_opts) -> void
+          | (
+            ?Knockapi::Models::Users::feed_get_settings_params
+            | Knockapi::BaseModel data
+          ) -> void
+
+        def to_hash: -> Knockapi::Models::Users::feed_get_settings_params
+      end
+    end
+  end
+end

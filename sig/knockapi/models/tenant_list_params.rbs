@@ -1,0 +1,37 @@
+module Knockapi
+  module Models
+    type tenant_list_params =
+      { after: String, before: String, page_size: Integer }
+      & Knockapi::request_parameters
+
+    class TenantListParams < Knockapi::BaseModel
+      extend Knockapi::RequestParameters::Converter
+      include Knockapi::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      def initialize:
+        (
+          after: String,
+          before: String,
+          page_size: Integer,
+          request_options: Knockapi::request_opts
+        ) -> void
+        | (
+          ?Knockapi::Models::tenant_list_params | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::tenant_list_params
+    end
+  end
+end

@@ -1,0 +1,35 @@
+module Knockapi
+  module Models
+    type workflow_cancel_params =
+      {
+        cancellation_key: String,
+        recipients: ::Array[String]?,
+        tenant: String?
+      }
+      & Knockapi::request_parameters
+
+    class WorkflowCancelParams < Knockapi::BaseModel
+      extend Knockapi::RequestParameters::Converter
+      include Knockapi::RequestParameters
+
+      attr_accessor cancellation_key: String
+
+      attr_accessor recipients: ::Array[String]?
+
+      attr_accessor tenant: String?
+
+      def initialize:
+        (
+          cancellation_key: String,
+          recipients: ::Array[String]?,
+          tenant: String?,
+          request_options: Knockapi::request_opts
+        ) -> void
+        | (
+          ?Knockapi::Models::workflow_cancel_params | Knockapi::BaseModel data
+        ) -> void
+
+      def to_hash: -> Knockapi::Models::workflow_cancel_params
+    end
+  end
+end

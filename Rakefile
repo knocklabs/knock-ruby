@@ -81,9 +81,9 @@ multitask(typecheck: [:steep, :sorbet])
 multitask(lint: [:rubocop, :typecheck])
 
 multitask(:build) do
-  sh(*%w[gem build -- knock.gemspec])
+  sh(*%w[gem build -- knockapi.gemspec])
 end
 
 multitask(release: [:build]) do
-  sh(*%w[gem push], *FileList["knock-*.gem"])
+  sh(*%w[gem push], *FileList["knockapi-*.gem"])
 end

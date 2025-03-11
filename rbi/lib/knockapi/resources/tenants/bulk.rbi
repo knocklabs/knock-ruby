@@ -1,0 +1,33 @@
+# typed: strong
+
+module Knockapi
+  module Resources
+    class Tenants
+      class Bulk
+        sig do
+          params(
+            tenant_ids: T::Array[String],
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          )
+            .returns(Knockapi::Models::BulkOperation)
+        end
+        def delete(tenant_ids:, request_options: {})
+        end
+
+        sig do
+          params(
+            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest)],
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          )
+            .returns(Knockapi::Models::BulkOperation)
+        end
+        def set(tenants:, request_options: {})
+        end
+
+        sig { params(client: Knockapi::Client).returns(T.attached_class) }
+        def self.new(client:)
+        end
+      end
+    end
+  end
+end
