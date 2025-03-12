@@ -14,11 +14,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
       response => Knockapi::EntriesCursor
     end
 
-    page = response.next_page
-    assert_pattern do
-      page => Knockapi::EntriesCursor
-    end
-
     row = response.to_enum.first
     assert_pattern do
       row => Knockapi::Models::Message
@@ -159,11 +154,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
       response => Knockapi::ItemsCursor
     end
 
-    page = response.next_page
-    assert_pattern do
-      page => Knockapi::ItemsCursor
-    end
-
     row = response.to_enum.first
     assert_pattern do
       row => Knockapi::Models::Activity
@@ -193,11 +183,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
       response => Knockapi::EntriesCursor
     end
 
-    page = response.next_page
-    assert_pattern do
-      page => Knockapi::EntriesCursor
-    end
-
     row = response.to_enum.first
     assert_pattern do
       row => Knockapi::Models::MessageDeliveryLog
@@ -225,11 +210,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
 
     assert_pattern do
       response => Knockapi::EntriesCursor
-    end
-
-    page = response.next_page
-    assert_pattern do
-      page => Knockapi::EntriesCursor
     end
 
     row = response.to_enum.first

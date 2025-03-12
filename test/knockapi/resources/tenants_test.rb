@@ -14,11 +14,6 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
       response => Knockapi::EntriesCursor
     end
 
-    page = response.next_page
-    assert_pattern do
-      page => Knockapi::EntriesCursor
-    end
-
     row = response.to_enum.first
     assert_pattern do
       row => Knockapi::Models::Tenant

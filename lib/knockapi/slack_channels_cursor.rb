@@ -68,7 +68,7 @@ module Knockapi
     #
     def next_page
       unless next_page?
-        raise RuntimeError.new("No more pages available; please check #next_page? before calling #next_page")
+        raise RuntimeError.new("No more pages available. Please check #next_page? before calling ##{__method__}")
       end
 
       req = Knockapi::Util.deep_merge(@req, {query: {"query_options.cursor": next_cursor}})
@@ -79,7 +79,7 @@ module Knockapi
     #
     def auto_paging_each(&blk)
       unless block_given?
-        raise ArgumentError.new("A block must be given to #auto_paging_each")
+        raise ArgumentError.new("A block must be given to ##{__method__}")
       end
       page = self
       loop do
