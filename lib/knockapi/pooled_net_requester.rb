@@ -156,11 +156,12 @@ module Knockapi
       end
 
       conn, response = enum.next
-      body = Knockapi::Util.fused_enum(enum) do
+      body = Knockapi::Util.fused_enum(enum, external: true) do
         finished = true
         tap do
           enum.next
         rescue StopIteration
+          nil
         end
         conn.finish if !eof && conn&.started?
       end
