@@ -4,22 +4,22 @@ module Knockapi
   # @example
   # ```ruby
   # if slack_channels_cursor.has_next?
-  #   page = slack_channels_cursor.next_page
+  #   slack_channels_cursor = slack_channels_cursor.next_page
   # end
   # ```
   #
   # @example
   # ```ruby
-  # slack_channels_cursor.auto_paging_each do |item|
-  # #   item ...
+  # slack_channels_cursor.auto_paging_each do |slack|
+  #   puts(slack)
   # end
   # ```
   #
   # @example
   # ```ruby
-  # items = slack_channels_cursor.to_enum.take(2)
+  # slacks = slack_channels_cursor.to_enum.take(2)
   #
-  # items => Array
+  # slacks => Array
   # ```
   class SlackChannelsCursor
     include Knockapi::BasePage

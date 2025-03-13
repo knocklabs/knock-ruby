@@ -5,6 +5,26 @@ module Knockapi
   #
   # @abstract
   #
+  # @example
+  # ```ruby
+  # if page.has_next?
+  #   page = page.next_page
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # page.auto_paging_each do |user|
+  #   puts(user)
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # users = page.to_enum.take(2)
+  #
+  # users => Array
+  # ```
   module BasePage
     # @return [Boolean]
     #

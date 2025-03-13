@@ -51,7 +51,7 @@ response = knock.workflows.trigger(
 puts(response.workflow_run_id)
 ```
 
-## Pagination
+### Pagination
 
 List methods in the Knock API are paginated.
 
