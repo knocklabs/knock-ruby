@@ -21,17 +21,5 @@ module Knockapi
     sig { params(_: T::Array[Elem]).returns(T::Array[Elem]) }
     def slack_channels=(_)
     end
-
-    sig do
-      params(
-        client: Knockapi::BaseClient,
-        req: Knockapi::BaseClient::RequestComponentsShape,
-        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
-        page_data: T::Hash[Symbol, T.anything]
-      )
-        .returns(T.attached_class)
-    end
-    def self.new(client:, req:, headers:, page_data:)
-    end
   end
 end

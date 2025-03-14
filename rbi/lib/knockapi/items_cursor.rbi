@@ -22,18 +22,6 @@ module Knockapi
     def page_info=(_)
     end
 
-    sig do
-      params(
-        client: Knockapi::BaseClient,
-        req: Knockapi::BaseClient::RequestComponentsShape,
-        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
-        page_data: T::Hash[Symbol, T.anything]
-      )
-        .returns(T.attached_class)
-    end
-    def self.new(client:, req:, headers:, page_data:)
-    end
-
     class PageInfo < Knockapi::BaseModel
       sig { returns(T.nilable(String)) }
       def after
