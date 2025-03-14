@@ -30,7 +30,6 @@ module Knockapi
     # @return [Array<Object>]
     attr_accessor :slack_channels
 
-    # rubocop:disable Lint/UnusedMethodArgument
     # @private
     #
     # @param client [Knockapi::BaseClient]
@@ -39,8 +38,7 @@ module Knockapi
     # @param page_data [Hash{Symbol=>Object}]
     #
     def initialize(client:, req:, headers:, page_data:)
-      @client = client
-      @req = req
+      super
       model = req.fetch(:model)
 
       case page_data
@@ -55,10 +53,8 @@ module Knockapi
       else
       end
     end
-    # rubocop:enable Lint/UnusedMethodArgument
 
     # @return [Boolean]
-    #
     def next_page?
       !next_cursor.nil?
     end
