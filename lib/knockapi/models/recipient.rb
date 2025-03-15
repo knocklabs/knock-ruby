@@ -11,6 +11,12 @@ module Knockapi
 
       # A custom-object entity which belongs to a collection.
       variant -> { Knockapi::Models::Object }
+
+      # @!parse
+      #   class << self
+      #     # @return [Array(Knockapi::Models::User, Knockapi::Models::Object)]
+      #     def variants; end
+      #   end
     end
   end
 end

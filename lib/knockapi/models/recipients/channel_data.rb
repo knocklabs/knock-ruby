@@ -49,6 +49,12 @@ module Knockapi
 
           # OneSignal channel data
           variant -> { Knockapi::Models::Recipients::OneSignalChannelData }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData)]
+          #     def variants; end
+          #   end
         end
       end
     end

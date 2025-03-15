@@ -165,14 +165,8 @@ module Knockapi
         end
 
         class << self
-          # @api private
-          sig do
-            override
-              .returns(
-                [[NilClass, String], [NilClass, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]]
-              )
-          end
-          private def variants
+          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]) }
+          def variants
           end
         end
       end
@@ -212,14 +206,8 @@ module Knockapi
         end
 
         class << self
-          # @api private
-          sig do
-            override
-              .returns(
-                [[NilClass, String], [NilClass, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]]
-              )
-          end
-          private def variants
+          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]) }
+          def variants
           end
         end
       end

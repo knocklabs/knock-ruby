@@ -79,6 +79,12 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
           end
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
+          #     def variants; end
+          #   end
         end
 
         class Token < Knockapi::BaseModel

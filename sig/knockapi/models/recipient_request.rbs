@@ -6,7 +6,7 @@ module Knockapi
       | Knockapi::Models::InlineObjectRequest
 
     class RecipientRequest < Knockapi::Union
-      private def self.variants: -> [[nil, String], [nil, Knockapi::Models::InlineIdentifyUserRequest], [nil, Knockapi::Models::InlineObjectRequest]]
+      def self.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
     end
   end
 end

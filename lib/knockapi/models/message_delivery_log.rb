@@ -123,6 +123,12 @@ module Knockapi
           variant String
 
           variant Knockapi::Models::MessageDeliveryLog::Request::Body::UnionMember1Map
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(String, Hash{Symbol=>Object})]
+          #     def variants; end
+          #   end
         end
 
         # @abstract
@@ -179,6 +185,12 @@ module Knockapi
           variant String
 
           variant Knockapi::Models::MessageDeliveryLog::Response::Body::UnionMember1Map
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(String, Hash{Symbol=>Object})]
+          #     def variants; end
+          #   end
         end
       end
     end

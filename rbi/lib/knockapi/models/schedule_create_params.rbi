@@ -152,14 +152,8 @@ module Knockapi
         end
 
         class << self
-          # @api private
-          sig do
-            override
-              .returns(
-                [[NilClass, String], [NilClass, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]]
-              )
-          end
-          private def variants
+          sig { override.returns([String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]) }
+          def variants
           end
         end
       end

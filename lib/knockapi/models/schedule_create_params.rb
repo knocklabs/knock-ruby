@@ -103,6 +103,12 @@ module Knockapi
 
           # def initialize: (Hash | Knockapi::BaseModel) -> void
         end
+
+        # @!parse
+        #   class << self
+        #     # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
+        #     def variants; end
+        #   end
       end
     end
   end

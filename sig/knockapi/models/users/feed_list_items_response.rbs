@@ -189,7 +189,7 @@ module Knockapi
             end
           end
 
-          private def self.variants: -> [[nil, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock], [nil, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]]
+          def self.variants: -> [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
         end
 
         type source =

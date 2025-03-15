@@ -258,6 +258,12 @@ module Knockapi
 
           # def initialize: (Hash | Knockapi::BaseModel) -> void
         end
+
+        # @!parse
+        #   class << self
+        #     # @return [Array(String, Knockapi::Models::Message::Actor::ObjectReference)]
+        #     def variants; end
+        #   end
       end
 
       # @abstract
@@ -305,6 +311,12 @@ module Knockapi
 
           # def initialize: (Hash | Knockapi::BaseModel) -> void
         end
+
+        # @!parse
+        #   class << self
+        #     # @return [Array(String, Knockapi::Models::Message::Recipient::ObjectReference)]
+        #     def variants; end
+        #   end
       end
 
       class Source < Knockapi::BaseModel

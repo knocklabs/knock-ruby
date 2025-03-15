@@ -3,7 +3,7 @@ module Knockapi
     type inline_tenant_request = String | Knockapi::Models::TenantRequest
 
     class InlineTenantRequest < Knockapi::Union
-      private def self.variants: -> [[nil, String], [nil, Knockapi::Models::TenantRequest]]
+      def self.variants: -> [String, Knockapi::Models::TenantRequest]
     end
   end
 end

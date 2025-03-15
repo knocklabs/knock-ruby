@@ -81,6 +81,12 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
           end
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject)]
+          #     def variants; end
+          #   end
         end
 
         # @abstract
@@ -115,6 +121,12 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
           end
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject)]
+          #     def variants; end
+          #   end
         end
       end
     end

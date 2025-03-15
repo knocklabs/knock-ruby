@@ -217,14 +217,13 @@ module Knockapi
           end
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]]
+                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end
@@ -283,14 +282,13 @@ module Knockapi
           end
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]]
+                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end

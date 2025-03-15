@@ -213,14 +213,13 @@ module Knockapi
           end
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection], [NilClass, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]]
+                  [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end

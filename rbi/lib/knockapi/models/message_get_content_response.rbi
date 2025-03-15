@@ -786,28 +786,26 @@ module Knockapi
             end
 
             class << self
-              # @api private
               sig do
                 override
                   .returns(
-                    [[NilClass, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock], [NilClass, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]]
+                    [Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
                   )
               end
-              private def variants
+              def variants
               end
             end
           end
         end
 
         class << self
-          # @api private
           sig do
             override
               .returns(
-                [[NilClass, Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent], [NilClass, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent], [NilClass, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent], [NilClass, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent], [NilClass, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]]
+                [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]
               )
           end
-          private def variants
+          def variants
           end
         end
       end

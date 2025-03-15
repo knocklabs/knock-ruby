@@ -24,7 +24,7 @@ module Knockapi
           | Knockapi::Models::Recipients::DiscordChannelData
 
         class Data < Knockapi::Union
-          private def self.variants: -> [[nil, Knockapi::Models::Recipients::PushChannelData], [nil, Knockapi::Models::Recipients::OneSignalChannelData], [nil, Knockapi::Models::Recipients::SlackChannelData], [nil, Knockapi::Models::Recipients::MsTeamsChannelData], [nil, Knockapi::Models::Recipients::DiscordChannelData]]
+          def self.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
         end
       end
     end

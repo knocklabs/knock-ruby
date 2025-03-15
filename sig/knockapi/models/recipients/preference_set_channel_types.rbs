@@ -68,42 +68,42 @@ module Knockapi
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         class Chat < Knockapi::Union
-          private def self.variants: -> [[nil, bool], [nil, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
+          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type email =
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         class Email < Knockapi::Union
-          private def self.variants: -> [[nil, bool], [nil, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
+          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type http =
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         class HTTP < Knockapi::Union
-          private def self.variants: -> [[nil, bool], [nil, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
+          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type in_app_feed =
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         class InAppFeed < Knockapi::Union
-          private def self.variants: -> [[nil, bool], [nil, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
+          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type push =
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         class Push < Knockapi::Union
-          private def self.variants: -> [[nil, bool], [nil, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
+          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type sms =
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         class SMS < Knockapi::Union
-          private def self.variants: -> [[nil, bool], [nil, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
+          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
       end
     end

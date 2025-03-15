@@ -7,9 +7,8 @@ module Knockapi
       abstract!
 
       class << self
-        # @api private
-        sig { override.returns([[NilClass, Knockapi::Models::User], [NilClass, Knockapi::Models::Object]]) }
-        private def variants
+        sig { override.returns([Knockapi::Models::User, Knockapi::Models::Object]) }
+        def variants
         end
       end
     end

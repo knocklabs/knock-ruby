@@ -119,14 +119,8 @@ module Knockapi
           abstract!
 
           class << self
-            # @api private
-            sig do
-              override
-                .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
-                )
-            end
-            private def variants
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
             end
           end
         end
@@ -137,14 +131,8 @@ module Knockapi
           abstract!
 
           class << self
-            # @api private
-            sig do
-              override
-                .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
-                )
-            end
-            private def variants
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
             end
           end
         end
@@ -155,14 +143,8 @@ module Knockapi
           abstract!
 
           class << self
-            # @api private
-            sig do
-              override
-                .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
-                )
-            end
-            private def variants
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
             end
           end
         end
@@ -173,14 +155,8 @@ module Knockapi
           abstract!
 
           class << self
-            # @api private
-            sig do
-              override
-                .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
-                )
-            end
-            private def variants
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
             end
           end
         end
@@ -191,14 +167,8 @@ module Knockapi
           abstract!
 
           class << self
-            # @api private
-            sig do
-              override
-                .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
-                )
-            end
-            private def variants
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
             end
           end
         end
@@ -209,14 +179,8 @@ module Knockapi
           abstract!
 
           class << self
-            # @api private
-            sig do
-              override
-                .returns(
-                  [[NilClass, T::Boolean], [NilClass, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]]
-                )
-            end
-            private def variants
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
             end
           end
         end

@@ -259,6 +259,12 @@ module Knockapi
               finalize!
             end
           end
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock)]
+          #     def variants; end
+          #   end
         end
 
         class Source < Knockapi::BaseModel

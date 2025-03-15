@@ -93,6 +93,12 @@ module Knockapi
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #     def variants; end
+          #   end
         end
 
         # @abstract
@@ -104,6 +110,12 @@ module Knockapi
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #     def variants; end
+          #   end
         end
 
         # @abstract
@@ -115,6 +127,12 @@ module Knockapi
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #     def variants; end
+          #   end
         end
 
         # @abstract
@@ -126,6 +144,12 @@ module Knockapi
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #     def variants; end
+          #   end
         end
 
         # @abstract
@@ -137,6 +161,12 @@ module Knockapi
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #     def variants; end
+          #   end
         end
 
         # @abstract
@@ -148,6 +178,12 @@ module Knockapi
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #     def variants; end
+          #   end
         end
       end
     end

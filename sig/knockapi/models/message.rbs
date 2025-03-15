@@ -146,7 +146,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::Message::Actor::object_reference
         end
 
-        private def self.variants: -> [[nil, String], [nil, Knockapi::Models::Message::Actor::ObjectReference]]
+        def self.variants: -> [String, Knockapi::Models::Message::Actor::ObjectReference]
       end
 
       type engagement_status =
@@ -183,7 +183,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::Message::Recipient::object_reference
         end
 
-        private def self.variants: -> [[nil, String], [nil, Knockapi::Models::Message::Recipient::ObjectReference]]
+        def self.variants: -> [String, Knockapi::Models::Message::Recipient::ObjectReference]
       end
 
       type source =

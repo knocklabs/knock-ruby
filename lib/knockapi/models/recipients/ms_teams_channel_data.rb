@@ -108,6 +108,12 @@ module Knockapi
               # def initialize: (Hash | Knockapi::BaseModel) -> void
             end
           end
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
+          #     def variants; end
+          #   end
         end
       end
     end

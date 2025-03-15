@@ -100,14 +100,13 @@ module Knockapi
           abstract!
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, Knockapi::Models::Recipients::PushChannelData], [NilClass, Knockapi::Models::Recipients::SlackChannelData], [NilClass, Knockapi::Models::Recipients::MsTeamsChannelData], [NilClass, Knockapi::Models::Recipients::DiscordChannelData], [NilClass, Knockapi::Models::Recipients::OneSignalChannelData]]
+                  [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end

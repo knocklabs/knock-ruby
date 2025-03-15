@@ -156,14 +156,13 @@ module Knockapi
           end
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection], [NilClass, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]]
+                  [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end

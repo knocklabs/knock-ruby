@@ -368,11 +368,11 @@ module Knockapi
               end
             end
 
-            private def self.variants: -> [[nil, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock], [nil, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]]
+            def self.variants: -> [Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
           end
         end
 
-        private def self.variants: -> [[nil, Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent], [nil, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent], [nil, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent], [nil, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent], [nil, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]]
+        def self.variants: -> [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]
       end
     end
   end

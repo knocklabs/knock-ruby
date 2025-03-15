@@ -435,8 +435,20 @@ module Knockapi
                   finalize!
                 end
               end
+
+              # @!parse
+              #   class << self
+              #     # @return [Array(Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock)]
+              #     def variants; end
+              #   end
             end
           end
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent)]
+          #     def variants; end
+          #   end
         end
       end
 

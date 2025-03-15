@@ -11,6 +11,12 @@ module Knockapi
 
       # A tenant to be set in the system
       variant -> { Knockapi::Models::TenantRequest }
+
+      # @!parse
+      #   class << self
+      #     # @return [Array(String, Knockapi::Models::TenantRequest)]
+      #     def variants; end
+      #   end
     end
   end
 end

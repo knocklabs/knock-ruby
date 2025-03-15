@@ -93,7 +93,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
         end
 
-        private def self.variants: -> [[nil, String], [nil, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]]
+        def self.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]
       end
 
       type recipient =
@@ -118,7 +118,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
         end
 
-        private def self.variants: -> [[nil, String], [nil, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]]
+        def self.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]
       end
     end
   end

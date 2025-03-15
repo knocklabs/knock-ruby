@@ -9,14 +9,11 @@ module Knockapi
       abstract!
 
       class << self
-        # @api private
         sig do
           override
-            .returns(
-              [[NilClass, String], [NilClass, Knockapi::Models::InlineIdentifyUserRequest], [NilClass, Knockapi::Models::InlineObjectRequest]]
-            )
+            .returns([String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest])
         end
-        private def variants
+        def variants
         end
       end
     end

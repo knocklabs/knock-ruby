@@ -157,14 +157,13 @@ module Knockapi
           end
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection], [NilClass, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]]
+                  [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end

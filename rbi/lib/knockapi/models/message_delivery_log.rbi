@@ -195,9 +195,8 @@ module Knockapi
           UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
 
           class << self
-            # @api private
-            sig { override.returns([[NilClass, String], [NilClass, T::Hash[Symbol, T.anything]]]) }
-            private def variants
+            sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
+            def variants
             end
           end
         end
@@ -284,9 +283,8 @@ module Knockapi
           UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
 
           class << self
-            # @api private
-            sig { override.returns([[NilClass, String], [NilClass, T::Hash[Symbol, T.anything]]]) }
-            private def variants
+            sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
+            def variants
             end
           end
         end

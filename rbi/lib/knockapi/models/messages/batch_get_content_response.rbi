@@ -797,28 +797,26 @@ module Knockapi
               end
 
               class << self
-                # @api private
                 sig do
                   override
                     .returns(
-                      [[NilClass, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock], [NilClass, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]]
+                      [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
                     )
                 end
-                private def variants
+                def variants
                 end
               end
             end
           end
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent], [NilClass, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent], [NilClass, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent], [NilClass, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent], [NilClass, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent]]
+                  [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end

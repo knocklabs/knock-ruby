@@ -80,6 +80,12 @@ module Knockapi
               # def initialize: (Hash | Knockapi::BaseModel) -> void
             end
           end
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection)]
+          #     def variants; end
+          #   end
         end
       end
     end

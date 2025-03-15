@@ -96,7 +96,7 @@ module Knockapi
             end
           end
 
-          private def self.variants: -> [[nil, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection], [nil, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]]
+          def self.variants: -> [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
         end
       end
     end

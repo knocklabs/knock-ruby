@@ -75,7 +75,7 @@ module Knockapi
             end
           end
 
-          private def self.variants: -> [[nil, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection], [nil, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]]
+          def self.variants: -> [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
         end
       end
     end

@@ -438,14 +438,13 @@ module Knockapi
           end
 
           class << self
-            # @api private
             sig do
               override
                 .returns(
-                  [[NilClass, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock], [NilClass, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]]
+                  [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
                 )
             end
-            private def variants
+            def variants
             end
           end
         end

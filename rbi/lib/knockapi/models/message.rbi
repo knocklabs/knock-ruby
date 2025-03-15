@@ -321,9 +321,8 @@ module Knockapi
         end
 
         class << self
-          # @api private
-          sig { override.returns([[NilClass, String], [NilClass, Knockapi::Models::Message::Actor::ObjectReference]]) }
-          private def variants
+          sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
+          def variants
           end
         end
       end
@@ -379,9 +378,8 @@ module Knockapi
         end
 
         class << self
-          # @api private
-          sig { override.returns([[NilClass, String], [NilClass, Knockapi::Models::Message::Recipient::ObjectReference]]) }
-          private def variants
+          sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
+          def variants
           end
         end
       end

@@ -16,6 +16,12 @@ module Knockapi
 
       # Inline identifies a custom object belonging to a collection
       variant -> { Knockapi::Models::InlineObjectRequest }
+
+      # @!parse
+      #   class << self
+      #     # @return [Array(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+      #     def variants; end
+      #   end
     end
   end
 end

@@ -100,7 +100,7 @@ module Knockapi
 
           UnionMember1Map: union_member1_map
 
-          private def self.variants: -> [[nil, String], [nil, ::Hash[Symbol, top]]]
+          def self.variants: -> [String, ::Hash[Symbol, top]]
         end
 
         type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
@@ -156,7 +156,7 @@ module Knockapi
 
           UnionMember1Map: union_member1_map
 
-          private def self.variants: -> [[nil, String], [nil, ::Hash[Symbol, top]]]
+          def self.variants: -> [String, ::Hash[Symbol, top]]
         end
       end
     end

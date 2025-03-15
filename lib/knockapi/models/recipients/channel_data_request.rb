@@ -37,6 +37,12 @@ module Knockapi
 
           # Discord channel data
           variant -> { Knockapi::Models::Recipients::DiscordChannelData }
+
+          # @!parse
+          #   class << self
+          #     # @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]
+          #     def variants; end
+          #   end
         end
       end
     end
