@@ -33,7 +33,7 @@ module Knockapi
     # @return [String]
     attr_accessor :next_cursor
 
-    # @return [Array<Object>]
+    # @return [Array<Object>, nil]
     attr_accessor :slack_channels
 
     # @api private

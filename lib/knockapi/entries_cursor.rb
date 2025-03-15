@@ -30,7 +30,7 @@ module Knockapi
   class EntriesCursor
     include Knockapi::BasePage
 
-    # @return [Array<Object>]
+    # @return [Array<Object>, nil]
     attr_accessor :entries
 
     # @return [PageInfo]

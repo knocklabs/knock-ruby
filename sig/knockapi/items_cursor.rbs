@@ -2,7 +2,7 @@ module Knockapi
   class ItemsCursor[Elem]
     include Knockapi::BasePage[Elem]
 
-    attr_accessor items: ::Array[Elem]
+    attr_accessor items: ::Array[Elem]?
 
     attr_accessor page_info: PageInfo
 
