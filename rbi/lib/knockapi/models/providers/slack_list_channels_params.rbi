@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # A JSON encoded string containing the access token object reference
         sig { returns(String) }
         def access_token_object
         end
@@ -51,6 +52,7 @@ module Knockapi
         end
 
         class QueryOptions < Knockapi::BaseModel
+          # A cursor to paginate through the channels
           sig { returns(T.nilable(String)) }
           def cursor
           end
@@ -59,6 +61,7 @@ module Knockapi
           def cursor=(_)
           end
 
+          # Whether to exclude archived channels
           sig { returns(T.nilable(T::Boolean)) }
           def exclude_archived
           end
@@ -67,6 +70,7 @@ module Knockapi
           def exclude_archived=(_)
           end
 
+          # The number of channels to return
           sig { returns(T.nilable(Integer)) }
           def limit
           end
@@ -75,6 +79,7 @@ module Knockapi
           def limit=(_)
           end
 
+          # The ID of the Slack team to get channels for
           sig { returns(T.nilable(String)) }
           def team_id
           end
@@ -83,6 +88,7 @@ module Knockapi
           def team_id=(_)
           end
 
+          # The types of channels to return (comma separated list)
           sig { returns(T.nilable(String)) }
           def types
           end

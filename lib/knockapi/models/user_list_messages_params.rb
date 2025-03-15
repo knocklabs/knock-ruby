@@ -177,7 +177,6 @@ module Knockapi
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
       # @abstract
-      #
       class EngagementStatus < Knockapi::Enum
         SEEN = :seen
         READ = :read
@@ -189,7 +188,6 @@ module Knockapi
       end
 
       # @abstract
-      #
       class Status < Knockapi::Enum
         QUEUED = :queued
         SENT = :sent

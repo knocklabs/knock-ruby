@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # The message IDs to update
         sig { returns(T::Array[String]) }
         def message_ids
         end
@@ -15,6 +16,7 @@ module Knockapi
         def message_ids=(_)
         end
 
+        # Metadata about the interaction
         sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         def metadata
         end

@@ -12,6 +12,7 @@ module Knockapi
         def tokens=(_)
         end
 
+        # Channel data for push providers
         sig { params(tokens: T::Array[String]).returns(T.attached_class) }
         def self.new(tokens:)
         end

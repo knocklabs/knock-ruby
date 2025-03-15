@@ -11,6 +11,7 @@ module Knockapi
       def entries=(_)
       end
 
+      # The information about a paginated result
       sig { returns(Knockapi::Models::AudienceListMembersResponse::PageInfo) }
       def page_info
       end
@@ -22,6 +23,7 @@ module Knockapi
       def page_info=(_)
       end
 
+      # A response containing a list of audience members
       sig do
         params(
           entries: T::Array[Knockapi::Models::AudienceMember],
@@ -77,6 +79,7 @@ module Knockapi
         def before=(_)
         end
 
+        # The information about a paginated result
         sig do
           params(_typename: String, page_size: Integer, after: T.nilable(String), before: T.nilable(String))
             .returns(T.attached_class)

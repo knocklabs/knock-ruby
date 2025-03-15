@@ -6,6 +6,9 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # Specifies a recipient in a request. This can either be a user identifier
+      #   (string), an inline user request (object), or an inline object request, which is
+      #   determined by the presence of a `collection` property.
       sig do
         returns(
           T.nilable(
@@ -31,6 +34,8 @@ module Knockapi
       def actor=(_)
       end
 
+      # An optional key that is used in the workflow cancellation endpoint to target a
+      #   cancellation of any workflow runs associated with this trigger.
       sig { returns(T.nilable(String)) }
       def cancellation_key
       end
@@ -39,6 +44,8 @@ module Knockapi
       def cancellation_key=(_)
       end
 
+      # An optional map of data to be used in the workflow. This data will be available
+      #   to the workflow as a map in the `data` field.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       def data
       end
@@ -49,6 +56,8 @@ module Knockapi
       def data=(_)
       end
 
+      # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
+      #   single trigger.
       sig do
         returns(
           T.nilable(
@@ -70,6 +79,7 @@ module Knockapi
       def recipients=(_)
       end
 
+      # An inline tenant request
       sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
       def tenant
       end

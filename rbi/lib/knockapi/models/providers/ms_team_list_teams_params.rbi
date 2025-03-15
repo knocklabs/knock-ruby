@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # A JSON encoded string containing the Microsoft Teams tenant object reference
         sig { returns(String) }
         def ms_teams_tenant_object
         end
@@ -51,6 +52,8 @@ module Knockapi
         end
 
         class QueryOptions < Knockapi::BaseModel
+          # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+          #   to the Microsoft Graph API to filter teams
           sig { returns(T.nilable(String)) }
           def filter
           end
@@ -59,6 +62,8 @@ module Knockapi
           def filter=(_)
           end
 
+          # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+          #   to the Microsoft Graph API to select fields on a team
           sig { returns(T.nilable(String)) }
           def select_
           end
@@ -67,6 +72,8 @@ module Knockapi
           def select_=(_)
           end
 
+          # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+          #   to the Microsoft Graph API to retrieve the next page of results
           sig { returns(T.nilable(String)) }
           def skiptoken
           end
@@ -75,6 +82,8 @@ module Knockapi
           def skiptoken=(_)
           end
 
+          # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+          #   to the Microsoft Graph API to limit the number of teams returned
           sig { returns(T.nilable(Integer)) }
           def top
           end

@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # Tenant ID
       sig { returns(T.nilable(String)) }
       def tenant
       end

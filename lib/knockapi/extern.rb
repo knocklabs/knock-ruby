@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module Knockapi
-  # @private
+  # @api private
   #
   # @abstract
-  #
   module Extern
   end
 end

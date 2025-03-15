@@ -4,6 +4,7 @@ module Knockapi
   module Models
     module Recipients
       class ChannelDataRequest < Knockapi::BaseModel
+        # Channel data for push providers
         sig do
           returns(
             T.any(
@@ -41,6 +42,7 @@ module Knockapi
         def data=(_)
         end
 
+        # Set channel data for a type of channel
         sig do
           params(
             data: T.any(
@@ -73,10 +75,12 @@ module Knockapi
         def to_hash
         end
 
+        # Channel data for push providers
         class Data < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

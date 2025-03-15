@@ -4,6 +4,7 @@ module Knockapi
   module Resources
     class Providers
       class Slack
+        # Check if a Slack channel is authenticated
         sig do
           params(
             channel_id: String,
@@ -15,6 +16,7 @@ module Knockapi
         def check_auth(channel_id, access_token_object:, request_options: {})
         end
 
+        # List Slack channels for a Slack workspace
         sig do
           params(
             channel_id: String,
@@ -27,6 +29,7 @@ module Knockapi
         def list_channels(channel_id, access_token_object:, query_options: nil, request_options: {})
         end
 
+        # Revoke access for a Slack channel
         sig do
           params(
             channel_id: String,

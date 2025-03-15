@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # The recipients to subscribe to the object
       sig do
         returns(
           T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
@@ -25,6 +26,7 @@ module Knockapi
       def recipients=(_)
       end
 
+      # The custom properties associated with the subscription
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       def properties
       end

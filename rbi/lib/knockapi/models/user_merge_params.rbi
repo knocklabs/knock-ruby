@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # The user ID to merge from
       sig { returns(String) }
       def from_user_id
       end

@@ -27,6 +27,8 @@ module Knockapi
       def inserted_at=(_)
       end
 
+      # A reference to a recipient, either a user identifier (string) or an object
+      #   reference (id, collection).
       sig { returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)) }
       def recipient
       end
@@ -46,6 +48,7 @@ module Knockapi
       def type=(_)
       end
 
+      # The data associated with the event. Only present for some event types
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       def data
       end
@@ -56,6 +59,7 @@ module Knockapi
       def data=(_)
       end
 
+      # A single event that occurred for a message
       sig do
         params(
           id: String,
@@ -86,10 +90,13 @@ module Knockapi
       def to_hash
       end
 
+      # A reference to a recipient, either a user identifier (string) or an object
+      #   reference (id, collection).
       class Recipient < Knockapi::Union
         abstract!
 
         class ObjectReference < Knockapi::BaseModel
+          # An object identifier
           sig { returns(String) }
           def id
           end
@@ -98,6 +105,7 @@ module Knockapi
           def id=(_)
           end
 
+          # The collection the object belongs to
           sig { returns(String) }
           def collection
           end
@@ -106,6 +114,7 @@ module Knockapi
           def collection=(_)
           end
 
+          # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
           def self.new(id:, collection:)
           end
@@ -116,6 +125,7 @@ module Knockapi
         end
 
         class << self
+          # @api private
           sig do
             override
               .returns([[NilClass, String], [NilClass, Knockapi::Models::MessageEvent::Recipient::ObjectReference]])

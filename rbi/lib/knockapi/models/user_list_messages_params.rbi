@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
       def after
       end
@@ -14,6 +15,7 @@ module Knockapi
       def after=(_)
       end
 
+      # The cursor to fetch entries before
       sig { returns(T.nilable(String)) }
       def before
       end
@@ -22,6 +24,7 @@ module Knockapi
       def before=(_)
       end
 
+      # The channel ID
       sig { returns(T.nilable(String)) }
       def channel_id
       end
@@ -30,6 +33,7 @@ module Knockapi
       def channel_id=(_)
       end
 
+      # The engagement status of the message
       sig { returns(T.nilable(T::Array[Symbol])) }
       def engagement_status
       end
@@ -38,6 +42,7 @@ module Knockapi
       def engagement_status=(_)
       end
 
+      # The message IDs to filter messages by
       sig { returns(T.nilable(T::Array[String])) }
       def message_ids
       end
@@ -46,6 +51,7 @@ module Knockapi
       def message_ids=(_)
       end
 
+      # The page size to fetch
       sig { returns(T.nilable(Integer)) }
       def page_size
       end
@@ -54,6 +60,7 @@ module Knockapi
       def page_size=(_)
       end
 
+      # The source of the message (workflow key)
       sig { returns(T.nilable(String)) }
       def source
       end
@@ -62,6 +69,7 @@ module Knockapi
       def source=(_)
       end
 
+      # The status of the message
       sig { returns(T.nilable(T::Array[Symbol])) }
       def status
       end
@@ -70,6 +78,7 @@ module Knockapi
       def status=(_)
       end
 
+      # The tenant ID
       sig { returns(T.nilable(String)) }
       def tenant
       end
@@ -78,6 +87,7 @@ module Knockapi
       def tenant=(_)
       end
 
+      # The trigger data to filter messages by. Must be a valid JSON object.
       sig { returns(T.nilable(String)) }
       def trigger_data
       end
@@ -86,6 +96,7 @@ module Knockapi
       def trigger_data=(_)
       end
 
+      # The workflow categories to filter messages by
       sig { returns(T.nilable(T::Array[String])) }
       def workflow_categories
       end
@@ -94,6 +105,7 @@ module Knockapi
       def workflow_categories=(_)
       end
 
+      # The workflow recipient run ID to filter messages by
       sig { returns(T.nilable(String)) }
       def workflow_recipient_run_id
       end
@@ -102,6 +114,7 @@ module Knockapi
       def workflow_recipient_run_id=(_)
       end
 
+      # The workflow run ID to filter messages by
       sig { returns(T.nilable(String)) }
       def workflow_run_id
       end

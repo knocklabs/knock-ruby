@@ -4,6 +4,7 @@ module Knockapi
   module Resources
     class Messages
       class Batch
+        # Mark messages as archived
         sig do
           params(
             message_ids: T::Array[String],
@@ -14,6 +15,7 @@ module Knockapi
         def archive(message_ids:, request_options: {})
         end
 
+        # Get the contents of multiple messages in a single request.
         sig do
           params(
             message_ids: T::Array[String],
@@ -24,6 +26,7 @@ module Knockapi
         def get_content(message_ids:, request_options: {})
         end
 
+        # Mark messages as interacted
         sig do
           params(
             message_ids: T::Array[String],
@@ -35,6 +38,7 @@ module Knockapi
         def mark_as_interacted(message_ids:, metadata: nil, request_options: {})
         end
 
+        # Mark messages as read
         sig do
           params(
             message_ids: T::Array[String],
@@ -45,6 +49,7 @@ module Knockapi
         def mark_as_read(message_ids:, request_options: {})
         end
 
+        # Mark messages as seen
         sig do
           params(
             message_ids: T::Array[String],
@@ -55,6 +60,7 @@ module Knockapi
         def mark_as_seen(message_ids:, request_options: {})
         end
 
+        # Mark messages as unread
         sig do
           params(
             message_ids: T::Array[String],
@@ -65,6 +71,7 @@ module Knockapi
         def mark_as_unread(message_ids:, request_options: {})
         end
 
+        # Mark messages as unseen
         sig do
           params(
             message_ids: T::Array[String],
@@ -75,6 +82,7 @@ module Knockapi
         def mark_as_unseen(message_ids:, request_options: {})
         end
 
+        # Mark messages as unarchived
         sig do
           params(
             message_ids: T::Array[String],

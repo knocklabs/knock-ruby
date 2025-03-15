@@ -10,7 +10,6 @@ module Knockapi
       attr_reader :ms_teams
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
         @slack = Knockapi::Resources::Providers::Slack.new(client: client)

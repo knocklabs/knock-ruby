@@ -11,6 +11,7 @@ module Knockapi
       def bulk
       end
 
+      # Identify user
       sig do
         params(
           user_id: String,
@@ -24,6 +25,7 @@ module Knockapi
       def update(user_id, channel_data: nil, created_at: nil, preferences: nil, request_options: {})
       end
 
+      # List users
       sig do
         params(
           after: String,
@@ -36,6 +38,7 @@ module Knockapi
       def list(after: nil, before: nil, page_size: nil, request_options: {})
       end
 
+      # Delete user
       sig do
         params(
           user_id: String,
@@ -46,6 +49,7 @@ module Knockapi
       def delete(user_id, request_options: {})
       end
 
+      # Get user
       sig do
         params(
           user_id: String,
@@ -56,6 +60,7 @@ module Knockapi
       def get(user_id, request_options: {})
       end
 
+      # Get channel data
       sig do
         params(
           user_id: String,
@@ -67,6 +72,7 @@ module Knockapi
       def get_channel_data(user_id, channel_id, request_options: {})
       end
 
+      # Get preference set
       sig do
         params(
           user_id: String,
@@ -79,6 +85,7 @@ module Knockapi
       def get_preferences(user_id, preference_set_id, tenant: nil, request_options: {})
       end
 
+      # List messages
       sig do
         params(
           user_id: String,
@@ -118,6 +125,7 @@ module Knockapi
       )
       end
 
+      # List preference sets
       sig do
         params(
           user_id: String,
@@ -128,6 +136,7 @@ module Knockapi
       def list_preferences(user_id, request_options: {})
       end
 
+      # List schedules
       sig do
         params(
           user_id: String,
@@ -151,6 +160,7 @@ module Knockapi
       )
       end
 
+      # List subscriptions
       sig do
         params(
           user_id: String,
@@ -164,6 +174,8 @@ module Knockapi
       def list_subscriptions(user_id, after: nil, before: nil, page_size: nil, request_options: {})
       end
 
+      # Merge two users together, where the user specified with the `from_user_id` param
+      #   will be merged into the user specified by `user_id`.
       sig do
         params(
           user_id: String,
@@ -175,6 +187,7 @@ module Knockapi
       def merge(user_id, from_user_id:, request_options: {})
       end
 
+      # Set channel data
       sig do
         params(
           user_id: String,
@@ -193,6 +206,8 @@ module Knockapi
       def set_channel_data(user_id, channel_id, data:, request_options: {})
       end
 
+      # Updates a complete preference set for a user. This is a destructive operation
+      #   that will replace the existing preference set for the user.
       sig do
         params(
           user_id: String,
@@ -230,6 +245,7 @@ module Knockapi
       )
       end
 
+      # Unset channel data
       sig do
         params(
           user_id: String,

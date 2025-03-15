@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest)) }
       def channel_data
       end
@@ -17,6 +18,7 @@ module Knockapi
       def channel_data=(_)
       end
 
+      # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
       def preferences
       end

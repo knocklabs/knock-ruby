@@ -20,6 +20,7 @@ module Knockapi
         def inserted_at=(_)
         end
 
+        # A custom-object entity which belongs to a collection.
         sig { returns(Knockapi::Models::Object) }
         def object
         end
@@ -28,6 +29,7 @@ module Knockapi
         def object=(_)
         end
 
+        # A recipient, which is either a user or an object
         sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
         def recipient
         end
@@ -47,6 +49,7 @@ module Knockapi
         def updated_at=(_)
         end
 
+        # The custom properties associated with the subscription
         sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         def properties
         end
@@ -57,6 +60,7 @@ module Knockapi
         def properties=(_)
         end
 
+        # A subscription object
         sig do
           params(
             _typename: String,

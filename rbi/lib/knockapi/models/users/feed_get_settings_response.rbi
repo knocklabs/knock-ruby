@@ -15,6 +15,7 @@ module Knockapi
         def features=(_)
         end
 
+        # The response for the user's feed settings
         sig { params(features: Knockapi::Models::Users::FeedGetSettingsResponse::Features).returns(T.attached_class) }
         def self.new(features:)
         end

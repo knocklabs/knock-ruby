@@ -4,6 +4,8 @@ module Knockapi
   module Resources
     class Providers
       class MsTeams
+        # Check if a connection to Microsoft Teams has been authorized for a given
+        #   Microsoft Teams tenant object
         sig do
           params(
             channel_id: String,
@@ -15,6 +17,8 @@ module Knockapi
         def check_auth(channel_id, ms_teams_tenant_object:, request_options: {})
         end
 
+        # List the Microsoft Teams channels within a team. By default, archived and
+        #   private channels are excluded from the results.
         sig do
           params(
             channel_id: String,
@@ -34,6 +38,8 @@ module Knockapi
         )
         end
 
+        # Get a list of teams belonging to the Microsoft Entra tenant. By default,
+        #   archived and private channels are excluded from the results.
         sig do
           params(
             channel_id: String,
@@ -46,6 +52,7 @@ module Knockapi
         def list_teams(channel_id, ms_teams_tenant_object:, query_options: nil, request_options: {})
         end
 
+        # Remove a Microsoft Entra tenant ID from a Microsoft Teams tenant object
         sig do
           params(
             channel_id: String,

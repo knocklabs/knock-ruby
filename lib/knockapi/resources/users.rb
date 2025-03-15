@@ -24,7 +24,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::User]
-      #
       def update(user_id, params = {})
         parsed, options = Knockapi::Models::UserUpdateParams.dump_request(params)
         @client.request(
@@ -49,7 +48,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::User>]
-      #
       def list(params = {})
         parsed, options = Knockapi::Models::UserListParams.dump_request(params)
         @client.request(
@@ -71,7 +69,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
-      #
       def delete(user_id, params = {})
         @client.request(
           method: :delete,
@@ -90,7 +87,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::User]
-      #
       def get(user_id, params = {})
         @client.request(
           method: :get,
@@ -111,7 +107,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
-      #
       def get_channel_data(user_id, channel_id, params = {})
         @client.request(
           method: :get,
@@ -134,7 +129,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
-      #
       def get_preferences(user_id, preference_set_id, params = {})
         parsed, options = Knockapi::Models::UserGetPreferencesParams.dump_request(params)
         @client.request(
@@ -181,7 +175,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
-      #
       def list_messages(user_id, params = {})
         parsed, options = Knockapi::Models::UserListMessagesParams.dump_request(params)
         @client.request(
@@ -203,7 +196,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Array<Knockapi::Models::Recipients::PreferenceSet>]
-      #
       def list_preferences(user_id, params = {})
         @client.request(
           method: :get,
@@ -232,7 +224,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
-      #
       def list_schedules(user_id, params = {})
         parsed, options = Knockapi::Models::UserListSchedulesParams.dump_request(params)
         @client.request(
@@ -260,7 +251,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
-      #
       def list_subscriptions(user_id, params = {})
         parsed, options = Knockapi::Models::UserListSubscriptionsParams.dump_request(params)
         @client.request(
@@ -285,7 +275,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::User]
-      #
       def merge(user_id, params)
         parsed, options = Knockapi::Models::UserMergeParams.dump_request(params)
         @client.request(
@@ -310,7 +299,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
-      #
       def set_channel_data(user_id, channel_id, params)
         parsed, options = Knockapi::Models::UserSetChannelDataParams.dump_request(params)
         @client.request(
@@ -342,7 +330,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
-      #
       def set_preferences(user_id, preference_set_id, params = {})
         parsed, options = Knockapi::Models::UserSetPreferencesParams.dump_request(params)
         @client.request(
@@ -365,7 +352,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
-      #
       def unset_channel_data(user_id, channel_id, params = {})
         @client.request(
           method: :delete,
@@ -376,7 +362,6 @@ module Knockapi
       end
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
         @feeds = Knockapi::Resources::Users::Feeds.new(client: client)

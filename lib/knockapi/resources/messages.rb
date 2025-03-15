@@ -39,7 +39,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
-      #
       def list(params = {})
         parsed, options = Knockapi::Models::MessageListParams.dump_request(params)
         @client.request(
@@ -61,7 +60,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def archive(message_id, params = {})
         @client.request(
           method: :put,
@@ -80,7 +78,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def get(message_id, params = {})
         @client.request(
           method: :get,
@@ -100,7 +97,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::MessageGetContentResponse]
-      #
       def get_content(message_id, params = {})
         @client.request(
           method: :get,
@@ -127,7 +123,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::ItemsCursor<Knockapi::Models::Activity>]
-      #
       def list_activities(message_id, params = {})
         parsed, options = Knockapi::Models::MessageListActivitiesParams.dump_request(params)
         @client.request(
@@ -155,7 +150,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::MessageDeliveryLog>]
-      #
       def list_delivery_logs(message_id, params = {})
         parsed, options = Knockapi::Models::MessageListDeliveryLogsParams.dump_request(params)
         @client.request(
@@ -183,7 +177,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::MessageEvent>]
-      #
       def list_events(message_id, params = {})
         parsed, options = Knockapi::Models::MessageListEventsParams.dump_request(params)
         @client.request(
@@ -207,7 +200,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def mark_as_interacted(message_id, params = {})
         parsed, options = Knockapi::Models::MessageMarkAsInteractedParams.dump_request(params)
         @client.request(
@@ -228,7 +220,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def mark_as_read(message_id, params = {})
         @client.request(
           method: :put,
@@ -247,7 +238,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def mark_as_seen(message_id, params = {})
         @client.request(
           method: :put,
@@ -266,7 +256,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def mark_as_unread(message_id, params = {})
         @client.request(
           method: :delete,
@@ -285,7 +274,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def mark_as_unseen(message_id, params = {})
         @client.request(
           method: :delete,
@@ -304,7 +292,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Message]
-      #
       def unarchive(message_id, params = {})
         @client.request(
           method: :delete,
@@ -315,7 +302,6 @@ module Knockapi
       end
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
         @batch = Knockapi::Resources::Messages::Batch.new(client: client)

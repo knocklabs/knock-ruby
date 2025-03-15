@@ -1,6 +1,7 @@
 # typed: strong
 
 module Knockapi
+  # @api private
   module BasePage
     abstract!
 
@@ -24,6 +25,7 @@ module Knockapi
 
     alias_method :enum_for, :to_enum
 
+    # @api private
     sig do
       params(
         client: Knockapi::BaseClient,

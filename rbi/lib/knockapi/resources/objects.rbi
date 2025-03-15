@@ -7,6 +7,7 @@ module Knockapi
       def bulk
       end
 
+      # List objects in a collection
       sig do
         params(
           collection: String,
@@ -20,6 +21,7 @@ module Knockapi
       def list(collection, after: nil, before: nil, page_size: nil, request_options: {})
       end
 
+      # Delete an object
       sig do
         params(
           collection: String,
@@ -31,6 +33,8 @@ module Knockapi
       def delete(collection, object_id_, request_options: {})
       end
 
+      # Add subscriptions for an object. If a subscription already exists, it will be
+      #   updated.
       sig do
         params(
           collection: String,
@@ -44,6 +48,7 @@ module Knockapi
       def add_subscriptions(collection, object_id_, recipients:, properties: nil, request_options: {})
       end
 
+      # Delete subscriptions
       sig do
         params(
           collection: String,
@@ -56,6 +61,7 @@ module Knockapi
       def delete_subscriptions(collection, object_id_, recipients:, request_options: {})
       end
 
+      # Get an object
       sig do
         params(
           collection: String,
@@ -67,6 +73,7 @@ module Knockapi
       def get(collection, object_id_, request_options: {})
       end
 
+      # Get channel data
       sig do
         params(
           collection: String,
@@ -79,6 +86,7 @@ module Knockapi
       def get_channel_data(collection, object_id_, channel_id, request_options: {})
       end
 
+      # Get a preference set
       sig do
         params(
           collection: String,
@@ -92,6 +100,7 @@ module Knockapi
       def get_preferences(collection, object_id_, preference_set_id, tenant: nil, request_options: {})
       end
 
+      # List messages
       sig do
         params(
           collection: String,
@@ -133,6 +142,7 @@ module Knockapi
       )
       end
 
+      # List schedules
       sig do
         params(
           collection: String,
@@ -158,6 +168,9 @@ module Knockapi
       )
       end
 
+      # List subscriptions for an object. Either list all subscriptions that belong to
+      #   the object, or all subscriptions that this object has. Determined by the `mode`
+      #   query parameter.
       sig do
         params(
           collection: String,
@@ -185,6 +198,7 @@ module Knockapi
       )
       end
 
+      # Set (identify) an object
       sig do
         params(
           collection: String,
@@ -198,6 +212,7 @@ module Knockapi
       def set(collection, object_id_, channel_data: nil, preferences: nil, request_options: {})
       end
 
+      # Set channel data
       sig do
         params(
           collection: String,
@@ -217,6 +232,7 @@ module Knockapi
       def set_channel_data(collection, object_id_, channel_id, data:, request_options: {})
       end
 
+      # Update a preference set
       sig do
         params(
           collection: String,
@@ -256,6 +272,7 @@ module Knockapi
       )
       end
 
+      # Unset channel data
       sig do
         params(
           collection: String,

@@ -43,6 +43,7 @@ module Knockapi
       def created_at=(_)
       end
 
+      # A custom-object entity which belongs to a collection.
       sig do
         params(
           id: String,

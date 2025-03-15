@@ -19,6 +19,7 @@ module Knockapi
       def added_at=(_)
       end
 
+      # A user object
       sig { returns(Knockapi::Models::User) }
       def user
       end
@@ -43,6 +44,7 @@ module Knockapi
       def tenant=(_)
       end
 
+      # A user belonging to an audience
       sig do
         params(
           _typename: String,

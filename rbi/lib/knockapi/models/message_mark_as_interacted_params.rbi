@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # Metadata about the interaction
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       def metadata
       end

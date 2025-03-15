@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # Set preferences for a recipient
         sig { returns(Knockapi::Models::Recipients::PreferenceSetRequest) }
         def preferences
         end

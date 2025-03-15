@@ -3,6 +3,9 @@
 module Knockapi
   module Resources
     class Workflows
+      # When invoked for a workflow using a specific workflow key and cancellation key,
+      #   will cancel any queued workflow runs associated with that key/cancellation key
+      #   pair. Can optionally be provided one or more recipients to scope the request to.
       sig do
         params(
           key: String,
@@ -16,6 +19,9 @@ module Knockapi
       def cancel(key, cancellation_key:, recipients: nil, tenant: nil, request_options: {})
       end
 
+      # Trigger a workflow specified by the key to run for the given recipients, using
+      #   the parameters provided. Returns an identifier for the workflow run request. All
+      #   workflow runs are executed asynchronously.
       sig do
         params(
           key: String,

@@ -12,6 +12,7 @@ module Knockapi
         def _typename=(_)
         end
 
+        # The contents of an email message
         sig do
           returns(
             T.any(
@@ -65,6 +66,7 @@ module Knockapi
         def message_id=(_)
         end
 
+        # The contents of a message
         sig do
           params(
             _typename: String,
@@ -103,6 +105,7 @@ module Knockapi
         def to_hash
         end
 
+        # The contents of an email message
         class Data < Knockapi::Union
           abstract!
 
@@ -179,6 +182,7 @@ module Knockapi
             def reply_to=(_)
             end
 
+            # The contents of an email message
             sig do
               params(
                 _typename: String,
@@ -241,6 +245,7 @@ module Knockapi
             def to=(_)
             end
 
+            # The contents of an SMS message
             sig { params(_typename: String, body: String, to: String).returns(T.attached_class) }
             def self.new(_typename:, body:, to:)
             end
@@ -298,6 +303,7 @@ module Knockapi
             def data=(_)
             end
 
+            # The contents of a push message
             sig do
               params(
                 token: String,
@@ -336,6 +342,7 @@ module Knockapi
             def _typename=(_)
             end
 
+            # The channel data connection from the recipient to the underlying provider
             sig { returns(T::Hash[Symbol, T.anything]) }
             def connection
             end
@@ -370,6 +377,7 @@ module Knockapi
             def metadata=(_)
             end
 
+            # The contents of a chat message
             sig do
               params(
                 _typename: String,
@@ -397,6 +405,7 @@ module Knockapi
             end
 
             class Template < Knockapi::BaseModel
+              # The structured blocks of the message
               sig do
                 returns(
                   T.nilable(
@@ -422,6 +431,7 @@ module Knockapi
               def blocks=(_)
               end
 
+              # The JSON content of the message
               sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
               def json_content
               end
@@ -498,6 +508,7 @@ module Knockapi
                 def type=(_)
                 end
 
+                # A block in a chat message
                 sig { params(content: String, name: String, type: Symbol).returns(T.attached_class) }
                 def self.new(content:, name:, type:)
                 end
@@ -531,6 +542,7 @@ module Knockapi
             def _typename=(_)
             end
 
+            # The blocks of the message
             sig do
               returns(
                 T::Array[
@@ -565,6 +577,7 @@ module Knockapi
             def blocks=(_)
             end
 
+            # The contents of a message in an app feed
             sig do
               params(
                 _typename: String,
@@ -597,6 +610,7 @@ module Knockapi
             def to_hash
             end
 
+            # A content (text or markdown) block in a message in an app feed
             class Block < Knockapi::Union
               abstract!
 
@@ -633,6 +647,7 @@ module Knockapi
                 def type=(_)
                 end
 
+                # A content (text or markdown) block in a message in an app feed
                 sig do
                   params(
                     content: String,
@@ -704,6 +719,7 @@ module Knockapi
                 def type=(_)
                 end
 
+                # A set of buttons in a message in an app feed
                 sig do
                   params(
                     buttons: T::Array[
@@ -757,6 +773,7 @@ module Knockapi
                   def name=(_)
                   end
 
+                  # A button in a set of buttons
                   sig { params(action: String, label: String, name: String).returns(T.attached_class) }
                   def self.new(action:, label:, name:)
                   end
@@ -780,6 +797,7 @@ module Knockapi
               end
 
               class << self
+                # @api private
                 sig do
                   override
                     .returns(
@@ -793,6 +811,7 @@ module Knockapi
           end
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

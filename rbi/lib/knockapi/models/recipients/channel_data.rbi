@@ -20,6 +20,7 @@ module Knockapi
         def channel_id=(_)
         end
 
+        # Channel data for push providers
         sig do
           returns(
             T.any(
@@ -57,6 +58,7 @@ module Knockapi
         def data=(_)
         end
 
+        # Channel data for various channel types
         sig do
           params(
             _typename: String,
@@ -93,10 +95,12 @@ module Knockapi
         def to_hash
         end
 
+        # Channel data for push providers
         class Data < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # A JSON encoded string containing the access token object reference
         sig { returns(String) }
         def access_token_object
         end

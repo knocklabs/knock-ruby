@@ -19,6 +19,7 @@ module Knockapi
       def _typename=(_)
       end
 
+      # A recipient, which is either a user or an object
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       def actor
       end
@@ -30,6 +31,7 @@ module Knockapi
       def actor=(_)
       end
 
+      # The data associated with the activity
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       def data
       end
@@ -48,6 +50,7 @@ module Knockapi
       def inserted_at=(_)
       end
 
+      # A recipient, which is either a user or an object
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       def recipient
       end
@@ -67,6 +70,7 @@ module Knockapi
       def updated_at=(_)
       end
 
+      # An activity associated with a workflow run
       sig do
         params(
           id: String,

@@ -21,7 +21,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Object>]
-      #
       def list(collection, params = {})
         parsed, options = Knockapi::Models::ObjectListParams.dump_request(params)
         @client.request(
@@ -45,7 +44,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
-      #
       def delete(collection, object_id_, params = {})
         @client.request(
           method: :delete,
@@ -71,7 +69,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Array<Knockapi::Models::Recipients::Subscription>]
-      #
       def add_subscriptions(collection, object_id_, params)
         parsed, options = Knockapi::Models::ObjectAddSubscriptionsParams.dump_request(params)
         @client.request(
@@ -96,7 +93,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Array<Knockapi::Models::Recipients::Subscription>]
-      #
       def delete_subscriptions(collection, object_id_, params)
         parsed, options = Knockapi::Models::ObjectDeleteSubscriptionsParams.dump_request(params)
         @client.request(
@@ -119,7 +115,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Object]
-      #
       def get(collection, object_id_, params = {})
         @client.request(
           method: :get,
@@ -142,7 +137,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
-      #
       def get_channel_data(collection, object_id_, channel_id, params = {})
         @client.request(
           method: :get,
@@ -167,7 +161,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
-      #
       def get_preferences(collection, object_id_, preference_set_id, params = {})
         parsed, options = Knockapi::Models::ObjectGetPreferencesParams.dump_request(params)
         @client.request(
@@ -216,7 +209,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
-      #
       def list_messages(collection, object_id_, params = {})
         parsed, options = Knockapi::Models::ObjectListMessagesParams.dump_request(params)
         @client.request(
@@ -250,7 +242,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
-      #
       def list_schedules(collection, object_id_, params = {})
         parsed, options = Knockapi::Models::ObjectListSchedulesParams.dump_request(params)
         @client.request(
@@ -288,7 +279,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
-      #
       def list_subscriptions(collection, object_id_, params = {})
         parsed, options = Knockapi::Models::ObjectListSubscriptionsParams.dump_request(params)
         @client.request(
@@ -316,7 +306,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Object]
-      #
       def set(collection, object_id_, params = {})
         parsed, options = Knockapi::Models::ObjectSetParams.dump_request(params)
         @client.request(
@@ -343,7 +332,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
-      #
       def set_channel_data(collection, object_id_, channel_id, params)
         parsed, options = Knockapi::Models::ObjectSetChannelDataParams.dump_request(params)
         @client.request(
@@ -376,7 +364,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
-      #
       def set_preferences(collection, object_id_, preference_set_id, params = {})
         parsed, options = Knockapi::Models::ObjectSetPreferencesParams.dump_request(params)
         @client.request(
@@ -401,7 +388,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
-      #
       def unset_channel_data(collection, object_id_, channel_id, params = {})
         @client.request(
           method: :delete,
@@ -412,7 +398,6 @@ module Knockapi
       end
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
         @bulk = Knockapi::Resources::Objects::Bulk.new(client: client)

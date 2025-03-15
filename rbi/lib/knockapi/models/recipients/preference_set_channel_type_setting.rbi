@@ -12,6 +12,8 @@ module Knockapi
         def conditions=(_)
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         sig { params(conditions: T::Array[Knockapi::Models::Condition]).returns(T.attached_class) }
         def self.new(conditions:)
         end

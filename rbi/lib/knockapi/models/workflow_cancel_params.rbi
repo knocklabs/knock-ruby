@@ -6,6 +6,8 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # The cancellation key supplied to the workflow trigger endpoint to use for
+      #   cancelling one or more workflow runs.
       sig { returns(String) }
       def cancellation_key
       end
@@ -14,6 +16,8 @@ module Knockapi
       def cancellation_key=(_)
       end
 
+      # An optional list of recipients to cancel the workflow for using the cancellation
+      #   key.
       sig { returns(T.nilable(T::Array[String])) }
       def recipients
       end

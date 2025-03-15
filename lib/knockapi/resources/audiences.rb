@@ -14,7 +14,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
-      #
       def add_members(key, params)
         parsed, options = Knockapi::Models::AudienceAddMembersParams.dump_request(params)
         @client.request(
@@ -35,7 +34,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::AudienceListMembersResponse]
-      #
       def list_members(key, params = {})
         @client.request(
           method: :get,
@@ -56,7 +54,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
-      #
       def remove_members(key, params)
         parsed, options = Knockapi::Models::AudienceRemoveMembersParams.dump_request(params)
         @client.request(
@@ -69,7 +66,6 @@ module Knockapi
       end
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
       end

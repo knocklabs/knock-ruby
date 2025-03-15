@@ -11,6 +11,7 @@ module Knockapi
       def id=(_)
       end
 
+      # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest)) }
       def channel_data
       end
@@ -22,6 +23,7 @@ module Knockapi
       def channel_data=(_)
       end
 
+      # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
       def preferences
       end
@@ -41,6 +43,7 @@ module Knockapi
       def settings=(_)
       end
 
+      # A tenant to be set in the system
       sig do
         params(
           id: String,
@@ -79,6 +82,7 @@ module Knockapi
         def branding=(_)
         end
 
+        # Set preferences for a recipient
         sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetRequest)) }
         def preference_set
         end

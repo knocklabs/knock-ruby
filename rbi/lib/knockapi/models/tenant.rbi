@@ -19,6 +19,7 @@ module Knockapi
       def _typename=(_)
       end
 
+      # A tenant entity
       sig { params(id: String, _typename: String).returns(T.attached_class) }
       def self.new(id:, _typename:)
       end

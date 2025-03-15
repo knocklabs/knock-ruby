@@ -7,6 +7,7 @@ module Knockapi
       def bulk
       end
 
+      # List tenants
       sig do
         params(
           after: String,
@@ -19,6 +20,7 @@ module Knockapi
       def list(after: nil, before: nil, page_size: nil, request_options: {})
       end
 
+      # Delete a tenant
       sig do
         params(
           tenant_id: String,
@@ -29,6 +31,7 @@ module Knockapi
       def delete(tenant_id, request_options: {})
       end
 
+      # Get a tenant
       sig do
         params(
           tenant_id: String,
@@ -39,6 +42,7 @@ module Knockapi
       def get(tenant_id, request_options: {})
       end
 
+      # Set a tenant
       sig do
         params(
           tenant_id: String,

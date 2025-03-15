@@ -19,6 +19,7 @@ module Knockapi
       def collection=(_)
       end
 
+      # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest)) }
       def channel_data
       end
@@ -38,6 +39,7 @@ module Knockapi
       def created_at=(_)
       end
 
+      # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
       def preferences
       end
@@ -49,6 +51,7 @@ module Knockapi
       def preferences=(_)
       end
 
+      # Inline identifies a custom object belonging to a collection
       sig do
         params(
           id: String,

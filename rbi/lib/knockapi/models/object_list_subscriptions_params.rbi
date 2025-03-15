@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
       def after
       end
@@ -14,6 +15,7 @@ module Knockapi
       def after=(_)
       end
 
+      # The cursor to fetch entries before
       sig { returns(T.nilable(String)) }
       def before
       end
@@ -22,6 +24,7 @@ module Knockapi
       def before=(_)
       end
 
+      # Mode of the request
       sig { returns(T.nilable(Symbol)) }
       def mode
       end
@@ -30,6 +33,7 @@ module Knockapi
       def mode=(_)
       end
 
+      # Objects to filter by (only used if mode is `recipient`)
       sig do
         returns(
           T.nilable(
@@ -49,6 +53,7 @@ module Knockapi
       def objects=(_)
       end
 
+      # The page size to fetch
       sig { returns(T.nilable(Integer)) }
       def page_size
       end
@@ -57,6 +62,7 @@ module Knockapi
       def page_size=(_)
       end
 
+      # Recipients to filter by (only used if mode is `object`)
       sig do
         returns(
           T.nilable(
@@ -110,6 +116,7 @@ module Knockapi
       def to_hash
       end
 
+      # Mode of the request
       class Mode < Knockapi::Enum
         abstract!
 
@@ -123,10 +130,13 @@ module Knockapi
         end
       end
 
+      # A reference to a recipient, either a user identifier (string) or an object
+      #   reference (id, collection).
       class Object < Knockapi::Union
         abstract!
 
         class ObjectReference < Knockapi::BaseModel
+          # An object identifier
           sig { returns(String) }
           def id
           end
@@ -135,6 +145,7 @@ module Knockapi
           def id=(_)
           end
 
+          # The collection the object belongs to
           sig { returns(String) }
           def collection
           end
@@ -143,6 +154,7 @@ module Knockapi
           def collection=(_)
           end
 
+          # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
           def self.new(id:, collection:)
           end
@@ -153,6 +165,7 @@ module Knockapi
         end
 
         class << self
+          # @api private
           sig do
             override
               .returns(
@@ -164,10 +177,13 @@ module Knockapi
         end
       end
 
+      # A reference to a recipient, either a user identifier (string) or an object
+      #   reference (id, collection).
       class Recipient < Knockapi::Union
         abstract!
 
         class ObjectReference < Knockapi::BaseModel
+          # An object identifier
           sig { returns(String) }
           def id
           end
@@ -176,6 +192,7 @@ module Knockapi
           def id=(_)
           end
 
+          # The collection the object belongs to
           sig { returns(String) }
           def collection
           end
@@ -184,6 +201,7 @@ module Knockapi
           def collection=(_)
           end
 
+          # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
           def self.new(id:, collection:)
           end
@@ -194,6 +212,7 @@ module Knockapi
         end
 
         class << self
+          # @api private
           sig do
             override
               .returns(

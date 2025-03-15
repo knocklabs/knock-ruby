@@ -38,6 +38,7 @@ module Knockapi
         def connections=(_)
         end
 
+        # Discord channel data
         sig do
           params(
             connections: T::Array[
@@ -68,10 +69,12 @@ module Knockapi
         def to_hash
         end
 
+        # Discord channel connection
         class Connection < Knockapi::Union
           abstract!
 
           class DiscordChannelConnection < Knockapi::BaseModel
+            # The Discord channel ID
             sig { returns(String) }
             def channel_id
             end
@@ -80,6 +83,7 @@ module Knockapi
             def channel_id=(_)
             end
 
+            # Discord channel connection
             sig { params(channel_id: String).returns(T.attached_class) }
             def self.new(channel_id:)
             end
@@ -90,6 +94,7 @@ module Knockapi
           end
 
           class DiscordIncomingWebhookConnection < Knockapi::BaseModel
+            # The incoming webhook
             sig do
               returns(
                 Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
@@ -109,6 +114,7 @@ module Knockapi
             def incoming_webhook=(_)
             end
 
+            # Discord incoming webhook connection
             sig do
               params(
                 incoming_webhook: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
@@ -130,6 +136,7 @@ module Knockapi
             end
 
             class IncomingWebhook < Knockapi::BaseModel
+              # The URL of the incoming webhook
               sig { returns(String) }
               def url
               end
@@ -138,6 +145,7 @@ module Knockapi
               def url=(_)
               end
 
+              # The incoming webhook
               sig { params(url: String).returns(T.attached_class) }
               def self.new(url:)
               end
@@ -149,6 +157,7 @@ module Knockapi
           end
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

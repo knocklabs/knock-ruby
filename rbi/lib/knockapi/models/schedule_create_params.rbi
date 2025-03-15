@@ -62,6 +62,7 @@ module Knockapi
       def scheduled_at=(_)
       end
 
+      # An inline tenant request
       sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
       def tenant
       end
@@ -116,10 +117,13 @@ module Knockapi
       def to_hash
       end
 
+      # A reference to a recipient, either a user identifier (string) or an object
+      #   reference (id, collection).
       class Recipient < Knockapi::Union
         abstract!
 
         class ObjectReference < Knockapi::BaseModel
+          # An object identifier
           sig { returns(String) }
           def id
           end
@@ -128,6 +132,7 @@ module Knockapi
           def id=(_)
           end
 
+          # The collection the object belongs to
           sig { returns(String) }
           def collection
           end
@@ -136,6 +141,7 @@ module Knockapi
           def collection=(_)
           end
 
+          # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
           def self.new(id:, collection:)
           end
@@ -146,6 +152,7 @@ module Knockapi
         end
 
         class << self
+          # @api private
           sig do
             override
               .returns(

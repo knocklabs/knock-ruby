@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # The cursor to fetch entries after
         sig { returns(T.nilable(String)) }
         def after
         end
@@ -15,6 +16,7 @@ module Knockapi
         def after=(_)
         end
 
+        # The archived status of the feed items to return
         sig { returns(T.nilable(Symbol)) }
         def archived
         end
@@ -23,6 +25,7 @@ module Knockapi
         def archived=(_)
         end
 
+        # The cursor to fetch entries before
         sig { returns(T.nilable(String)) }
         def before
         end
@@ -31,6 +34,7 @@ module Knockapi
         def before=(_)
         end
 
+        # Whether the feed items have a tenant
         sig { returns(T.nilable(T::Boolean)) }
         def has_tenant
         end
@@ -39,6 +43,7 @@ module Knockapi
         def has_tenant=(_)
         end
 
+        # The page size to fetch
         sig { returns(T.nilable(Integer)) }
         def page_size
         end
@@ -47,6 +52,7 @@ module Knockapi
         def page_size=(_)
         end
 
+        # The source of the feed items to return
         sig { returns(T.nilable(String)) }
         def source
         end
@@ -55,6 +61,7 @@ module Knockapi
         def source=(_)
         end
 
+        # The status of the feed items to return
         sig { returns(T.nilable(Symbol)) }
         def status
         end
@@ -63,6 +70,7 @@ module Knockapi
         def status=(_)
         end
 
+        # The tenant of the feed items to return
         sig { returns(T.nilable(String)) }
         def tenant
         end
@@ -71,6 +79,7 @@ module Knockapi
         def tenant=(_)
         end
 
+        # The trigger data of the feed items to return (as a JSON string)
         sig { returns(T.nilable(String)) }
         def trigger_data
         end
@@ -79,6 +88,7 @@ module Knockapi
         def trigger_data=(_)
         end
 
+        # The workflow categories of the feed items to return
         sig { returns(T.nilable(T::Array[String])) }
         def workflow_categories
         end
@@ -139,6 +149,7 @@ module Knockapi
         def to_hash
         end
 
+        # The archived status of the feed items to return
         class Archived < Knockapi::Enum
           abstract!
 
@@ -153,6 +164,7 @@ module Knockapi
           end
         end
 
+        # The status of the feed items to return
         class Status < Knockapi::Enum
           abstract!
 

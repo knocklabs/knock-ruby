@@ -87,7 +87,6 @@ module Knockapi
       end
 
       # @abstract
-      #
       class Type < Knockapi::Enum
         MESSAGE_QUEUED = :"message.queued"
         MESSAGE_SENT = :"message.sent"

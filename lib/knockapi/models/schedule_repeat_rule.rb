@@ -58,7 +58,6 @@ module Knockapi
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
       # @abstract
-      #
       class Frequency < Knockapi::Enum
         DAILY = :daily
         WEEKLY = :weekly
@@ -69,7 +68,6 @@ module Knockapi
       end
 
       # @abstract
-      #
       class Day < Knockapi::Enum
         MON = :mon
         TUE = :tue

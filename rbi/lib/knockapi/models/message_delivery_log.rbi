@@ -35,6 +35,7 @@ module Knockapi
       def inserted_at=(_)
       end
 
+      # A message delivery log request
       sig { returns(Knockapi::Models::MessageDeliveryLog::Request) }
       def request
       end
@@ -46,6 +47,7 @@ module Knockapi
       def request=(_)
       end
 
+      # A message delivery log response
       sig { returns(Knockapi::Models::MessageDeliveryLog::Response) }
       def response
       end
@@ -65,6 +67,7 @@ module Knockapi
       def service_name=(_)
       end
 
+      # A message delivery log
       sig do
         params(
           id: String,
@@ -155,6 +158,7 @@ module Knockapi
         def query=(_)
         end
 
+        # A message delivery log request
         sig do
           params(
             body: T.any(String, T::Hash[Symbol, T.anything]),
@@ -191,6 +195,7 @@ module Knockapi
           UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
 
           class << self
+            # @api private
             sig { override.returns([[NilClass, String], [NilClass, T::Hash[Symbol, T.anything]]]) }
             private def variants
             end
@@ -248,6 +253,7 @@ module Knockapi
         def status=(_)
         end
 
+        # A message delivery log response
         sig do
           params(
             body: T.any(String, T::Hash[Symbol, T.anything]),
@@ -278,6 +284,7 @@ module Knockapi
           UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
 
           class << self
+            # @api private
             sig { override.returns([[NilClass, String], [NilClass, T::Hash[Symbol, T.anything]]]) }
             private def variants
             end

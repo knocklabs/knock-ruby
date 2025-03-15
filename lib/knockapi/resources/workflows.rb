@@ -22,7 +22,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
-      #
       def cancel(key, params)
         parsed, options = Knockapi::Models::WorkflowCancelParams.dump_request(params)
         @client.request(
@@ -60,7 +59,6 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::WorkflowTriggerResponse]
-      #
       def trigger(key, params = {})
         parsed, options = Knockapi::Models::WorkflowTriggerParams.dump_request(params)
         @client.request(
@@ -73,7 +71,6 @@ module Knockapi
       end
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
       end

@@ -27,6 +27,7 @@ module Knockapi
       def variable=(_)
       end
 
+      # A condition to be evaluated
       sig do
         params(argument: T.nilable(String), operator: Symbol, variable: String).returns(T.attached_class)
       end

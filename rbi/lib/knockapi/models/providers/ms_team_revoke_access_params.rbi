@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # A JSON encoded string containing the Microsoft Teams tenant object reference
         sig { returns(String) }
         def ms_teams_tenant_object
         end

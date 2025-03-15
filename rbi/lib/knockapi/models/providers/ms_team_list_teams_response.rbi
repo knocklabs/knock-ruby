@@ -23,6 +23,7 @@ module Knockapi
         def skip_token=(_)
         end
 
+        # The response from a teams for Microsoft Teams provider request
         sig do
           params(
             ms_teams_teams: T::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam],

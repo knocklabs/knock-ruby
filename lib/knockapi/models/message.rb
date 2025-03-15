@@ -261,7 +261,6 @@ module Knockapi
       end
 
       # @abstract
-      #
       class EngagementStatus < Knockapi::Enum
         SEEN = :seen
         READ = :read

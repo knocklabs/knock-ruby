@@ -182,6 +182,7 @@ module Knockapi
         def seen_at=(_)
         end
 
+        # An in-app feed message in a user's feed
         sig do
           params(
             id: String,
@@ -265,6 +266,7 @@ module Knockapi
         def to_hash
         end
 
+        # A content (text or markdown) block in a message in an app feed
         class Block < Knockapi::Union
           abstract!
 
@@ -301,6 +303,7 @@ module Knockapi
             def type=(_)
             end
 
+            # A content (text or markdown) block in a message in an app feed
             sig do
               params(content: String, name: String, rendered: String, type: Symbol).returns(T.attached_class)
             end
@@ -361,6 +364,7 @@ module Knockapi
             def type=(_)
             end
 
+            # A set of buttons in a message in an app feed
             sig do
               params(
                 buttons: T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
@@ -410,6 +414,7 @@ module Knockapi
               def name=(_)
               end
 
+              # A button in a set of buttons
               sig { params(action: String, label: String, name: String).returns(T.attached_class) }
               def self.new(action:, label:, name:)
               end
@@ -433,6 +438,7 @@ module Knockapi
           end
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

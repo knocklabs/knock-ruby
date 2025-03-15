@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     class InlineIdentifyUserRequest < Knockapi::BaseModel
+      # The ID of the user to identify. This is an ID that you supply.
       sig { returns(String) }
       def id
       end
@@ -11,6 +12,7 @@ module Knockapi
       def id=(_)
       end
 
+      # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest)) }
       def channel_data
       end
@@ -22,6 +24,7 @@ module Knockapi
       def channel_data=(_)
       end
 
+      # The creation date of the user from your system.
       sig { returns(T.nilable(Time)) }
       def created_at
       end
@@ -30,6 +33,7 @@ module Knockapi
       def created_at=(_)
       end
 
+      # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
       def preferences
       end
@@ -41,6 +45,10 @@ module Knockapi
       def preferences=(_)
       end
 
+      # A set of parameters to inline-identify a user with. Inline identifying the user
+      #   will ensure that the user is available before the request is executed in Knock.
+      #   It will perform an upsert against the user you're supplying, replacing any
+      #   properties specified.
       sig do
         params(
           id: String,

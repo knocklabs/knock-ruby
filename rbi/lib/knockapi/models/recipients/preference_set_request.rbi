@@ -4,6 +4,8 @@ module Knockapi
   module Models
     module Recipients
       class PreferenceSetRequest < Knockapi::BaseModel
+        # A setting for a preference set, where the key in the object is the category, and
+        #   the values are the preference settings for that category.
         sig do
           returns(
             T.nilable(
@@ -47,6 +49,7 @@ module Knockapi
         def categories=(_)
         end
 
+        # Channel type preferences
         sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
         def channel_types
         end
@@ -58,6 +61,8 @@ module Knockapi
         def channel_types=(_)
         end
 
+        # A setting for a preference set, where the key in the object is the workflow key,
+        #   and the values are the preference settings for that workflow.
         sig do
           returns(
             T.nilable(
@@ -101,6 +106,7 @@ module Knockapi
         def workflows=(_)
         end
 
+        # Set preferences for a recipient
         sig do
           params(
             categories: T.nilable(
@@ -157,10 +163,12 @@ module Knockapi
         def to_hash
         end
 
+        # Workflow or category preferences within a preference set
         class Category < Knockapi::Union
           abstract!
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
+            # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
             def channel_types
             end
@@ -183,6 +191,8 @@ module Knockapi
             def conditions=(_)
             end
 
+            # The settings object for a workflow or category, where you can specify channel
+            #   types or conditions.
             sig do
               params(
                 channel_types: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes),
@@ -207,6 +217,7 @@ module Knockapi
           end
 
           class << self
+            # @api private
             sig do
               override
                 .returns(
@@ -218,10 +229,12 @@ module Knockapi
           end
         end
 
+        # Workflow or category preferences within a preference set
         class Workflow < Knockapi::Union
           abstract!
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
+            # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
             def channel_types
             end
@@ -244,6 +257,8 @@ module Knockapi
             def conditions=(_)
             end
 
+            # The settings object for a workflow or category, where you can specify channel
+            #   types or conditions.
             sig do
               params(
                 channel_types: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes),
@@ -268,6 +283,7 @@ module Knockapi
           end
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

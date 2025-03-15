@@ -4,6 +4,8 @@ module Knockapi
   module Models
     module Recipients
       class PreferenceSetChannelTypes < Knockapi::BaseModel
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         def chat
         end
@@ -15,6 +17,8 @@ module Knockapi
         def chat=(_)
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         def email
         end
@@ -26,6 +30,8 @@ module Knockapi
         def email=(_)
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         def http
         end
@@ -37,6 +43,8 @@ module Knockapi
         def http=(_)
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         def in_app_feed
         end
@@ -48,6 +56,8 @@ module Knockapi
         def in_app_feed=(_)
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         def push
         end
@@ -59,6 +69,8 @@ module Knockapi
         def push=(_)
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         def sms
         end
@@ -70,6 +82,7 @@ module Knockapi
         def sms=(_)
         end
 
+        # Channel type preferences
         sig do
           params(
             chat: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting),
@@ -100,10 +113,13 @@ module Knockapi
         def to_hash
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         class Chat < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(
@@ -115,10 +131,13 @@ module Knockapi
           end
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         class Email < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(
@@ -130,10 +149,13 @@ module Knockapi
           end
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         class HTTP < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(
@@ -145,10 +167,13 @@ module Knockapi
           end
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         class InAppFeed < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(
@@ -160,10 +185,13 @@ module Knockapi
           end
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         class Push < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(
@@ -175,10 +203,13 @@ module Knockapi
           end
         end
 
+        # A set of settings for a channel type. Currently, this can only be a list of
+        #   conditions to apply.
         class SMS < Knockapi::Union
           abstract!
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

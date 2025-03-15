@@ -3,6 +3,7 @@
 module Knockapi
   module Resources
     class BulkOperations
+      # Retrieves a bulk operation (if it exists) and displays the current state of it.
       sig do
         params(
           id: String,

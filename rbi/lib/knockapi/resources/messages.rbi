@@ -7,6 +7,7 @@ module Knockapi
       def batch
       end
 
+      # List messages
       sig do
         params(
           after: String,
@@ -44,6 +45,7 @@ module Knockapi
       )
       end
 
+      # Archive message
       sig do
         params(
           message_id: String,
@@ -54,6 +56,7 @@ module Knockapi
       def archive(message_id, request_options: {})
       end
 
+      # Get message
       sig do
         params(
           message_id: String,
@@ -64,6 +67,8 @@ module Knockapi
       def get(message_id, request_options: {})
       end
 
+      # Returns the fully rendered contents of a message, where the response depends on
+      #   the channel the message was sent on.
       sig do
         params(
           message_id: String,
@@ -74,6 +79,7 @@ module Knockapi
       def get_content(message_id, request_options: {})
       end
 
+      # List activities
       sig do
         params(
           message_id: String,
@@ -95,6 +101,7 @@ module Knockapi
       )
       end
 
+      # List delivery logs
       sig do
         params(
           message_id: String,
@@ -108,6 +115,7 @@ module Knockapi
       def list_delivery_logs(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       end
 
+      # List events
       sig do
         params(
           message_id: String,
@@ -121,6 +129,7 @@ module Knockapi
       def list_events(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       end
 
+      # Mark message as interacted
       sig do
         params(
           message_id: String,
@@ -132,6 +141,7 @@ module Knockapi
       def mark_as_interacted(message_id, metadata: nil, request_options: {})
       end
 
+      # Mark message as read
       sig do
         params(
           message_id: String,
@@ -142,6 +152,7 @@ module Knockapi
       def mark_as_read(message_id, request_options: {})
       end
 
+      # Mark message as seen
       sig do
         params(
           message_id: String,
@@ -152,6 +163,7 @@ module Knockapi
       def mark_as_seen(message_id, request_options: {})
       end
 
+      # Mark message as unread
       sig do
         params(
           message_id: String,
@@ -162,6 +174,7 @@ module Knockapi
       def mark_as_unread(message_id, request_options: {})
       end
 
+      # Mark message as unseen
       sig do
         params(
           message_id: String,
@@ -172,6 +185,7 @@ module Knockapi
       def mark_as_unseen(message_id, request_options: {})
       end
 
+      # Unarchive message
       sig do
         params(
           message_id: String,

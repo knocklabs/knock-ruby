@@ -51,10 +51,9 @@ module Knockapi
     # @return [Knockapi::Resources::Audiences]
     attr_reader :audiences
 
-    # @private
+    # @api private
     #
     # @return [Hash{String=>String}]
-    #
     private def auth_headers
       return {} if @bearer_token.nil?
 
@@ -74,7 +73,6 @@ module Knockapi
     # @param initial_retry_delay [Float]
     #
     # @param max_retry_delay [Float]
-    #
     def initialize(
       base_url: nil,
       bearer_token: ENV["KNOCK_API_KEY"],

@@ -15,6 +15,7 @@ module Knockapi
         def ms_teams_channels=(_)
         end
 
+        # The response from a channels for Microsoft Teams provider request
         sig do
           params(
             ms_teams_channels: T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]

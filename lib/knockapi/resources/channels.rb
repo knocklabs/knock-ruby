@@ -7,7 +7,6 @@ module Knockapi
       attr_reader :bulk
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
         @bulk = Knockapi::Resources::Channels::Bulk.new(client: client)

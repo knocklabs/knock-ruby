@@ -59,6 +59,7 @@ module Knockapi
       def minutes=(_)
       end
 
+      # A schedule repeat rule
       sig do
         params(
           _typename: String,

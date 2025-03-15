@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
       def after
       end
@@ -14,6 +15,7 @@ module Knockapi
       def after=(_)
       end
 
+      # The cursor to fetch entries before
       sig { returns(T.nilable(String)) }
       def before
       end
@@ -22,6 +24,7 @@ module Knockapi
       def before=(_)
       end
 
+      # The page size to fetch
       sig { returns(T.nilable(Integer)) }
       def page_size
       end
@@ -30,6 +33,7 @@ module Knockapi
       def page_size=(_)
       end
 
+      # The trigger data to filter activities by
       sig { returns(T.nilable(String)) }
       def trigger_data
       end

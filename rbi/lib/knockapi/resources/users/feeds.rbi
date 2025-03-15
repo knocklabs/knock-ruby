@@ -4,6 +4,7 @@ module Knockapi
   module Resources
     class Users
       class Feeds
+        # Returns the feed settings for a user.
         sig do
           params(
             user_id: String,
@@ -15,6 +16,8 @@ module Knockapi
         def get_settings(user_id, channel_id, request_options: {})
         end
 
+        # Returns a paginated list of feed items for a user, including metadata about the
+        #   feed.
         sig do
           params(
             user_id: String,

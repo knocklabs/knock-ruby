@@ -38,6 +38,7 @@ module Knockapi
         def connections=(_)
         end
 
+        # A token that's used to store the access token for a Slack workspace.
         sig { returns(T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)) }
         def token
         end
@@ -49,6 +50,7 @@ module Knockapi
         def token=(_)
         end
 
+        # Slack channel data
         sig do
           params(
             connections: T::Array[
@@ -81,6 +83,7 @@ module Knockapi
         def to_hash
         end
 
+        # A Slack connection, which either includes a channel_id or a user_id
         class Connection < Knockapi::Union
           abstract!
 
@@ -109,6 +112,7 @@ module Knockapi
             def user_id=(_)
             end
 
+            # A Slack connection, which either includes a channel_id or a user_id
             sig do
               params(
                 access_token: T.nilable(String),
@@ -141,6 +145,7 @@ module Knockapi
             def url=(_)
             end
 
+            # An incoming webhook Slack connection
             sig { params(url: String).returns(T.attached_class) }
             def self.new(url:)
             end
@@ -151,6 +156,7 @@ module Knockapi
           end
 
           class << self
+            # @api private
             sig do
               override
                 .returns(
@@ -171,6 +177,7 @@ module Knockapi
           def access_token=(_)
           end
 
+          # A token that's used to store the access token for a Slack workspace.
           sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
           def self.new(access_token:)
           end

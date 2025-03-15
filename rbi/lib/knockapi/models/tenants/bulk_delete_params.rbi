@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # The IDs of the tenants to delete
         sig { returns(T::Array[String]) }
         def tenant_ids
         end

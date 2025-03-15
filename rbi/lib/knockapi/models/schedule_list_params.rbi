@@ -6,6 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
+      # Filter by workflow
       sig { returns(String) }
       def workflow
       end
@@ -14,6 +15,7 @@ module Knockapi
       def workflow=(_)
       end
 
+      # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
       def after
       end
@@ -22,6 +24,7 @@ module Knockapi
       def after=(_)
       end
 
+      # The cursor to fetch entries before
       sig { returns(T.nilable(String)) }
       def before
       end
@@ -30,6 +33,7 @@ module Knockapi
       def before=(_)
       end
 
+      # The page size to fetch
       sig { returns(T.nilable(Integer)) }
       def page_size
       end
@@ -38,6 +42,7 @@ module Knockapi
       def page_size=(_)
       end
 
+      # Filter by recipient
       sig do
         returns(
           T.nilable(T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)])
@@ -53,6 +58,7 @@ module Knockapi
       def recipients=(_)
       end
 
+      # Filter by tenant
       sig { returns(T.nilable(String)) }
       def tenant
       end
@@ -93,10 +99,13 @@ module Knockapi
       def to_hash
       end
 
+      # A reference to a recipient, either a user identifier (string) or an object
+      #   reference (id, collection).
       class Recipient < Knockapi::Union
         abstract!
 
         class ObjectReference < Knockapi::BaseModel
+          # An object identifier
           sig { returns(String) }
           def id
           end
@@ -105,6 +114,7 @@ module Knockapi
           def id=(_)
           end
 
+          # The collection the object belongs to
           sig { returns(String) }
           def collection
           end
@@ -113,6 +123,7 @@ module Knockapi
           def collection=(_)
           end
 
+          # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
           def self.new(id:, collection:)
           end
@@ -123,6 +134,7 @@ module Knockapi
         end
 
         class << self
+          # @api private
           sig do
             override
               .returns(

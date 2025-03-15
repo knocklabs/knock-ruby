@@ -4,6 +4,7 @@ module Knockapi
   module Resources
     class Objects
       class Bulk
+        # Bulk delete objects
         sig do
           params(
             collection: String,
@@ -15,6 +16,8 @@ module Knockapi
         def delete(collection, object_ids:, request_options: {})
         end
 
+        # Add subscriptions for a set of objects in a single collection. If a subscription
+        #   already exists, it will be updated.
         sig do
           params(
             collection: String,
@@ -26,6 +29,7 @@ module Knockapi
         def add_subscriptions(collection, subscriptions:, request_options: {})
         end
 
+        # Bulk set objects
         sig do
           params(
             collection: String,

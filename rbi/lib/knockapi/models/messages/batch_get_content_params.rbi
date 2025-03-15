@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # The IDs of the messages to fetch contents of
         sig { returns(T::Array[String]) }
         def message_ids
         end

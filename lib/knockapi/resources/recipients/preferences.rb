@@ -5,7 +5,6 @@ module Knockapi
     class Recipients
       class Preferences
         # @param client [Knockapi::Client]
-        #
         def initialize(client:)
           @client = client
         end

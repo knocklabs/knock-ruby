@@ -187,7 +187,6 @@ module Knockapi
             # def initialize: (Hash | Knockapi::BaseModel) -> void
 
             # @abstract
-            #
             class Type < Knockapi::Enum
               MARKDOWN = :markdown
               TEXT = :text
@@ -254,7 +253,6 @@ module Knockapi
             end
 
             # @abstract
-            #
             class Type < Knockapi::Enum
               BUTTON_SET = :button_set
 

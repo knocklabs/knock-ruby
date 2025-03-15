@@ -91,6 +91,7 @@ module Knockapi
       def error_count=(_)
       end
 
+      # A list of items that failed to be processed
       sig { returns(T.nilable(T::Array[Knockapi::Models::BulkOperation::ErrorItem])) }
       def error_items
       end
@@ -118,6 +119,7 @@ module Knockapi
       def started_at=(_)
       end
 
+      # A bulk operation entity
       sig do
         params(
           id: String,

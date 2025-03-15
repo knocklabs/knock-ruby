@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
+        # A JSON encoded string containing the Microsoft Teams tenant object reference
         sig { returns(String) }
         def ms_teams_tenant_object
         end
@@ -15,6 +16,7 @@ module Knockapi
         def ms_teams_tenant_object=(_)
         end
 
+        # The ID of the Microsoft Teams team to list channels from
         sig { returns(String) }
         def team_id
         end
@@ -61,6 +63,8 @@ module Knockapi
         end
 
         class QueryOptions < Knockapi::BaseModel
+          # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+          #   to the Microsoft Graph API to filter channels
           sig { returns(T.nilable(String)) }
           def filter
           end
@@ -69,6 +73,8 @@ module Knockapi
           def filter=(_)
           end
 
+          # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+          #   to the Microsoft Graph API to select fields on a channel
           sig { returns(T.nilable(String)) }
           def select_
           end

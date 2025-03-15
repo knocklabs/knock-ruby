@@ -3,6 +3,7 @@
 module Knockapi
   module Resources
     class Audiences
+      # Add members
       sig do
         params(
           key: String,
@@ -14,6 +15,7 @@ module Knockapi
       def add_members(key, members:, request_options: {})
       end
 
+      # List members
       sig do
         params(
           key: String,
@@ -24,6 +26,7 @@ module Knockapi
       def list_members(key, request_options: {})
       end
 
+      # Remove members
       sig do
         params(
           key: String,

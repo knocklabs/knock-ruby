@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     class IdentifyUserRequest < Knockapi::BaseModel
+      # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest)) }
       def channel_data
       end
@@ -22,6 +23,7 @@ module Knockapi
       def created_at=(_)
       end
 
+      # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
       def preferences
       end
@@ -33,6 +35,9 @@ module Knockapi
       def preferences=(_)
       end
 
+      # A set of parameters to identify a user with. Does not include the user ID, as
+      #   that's specified elsewhere in the request. You can supply any additional
+      #   properties you'd like to upsert against the user.
       sig do
         params(
           channel_data: T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest),

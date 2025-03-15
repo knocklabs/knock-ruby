@@ -15,7 +15,6 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::Providers::SlackCheckAuthResponse]
-        #
         def check_auth(channel_id, params)
           parsed, options = Knockapi::Models::Providers::SlackCheckAuthParams.dump_request(params)
           @client.request(
@@ -40,7 +39,6 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::SlackChannelsCursor<Knockapi::Models::Providers::SlackListChannelsResponse>]
-        #
         def list_channels(channel_id, params)
           parsed, options = Knockapi::Models::Providers::SlackListChannelsParams.dump_request(params)
           @client.request(
@@ -64,7 +62,6 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [String]
-        #
         def revoke_access(channel_id, params)
           parsed, options = Knockapi::Models::Providers::SlackRevokeAccessParams.dump_request(params)
           @client.request(
@@ -77,7 +74,6 @@ module Knockapi
         end
 
         # @param client [Knockapi::Client]
-        #
         def initialize(client:)
           @client = client
         end

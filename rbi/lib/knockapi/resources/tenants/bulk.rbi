@@ -4,6 +4,7 @@ module Knockapi
   module Resources
     class Tenants
       class Bulk
+        # Bulk delete tenants
         sig do
           params(
             tenant_ids: T::Array[String],
@@ -14,6 +15,7 @@ module Knockapi
         def delete(tenant_ids:, request_options: {})
         end
 
+        # Bulk set tenants
         sig do
           params(
             tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest)],

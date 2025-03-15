@@ -13,7 +13,6 @@ module Knockapi
       attr_reader :channel_data
 
       # @param client [Knockapi::Client]
-      #
       def initialize(client:)
         @client = client
         @subscriptions = Knockapi::Resources::Recipients::Subscriptions.new(client: client)

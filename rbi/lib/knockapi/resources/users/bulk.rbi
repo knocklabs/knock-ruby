@@ -4,6 +4,7 @@ module Knockapi
   module Resources
     class Users
       class Bulk
+        # Bulk delete users
         sig do
           params(
             user_ids: T::Array[String],
@@ -14,6 +15,7 @@ module Knockapi
         def delete(user_ids:, request_options: {})
         end
 
+        # Bulk identifies users
         sig do
           params(
             users: T::Array[Knockapi::Models::InlineIdentifyUserRequest],
@@ -24,6 +26,7 @@ module Knockapi
         def identify(users:, request_options: {})
         end
 
+        # Bulk set preferences
         sig do
           params(
             preferences: Knockapi::Models::Recipients::PreferenceSetRequest,

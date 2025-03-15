@@ -40,6 +40,10 @@ module Knockapi
       end
 
       class Member < Knockapi::BaseModel
+        # A set of parameters to inline-identify a user with. Inline identifying the user
+        #   will ensure that the user is available before the request is executed in Knock.
+        #   It will perform an upsert against the user you're supplying, replacing any
+        #   properties specified.
         sig { returns(Knockapi::Models::InlineIdentifyUserRequest) }
         def user
         end
@@ -58,6 +62,7 @@ module Knockapi
         def tenant=(_)
         end
 
+        # A request for an individual audience member
         sig do
           params(user: Knockapi::Models::InlineIdentifyUserRequest, tenant: T.nilable(String))
             .returns(T.attached_class)

@@ -3,6 +3,7 @@
 module Knockapi
   module Resources
     class Schedules
+      # Create schedules
       sig do
         params(
           recipients: T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)],
@@ -28,6 +29,7 @@ module Knockapi
       )
       end
 
+      # Update schedules
       sig do
         params(
           schedule_ids: T::Array[String],
@@ -55,6 +57,7 @@ module Knockapi
       )
       end
 
+      # List schedules
       sig do
         params(
           workflow: String,
@@ -78,6 +81,7 @@ module Knockapi
       )
       end
 
+      # Delete schedules
       sig do
         params(
           schedule_ids: T::Array[String],

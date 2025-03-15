@@ -19,6 +19,7 @@ module Knockapi
       def inserted_at=(_)
       end
 
+      # A recipient, which is either a user or an object
       sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
       def recipient
       end
@@ -65,6 +66,7 @@ module Knockapi
       def _typename=(_)
       end
 
+      # A recipient, which is either a user or an object
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       def actor
       end
@@ -110,6 +112,7 @@ module Knockapi
       def tenant=(_)
       end
 
+      # A schedule that represents a recurring workflow execution
       sig do
         params(
           id: String,

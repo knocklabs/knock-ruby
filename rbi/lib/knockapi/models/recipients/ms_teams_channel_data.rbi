@@ -38,6 +38,7 @@ module Knockapi
         def connections=(_)
         end
 
+        # The Microsoft Teams tenant ID
         sig { returns(T.nilable(String)) }
         def ms_teams_tenant_id
         end
@@ -46,6 +47,7 @@ module Knockapi
         def ms_teams_tenant_id=(_)
         end
 
+        # Microsoft Teams channel data
         sig do
           params(
             connections: T::Array[
@@ -78,10 +80,12 @@ module Knockapi
         def to_hash
         end
 
+        # Microsoft Teams token connection
         class Connection < Knockapi::Union
           abstract!
 
           class MsTeamsTokenConnection < Knockapi::BaseModel
+            # The Microsoft Teams channel ID
             sig { returns(T.nilable(String)) }
             def ms_teams_channel_id
             end
@@ -90,6 +94,7 @@ module Knockapi
             def ms_teams_channel_id=(_)
             end
 
+            # The Microsoft Teams team ID
             sig { returns(T.nilable(String)) }
             def ms_teams_team_id
             end
@@ -98,6 +103,7 @@ module Knockapi
             def ms_teams_team_id=(_)
             end
 
+            # The Microsoft Teams tenant ID
             sig { returns(T.nilable(String)) }
             def ms_teams_tenant_id
             end
@@ -106,6 +112,7 @@ module Knockapi
             def ms_teams_tenant_id=(_)
             end
 
+            # The Microsoft Teams user ID
             sig { returns(T.nilable(String)) }
             def ms_teams_user_id
             end
@@ -114,6 +121,7 @@ module Knockapi
             def ms_teams_user_id=(_)
             end
 
+            # Microsoft Teams token connection
             sig do
               params(
                 ms_teams_channel_id: T.nilable(String),
@@ -142,6 +150,7 @@ module Knockapi
           end
 
           class MsTeamsIncomingWebhookConnection < Knockapi::BaseModel
+            # The incoming webhook
             sig do
               returns(
                 Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
@@ -161,6 +170,7 @@ module Knockapi
             def incoming_webhook=(_)
             end
 
+            # Microsoft Teams incoming webhook connection
             sig do
               params(
                 incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
@@ -182,6 +192,7 @@ module Knockapi
             end
 
             class IncomingWebhook < Knockapi::BaseModel
+              # The URL of the incoming webhook
               sig { returns(String) }
               def url
               end
@@ -190,6 +201,7 @@ module Knockapi
               def url=(_)
               end
 
+              # The incoming webhook
               sig { params(url: String).returns(T.attached_class) }
               def self.new(url:)
               end
@@ -201,6 +213,7 @@ module Knockapi
           end
 
           class << self
+            # @api private
             sig do
               override
                 .returns(

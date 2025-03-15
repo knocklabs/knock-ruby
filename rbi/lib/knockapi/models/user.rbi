@@ -75,6 +75,7 @@ module Knockapi
       def timezone=(_)
       end
 
+      # A user object
       sig do
         params(
           id: String,

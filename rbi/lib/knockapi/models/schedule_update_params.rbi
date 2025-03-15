@@ -14,6 +14,9 @@ module Knockapi
       def schedule_ids=(_)
       end
 
+      # Specifies a recipient in a request. This can either be a user identifier
+      #   (string), an inline user request (object), or an inline object request, which is
+      #   determined by the presence of a `collection` property.
       sig do
         returns(
           T.nilable(
@@ -76,6 +79,7 @@ module Knockapi
       def scheduled_at=(_)
       end
 
+      # An inline tenant request
       sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
       def tenant
       end
