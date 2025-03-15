@@ -378,11 +378,11 @@ module Knockapi
   # # `recipient` is a `Knockapi::Models::Recipient`
   # case recipient
   # when Knockapi::Models::User
-  #   # ...
+  #   puts(recipient.id)
   # when Knockapi::Models::Object
-  #   # ...
+  #   puts(recipient._typename)
   # else
-  #   # ...
+  #   puts(recipient)
   # end
   # ```
   class Union

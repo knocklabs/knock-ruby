@@ -17,7 +17,13 @@ module Knockapi
   #
   # @example
   # ```ruby
-  # users = entries_cursor.to_enum.take(2)
+  # users = entries_cursor
+  #   .to_enum
+  #   .lazy
+  #   .select { _1.object_id.even? }
+  #   .map(&:itself)
+  #   .take(2)
+  #   .to_a
   #
   # users => Array
   # ```
