@@ -1,7 +1,6 @@
 # typed: strong
 
 module Knockapi
-  # @api private
   module BasePage
     abstract!
 

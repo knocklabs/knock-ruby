@@ -76,8 +76,11 @@ module Knockapi
         .returns(T.attached_class)
     end
     def self.new(
+      # Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
       base_url: nil,
+      # Defaults to `ENV["KNOCK_API_KEY"]`
       bearer_token: ENV["KNOCK_API_KEY"],
+      # Max number of retries to attempt after a failed retryable request.
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,

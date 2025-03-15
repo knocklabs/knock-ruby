@@ -829,8 +829,6 @@ module Knockapi
     end
   end
 
-  # @api private
-  #
   # @abstract
   #
   # @example
@@ -856,6 +854,8 @@ module Knockapi
         @known_fields ||= (self < Knockapi::BaseModel ? superclass.known_fields.dup : {})
       end
 
+      # @api private
+      #
       # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
       def fields
         known_fields.transform_values do |field|

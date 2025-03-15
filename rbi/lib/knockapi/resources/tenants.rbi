@@ -17,7 +17,15 @@ module Knockapi
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Tenant])
       end
-      def list(after: nil, before: nil, page_size: nil, request_options: {})
+      def list(
+        # The cursor to fetch entries after
+        after: nil,
+        # The cursor to fetch entries before
+        before: nil,
+        # The page size to fetch
+        page_size: nil,
+        request_options: {}
+      )
       end
 
       # Delete a tenant
@@ -28,7 +36,11 @@ module Knockapi
         )
           .returns(String)
       end
-      def delete(tenant_id, request_options: {})
+      def delete(
+        # The ID of the tenant
+        tenant_id,
+        request_options: {}
+      )
       end
 
       # Get a tenant
@@ -39,7 +51,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Tenant)
       end
-      def get(tenant_id, request_options: {})
+      def get(
+        # The ID of the tenant
+        tenant_id,
+        request_options: {}
+      )
       end
 
       # Set a tenant
@@ -53,7 +69,16 @@ module Knockapi
         )
           .returns(Knockapi::Models::Tenant)
       end
-      def set(tenant_id, channel_data: nil, preferences: nil, settings: nil, request_options: {})
+      def set(
+        # The ID of the tenant
+        tenant_id,
+        # Allows inline setting channel data for a recipient
+        channel_data: nil,
+        # Inline set preferences for a recipient, where the key is the preference set name
+        preferences: nil,
+        settings: nil,
+        request_options: {}
+      )
       end
 
       sig { params(client: Knockapi::Client).returns(T.attached_class) }

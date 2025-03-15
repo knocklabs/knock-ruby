@@ -13,7 +13,13 @@ module Knockapi
           )
             .returns(Knockapi::Models::Users::FeedGetSettingsResponse)
         end
-        def get_settings(user_id, channel_id, request_options: {})
+        def get_settings(
+          # The user ID
+          user_id,
+          # The channel ID
+          channel_id,
+          request_options: {}
+        )
         end
 
         # Returns a paginated list of feed items for a user, including metadata about the
@@ -37,17 +43,29 @@ module Knockapi
             .returns(Knockapi::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse])
         end
         def list_items(
+          # The user ID
           user_id,
+          # The channel ID
           channel_id,
+          # The cursor to fetch entries after
           after: nil,
+          # The archived status of the feed items to return
           archived: nil,
+          # The cursor to fetch entries before
           before: nil,
+          # Whether the feed items have a tenant
           has_tenant: nil,
+          # The page size to fetch
           page_size: nil,
+          # The source of the feed items to return
           source: nil,
+          # The status of the feed items to return
           status: nil,
+          # The tenant of the feed items to return
           tenant: nil,
+          # The trigger data of the feed items to return (as a JSON string)
           trigger_data: nil,
+          # The workflow categories of the feed items to return
           workflow_categories: nil,
           request_options: {}
         )

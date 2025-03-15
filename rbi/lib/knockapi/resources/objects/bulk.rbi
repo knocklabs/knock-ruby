@@ -13,7 +13,13 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def delete(collection, object_ids:, request_options: {})
+        def delete(
+          # The collection to delete objects from
+          collection,
+          # The IDs of the objects to delete
+          object_ids:,
+          request_options: {}
+        )
         end
 
         # Add subscriptions for a set of objects in a single collection. If a subscription
@@ -26,7 +32,12 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def add_subscriptions(collection, subscriptions:, request_options: {})
+        def add_subscriptions(
+          # The collection to add subscriptions for
+          collection,
+          subscriptions:,
+          request_options: {}
+        )
         end
 
         # Bulk set objects
@@ -38,7 +49,12 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def set(collection, objects:, request_options: {})
+        def set(
+          # The collection to set objects in
+          collection,
+          objects:,
+          request_options: {}
+        )
         end
 
         sig { params(client: Knockapi::Client).returns(T.attached_class) }

@@ -14,7 +14,13 @@ module Knockapi
           )
             .returns(Knockapi::Models::Providers::MsTeamCheckAuthResponse)
         end
-        def check_auth(channel_id, ms_teams_tenant_object:, request_options: {})
+        def check_auth(
+          # The ID of the Knock Microsoft Teams channel to check
+          channel_id,
+          # A JSON encoded string containing the Microsoft Teams tenant object reference
+          ms_teams_tenant_object:,
+          request_options: {}
+        )
         end
 
         # List the Microsoft Teams channels within a team. By default, archived and
@@ -30,8 +36,11 @@ module Knockapi
             .returns(Knockapi::Models::Providers::MsTeamListChannelsResponse)
         end
         def list_channels(
+          # The ID of the Knock Microsoft Teams channel to get channels for
           channel_id,
+          # A JSON encoded string containing the Microsoft Teams tenant object reference
           ms_teams_tenant_object:,
+          # The ID of the Microsoft Teams team to list channels from
           team_id:,
           query_options: nil,
           request_options: {}
@@ -49,7 +58,14 @@ module Knockapi
           )
             .returns(Knockapi::Models::Providers::MsTeamListTeamsResponse)
         end
-        def list_teams(channel_id, ms_teams_tenant_object:, query_options: nil, request_options: {})
+        def list_teams(
+          # The ID of the Knock Microsoft Teams channel to get teams for
+          channel_id,
+          # A JSON encoded string containing the Microsoft Teams tenant object reference
+          ms_teams_tenant_object:,
+          query_options: nil,
+          request_options: {}
+        )
         end
 
         # Remove a Microsoft Entra tenant ID from a Microsoft Teams tenant object
@@ -61,7 +77,13 @@ module Knockapi
           )
             .returns(String)
         end
-        def revoke_access(channel_id, ms_teams_tenant_object:, request_options: {})
+        def revoke_access(
+          # The ID of the Knock Microsoft Teams channel to revoke access for
+          channel_id,
+          # A JSON encoded string containing the Microsoft Teams tenant object reference
+          ms_teams_tenant_object:,
+          request_options: {}
+        )
         end
 
         sig { params(client: Knockapi::Client).returns(T.attached_class) }

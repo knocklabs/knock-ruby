@@ -11,7 +11,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::BulkOperation)
       end
-      def get(id, request_options: {})
+      def get(
+        # The ID of the bulk operation to retrieve
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: Knockapi::Client).returns(T.attached_class) }

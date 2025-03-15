@@ -28,18 +28,31 @@ module Knockapi
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Message])
       end
       def list(
+        # The cursor to fetch entries after
         after: nil,
+        # The cursor to fetch entries before
         before: nil,
+        # The channel ID
         channel_id: nil,
+        # The engagement status of the message
         engagement_status: nil,
+        # The message IDs to filter messages by
         message_ids: nil,
+        # The page size to fetch
         page_size: nil,
+        # The source of the message (workflow key)
         source: nil,
+        # The status of the message
         status: nil,
+        # The tenant ID
         tenant: nil,
+        # The trigger data to filter messages by. Must be a valid JSON object.
         trigger_data: nil,
+        # The workflow categories to filter messages by
         workflow_categories: nil,
+        # The workflow recipient run ID to filter messages by
         workflow_recipient_run_id: nil,
+        # The workflow run ID to filter messages by
         workflow_run_id: nil,
         request_options: {}
       )
@@ -53,7 +66,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def archive(message_id, request_options: {})
+      def archive(
+        # The message ID
+        message_id,
+        request_options: {}
+      )
       end
 
       # Get message
@@ -64,7 +81,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def get(message_id, request_options: {})
+      def get(
+        # The message ID
+        message_id,
+        request_options: {}
+      )
       end
 
       # Returns the fully rendered contents of a message, where the response depends on
@@ -76,7 +97,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::MessageGetContentResponse)
       end
-      def get_content(message_id, request_options: {})
+      def get_content(
+        # The ID of the message to fetch contents of
+        message_id,
+        request_options: {}
+      )
       end
 
       # List activities
@@ -92,10 +117,15 @@ module Knockapi
           .returns(Knockapi::ItemsCursor[Knockapi::Models::Activity])
       end
       def list_activities(
+        # The ID of the message to fetch activities for
         message_id,
+        # The cursor to fetch entries after
         after: nil,
+        # The cursor to fetch entries before
         before: nil,
+        # The page size to fetch
         page_size: nil,
+        # The trigger data to filter activities by
         trigger_data: nil,
         request_options: {}
       )
@@ -112,7 +142,17 @@ module Knockapi
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::MessageDeliveryLog])
       end
-      def list_delivery_logs(message_id, after: nil, before: nil, page_size: nil, request_options: {})
+      def list_delivery_logs(
+        # The ID of the message to fetch delivery logs for
+        message_id,
+        # The cursor to fetch entries after
+        after: nil,
+        # The cursor to fetch entries before
+        before: nil,
+        # The page size to fetch
+        page_size: nil,
+        request_options: {}
+      )
       end
 
       # List events
@@ -126,7 +166,17 @@ module Knockapi
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::MessageEvent])
       end
-      def list_events(message_id, after: nil, before: nil, page_size: nil, request_options: {})
+      def list_events(
+        # The ID of the message to fetch events for
+        message_id,
+        # The cursor to fetch entries after
+        after: nil,
+        # The cursor to fetch entries before
+        before: nil,
+        # The page size to fetch
+        page_size: nil,
+        request_options: {}
+      )
       end
 
       # Mark message as interacted
@@ -138,7 +188,13 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def mark_as_interacted(message_id, metadata: nil, request_options: {})
+      def mark_as_interacted(
+        # The message ID
+        message_id,
+        # Metadata about the interaction
+        metadata: nil,
+        request_options: {}
+      )
       end
 
       # Mark message as read
@@ -149,7 +205,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def mark_as_read(message_id, request_options: {})
+      def mark_as_read(
+        # The message ID
+        message_id,
+        request_options: {}
+      )
       end
 
       # Mark message as seen
@@ -160,7 +220,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def mark_as_seen(message_id, request_options: {})
+      def mark_as_seen(
+        # The message ID
+        message_id,
+        request_options: {}
+      )
       end
 
       # Mark message as unread
@@ -171,7 +235,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def mark_as_unread(message_id, request_options: {})
+      def mark_as_unread(
+        # The message ID
+        message_id,
+        request_options: {}
+      )
       end
 
       # Mark message as unseen
@@ -182,7 +250,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def mark_as_unseen(message_id, request_options: {})
+      def mark_as_unseen(
+        # The message ID
+        message_id,
+        request_options: {}
+      )
       end
 
       # Unarchive message
@@ -193,7 +265,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::Message)
       end
-      def unarchive(message_id, request_options: {})
+      def unarchive(
+        # The message ID
+        message_id,
+        request_options: {}
+      )
       end
 
       sig { params(client: Knockapi::Client).returns(T.attached_class) }

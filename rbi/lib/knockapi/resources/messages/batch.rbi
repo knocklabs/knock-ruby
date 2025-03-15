@@ -12,7 +12,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchArchiveResponse)
         end
-        def archive(message_ids:, request_options: {})
+        def archive(
+          # The message IDs to update
+          message_ids:,
+          request_options: {}
+        )
         end
 
         # Get the contents of multiple messages in a single request.
@@ -23,7 +27,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchGetContentResponse)
         end
-        def get_content(message_ids:, request_options: {})
+        def get_content(
+          # The IDs of the messages to fetch contents of
+          message_ids:,
+          request_options: {}
+        )
         end
 
         # Mark messages as interacted
@@ -35,7 +43,13 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchMarkAsInteractedResponse)
         end
-        def mark_as_interacted(message_ids:, metadata: nil, request_options: {})
+        def mark_as_interacted(
+          # The message IDs to update
+          message_ids:,
+          # Metadata about the interaction
+          metadata: nil,
+          request_options: {}
+        )
         end
 
         # Mark messages as read
@@ -46,7 +60,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchMarkAsReadResponse)
         end
-        def mark_as_read(message_ids:, request_options: {})
+        def mark_as_read(
+          # The message IDs to update
+          message_ids:,
+          request_options: {}
+        )
         end
 
         # Mark messages as seen
@@ -57,7 +75,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchMarkAsSeenResponse)
         end
-        def mark_as_seen(message_ids:, request_options: {})
+        def mark_as_seen(
+          # The message IDs to update
+          message_ids:,
+          request_options: {}
+        )
         end
 
         # Mark messages as unread
@@ -68,7 +90,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchMarkAsUnreadResponse)
         end
-        def mark_as_unread(message_ids:, request_options: {})
+        def mark_as_unread(
+          # The message IDs to update
+          message_ids:,
+          request_options: {}
+        )
         end
 
         # Mark messages as unseen
@@ -79,7 +105,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchMarkAsUnseenResponse)
         end
-        def mark_as_unseen(message_ids:, request_options: {})
+        def mark_as_unseen(
+          # The message IDs to update
+          message_ids:,
+          request_options: {}
+        )
         end
 
         # Mark messages as unarchived
@@ -90,7 +120,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::Messages::BatchUnarchiveResponse)
         end
-        def unarchive(message_ids:, request_options: {})
+        def unarchive(
+          # The message IDs to update
+          message_ids:,
+          request_options: {}
+        )
         end
 
         sig { params(client: Knockapi::Client).returns(T.attached_class) }

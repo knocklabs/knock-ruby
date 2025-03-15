@@ -12,7 +12,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def delete(tenant_ids:, request_options: {})
+        def delete(
+          # The IDs of the tenants to delete
+          tenant_ids:,
+          request_options: {}
+        )
         end
 
         # Bulk set tenants

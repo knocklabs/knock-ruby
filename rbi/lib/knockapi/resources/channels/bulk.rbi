@@ -27,7 +27,9 @@ module Knockapi
             .returns(Knockapi::Models::BulkOperation)
         end
         def update_message_status(
+          # The ID of the channel to update messages for
           channel_id,
+          # The action to perform on the messages
           action,
           archived: nil,
           delivery_status: nil,

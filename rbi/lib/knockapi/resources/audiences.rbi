@@ -12,7 +12,12 @@ module Knockapi
         )
           .returns(String)
       end
-      def add_members(key, members:, request_options: {})
+      def add_members(
+        # The key of the audience to add members to
+        key,
+        members:,
+        request_options: {}
+      )
       end
 
       # List members
@@ -23,7 +28,11 @@ module Knockapi
         )
           .returns(Knockapi::Models::AudienceListMembersResponse)
       end
-      def list_members(key, request_options: {})
+      def list_members(
+        # The key of the audience to list members for
+        key,
+        request_options: {}
+      )
       end
 
       # Remove members
@@ -35,7 +44,12 @@ module Knockapi
         )
           .returns(String)
       end
-      def remove_members(key, members:, request_options: {})
+      def remove_members(
+        # The key of the audience to remove members from
+        key,
+        members:,
+        request_options: {}
+      )
       end
 
       sig { params(client: Knockapi::Client).returns(T.attached_class) }

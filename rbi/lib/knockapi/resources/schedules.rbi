@@ -24,6 +24,7 @@ module Knockapi
         data: nil,
         ending_at: nil,
         scheduled_at: nil,
+        # An inline tenant request
         tenant: nil,
         request_options: {}
       )
@@ -47,11 +48,15 @@ module Knockapi
       end
       def update(
         schedule_ids:,
+        # Specifies a recipient in a request. This can either be a user identifier
+        #   (string), an inline user request (object), or an inline object request, which is
+        #   determined by the presence of a `collection` property.
         actor: nil,
         data: nil,
         ending_at: nil,
         repeats: nil,
         scheduled_at: nil,
+        # An inline tenant request
         tenant: nil,
         request_options: {}
       )
@@ -71,11 +76,17 @@ module Knockapi
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Schedule])
       end
       def list(
+        # Filter by workflow
         workflow:,
+        # The cursor to fetch entries after
         after: nil,
+        # The cursor to fetch entries before
         before: nil,
+        # The page size to fetch
         page_size: nil,
+        # Filter by recipient
         recipients: nil,
+        # Filter by tenant
         tenant: nil,
         request_options: {}
       )

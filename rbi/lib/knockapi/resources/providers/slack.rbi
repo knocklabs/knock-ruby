@@ -13,7 +13,13 @@ module Knockapi
           )
             .returns(Knockapi::Models::Providers::SlackCheckAuthResponse)
         end
-        def check_auth(channel_id, access_token_object:, request_options: {})
+        def check_auth(
+          # The ID of the Knock Slack channel to check
+          channel_id,
+          # A JSON encoded string containing the access token object reference
+          access_token_object:,
+          request_options: {}
+        )
         end
 
         # List Slack channels for a Slack workspace
@@ -26,7 +32,14 @@ module Knockapi
           )
             .returns(Knockapi::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])
         end
-        def list_channels(channel_id, access_token_object:, query_options: nil, request_options: {})
+        def list_channels(
+          # The ID of the Knock Slack channel to get channels for
+          channel_id,
+          # A JSON encoded string containing the access token object reference
+          access_token_object:,
+          query_options: nil,
+          request_options: {}
+        )
         end
 
         # Revoke access for a Slack channel
@@ -38,7 +51,13 @@ module Knockapi
           )
             .returns(String)
         end
-        def revoke_access(channel_id, access_token_object:, request_options: {})
+        def revoke_access(
+          # The ID of the Knock Slack channel to revoke access for
+          channel_id,
+          # A JSON encoded string containing the access token object reference
+          access_token_object:,
+          request_options: {}
+        )
         end
 
         sig { params(client: Knockapi::Client).returns(T.attached_class) }

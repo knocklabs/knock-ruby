@@ -35,7 +35,12 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def set_preferences(preferences:, user_ids:, request_options: {})
+        def set_preferences(
+          # Set preferences for a recipient
+          preferences:,
+          user_ids:,
+          request_options: {}
+        )
         end
 
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
