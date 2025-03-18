@@ -109,6 +109,18 @@ module Knockapi
         class Data < Knockapi::Union
           abstract!
 
+          Variants = type_template(:out) do
+            {
+              fixed: T.any(
+                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
+                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
+                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
+                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
+                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
+              )
+            }
+          end
+
           class MessageEmailContent < Knockapi::BaseModel
             sig { returns(String) }
             def _typename
@@ -520,14 +532,10 @@ module Knockapi
                 class Type < Knockapi::Enum
                   abstract!
 
+                  Value = type_template(:out) { {fixed: Symbol} }
+
                   TEXT = :text
                   MARKDOWN = :markdown
-
-                  class << self
-                    sig { override.returns(T::Array[Symbol]) }
-                    def values
-                    end
-                  end
                 end
               end
             end
@@ -614,6 +622,15 @@ module Knockapi
             class Block < Knockapi::Union
               abstract!
 
+              Variants = type_template(:out) do
+                {
+                  fixed: T.any(
+                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                  )
+                }
+              end
+
               class MessageInAppFeedContentBlock < Knockapi::BaseModel
                 sig { returns(String) }
                 def content
@@ -666,14 +683,10 @@ module Knockapi
                 class Type < Knockapi::Enum
                   abstract!
 
+                  Value = type_template(:out) { {fixed: Symbol} }
+
                   MARKDOWN = :markdown
                   TEXT = :text
-
-                  class << self
-                    sig { override.returns(T::Array[Symbol]) }
-                    def values
-                    end
-                  end
                 end
               end
 
@@ -786,37 +799,11 @@ module Knockapi
                 class Type < Knockapi::Enum
                   abstract!
 
+                  Value = type_template(:out) { {fixed: Symbol} }
+
                   BUTTON_SET = :button_set
-
-                  class << self
-                    sig { override.returns(T::Array[Symbol]) }
-                    def values
-                    end
-                  end
                 end
               end
-
-              class << self
-                sig do
-                  override
-                    .returns(
-                      [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
-                    )
-                end
-                def variants
-                end
-              end
-            end
-          end
-
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent]
-                )
-            end
-            def variants
             end
           end
         end

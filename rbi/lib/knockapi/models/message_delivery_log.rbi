@@ -192,29 +192,21 @@ module Knockapi
         class Body < Knockapi::Union
           abstract!
 
-          UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
+          Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
 
-          class << self
-            sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
-            def variants
-            end
-          end
+          UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
         end
 
         class Method < Knockapi::Enum
           abstract!
+
+          Value = type_template(:out) { {fixed: Symbol} }
 
           GET = :GET
           POST = :POST
           PUT = :PUT
           DELETE = :DELETE
           PATCH = :PATCH
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
@@ -280,13 +272,9 @@ module Knockapi
         class Body < Knockapi::Union
           abstract!
 
-          UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
+          Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
 
-          class << self
-            sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
-            def variants
-            end
-          end
+          UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
         end
       end
     end

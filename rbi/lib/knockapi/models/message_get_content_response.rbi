@@ -108,6 +108,18 @@ module Knockapi
       class Data < Knockapi::Union
         abstract!
 
+        Variants = type_template(:out) do
+          {
+            fixed: T.any(
+              Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
+            )
+          }
+        end
+
         class MessageEmailContent < Knockapi::BaseModel
           sig { returns(String) }
           def _typename
@@ -509,14 +521,10 @@ module Knockapi
               class Type < Knockapi::Enum
                 abstract!
 
+                Value = type_template(:out) { {fixed: Symbol} }
+
                 TEXT = :text
                 MARKDOWN = :markdown
-
-                class << self
-                  sig { override.returns(T::Array[Symbol]) }
-                  def values
-                  end
-                end
               end
             end
           end
@@ -603,6 +611,15 @@ module Knockapi
           class Block < Knockapi::Union
             abstract!
 
+            Variants = type_template(:out) do
+              {
+                fixed: T.any(
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                )
+              }
+            end
+
             class MessageInAppFeedContentBlock < Knockapi::BaseModel
               sig { returns(String) }
               def content
@@ -655,14 +672,10 @@ module Knockapi
               class Type < Knockapi::Enum
                 abstract!
 
+                Value = type_template(:out) { {fixed: Symbol} }
+
                 MARKDOWN = :markdown
                 TEXT = :text
-
-                class << self
-                  sig { override.returns(T::Array[Symbol]) }
-                  def values
-                  end
-                end
               end
             end
 
@@ -775,37 +788,11 @@ module Knockapi
               class Type < Knockapi::Enum
                 abstract!
 
+                Value = type_template(:out) { {fixed: Symbol} }
+
                 BUTTON_SET = :button_set
-
-                class << self
-                  sig { override.returns(T::Array[Symbol]) }
-                  def values
-                  end
-                end
               end
             end
-
-            class << self
-              sig do
-                override
-                  .returns(
-                    [Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
-                  )
-              end
-              def variants
-              end
-            end
-          end
-        end
-
-        class << self
-          sig do
-            override
-              .returns(
-                [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]
-              )
-          end
-          def variants
           end
         end
       end

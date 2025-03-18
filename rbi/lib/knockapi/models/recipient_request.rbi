@@ -8,14 +8,7 @@ module Knockapi
     class RecipientRequest < Knockapi::Union
       abstract!
 
-      class << self
-        sig do
-          override
-            .returns([String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest])
-        end
-        def variants
-        end
-      end
+      Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)} }
     end
   end
 end

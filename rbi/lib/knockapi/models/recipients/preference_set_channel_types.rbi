@@ -118,11 +118,7 @@ module Knockapi
         class Chat < Knockapi::Union
           abstract!
 
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
-          end
+          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -130,11 +126,7 @@ module Knockapi
         class Email < Knockapi::Union
           abstract!
 
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
-          end
+          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -142,11 +134,7 @@ module Knockapi
         class HTTP < Knockapi::Union
           abstract!
 
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
-          end
+          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -154,11 +142,7 @@ module Knockapi
         class InAppFeed < Knockapi::Union
           abstract!
 
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
-          end
+          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -166,11 +150,7 @@ module Knockapi
         class Push < Knockapi::Union
           abstract!
 
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
-          end
+          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -178,11 +158,7 @@ module Knockapi
         class SMS < Knockapi::Union
           abstract!
 
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
-          end
+          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
       end
     end

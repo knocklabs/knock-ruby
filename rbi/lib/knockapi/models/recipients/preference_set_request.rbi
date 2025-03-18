@@ -167,6 +167,15 @@ module Knockapi
         class Category < Knockapi::Union
           abstract!
 
+          Variants = type_template(:out) do
+            {
+              fixed: T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+              )
+            }
+          end
+
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
@@ -213,17 +222,6 @@ module Knockapi
                 )
             end
             def to_hash
-            end
-          end
-
-          class << self
-            sig do
-              override
-                .returns(
-                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
-                )
-            end
-            def variants
             end
           end
         end
@@ -232,6 +230,15 @@ module Knockapi
         class Workflow < Knockapi::Union
           abstract!
 
+          Variants = type_template(:out) do
+            {
+              fixed: T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+              )
+            }
+          end
+
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
@@ -278,17 +285,6 @@ module Knockapi
                 )
             end
             def to_hash
-            end
-          end
-
-          class << self
-            sig do
-              override
-                .returns(
-                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
-                )
-            end
-            def variants
             end
           end
         end

@@ -85,7 +85,7 @@ module Knockapi
   class Union
     extend Knockapi::Converter
 
-    private def self.known_variants: -> ::Array[[Symbol?, Proc]]
+    private def self.known_variants: -> ::Array[[Symbol?, (^-> Knockapi::Converter::input)]]
 
     def self.derefed_variants: -> ::Array[[Symbol?, top]]
 
@@ -118,7 +118,7 @@ module Knockapi
     ) -> ([true, top, nil] | [false, bool, Integer])
   end
 
-  class ArrayOf
+  class ArrayOf[Elem]
     include Knockapi::Converter
 
     def ===: (top other) -> bool
@@ -133,7 +133,7 @@ module Knockapi
       top value
     ) -> ([true, top, nil] | [false, bool, Integer])
 
-    def item_type: -> Knockapi::Converter::input
+    def item_type: -> Elem
 
     def initialize: (
       ::Hash[Symbol, top]
@@ -143,7 +143,7 @@ module Knockapi
     ) -> void
   end
 
-  class HashOf
+  class HashOf[Elem]
     include Knockapi::Converter
 
     def ===: (top other) -> bool
@@ -158,7 +158,7 @@ module Knockapi
       top value
     ) -> ([true, top, nil] | [false, bool, Integer])
 
-    def item_type: -> Knockapi::Converter::input
+    def item_type: -> Elem
 
     def initialize: (
       ::Hash[Symbol, top]

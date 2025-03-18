@@ -43,6 +43,11 @@ module Knockapi
       response_headers: ::Hash[String, String]
     ) -> Knockapi::BaseClient::request_input
 
+    def self.reap_connection!: (
+      Integer | Knockapi::APIConnectionError status,
+      stream: Enumerable[String]?
+    ) -> void
+
     # @api private
     attr_accessor requester: top
 

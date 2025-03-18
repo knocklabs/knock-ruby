@@ -84,6 +84,15 @@ module Knockapi
         class Connection < Knockapi::Union
           abstract!
 
+          Variants = type_template(:out) do
+            {
+              fixed: T.any(
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+              )
+            }
+          end
+
           class MsTeamsTokenConnection < Knockapi::BaseModel
             # The Microsoft Teams channel ID
             sig { returns(T.nilable(String)) }
@@ -209,17 +218,6 @@ module Knockapi
               sig { override.returns({url: String}) }
               def to_hash
               end
-            end
-          end
-
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
-                )
-            end
-            def variants
             end
           end
         end

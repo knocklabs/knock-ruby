@@ -3,8 +3,6 @@
 module Knockapi
   # @api private
   module Converter
-    abstract!
-
     Input = T.type_alias { T.any(Knockapi::Converter, T::Class[T.anything]) }
 
     # @api private
@@ -78,6 +76,8 @@ module Knockapi
     end
   end
 
+  # @api private
+  #
   # When we don't know what to expect for the value.
   class Unknown
     extend Knockapi::Converter
@@ -115,6 +115,8 @@ module Knockapi
     end
   end
 
+  # @api private
+  #
   # Ruby has no Boolean class; this is something for models to refer to.
   class BooleanModel
     extend Knockapi::Converter
@@ -156,6 +158,8 @@ module Knockapi
     end
   end
 
+  # @api private
+  #
   # A value from among a specified list of options. OpenAPI enum values map to Ruby
   #   values in the SDK as follows:
   #
@@ -171,9 +175,11 @@ module Knockapi
 
     abstract!
 
+    Value = type_template(:out)
+
     class << self
       # All of the valid Symbol values for this enum.
-      sig { overridable.returns(T::Array[T.any(NilClass, T::Boolean, Integer, Float, Symbol)]) }
+      sig { overridable.returns(T::Array[Value]) }
       def values
       end
 
@@ -215,26 +221,29 @@ module Knockapi
     end
   end
 
+  # @api private
   class Union
     extend Knockapi::Converter
 
     abstract!
 
+    Variants = type_template(:out)
+
     class << self
       # @api private
       #
       # All of the specified variant info for this union.
-      sig { returns(T::Array[[T.nilable(Symbol), Proc]]) }
+      sig { returns(T::Array[[T.nilable(Symbol), T.proc.returns(Variants)]]) }
       private def known_variants
       end
 
       # @api private
-      sig { returns(T::Array[[T.nilable(Symbol), T.anything]]) }
+      sig { returns(T::Array[[T.nilable(Symbol), Variants]]) }
       protected def derefed_variants
       end
 
       # All of the specified variants for this union.
-      sig { overridable.returns(T::Array[T.anything]) }
+      sig { overridable.returns(T::Array[Variants]) }
       def variants
       end
 
@@ -246,17 +255,8 @@ module Knockapi
       # @api private
       sig do
         params(
-          key: T.any(
-            Symbol,
-            T::Hash[Symbol, T.anything],
-            T.proc.returns(Knockapi::Converter::Input),
-            Knockapi::Converter::Input
-          ),
-          spec: T.any(
-            T::Hash[Symbol, T.anything],
-            T.proc.returns(Knockapi::Converter::Input),
-            Knockapi::Converter::Input
-          )
+          key: T.any(Symbol, T::Hash[Symbol, T.anything], T.proc.returns(Variants), Variants),
+          spec: T.any(T::Hash[Symbol, T.anything], T.proc.returns(Variants), Variants)
         )
           .void
       end
@@ -264,7 +264,7 @@ module Knockapi
       end
 
       # @api private
-      sig { params(value: T.anything).returns(T.nilable(Knockapi::Converter::Input)) }
+      sig { params(value: T.anything).returns(T.nilable(Variants)) }
       private def resolve_variant(value)
       end
     end
@@ -299,12 +299,16 @@ module Knockapi
     end
   end
 
+  # @api private
+  #
   # Array of items of a given type.
   class ArrayOf
     include Knockapi::Converter
 
     abstract!
     final!
+
+    Elem = type_member(:out)
 
     sig(:final) { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
@@ -342,7 +346,7 @@ module Knockapi
     end
 
     # @api private
-    sig(:final) { returns(Knockapi::Converter::Input) }
+    sig(:final) { returns(Elem) }
     protected def item_type
     end
 
@@ -362,12 +366,16 @@ module Knockapi
     end
   end
 
+  # @api private
+  #
   # Hash of items of a given type.
   class HashOf
     include Knockapi::Converter
 
     abstract!
     final!
+
+    Elem = type_member(:out)
 
     sig(:final) { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
@@ -405,7 +413,7 @@ module Knockapi
     end
 
     # @api private
-    sig(:final) { returns(Knockapi::Converter::Input) }
+    sig(:final) { returns(Elem) }
     protected def item_type
     end
 

@@ -120,20 +120,18 @@ module Knockapi
       class Mode < Knockapi::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         RECIPIENT = :recipient
         OBJECT = :object
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       class Object < Knockapi::Union
         abstract!
+
+        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
@@ -161,12 +159,6 @@ module Knockapi
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash
-          end
-        end
-
-        class << self
-          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]) }
-          def variants
           end
         end
       end
@@ -176,6 +168,8 @@ module Knockapi
       class Recipient < Knockapi::Union
         abstract!
 
+        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)} }
+
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -202,12 +196,6 @@ module Knockapi
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash
-          end
-        end
-
-        class << self
-          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]) }
-          def variants
           end
         end
       end

@@ -73,6 +73,15 @@ module Knockapi
         class Connection < Knockapi::Union
           abstract!
 
+          Variants = type_template(:out) do
+            {
+              fixed: T.any(
+                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+              )
+            }
+          end
+
           class DiscordChannelConnection < Knockapi::BaseModel
             # The Discord channel ID
             sig { returns(String) }
@@ -153,17 +162,6 @@ module Knockapi
               sig { override.returns({url: String}) }
               def to_hash
               end
-            end
-          end
-
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
-                )
-            end
-            def variants
             end
           end
         end

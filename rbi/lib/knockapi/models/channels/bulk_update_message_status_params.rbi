@@ -142,6 +142,8 @@ module Knockapi
         class Action < Knockapi::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           SEEN = :seen
           UNSEEN = :unseen
           READ = :read
@@ -152,30 +154,22 @@ module Knockapi
           ARCHIVE = :archive
           UNARCHIVE = :unarchive
           DELETE = :delete
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         class Archived < Knockapi::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           EXCLUDE = :exclude
           INCLUDE = :include
           ONLY = :only
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         class DeliveryStatus < Knockapi::Enum
           abstract!
+
+          Value = type_template(:out) { {fixed: Symbol} }
 
           QUEUED = :queued
           SENT = :sent
@@ -184,16 +178,12 @@ module Knockapi
           UNDELIVERED = :undelivered
           NOT_SENT = :not_sent
           BOUNCED = :bounced
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         class EngagementStatus < Knockapi::Enum
           abstract!
+
+          Value = type_template(:out) { {fixed: Symbol} }
 
           SEEN = :seen
           UNSEEN = :unseen
@@ -203,12 +193,6 @@ module Knockapi
           UNARCHIVED = :unarchived
           LINK_CLICKED = :link_clicked
           INTERACTED = :interacted
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
     end

@@ -41,6 +41,8 @@ module Knockapi
       class Operator < Knockapi::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         EQUAL_TO = :equal_to
         NOT_EQUAL_TO = :not_equal_to
         GREATER_THAN = :greater_than
@@ -58,12 +60,6 @@ module Knockapi
         IS_TIMESTAMP_BEFORE = :is_timestamp_before
         IS_TIMESTAMP_BETWEEN = :is_timestamp_between
         IS_AUDIENCE_MEMBER = :is_audience_member
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

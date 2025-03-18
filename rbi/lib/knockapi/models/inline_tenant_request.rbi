@@ -6,11 +6,7 @@ module Knockapi
     class InlineTenantRequest < Knockapi::Union
       abstract!
 
-      class << self
-        sig { override.returns([String, Knockapi::Models::TenantRequest]) }
-        def variants
-        end
-      end
+      Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::TenantRequest)} }
     end
   end
 end

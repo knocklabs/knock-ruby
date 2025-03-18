@@ -291,6 +291,8 @@ module Knockapi
       class Actor < Knockapi::Union
         abstract!
 
+        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Actor::ObjectReference)} }
+
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -317,12 +319,6 @@ module Knockapi
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash
-          end
-        end
-
-        class << self
-          sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
-          def variants
           end
         end
       end
@@ -330,23 +326,21 @@ module Knockapi
       class EngagementStatus < Knockapi::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         SEEN = :seen
         READ = :read
         INTERACTED = :interacted
         LINK_CLICKED = :link_clicked
         ARCHIVED = :archived
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       class Recipient < Knockapi::Union
         abstract!
+
+        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
@@ -374,12 +368,6 @@ module Knockapi
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash
-          end
-        end
-
-        class << self
-          sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
-          def variants
           end
         end
       end
@@ -439,6 +427,8 @@ module Knockapi
       class Status < Knockapi::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         QUEUED = :queued
         SENT = :sent
         DELIVERED = :delivered
@@ -446,12 +436,6 @@ module Knockapi
         UNDELIVERED = :undelivered
         NOT_SENT = :not_sent
         BOUNCED = :bounced
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

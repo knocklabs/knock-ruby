@@ -3,6 +3,5 @@
 module Knockapi
   # @api private
   module Extern
-    abstract!
   end
 end

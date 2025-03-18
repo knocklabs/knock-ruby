@@ -6,11 +6,7 @@ module Knockapi
     class Recipient < Knockapi::Union
       abstract!
 
-      class << self
-        sig { override.returns([Knockapi::Models::User, Knockapi::Models::Object]) }
-        def variants
-        end
-      end
+      Variants = type_template(:out) { {fixed: T.any(Knockapi::Models::User, Knockapi::Models::Object)} }
     end
   end
 end

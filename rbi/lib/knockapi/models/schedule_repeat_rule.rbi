@@ -95,20 +95,18 @@ module Knockapi
       class Frequency < Knockapi::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         DAILY = :daily
         WEEKLY = :weekly
         MONTHLY = :monthly
         HOURLY = :hourly
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class Day < Knockapi::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         MON = :mon
         TUE = :tue
@@ -117,12 +115,6 @@ module Knockapi
         FRI = :fri
         SAT = :sat
         SUN = :sun
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

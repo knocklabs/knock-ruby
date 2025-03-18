@@ -122,6 +122,8 @@ module Knockapi
       class Recipient < Knockapi::Union
         abstract!
 
+        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)} }
+
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -148,12 +150,6 @@ module Knockapi
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash
-          end
-        end
-
-        class << self
-          sig { override.returns([String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]) }
-          def variants
           end
         end
       end

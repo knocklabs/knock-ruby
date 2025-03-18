@@ -184,16 +184,12 @@ module Knockapi
       class Status < Knockapi::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         QUEUED = :queued
         PROCESSING = :processing
         COMPLETED = :completed
         FAILED = :failed
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class ErrorItem < Knockapi::BaseModel

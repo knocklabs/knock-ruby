@@ -95,6 +95,8 @@ module Knockapi
       class Recipient < Knockapi::Union
         abstract!
 
+        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)} }
+
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -123,16 +125,12 @@ module Knockapi
           def to_hash
           end
         end
-
-        class << self
-          sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]) }
-          def variants
-          end
-        end
       end
 
       class Type < Knockapi::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         MESSAGE_QUEUED = :"message.queued"
         MESSAGE_SENT = :"message.sent"
@@ -147,12 +145,6 @@ module Knockapi
         MESSAGE_UNSEEN = :"message.unseen"
         MESSAGE_ARCHIVED = :"message.archived"
         MESSAGE_UNARCHIVED = :"message.unarchived"
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

@@ -153,32 +153,24 @@ module Knockapi
         class Archived < Knockapi::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           EXCLUDE = :exclude
           INCLUDE = :include
           ONLY = :only
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         # The status of the feed items to return
         class Status < Knockapi::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           UNREAD = :unread
           READ = :read
           UNSEEN = :unseen
           SEEN = :seen
           ALL = :all
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
     end
