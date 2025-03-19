@@ -131,7 +131,8 @@ module Knockapi
       class Object < Knockapi::Union
         abstract!
 
-        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)} }
+        Variants =
+          type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
@@ -168,7 +169,8 @@ module Knockapi
       class Recipient < Knockapi::Union
         abstract!
 
-        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)} }
+        Variants =
+          type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier

@@ -270,14 +270,15 @@ module Knockapi
         class Block < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+                )
+              }
+            end
 
           class MessageInAppFeedContentBlock < Knockapi::BaseModel
             sig { returns(String) }

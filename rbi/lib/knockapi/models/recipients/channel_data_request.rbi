@@ -79,17 +79,18 @@ module Knockapi
         class Data < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                Knockapi::Models::Recipients::PushChannelData,
-                Knockapi::Models::Recipients::OneSignalChannelData,
-                Knockapi::Models::Recipients::SlackChannelData,
-                Knockapi::Models::Recipients::MsTeamsChannelData,
-                Knockapi::Models::Recipients::DiscordChannelData
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  Knockapi::Models::Recipients::PushChannelData,
+                  Knockapi::Models::Recipients::OneSignalChannelData,
+                  Knockapi::Models::Recipients::SlackChannelData,
+                  Knockapi::Models::Recipients::MsTeamsChannelData,
+                  Knockapi::Models::Recipients::DiscordChannelData
+                )
+              }
+            end
         end
       end
     end

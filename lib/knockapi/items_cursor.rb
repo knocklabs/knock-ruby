@@ -17,7 +17,8 @@ module Knockapi
   #
   # @example
   # ```ruby
-  # messages = items_cursor
+  # messages =
+  #   items_cursor
   #   .to_enum
   #   .lazy
   #   .select { _1.object_id.even? }

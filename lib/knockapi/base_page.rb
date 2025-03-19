@@ -17,7 +17,8 @@ module Knockapi
   #
   # @example
   # ```ruby
-  # users = page
+  # users =
+  #   page
   #   .to_enum
   #   .lazy
   #   .select { _1.object_id.even? }

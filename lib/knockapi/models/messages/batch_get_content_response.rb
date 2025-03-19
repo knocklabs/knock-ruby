@@ -452,7 +452,8 @@ module Knockapi
         end
       end
 
-      BatchGetContentResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Messages::BatchGetContentResponseItem }]
+      BatchGetContentResponse =
+        Knockapi::ArrayOf[-> { Knockapi::Models::Messages::BatchGetContentResponseItem }]
     end
   end
 end

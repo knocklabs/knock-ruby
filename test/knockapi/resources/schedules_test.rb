@@ -8,11 +8,12 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.schedules.create(
-      recipients: ["user_123"],
-      repeats: [{__typename: "ScheduleRepeat", frequency: :daily}],
-      workflow: "comment-created"
-    )
+    response =
+      @knock.schedules.create(
+        recipients: ["user_123"],
+        repeats: [{__typename: "ScheduleRepeat", frequency: :daily}],
+        workflow: "comment-created"
+      )
 
     assert_pattern do
       response => ^(Knockapi::ArrayOf[Knockapi::Models::Schedule])

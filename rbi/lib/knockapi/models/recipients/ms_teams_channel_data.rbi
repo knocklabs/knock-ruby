@@ -84,14 +84,15 @@ module Knockapi
         class Connection < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+                )
+              }
+            end
 
           class MsTeamsTokenConnection < Knockapi::BaseModel
             # The Microsoft Teams channel ID

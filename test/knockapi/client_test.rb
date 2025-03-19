@@ -63,11 +63,8 @@ class KnockapiTest < Minitest::Test
   end
 
   def test_client_given_request_default_retry_attempts
-    knock = Knockapi::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 3
-    )
+    knock =
+      Knockapi::Client.new(base_url: "http://localhost:4010", bearer_token: "My Bearer Token", max_retries: 3)
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
@@ -91,11 +88,8 @@ class KnockapiTest < Minitest::Test
   end
 
   def test_client_given_request_given_retry_attempts
-    knock = Knockapi::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 3
-    )
+    knock =
+      Knockapi::Client.new(base_url: "http://localhost:4010", bearer_token: "My Bearer Token", max_retries: 3)
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
@@ -107,11 +101,8 @@ class KnockapiTest < Minitest::Test
   end
 
   def test_client_retry_after_seconds
-    knock = Knockapi::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 1
-    )
+    knock =
+      Knockapi::Client.new(base_url: "http://localhost:4010", bearer_token: "My Bearer Token", max_retries: 1)
     requester = MockRequester.new(500, {"retry-after" => "1.3"}, {})
     knock.requester = requester
 
@@ -124,11 +115,8 @@ class KnockapiTest < Minitest::Test
   end
 
   def test_client_retry_after_date
-    knock = Knockapi::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 1
-    )
+    knock =
+      Knockapi::Client.new(base_url: "http://localhost:4010", bearer_token: "My Bearer Token", max_retries: 1)
     requester = MockRequester.new(500, {"retry-after" => (Time.now + 10).httpdate}, {})
     knock.requester = requester
 
@@ -143,11 +131,8 @@ class KnockapiTest < Minitest::Test
   end
 
   def test_client_retry_after_ms
-    knock = Knockapi::Client.new(
-      base_url: "http://localhost:4010",
-      bearer_token: "My Bearer Token",
-      max_retries: 1
-    )
+    knock =
+      Knockapi::Client.new(base_url: "http://localhost:4010", bearer_token: "My Bearer Token", max_retries: 1)
     requester = MockRequester.new(500, {"retry-after-ms" => "1300"}, {})
     knock.requester = requester
 

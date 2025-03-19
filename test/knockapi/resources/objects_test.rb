@@ -93,11 +93,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.objects.get_channel_data(
-      "collection",
-      "object_id",
-      "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-    )
+    response =
+      @knock.objects.get_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
       response => Knockapi::Models::Recipients::RecipientsChannelData
@@ -266,12 +263,13 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.objects.set_channel_data(
-      "collection",
-      "object_id",
-      "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      data: {tokens: ["push_token_1"]}
-    )
+    response =
+      @knock.objects.set_channel_data(
+        "collection",
+        "object_id",
+        "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        data: {tokens: ["push_token_1"]}
+      )
 
     assert_pattern do
       response => Knockapi::Models::Recipients::RecipientsChannelData
@@ -313,11 +311,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.objects.unset_channel_data(
-      "collection",
-      "object_id",
-      "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-    )
+    response =
+      @knock.objects.unset_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
       response => String

@@ -291,7 +291,8 @@ module Knockapi
       class Actor < Knockapi::Union
         abstract!
 
-        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Actor::ObjectReference)} }
+        Variants =
+          type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Actor::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
@@ -340,7 +341,8 @@ module Knockapi
       class Recipient < Knockapi::Union
         abstract!
 
-        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference)} }
+        Variants =
+          type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier

@@ -17,7 +17,8 @@ module Knockapi
   #
   # @example
   # ```ruby
-  # slacks = slack_channels_cursor
+  # slacks =
+  #   slack_channels_cursor
   #   .to_enum
   #   .lazy
   #   .select { _1.object_id.even? }

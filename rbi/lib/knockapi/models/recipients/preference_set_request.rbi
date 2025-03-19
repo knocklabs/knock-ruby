@@ -167,14 +167,15 @@ module Knockapi
         class Category < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  T::Boolean,
+                  Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+                )
+              }
+            end
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences
@@ -230,14 +231,15 @@ module Knockapi
         class Workflow < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  T::Boolean,
+                  Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+                )
+              }
+            end
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences

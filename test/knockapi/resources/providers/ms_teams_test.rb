@@ -8,10 +8,8 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.providers.ms_teams.check_auth(
-      "channel_id",
-      ms_teams_tenant_object: "ms_teams_tenant_object"
-    )
+    response =
+      @knock.providers.ms_teams.check_auth("channel_id", ms_teams_tenant_object: "ms_teams_tenant_object")
 
     assert_pattern do
       response => Knockapi::Models::Providers::MsTeamCheckAuthResponse
@@ -29,11 +27,12 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.providers.ms_teams.list_channels(
-      "channel_id",
-      ms_teams_tenant_object: "ms_teams_tenant_object",
-      team_id: "team_id"
-    )
+    response =
+      @knock.providers.ms_teams.list_channels(
+        "channel_id",
+        ms_teams_tenant_object: "ms_teams_tenant_object",
+        team_id: "team_id"
+      )
 
     assert_pattern do
       response => Knockapi::Models::Providers::MsTeamListChannelsResponse
@@ -51,10 +50,8 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.providers.ms_teams.list_teams(
-      "channel_id",
-      ms_teams_tenant_object: "ms_teams_tenant_object"
-    )
+    response =
+      @knock.providers.ms_teams.list_teams("channel_id", ms_teams_tenant_object: "ms_teams_tenant_object")
 
     assert_pattern do
       response => Knockapi::Models::Providers::MsTeamListTeamsResponse
@@ -73,10 +70,8 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.providers.ms_teams.revoke_access(
-      "channel_id",
-      ms_teams_tenant_object: "ms_teams_tenant_object"
-    )
+    response =
+      @knock.providers.ms_teams.revoke_access("channel_id", ms_teams_tenant_object: "ms_teams_tenant_object")
 
     assert_pattern do
       response => String

@@ -118,7 +118,8 @@ module Knockapi
         class Chat < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+          Variants =
+            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -126,7 +127,8 @@ module Knockapi
         class Email < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+          Variants =
+            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -134,7 +136,8 @@ module Knockapi
         class HTTP < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+          Variants =
+            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -142,7 +145,8 @@ module Knockapi
         class InAppFeed < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+          Variants =
+            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -150,7 +154,8 @@ module Knockapi
         class Push < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+          Variants =
+            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -158,7 +163,8 @@ module Knockapi
         class SMS < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+          Variants =
+            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
         end
       end
     end

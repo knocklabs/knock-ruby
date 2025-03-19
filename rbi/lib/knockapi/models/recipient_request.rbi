@@ -8,7 +8,8 @@ module Knockapi
     class RecipientRequest < Knockapi::Union
       abstract!
 
-      Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)} }
+      Variants =
+        type_template(:out) { {fixed: T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)} }
     end
   end
 end

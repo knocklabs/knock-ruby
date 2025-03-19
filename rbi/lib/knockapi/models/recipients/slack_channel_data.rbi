@@ -87,14 +87,15 @@ module Knockapi
         class Connection < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+                )
+              }
+            end
 
           class SlackTokenConnection < Knockapi::BaseModel
             sig { returns(T.nilable(String)) }

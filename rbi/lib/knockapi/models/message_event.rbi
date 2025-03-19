@@ -95,7 +95,8 @@ module Knockapi
       class Recipient < Knockapi::Union
         abstract!
 
-        Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)} }
+        Variants =
+          type_template(:out) { {fixed: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier

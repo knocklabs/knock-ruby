@@ -108,17 +108,18 @@ module Knockapi
       class Data < Knockapi::Union
         abstract!
 
-        Variants = type_template(:out) do
-          {
-            fixed: T.any(
-              Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
-            )
-          }
-        end
+        Variants =
+          type_template(:out) do
+            {
+              fixed: T.any(
+                Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
+                Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
+                Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
+                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
+                Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
+              )
+            }
+          end
 
         class MessageEmailContent < Knockapi::BaseModel
           sig { returns(String) }
@@ -611,14 +612,15 @@ module Knockapi
           class Block < Knockapi::Union
             abstract!
 
-            Variants = type_template(:out) do
-              {
-                fixed: T.any(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                )
-              }
-            end
+            Variants =
+              type_template(:out) do
+                {
+                  fixed: T.any(
+                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                  )
+                }
+              end
 
             class MessageInAppFeedContentBlock < Knockapi::BaseModel
               sig { returns(String) }

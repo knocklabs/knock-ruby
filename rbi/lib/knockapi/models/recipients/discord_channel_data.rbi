@@ -73,14 +73,15 @@ module Knockapi
         class Connection < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+                )
+              }
+            end
 
           class DiscordChannelConnection < Knockapi::BaseModel
             # The Discord channel ID

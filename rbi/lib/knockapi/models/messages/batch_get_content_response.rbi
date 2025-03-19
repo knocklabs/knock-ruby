@@ -109,17 +109,18 @@ module Knockapi
         class Data < Knockapi::Union
           abstract!
 
-          Variants = type_template(:out) do
-            {
-              fixed: T.any(
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
-              )
-            }
-          end
+          Variants =
+            type_template(:out) do
+              {
+                fixed: T.any(
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
+                )
+              }
+            end
 
           class MessageEmailContent < Knockapi::BaseModel
             sig { returns(String) }
@@ -622,14 +623,15 @@ module Knockapi
             class Block < Knockapi::Union
               abstract!
 
-              Variants = type_template(:out) do
-                {
-                  fixed: T.any(
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                  )
-                }
-              end
+              Variants =
+                type_template(:out) do
+                  {
+                    fixed: T.any(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                    )
+                  }
+                end
 
               class MessageInAppFeedContentBlock < Knockapi::BaseModel
                 sig { returns(String) }
@@ -809,7 +811,8 @@ module Knockapi
         end
       end
 
-      BatchGetContentResponse = T.type_alias { T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem] }
+      BatchGetContentResponse =
+        T.type_alias { T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem] }
     end
   end
 end
