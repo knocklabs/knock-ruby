@@ -22,6 +22,10 @@ module Knockapi
     def page_info=(_)
     end
 
+    sig { returns(String) }
+    def inspect
+    end
+
     class PageInfo < Knockapi::BaseModel
       sig { returns(T.nilable(String)) }
       def after

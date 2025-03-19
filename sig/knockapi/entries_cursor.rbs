@@ -6,6 +6,8 @@ module Knockapi
 
     attr_accessor page_info: PageInfo
 
+    def inspect: -> String
+
     type page_info = { after: String }
     class PageInfo < Knockapi::BaseModel
       attr_reader after: String?

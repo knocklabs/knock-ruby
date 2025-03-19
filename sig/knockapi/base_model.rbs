@@ -121,6 +121,13 @@ module Knockapi
   class ArrayOf[Elem]
     include Knockapi::Converter
 
+    def self.[]: (
+      ::Hash[Symbol, top]
+      | ^-> Knockapi::Converter::input
+      | Knockapi::Converter::input type_info,
+      ?::Hash[Symbol, top] spec
+    ) -> instance
+
     def ===: (top other) -> bool
 
     def ==: (top other) -> bool
@@ -145,6 +152,13 @@ module Knockapi
 
   class HashOf[Elem]
     include Knockapi::Converter
+
+    def self.[]: (
+      ::Hash[Symbol, top]
+      | ^-> Knockapi::Converter::input
+      | Knockapi::Converter::input type_info,
+      ?::Hash[Symbol, top] spec
+    ) -> instance
 
     def ===: (top other) -> bool
 

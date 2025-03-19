@@ -5,5 +5,7 @@ module Knockapi
     attr_accessor next_cursor: String
 
     attr_accessor slack_channels: ::Array[Elem]?
+
+    def inspect: -> String
   end
 end

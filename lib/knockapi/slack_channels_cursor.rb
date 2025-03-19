@@ -91,7 +91,9 @@ module Knockapi
 
     # @return [String]
     def inspect
+      # rubocop:disable Layout/LineLength
       "#<#{self.class}:0x#{object_id.to_s(16)} next_cursor=#{next_cursor.inspect} slack_channels=#{slack_channels.inspect}>"
+      # rubocop:enable Layout/LineLength
     end
   end
 end

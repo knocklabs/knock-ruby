@@ -21,5 +21,9 @@ module Knockapi
     sig { params(_: T.nilable(T::Array[Elem])).returns(T.nilable(T::Array[Elem])) }
     def slack_channels=(_)
     end
+
+    sig { returns(String) }
+    def inspect
+    end
   end
 end
