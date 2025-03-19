@@ -176,6 +176,8 @@ module Knockapi
     def self.known_fields: -> ::Hash[Symbol, (Knockapi::BaseModel::known_field
     & { type_fn: (^-> Knockapi::Converter::input) })]
 
+    def self.reverse_map: -> ::Hash[Symbol, Symbol]
+
     def self.fields: -> ::Hash[Symbol, (Knockapi::BaseModel::known_field
     & { type: Knockapi::Converter::input })]
 
