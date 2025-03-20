@@ -5,12 +5,7 @@ module Knockapi
     class WorkflowTriggerResponse < Knockapi::BaseModel
       attr_accessor workflow_run_id: String
 
-      def initialize:
-        (workflow_run_id: String) -> void
-        | (
-          ?Knockapi::Models::workflow_trigger_response
-          | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (workflow_run_id: String) -> void
 
       def to_hash: -> Knockapi::Models::workflow_trigger_response
     end

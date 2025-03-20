@@ -43,22 +43,20 @@ module Knockapi
 
       attr_accessor tenant: String?
 
-      def initialize:
-        (
-          id: String,
-          inserted_at: Time,
-          recipient: Knockapi::Models::recipient,
-          repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
-          updated_at: Time,
-          workflow: String,
-          ?_typename: String,
-          ?actor: Knockapi::Models::recipient?,
-          ?data: ::Hash[Symbol, top]?,
-          ?last_occurrence_at: Time?,
-          ?next_occurrence_at: Time?,
-          ?tenant: String?
-        ) -> void
-        | (?Knockapi::Models::schedule | Knockapi::BaseModel data) -> void
+      def initialize: (
+        id: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient,
+        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        updated_at: Time,
+        workflow: String,
+        ?_typename: String,
+        ?actor: Knockapi::Models::recipient?,
+        ?data: ::Hash[Symbol, top]?,
+        ?last_occurrence_at: Time?,
+        ?next_occurrence_at: Time?,
+        ?tenant: String?
+      ) -> void
 
       def to_hash: -> Knockapi::Models::schedule
     end

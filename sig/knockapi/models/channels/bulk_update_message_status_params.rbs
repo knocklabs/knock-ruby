@@ -66,24 +66,19 @@ module Knockapi
 
         def workflows=: (::Array[String]) -> ::Array[String]
 
-        def initialize:
-          (
-            ?archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
-            ?delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
-            ?engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
-            ?has_tenant: bool,
-            ?newer_than: Time,
-            ?older_than: Time,
-            ?recipient_ids: ::Array[String],
-            ?tenants: ::Array[String],
-            ?trigger_data: String,
-            ?workflows: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> void
-          | (
-            ?Knockapi::Models::Channels::bulk_update_message_status_params
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          ?archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
+          ?delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
+          ?engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
+          ?has_tenant: bool,
+          ?newer_than: Time,
+          ?older_than: Time,
+          ?recipient_ids: ::Array[String],
+          ?tenants: ::Array[String],
+          ?trigger_data: String,
+          ?workflows: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Channels::bulk_update_message_status_params
 

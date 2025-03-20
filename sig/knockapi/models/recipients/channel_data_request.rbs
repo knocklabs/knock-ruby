@@ -7,12 +7,9 @@ module Knockapi
       class ChannelDataRequest < Knockapi::BaseModel
         attr_accessor data: Knockapi::Models::Recipients::ChannelDataRequest::data
 
-        def initialize:
-          (data: Knockapi::Models::Recipients::ChannelDataRequest::data) -> void
-          | (
-            ?Knockapi::Models::Recipients::channel_data_request
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          data: Knockapi::Models::Recipients::ChannelDataRequest::data
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::channel_data_request
 

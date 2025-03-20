@@ -9,14 +9,9 @@ module Knockapi
       class SlackCheckAuthResponse < Knockapi::BaseModel
         attr_accessor connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection
 
-        def initialize:
-          (
-            connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection
-          ) -> void
-          | (
-            ?Knockapi::Models::Providers::slack_check_auth_response
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::slack_check_auth_response
 
@@ -27,12 +22,7 @@ module Knockapi
 
           attr_accessor reason: String?
 
-          def initialize:
-            (ok: bool, ?reason: String?) -> void
-            | (
-              ?Knockapi::Models::Providers::SlackCheckAuthResponse::connection
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (ok: bool, ?reason: String?) -> void
 
           def to_hash: -> Knockapi::Models::Providers::SlackCheckAuthResponse::connection
         end

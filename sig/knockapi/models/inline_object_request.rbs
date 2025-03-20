@@ -20,17 +20,13 @@ module Knockapi
 
       attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
 
-      def initialize:
-        (
-          id: String,
-          collection: String,
-          ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-          ?created_at: Time?,
-          ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
-        ) -> void
-        | (
-          ?Knockapi::Models::inline_object_request | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        collection: String,
+        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?created_at: Time?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+      ) -> void
 
       def to_hash: -> Knockapi::Models::inline_object_request
     end

@@ -24,19 +24,14 @@ module Knockapi
 
         attr_accessor properties: ::Hash[Symbol, top]?
 
-        def initialize:
-          (
-            _typename: String,
-            inserted_at: Time,
-            object: Knockapi::Models::Object,
-            recipient: Knockapi::Models::recipient,
-            updated_at: Time,
-            ?properties: ::Hash[Symbol, top]?
-          ) -> void
-          | (
-            ?Knockapi::Models::Recipients::subscription
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          _typename: String,
+          inserted_at: Time,
+          object: Knockapi::Models::Object,
+          recipient: Knockapi::Models::recipient,
+          updated_at: Time,
+          ?properties: ::Hash[Symbol, top]?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::subscription
       end

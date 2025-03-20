@@ -60,31 +60,26 @@ module Knockapi
 
         attr_accessor seen_at: String?
 
-        def initialize:
-          (
-            id: String,
-            _typename: String,
-            activities: ::Array[Knockapi::Models::Activity],
-            actors: ::Array[Knockapi::Models::recipient],
-            blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block],
-            data: ::Hash[Symbol, top]?,
-            inserted_at: String,
-            source: Knockapi::Models::Users::FeedListItemsResponse::Source,
-            tenant: String?,
-            total_activities: Integer,
-            total_actors: Integer,
-            updated_at: String,
-            ?archived_at: String?,
-            ?clicked_at: String?,
-            ?interacted_at: String?,
-            ?link_clicked_at: String?,
-            ?read_at: String?,
-            ?seen_at: String?
-          ) -> void
-          | (
-            ?Knockapi::Models::Users::feed_list_items_response
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          _typename: String,
+          activities: ::Array[Knockapi::Models::Activity],
+          actors: ::Array[Knockapi::Models::recipient],
+          blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block],
+          data: ::Hash[Symbol, top]?,
+          inserted_at: String,
+          source: Knockapi::Models::Users::FeedListItemsResponse::Source,
+          tenant: String?,
+          total_activities: Integer,
+          total_actors: Integer,
+          updated_at: String,
+          ?archived_at: String?,
+          ?clicked_at: String?,
+          ?interacted_at: String?,
+          ?link_clicked_at: String?,
+          ?read_at: String?,
+          ?seen_at: String?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Users::feed_list_items_response
 
@@ -110,17 +105,12 @@ module Knockapi
 
             attr_accessor type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
 
-            def initialize:
-              (
-                content: String,
-                name: String,
-                rendered: String,
-                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
-              ) -> void
-              | (
-                ?Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_content_block
-                | Knockapi::BaseModel data
-              ) -> void
+            def initialize: (
+              content: String,
+              name: String,
+              rendered: String,
+              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
+            ) -> void
 
             def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_content_block
 
@@ -148,16 +138,11 @@ module Knockapi
 
             attr_accessor type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
 
-            def initialize:
-              (
-                buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
-                name: String,
-                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
-              ) -> void
-              | (
-                ?Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_button_set_block
-                | Knockapi::BaseModel data
-              ) -> void
+            def initialize: (
+              buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
+              name: String,
+              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
+            ) -> void
 
             def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_button_set_block
 
@@ -170,12 +155,11 @@ module Knockapi
 
               attr_accessor name: String
 
-              def initialize:
-                (action: String, label: String, name: String) -> void
-                | (
-                  ?Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::button
-                  | Knockapi::BaseModel data
-                ) -> void
+              def initialize: (
+                action: String,
+                label: String,
+                name: String
+              ) -> void
 
               def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::button
             end
@@ -209,17 +193,12 @@ module Knockapi
 
           attr_accessor version_id: String
 
-          def initialize:
-            (
-              _typename: String,
-              categories: ::Array[String],
-              key: String,
-              version_id: String
-            ) -> void
-            | (
-              ?Knockapi::Models::Users::FeedListItemsResponse::source
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            _typename: String,
+            categories: ::Array[String],
+            key: String,
+            version_id: String
+          ) -> void
 
           def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::source
         end

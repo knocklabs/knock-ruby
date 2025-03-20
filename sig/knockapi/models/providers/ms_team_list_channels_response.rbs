@@ -9,14 +9,9 @@ module Knockapi
       class MsTeamListChannelsResponse < Knockapi::BaseModel
         attr_accessor ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
 
-        def initialize:
-          (
-            ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
-          ) -> void
-          | (
-            ?Knockapi::Models::Providers::ms_team_list_channels_response
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::ms_team_list_channels_response
 
@@ -49,19 +44,14 @@ module Knockapi
 
           def membership_type=: (String) -> String
 
-          def initialize:
-            (
-              id: String,
-              display_name: String,
-              ?created_date_time: String,
-              ?description: String?,
-              ?is_archived: bool,
-              ?membership_type: String
-            ) -> void
-            | (
-              ?Knockapi::Models::Providers::MsTeamListChannelsResponse::ms_teams_channel
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            id: String,
+            display_name: String,
+            ?created_date_time: String,
+            ?description: String?,
+            ?is_archived: bool,
+            ?membership_type: String
+          ) -> void
 
           def to_hash: -> Knockapi::Models::Providers::MsTeamListChannelsResponse::ms_teams_channel
         end

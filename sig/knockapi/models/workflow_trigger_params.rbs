@@ -28,18 +28,14 @@ module Knockapi
 
       attr_accessor tenant: Knockapi::Models::inline_tenant_request?
 
-      def initialize:
-        (
-          ?actor: Knockapi::Models::recipient_request?,
-          ?cancellation_key: String?,
-          ?data: ::Hash[Symbol, top]?,
-          ?recipients: ::Array[Knockapi::Models::recipient_request],
-          ?tenant: Knockapi::Models::inline_tenant_request?,
-          ?request_options: Knockapi::request_opts
-        ) -> void
-        | (
-          ?Knockapi::Models::workflow_trigger_params | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        ?actor: Knockapi::Models::recipient_request?,
+        ?cancellation_key: String?,
+        ?data: ::Hash[Symbol, top]?,
+        ?recipients: ::Array[Knockapi::Models::recipient_request],
+        ?tenant: Knockapi::Models::inline_tenant_request?,
+        ?request_options: Knockapi::request_opts
+      ) -> void
 
       def to_hash: -> Knockapi::Models::workflow_trigger_params
     end

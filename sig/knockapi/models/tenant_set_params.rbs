@@ -22,16 +22,12 @@ module Knockapi
         Knockapi::Models::TenantSetParams::Settings
       ) -> Knockapi::Models::TenantSetParams::Settings
 
-      def initialize:
-        (
-          ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-          ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
-          ?settings: Knockapi::Models::TenantSetParams::Settings,
-          ?request_options: Knockapi::request_opts
-        ) -> void
-        | (
-          ?Knockapi::Models::tenant_set_params | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        ?settings: Knockapi::Models::TenantSetParams::Settings,
+        ?request_options: Knockapi::request_opts
+      ) -> void
 
       def to_hash: -> Knockapi::Models::tenant_set_params
 
@@ -50,15 +46,10 @@ module Knockapi
 
         attr_accessor preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
 
-        def initialize:
-          (
-            ?branding: Knockapi::Models::TenantSetParams::Settings::Branding,
-            ?preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
-          ) -> void
-          | (
-            ?Knockapi::Models::TenantSetParams::settings
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          ?branding: Knockapi::Models::TenantSetParams::Settings::Branding,
+          ?preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::TenantSetParams::settings
 
@@ -79,17 +70,12 @@ module Knockapi
 
           attr_accessor primary_color_contrast: String?
 
-          def initialize:
-            (
-              ?icon_url: String?,
-              ?logo_url: String?,
-              ?primary_color: String?,
-              ?primary_color_contrast: String?
-            ) -> void
-            | (
-              ?Knockapi::Models::TenantSetParams::Settings::branding
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            ?icon_url: String?,
+            ?logo_url: String?,
+            ?primary_color: String?,
+            ?primary_color_contrast: String?
+          ) -> void
 
           def to_hash: -> Knockapi::Models::TenantSetParams::Settings::branding
         end

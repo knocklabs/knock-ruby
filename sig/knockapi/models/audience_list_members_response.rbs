@@ -11,15 +11,10 @@ module Knockapi
 
       attr_accessor page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
 
-      def initialize:
-        (
-          entries: ::Array[Knockapi::Models::AudienceMember],
-          page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
-        ) -> void
-        | (
-          ?Knockapi::Models::audience_list_members_response
-          | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        entries: ::Array[Knockapi::Models::AudienceMember],
+        page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+      ) -> void
 
       def to_hash: -> Knockapi::Models::audience_list_members_response
 
@@ -40,17 +35,12 @@ module Knockapi
 
         attr_accessor before: String?
 
-        def initialize:
-          (
-            _typename: String,
-            page_size: Integer,
-            ?after: String?,
-            ?before: String?
-          ) -> void
-          | (
-            ?Knockapi::Models::AudienceListMembersResponse::page_info
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          _typename: String,
+          page_size: Integer,
+          ?after: String?,
+          ?before: String?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::AudienceListMembersResponse::page_info
       end

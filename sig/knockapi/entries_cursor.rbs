@@ -14,9 +14,7 @@ module Knockapi
 
       def after=: (String) -> String
 
-      def initialize:
-        (?after: String) -> void
-        | (?page_info | Knockapi::BaseModel data) -> void
+      def initialize: (?after: String) -> void
 
       def to_hash: -> page_info
     end

@@ -12,15 +12,10 @@ module Knockapi
 
         attr_accessor skip_token: String?
 
-        def initialize:
-          (
-            ms_teams_teams: ::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam],
-            skip_token: String?
-          ) -> void
-          | (
-            ?Knockapi::Models::Providers::ms_team_list_teams_response
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          ms_teams_teams: ::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam],
+          skip_token: String?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::ms_team_list_teams_response
 
@@ -34,12 +29,11 @@ module Knockapi
 
           attr_accessor description: String?
 
-          def initialize:
-            (id: String, display_name: String, ?description: String?) -> void
-            | (
-              ?Knockapi::Models::Providers::MsTeamListTeamsResponse::ms_teams_team
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            id: String,
+            display_name: String,
+            ?description: String?
+          ) -> void
 
           def to_hash: -> Knockapi::Models::Providers::MsTeamListTeamsResponse::ms_teams_team
         end

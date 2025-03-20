@@ -10,15 +10,10 @@ module Knockapi
 
         attr_accessor tenant_ids: ::Array[String]
 
-        def initialize:
-          (
-            tenant_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> void
-          | (
-            ?Knockapi::Models::Tenants::bulk_delete_params
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          tenant_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Tenants::bulk_delete_params
       end

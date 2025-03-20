@@ -3,166 +3,93 @@ module Knockapi
     class Messages
       attr_reader batch: Knockapi::Resources::Messages::Batch
 
-      def list:
-        (
-          ?Knockapi::Models::MessageListParams | ::Hash[Symbol, top] params
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
-        | (
-          ?after: String,
-          ?before: String,
-          ?channel_id: String,
-          ?engagement_status: ::Array[Knockapi::Models::MessageListParams::engagement_status],
-          ?message_ids: ::Array[String],
-          ?page_size: Integer,
-          ?source: String,
-          ?status: ::Array[Knockapi::Models::MessageListParams::status],
-          ?tenant: String,
-          ?trigger_data: String,
-          ?workflow_categories: ::Array[String],
-          ?workflow_recipient_run_id: String,
-          ?workflow_run_id: String,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
+      def list: (
+        ?after: String,
+        ?before: String,
+        ?channel_id: String,
+        ?engagement_status: ::Array[Knockapi::Models::MessageListParams::engagement_status],
+        ?message_ids: ::Array[String],
+        ?page_size: Integer,
+        ?source: String,
+        ?status: ::Array[Knockapi::Models::MessageListParams::status],
+        ?tenant: String,
+        ?trigger_data: String,
+        ?workflow_categories: ::Array[String],
+        ?workflow_recipient_run_id: String,
+        ?workflow_run_id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
 
-      def archive:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageArchiveParams | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def archive: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
-      def get:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageGetParams | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def get: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
-      def get_content:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageGetContentParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::MessageGetContentResponse
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::MessageGetContentResponse
+      def get_content: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::MessageGetContentResponse
 
-      def list_activities:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageListActivitiesParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::ItemsCursor[Knockapi::Models::Activity]
-        | (
-          String message_id,
-          ?after: String,
-          ?before: String,
-          ?page_size: Integer,
-          ?trigger_data: String,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::ItemsCursor[Knockapi::Models::Activity]
+      def list_activities: (
+        String message_id,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?trigger_data: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::ItemsCursor[Knockapi::Models::Activity]
 
-      def list_delivery_logs:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageListDeliveryLogsParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::MessageDeliveryLog]
-        | (
-          String message_id,
-          ?after: String,
-          ?before: String,
-          ?page_size: Integer,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::MessageDeliveryLog]
+      def list_delivery_logs: (
+        String message_id,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::EntriesCursor[Knockapi::Models::MessageDeliveryLog]
 
-      def list_events:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageListEventsParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::MessageEvent]
-        | (
-          String message_id,
-          ?after: String,
-          ?before: String,
-          ?page_size: Integer,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::MessageEvent]
+      def list_events: (
+        String message_id,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::EntriesCursor[Knockapi::Models::MessageEvent]
 
-      def mark_as_interacted:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageMarkAsInteractedParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?metadata: ::Hash[Symbol, top],
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def mark_as_interacted: (
+        String message_id,
+        ?metadata: ::Hash[Symbol, top],
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
-      def mark_as_read:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageMarkAsReadParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def mark_as_read: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
-      def mark_as_seen:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageMarkAsSeenParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def mark_as_seen: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
-      def mark_as_unread:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageMarkAsUnreadParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def mark_as_unread: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
-      def mark_as_unseen:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageMarkAsUnseenParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def mark_as_unseen: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
-      def unarchive:
-        (
-          String message_id,
-          ?Knockapi::Models::MessageUnarchiveParams | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Message
-        | (
-          String message_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Message
+      def unarchive: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
 
       def initialize: (client: Knockapi::Client) -> void
     end

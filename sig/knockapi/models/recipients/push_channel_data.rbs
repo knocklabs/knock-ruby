@@ -6,12 +6,7 @@ module Knockapi
       class PushChannelData < Knockapi::BaseModel
         attr_accessor tokens: ::Array[String]
 
-        def initialize:
-          (tokens: ::Array[String]) -> void
-          | (
-            ?Knockapi::Models::Recipients::push_channel_data
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (tokens: ::Array[String]) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::push_channel_data
       end

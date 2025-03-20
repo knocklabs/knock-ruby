@@ -38,17 +38,15 @@ module Knockapi
 
       def updated_at=: (Time) -> Time
 
-      def initialize:
-        (
-          ?id: String,
-          ?_typename: String,
-          ?actor: Knockapi::Models::recipient?,
-          ?data: ::Hash[Symbol, top]?,
-          ?inserted_at: Time,
-          ?recipient: Knockapi::Models::recipient,
-          ?updated_at: Time
-        ) -> void
-        | (?Knockapi::Models::activity | Knockapi::BaseModel data) -> void
+      def initialize: (
+        ?id: String,
+        ?_typename: String,
+        ?actor: Knockapi::Models::recipient?,
+        ?data: ::Hash[Symbol, top]?,
+        ?inserted_at: Time,
+        ?recipient: Knockapi::Models::recipient,
+        ?updated_at: Time
+      ) -> void
 
       def to_hash: -> Knockapi::Models::activity
     end

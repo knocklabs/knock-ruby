@@ -17,17 +17,12 @@ module Knockapi
 
       attr_accessor message_id: String
 
-      def initialize:
-        (
-          _typename: String,
-          data: Knockapi::Models::MessageGetContentResponse::data,
-          inserted_at: Time,
-          message_id: String
-        ) -> void
-        | (
-          ?Knockapi::Models::message_get_content_response
-          | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        _typename: String,
+        data: Knockapi::Models::MessageGetContentResponse::data,
+        inserted_at: Time,
+        message_id: String
+      ) -> void
 
       def to_hash: -> Knockapi::Models::message_get_content_response
 
@@ -71,22 +66,17 @@ module Knockapi
 
           attr_accessor reply_to: String?
 
-          def initialize:
-            (
-              _typename: String,
-              from: String,
-              html_body: String,
-              subject_line: String,
-              text_body: String,
-              to: String,
-              ?bcc: String?,
-              ?cc: String?,
-              ?reply_to: String?
-            ) -> void
-            | (
-              ?Knockapi::Models::MessageGetContentResponse::Data::message_email_content
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            _typename: String,
+            from: String,
+            html_body: String,
+            subject_line: String,
+            text_body: String,
+            to: String,
+            ?bcc: String?,
+            ?cc: String?,
+            ?reply_to: String?
+          ) -> void
 
           def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::message_email_content
         end
@@ -101,12 +91,7 @@ module Knockapi
 
           attr_accessor to: String
 
-          def initialize:
-            (_typename: String, body: String, to: String) -> void
-            | (
-              ?Knockapi::Models::MessageGetContentResponse::Data::message_sms_content
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (_typename: String, body: String, to: String) -> void
 
           def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::message_sms_content
         end
@@ -131,18 +116,13 @@ module Knockapi
 
           attr_accessor data: ::Hash[Symbol, top]?
 
-          def initialize:
-            (
-              token: String,
-              _typename: String,
-              body: String,
-              title: String,
-              ?data: ::Hash[Symbol, top]?
-            ) -> void
-            | (
-              ?Knockapi::Models::MessageGetContentResponse::Data::message_push_content
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            token: String,
+            _typename: String,
+            body: String,
+            title: String,
+            ?data: ::Hash[Symbol, top]?
+          ) -> void
 
           def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::message_push_content
         end
@@ -164,17 +144,12 @@ module Knockapi
 
           attr_accessor metadata: ::Hash[Symbol, top]?
 
-          def initialize:
-            (
-              _typename: String,
-              connection: ::Hash[Symbol, top],
-              template: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
-              ?metadata: ::Hash[Symbol, top]?
-            ) -> void
-            | (
-              ?Knockapi::Models::MessageGetContentResponse::Data::message_chat_content
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            _typename: String,
+            connection: ::Hash[Symbol, top],
+            template: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+            ?metadata: ::Hash[Symbol, top]?
+          ) -> void
 
           def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::message_chat_content
 
@@ -192,16 +167,11 @@ module Knockapi
 
             attr_accessor summary: String?
 
-            def initialize:
-              (
-                ?blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block]?,
-                ?json_content: ::Hash[Symbol, top]?,
-                ?summary: String?
-              ) -> void
-              | (
-                ?Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::template
-                | Knockapi::BaseModel data
-              ) -> void
+            def initialize: (
+              ?blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block]?,
+              ?json_content: ::Hash[Symbol, top]?,
+              ?summary: String?
+            ) -> void
 
             def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::template
 
@@ -219,16 +189,11 @@ module Knockapi
 
               attr_accessor type: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::type_
 
-              def initialize:
-                (
-                  content: String,
-                  name: String,
-                  type: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::type_
-                ) -> void
-                | (
-                  ?Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::block
-                  | Knockapi::BaseModel data
-                ) -> void
+              def initialize: (
+                content: String,
+                name: String,
+                type: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::type_
+              ) -> void
 
               def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::block
 
@@ -255,15 +220,10 @@ module Knockapi
 
           attr_accessor blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::block]
 
-          def initialize:
-            (
-              _typename: String,
-              blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::block]
-            ) -> void
-            | (
-              ?Knockapi::Models::MessageGetContentResponse::Data::message_in_app_feed_content
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            _typename: String,
+            blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::block]
+          ) -> void
 
           def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::message_in_app_feed_content
 
@@ -289,17 +249,12 @@ module Knockapi
 
               attr_accessor type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_
 
-              def initialize:
-                (
-                  content: String,
-                  name: String,
-                  rendered: String,
-                  type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_
-                ) -> void
-                | (
-                  ?Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::message_in_app_feed_content_block
-                  | Knockapi::BaseModel data
-                ) -> void
+              def initialize: (
+                content: String,
+                name: String,
+                rendered: String,
+                type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_
+              ) -> void
 
               def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::message_in_app_feed_content_block
 
@@ -327,16 +282,11 @@ module Knockapi
 
               attr_accessor type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_
 
-              def initialize:
-                (
-                  buttons: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button],
-                  name: String,
-                  type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_
-                ) -> void
-                | (
-                  ?Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::message_in_app_feed_button_set_block
-                  | Knockapi::BaseModel data
-                ) -> void
+              def initialize: (
+                buttons: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button],
+                name: String,
+                type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_
+              ) -> void
 
               def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::message_in_app_feed_button_set_block
 
@@ -349,12 +299,11 @@ module Knockapi
 
                 attr_accessor name: String
 
-                def initialize:
-                  (action: String, label: String, name: String) -> void
-                  | (
-                    ?Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::button
-                    | Knockapi::BaseModel data
-                  ) -> void
+                def initialize: (
+                  action: String,
+                  label: String,
+                  name: String
+                ) -> void
 
                 def to_hash: -> Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::button
               end

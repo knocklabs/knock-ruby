@@ -32,19 +32,17 @@ module Knockapi
 
       attr_accessor timezone: String?
 
-      def initialize:
-        (
-          id: String,
-          _typename: String,
-          updated_at: Time,
-          ?avatar: String?,
-          ?created_at: Time?,
-          ?email: String?,
-          ?name: String?,
-          ?phone_number: String?,
-          ?timezone: String?
-        ) -> void
-        | (?Knockapi::Models::user | Knockapi::BaseModel data) -> void
+      def initialize: (
+        id: String,
+        _typename: String,
+        updated_at: Time,
+        ?avatar: String?,
+        ?created_at: Time?,
+        ?email: String?,
+        ?name: String?,
+        ?phone_number: String?,
+        ?timezone: String?
+      ) -> void
 
       def to_hash: -> Knockapi::Models::user
     end

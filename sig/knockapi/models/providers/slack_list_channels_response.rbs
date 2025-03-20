@@ -21,18 +21,13 @@ module Knockapi
 
         attr_accessor name: String
 
-        def initialize:
-          (
-            id: String,
-            context_team_id: String,
-            is_im: bool,
-            is_private: bool,
-            name: String
-          ) -> void
-          | (
-            ?Knockapi::Models::Providers::slack_list_channels_response
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          context_team_id: String,
+          is_im: bool,
+          is_private: bool,
+          name: String
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::slack_list_channels_response
       end

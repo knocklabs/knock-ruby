@@ -2,41 +2,27 @@ module Knockapi
   module Resources
     class Users
       class Feeds
-        def get_settings:
-          (
-            String user_id,
-            String channel_id,
-            ?Knockapi::Models::Users::FeedGetSettingsParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Users::FeedGetSettingsResponse
-          | (
-            String user_id,
-            String channel_id,
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Users::FeedGetSettingsResponse
+        def get_settings: (
+          String user_id,
+          String channel_id,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Users::FeedGetSettingsResponse
 
-        def list_items:
-          (
-            String user_id,
-            String channel_id,
-            ?Knockapi::Models::Users::FeedListItemsParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse]
-          | (
-            String user_id,
-            String channel_id,
-            ?after: String,
-            ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
-            ?before: String,
-            ?has_tenant: bool,
-            ?page_size: Integer,
-            ?source: String,
-            ?status: Knockapi::Models::Users::FeedListItemsParams::status,
-            ?tenant: String,
-            ?trigger_data: String,
-            ?workflow_categories: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse]
+        def list_items: (
+          String user_id,
+          String channel_id,
+          ?after: String,
+          ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
+          ?before: String,
+          ?has_tenant: bool,
+          ?page_size: Integer,
+          ?source: String,
+          ?status: Knockapi::Models::Users::FeedListItemsParams::status,
+          ?tenant: String,
+          ?trigger_data: String,
+          ?workflow_categories: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse]
 
         def initialize: (client: Knockapi::Client) -> void
       end

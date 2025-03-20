@@ -6,12 +6,7 @@ module Knockapi
       extend Knockapi::RequestParameters::Converter
       include Knockapi::RequestParameters
 
-      def initialize:
-        (?request_options: Knockapi::request_opts) -> void
-        | (
-          ?Knockapi::Models::message_mark_as_unread_params
-          | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (?request_options: Knockapi::request_opts) -> void
 
       def to_hash: -> Knockapi::Models::message_mark_as_unread_params
     end

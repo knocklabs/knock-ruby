@@ -23,17 +23,12 @@ module Knockapi
           Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions
         ) -> Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions
 
-        def initialize:
-          (
-            ms_teams_tenant_object: String,
-            team_id: String,
-            ?query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-            ?request_options: Knockapi::request_opts
-          ) -> void
-          | (
-            ?Knockapi::Models::Providers::ms_team_list_channels_params
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          ms_teams_tenant_object: String,
+          team_id: String,
+          ?query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
+          ?request_options: Knockapi::request_opts
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::ms_team_list_channels_params
 
@@ -48,12 +43,7 @@ module Knockapi
 
           def select_=: (String) -> String
 
-          def initialize:
-            (?filter: String, ?select_: String) -> void
-            | (
-              ?Knockapi::Models::Providers::MsTeamListChannelsParams::query_options
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (?filter: String, ?select_: String) -> void
 
           def to_hash: -> Knockapi::Models::Providers::MsTeamListChannelsParams::query_options
         end

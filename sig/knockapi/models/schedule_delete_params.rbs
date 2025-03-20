@@ -9,14 +9,10 @@ module Knockapi
 
       attr_accessor schedule_ids: ::Array[String]
 
-      def initialize:
-        (
-          schedule_ids: ::Array[String],
-          ?request_options: Knockapi::request_opts
-        ) -> void
-        | (
-          ?Knockapi::Models::schedule_delete_params | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        schedule_ids: ::Array[String],
+        ?request_options: Knockapi::request_opts
+      ) -> void
 
       def to_hash: -> Knockapi::Models::schedule_delete_params
     end

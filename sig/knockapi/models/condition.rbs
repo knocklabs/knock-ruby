@@ -14,13 +14,11 @@ module Knockapi
 
       attr_accessor variable: String
 
-      def initialize:
-        (
-          argument: String?,
-          operator: Knockapi::Models::Condition::operator,
-          variable: String
-        ) -> void
-        | (?Knockapi::Models::condition | Knockapi::BaseModel data) -> void
+      def initialize: (
+        argument: String?,
+        operator: Knockapi::Models::Condition::operator,
+        variable: String
+      ) -> void
 
       def to_hash: -> Knockapi::Models::condition
 

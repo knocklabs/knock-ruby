@@ -2,41 +2,23 @@ module Knockapi
   module Resources
     class Objects
       class Bulk
-        def delete:
-          (
-            String collection,
-            Knockapi::Models::Objects::BulkDeleteParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::BulkOperation
-          | (
-            String collection,
-            object_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::BulkOperation
+        def delete: (
+          String collection,
+          object_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
 
-        def add_subscriptions:
-          (
-            String collection,
-            Knockapi::Models::Objects::BulkAddSubscriptionsParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::BulkOperation
-          | (
-            String collection,
-            subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::BulkOperation
+        def add_subscriptions: (
+          String collection,
+          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
 
-        def set:
-          (
-            String collection,
-            Knockapi::Models::Objects::BulkSetParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::BulkOperation
-          | (
-            String collection,
-            objects: ::Array[Knockapi::Models::InlineObjectRequest],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::BulkOperation
+        def set: (
+          String collection,
+          objects: ::Array[Knockapi::Models::InlineObjectRequest],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void
       end

@@ -20,17 +20,13 @@ module Knockapi
 
       attr_accessor tenant: String?
 
-      def initialize:
-        (
-          _typename: String,
-          added_at: Time,
-          user: Knockapi::Models::User,
-          user_id: String,
-          ?tenant: String?
-        ) -> void
-        | (
-          ?Knockapi::Models::audience_member | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        _typename: String,
+        added_at: Time,
+        user: Knockapi::Models::User,
+        user_id: String,
+        ?tenant: String?
+      ) -> void
 
       def to_hash: -> Knockapi::Models::audience_member
     end

@@ -23,16 +23,14 @@ module Knockapi
 
       attr_accessor data: ::Hash[Symbol, top]?
 
-      def initialize:
-        (
-          id: String,
-          _typename: String,
-          inserted_at: Time,
-          recipient: Knockapi::Models::MessageEvent::recipient,
-          type: Knockapi::Models::MessageEvent::type_,
-          ?data: ::Hash[Symbol, top]?
-        ) -> void
-        | (?Knockapi::Models::message_event | Knockapi::BaseModel data) -> void
+      def initialize: (
+        id: String,
+        _typename: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::MessageEvent::recipient,
+        type: Knockapi::Models::MessageEvent::type_,
+        ?data: ::Hash[Symbol, top]?
+      ) -> void
 
       def to_hash: -> Knockapi::Models::message_event
 
@@ -47,12 +45,7 @@ module Knockapi
 
           attr_accessor collection: String
 
-          def initialize:
-            (id: String, collection: String) -> void
-            | (
-              ?Knockapi::Models::MessageEvent::Recipient::object_reference
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (id: String, collection: String) -> void
 
           def to_hash: -> Knockapi::Models::MessageEvent::Recipient::object_reference
         end

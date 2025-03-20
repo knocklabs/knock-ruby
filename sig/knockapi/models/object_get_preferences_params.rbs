@@ -11,12 +11,10 @@ module Knockapi
 
       def tenant=: (String) -> String
 
-      def initialize:
-        (?tenant: String, ?request_options: Knockapi::request_opts) -> void
-        | (
-          ?Knockapi::Models::object_get_preferences_params
-          | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        ?tenant: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
 
       def to_hash: -> Knockapi::Models::object_get_preferences_params
     end

@@ -12,15 +12,10 @@ module Knockapi
 
         attr_accessor ms_teams_tenant_id: String?
 
-        def initialize:
-          (
-            connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
-            ?ms_teams_tenant_id: String?
-          ) -> void
-          | (
-            ?Knockapi::Models::Recipients::ms_teams_channel_data
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
+          ?ms_teams_tenant_id: String?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::ms_teams_channel_data
 
@@ -46,17 +41,12 @@ module Knockapi
 
             attr_accessor ms_teams_user_id: String?
 
-            def initialize:
-              (
-                ?ms_teams_channel_id: String?,
-                ?ms_teams_team_id: String?,
-                ?ms_teams_tenant_id: String?,
-                ?ms_teams_user_id: String?
-              ) -> void
-              | (
-                ?Knockapi::Models::Recipients::MsTeamsChannelData::Connection::ms_teams_token_connection
-                | Knockapi::BaseModel data
-              ) -> void
+            def initialize: (
+              ?ms_teams_channel_id: String?,
+              ?ms_teams_team_id: String?,
+              ?ms_teams_tenant_id: String?,
+              ?ms_teams_user_id: String?
+            ) -> void
 
             def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::ms_teams_token_connection
           end
@@ -69,14 +59,9 @@ module Knockapi
           class MsTeamsIncomingWebhookConnection < Knockapi::BaseModel
             attr_accessor incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
 
-            def initialize:
-              (
-                incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
-              ) -> void
-              | (
-                ?Knockapi::Models::Recipients::MsTeamsChannelData::Connection::ms_teams_incoming_webhook_connection
-                | Knockapi::BaseModel data
-              ) -> void
+            def initialize: (
+              incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+            ) -> void
 
             def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::ms_teams_incoming_webhook_connection
 
@@ -85,12 +70,7 @@ module Knockapi
             class IncomingWebhook < Knockapi::BaseModel
               attr_accessor url: String
 
-              def initialize:
-                (url: String) -> void
-                | (
-                  ?Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::incoming_webhook
-                  | Knockapi::BaseModel data
-                ) -> void
+              def initialize: (url: String) -> void
 
               def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::incoming_webhook
             end

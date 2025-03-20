@@ -21,18 +21,13 @@ module Knockapi
 
         attr_accessor workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
 
-        def initialize:
-          (
-            id: String,
-            _typename: String,
-            ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
-            ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-            ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
-          ) -> void
-          | (
-            ?Knockapi::Models::Recipients::preference_set
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          _typename: String,
+          ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
+          ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+          ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::preference_set
 
@@ -52,15 +47,10 @@ module Knockapi
 
             attr_accessor conditions: ::Array[Knockapi::Models::Condition]?
 
-            def initialize:
-              (
-                ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-                ?conditions: ::Array[Knockapi::Models::Condition]?
-              ) -> void
-              | (
-                ?Knockapi::Models::Recipients::PreferenceSet::Category::preference_set_workflow_category_setting_object
-                | Knockapi::BaseModel data
-              ) -> void
+            def initialize: (
+              ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+              ?conditions: ::Array[Knockapi::Models::Condition]?
+            ) -> void
 
             def to_hash: -> Knockapi::Models::Recipients::PreferenceSet::Category::preference_set_workflow_category_setting_object
           end
@@ -84,15 +74,10 @@ module Knockapi
 
             attr_accessor conditions: ::Array[Knockapi::Models::Condition]?
 
-            def initialize:
-              (
-                ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-                ?conditions: ::Array[Knockapi::Models::Condition]?
-              ) -> void
-              | (
-                ?Knockapi::Models::Recipients::PreferenceSet::Workflow::preference_set_workflow_category_setting_object
-                | Knockapi::BaseModel data
-              ) -> void
+            def initialize: (
+              ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+              ?conditions: ::Array[Knockapi::Models::Condition]?
+            ) -> void
 
             def to_hash: -> Knockapi::Models::Recipients::PreferenceSet::Workflow::preference_set_workflow_category_setting_object
           end

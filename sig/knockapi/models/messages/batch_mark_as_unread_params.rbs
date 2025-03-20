@@ -10,15 +10,10 @@ module Knockapi
 
         attr_accessor message_ids: ::Array[String]
 
-        def initialize:
-          (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> void
-          | (
-            ?Knockapi::Models::Messages::batch_mark_as_unread_params
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Messages::batch_mark_as_unread_params
       end

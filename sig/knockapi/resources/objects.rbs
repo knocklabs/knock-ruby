@@ -3,228 +3,130 @@ module Knockapi
     class Objects
       attr_reader bulk: Knockapi::Resources::Objects::Bulk
 
-      def list:
-        (
-          String collection,
-          ?Knockapi::Models::ObjectListParams | ::Hash[Symbol, top] params
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Object]
-        | (
-          String collection,
-          ?after: String,
-          ?before: String,
-          ?page_size: Integer,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Object]
+      def list: (
+        String collection,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::EntriesCursor[Knockapi::Models::Object]
 
-      def delete:
-        (
-          String collection,
-          String object_id_,
-          ?Knockapi::Models::ObjectDeleteParams | ::Hash[Symbol, top] params
-        ) -> String
-        | (
-          String collection,
-          String object_id_,
-          ?request_options: Knockapi::request_opts
-        ) -> String
+      def delete: (
+        String collection,
+        String object_id_,
+        ?request_options: Knockapi::request_opts
+      ) -> String
 
-      def add_subscriptions:
-        (
-          String collection,
-          String object_id_,
-          Knockapi::Models::ObjectAddSubscriptionsParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::object_add_subscriptions_response
-        | (
-          String collection,
-          String object_id_,
-          recipients: ::Array[Knockapi::Models::recipient_request],
-          ?properties: ::Hash[Symbol, top]?,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::object_add_subscriptions_response
+      def add_subscriptions: (
+        String collection,
+        String object_id_,
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        ?properties: ::Hash[Symbol, top]?,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::object_add_subscriptions_response
 
-      def delete_subscriptions:
-        (
-          String collection,
-          String object_id_,
-          Knockapi::Models::ObjectDeleteSubscriptionsParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::object_delete_subscriptions_response
-        | (
-          String collection,
-          String object_id_,
-          recipients: ::Array[Knockapi::Models::recipient_request],
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::object_delete_subscriptions_response
+      def delete_subscriptions: (
+        String collection,
+        String object_id_,
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::object_delete_subscriptions_response
 
-      def get:
-        (
-          String collection,
-          String object_id_,
-          ?Knockapi::Models::ObjectGetParams | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Object
-        | (
-          String collection,
-          String object_id_,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Object
+      def get: (
+        String collection,
+        String object_id_,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Object
 
-      def get_channel_data:
-        (
-          String collection,
-          String object_id_,
-          String channel_id,
-          ?Knockapi::Models::ObjectGetChannelDataParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Recipients::RecipientsChannelData
-        | (
-          String collection,
-          String object_id_,
-          String channel_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Recipients::RecipientsChannelData
+      def get_channel_data: (
+        String collection,
+        String object_id_,
+        String channel_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
-      def get_preferences:
-        (
-          String collection,
-          String object_id_,
-          String preference_set_id,
-          ?Knockapi::Models::ObjectGetPreferencesParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Recipients::PreferenceSet
-        | (
-          String collection,
-          String object_id_,
-          String preference_set_id,
-          ?tenant: String,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Recipients::PreferenceSet
+      def get_preferences: (
+        String collection,
+        String object_id_,
+        String preference_set_id,
+        ?tenant: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::PreferenceSet
 
-      def list_messages:
-        (
-          String collection,
-          String object_id_,
-          ?Knockapi::Models::ObjectListMessagesParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
-        | (
-          String collection,
-          String object_id_,
-          ?after: String,
-          ?before: String,
-          ?channel_id: String,
-          ?engagement_status: ::Array[Knockapi::Models::ObjectListMessagesParams::engagement_status],
-          ?message_ids: ::Array[String],
-          ?page_size: Integer,
-          ?source: String,
-          ?status: ::Array[Knockapi::Models::ObjectListMessagesParams::status],
-          ?tenant: String,
-          ?trigger_data: String,
-          ?workflow_categories: ::Array[String],
-          ?workflow_recipient_run_id: String,
-          ?workflow_run_id: String,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
+      def list_messages: (
+        String collection,
+        String object_id_,
+        ?after: String,
+        ?before: String,
+        ?channel_id: String,
+        ?engagement_status: ::Array[Knockapi::Models::ObjectListMessagesParams::engagement_status],
+        ?message_ids: ::Array[String],
+        ?page_size: Integer,
+        ?source: String,
+        ?status: ::Array[Knockapi::Models::ObjectListMessagesParams::status],
+        ?tenant: String,
+        ?trigger_data: String,
+        ?workflow_categories: ::Array[String],
+        ?workflow_recipient_run_id: String,
+        ?workflow_run_id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
 
-      def list_schedules:
-        (
-          String collection,
-          String object_id_,
-          ?Knockapi::Models::ObjectListSchedulesParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
-        | (
-          String collection,
-          String object_id_,
-          ?after: String,
-          ?before: String,
-          ?page_size: Integer,
-          ?tenant: String,
-          ?workflow: String,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
+      def list_schedules: (
+        String collection,
+        String object_id_,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?tenant: String,
+        ?workflow: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
 
-      def list_subscriptions:
-        (
-          String collection,
-          String object_id_,
-          ?Knockapi::Models::ObjectListSubscriptionsParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Recipients::Subscription]
-        | (
-          String collection,
-          String object_id_,
-          ?after: String,
-          ?before: String,
-          ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
-          ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
-          ?page_size: Integer,
-          ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Recipients::Subscription]
+      def list_subscriptions: (
+        String collection,
+        String object_id_,
+        ?after: String,
+        ?before: String,
+        ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+        ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+        ?page_size: Integer,
+        ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::EntriesCursor[Knockapi::Models::Recipients::Subscription]
 
-      def set:
-        (
-          String collection,
-          String object_id_,
-          ?Knockapi::Models::ObjectSetParams | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Object
-        | (
-          String collection,
-          String object_id_,
-          ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-          ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Object
+      def set: (
+        String collection,
+        String object_id_,
+        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Object
 
-      def set_channel_data:
-        (
-          String collection,
-          String object_id_,
-          String channel_id,
-          Knockapi::Models::ObjectSetChannelDataParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Recipients::RecipientsChannelData
-        | (
-          String collection,
-          String object_id_,
-          String channel_id,
-          data: Knockapi::Models::ChannelDataRequest::data,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Recipients::RecipientsChannelData
+      def set_channel_data: (
+        String collection,
+        String object_id_,
+        String channel_id,
+        data: Knockapi::Models::ChannelDataRequest::data,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
-      def set_preferences:
-        (
-          String collection,
-          String object_id_,
-          String preference_set_id,
-          ?Knockapi::Models::ObjectSetPreferencesParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::Recipients::PreferenceSet
-        | (
-          String collection,
-          String object_id_,
-          String preference_set_id,
-          ?categories: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::category]?,
-          ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-          ?workflows: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::workflow]?,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Recipients::PreferenceSet
+      def set_preferences: (
+        String collection,
+        String object_id_,
+        String preference_set_id,
+        ?categories: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::category]?,
+        ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+        ?workflows: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::workflow]?,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::PreferenceSet
 
-      def unset_channel_data:
-        (
-          String collection,
-          String object_id_,
-          String channel_id,
-          ?Knockapi::Models::ObjectUnsetChannelDataParams
-          | ::Hash[Symbol, top] params
-        ) -> String
-        | (
-          String collection,
-          String object_id_,
-          String channel_id,
-          ?request_options: Knockapi::request_opts
-        ) -> String
+      def unset_channel_data: (
+        String collection,
+        String object_id_,
+        String channel_id,
+        ?request_options: Knockapi::request_opts
+      ) -> String
 
       def initialize: (client: Knockapi::Client) -> void
     end

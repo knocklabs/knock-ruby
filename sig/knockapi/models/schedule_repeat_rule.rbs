@@ -28,19 +28,15 @@ module Knockapi
 
       attr_accessor minutes: Integer?
 
-      def initialize:
-        (
-          _typename: String,
-          frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
-          ?day_of_month: Integer?,
-          ?days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
-          ?hours: Integer?,
-          ?interval: Integer,
-          ?minutes: Integer?
-        ) -> void
-        | (
-          ?Knockapi::Models::schedule_repeat_rule | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        _typename: String,
+        frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
+        ?day_of_month: Integer?,
+        ?days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
+        ?hours: Integer?,
+        ?interval: Integer,
+        ?minutes: Integer?
+      ) -> void
 
       def to_hash: -> Knockapi::Models::schedule_repeat_rule
 

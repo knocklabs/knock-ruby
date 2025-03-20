@@ -2,86 +2,46 @@ module Knockapi
   module Resources
     class Messages
       class Batch
-        def archive:
-          (
-            Knockapi::Models::Messages::BatchArchiveParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_archive_response
-          | (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_archive_response
+        def archive: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_archive_response
 
-        def get_content:
-          (
-            Knockapi::Models::Messages::BatchGetContentParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_get_content_response
-          | (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_get_content_response
+        def get_content: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_get_content_response
 
-        def mark_as_interacted:
-          (
-            Knockapi::Models::Messages::BatchMarkAsInteractedParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_mark_as_interacted_response
-          | (
-            message_ids: ::Array[String],
-            ?metadata: ::Hash[Symbol, top]?,
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_mark_as_interacted_response
+        def mark_as_interacted: (
+          message_ids: ::Array[String],
+          ?metadata: ::Hash[Symbol, top]?,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_interacted_response
 
-        def mark_as_read:
-          (
-            Knockapi::Models::Messages::BatchMarkAsReadParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_mark_as_read_response
-          | (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_mark_as_read_response
+        def mark_as_read: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_read_response
 
-        def mark_as_seen:
-          (
-            Knockapi::Models::Messages::BatchMarkAsSeenParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_mark_as_seen_response
-          | (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_mark_as_seen_response
+        def mark_as_seen: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_seen_response
 
-        def mark_as_unread:
-          (
-            Knockapi::Models::Messages::BatchMarkAsUnreadParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_mark_as_unread_response
-          | (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_mark_as_unread_response
+        def mark_as_unread: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_unread_response
 
-        def mark_as_unseen:
-          (
-            Knockapi::Models::Messages::BatchMarkAsUnseenParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_mark_as_unseen_response
-          | (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_mark_as_unseen_response
+        def mark_as_unseen: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_unseen_response
 
-        def unarchive:
-          (
-            Knockapi::Models::Messages::BatchUnarchiveParams
-            | ::Hash[Symbol, top] params
-          ) -> Knockapi::Models::Messages::batch_unarchive_response
-          | (
-            message_ids: ::Array[String],
-            ?request_options: Knockapi::request_opts
-          ) -> Knockapi::Models::Messages::batch_unarchive_response
+        def unarchive: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_unarchive_response
 
         def initialize: (client: Knockapi::Client) -> void
       end

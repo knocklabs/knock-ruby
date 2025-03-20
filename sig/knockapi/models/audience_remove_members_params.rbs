@@ -12,15 +12,10 @@ module Knockapi
 
       attr_accessor members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member]
 
-      def initialize:
-        (
-          members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
-          ?request_options: Knockapi::request_opts
-        ) -> void
-        | (
-          ?Knockapi::Models::audience_remove_members_params
-          | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
+        ?request_options: Knockapi::request_opts
+      ) -> void
 
       def to_hash: -> Knockapi::Models::audience_remove_members_params
 
@@ -32,15 +27,10 @@ module Knockapi
 
         attr_accessor tenant: String?
 
-        def initialize:
-          (
-            user: Knockapi::Models::InlineIdentifyUserRequest,
-            ?tenant: String?
-          ) -> void
-          | (
-            ?Knockapi::Models::AudienceRemoveMembersParams::member
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          user: Knockapi::Models::InlineIdentifyUserRequest,
+          ?tenant: String?
+        ) -> void
 
         def to_hash: -> Knockapi::Models::AudienceRemoveMembersParams::member
       end

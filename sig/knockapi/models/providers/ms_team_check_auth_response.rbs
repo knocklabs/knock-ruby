@@ -9,14 +9,9 @@ module Knockapi
       class MsTeamCheckAuthResponse < Knockapi::BaseModel
         attr_accessor connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
 
-        def initialize:
-          (
-            connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
-          ) -> void
-          | (
-            ?Knockapi::Models::Providers::ms_team_check_auth_response
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::ms_team_check_auth_response
 
@@ -27,12 +22,7 @@ module Knockapi
 
           attr_accessor reason: String?
 
-          def initialize:
-            (ok: bool, ?reason: String?) -> void
-            | (
-              ?Knockapi::Models::Providers::MsTeamCheckAuthResponse::connection
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (ok: bool, ?reason: String?) -> void
 
           def to_hash: -> Knockapi::Models::Providers::MsTeamCheckAuthResponse::connection
         end

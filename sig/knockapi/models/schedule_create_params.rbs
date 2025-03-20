@@ -30,20 +30,16 @@ module Knockapi
 
       attr_accessor tenant: Knockapi::Models::inline_tenant_request?
 
-      def initialize:
-        (
-          recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
-          repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
-          workflow: String,
-          ?data: ::Hash[Symbol, top]?,
-          ?ending_at: Time?,
-          ?scheduled_at: Time?,
-          ?tenant: Knockapi::Models::inline_tenant_request?,
-          ?request_options: Knockapi::request_opts
-        ) -> void
-        | (
-          ?Knockapi::Models::schedule_create_params | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
+        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        workflow: String,
+        ?data: ::Hash[Symbol, top]?,
+        ?ending_at: Time?,
+        ?scheduled_at: Time?,
+        ?tenant: Knockapi::Models::inline_tenant_request?,
+        ?request_options: Knockapi::request_opts
+      ) -> void
 
       def to_hash: -> Knockapi::Models::schedule_create_params
 
@@ -59,12 +55,7 @@ module Knockapi
 
           attr_accessor collection: String
 
-          def initialize:
-            (id: String, collection: String) -> void
-            | (
-              ?Knockapi::Models::ScheduleCreateParams::Recipient::object_reference
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (id: String, collection: String) -> void
 
           def to_hash: -> Knockapi::Models::ScheduleCreateParams::Recipient::object_reference
         end

@@ -7,14 +7,9 @@ module Knockapi
       class FeedGetSettingsResponse < Knockapi::BaseModel
         attr_accessor features: Knockapi::Models::Users::FeedGetSettingsResponse::Features
 
-        def initialize:
-          (
-            features: Knockapi::Models::Users::FeedGetSettingsResponse::Features
-          ) -> void
-          | (
-            ?Knockapi::Models::Users::feed_get_settings_response
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          features: Knockapi::Models::Users::FeedGetSettingsResponse::Features
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Users::feed_get_settings_response
 
@@ -23,12 +18,7 @@ module Knockapi
         class Features < Knockapi::BaseModel
           attr_accessor branding_required: bool
 
-          def initialize:
-            (branding_required: bool) -> void
-            | (
-              ?Knockapi::Models::Users::FeedGetSettingsResponse::features
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (branding_required: bool) -> void
 
           def to_hash: -> Knockapi::Models::Users::FeedGetSettingsResponse::features
         end

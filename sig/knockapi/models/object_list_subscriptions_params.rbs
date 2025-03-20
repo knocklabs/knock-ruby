@@ -45,20 +45,15 @@ module Knockapi
         ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
       ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
 
-      def initialize:
-        (
-          ?after: String,
-          ?before: String,
-          ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
-          ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
-          ?page_size: Integer,
-          ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
-          ?request_options: Knockapi::request_opts
-        ) -> void
-        | (
-          ?Knockapi::Models::object_list_subscriptions_params
-          | Knockapi::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after: String,
+        ?before: String,
+        ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+        ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+        ?page_size: Integer,
+        ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
+        ?request_options: Knockapi::request_opts
+      ) -> void
 
       def to_hash: -> Knockapi::Models::object_list_subscriptions_params
 
@@ -83,12 +78,7 @@ module Knockapi
 
           attr_accessor collection: String
 
-          def initialize:
-            (id: String, collection: String) -> void
-            | (
-              ?Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (id: String, collection: String) -> void
 
           def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
         end
@@ -108,12 +98,7 @@ module Knockapi
 
           attr_accessor collection: String
 
-          def initialize:
-            (id: String, collection: String) -> void
-            | (
-              ?Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (id: String, collection: String) -> void
 
           def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
         end

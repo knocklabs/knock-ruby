@@ -1,40 +1,22 @@
 module Knockapi
   module Resources
     class Audiences
-      def add_members:
-        (
-          String key,
-          Knockapi::Models::AudienceAddMembersParams
-          | ::Hash[Symbol, top] params
-        ) -> String
-        | (
-          String key,
-          members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member],
-          ?request_options: Knockapi::request_opts
-        ) -> String
+      def add_members: (
+        String key,
+        members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member],
+        ?request_options: Knockapi::request_opts
+      ) -> String
 
-      def list_members:
-        (
-          String key,
-          ?Knockapi::Models::AudienceListMembersParams
-          | ::Hash[Symbol, top] params
-        ) -> Knockapi::Models::AudienceListMembersResponse
-        | (
-          String key,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::AudienceListMembersResponse
+      def list_members: (
+        String key,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::AudienceListMembersResponse
 
-      def remove_members:
-        (
-          String key,
-          Knockapi::Models::AudienceRemoveMembersParams
-          | ::Hash[Symbol, top] params
-        ) -> String
-        | (
-          String key,
-          members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
-          ?request_options: Knockapi::request_opts
-        ) -> String
+      def remove_members: (
+        String key,
+        members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
+        ?request_options: Knockapi::request_opts
+      ) -> String
 
       def initialize: (client: Knockapi::Client) -> void
     end

@@ -20,16 +20,11 @@ module Knockapi
           Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions
         ) -> Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions
 
-        def initialize:
-          (
-            ms_teams_tenant_object: String,
-            ?query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
-            ?request_options: Knockapi::request_opts
-          ) -> void
-          | (
-            ?Knockapi::Models::Providers::ms_team_list_teams_params
-            | Knockapi::BaseModel data
-          ) -> void
+        def initialize: (
+          ms_teams_tenant_object: String,
+          ?query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
+          ?request_options: Knockapi::request_opts
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::ms_team_list_teams_params
 
@@ -53,17 +48,12 @@ module Knockapi
 
           def top=: (Integer) -> Integer
 
-          def initialize:
-            (
-              ?filter: String,
-              ?select_: String,
-              ?skiptoken: String,
-              ?top: Integer
-            ) -> void
-            | (
-              ?Knockapi::Models::Providers::MsTeamListTeamsParams::query_options
-              | Knockapi::BaseModel data
-            ) -> void
+          def initialize: (
+            ?filter: String,
+            ?select_: String,
+            ?skiptoken: String,
+            ?top: Integer
+          ) -> void
 
           def to_hash: -> Knockapi::Models::Providers::MsTeamListTeamsParams::query_options
         end
