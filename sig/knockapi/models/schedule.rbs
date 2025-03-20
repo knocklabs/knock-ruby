@@ -51,12 +51,12 @@ module Knockapi
           repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
           updated_at: Time,
           workflow: String,
-          _typename: String,
-          actor: Knockapi::Models::recipient?,
-          data: ::Hash[Symbol, top]?,
-          last_occurrence_at: Time?,
-          next_occurrence_at: Time?,
-          tenant: String?
+          ?_typename: String,
+          ?actor: Knockapi::Models::recipient?,
+          ?data: ::Hash[Symbol, top]?,
+          ?last_occurrence_at: Time?,
+          ?next_occurrence_at: Time?,
+          ?tenant: String?
         ) -> void
         | (?Knockapi::Models::schedule | Knockapi::BaseModel data) -> void
 

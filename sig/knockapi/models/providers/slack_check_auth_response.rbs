@@ -28,7 +28,7 @@ module Knockapi
           attr_accessor reason: String?
 
           def initialize:
-            (ok: bool, reason: String?) -> void
+            (ok: bool, ?reason: String?) -> void
             | (
               ?Knockapi::Models::Providers::SlackCheckAuthResponse::connection
               | Knockapi::BaseModel data

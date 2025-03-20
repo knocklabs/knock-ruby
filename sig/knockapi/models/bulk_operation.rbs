@@ -64,11 +64,11 @@ module Knockapi
           status: Knockapi::Models::BulkOperation::status,
           success_count: Integer,
           updated_at: Time,
-          completed_at: Time?,
-          error_count: Integer,
-          error_items: ::Array[Knockapi::Models::BulkOperation::ErrorItem],
-          failed_at: Time?,
-          started_at: Time?
+          ?completed_at: Time?,
+          ?error_count: Integer,
+          ?error_items: ::Array[Knockapi::Models::BulkOperation::ErrorItem],
+          ?failed_at: Time?,
+          ?started_at: Time?
         ) -> void
         | (?Knockapi::Models::bulk_operation | Knockapi::BaseModel data) -> void
 
@@ -93,7 +93,7 @@ module Knockapi
         attr_accessor collection: String?
 
         def initialize:
-          (id: String, collection: String?) -> void
+          (id: String, ?collection: String?) -> void
           | (
             ?Knockapi::Models::BulkOperation::error_item
             | Knockapi::BaseModel data

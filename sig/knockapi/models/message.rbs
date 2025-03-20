@@ -100,27 +100,27 @@ module Knockapi
 
       def initialize:
         (
-          id: String,
-          _typename: String,
-          actors: ::Array[Knockapi::Models::Message::actor],
-          archived_at: Time?,
-          channel_id: String,
-          clicked_at: Time?,
-          data: ::Hash[Symbol, top]?,
-          engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
-          inserted_at: Time,
-          interacted_at: Time?,
-          link_clicked_at: Time?,
-          metadata: ::Hash[Symbol, top]?,
-          read_at: Time?,
-          recipient: Knockapi::Models::Message::recipient,
-          scheduled_at: Time?,
-          seen_at: Time?,
-          source: Knockapi::Models::Message::Source,
-          status: Knockapi::Models::Message::status,
-          tenant: String?,
-          updated_at: Time,
-          workflow: String?
+          ?id: String,
+          ?_typename: String,
+          ?actors: ::Array[Knockapi::Models::Message::actor],
+          ?archived_at: Time?,
+          ?channel_id: String,
+          ?clicked_at: Time?,
+          ?data: ::Hash[Symbol, top]?,
+          ?engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
+          ?inserted_at: Time,
+          ?interacted_at: Time?,
+          ?link_clicked_at: Time?,
+          ?metadata: ::Hash[Symbol, top]?,
+          ?read_at: Time?,
+          ?recipient: Knockapi::Models::Message::recipient,
+          ?scheduled_at: Time?,
+          ?seen_at: Time?,
+          ?source: Knockapi::Models::Message::Source,
+          ?status: Knockapi::Models::Message::status,
+          ?tenant: String?,
+          ?updated_at: Time,
+          ?workflow: String?
         ) -> void
         | (?Knockapi::Models::message | Knockapi::BaseModel data) -> void
 

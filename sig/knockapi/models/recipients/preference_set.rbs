@@ -25,9 +25,9 @@ module Knockapi
           (
             id: String,
             _typename: String,
-            categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
-            channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-            workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
+            ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
+            ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+            ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
           ) -> void
           | (
             ?Knockapi::Models::Recipients::preference_set
@@ -54,8 +54,8 @@ module Knockapi
 
             def initialize:
               (
-                channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-                conditions: ::Array[Knockapi::Models::Condition]?
+                ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+                ?conditions: ::Array[Knockapi::Models::Condition]?
               ) -> void
               | (
                 ?Knockapi::Models::Recipients::PreferenceSet::Category::preference_set_workflow_category_setting_object
@@ -86,8 +86,8 @@ module Knockapi
 
             def initialize:
               (
-                channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-                conditions: ::Array[Knockapi::Models::Condition]?
+                ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+                ?conditions: ::Array[Knockapi::Models::Condition]?
               ) -> void
               | (
                 ?Knockapi::Models::Recipients::PreferenceSet::Workflow::preference_set_workflow_category_setting_object

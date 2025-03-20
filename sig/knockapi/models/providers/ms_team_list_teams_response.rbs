@@ -35,7 +35,7 @@ module Knockapi
           attr_accessor description: String?
 
           def initialize:
-            (id: String, display_name: String, description: String?) -> void
+            (id: String, display_name: String, ?description: String?) -> void
             | (
               ?Knockapi::Models::Providers::MsTeamListTeamsResponse::ms_teams_team
               | Knockapi::BaseModel data

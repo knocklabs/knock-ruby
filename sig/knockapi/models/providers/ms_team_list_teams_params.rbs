@@ -23,8 +23,8 @@ module Knockapi
         def initialize:
           (
             ms_teams_tenant_object: String,
-            query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
-            request_options: Knockapi::request_opts
+            ?query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
+            ?request_options: Knockapi::request_opts
           ) -> void
           | (
             ?Knockapi::Models::Providers::ms_team_list_teams_params
@@ -55,10 +55,10 @@ module Knockapi
 
           def initialize:
             (
-              filter: String,
-              select_: String,
-              skiptoken: String,
-              top: Integer
+              ?filter: String,
+              ?select_: String,
+              ?skiptoken: String,
+              ?top: Integer
             ) -> void
             | (
               ?Knockapi::Models::Providers::MsTeamListTeamsParams::query_options

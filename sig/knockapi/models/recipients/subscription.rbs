@@ -31,7 +31,7 @@ module Knockapi
             object: Knockapi::Models::Object,
             recipient: Knockapi::Models::recipient,
             updated_at: Time,
-            properties: ::Hash[Symbol, top]?
+            ?properties: ::Hash[Symbol, top]?
           ) -> void
           | (
             ?Knockapi::Models::Recipients::subscription

@@ -15,7 +15,7 @@ module Knockapi
         def initialize:
           (
             connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
-            ms_teams_tenant_id: String?
+            ?ms_teams_tenant_id: String?
           ) -> void
           | (
             ?Knockapi::Models::Recipients::ms_teams_channel_data
@@ -48,10 +48,10 @@ module Knockapi
 
             def initialize:
               (
-                ms_teams_channel_id: String?,
-                ms_teams_team_id: String?,
-                ms_teams_tenant_id: String?,
-                ms_teams_user_id: String?
+                ?ms_teams_channel_id: String?,
+                ?ms_teams_team_id: String?,
+                ?ms_teams_tenant_id: String?,
+                ?ms_teams_user_id: String?
               ) -> void
               | (
                 ?Knockapi::Models::Recipients::MsTeamsChannelData::Connection::ms_teams_token_connection

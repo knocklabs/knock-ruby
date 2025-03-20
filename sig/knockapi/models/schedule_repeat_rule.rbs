@@ -32,11 +32,11 @@ module Knockapi
         (
           _typename: String,
           frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
-          day_of_month: Integer?,
-          days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
-          hours: Integer?,
-          interval: Integer,
-          minutes: Integer?
+          ?day_of_month: Integer?,
+          ?days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
+          ?hours: Integer?,
+          ?interval: Integer,
+          ?minutes: Integer?
         ) -> void
         | (
           ?Knockapi::Models::schedule_repeat_rule | Knockapi::BaseModel data

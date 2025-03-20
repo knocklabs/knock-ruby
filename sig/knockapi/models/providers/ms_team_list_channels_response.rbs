@@ -53,10 +53,10 @@ module Knockapi
             (
               id: String,
               display_name: String,
-              created_date_time: String,
-              description: String?,
-              is_archived: bool,
-              membership_type: String
+              ?created_date_time: String,
+              ?description: String?,
+              ?is_archived: bool,
+              ?membership_type: String
             ) -> void
             | (
               ?Knockapi::Models::Providers::MsTeamListChannelsResponse::ms_teams_channel

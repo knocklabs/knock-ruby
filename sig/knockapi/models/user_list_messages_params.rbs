@@ -80,20 +80,20 @@ module Knockapi
 
       def initialize:
         (
-          after: String,
-          before: String,
-          channel_id: String,
-          engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
-          message_ids: ::Array[String],
-          page_size: Integer,
-          source: String,
-          status: ::Array[Knockapi::Models::UserListMessagesParams::status],
-          tenant: String,
-          trigger_data: String,
-          workflow_categories: ::Array[String],
-          workflow_recipient_run_id: String,
-          workflow_run_id: String,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?channel_id: String,
+          ?engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
+          ?message_ids: ::Array[String],
+          ?page_size: Integer,
+          ?source: String,
+          ?status: ::Array[Knockapi::Models::UserListMessagesParams::status],
+          ?tenant: String,
+          ?trigger_data: String,
+          ?workflow_categories: ::Array[String],
+          ?workflow_recipient_run_id: String,
+          ?workflow_run_id: String,
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::user_list_messages_params

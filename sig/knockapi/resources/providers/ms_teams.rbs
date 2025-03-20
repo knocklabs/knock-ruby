@@ -11,7 +11,7 @@ module Knockapi
           | (
             String channel_id,
             ms_teams_tenant_object: String,
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::Providers::MsTeamCheckAuthResponse
 
         def list_channels:
@@ -24,8 +24,8 @@ module Knockapi
             String channel_id,
             ms_teams_tenant_object: String,
             team_id: String,
-            query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-            request_options: Knockapi::request_opts
+            ?query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::Providers::MsTeamListChannelsResponse
 
         def list_teams:
@@ -37,8 +37,8 @@ module Knockapi
           | (
             String channel_id,
             ms_teams_tenant_object: String,
-            query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
-            request_options: Knockapi::request_opts
+            ?query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::Providers::MsTeamListTeamsResponse
 
         def revoke_access:
@@ -50,7 +50,7 @@ module Knockapi
           | (
             String channel_id,
             ms_teams_tenant_object: String,
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> String
 
         def initialize: (client: Knockapi::Client) -> void

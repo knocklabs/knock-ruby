@@ -44,8 +44,8 @@ module Knockapi
           (
             _typename: String,
             page_size: Integer,
-            after: String?,
-            before: String?
+            ?after: String?,
+            ?before: String?
           ) -> void
           | (
             ?Knockapi::Models::AudienceListMembersResponse::page_info

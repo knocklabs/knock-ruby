@@ -37,12 +37,12 @@ module Knockapi
           id: String,
           _typename: String,
           updated_at: Time,
-          avatar: String?,
-          created_at: Time?,
-          email: String?,
-          name: String?,
-          phone_number: String?,
-          timezone: String?
+          ?avatar: String?,
+          ?created_at: Time?,
+          ?email: String?,
+          ?name: String?,
+          ?phone_number: String?,
+          ?timezone: String?
         ) -> void
         | (?Knockapi::Models::user | Knockapi::BaseModel data) -> void
 

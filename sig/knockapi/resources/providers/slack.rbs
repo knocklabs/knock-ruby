@@ -11,7 +11,7 @@ module Knockapi
           | (
             String channel_id,
             access_token_object: String,
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::Providers::SlackCheckAuthResponse
 
         def list_channels:
@@ -23,8 +23,8 @@ module Knockapi
           | (
             String channel_id,
             access_token_object: String,
-            query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
-            request_options: Knockapi::request_opts
+            ?query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse]
 
         def revoke_access:
@@ -36,7 +36,7 @@ module Knockapi
           | (
             String channel_id,
             access_token_object: String,
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> String
 
         def initialize: (client: Knockapi::Client) -> void

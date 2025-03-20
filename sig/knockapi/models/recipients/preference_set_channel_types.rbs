@@ -50,12 +50,12 @@ module Knockapi
 
         def initialize:
           (
-            chat: Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat,
-            email: Knockapi::Models::Recipients::PreferenceSetChannelTypes::email,
-            http: Knockapi::Models::Recipients::PreferenceSetChannelTypes::http,
-            in_app_feed: Knockapi::Models::Recipients::PreferenceSetChannelTypes::in_app_feed,
-            push: Knockapi::Models::Recipients::PreferenceSetChannelTypes::push,
-            sms: Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms
+            ?chat: Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat,
+            ?email: Knockapi::Models::Recipients::PreferenceSetChannelTypes::email,
+            ?http: Knockapi::Models::Recipients::PreferenceSetChannelTypes::http,
+            ?in_app_feed: Knockapi::Models::Recipients::PreferenceSetChannelTypes::in_app_feed,
+            ?push: Knockapi::Models::Recipients::PreferenceSetChannelTypes::push,
+            ?sms: Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms
           ) -> void
           | (
             ?Knockapi::Models::Recipients::preference_set_channel_types

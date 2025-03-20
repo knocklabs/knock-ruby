@@ -8,7 +8,7 @@ module Knockapi
         ) -> Knockapi::Models::BulkOperation
         | (
           String id,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::BulkOperation
 
       def initialize: (client: Knockapi::Client) -> void

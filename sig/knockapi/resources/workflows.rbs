@@ -9,9 +9,9 @@ module Knockapi
         | (
           String key,
           cancellation_key: String,
-          recipients: ::Array[String]?,
-          tenant: String?,
-          request_options: Knockapi::request_opts
+          ?recipients: ::Array[String]?,
+          ?tenant: String?,
+          ?request_options: Knockapi::request_opts
         ) -> String
 
       def trigger:
@@ -21,12 +21,12 @@ module Knockapi
         ) -> Knockapi::Models::WorkflowTriggerResponse
         | (
           String key,
-          actor: Knockapi::Models::recipient_request?,
-          cancellation_key: String?,
-          data: ::Hash[Symbol, top]?,
-          recipients: ::Array[Knockapi::Models::recipient_request],
-          tenant: Knockapi::Models::inline_tenant_request?,
-          request_options: Knockapi::request_opts
+          ?actor: Knockapi::Models::recipient_request?,
+          ?cancellation_key: String?,
+          ?data: ::Hash[Symbol, top]?,
+          ?recipients: ::Array[Knockapi::Models::recipient_request],
+          ?tenant: Knockapi::Models::inline_tenant_request?,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::WorkflowTriggerResponse
 
       def initialize: (client: Knockapi::Client) -> void

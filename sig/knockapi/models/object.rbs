@@ -26,7 +26,7 @@ module Knockapi
           _typename: String,
           collection: String,
           updated_at: Time,
-          created_at: Time?
+          ?created_at: Time?
         ) -> void
         | (?Knockapi::Models::object | Knockapi::BaseModel data) -> void
 

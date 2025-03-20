@@ -42,12 +42,12 @@ module Knockapi
       def initialize:
         (
           workflow: String,
-          after: String,
-          before: String,
-          page_size: Integer,
-          recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
-          tenant: String,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
+          ?tenant: String,
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::schedule_list_params | Knockapi::BaseModel data

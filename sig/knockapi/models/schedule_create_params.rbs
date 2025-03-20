@@ -35,11 +35,11 @@ module Knockapi
           recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
           repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
           workflow: String,
-          data: ::Hash[Symbol, top]?,
-          ending_at: Time?,
-          scheduled_at: Time?,
-          tenant: Knockapi::Models::inline_tenant_request?,
-          request_options: Knockapi::request_opts
+          ?data: ::Hash[Symbol, top]?,
+          ?ending_at: Time?,
+          ?scheduled_at: Time?,
+          ?tenant: Knockapi::Models::inline_tenant_request?,
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::schedule_create_params | Knockapi::BaseModel data

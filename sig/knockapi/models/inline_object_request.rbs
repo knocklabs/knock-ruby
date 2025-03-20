@@ -24,9 +24,9 @@ module Knockapi
         (
           id: String,
           collection: String,
-          channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-          created_at: Time?,
-          preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+          ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+          ?created_at: Time?,
+          ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
         ) -> void
         | (
           ?Knockapi::Models::inline_object_request | Knockapi::BaseModel data

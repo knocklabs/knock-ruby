@@ -11,7 +11,7 @@ module Knockapi
           | (
             String collection,
             object_ids: ::Array[String],
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::BulkOperation
 
         def add_subscriptions:
@@ -23,7 +23,7 @@ module Knockapi
           | (
             String collection,
             subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::BulkOperation
 
         def set:
@@ -35,7 +35,7 @@ module Knockapi
           | (
             String collection,
             objects: ::Array[Knockapi::Models::InlineObjectRequest],
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void

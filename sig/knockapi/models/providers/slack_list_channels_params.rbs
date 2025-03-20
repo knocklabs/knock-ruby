@@ -23,8 +23,8 @@ module Knockapi
         def initialize:
           (
             access_token_object: String,
-            query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
-            request_options: Knockapi::request_opts
+            ?query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+            ?request_options: Knockapi::request_opts
           ) -> void
           | (
             ?Knockapi::Models::Providers::slack_list_channels_params
@@ -65,11 +65,11 @@ module Knockapi
 
           def initialize:
             (
-              cursor: String,
-              exclude_archived: bool,
-              limit: Integer,
-              team_id: String,
-              types: String
+              ?cursor: String,
+              ?exclude_archived: bool,
+              ?limit: Integer,
+              ?team_id: String,
+              ?types: String
             ) -> void
             | (
               ?Knockapi::Models::Providers::SlackListChannelsParams::query_options

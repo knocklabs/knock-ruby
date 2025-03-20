@@ -80,9 +80,9 @@ module Knockapi
                 subject_line: String,
                 text_body: String,
                 to: String,
-                bcc: String?,
-                cc: String?,
-                reply_to: String?
+                ?bcc: String?,
+                ?cc: String?,
+                ?reply_to: String?
               ) -> void
               | (
                 ?Knockapi::Models::Messages::BatchGetContentResponseItem::Data::message_email_content
@@ -138,7 +138,7 @@ module Knockapi
                 _typename: String,
                 body: String,
                 title: String,
-                data: ::Hash[Symbol, top]?
+                ?data: ::Hash[Symbol, top]?
               ) -> void
               | (
                 ?Knockapi::Models::Messages::BatchGetContentResponseItem::Data::message_push_content
@@ -170,7 +170,7 @@ module Knockapi
                 _typename: String,
                 connection: ::Hash[Symbol, top],
                 template: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
-                metadata: ::Hash[Symbol, top]?
+                ?metadata: ::Hash[Symbol, top]?
               ) -> void
               | (
                 ?Knockapi::Models::Messages::BatchGetContentResponseItem::Data::message_chat_content
@@ -195,9 +195,9 @@ module Knockapi
 
               def initialize:
                 (
-                  blocks: ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block]?,
-                  json_content: ::Hash[Symbol, top]?,
-                  summary: String?
+                  ?blocks: ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block]?,
+                  ?json_content: ::Hash[Symbol, top]?,
+                  ?summary: String?
                 ) -> void
                 | (
                   ?Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::template

@@ -22,10 +22,10 @@ module Knockapi
 
       def initialize:
         (
-          after: String,
-          before: String,
-          page_size: Integer,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::message_list_delivery_logs_params

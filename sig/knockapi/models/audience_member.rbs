@@ -26,7 +26,7 @@ module Knockapi
           added_at: Time,
           user: Knockapi::Models::User,
           user_id: String,
-          tenant: String?
+          ?tenant: String?
         ) -> void
         | (
           ?Knockapi::Models::audience_member | Knockapi::BaseModel data

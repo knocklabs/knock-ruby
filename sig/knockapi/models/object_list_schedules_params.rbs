@@ -36,12 +36,12 @@ module Knockapi
 
       def initialize:
         (
-          after: String,
-          before: String,
-          page_size: Integer,
-          tenant: String,
-          workflow: String,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?tenant: String,
+          ?workflow: String,
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::object_list_schedules_params

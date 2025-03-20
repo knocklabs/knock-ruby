@@ -18,8 +18,8 @@ module Knockapi
       def initialize:
         (
           recipients: ::Array[Knockapi::Models::recipient_request],
-          properties: ::Hash[Symbol, top]?,
-          request_options: Knockapi::request_opts
+          ?properties: ::Hash[Symbol, top]?,
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::object_add_subscriptions_params

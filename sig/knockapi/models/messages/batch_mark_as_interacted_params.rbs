@@ -16,8 +16,8 @@ module Knockapi
         def initialize:
           (
             message_ids: ::Array[String],
-            metadata: ::Hash[Symbol, top]?,
-            request_options: Knockapi::request_opts
+            ?metadata: ::Hash[Symbol, top]?,
+            ?request_options: Knockapi::request_opts
           ) -> void
           | (
             ?Knockapi::Models::Messages::batch_mark_as_interacted_params

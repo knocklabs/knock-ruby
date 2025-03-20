@@ -9,7 +9,7 @@ module Knockapi
           ) -> Knockapi::Models::BulkOperation
           | (
             tenant_ids: ::Array[String],
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::BulkOperation
 
         def set:
@@ -19,7 +19,7 @@ module Knockapi
           ) -> Knockapi::Models::BulkOperation
           | (
             tenants: ::Array[Knockapi::Models::inline_tenant_request],
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> Knockapi::Models::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void

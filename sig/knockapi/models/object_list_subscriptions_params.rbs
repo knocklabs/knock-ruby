@@ -47,13 +47,13 @@ module Knockapi
 
       def initialize:
         (
-          after: String,
-          before: String,
-          mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
-          objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
-          page_size: Integer,
-          recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+          ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+          ?page_size: Integer,
+          ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::object_list_subscriptions_params

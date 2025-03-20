@@ -79,12 +79,12 @@ module Knockapi
 
         def initialize:
           (
-            body: Knockapi::Models::MessageDeliveryLog::Request::body,
-            headers: ::Hash[Symbol, top]?,
-            host: String,
-            method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
-            path: String,
-            query: String?
+            ?body: Knockapi::Models::MessageDeliveryLog::Request::body,
+            ?headers: ::Hash[Symbol, top]?,
+            ?host: String,
+            ?method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
+            ?path: String,
+            ?query: String?
           ) -> void
           | (
             ?Knockapi::Models::MessageDeliveryLog::request
@@ -138,9 +138,9 @@ module Knockapi
 
         def initialize:
           (
-            body: Knockapi::Models::MessageDeliveryLog::Response::body,
-            headers: ::Hash[Symbol, top]?,
-            status: Integer
+            ?body: Knockapi::Models::MessageDeliveryLog::Response::body,
+            ?headers: ::Hash[Symbol, top]?,
+            ?status: Integer
           ) -> void
           | (
             ?Knockapi::Models::MessageDeliveryLog::response

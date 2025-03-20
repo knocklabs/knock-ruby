@@ -12,10 +12,10 @@ module Knockapi
         ) -> Knockapi::Models::User
         | (
           String user_id,
-          channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-          created_at: Time?,
-          preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
-          request_options: Knockapi::request_opts
+          ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+          ?created_at: Time?,
+          ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::User
 
       def list:
@@ -23,10 +23,10 @@ module Knockapi
           ?Knockapi::Models::UserListParams | ::Hash[Symbol, top] params
         ) -> Knockapi::EntriesCursor[Knockapi::Models::User]
         | (
-          after: String,
-          before: String,
-          page_size: Integer,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::EntriesCursor[Knockapi::Models::User]
 
       def delete:
@@ -34,7 +34,7 @@ module Knockapi
           String user_id,
           ?Knockapi::Models::UserDeleteParams | ::Hash[Symbol, top] params
         ) -> String
-        | (String user_id, request_options: Knockapi::request_opts) -> String
+        | (String user_id, ?request_options: Knockapi::request_opts) -> String
 
       def get:
         (
@@ -43,7 +43,7 @@ module Knockapi
         ) -> Knockapi::Models::User
         | (
           String user_id,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::User
 
       def get_channel_data:
@@ -56,7 +56,7 @@ module Knockapi
         | (
           String user_id,
           String channel_id,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
       def get_preferences:
@@ -69,8 +69,8 @@ module Knockapi
         | (
           String user_id,
           String preference_set_id,
-          tenant: String,
-          request_options: Knockapi::request_opts
+          ?tenant: String,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Recipients::PreferenceSet
 
       def list_messages:
@@ -80,20 +80,20 @@ module Knockapi
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
         | (
           String user_id,
-          after: String,
-          before: String,
-          channel_id: String,
-          engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
-          message_ids: ::Array[String],
-          page_size: Integer,
-          source: String,
-          status: ::Array[Knockapi::Models::UserListMessagesParams::status],
-          tenant: String,
-          trigger_data: String,
-          workflow_categories: ::Array[String],
-          workflow_recipient_run_id: String,
-          workflow_run_id: String,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?channel_id: String,
+          ?engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
+          ?message_ids: ::Array[String],
+          ?page_size: Integer,
+          ?source: String,
+          ?status: ::Array[Knockapi::Models::UserListMessagesParams::status],
+          ?tenant: String,
+          ?trigger_data: String,
+          ?workflow_categories: ::Array[String],
+          ?workflow_recipient_run_id: String,
+          ?workflow_run_id: String,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
 
       def list_preferences:
@@ -104,7 +104,7 @@ module Knockapi
         ) -> Knockapi::Models::user_list_preferences_response
         | (
           String user_id,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::user_list_preferences_response
 
       def list_schedules:
@@ -115,12 +115,12 @@ module Knockapi
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
         | (
           String user_id,
-          after: String,
-          before: String,
-          page_size: Integer,
-          tenant: String,
-          workflow: String,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?tenant: String,
+          ?workflow: String,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
 
       def list_subscriptions:
@@ -131,10 +131,10 @@ module Knockapi
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Recipients::Subscription]
         | (
           String user_id,
-          after: String,
-          before: String,
-          page_size: Integer,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Recipients::Subscription]
 
       def merge:
@@ -145,7 +145,7 @@ module Knockapi
         | (
           String user_id,
           from_user_id: String,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::User
 
       def set_channel_data:
@@ -159,7 +159,7 @@ module Knockapi
           String user_id,
           String channel_id,
           data: Knockapi::Models::ChannelDataRequest::data,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
       def set_preferences:
@@ -172,10 +172,10 @@ module Knockapi
         | (
           String user_id,
           String preference_set_id,
-          categories: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::category]?,
-          channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-          workflows: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::workflow]?,
-          request_options: Knockapi::request_opts
+          ?categories: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::category]?,
+          ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+          ?workflows: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::workflow]?,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Recipients::PreferenceSet
 
       def unset_channel_data:
@@ -188,7 +188,7 @@ module Knockapi
         | (
           String user_id,
           String channel_id,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> String
 
       def initialize: (client: Knockapi::Client) -> void

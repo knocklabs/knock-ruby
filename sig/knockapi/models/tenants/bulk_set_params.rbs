@@ -14,7 +14,7 @@ module Knockapi
         def initialize:
           (
             tenants: ::Array[Knockapi::Models::inline_tenant_request],
-            request_options: Knockapi::request_opts
+            ?request_options: Knockapi::request_opts
           ) -> void
           | (
             ?Knockapi::Models::Tenants::bulk_set_params

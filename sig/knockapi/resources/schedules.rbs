@@ -9,11 +9,11 @@ module Knockapi
           recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
           repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
           workflow: String,
-          data: ::Hash[Symbol, top]?,
-          ending_at: Time?,
-          scheduled_at: Time?,
-          tenant: Knockapi::Models::inline_tenant_request?,
-          request_options: Knockapi::request_opts
+          ?data: ::Hash[Symbol, top]?,
+          ?ending_at: Time?,
+          ?scheduled_at: Time?,
+          ?tenant: Knockapi::Models::inline_tenant_request?,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::schedule_create_response
 
       def update:
@@ -22,13 +22,13 @@ module Knockapi
         ) -> Knockapi::Models::schedule_update_response
         | (
           schedule_ids: ::Array[String],
-          actor: Knockapi::Models::recipient_request?,
-          data: ::Hash[Symbol, top]?,
-          ending_at: Time?,
-          repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
-          scheduled_at: Time?,
-          tenant: Knockapi::Models::inline_tenant_request?,
-          request_options: Knockapi::request_opts
+          ?actor: Knockapi::Models::recipient_request?,
+          ?data: ::Hash[Symbol, top]?,
+          ?ending_at: Time?,
+          ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+          ?scheduled_at: Time?,
+          ?tenant: Knockapi::Models::inline_tenant_request?,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::schedule_update_response
 
       def list:
@@ -37,12 +37,12 @@ module Knockapi
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
         | (
           workflow: String,
-          after: String,
-          before: String,
-          page_size: Integer,
-          recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
-          tenant: String,
-          request_options: Knockapi::request_opts
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
+          ?tenant: String,
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
 
       def delete:
@@ -51,7 +51,7 @@ module Knockapi
         ) -> Knockapi::Models::schedule_delete_response
         | (
           schedule_ids: ::Array[String],
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::schedule_delete_response
 
       def initialize: (client: Knockapi::Client) -> void

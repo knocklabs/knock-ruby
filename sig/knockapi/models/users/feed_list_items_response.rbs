@@ -74,12 +74,12 @@ module Knockapi
             total_activities: Integer,
             total_actors: Integer,
             updated_at: String,
-            archived_at: String?,
-            clicked_at: String?,
-            interacted_at: String?,
-            link_clicked_at: String?,
-            read_at: String?,
-            seen_at: String?
+            ?archived_at: String?,
+            ?clicked_at: String?,
+            ?interacted_at: String?,
+            ?link_clicked_at: String?,
+            ?read_at: String?,
+            ?seen_at: String?
           ) -> void
           | (
             ?Knockapi::Models::Users::feed_list_items_response

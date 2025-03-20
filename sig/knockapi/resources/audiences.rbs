@@ -10,7 +10,7 @@ module Knockapi
         | (
           String key,
           members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member],
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> String
 
       def list_members:
@@ -21,7 +21,7 @@ module Knockapi
         ) -> Knockapi::Models::AudienceListMembersResponse
         | (
           String key,
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::AudienceListMembersResponse
 
       def remove_members:
@@ -33,7 +33,7 @@ module Knockapi
         | (
           String key,
           members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
-          request_options: Knockapi::request_opts
+          ?request_options: Knockapi::request_opts
         ) -> String
 
       def initialize: (client: Knockapi::Client) -> void

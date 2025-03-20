@@ -13,8 +13,8 @@ module Knockapi
 
       def initialize:
         (
-          metadata: ::Hash[Symbol, top],
-          request_options: Knockapi::request_opts
+          ?metadata: ::Hash[Symbol, top],
+          ?request_options: Knockapi::request_opts
         ) -> void
         | (
           ?Knockapi::Models::message_mark_as_interacted_params
