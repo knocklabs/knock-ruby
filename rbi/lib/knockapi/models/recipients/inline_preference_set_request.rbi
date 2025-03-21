@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Recipients
       InlinePreferenceSetRequest =
-        T.type_alias { T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest] }
+        T.let(Knockapi::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest], Knockapi::Converter)
     end
   end
 end

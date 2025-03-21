@@ -7,33 +7,33 @@ module Knockapi
       include Knockapi::RequestParameters
 
       # Allows inline setting channel data for a recipient
-      sig { returns(T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest)) }
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       def channel_data
       end
 
       sig do
-        params(_: T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest))
-          .returns(T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest))
+        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
+          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
       end
       def channel_data=(_)
       end
 
       # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       def preferences
       end
 
       sig do
-        params(_: T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest))
-          .returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest))
+        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
+          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
       end
       def preferences=(_)
       end
 
       sig do
         params(
-          channel_data: T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest),
-          preferences: T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest),
+          channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
+          preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
           request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -45,8 +45,8 @@ module Knockapi
         override
           .returns(
             {
-              channel_data: T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest),
-              preferences: T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest),
+              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
+              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
               request_options: Knockapi::RequestOptions
             }
           )

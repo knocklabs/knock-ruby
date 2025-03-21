@@ -15,9 +15,9 @@ module Knockapi
       sig do
         params(
           user_id: String,
-          channel_data: T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest),
+          channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
           created_at: T.nilable(Time),
-          preferences: T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest),
+          preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knockapi::Models::User)
@@ -184,7 +184,7 @@ module Knockapi
           user_id: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knockapi::Models::UserListPreferencesResponse)
+          .returns(T::Array[Knockapi::Models::Recipients::PreferenceSet])
       end
       def list_preferences(
         # User ID

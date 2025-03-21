@@ -10,7 +10,7 @@ module Knockapi
             message_ids: T::Array[String],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchArchiveResponse)
+            .returns(T::Array[Knockapi::Models::Message])
         end
         def archive(
           # The message IDs to update
@@ -25,7 +25,7 @@ module Knockapi
             message_ids: T::Array[String],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchGetContentResponse)
+            .returns(T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem])
         end
         def get_content(
           # The IDs of the messages to fetch contents of
@@ -41,7 +41,7 @@ module Knockapi
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchMarkAsInteractedResponse)
+            .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_interacted(
           # The message IDs to update
@@ -58,7 +58,7 @@ module Knockapi
             message_ids: T::Array[String],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchMarkAsReadResponse)
+            .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_read(
           # The message IDs to update
@@ -73,7 +73,7 @@ module Knockapi
             message_ids: T::Array[String],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchMarkAsSeenResponse)
+            .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_seen(
           # The message IDs to update
@@ -88,7 +88,7 @@ module Knockapi
             message_ids: T::Array[String],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchMarkAsUnreadResponse)
+            .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unread(
           # The message IDs to update
@@ -103,7 +103,7 @@ module Knockapi
             message_ids: T::Array[String],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchMarkAsUnseenResponse)
+            .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unseen(
           # The message IDs to update
@@ -118,7 +118,7 @@ module Knockapi
             message_ids: T::Array[String],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
           )
-            .returns(Knockapi::Models::Messages::BatchUnarchiveResponse)
+            .returns(T::Array[Knockapi::Models::Message])
         end
         def unarchive(
           # The message IDs to update

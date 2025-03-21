@@ -15,7 +15,7 @@ module Knockapi
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knockapi::Models::ScheduleCreateResponse)
+          .returns(T::Array[Knockapi::Models::Schedule])
       end
       def create(
         recipients:,
@@ -44,7 +44,7 @@ module Knockapi
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knockapi::Models::ScheduleUpdateResponse)
+          .returns(T::Array[Knockapi::Models::Schedule])
       end
       def update(
         schedule_ids:,
@@ -98,7 +98,7 @@ module Knockapi
           schedule_ids: T::Array[String],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knockapi::Models::ScheduleDeleteResponse)
+          .returns(T::Array[Knockapi::Models::Schedule])
       end
       def delete(schedule_ids:, request_options: {})
       end

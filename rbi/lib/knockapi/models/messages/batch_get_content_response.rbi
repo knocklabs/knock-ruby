@@ -812,7 +812,7 @@ module Knockapi
       end
 
       BatchGetContentResponse =
-        T.type_alias { T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem] }
+        T.let(Knockapi::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem], Knockapi::Converter)
     end
   end
 end

@@ -2,6 +2,6 @@
 
 module Knockapi
   module Models
-    ScheduleDeleteResponse = T.type_alias { T::Array[Knockapi::Models::Schedule] }
+    ScheduleDeleteResponse = T.let(Knockapi::ArrayOf[Knockapi::Models::Schedule], Knockapi::Converter)
   end
 end

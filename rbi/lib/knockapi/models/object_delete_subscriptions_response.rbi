@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
-    ObjectDeleteSubscriptionsResponse = T.type_alias { T::Array[Knockapi::Models::Recipients::Subscription] }
+    ObjectDeleteSubscriptionsResponse =
+      T.let(Knockapi::ArrayOf[Knockapi::Models::Recipients::Subscription], Knockapi::Converter)
   end
 end

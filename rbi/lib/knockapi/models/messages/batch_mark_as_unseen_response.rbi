@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Messages
-      BatchMarkAsUnseenResponse = T.type_alias { T::Array[Knockapi::Models::Message] }
+      BatchMarkAsUnseenResponse = T.let(Knockapi::ArrayOf[Knockapi::Models::Message], Knockapi::Converter)
     end
   end
 end

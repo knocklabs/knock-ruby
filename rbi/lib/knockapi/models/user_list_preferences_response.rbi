@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
-    UserListPreferencesResponse = T.type_alias { T::Array[Knockapi::Models::Recipients::PreferenceSet] }
+    UserListPreferencesResponse =
+      T.let(Knockapi::ArrayOf[Knockapi::Models::Recipients::PreferenceSet], Knockapi::Converter)
   end
 end

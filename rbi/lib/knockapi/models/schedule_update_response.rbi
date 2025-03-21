@@ -2,6 +2,6 @@
 
 module Knockapi
   module Models
-    ScheduleUpdateResponse = T.type_alias { T::Array[Knockapi::Models::Schedule] }
+    ScheduleUpdateResponse = T.let(Knockapi::ArrayOf[Knockapi::Models::Schedule], Knockapi::Converter)
   end
 end

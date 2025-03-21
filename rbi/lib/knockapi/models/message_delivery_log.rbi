@@ -194,7 +194,7 @@ module Knockapi
 
           Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
 
-          UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
+          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
         end
 
         class Method < Knockapi::Enum
@@ -274,7 +274,7 @@ module Knockapi
 
           Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
 
-          UnionMember1Map = T.type_alias { T::Hash[Symbol, T.anything] }
+          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
         end
       end
     end

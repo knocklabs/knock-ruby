@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Messages
-      BatchArchiveResponse = T.type_alias { T::Array[Knockapi::Models::Message] }
+      BatchArchiveResponse = T.let(Knockapi::ArrayOf[Knockapi::Models::Message], Knockapi::Converter)
     end
   end
 end

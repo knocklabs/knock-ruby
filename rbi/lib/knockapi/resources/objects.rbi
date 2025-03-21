@@ -59,7 +59,7 @@ module Knockapi
           properties: T.nilable(T::Hash[Symbol, T.anything]),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knockapi::Models::ObjectAddSubscriptionsResponse)
+          .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
       def add_subscriptions(
         # Collection name
@@ -82,7 +82,7 @@ module Knockapi
           recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
-          .returns(Knockapi::Models::ObjectDeleteSubscriptionsResponse)
+          .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
       def delete_subscriptions(
         # Collection name
@@ -290,8 +290,8 @@ module Knockapi
         params(
           collection: String,
           object_id_: String,
-          channel_data: T.nilable(Knockapi::Models::Recipients::InlineChannelDataRequest),
-          preferences: T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest),
+          channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
+          preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(Knockapi::Models::Object)
