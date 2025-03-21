@@ -25,11 +25,14 @@ module Knockapi
       end
 
       # Mode of the request
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)) }
       def mode
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
+          .returns(Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
+      end
       def mode=(_)
       end
 
@@ -88,7 +91,7 @@ module Knockapi
         params(
           after: String,
           before: String,
-          mode: Symbol,
+          mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
           objects: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)],
           page_size: Integer,
           recipients: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)],
@@ -105,7 +108,7 @@ module Knockapi
             {
               after: String,
               before: String,
-              mode: Symbol,
+              mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
               objects: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)],
               page_size: Integer,
               recipients: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)],
@@ -117,19 +120,21 @@ module Knockapi
       end
 
       # Mode of the request
-      class Mode < Knockapi::Enum
-        abstract!
+      module Mode
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol) }
 
-        RECIPIENT = :recipient
-        OBJECT = :object
+        RECIPIENT = T.let(:recipient, Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
+        OBJECT = T.let(:object, Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Object < Knockapi::Union
-        abstract!
+      module Object
+        extend Knockapi::Union
 
         Variants =
           type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)} }
@@ -166,8 +171,8 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
-        abstract!
+      module Recipient
+        extend Knockapi::Union
 
         Variants =
           type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)} }

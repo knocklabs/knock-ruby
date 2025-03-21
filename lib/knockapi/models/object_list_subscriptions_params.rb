@@ -82,21 +82,21 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-      # @abstract
-      #
       # Mode of the request
-      class Mode < Knockapi::Enum
+      module Mode
+        extend Knockapi::Enum
+
         RECIPIENT = :recipient
         OBJECT = :object
 
         finalize!
       end
 
-      # @abstract
-      #
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Object < Knockapi::Union
+      module Object
+        extend Knockapi::Union
+
         # A user identifier
         variant String
 
@@ -134,11 +134,11 @@ module Knockapi
         #   end
       end
 
-      # @abstract
-      #
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         # A user identifier
         variant String
 

@@ -42,7 +42,9 @@ module Knockapi
 
       type frequency = :daily | :weekly | :monthly | :hourly
 
-      class Frequency < Knockapi::Enum
+      module Frequency
+        extend Knockapi::Enum
+
         DAILY: :daily
         WEEKLY: :weekly
         MONTHLY: :monthly
@@ -53,7 +55,9 @@ module Knockapi
 
       type day = :mon | :tue | :wed | :thu | :fri | :sat | :sun
 
-      class Day < Knockapi::Enum
+      module Day
+        extend Knockapi::Enum
+
         MON: :mon
         TUE: :tue
         WED: :wed

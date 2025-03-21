@@ -2,12 +2,12 @@
 
 module Knockapi
   module Models
-    # @abstract
-    #
     # Specifies a recipient in a request. This can either be a user identifier
     #   (string), an inline user request (object), or an inline object request, which is
     #   determined by the presence of a `collection` property.
-    class RecipientRequest < Knockapi::Union
+    module RecipientRequest
+      extend Knockapi::Union
+
       # A user identifier
       variant String
 

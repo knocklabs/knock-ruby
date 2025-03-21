@@ -86,7 +86,9 @@ module Knockapi
 
         type body = String | ::Hash[Symbol, top]
 
-        class Body < Knockapi::Union
+        module Body
+          extend Knockapi::Union
+
           type union_member1_map = ::Hash[Symbol, top]
 
           UnionMember1Map: union_member1_map
@@ -96,7 +98,9 @@ module Knockapi
 
         type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
 
-        class Method < Knockapi::Enum
+        module Method
+          extend Knockapi::Enum
+
           GET: :GET
           POST: :POST
           PUT: :PUT
@@ -137,7 +141,9 @@ module Knockapi
 
         type body = String | ::Hash[Symbol, top]
 
-        class Body < Knockapi::Union
+        module Body
+          extend Knockapi::Union
+
           type union_member1_map = ::Hash[Symbol, top]
 
           UnionMember1Map: union_member1_map

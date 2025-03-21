@@ -20,7 +20,9 @@ module Knockapi
           | Knockapi::Models::Recipients::MsTeamsChannelData
           | Knockapi::Models::Recipients::DiscordChannelData
 
-        class Data < Knockapi::Union
+        module Data
+          extend Knockapi::Union
+
           def self.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
         end
       end

@@ -50,11 +50,11 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-      # @abstract
-      #
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         # A user identifier
         variant String
 
@@ -92,8 +92,9 @@ module Knockapi
         #   end
       end
 
-      # @abstract
-      class Type < Knockapi::Enum
+      module Type
+        extend Knockapi::Enum
+
         MESSAGE_QUEUED = :"message.queued"
         MESSAGE_SENT = :"message.sent"
         MESSAGE_DELIVERED = :"message.delivered"

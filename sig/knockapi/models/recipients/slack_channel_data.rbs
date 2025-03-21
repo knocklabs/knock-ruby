@@ -23,7 +23,9 @@ module Knockapi
           Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection
           | Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
 
-        class Connection < Knockapi::Union
+        module Connection
+          extend Knockapi::Union
+
           type slack_token_connection =
             { access_token: String?, channel_id: String?, user_id: String? }
 

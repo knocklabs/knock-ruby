@@ -267,8 +267,8 @@ module Knockapi
         end
 
         # A content (text or markdown) block in a message in an app feed
-        class Block < Knockapi::Union
-          abstract!
+        module Block
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do
@@ -305,32 +305,75 @@ module Knockapi
             def rendered=(_)
             end
 
-            sig { returns(Symbol) }
+            sig do
+              returns(
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+              )
+            end
             def type
             end
 
-            sig { params(_: Symbol).returns(Symbol) }
+            sig do
+              params(
+                _: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+              )
+                .returns(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                )
+            end
             def type=(_)
             end
 
             # A content (text or markdown) block in a message in an app feed
             sig do
-              params(content: String, name: String, rendered: String, type: Symbol).returns(T.attached_class)
+              params(
+                content: String,
+                name: String,
+                rendered: String,
+                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+              )
+                .returns(T.attached_class)
             end
             def self.new(content:, name:, rendered:, type:)
             end
 
-            sig { override.returns({content: String, name: String, rendered: String, type: Symbol}) }
+            sig do
+              override
+                .returns(
+                  {
+                    content: String,
+                    name: String,
+                    rendered: String,
+                    type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                  }
+                )
+            end
             def to_hash
             end
 
-            class Type < Knockapi::Enum
-              abstract!
+            module Type
+              extend Knockapi::Enum
 
-              Value = type_template(:out) { {fixed: Symbol} }
+              TaggedSymbol =
+                T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type) }
+              OrSymbol =
+                T.type_alias do
+                  T.any(
+                    Symbol,
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                  )
+                end
 
-              MARKDOWN = :markdown
-              TEXT = :text
+              MARKDOWN =
+                T.let(
+                  :markdown,
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                )
+              TEXT =
+                T.let(
+                  :text,
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                )
             end
           end
 
@@ -362,11 +405,22 @@ module Knockapi
             def name=(_)
             end
 
-            sig { returns(Symbol) }
+            sig do
+              returns(
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+              )
+            end
             def type
             end
 
-            sig { params(_: Symbol).returns(Symbol) }
+            sig do
+              params(
+                _: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+              )
+                .returns(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                )
+            end
             def type=(_)
             end
 
@@ -375,7 +429,7 @@ module Knockapi
               params(
                 buttons: T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
                 name: String,
-                type: Symbol
+                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
               )
                 .returns(T.attached_class)
             end
@@ -388,7 +442,7 @@ module Knockapi
                   {
                     buttons: T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
                     name: String,
-                    type: Symbol
+                    type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                   }
                 )
             end
@@ -430,12 +484,24 @@ module Knockapi
               end
             end
 
-            class Type < Knockapi::Enum
-              abstract!
+            module Type
+              extend Knockapi::Enum
 
-              Value = type_template(:out) { {fixed: Symbol} }
+              TaggedSymbol =
+                T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type) }
+              OrSymbol =
+                T.type_alias do
+                  T.any(
+                    Symbol,
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                  )
+                end
 
-              BUTTON_SET = :button_set
+              BUTTON_SET =
+                T.let(
+                  :button_set,
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                )
             end
           end
         end

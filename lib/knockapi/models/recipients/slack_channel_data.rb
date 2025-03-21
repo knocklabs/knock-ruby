@@ -26,10 +26,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # A Slack connection, which either includes a channel_id or a user_id
-        class Connection < Knockapi::Union
+        module Connection
+          extend Knockapi::Union
+
           # A Slack connection, which either includes a channel_id or a user_id
           variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection }
 

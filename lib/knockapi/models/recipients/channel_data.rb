@@ -31,10 +31,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # Channel data for push providers
-        class Data < Knockapi::Union
+        module Data
+          extend Knockapi::Union
+
           # Channel data for push providers
           variant -> { Knockapi::Models::Recipients::PushChannelData }
 

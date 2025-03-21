@@ -19,10 +19,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # Discord channel connection
-        class Connection < Knockapi::Union
+        module Connection
+          extend Knockapi::Union
+
           # Discord channel connection
           variant -> { Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection }
 

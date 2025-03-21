@@ -134,11 +134,14 @@ module Knockapi
         def host=(_)
         end
 
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)) }
         def method_
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
+            .returns(Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
+        end
         def method_=(_)
         end
 
@@ -164,7 +167,7 @@ module Knockapi
             body: T.any(String, T::Hash[Symbol, T.anything]),
             headers: T.nilable(T::Hash[Symbol, T.anything]),
             host: String,
-            method_: Symbol,
+            method_: Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol,
             path: String,
             query: T.nilable(String)
           )
@@ -180,7 +183,7 @@ module Knockapi
                 body: T.any(String, T::Hash[Symbol, T.anything]),
                 headers: T.nilable(T::Hash[Symbol, T.anything]),
                 host: String,
-                method_: Symbol,
+                method_: Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol,
                 path: String,
                 query: T.nilable(String)
               }
@@ -189,24 +192,26 @@ module Knockapi
         def to_hash
         end
 
-        class Body < Knockapi::Union
-          abstract!
+        module Body
+          extend Knockapi::Union
 
           Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
 
           UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
         end
 
-        class Method < Knockapi::Enum
-          abstract!
+        module Method
+          extend Knockapi::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol) }
 
-          GET = :GET
-          POST = :POST
-          PUT = :PUT
-          DELETE = :DELETE
-          PATCH = :PATCH
+          GET = T.let(:GET, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
+          POST = T.let(:POST, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
+          PUT = T.let(:PUT, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
+          DELETE = T.let(:DELETE, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
+          PATCH = T.let(:PATCH, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
         end
       end
 
@@ -269,8 +274,8 @@ module Knockapi
         def to_hash
         end
 
-        class Body < Knockapi::Union
-          abstract!
+        module Body
+          extend Knockapi::Union
 
           Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
 

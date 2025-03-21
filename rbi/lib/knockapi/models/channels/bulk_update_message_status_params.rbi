@@ -7,27 +7,36 @@ module Knockapi
         extend Knockapi::RequestParameters::Converter
         include Knockapi::RequestParameters
 
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)) }
         def archived
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)
+            .returns(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)
+        end
         def archived=(_)
         end
 
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)) }
         def delivery_status
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+            .returns(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+        end
         def delivery_status=(_)
         end
 
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)) }
         def engagement_status
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+            .returns(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+        end
         def engagement_status=(_)
         end
 
@@ -89,9 +98,9 @@ module Knockapi
 
         sig do
           params(
-            archived: Symbol,
-            delivery_status: Symbol,
-            engagement_status: Symbol,
+            archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol,
+            delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol,
+            engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol,
             has_tenant: T::Boolean,
             newer_than: Time,
             older_than: Time,
@@ -122,9 +131,9 @@ module Knockapi
           override
             .returns(
               {
-                archived: Symbol,
-                delivery_status: Symbol,
-                engagement_status: Symbol,
+                archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol,
+                delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol,
+                engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol,
                 has_tenant: T::Boolean,
                 newer_than: Time,
                 older_than: Time,
@@ -139,60 +148,95 @@ module Knockapi
         def to_hash
         end
 
-        class Action < Knockapi::Enum
-          abstract!
+        module Action
+          extend Knockapi::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol) }
 
-          SEEN = :seen
-          UNSEEN = :unseen
-          READ = :read
-          UNREAD = :unread
-          ARCHIVED = :archived
-          UNARCHIVED = :unarchived
-          INTERACTED = :interacted
-          ARCHIVE = :archive
-          UNARCHIVE = :unarchive
-          DELETE = :delete
+          SEEN = T.let(:seen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          UNSEEN = T.let(:unseen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          READ = T.let(:read, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          UNREAD = T.let(:unread, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          ARCHIVED = T.let(:archived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          UNARCHIVED =
+            T.let(:unarchived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          INTERACTED =
+            T.let(:interacted, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          ARCHIVE = T.let(:archive, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          UNARCHIVE =
+            T.let(:unarchive, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
+          DELETE = T.let(:delete, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol)
         end
 
-        class Archived < Knockapi::Enum
-          abstract!
+        module Archived
+          extend Knockapi::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol) }
 
-          EXCLUDE = :exclude
-          INCLUDE = :include
-          ONLY = :only
+          EXCLUDE = T.let(:exclude, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)
+          INCLUDE = T.let(:include, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)
+          ONLY = T.let(:only, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)
         end
 
-        class DeliveryStatus < Knockapi::Enum
-          abstract!
+        module DeliveryStatus
+          extend Knockapi::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::TaggedSymbol) }
 
-          QUEUED = :queued
-          SENT = :sent
-          DELIVERED = :delivered
-          DELIVERY_ATTEMPTED = :delivery_attempted
-          UNDELIVERED = :undelivered
-          NOT_SENT = :not_sent
-          BOUNCED = :bounced
+          QUEUED =
+            T.let(:queued, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+          SENT = T.let(:sent, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+          DELIVERED =
+            T.let(:delivered, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+          DELIVERY_ATTEMPTED =
+            T.let(
+              :delivery_attempted,
+              Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol
+            )
+          UNDELIVERED =
+            T.let(:undelivered, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+          NOT_SENT =
+            T.let(:not_sent, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+          BOUNCED =
+            T.let(:bounced, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
         end
 
-        class EngagementStatus < Knockapi::Enum
-          abstract!
+        module EngagementStatus
+          extend Knockapi::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::TaggedSymbol) }
 
-          SEEN = :seen
-          UNSEEN = :unseen
-          READ = :read
-          UNREAD = :unread
-          ARCHIVED = :archived
-          UNARCHIVED = :unarchived
-          LINK_CLICKED = :link_clicked
-          INTERACTED = :interacted
+          SEEN =
+            T.let(:seen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+          UNSEEN =
+            T.let(:unseen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+          READ =
+            T.let(:read, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+          UNREAD =
+            T.let(:unread, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+          ARCHIVED =
+            T.let(:archived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+          UNARCHIVED =
+            T.let(:unarchived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+          LINK_CLICKED =
+            T.let(
+              :link_clicked,
+              Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol
+            )
+          INTERACTED =
+            T.let(:interacted, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
         end
       end
     end

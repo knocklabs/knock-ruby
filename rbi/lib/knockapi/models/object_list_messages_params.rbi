@@ -34,11 +34,14 @@ module Knockapi
       end
 
       # The engagement status of the message
-      sig { returns(T.nilable(T::Array[Symbol])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol])) }
       def engagement_status
       end
 
-      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      sig do
+        params(_: T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol])
+          .returns(T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol])
+      end
       def engagement_status=(_)
       end
 
@@ -70,11 +73,14 @@ module Knockapi
       end
 
       # The status of the message
-      sig { returns(T.nilable(T::Array[Symbol])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol])) }
       def status
       end
 
-      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      sig do
+        params(_: T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol])
+          .returns(T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol])
+      end
       def status=(_)
       end
 
@@ -128,11 +134,11 @@ module Knockapi
           after: String,
           before: String,
           channel_id: String,
-          engagement_status: T::Array[Symbol],
+          engagement_status: T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol],
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
-          status: T::Array[Symbol],
+          status: T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol],
           tenant: String,
           trigger_data: String,
           workflow_categories: T::Array[String],
@@ -167,11 +173,11 @@ module Knockapi
               after: String,
               before: String,
               channel_id: String,
-              engagement_status: T::Array[Symbol],
+              engagement_status: T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol],
               message_ids: T::Array[String],
               page_size: Integer,
               source: String,
-              status: T::Array[Symbol],
+              status: T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol],
               tenant: String,
               trigger_data: String,
               workflow_categories: T::Array[String],
@@ -184,30 +190,37 @@ module Knockapi
       def to_hash
       end
 
-      class EngagementStatus < Knockapi::Enum
-        abstract!
+      module EngagementStatus
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol) }
 
-        SEEN = :seen
-        READ = :read
-        INTERACTED = :interacted
-        LINK_CLICKED = :link_clicked
-        ARCHIVED = :archived
+        SEEN = T.let(:seen, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
+        READ = T.let(:read, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
+        INTERACTED = T.let(:interacted, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
+        LINK_CLICKED =
+          T.let(:link_clicked, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
+        ARCHIVED = T.let(:archived, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
       end
 
-      class Status < Knockapi::Enum
-        abstract!
+      module Status
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListMessagesParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol) }
 
-        QUEUED = :queued
-        SENT = :sent
-        DELIVERED = :delivered
-        DELIVERY_ATTEMPTED = :delivery_attempted
-        UNDELIVERED = :undelivered
-        NOT_SENT = :not_sent
-        BOUNCED = :bounced
+        QUEUED = T.let(:queued, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+        SENT = T.let(:sent, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+        DELIVERED = T.let(:delivered, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+        DELIVERY_ATTEMPTED =
+          T.let(:delivery_attempted, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+        UNDELIVERED = T.let(:undelivered, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+        NOT_SENT = T.let(:not_sent, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+        BOUNCED = T.let(:bounced, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
       end
     end
   end

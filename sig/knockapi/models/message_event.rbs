@@ -37,7 +37,9 @@ module Knockapi
       type recipient =
         String | Knockapi::Models::MessageEvent::Recipient::ObjectReference
 
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         type object_reference = { id: String, collection: String }
 
         class ObjectReference < Knockapi::BaseModel
@@ -68,7 +70,9 @@ module Knockapi
         | :"message.archived"
         | :"message.unarchived"
 
-      class Type < Knockapi::Enum
+      module Type
+        extend Knockapi::Enum
+
         MESSAGE_QUEUED: :"message.queued"
         MESSAGE_SENT: :"message.sent"
         MESSAGE_DELIVERED: :"message.delivered"

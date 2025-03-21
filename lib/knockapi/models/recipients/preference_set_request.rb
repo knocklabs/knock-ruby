@@ -39,10 +39,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # Workflow or category preferences within a preference set
-        class Category < Knockapi::Union
+        module Category
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # The settings object for a workflow or category, where you can specify channel types or conditions.
@@ -79,10 +79,10 @@ module Knockapi
           #   end
         end
 
-        # @abstract
-        #
         # Workflow or category preferences within a preference set
-        class Workflow < Knockapi::Union
+        module Workflow
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # The settings object for a workflow or category, where you can specify channel types or conditions.

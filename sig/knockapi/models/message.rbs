@@ -126,7 +126,9 @@ module Knockapi
 
       type actor = String | Knockapi::Models::Message::Actor::ObjectReference
 
-      class Actor < Knockapi::Union
+      module Actor
+        extend Knockapi::Union
+
         type object_reference = { id: String, collection: String }
 
         class ObjectReference < Knockapi::BaseModel
@@ -145,7 +147,9 @@ module Knockapi
       type engagement_status =
         :seen | :read | :interacted | :link_clicked | :archived
 
-      class EngagementStatus < Knockapi::Enum
+      module EngagementStatus
+        extend Knockapi::Enum
+
         SEEN: :seen
         READ: :read
         INTERACTED: :interacted
@@ -158,7 +162,9 @@ module Knockapi
       type recipient =
         String | Knockapi::Models::Message::Recipient::ObjectReference
 
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         type object_reference = { id: String, collection: String }
 
         class ObjectReference < Knockapi::BaseModel
@@ -210,7 +216,9 @@ module Knockapi
         | :not_sent
         | :bounced
 
-      class Status < Knockapi::Enum
+      module Status
+        extend Knockapi::Enum
+
         QUEUED: :queued
         SENT: :sent
         DELIVERED: :delivered

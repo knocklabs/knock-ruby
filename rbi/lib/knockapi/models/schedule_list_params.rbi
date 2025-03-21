@@ -101,8 +101,8 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
-        abstract!
+      module Recipient
+        extend Knockapi::Union
 
         Variants =
           type_template(:out) { {fixed: T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)} }

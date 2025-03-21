@@ -51,11 +51,14 @@ module Knockapi
       def processed_rows=(_)
       end
 
-      sig { returns(Symbol) }
+      sig { returns(Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: Knockapi::Models::BulkOperation::Status::TaggedSymbol)
+          .returns(Knockapi::Models::BulkOperation::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -128,7 +131,7 @@ module Knockapi
           inserted_at: Time,
           name: String,
           processed_rows: Integer,
-          status: Symbol,
+          status: Knockapi::Models::BulkOperation::Status::TaggedSymbol,
           success_count: Integer,
           updated_at: Time,
           completed_at: T.nilable(Time),
@@ -167,7 +170,7 @@ module Knockapi
               inserted_at: Time,
               name: String,
               processed_rows: Integer,
-              status: Symbol,
+              status: Knockapi::Models::BulkOperation::Status::TaggedSymbol,
               success_count: Integer,
               updated_at: Time,
               completed_at: T.nilable(Time),
@@ -181,15 +184,16 @@ module Knockapi
       def to_hash
       end
 
-      class Status < Knockapi::Enum
-        abstract!
+      module Status
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::BulkOperation::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
 
-        QUEUED = :queued
-        PROCESSING = :processing
-        COMPLETED = :completed
-        FAILED = :failed
+        QUEUED = T.let(:queued, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
+        PROCESSING = T.let(:processing, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
+        COMPLETED = T.let(:completed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
+        FAILED = T.let(:failed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
       end
 
       class ErrorItem < Knockapi::BaseModel

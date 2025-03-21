@@ -34,7 +34,9 @@ module Knockapi
           | Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent
           | Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
 
-        class Data < Knockapi::Union
+        module Data
+          extend Knockapi::Union
+
           type message_email_content =
             {
               _typename: String,
@@ -204,7 +206,9 @@ module Knockapi
 
                 type type_ = :text | :markdown
 
-                class Type < Knockapi::Enum
+                module Type
+                  extend Knockapi::Enum
+
                   TEXT: :text
                   MARKDOWN: :markdown
 
@@ -236,7 +240,9 @@ module Knockapi
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock
               | Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
 
-            class Block < Knockapi::Union
+            module Block
+              extend Knockapi::Union
+
               type message_in_app_feed_content_block =
                 {
                   content: String,
@@ -265,7 +271,9 @@ module Knockapi
 
                 type type_ = :markdown | :text
 
-                class Type < Knockapi::Enum
+                module Type
+                  extend Knockapi::Enum
+
                   MARKDOWN: :markdown
                   TEXT: :text
 
@@ -315,7 +323,9 @@ module Knockapi
 
                 type type_ = :button_set
 
-                class Type < Knockapi::Enum
+                module Type
+                  extend Knockapi::Enum
+
                   BUTTON_SET: :button_set
 
                   def self.values: -> ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_]

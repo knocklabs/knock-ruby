@@ -27,7 +27,9 @@ module Knockapi
           bool
           | Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
 
-        class Category < Knockapi::Union
+        module Category
+          extend Knockapi::Union
+
           type preference_set_workflow_category_setting_object =
             {
               channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
@@ -54,7 +56,9 @@ module Knockapi
           bool
           | Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
 
-        class Workflow < Knockapi::Union
+        module Workflow
+          extend Knockapi::Union
+
           type preference_set_workflow_category_setting_object =
             {
               channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,

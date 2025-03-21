@@ -23,7 +23,9 @@ module Knockapi
           Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection
           | Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
 
-        class Connection < Knockapi::Union
+        module Connection
+          extend Knockapi::Union
+
           type ms_teams_token_connection =
             {
               ms_teams_channel_id: String?,

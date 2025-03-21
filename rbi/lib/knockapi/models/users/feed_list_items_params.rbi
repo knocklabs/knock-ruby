@@ -17,11 +17,14 @@ module Knockapi
         end
 
         # The archived status of the feed items to return
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)) }
         def archived
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
+            .returns(Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
+        end
         def archived=(_)
         end
 
@@ -62,11 +65,14 @@ module Knockapi
         end
 
         # The status of the feed items to return
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)) }
         def status
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
+            .returns(Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
+        end
         def status=(_)
         end
 
@@ -100,12 +106,12 @@ module Knockapi
         sig do
           params(
             after: String,
-            archived: Symbol,
+            archived: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol,
             before: String,
             has_tenant: T::Boolean,
             page_size: Integer,
             source: String,
-            status: Symbol,
+            status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol,
             tenant: String,
             trigger_data: String,
             workflow_categories: T::Array[String],
@@ -133,12 +139,12 @@ module Knockapi
             .returns(
               {
                 after: String,
-                archived: Symbol,
+                archived: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol,
                 before: String,
                 has_tenant: T::Boolean,
                 page_size: Integer,
                 source: String,
-                status: Symbol,
+                status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol,
                 tenant: String,
                 trigger_data: String,
                 workflow_categories: T::Array[String],
@@ -150,27 +156,31 @@ module Knockapi
         end
 
         # The archived status of the feed items to return
-        class Archived < Knockapi::Enum
-          abstract!
+        module Archived
+          extend Knockapi::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol) }
 
-          EXCLUDE = :exclude
-          INCLUDE = :include
-          ONLY = :only
+          EXCLUDE = T.let(:exclude, Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
+          INCLUDE = T.let(:include, Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
+          ONLY = T.let(:only, Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
         end
 
         # The status of the feed items to return
-        class Status < Knockapi::Enum
-          abstract!
+        module Status
+          extend Knockapi::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Status) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol) }
 
-          UNREAD = :unread
-          READ = :read
-          UNSEEN = :unseen
-          SEEN = :seen
-          ALL = :all
+          UNREAD = T.let(:unread, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
+          READ = T.let(:read, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
+          UNSEEN = T.let(:unseen, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
+          SEEN = T.let(:seen, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
+          ALL = T.let(:all, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
         end
       end
     end

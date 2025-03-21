@@ -122,8 +122,9 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-      # @abstract
-      class Status < Knockapi::Enum
+      module Status
+        extend Knockapi::Enum
+
         QUEUED = :queued
         PROCESSING = :processing
         COMPLETED = :completed

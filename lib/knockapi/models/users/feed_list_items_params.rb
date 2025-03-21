@@ -140,10 +140,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # The archived status of the feed items to return
-        class Archived < Knockapi::Enum
+        module Archived
+          extend Knockapi::Enum
+
           EXCLUDE = :exclude
           INCLUDE = :include
           ONLY = :only
@@ -151,10 +151,10 @@ module Knockapi
           finalize!
         end
 
-        # @abstract
-        #
         # The status of the feed items to return
-        class Status < Knockapi::Enum
+        module Status
+          extend Knockapi::Enum
+
           UNREAD = :unread
           READ = :read
           UNSEEN = :unseen

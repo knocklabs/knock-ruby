@@ -55,7 +55,9 @@ module Knockapi
         String
         | Knockapi::Models::ScheduleListParams::Recipient::ObjectReference
 
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         type object_reference = { id: String, collection: String }
 
         class ObjectReference < Knockapi::BaseModel

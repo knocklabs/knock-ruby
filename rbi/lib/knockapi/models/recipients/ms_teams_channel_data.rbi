@@ -81,8 +81,8 @@ module Knockapi
         end
 
         # Microsoft Teams token connection
-        class Connection < Knockapi::Union
-          abstract!
+        module Connection
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do

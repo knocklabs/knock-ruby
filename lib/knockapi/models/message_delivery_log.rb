@@ -116,8 +116,9 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        class Body < Knockapi::Union
+        module Body
+          extend Knockapi::Union
+
           UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
 
           variant String
@@ -131,8 +132,9 @@ module Knockapi
           #   end
         end
 
-        # @abstract
-        class Method < Knockapi::Enum
+        module Method
+          extend Knockapi::Enum
+
           GET = :GET
           POST = :POST
           PUT = :PUT
@@ -178,8 +180,9 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        class Body < Knockapi::Union
+        module Body
+          extend Knockapi::Union
+
           UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
 
           variant String

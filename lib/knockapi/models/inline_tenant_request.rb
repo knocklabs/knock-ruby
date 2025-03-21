@@ -2,10 +2,10 @@
 
 module Knockapi
   module Models
-    # @abstract
-    #
     # An inline tenant request
-    class InlineTenantRequest < Knockapi::Union
+    module InlineTenantRequest
+      extend Knockapi::Union
+
       # A tenant identifier
       variant String
 

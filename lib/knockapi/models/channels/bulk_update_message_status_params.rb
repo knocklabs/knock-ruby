@@ -132,8 +132,9 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        class Action < Knockapi::Enum
+        module Action
+          extend Knockapi::Enum
+
           SEEN = :seen
           UNSEEN = :unseen
           READ = :read
@@ -148,8 +149,9 @@ module Knockapi
           finalize!
         end
 
-        # @abstract
-        class Archived < Knockapi::Enum
+        module Archived
+          extend Knockapi::Enum
+
           EXCLUDE = :exclude
           INCLUDE = :include
           ONLY = :only
@@ -157,8 +159,9 @@ module Knockapi
           finalize!
         end
 
-        # @abstract
-        class DeliveryStatus < Knockapi::Enum
+        module DeliveryStatus
+          extend Knockapi::Enum
+
           QUEUED = :queued
           SENT = :sent
           DELIVERED = :delivered
@@ -170,8 +173,9 @@ module Knockapi
           finalize!
         end
 
-        # @abstract
-        class EngagementStatus < Knockapi::Enum
+        module EngagementStatus
+          extend Knockapi::Enum
+
           SEEN = :seen
           UNSEEN = :unseen
           READ = :read

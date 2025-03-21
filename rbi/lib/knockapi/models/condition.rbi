@@ -11,11 +11,14 @@ module Knockapi
       def argument=(_)
       end
 
-      sig { returns(Symbol) }
+      sig { returns(Knockapi::Models::Condition::Operator::OrSymbol) }
       def operator
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: Knockapi::Models::Condition::Operator::OrSymbol)
+          .returns(Knockapi::Models::Condition::Operator::OrSymbol)
+      end
       def operator=(_)
       end
 
@@ -29,37 +32,49 @@ module Knockapi
 
       # A condition to be evaluated
       sig do
-        params(argument: T.nilable(String), operator: Symbol, variable: String).returns(T.attached_class)
+        params(
+          argument: T.nilable(String),
+          operator: Knockapi::Models::Condition::Operator::OrSymbol,
+          variable: String
+        )
+          .returns(T.attached_class)
       end
       def self.new(argument:, operator:, variable:)
       end
 
-      sig { override.returns({argument: T.nilable(String), operator: Symbol, variable: String}) }
+      sig do
+        override
+          .returns(
+            {argument: T.nilable(String), operator: Knockapi::Models::Condition::Operator::OrSymbol, variable: String}
+          )
+      end
       def to_hash
       end
 
-      class Operator < Knockapi::Enum
-        abstract!
+      module Operator
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Condition::Operator) }
+        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::Condition::Operator::TaggedSymbol) }
 
-        EQUAL_TO = :equal_to
-        NOT_EQUAL_TO = :not_equal_to
-        GREATER_THAN = :greater_than
-        LESS_THAN = :less_than
-        GREATER_THAN_OR_EQUAL_TO = :greater_than_or_equal_to
-        LESS_THAN_OR_EQUAL_TO = :less_than_or_equal_to
-        CONTAINS = :contains
-        NOT_CONTAINS = :not_contains
-        EMPTY = :empty
-        NOT_EMPTY = :not_empty
-        CONTAINS_ALL = :contains_all
-        IS_TIMESTAMP = :is_timestamp
-        IS_NOT_TIMESTAMP = :is_not_timestamp
-        IS_TIMESTAMP_AFTER = :is_timestamp_after
-        IS_TIMESTAMP_BEFORE = :is_timestamp_before
-        IS_TIMESTAMP_BETWEEN = :is_timestamp_between
-        IS_AUDIENCE_MEMBER = :is_audience_member
+        EQUAL_TO = T.let(:equal_to, Knockapi::Models::Condition::Operator::OrSymbol)
+        NOT_EQUAL_TO = T.let(:not_equal_to, Knockapi::Models::Condition::Operator::OrSymbol)
+        GREATER_THAN = T.let(:greater_than, Knockapi::Models::Condition::Operator::OrSymbol)
+        LESS_THAN = T.let(:less_than, Knockapi::Models::Condition::Operator::OrSymbol)
+        GREATER_THAN_OR_EQUAL_TO =
+          T.let(:greater_than_or_equal_to, Knockapi::Models::Condition::Operator::OrSymbol)
+        LESS_THAN_OR_EQUAL_TO = T.let(:less_than_or_equal_to, Knockapi::Models::Condition::Operator::OrSymbol)
+        CONTAINS = T.let(:contains, Knockapi::Models::Condition::Operator::OrSymbol)
+        NOT_CONTAINS = T.let(:not_contains, Knockapi::Models::Condition::Operator::OrSymbol)
+        EMPTY = T.let(:empty, Knockapi::Models::Condition::Operator::OrSymbol)
+        NOT_EMPTY = T.let(:not_empty, Knockapi::Models::Condition::Operator::OrSymbol)
+        CONTAINS_ALL = T.let(:contains_all, Knockapi::Models::Condition::Operator::OrSymbol)
+        IS_TIMESTAMP = T.let(:is_timestamp, Knockapi::Models::Condition::Operator::OrSymbol)
+        IS_NOT_TIMESTAMP = T.let(:is_not_timestamp, Knockapi::Models::Condition::Operator::OrSymbol)
+        IS_TIMESTAMP_AFTER = T.let(:is_timestamp_after, Knockapi::Models::Condition::Operator::OrSymbol)
+        IS_TIMESTAMP_BEFORE = T.let(:is_timestamp_before, Knockapi::Models::Condition::Operator::OrSymbol)
+        IS_TIMESTAMP_BETWEEN = T.let(:is_timestamp_between, Knockapi::Models::Condition::Operator::OrSymbol)
+        IS_AUDIENCE_MEMBER = T.let(:is_audience_member, Knockapi::Models::Condition::Operator::OrSymbol)
       end
     end
   end

@@ -59,7 +59,9 @@ module Knockapi
 
       type mode = :recipient | :object
 
-      class Mode < Knockapi::Enum
+      module Mode
+        extend Knockapi::Enum
+
         RECIPIENT: :recipient
         OBJECT: :object
 
@@ -70,7 +72,9 @@ module Knockapi
         String
         | Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference
 
-      class Object < Knockapi::Union
+      module Object
+        extend Knockapi::Union
+
         type object_reference = { id: String, collection: String }
 
         class ObjectReference < Knockapi::BaseModel
@@ -90,7 +94,9 @@ module Knockapi
         String
         | Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference
 
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         type object_reference = { id: String, collection: String }
 
         class ObjectReference < Knockapi::BaseModel

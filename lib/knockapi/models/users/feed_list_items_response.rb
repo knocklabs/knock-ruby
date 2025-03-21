@@ -142,10 +142,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # A content (text or markdown) block in a message in an app feed
-        class Block < Knockapi::Union
+        module Block
+          extend Knockapi::Union
+
           # A content (text or markdown) block in a message in an app feed
           variant -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock }
 
@@ -186,8 +186,9 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-            # @abstract
-            class Type < Knockapi::Enum
+            module Type
+              extend Knockapi::Enum
+
               MARKDOWN = :markdown
               TEXT = :text
 
@@ -252,8 +253,9 @@ module Knockapi
               # def initialize: (Hash | Knockapi::BaseModel) -> void
             end
 
-            # @abstract
-            class Type < Knockapi::Enum
+            module Type
+              extend Knockapi::Enum
+
               BUTTON_SET = :button_set
 
               finalize!

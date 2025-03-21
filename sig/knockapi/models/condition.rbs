@@ -41,7 +41,9 @@ module Knockapi
         | :is_timestamp_between
         | :is_audience_member
 
-      class Operator < Knockapi::Enum
+      module Operator
+        extend Knockapi::Enum
+
         EQUAL_TO: :equal_to
         NOT_EQUAL_TO: :not_equal_to
         GREATER_THAN: :greater_than

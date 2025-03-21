@@ -37,10 +37,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # The contents of an email message
-        class Data < Knockapi::Union
+        module Data
+          extend Knockapi::Union
+
           # The contents of an email message
           variant -> { Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent }
 
@@ -280,8 +280,9 @@ module Knockapi
 
                 # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-                # @abstract
-                class Type < Knockapi::Enum
+                module Type
+                  extend Knockapi::Enum
+
                   TEXT = :text
                   MARKDOWN = :markdown
 
@@ -314,10 +315,10 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-            # @abstract
-            #
             # A content (text or markdown) block in a message in an app feed
-            class Block < Knockapi::Union
+            module Block
+              extend Knockapi::Union
+
               # A content (text or markdown) block in a message in an app feed
               variant -> { Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock }
 
@@ -358,8 +359,9 @@ module Knockapi
 
                 # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-                # @abstract
-                class Type < Knockapi::Enum
+                module Type
+                  extend Knockapi::Enum
+
                   MARKDOWN = :markdown
                   TEXT = :text
 
@@ -428,8 +430,9 @@ module Knockapi
                   # def initialize: (Hash | Knockapi::BaseModel) -> void
                 end
 
-                # @abstract
-                class Type < Knockapi::Enum
+                module Type
+                  extend Knockapi::Enum
+
                   BUTTON_SET = :button_set
 
                   finalize!

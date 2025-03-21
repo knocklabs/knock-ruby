@@ -100,7 +100,9 @@ module Knockapi
       type engagement_status =
         :seen | :read | :interacted | :link_clicked | :archived
 
-      class EngagementStatus < Knockapi::Enum
+      module EngagementStatus
+        extend Knockapi::Enum
+
         SEEN: :seen
         READ: :read
         INTERACTED: :interacted
@@ -119,7 +121,9 @@ module Knockapi
         | :not_sent
         | :bounced
 
-      class Status < Knockapi::Enum
+      module Status
+        extend Knockapi::Enum
+
         QUEUED: :queued
         SENT: :sent
         DELIVERED: :delivered

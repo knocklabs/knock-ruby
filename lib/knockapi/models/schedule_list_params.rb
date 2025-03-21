@@ -76,11 +76,11 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-      # @abstract
-      #
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         # A user identifier
         variant String
 

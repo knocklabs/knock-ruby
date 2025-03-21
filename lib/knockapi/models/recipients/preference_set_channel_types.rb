@@ -84,11 +84,11 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class Chat < Knockapi::Union
+        module Chat
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -101,11 +101,11 @@ module Knockapi
           #   end
         end
 
-        # @abstract
-        #
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class Email < Knockapi::Union
+        module Email
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -118,11 +118,11 @@ module Knockapi
           #   end
         end
 
-        # @abstract
-        #
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class HTTP < Knockapi::Union
+        module HTTP
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -135,11 +135,11 @@ module Knockapi
           #   end
         end
 
-        # @abstract
-        #
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class InAppFeed < Knockapi::Union
+        module InAppFeed
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -152,11 +152,11 @@ module Knockapi
           #   end
         end
 
-        # @abstract
-        #
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class Push < Knockapi::Union
+        module Push
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -169,11 +169,11 @@ module Knockapi
           #   end
         end
 
-        # @abstract
-        #
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class SMS < Knockapi::Union
+        module SMS
+          extend Knockapi::Union
+
           variant Knockapi::BooleanModel
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.

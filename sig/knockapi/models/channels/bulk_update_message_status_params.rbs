@@ -94,7 +94,9 @@ module Knockapi
           | :unarchive
           | :delete
 
-        class Action < Knockapi::Enum
+        module Action
+          extend Knockapi::Enum
+
           SEEN: :seen
           UNSEEN: :unseen
           READ: :read
@@ -111,7 +113,9 @@ module Knockapi
 
         type archived = :exclude | :include | :only
 
-        class Archived < Knockapi::Enum
+        module Archived
+          extend Knockapi::Enum
+
           EXCLUDE: :exclude
           INCLUDE: :include
           ONLY: :only
@@ -128,7 +132,9 @@ module Knockapi
           | :not_sent
           | :bounced
 
-        class DeliveryStatus < Knockapi::Enum
+        module DeliveryStatus
+          extend Knockapi::Enum
+
           QUEUED: :queued
           SENT: :sent
           DELIVERED: :delivered
@@ -150,7 +156,9 @@ module Knockapi
           | :link_clicked
           | :interacted
 
-        class EngagementStatus < Knockapi::Enum
+        module EngagementStatus
+          extend Knockapi::Enum
+
           SEEN: :seen
           UNSEEN: :unseen
           READ: :read

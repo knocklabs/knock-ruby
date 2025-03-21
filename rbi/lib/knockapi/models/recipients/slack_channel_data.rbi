@@ -84,8 +84,8 @@ module Knockapi
         end
 
         # A Slack connection, which either includes a channel_id or a user_id
-        class Connection < Knockapi::Union
-          abstract!
+        module Connection
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do

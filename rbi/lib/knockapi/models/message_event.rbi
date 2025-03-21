@@ -40,11 +40,14 @@ module Knockapi
       def recipient=(_)
       end
 
-      sig { returns(Symbol) }
+      sig { returns(Knockapi::Models::MessageEvent::Type::TaggedSymbol) }
       def type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+          .returns(Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+      end
       def type=(_)
       end
 
@@ -66,7 +69,7 @@ module Knockapi
           _typename: String,
           inserted_at: Time,
           recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference),
-          type: Symbol,
+          type: Knockapi::Models::MessageEvent::Type::TaggedSymbol,
           data: T.nilable(T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -82,7 +85,7 @@ module Knockapi
               _typename: String,
               inserted_at: Time,
               recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference),
-              type: Symbol,
+              type: Knockapi::Models::MessageEvent::Type::TaggedSymbol,
               data: T.nilable(T::Hash[Symbol, T.anything])
             }
           )
@@ -92,8 +95,8 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
-        abstract!
+      module Recipient
+        extend Knockapi::Union
 
         Variants =
           type_template(:out) { {fixed: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)} }
@@ -128,24 +131,25 @@ module Knockapi
         end
       end
 
-      class Type < Knockapi::Enum
-        abstract!
+      module Type
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageEvent::Type) }
+        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::MessageEvent::Type::TaggedSymbol) }
 
-        MESSAGE_QUEUED = :"message.queued"
-        MESSAGE_SENT = :"message.sent"
-        MESSAGE_DELIVERED = :"message.delivered"
-        MESSAGE_UNDELIVERED = :"message.undelivered"
-        MESSAGE_BOUNCED = :"message.bounced"
-        MESSAGE_READ = :"message.read"
-        MESSAGE_UNREAD = :"message.unread"
-        MESSAGE_LINK_CLICKED = :"message.link_clicked"
-        MESSAGE_INTERACTED = :"message.interacted"
-        MESSAGE_SEEN = :"message.seen"
-        MESSAGE_UNSEEN = :"message.unseen"
-        MESSAGE_ARCHIVED = :"message.archived"
-        MESSAGE_UNARCHIVED = :"message.unarchived"
+        MESSAGE_QUEUED = T.let(:"message.queued", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_SENT = T.let(:"message.sent", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_DELIVERED = T.let(:"message.delivered", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_UNDELIVERED = T.let(:"message.undelivered", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_BOUNCED = T.let(:"message.bounced", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_READ = T.let(:"message.read", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_UNREAD = T.let(:"message.unread", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_LINK_CLICKED = T.let(:"message.link_clicked", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_INTERACTED = T.let(:"message.interacted", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_SEEN = T.let(:"message.seen", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_UNSEEN = T.let(:"message.unseen", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_ARCHIVED = T.let(:"message.archived", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_UNARCHIVED = T.let(:"message.unarchived", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
       end
     end
   end

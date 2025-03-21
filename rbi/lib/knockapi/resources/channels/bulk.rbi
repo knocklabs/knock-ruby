@@ -11,10 +11,10 @@ module Knockapi
         sig do
           params(
             channel_id: String,
-            action: Symbol,
-            archived: Symbol,
-            delivery_status: Symbol,
-            engagement_status: Symbol,
+            action: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol,
+            archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol,
+            delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol,
+            engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol,
             has_tenant: T::Boolean,
             newer_than: Time,
             older_than: Time,

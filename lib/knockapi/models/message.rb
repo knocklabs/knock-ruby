@@ -224,11 +224,11 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-      # @abstract
-      #
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Actor < Knockapi::Union
+      module Actor
+        extend Knockapi::Union
+
         # A user identifier
         variant String
 
@@ -266,8 +266,9 @@ module Knockapi
         #   end
       end
 
-      # @abstract
-      class EngagementStatus < Knockapi::Enum
+      module EngagementStatus
+        extend Knockapi::Enum
+
         SEEN = :seen
         READ = :read
         INTERACTED = :interacted
@@ -277,11 +278,11 @@ module Knockapi
         finalize!
       end
 
-      # @abstract
-      #
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
+      module Recipient
+        extend Knockapi::Union
+
         # A user identifier
         variant String
 
@@ -356,10 +357,10 @@ module Knockapi
         # def initialize: (Hash | Knockapi::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # Message delivery status
-      class Status < Knockapi::Enum
+      module Status
+        extend Knockapi::Enum
+
         QUEUED = :queued
         SENT = :sent
         DELIVERED = :delivered

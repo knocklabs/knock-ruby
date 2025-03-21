@@ -106,8 +106,8 @@ module Knockapi
         end
 
         # The contents of an email message
-        class Data < Knockapi::Union
-          abstract!
+        module Data
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do
@@ -513,30 +513,75 @@ module Knockapi
                 def name=(_)
                 end
 
-                sig { returns(Symbol) }
+                sig do
+                  returns(
+                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                  )
+                end
                 def type
                 end
 
-                sig { params(_: Symbol).returns(Symbol) }
+                sig do
+                  params(
+                    _: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                  )
+                    .returns(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                    )
+                end
                 def type=(_)
                 end
 
                 # A block in a chat message
-                sig { params(content: String, name: String, type: Symbol).returns(T.attached_class) }
+                sig do
+                  params(
+                    content: String,
+                    name: String,
+                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                  )
+                    .returns(T.attached_class)
+                end
                 def self.new(content:, name:, type:)
                 end
 
-                sig { override.returns({content: String, name: String, type: Symbol}) }
+                sig do
+                  override
+                    .returns(
+                      {
+                        content: String,
+                        name: String,
+                        type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                      }
+                    )
+                end
                 def to_hash
                 end
 
-                class Type < Knockapi::Enum
-                  abstract!
+                module Type
+                  extend Knockapi::Enum
 
-                  Value = type_template(:out) { {fixed: Symbol} }
+                  TaggedSymbol =
+                    T.type_alias do
+                      T.all(Symbol, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type)
+                    end
+                  OrSymbol =
+                    T.type_alias do
+                      T.any(
+                        Symbol,
+                        Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                      )
+                    end
 
-                  TEXT = :text
-                  MARKDOWN = :markdown
+                  TEXT =
+                    T.let(
+                      :text,
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                    )
+                  MARKDOWN =
+                    T.let(
+                      :markdown,
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                    )
                 end
               end
             end
@@ -620,8 +665,8 @@ module Knockapi
             end
 
             # A content (text or markdown) block in a message in an app feed
-            class Block < Knockapi::Union
-              abstract!
+            module Block
+              extend Knockapi::Union
 
               Variants =
                 type_template(:out) do
@@ -658,11 +703,22 @@ module Knockapi
                 def rendered=(_)
                 end
 
-                sig { returns(Symbol) }
+                sig do
+                  returns(
+                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                  )
+                end
                 def type
                 end
 
-                sig { params(_: Symbol).returns(Symbol) }
+                sig do
+                  params(
+                    _: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                  )
+                    .returns(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                    )
+                end
                 def type=(_)
                 end
 
@@ -672,23 +728,52 @@ module Knockapi
                     content: String,
                     name: String,
                     rendered: String,
-                    type: Symbol
-                  ).returns(T.attached_class)
+                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                  )
+                    .returns(T.attached_class)
                 end
                 def self.new(content:, name:, rendered:, type:)
                 end
 
-                sig { override.returns({content: String, name: String, rendered: String, type: Symbol}) }
+                sig do
+                  override
+                    .returns(
+                      {
+                        content: String,
+                        name: String,
+                        rendered: String,
+                        type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                      }
+                    )
+                end
                 def to_hash
                 end
 
-                class Type < Knockapi::Enum
-                  abstract!
+                module Type
+                  extend Knockapi::Enum
 
-                  Value = type_template(:out) { {fixed: Symbol} }
+                  TaggedSymbol =
+                    T.type_alias do
+                      T.all(Symbol, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type)
+                    end
+                  OrSymbol =
+                    T.type_alias do
+                      T.any(
+                        Symbol,
+                        Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                      )
+                    end
 
-                  MARKDOWN = :markdown
-                  TEXT = :text
+                  MARKDOWN =
+                    T.let(
+                      :markdown,
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                    )
+                  TEXT =
+                    T.let(
+                      :text,
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                    )
                 end
               end
 
@@ -726,11 +811,22 @@ module Knockapi
                 def name=(_)
                 end
 
-                sig { returns(Symbol) }
+                sig do
+                  returns(
+                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                  )
+                end
                 def type
                 end
 
-                sig { params(_: Symbol).returns(Symbol) }
+                sig do
+                  params(
+                    _: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                  )
+                    .returns(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                    )
+                end
                 def type=(_)
                 end
 
@@ -741,7 +837,7 @@ module Knockapi
                     Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
                     ],
                     name: String,
-                    type: Symbol
+                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                   )
                     .returns(T.attached_class)
                 end
@@ -756,7 +852,7 @@ module Knockapi
                         Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
                         ],
                         name: String,
-                        type: Symbol
+                        type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                       }
                     )
                 end
@@ -798,12 +894,26 @@ module Knockapi
                   end
                 end
 
-                class Type < Knockapi::Enum
-                  abstract!
+                module Type
+                  extend Knockapi::Enum
 
-                  Value = type_template(:out) { {fixed: Symbol} }
+                  TaggedSymbol =
+                    T.type_alias do
+                      T.all(Symbol, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type)
+                    end
+                  OrSymbol =
+                    T.type_alias do
+                      T.any(
+                        Symbol,
+                        Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                      )
+                    end
 
-                  BUTTON_SET = :button_set
+                  BUTTON_SET =
+                    T.let(
+                      :button_set,
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                    )
                 end
               end
             end

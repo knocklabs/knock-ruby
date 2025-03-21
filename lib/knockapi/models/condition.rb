@@ -29,8 +29,9 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-      # @abstract
-      class Operator < Knockapi::Enum
+      module Operator
+        extend Knockapi::Enum
+
         EQUAL_TO = :equal_to
         NOT_EQUAL_TO = :not_equal_to
         GREATER_THAN = :greater_than

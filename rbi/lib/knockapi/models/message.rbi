@@ -71,11 +71,14 @@ module Knockapi
       end
 
       # List of engagement statuses
-      sig { returns(T.nilable(T::Array[Symbol])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol])) }
       def engagement_statuses
       end
 
-      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      sig do
+        params(_: T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol])
+          .returns(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol])
+      end
       def engagement_statuses=(_)
       end
 
@@ -167,11 +170,14 @@ module Knockapi
       end
 
       # Message delivery status
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(Knockapi::Models::Message::Status::TaggedSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: Knockapi::Models::Message::Status::TaggedSymbol)
+          .returns(Knockapi::Models::Message::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -213,7 +219,7 @@ module Knockapi
           channel_id: String,
           clicked_at: T.nilable(Time),
           data: T.nilable(T::Hash[Symbol, T.anything]),
-          engagement_statuses: T::Array[Symbol],
+          engagement_statuses: T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol],
           inserted_at: Time,
           interacted_at: T.nilable(Time),
           link_clicked_at: T.nilable(Time),
@@ -223,7 +229,7 @@ module Knockapi
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
           source: Knockapi::Models::Message::Source,
-          status: Symbol,
+          status: Knockapi::Models::Message::Status::TaggedSymbol,
           tenant: T.nilable(String),
           updated_at: Time,
           workflow: T.nilable(String)
@@ -266,7 +272,7 @@ module Knockapi
               channel_id: String,
               clicked_at: T.nilable(Time),
               data: T.nilable(T::Hash[Symbol, T.anything]),
-              engagement_statuses: T::Array[Symbol],
+              engagement_statuses: T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol],
               inserted_at: Time,
               interacted_at: T.nilable(Time),
               link_clicked_at: T.nilable(Time),
@@ -276,7 +282,7 @@ module Knockapi
               scheduled_at: T.nilable(Time),
               seen_at: T.nilable(Time),
               source: Knockapi::Models::Message::Source,
-              status: Symbol,
+              status: Knockapi::Models::Message::Status::TaggedSymbol,
               tenant: T.nilable(String),
               updated_at: Time,
               workflow: T.nilable(String)
@@ -288,8 +294,8 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Actor < Knockapi::Union
-        abstract!
+      module Actor
+        extend Knockapi::Union
 
         Variants =
           type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Actor::ObjectReference)} }
@@ -324,22 +330,23 @@ module Knockapi
         end
       end
 
-      class EngagementStatus < Knockapi::Enum
-        abstract!
+      module EngagementStatus
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Message::EngagementStatus) }
+        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::Message::EngagementStatus::TaggedSymbol) }
 
-        SEEN = :seen
-        READ = :read
-        INTERACTED = :interacted
-        LINK_CLICKED = :link_clicked
-        ARCHIVED = :archived
+        SEEN = T.let(:seen, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
+        READ = T.let(:read, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
+        INTERACTED = T.let(:interacted, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
+        LINK_CLICKED = T.let(:link_clicked, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
+        ARCHIVED = T.let(:archived, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
-      class Recipient < Knockapi::Union
-        abstract!
+      module Recipient
+        extend Knockapi::Union
 
         Variants =
           type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference)} }
@@ -426,18 +433,19 @@ module Knockapi
       end
 
       # Message delivery status
-      class Status < Knockapi::Enum
-        abstract!
+      module Status
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Message::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::Message::Status::TaggedSymbol) }
 
-        QUEUED = :queued
-        SENT = :sent
-        DELIVERED = :delivered
-        DELIVERY_ATTEMPTED = :delivery_attempted
-        UNDELIVERED = :undelivered
-        NOT_SENT = :not_sent
-        BOUNCED = :bounced
+        QUEUED = T.let(:queued, Knockapi::Models::Message::Status::TaggedSymbol)
+        SENT = T.let(:sent, Knockapi::Models::Message::Status::TaggedSymbol)
+        DELIVERED = T.let(:delivered, Knockapi::Models::Message::Status::TaggedSymbol)
+        DELIVERY_ATTEMPTED = T.let(:delivery_attempted, Knockapi::Models::Message::Status::TaggedSymbol)
+        UNDELIVERED = T.let(:undelivered, Knockapi::Models::Message::Status::TaggedSymbol)
+        NOT_SENT = T.let(:not_sent, Knockapi::Models::Message::Status::TaggedSymbol)
+        BOUNCED = T.let(:bounced, Knockapi::Models::Message::Status::TaggedSymbol)
       end
     end
   end

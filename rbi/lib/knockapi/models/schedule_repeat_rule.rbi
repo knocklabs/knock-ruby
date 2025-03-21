@@ -11,11 +11,14 @@ module Knockapi
       def _typename=(_)
       end
 
-      sig { returns(Symbol) }
+      sig { returns(Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol) }
       def frequency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
+          .returns(Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
+      end
       def frequency=(_)
       end
 
@@ -27,11 +30,14 @@ module Knockapi
       def day_of_month=(_)
       end
 
-      sig { returns(T.nilable(T::Array[Symbol])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol])) }
       def days
       end
 
-      sig { params(_: T.nilable(T::Array[Symbol])).returns(T.nilable(T::Array[Symbol])) }
+      sig do
+        params(_: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]))
+          .returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]))
+      end
       def days=(_)
       end
 
@@ -63,9 +69,9 @@ module Knockapi
       sig do
         params(
           _typename: String,
-          frequency: Symbol,
+          frequency: Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol,
           day_of_month: T.nilable(Integer),
-          days: T.nilable(T::Array[Symbol]),
+          days: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]),
           hours: T.nilable(Integer),
           interval: Integer,
           minutes: T.nilable(Integer)
@@ -80,9 +86,9 @@ module Knockapi
           .returns(
             {
               _typename: String,
-              frequency: Symbol,
+              frequency: Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol,
               day_of_month: T.nilable(Integer),
-              days: T.nilable(T::Array[Symbol]),
+              days: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]),
               hours: T.nilable(Integer),
               interval: Integer,
               minutes: T.nilable(Integer)
@@ -92,29 +98,31 @@ module Knockapi
       def to_hash
       end
 
-      class Frequency < Knockapi::Enum
-        abstract!
+      module Frequency
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency) }
+        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol) }
 
-        DAILY = :daily
-        WEEKLY = :weekly
-        MONTHLY = :monthly
-        HOURLY = :hourly
+        DAILY = T.let(:daily, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
+        WEEKLY = T.let(:weekly, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
+        MONTHLY = T.let(:monthly, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
+        HOURLY = T.let(:hourly, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
       end
 
-      class Day < Knockapi::Enum
-        abstract!
+      module Day
+        extend Knockapi::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Day) }
+        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol) }
 
-        MON = :mon
-        TUE = :tue
-        WED = :wed
-        THU = :thu
-        FRI = :fri
-        SAT = :sat
-        SUN = :sun
+        MON = T.let(:mon, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
+        TUE = T.let(:tue, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
+        WED = T.let(:wed, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
+        THU = T.let(:thu, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
+        FRI = T.let(:fri, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
+        SAT = T.let(:sat, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
+        SUN = T.let(:sun, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
       end
     end
   end

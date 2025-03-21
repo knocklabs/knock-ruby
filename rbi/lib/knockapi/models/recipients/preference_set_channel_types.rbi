@@ -115,8 +115,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class Chat < Knockapi::Union
-          abstract!
+        module Chat
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
@@ -124,8 +124,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class Email < Knockapi::Union
-          abstract!
+        module Email
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
@@ -133,8 +133,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class HTTP < Knockapi::Union
-          abstract!
+        module HTTP
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
@@ -142,8 +142,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class InAppFeed < Knockapi::Union
-          abstract!
+        module InAppFeed
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
@@ -151,8 +151,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class Push < Knockapi::Union
-          abstract!
+        module Push
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
@@ -160,8 +160,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
-        class SMS < Knockapi::Union
-          abstract!
+        module SMS
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }

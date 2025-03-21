@@ -164,8 +164,8 @@ module Knockapi
         end
 
         # Workflow or category preferences within a preference set
-        class Category < Knockapi::Union
-          abstract!
+        module Category
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do
@@ -228,8 +228,8 @@ module Knockapi
         end
 
         # Workflow or category preferences within a preference set
-        class Workflow < Knockapi::Union
-          abstract!
+        module Workflow
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do

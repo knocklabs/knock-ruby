@@ -76,8 +76,8 @@ module Knockapi
         end
 
         # Channel data for push providers
-        class Data < Knockapi::Union
-          abstract!
+        module Data
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do

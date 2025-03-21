@@ -2,7 +2,9 @@ module Knockapi
   module Models
     type recipient = Knockapi::Models::User | Knockapi::Models::Object
 
-    class Recipient < Knockapi::Union
+    module Recipient
+      extend Knockapi::Union
+
       def self.variants: -> [Knockapi::Models::User, Knockapi::Models::Object]
     end
   end

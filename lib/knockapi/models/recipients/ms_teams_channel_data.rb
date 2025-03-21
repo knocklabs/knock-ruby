@@ -26,10 +26,10 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
-        # @abstract
-        #
         # Microsoft Teams token connection
-        class Connection < Knockapi::Union
+        module Connection
+          extend Knockapi::Union
+
           # Microsoft Teams token connection
           variant -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection }
 

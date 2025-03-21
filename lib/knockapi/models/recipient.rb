@@ -2,10 +2,10 @@
 
 module Knockapi
   module Models
-    # @abstract
-    #
     # A recipient, which is either a user or an object
-    class Recipient < Knockapi::Union
+    module Recipient
+      extend Knockapi::Union
+
       # A user object
       variant -> { Knockapi::Models::User }
 

@@ -70,8 +70,8 @@ module Knockapi
         end
 
         # Discord channel connection
-        class Connection < Knockapi::Union
-          abstract!
+        module Connection
+          extend Knockapi::Union
 
           Variants =
             type_template(:out) do
