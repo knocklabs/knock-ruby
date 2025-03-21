@@ -18,7 +18,7 @@ module Knockapi
       sig do
         params(
           from_user_id: String,
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

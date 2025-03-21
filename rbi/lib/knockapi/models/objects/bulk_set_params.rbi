@@ -21,7 +21,7 @@ module Knockapi
         sig do
           params(
             objects: T::Array[Knockapi::Models::InlineObjectRequest],
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

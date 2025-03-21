@@ -197,7 +197,7 @@ module Knockapi
             ],
             data: T.nilable(T::Hash[Symbol, T.anything]),
             inserted_at: String,
-            source: Knockapi::Models::Users::FeedListItemsResponse::Source,
+            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash),
             tenant: T.nilable(String),
             total_activities: Integer,
             total_actors: Integer,

@@ -9,7 +9,7 @@ module Knockapi
           params(
             channel_id: String,
             access_token_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::Providers::SlackCheckAuthResponse)
         end
@@ -28,7 +28,7 @@ module Knockapi
             channel_id: String,
             access_token_object: String,
             query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])
         end
@@ -47,7 +47,7 @@ module Knockapi
           params(
             channel_id: String,
             access_token_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(String)
         end

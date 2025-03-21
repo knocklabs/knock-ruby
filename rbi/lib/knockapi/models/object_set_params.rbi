@@ -34,7 +34,7 @@ module Knockapi
         params(
           channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
           preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

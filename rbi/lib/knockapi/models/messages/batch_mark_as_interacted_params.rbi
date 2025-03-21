@@ -31,7 +31,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

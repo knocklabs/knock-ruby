@@ -13,7 +13,7 @@ module Knockapi
           ending_at: T.nilable(Time),
           scheduled_at: T.nilable(Time),
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end
@@ -42,7 +42,7 @@ module Knockapi
           repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],
           scheduled_at: T.nilable(Time),
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end
@@ -71,7 +71,7 @@ module Knockapi
           page_size: Integer,
           recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)],
           tenant: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Schedule])
       end
@@ -96,7 +96,7 @@ module Knockapi
       sig do
         params(
           schedule_ids: T::Array[String],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end

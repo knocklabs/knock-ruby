@@ -19,7 +19,9 @@ module Knockapi
 
         # The response from a Microsoft Teams auth check request
         sig do
-          params(connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection)
+          params(
+            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Util::AnyHash)
+          )
             .returns(T.attached_class)
         end
         def self.new(connection:)

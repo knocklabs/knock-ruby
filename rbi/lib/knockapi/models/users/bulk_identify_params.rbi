@@ -21,7 +21,7 @@ module Knockapi
         sig do
           params(
             users: T::Array[Knockapi::Models::InlineIdentifyUserRequest],
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

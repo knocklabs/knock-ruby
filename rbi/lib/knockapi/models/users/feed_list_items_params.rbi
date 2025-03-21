@@ -115,7 +115,7 @@ module Knockapi
             tenant: String,
             trigger_data: String,
             workflow_categories: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

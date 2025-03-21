@@ -17,7 +17,9 @@ module Knockapi
 
         # The response from a Slack auth check request
         sig do
-          params(connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection)
+          params(
+            connection: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Util::AnyHash)
+          )
             .returns(T.attached_class)
         end
         def self.new(connection:)

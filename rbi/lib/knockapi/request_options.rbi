@@ -4,13 +4,13 @@ module Knockapi
   # @api private
   module RequestParameters
     # Options to specify HTTP behaviour for this request.
-    sig { returns(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])) }
+    sig { returns(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)) }
     def request_options
     end
 
     sig do
-      params(_: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
-        .returns(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+      params(_: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+        .returns(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
     end
     def request_options=(_)
     end
@@ -18,7 +18,7 @@ module Knockapi
     # @api private
     module Converter
       # @api private
-      sig { params(params: T.anything).returns([T.anything, T::Hash[Symbol, T.anything]]) }
+      sig { params(params: T.anything).returns([T.anything, Knockapi::Util::AnyHash]) }
       def dump_request(params)
       end
     end
@@ -100,7 +100,7 @@ module Knockapi
     end
 
     # Returns a new instance of RequestOptions.
-    sig { params(values: T::Hash[Symbol, T.anything]).returns(T.attached_class) }
+    sig { params(values: Knockapi::Util::AnyHash).returns(T.attached_class) }
     def self.new(values = {})
     end
   end

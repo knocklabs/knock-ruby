@@ -39,7 +39,7 @@ module Knockapi
           cancellation_key: String,
           recipients: T.nilable(T::Array[String]),
           tenant: T.nilable(String),
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

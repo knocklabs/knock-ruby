@@ -41,7 +41,7 @@ module Knockapi
         params(
           recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

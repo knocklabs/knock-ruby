@@ -38,7 +38,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

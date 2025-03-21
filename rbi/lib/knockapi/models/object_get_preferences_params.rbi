@@ -16,7 +16,7 @@ module Knockapi
       end
 
       sig do
-        params(tenant: String, request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+        params(tenant: String, request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(tenant: nil, request_options: {})

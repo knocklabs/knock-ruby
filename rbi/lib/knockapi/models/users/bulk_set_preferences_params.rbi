@@ -29,9 +29,9 @@ module Knockapi
 
         sig do
           params(
-            preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
+            preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash),
             user_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

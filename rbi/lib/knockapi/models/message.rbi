@@ -231,7 +231,7 @@ module Knockapi
           recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference),
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
-          source: Knockapi::Models::Message::Source,
+          source: T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash),
           status: Knockapi::Models::Message::Status::TaggedSymbol,
           tenant: T.nilable(String),
           updated_at: Time,

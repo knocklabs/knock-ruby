@@ -32,8 +32,8 @@ module Knockapi
         sig do
           params(
             ms_teams_tenant_object: String,
-            query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Util::AnyHash),
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

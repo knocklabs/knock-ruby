@@ -83,7 +83,7 @@ module Knockapi
           ending_at: T.nilable(Time),
           scheduled_at: T.nilable(Time),
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

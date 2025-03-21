@@ -26,7 +26,7 @@ module Knockapi
           page: T.nilable(T::Class[Knockapi::BasePage[Knockapi::BaseModel]]),
           stream: T.nilable(T::Class[T.anything]),
           model: T.nilable(Knockapi::Converter::Input),
-          options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         }
       end
 
@@ -129,7 +129,7 @@ module Knockapi
     # @api private
     sig do
       overridable
-        .params(req: Knockapi::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+        .params(req: Knockapi::BaseClient::RequestComponentsShape, opts: Knockapi::Util::AnyHash)
         .returns(Knockapi::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
@@ -175,7 +175,7 @@ module Knockapi
         page: T.nilable(T::Class[Knockapi::BasePage[Knockapi::BaseModel]]),
         stream: T.nilable(T::Class[T.anything]),
         model: T.nilable(Knockapi::Converter::Input),
-        options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+        options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
       )
         .returns(T.anything)
     end

@@ -20,7 +20,7 @@ module Knockapi
       sig do
         params(
           members: T::Array[Knockapi::Models::AudienceAddMembersParams::Member],
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -65,7 +65,10 @@ module Knockapi
 
         # A request for an individual audience member
         sig do
-          params(user: Knockapi::Models::InlineIdentifyUserRequest, tenant: T.nilable(String))
+          params(
+            user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash),
+            tenant: T.nilable(String)
+          )
             .returns(T.attached_class)
         end
         def self.new(user:, tenant: nil)

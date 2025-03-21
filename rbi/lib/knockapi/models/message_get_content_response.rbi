@@ -394,7 +394,10 @@ module Knockapi
             params(
               _typename: String,
               connection: T::Hash[Symbol, T.anything],
-              template: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+              template: T.any(
+                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+                Knockapi::Util::AnyHash
+              ),
               metadata: T.nilable(T::Hash[Symbol, T.anything])
             )
               .returns(T.attached_class)

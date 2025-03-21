@@ -13,7 +13,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Tenant])
       end
@@ -32,7 +32,7 @@ module Knockapi
       sig do
         params(
           tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(String)
       end
@@ -47,7 +47,7 @@ module Knockapi
       sig do
         params(
           tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Tenant)
       end
@@ -65,7 +65,7 @@ module Knockapi
           channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
           preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
           settings: Knockapi::Models::TenantSetParams::Settings,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Tenant)
       end

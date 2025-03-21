@@ -10,7 +10,7 @@ module Knockapi
           params(
             channel_id: String,
             ms_teams_tenant_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamCheckAuthResponse)
         end
@@ -31,7 +31,7 @@ module Knockapi
             ms_teams_tenant_object: String,
             team_id: String,
             query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamListChannelsResponse)
         end
@@ -54,7 +54,7 @@ module Knockapi
             channel_id: String,
             ms_teams_tenant_object: String,
             query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamListTeamsResponse)
         end
@@ -73,7 +73,7 @@ module Knockapi
           params(
             channel_id: String,
             ms_teams_tenant_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(String)
         end

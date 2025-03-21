@@ -133,7 +133,10 @@ module Knockapi
             # Discord incoming webhook connection
             sig do
               params(
-                incoming_webhook: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+                incoming_webhook: T.any(
+                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+                  Knockapi::Util::AnyHash
+                )
               )
                 .returns(T.attached_class)
             end

@@ -242,8 +242,8 @@ module Knockapi
     # @api private
     sig do
       params(
-        key: T.any(Symbol, T::Hash[Symbol, T.anything], T.proc.returns(T.anything), T.anything),
-        spec: T.any(T::Hash[Symbol, T.anything], T.proc.returns(T.anything), T.anything)
+        key: T.any(Symbol, Knockapi::Util::AnyHash, T.proc.returns(T.anything), T.anything),
+        spec: T.any(Knockapi::Util::AnyHash, T.proc.returns(T.anything), T.anything)
       )
         .void
     end
@@ -295,11 +295,11 @@ module Knockapi
     sig(:final) do
       params(
         type_info: T.any(
-          T::Hash[Symbol, T.anything],
+          Knockapi::Util::AnyHash,
           T.proc.returns(Knockapi::Converter::Input),
           Knockapi::Converter::Input
         ),
-        spec: T::Hash[Symbol, T.anything]
+        spec: Knockapi::Util::AnyHash
       )
         .returns(T.attached_class)
     end
@@ -350,11 +350,11 @@ module Knockapi
     sig(:final) do
       params(
         type_info: T.any(
-          T::Hash[Symbol, T.anything],
+          Knockapi::Util::AnyHash,
           T.proc.returns(Knockapi::Converter::Input),
           Knockapi::Converter::Input
         ),
-        spec: T::Hash[Symbol, T.anything]
+        spec: Knockapi::Util::AnyHash
       )
         .void
     end
@@ -374,11 +374,11 @@ module Knockapi
     sig(:final) do
       params(
         type_info: T.any(
-          T::Hash[Symbol, T.anything],
+          Knockapi::Util::AnyHash,
           T.proc.returns(Knockapi::Converter::Input),
           Knockapi::Converter::Input
         ),
-        spec: T::Hash[Symbol, T.anything]
+        spec: Knockapi::Util::AnyHash
       )
         .returns(T.attached_class)
     end
@@ -397,7 +397,7 @@ module Knockapi
     sig(:final) do
       override
         .params(value: T.any(T::Hash[T.anything, T.anything], T.anything))
-        .returns(T.any(T::Hash[Symbol, T.anything], T.anything))
+        .returns(T.any(Knockapi::Util::AnyHash, T.anything))
     end
     def coerce(value)
     end
@@ -406,7 +406,7 @@ module Knockapi
     sig(:final) do
       override
         .params(value: T.any(T::Hash[T.anything, T.anything], T.anything))
-        .returns(T.any(T::Hash[Symbol, T.anything], T.anything))
+        .returns(T.any(Knockapi::Util::AnyHash, T.anything))
     end
     def dump(value)
     end
@@ -429,11 +429,11 @@ module Knockapi
     sig(:final) do
       params(
         type_info: T.any(
-          T::Hash[Symbol, T.anything],
+          Knockapi::Util::AnyHash,
           T.proc.returns(Knockapi::Converter::Input),
           Knockapi::Converter::Input
         ),
-        spec: T::Hash[Symbol, T.anything]
+        spec: Knockapi::Util::AnyHash
       )
         .void
     end
@@ -501,7 +501,7 @@ module Knockapi
             T.proc.returns(Knockapi::Converter::Input),
             Knockapi::Converter::Input
           ),
-          spec: T::Hash[Symbol, T.anything]
+          spec: Knockapi::Util::AnyHash
         )
           .void
       end
@@ -513,11 +513,11 @@ module Knockapi
         params(
           name_sym: Symbol,
           type_info: T.any(
-            T::Hash[Symbol, T.anything],
+            Knockapi::Util::AnyHash,
             T.proc.returns(Knockapi::Converter::Input),
             Knockapi::Converter::Input
           ),
-          spec: T::Hash[Symbol, T.anything]
+          spec: Knockapi::Util::AnyHash
         )
           .void
       end
@@ -529,11 +529,11 @@ module Knockapi
         params(
           name_sym: Symbol,
           type_info: T.any(
-            T::Hash[Symbol, T.anything],
+            Knockapi::Util::AnyHash,
             T.proc.returns(Knockapi::Converter::Input),
             Knockapi::Converter::Input
           ),
-          spec: T::Hash[Symbol, T.anything]
+          spec: Knockapi::Util::AnyHash
         )
           .void
       end
@@ -607,7 +607,7 @@ module Knockapi
     #
     #   This method is not recursive. The returned value is shared by the object, so it
     #   should not be mutated.
-    sig { overridable.returns(T::Hash[Symbol, T.anything]) }
+    sig { overridable.returns(Knockapi::Util::AnyHash) }
     def to_h
     end
 
@@ -619,11 +619,11 @@ module Knockapi
     #
     #   This method is not recursive. The returned value is shared by the object, so it
     #   should not be mutated.
-    sig { overridable.returns(T::Hash[Symbol, T.anything]) }
+    sig { overridable.returns(Knockapi::Util::AnyHash) }
     def to_hash
     end
 
-    sig { params(keys: T.nilable(T::Array[Symbol])).returns(T::Hash[Symbol, T.anything]) }
+    sig { params(keys: T.nilable(T::Array[Symbol])).returns(Knockapi::Util::AnyHash) }
     def deconstruct_keys(keys)
     end
 

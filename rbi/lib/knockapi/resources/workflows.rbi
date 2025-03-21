@@ -12,7 +12,7 @@ module Knockapi
           cancellation_key: String,
           recipients: T.nilable(T::Array[String]),
           tenant: T.nilable(String),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(String)
       end
@@ -43,7 +43,7 @@ module Knockapi
           data: T.nilable(T::Hash[Symbol, T.anything]),
           recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::WorkflowTriggerResponse)
       end

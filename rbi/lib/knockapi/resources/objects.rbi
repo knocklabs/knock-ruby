@@ -14,7 +14,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Object])
       end
@@ -36,7 +36,7 @@ module Knockapi
         params(
           collection: String,
           object_id_: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(String)
       end
@@ -57,7 +57,7 @@ module Knockapi
           object_id_: String,
           recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
@@ -80,7 +80,7 @@ module Knockapi
           collection: String,
           object_id_: String,
           recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
@@ -99,7 +99,7 @@ module Knockapi
         params(
           collection: String,
           object_id_: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Object)
       end
@@ -118,7 +118,7 @@ module Knockapi
           collection: String,
           object_id_: String,
           channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
@@ -140,7 +140,7 @@ module Knockapi
           object_id_: String,
           preference_set_id: String,
           tenant: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
@@ -175,7 +175,7 @@ module Knockapi
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Message])
       end
@@ -224,7 +224,7 @@ module Knockapi
           page_size: Integer,
           tenant: String,
           workflow: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Schedule])
       end
@@ -260,7 +260,7 @@ module Knockapi
           objects: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)],
           page_size: Integer,
           recipients: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
@@ -292,7 +292,7 @@ module Knockapi
           object_id_: String,
           channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
           preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Object)
       end
@@ -322,7 +322,7 @@ module Knockapi
             Knockapi::Models::Recipients::MsTeamsChannelData,
             Knockapi::Models::Recipients::DiscordChannelData
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
@@ -364,7 +364,7 @@ module Knockapi
             )
             ]
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
@@ -393,7 +393,7 @@ module Knockapi
           collection: String,
           object_id_: String,
           channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(String)
       end

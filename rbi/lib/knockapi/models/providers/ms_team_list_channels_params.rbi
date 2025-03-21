@@ -44,8 +44,8 @@ module Knockapi
           params(
             ms_teams_tenant_object: String,
             team_id: String,
-            query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Util::AnyHash),
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

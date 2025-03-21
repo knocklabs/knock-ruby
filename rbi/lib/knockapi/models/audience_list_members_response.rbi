@@ -27,7 +27,7 @@ module Knockapi
       sig do
         params(
           entries: T::Array[Knockapi::Models::AudienceMember],
-          page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

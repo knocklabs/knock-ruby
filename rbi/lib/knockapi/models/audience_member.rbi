@@ -52,7 +52,7 @@ module Knockapi
         params(
           _typename: String,
           added_at: Time,
-          user: Knockapi::Models::User,
+          user: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash),
           user_id: String,
           tenant: T.nilable(String)
         )

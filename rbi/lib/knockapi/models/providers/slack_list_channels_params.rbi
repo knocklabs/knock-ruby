@@ -34,8 +34,8 @@ module Knockapi
         sig do
           params(
             access_token_object: String,
-            query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash),
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

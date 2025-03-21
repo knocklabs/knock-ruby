@@ -8,7 +8,7 @@ module Knockapi
         sig do
           params(
             user_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -19,7 +19,7 @@ module Knockapi
         sig do
           params(
             users: T::Array[Knockapi::Models::InlineIdentifyUserRequest],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -31,7 +31,7 @@ module Knockapi
           params(
             preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
             user_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end

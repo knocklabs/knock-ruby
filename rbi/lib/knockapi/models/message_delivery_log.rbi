@@ -74,8 +74,8 @@ module Knockapi
           _typename: String,
           environment_id: String,
           inserted_at: String,
-          request: Knockapi::Models::MessageDeliveryLog::Request,
-          response: Knockapi::Models::MessageDeliveryLog::Response,
+          request: T.any(Knockapi::Models::MessageDeliveryLog::Request, Knockapi::Util::AnyHash),
+          response: T.any(Knockapi::Models::MessageDeliveryLog::Response, Knockapi::Util::AnyHash),
           service_name: String
         )
           .returns(T.attached_class)

@@ -19,7 +19,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

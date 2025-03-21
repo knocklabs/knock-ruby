@@ -8,7 +8,7 @@ module Knockapi
         sig do
           params(
             tenant_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -23,7 +23,7 @@ module Knockapi
         sig do
           params(
             tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end

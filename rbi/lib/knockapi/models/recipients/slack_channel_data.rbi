@@ -61,7 +61,7 @@ module Knockapi
               Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
             )
             ],
-            token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Util::AnyHash))
           )
             .returns(T.attached_class)
         end

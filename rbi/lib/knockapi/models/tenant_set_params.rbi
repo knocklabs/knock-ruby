@@ -45,8 +45,8 @@ module Knockapi
         params(
           channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
           preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
-          settings: Knockapi::Models::TenantSetParams::Settings,
-          request_options: T.any(Knockapi::RequestOptions, T::Hash[Symbol, T.anything])
+          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Util::AnyHash),
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -93,8 +93,8 @@ module Knockapi
 
         sig do
           params(
-            branding: Knockapi::Models::TenantSetParams::Settings::Branding,
-            preference_set: T.nilable(Knockapi::Models::Recipients::PreferenceSetRequest)
+            branding: T.any(Knockapi::Models::TenantSetParams::Settings::Branding, Knockapi::Util::AnyHash),
+            preference_set: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
           )
             .returns(T.attached_class)
         end

@@ -52,7 +52,7 @@ module Knockapi
           id: String,
           channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
           preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
-          settings: Knockapi::Models::TenantRequest::Settings
+          settings: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -99,8 +99,8 @@ module Knockapi
 
         sig do
           params(
-            branding: Knockapi::Models::TenantRequest::Settings::Branding,
-            preference_set: T.nilable(Knockapi::Models::Recipients::PreferenceSetRequest)
+            branding: T.any(Knockapi::Models::TenantRequest::Settings::Branding, Knockapi::Util::AnyHash),
+            preference_set: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
           )
             .returns(T.attached_class)
         end

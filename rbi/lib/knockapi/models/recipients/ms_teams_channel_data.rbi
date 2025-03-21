@@ -189,7 +189,10 @@ module Knockapi
             # Microsoft Teams incoming webhook connection
             sig do
               params(
-                incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+                incoming_webhook: T.any(
+                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+                  Knockapi::Util::AnyHash
+                )
               )
                 .returns(T.attached_class)
             end
