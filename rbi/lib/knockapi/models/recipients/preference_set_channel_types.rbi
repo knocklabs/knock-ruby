@@ -120,6 +120,12 @@ module Knockapi
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+
+          class << self
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
+            end
+          end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -129,6 +135,12 @@ module Knockapi
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+
+          class << self
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
+            end
+          end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -138,6 +150,12 @@ module Knockapi
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+
+          class << self
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
+            end
+          end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -147,6 +165,12 @@ module Knockapi
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+
+          class << self
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
+            end
+          end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -156,6 +180,12 @@ module Knockapi
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+
+          class << self
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
+            end
+          end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -165,6 +195,12 @@ module Knockapi
 
           Variants =
             type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
+
+          class << self
+            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+            def variants
+            end
+          end
         end
       end
     end

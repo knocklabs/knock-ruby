@@ -51,6 +51,12 @@ module Knockapi
         IS_AUDIENCE_MEMBER = :is_audience_member
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

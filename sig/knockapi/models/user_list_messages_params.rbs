@@ -109,7 +109,7 @@ module Knockapi
         LINK_CLICKED: :link_clicked
         ARCHIVED: :archived
 
-        def self.values: -> ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
+        def self?.values: -> ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
       end
 
       type status =
@@ -132,7 +132,7 @@ module Knockapi
         NOT_SENT: :not_sent
         BOUNCED: :bounced
 
-        def self.values: -> ::Array[Knockapi::Models::UserListMessagesParams::status]
+        def self?.values: -> ::Array[Knockapi::Models::UserListMessagesParams::status]
       end
     end
   end

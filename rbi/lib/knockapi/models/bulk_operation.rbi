@@ -194,6 +194,12 @@ module Knockapi
         PROCESSING = T.let(:processing, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
         COMPLETED = T.let(:completed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
         FAILED = T.let(:failed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::BulkOperation::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class ErrorItem < Knockapi::BaseModel

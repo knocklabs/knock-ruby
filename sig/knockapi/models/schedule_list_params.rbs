@@ -70,7 +70,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::ScheduleListParams::Recipient::object_reference
         end
 
-        def self.variants: -> [String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]
       end
     end
   end

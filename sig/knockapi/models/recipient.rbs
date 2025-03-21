@@ -5,7 +5,7 @@ module Knockapi
     module Recipient
       extend Knockapi::Union
 
-      def self.variants: -> [Knockapi::Models::User, Knockapi::Models::Object]
+      def self?.variants: -> [Knockapi::Models::User, Knockapi::Models::Object]
     end
   end
 end

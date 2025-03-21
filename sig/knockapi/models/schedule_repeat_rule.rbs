@@ -50,7 +50,7 @@ module Knockapi
         MONTHLY: :monthly
         HOURLY: :hourly
 
-        def self.values: -> ::Array[Knockapi::Models::ScheduleRepeatRule::frequency]
+        def self?.values: -> ::Array[Knockapi::Models::ScheduleRepeatRule::frequency]
       end
 
       type day = :mon | :tue | :wed | :thu | :fri | :sat | :sun
@@ -66,7 +66,7 @@ module Knockapi
         SAT: :sat
         SUN: :sun
 
-        def self.values: -> ::Array[Knockapi::Models::ScheduleRepeatRule::day]
+        def self?.values: -> ::Array[Knockapi::Models::ScheduleRepeatRule::day]
       end
     end
   end

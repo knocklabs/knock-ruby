@@ -127,8 +127,14 @@ module Knockapi
         OrSymbol =
           T.type_alias { T.any(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol) }
 
-        RECIPIENT = T.let(:recipient, Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
-        OBJECT = T.let(:object, Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
+        RECIPIENT = T.let(:recipient, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)
+        OBJECT = T.let(:object, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -167,6 +173,12 @@ module Knockapi
           def to_hash
           end
         end
+
+        class << self
+          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]) }
+          def variants
+          end
+        end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -203,6 +215,12 @@ module Knockapi
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash
+          end
+        end
+
+        class << self
+          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]) }
+          def variants
           end
         end
       end

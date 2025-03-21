@@ -233,6 +233,17 @@ module Knockapi
             def to_hash
             end
           end
+
+          class << self
+            sig do
+              override
+                .returns(
+                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
+                )
+            end
+            def variants
+            end
+          end
         end
 
         # Workflow or category preferences within a preference set
@@ -299,6 +310,17 @@ module Knockapi
                 )
             end
             def to_hash
+            end
+          end
+
+          class << self
+            sig do
+              override
+                .returns(
+                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
+                )
+            end
+            def variants
             end
           end
         end

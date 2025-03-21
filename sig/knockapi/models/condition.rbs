@@ -62,7 +62,7 @@ module Knockapi
         IS_TIMESTAMP_BETWEEN: :is_timestamp_between
         IS_AUDIENCE_MEMBER: :is_audience_member
 
-        def self.values: -> ::Array[Knockapi::Models::Condition::operator]
+        def self?.values: -> ::Array[Knockapi::Models::Condition::operator]
       end
     end
   end

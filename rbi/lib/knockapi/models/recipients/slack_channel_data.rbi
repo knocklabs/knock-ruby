@@ -166,6 +166,17 @@ module Knockapi
             def to_hash
             end
           end
+
+          class << self
+            sig do
+              override
+                .returns(
+                  [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
+                )
+            end
+            def variants
+            end
+          end
         end
 
         class Token < Knockapi::BaseModel

@@ -227,6 +227,17 @@ module Knockapi
               end
             end
           end
+
+          class << self
+            sig do
+              override
+                .returns(
+                  [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
+                )
+            end
+            def variants
+            end
+          end
         end
       end
     end

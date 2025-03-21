@@ -141,7 +141,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::Message::Actor::object_reference
         end
 
-        def self.variants: -> [String, Knockapi::Models::Message::Actor::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::Message::Actor::ObjectReference]
       end
 
       type engagement_status =
@@ -156,7 +156,7 @@ module Knockapi
         LINK_CLICKED: :link_clicked
         ARCHIVED: :archived
 
-        def self.values: -> ::Array[Knockapi::Models::Message::engagement_status]
+        def self?.values: -> ::Array[Knockapi::Models::Message::engagement_status]
       end
 
       type recipient =
@@ -177,7 +177,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::Message::Recipient::object_reference
         end
 
-        def self.variants: -> [String, Knockapi::Models::Message::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::Message::Recipient::ObjectReference]
       end
 
       type source =
@@ -227,7 +227,7 @@ module Knockapi
         NOT_SENT: :not_sent
         BOUNCED: :bounced
 
-        def self.values: -> ::Array[Knockapi::Models::Message::status]
+        def self?.values: -> ::Array[Knockapi::Models::Message::status]
       end
     end
   end

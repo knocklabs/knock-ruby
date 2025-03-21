@@ -147,6 +147,12 @@ module Knockapi
           DELETE = :delete
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         module Archived
@@ -157,6 +163,12 @@ module Knockapi
           ONLY = :only
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         module DeliveryStatus
@@ -171,6 +183,12 @@ module Knockapi
           BOUNCED = :bounced
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         module EngagementStatus
@@ -186,6 +204,12 @@ module Knockapi
           INTERACTED = :interacted
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
     end

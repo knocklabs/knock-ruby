@@ -331,6 +331,12 @@ module Knockapi
           def to_hash
           end
         end
+
+        class << self
+          sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
+          def variants
+          end
+        end
       end
 
       module EngagementStatus
@@ -344,6 +350,12 @@ module Knockapi
         INTERACTED = T.let(:interacted, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
         LINK_CLICKED = T.let(:link_clicked, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
         ARCHIVED = T.let(:archived, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -380,6 +392,12 @@ module Knockapi
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash
+          end
+        end
+
+        class << self
+          sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
+          def variants
           end
         end
       end
@@ -449,6 +467,12 @@ module Knockapi
         UNDELIVERED = T.let(:undelivered, Knockapi::Models::Message::Status::TaggedSymbol)
         NOT_SENT = T.let(:not_sent, Knockapi::Models::Message::Status::TaggedSymbol)
         BOUNCED = T.let(:bounced, Knockapi::Models::Message::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::Message::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

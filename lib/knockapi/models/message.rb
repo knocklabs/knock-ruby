@@ -276,6 +276,12 @@ module Knockapi
         ARCHIVED = :archived
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -370,6 +376,12 @@ module Knockapi
         BOUNCED = :bounced
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

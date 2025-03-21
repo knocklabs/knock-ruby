@@ -104,10 +104,16 @@ module Knockapi
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency) }
         OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol) }
 
-        DAILY = T.let(:daily, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
-        WEEKLY = T.let(:weekly, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
-        MONTHLY = T.let(:monthly, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
-        HOURLY = T.let(:hourly, Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
+        DAILY = T.let(:daily, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
+        WEEKLY = T.let(:weekly, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
+        MONTHLY = T.let(:monthly, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
+        HOURLY = T.let(:hourly, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       module Day
@@ -116,13 +122,19 @@ module Knockapi
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Day) }
         OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol) }
 
-        MON = T.let(:mon, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
-        TUE = T.let(:tue, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
-        WED = T.let(:wed, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
-        THU = T.let(:thu, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
-        FRI = T.let(:fri, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
-        SAT = T.let(:sat, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
-        SUN = T.let(:sun, Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol)
+        MON = T.let(:mon, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
+        TUE = T.let(:tue, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
+        WED = T.let(:wed, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
+        THU = T.let(:thu, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
+        FRI = T.let(:fri, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
+        SAT = T.let(:sat, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
+        SUN = T.let(:sun, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

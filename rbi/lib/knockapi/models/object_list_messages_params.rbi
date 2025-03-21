@@ -198,12 +198,19 @@ module Knockapi
         OrSymbol =
           T.type_alias { T.any(Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol) }
 
-        SEEN = T.let(:seen, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
-        READ = T.let(:read, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
-        INTERACTED = T.let(:interacted, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
+        SEEN = T.let(:seen, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol)
+        READ = T.let(:read, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol)
+        INTERACTED =
+          T.let(:interacted, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol)
         LINK_CLICKED =
-          T.let(:link_clicked, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
-        ARCHIVED = T.let(:archived, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol)
+          T.let(:link_clicked, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol)
+        ARCHIVED = T.let(:archived, Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       module Status
@@ -213,14 +220,20 @@ module Knockapi
         OrSymbol =
           T.type_alias { T.any(Symbol, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol) }
 
-        QUEUED = T.let(:queued, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
-        SENT = T.let(:sent, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
-        DELIVERED = T.let(:delivered, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+        QUEUED = T.let(:queued, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol)
+        SENT = T.let(:sent, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol)
+        DELIVERED = T.let(:delivered, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol)
         DELIVERY_ATTEMPTED =
-          T.let(:delivery_attempted, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
-        UNDELIVERED = T.let(:undelivered, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
-        NOT_SENT = T.let(:not_sent, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
-        BOUNCED = T.let(:bounced, Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol)
+          T.let(:delivery_attempted, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol)
+        UNDELIVERED = T.let(:undelivered, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol)
+        NOT_SENT = T.let(:not_sent, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol)
+        BOUNCED = T.let(:bounced, Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::ObjectListMessagesParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

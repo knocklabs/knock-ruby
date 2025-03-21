@@ -52,7 +52,7 @@ module Knockapi
           def to_hash: -> Knockapi::Models::MessageEvent::Recipient::object_reference
         end
 
-        def self.variants: -> [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
       end
 
       type type_ =
@@ -87,7 +87,7 @@ module Knockapi
         MESSAGE_ARCHIVED: :"message.archived"
         MESSAGE_UNARCHIVED: :"message.unarchived"
 
-        def self.values: -> ::Array[Knockapi::Models::MessageEvent::type_]
+        def self?.values: -> ::Array[Knockapi::Models::MessageEvent::type_]
       end
     end
   end

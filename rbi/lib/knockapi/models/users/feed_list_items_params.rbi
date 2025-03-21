@@ -163,9 +163,15 @@ module Knockapi
           OrSymbol =
             T.type_alias { T.any(Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol) }
 
-          EXCLUDE = T.let(:exclude, Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
-          INCLUDE = T.let(:include, Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
-          ONLY = T.let(:only, Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
+          EXCLUDE = T.let(:exclude, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
+          INCLUDE = T.let(:include, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
+          ONLY = T.let(:only, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol]) }
+            def values
+            end
+          end
         end
 
         # The status of the feed items to return
@@ -176,11 +182,17 @@ module Knockapi
           OrSymbol =
             T.type_alias { T.any(Symbol, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol) }
 
-          UNREAD = T.let(:unread, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
-          READ = T.let(:read, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
-          UNSEEN = T.let(:unseen, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
-          SEEN = T.let(:seen, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
-          ALL = T.let(:all, Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
+          UNREAD = T.let(:unread, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
+          READ = T.let(:read, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
+          UNSEEN = T.let(:unseen, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
+          SEEN = T.let(:seen, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
+          ALL = T.let(:all, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol]) }
+            def values
+            end
+          end
         end
       end
     end

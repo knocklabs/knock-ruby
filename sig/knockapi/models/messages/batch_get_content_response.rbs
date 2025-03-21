@@ -212,7 +212,7 @@ module Knockapi
                   TEXT: :text
                   MARKDOWN: :markdown
 
-                  def self.values: -> ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::type_]
+                  def self?.values: -> ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::type_]
                 end
               end
             end
@@ -277,7 +277,7 @@ module Knockapi
                   MARKDOWN: :markdown
                   TEXT: :text
 
-                  def self.values: -> ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_]
+                  def self?.values: -> ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_]
                 end
               end
 
@@ -328,15 +328,15 @@ module Knockapi
 
                   BUTTON_SET: :button_set
 
-                  def self.values: -> ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_]
+                  def self?.values: -> ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_]
                 end
               end
 
-              def self.variants: -> [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
+              def self?.variants: -> [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
             end
           end
 
-          def self.variants: -> [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent]
+          def self?.variants: -> [Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent]
         end
       end
 

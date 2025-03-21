@@ -129,6 +129,12 @@ module Knockapi
           def to_hash
           end
         end
+
+        class << self
+          sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]) }
+          def variants
+          end
+        end
       end
 
       module Type
@@ -150,6 +156,12 @@ module Knockapi
         MESSAGE_UNSEEN = T.let(:"message.unseen", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
         MESSAGE_ARCHIVED = T.let(:"message.archived", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
         MESSAGE_UNARCHIVED = T.let(:"message.unarchived", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[Knockapi::Models::MessageEvent::Type::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

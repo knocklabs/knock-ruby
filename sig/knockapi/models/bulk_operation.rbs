@@ -82,7 +82,7 @@ module Knockapi
         COMPLETED: :completed
         FAILED: :failed
 
-        def self.values: -> ::Array[Knockapi::Models::BulkOperation::status]
+        def self?.values: -> ::Array[Knockapi::Models::BulkOperation::status]
       end
 
       type error_item = { id: String, collection: String? }

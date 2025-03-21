@@ -131,6 +131,12 @@ module Knockapi
         FAILED = :failed
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class ErrorItem < Knockapi::BaseModel

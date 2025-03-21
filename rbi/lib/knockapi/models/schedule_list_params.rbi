@@ -135,6 +135,12 @@ module Knockapi
           def to_hash
           end
         end
+
+        class << self
+          sig { override.returns([String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]) }
+          def variants
+          end
+        end
       end
     end
   end

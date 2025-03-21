@@ -124,7 +124,7 @@ module Knockapi
               MARKDOWN: :markdown
               TEXT: :text
 
-              def self.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_]
+              def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_]
             end
           end
 
@@ -175,11 +175,11 @@ module Knockapi
 
               BUTTON_SET: :button_set
 
-              def self.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_]
+              def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_]
             end
           end
 
-          def self.variants: -> [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
+          def self?.variants: -> [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
         end
 
         type source =

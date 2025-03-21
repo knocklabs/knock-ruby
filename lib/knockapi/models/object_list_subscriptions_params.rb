@@ -90,6 +90,12 @@ module Knockapi
         OBJECT = :object
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object

@@ -93,7 +93,7 @@ module Knockapi
 
           UnionMember1Map: union_member1_map
 
-          def self.variants: -> [String, ::Hash[Symbol, top]]
+          def self?.variants: -> [String, ::Hash[Symbol, top]]
         end
 
         type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
@@ -107,7 +107,7 @@ module Knockapi
           DELETE: :DELETE
           PATCH: :PATCH
 
-          def self.values: -> ::Array[Knockapi::Models::MessageDeliveryLog::Request::method_]
+          def self?.values: -> ::Array[Knockapi::Models::MessageDeliveryLog::Request::method_]
         end
       end
 
@@ -148,7 +148,7 @@ module Knockapi
 
           UnionMember1Map: union_member1_map
 
-          def self.variants: -> [String, ::Hash[Symbol, top]]
+          def self?.variants: -> [String, ::Hash[Symbol, top]]
         end
       end
     end

@@ -149,6 +149,12 @@ module Knockapi
           ONLY = :only
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         # The status of the feed items to return
@@ -162,6 +168,12 @@ module Knockapi
           ALL = :all
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
     end

@@ -111,6 +111,17 @@ module Knockapi
                 )
               }
             end
+
+          class << self
+            sig do
+              override
+                .returns(
+                  [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
+                )
+            end
+            def variants
+            end
+          end
         end
       end
     end

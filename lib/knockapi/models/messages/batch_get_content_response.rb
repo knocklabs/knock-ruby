@@ -287,6 +287,12 @@ module Knockapi
                   MARKDOWN = :markdown
 
                   finalize!
+
+                  class << self
+                    # @!parse
+                    #   # @return [Array<Symbol>]
+                    #   def values; end
+                  end
                 end
               end
             end
@@ -366,6 +372,12 @@ module Knockapi
                   TEXT = :text
 
                   finalize!
+
+                  class << self
+                    # @!parse
+                    #   # @return [Array<Symbol>]
+                    #   def values; end
+                  end
                 end
               end
 
@@ -436,6 +448,12 @@ module Knockapi
                   BUTTON_SET = :button_set
 
                   finalize!
+
+                  class << self
+                    # @!parse
+                    #   # @return [Array<Symbol>]
+                    #   def values; end
+                  end
                 end
               end
 

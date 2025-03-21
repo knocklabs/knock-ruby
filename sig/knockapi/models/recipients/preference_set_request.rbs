@@ -49,7 +49,7 @@ module Knockapi
             def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Category::preference_set_workflow_category_setting_object
           end
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
         end
 
         type workflow =
@@ -78,7 +78,7 @@ module Knockapi
             def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::preference_set_workflow_category_setting_object
           end
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
         end
       end
     end

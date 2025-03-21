@@ -108,7 +108,7 @@ module Knockapi
           UNARCHIVE: :unarchive
           DELETE: :delete
 
-          def self.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action]
+          def self?.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action]
         end
 
         type archived = :exclude | :include | :only
@@ -120,7 +120,7 @@ module Knockapi
           INCLUDE: :include
           ONLY: :only
 
-          def self.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived]
+          def self?.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived]
         end
 
         type delivery_status =
@@ -143,7 +143,7 @@ module Knockapi
           NOT_SENT: :not_sent
           BOUNCED: :bounced
 
-          def self.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status]
+          def self?.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status]
         end
 
         type engagement_status =
@@ -168,7 +168,7 @@ module Knockapi
           LINK_CLICKED: :link_clicked
           INTERACTED: :interacted
 
-          def self.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status]
+          def self?.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status]
         end
       end
     end

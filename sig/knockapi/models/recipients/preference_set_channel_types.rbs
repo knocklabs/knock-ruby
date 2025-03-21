@@ -65,7 +65,7 @@ module Knockapi
         module Chat
           extend Knockapi::Union
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type email =
@@ -74,7 +74,7 @@ module Knockapi
         module Email
           extend Knockapi::Union
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type http =
@@ -83,7 +83,7 @@ module Knockapi
         module HTTP
           extend Knockapi::Union
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type in_app_feed =
@@ -92,7 +92,7 @@ module Knockapi
         module InAppFeed
           extend Knockapi::Union
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type push =
@@ -101,7 +101,7 @@ module Knockapi
         module Push
           extend Knockapi::Union
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
 
         type sms =
@@ -110,7 +110,7 @@ module Knockapi
         module SMS
           extend Knockapi::Union
 
-          def self.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
       end
     end

@@ -8,7 +8,7 @@ module Knockapi
     module RecipientRequest
       extend Knockapi::Union
 
-      def self.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
+      def self?.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
     end
   end
 end

@@ -374,6 +374,17 @@ module Knockapi
                   :text,
                   Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
                 )
+
+              class << self
+                sig do
+                  override
+                    .returns(
+                      T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol]
+                    )
+                end
+                def values
+                end
+              end
             end
           end
 
@@ -502,6 +513,28 @@ module Knockapi
                   :button_set,
                   Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                 )
+
+              class << self
+                sig do
+                  override
+                    .returns(
+                      T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol]
+                    )
+                end
+                def values
+                end
+              end
+            end
+          end
+
+          class << self
+            sig do
+              override
+                .returns(
+                  [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
+                )
+            end
+            def variants
             end
           end
         end

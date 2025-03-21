@@ -55,7 +55,7 @@ module Knockapi
             def to_hash: -> Knockapi::Models::Recipients::SlackChannelData::Connection::slack_incoming_webhook_connection
           end
 
-          def self.variants: -> [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
+          def self?.variants: -> [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
         end
 
         type token = { access_token: String? }

@@ -89,7 +89,7 @@ module Knockapi
           INCLUDE: :include
           ONLY: :only
 
-          def self.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::archived]
+          def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::archived]
         end
 
         type status = :unread | :read | :unseen | :seen | :all
@@ -103,7 +103,7 @@ module Knockapi
           SEEN: :seen
           ALL: :all
 
-          def self.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::status]
+          def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::status]
         end
       end
     end

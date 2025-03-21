@@ -171,6 +171,17 @@ module Knockapi
               end
             end
           end
+
+          class << self
+            sig do
+              override
+                .returns(
+                  [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
+                )
+            end
+            def variants
+            end
+          end
         end
       end
     end

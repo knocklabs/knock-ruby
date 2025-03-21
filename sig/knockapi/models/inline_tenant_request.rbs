@@ -5,7 +5,7 @@ module Knockapi
     module InlineTenantRequest
       extend Knockapi::Union
 
-      def self.variants: -> [String, Knockapi::Models::TenantRequest]
+      def self?.variants: -> [String, Knockapi::Models::TenantRequest]
     end
   end
 end
