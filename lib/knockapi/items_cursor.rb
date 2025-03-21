@@ -2,32 +2,26 @@
 
 module Knockapi
   # @example
-  # ```ruby
-  # if items_cursor.has_next?
-  #   items_cursor = items_cursor.next_page
-  # end
-  # ```
+  #   if items_cursor.has_next?
+  #     items_cursor = items_cursor.next_page
+  #   end
   #
   # @example
-  # ```ruby
-  # items_cursor.auto_paging_each do |message|
-  #   puts(message)
-  # end
-  # ```
+  #   items_cursor.auto_paging_each do |message|
+  #     puts(message)
+  #   end
   #
   # @example
-  # ```ruby
-  # messages =
-  #   items_cursor
-  #   .to_enum
-  #   .lazy
-  #   .select { _1.object_id.even? }
-  #   .map(&:itself)
-  #   .take(2)
-  #   .to_a
+  #   messages =
+  #     items_cursor
+  #     .to_enum
+  #     .lazy
+  #     .select { _1.object_id.even? }
+  #     .map(&:itself)
+  #     .take(2)
+  #     .to_a
   #
-  # messages => Array
-  # ```
+  #   messages => Array
   class ItemsCursor
     include Knockapi::BasePage
 

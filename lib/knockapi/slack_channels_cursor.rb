@@ -2,32 +2,26 @@
 
 module Knockapi
   # @example
-  # ```ruby
-  # if slack_channels_cursor.has_next?
-  #   slack_channels_cursor = slack_channels_cursor.next_page
-  # end
-  # ```
+  #   if slack_channels_cursor.has_next?
+  #     slack_channels_cursor = slack_channels_cursor.next_page
+  #   end
   #
   # @example
-  # ```ruby
-  # slack_channels_cursor.auto_paging_each do |slack|
-  #   puts(slack)
-  # end
-  # ```
+  #   slack_channels_cursor.auto_paging_each do |slack|
+  #     puts(slack)
+  #   end
   #
   # @example
-  # ```ruby
-  # slacks =
-  #   slack_channels_cursor
-  #   .to_enum
-  #   .lazy
-  #   .select { _1.object_id.even? }
-  #   .map(&:itself)
-  #   .take(2)
-  #   .to_a
+  #   slacks =
+  #     slack_channels_cursor
+  #     .to_enum
+  #     .lazy
+  #     .select { _1.object_id.even? }
+  #     .map(&:itself)
+  #     .take(2)
+  #     .to_a
   #
-  # slacks => Array
-  # ```
+  #   slacks => Array
   class SlackChannelsCursor
     include Knockapi::BasePage
 

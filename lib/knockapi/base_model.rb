@@ -358,17 +358,15 @@ module Knockapi
   # @api private
   #
   # @example
-  # ```ruby
-  # # `recipient` is a `Knockapi::Models::Recipient`
-  # case recipient
-  # when Knockapi::Models::User
-  #   puts(recipient.id)
-  # when Knockapi::Models::Object
-  #   puts(recipient._typename)
-  # else
-  #   puts(recipient)
-  # end
-  # ```
+  #   # `recipient` is a `Knockapi::Models::Recipient`
+  #   case recipient
+  #   when Knockapi::Models::User
+  #     puts(recipient.id)
+  #   when Knockapi::Models::Object
+  #     puts(recipient._typename)
+  #   else
+  #     puts(recipient)
+  #   end
   module Union
     include Knockapi::Converter
 
@@ -833,14 +831,12 @@ module Knockapi
   # @abstract
   #
   # @example
-  # ```ruby
-  # # `condition` is a `Knockapi::Models::Condition`
-  # condition => {
-  #   argument: argument,
-  #   operator: operator,
-  #   variable: variable
-  # }
-  # ```
+  #   # `condition` is a `Knockapi::Models::Condition`
+  #   condition => {
+  #     argument: argument,
+  #     operator: operator,
+  #     variable: variable
+  #   }
   class BaseModel
     extend Knockapi::Converter
 
