@@ -9,8 +9,8 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::Users::FeedGetSettingsResponse::Features)
-            .returns(Knockapi::Models::Users::FeedGetSettingsResponse::Features)
+          params(_: T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Util::AnyHash))
+            .returns(T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Util::AnyHash))
         end
         def features=(_)
         end

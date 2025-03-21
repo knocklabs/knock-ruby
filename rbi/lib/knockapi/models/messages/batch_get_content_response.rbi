@@ -369,8 +369,18 @@ module Knockapi
             end
 
             sig do
-              params(_: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template)
-                .returns(Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template)
+              params(
+                _: T.any(
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
+                  Knockapi::Util::AnyHash
+                )
+              )
+                .returns(
+                  T.any(
+                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
+                    Knockapi::Util::AnyHash
+                  )
+                )
             end
             def template=(_)
             end

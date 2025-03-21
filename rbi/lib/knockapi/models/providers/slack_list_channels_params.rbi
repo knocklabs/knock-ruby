@@ -21,8 +21,12 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions)
-            .returns(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions)
+          params(
+            _: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
+          )
+            .returns(
+              T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
+            )
         end
         def query_options=(_)
         end

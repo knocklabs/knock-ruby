@@ -25,7 +25,10 @@ module Knockapi
         def object
         end
 
-        sig { params(_: Knockapi::Models::Object).returns(Knockapi::Models::Object) }
+        sig do
+          params(_: T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash))
+            .returns(T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash))
+        end
         def object=(_)
         end
 

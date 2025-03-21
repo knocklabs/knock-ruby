@@ -21,8 +21,10 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions)
-            .returns(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions)
+          params(
+            _: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Util::AnyHash)
+          )
+            .returns(T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Util::AnyHash))
         end
         def query_options=(_)
         end

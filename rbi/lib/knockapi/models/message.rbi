@@ -165,7 +165,10 @@ module Knockapi
       def source
       end
 
-      sig { params(_: Knockapi::Models::Message::Source).returns(Knockapi::Models::Message::Source) }
+      sig do
+        params(_: T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash))
+          .returns(T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash))
+      end
       def source=(_)
       end
 

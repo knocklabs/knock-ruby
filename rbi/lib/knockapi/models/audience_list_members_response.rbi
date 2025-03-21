@@ -17,8 +17,8 @@ module Knockapi
       end
 
       sig do
-        params(_: Knockapi::Models::AudienceListMembersResponse::PageInfo)
-          .returns(Knockapi::Models::AudienceListMembersResponse::PageInfo)
+        params(_: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash))
+          .returns(T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash))
       end
       def page_info=(_)
       end

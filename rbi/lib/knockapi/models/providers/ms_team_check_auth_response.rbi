@@ -9,8 +9,10 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection)
-            .returns(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection)
+          params(
+            _: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Util::AnyHash)
+          )
+            .returns(T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Util::AnyHash))
         end
         def connection=(_)
         end

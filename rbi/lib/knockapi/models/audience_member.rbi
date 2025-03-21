@@ -24,7 +24,10 @@ module Knockapi
       def user
       end
 
-      sig { params(_: Knockapi::Models::User).returns(Knockapi::Models::User) }
+      sig do
+        params(_: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash))
+          .returns(T.any(Knockapi::Models::User, Knockapi::Util::AnyHash))
+      end
       def user=(_)
       end
 

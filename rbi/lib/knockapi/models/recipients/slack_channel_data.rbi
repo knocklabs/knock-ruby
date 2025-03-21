@@ -44,8 +44,10 @@ module Knockapi
         end
 
         sig do
-          params(_: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token))
-            .returns(T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token))
+          params(
+            _: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Util::AnyHash))
+          )
+            .returns(T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Util::AnyHash)))
         end
         def token=(_)
         end

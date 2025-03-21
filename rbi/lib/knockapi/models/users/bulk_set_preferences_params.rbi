@@ -13,8 +13,8 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::Recipients::PreferenceSetRequest)
-            .returns(Knockapi::Models::Recipients::PreferenceSetRequest)
+          params(_: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
+            .returns(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
         end
         def preferences=(_)
         end

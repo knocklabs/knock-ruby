@@ -41,8 +41,8 @@ module Knockapi
       end
 
       sig do
-        params(_: Knockapi::Models::MessageDeliveryLog::Request)
-          .returns(Knockapi::Models::MessageDeliveryLog::Request)
+        params(_: T.any(Knockapi::Models::MessageDeliveryLog::Request, Knockapi::Util::AnyHash))
+          .returns(T.any(Knockapi::Models::MessageDeliveryLog::Request, Knockapi::Util::AnyHash))
       end
       def request=(_)
       end
@@ -53,8 +53,8 @@ module Knockapi
       end
 
       sig do
-        params(_: Knockapi::Models::MessageDeliveryLog::Response)
-          .returns(Knockapi::Models::MessageDeliveryLog::Response)
+        params(_: T.any(Knockapi::Models::MessageDeliveryLog::Response, Knockapi::Util::AnyHash))
+          .returns(T.any(Knockapi::Models::MessageDeliveryLog::Response, Knockapi::Util::AnyHash))
       end
       def response=(_)
       end

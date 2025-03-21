@@ -363,8 +363,18 @@ module Knockapi
           end
 
           sig do
-            params(_: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template)
-              .returns(Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template)
+            params(
+              _: T.any(
+                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+                Knockapi::Util::AnyHash
+              )
+            )
+              .returns(
+                T.any(
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+                  Knockapi::Util::AnyHash
+                )
+              )
           end
           def template=(_)
           end

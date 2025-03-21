@@ -171,10 +171,16 @@ module Knockapi
 
             sig do
               params(
-                _: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+                _: T.any(
+                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+                  Knockapi::Util::AnyHash
+                )
               )
                 .returns(
-                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+                  T.any(
+                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+                    Knockapi::Util::AnyHash
+                  )
                 )
             end
             def incoming_webhook=(_)

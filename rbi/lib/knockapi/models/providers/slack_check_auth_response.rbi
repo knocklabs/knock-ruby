@@ -9,8 +9,8 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection)
-            .returns(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection)
+          params(_: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Util::AnyHash))
+            .returns(T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Util::AnyHash))
         end
         def connection=(_)
         end

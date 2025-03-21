@@ -115,10 +115,16 @@ module Knockapi
 
             sig do
               params(
-                _: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+                _: T.any(
+                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+                  Knockapi::Util::AnyHash
+                )
               )
                 .returns(
-                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+                  T.any(
+                    Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+                    Knockapi::Util::AnyHash
+                  )
                 )
             end
             def incoming_webhook=(_)

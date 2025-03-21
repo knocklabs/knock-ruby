@@ -49,7 +49,8 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::InlineIdentifyUserRequest).returns(Knockapi::Models::InlineIdentifyUserRequest)
+          params(_: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash))
+            .returns(T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash))
         end
         def user=(_)
         end

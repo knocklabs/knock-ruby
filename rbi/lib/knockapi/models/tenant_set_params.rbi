@@ -35,7 +35,8 @@ module Knockapi
       end
 
       sig do
-        params(_: Knockapi::Models::TenantSetParams::Settings).returns(Knockapi::Models::TenantSetParams::Settings)
+        params(_: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Util::AnyHash))
+          .returns(T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Util::AnyHash))
       end
       def settings=(_)
       end
@@ -72,8 +73,8 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::TenantSetParams::Settings::Branding)
-            .returns(Knockapi::Models::TenantSetParams::Settings::Branding)
+          params(_: T.any(Knockapi::Models::TenantSetParams::Settings::Branding, Knockapi::Util::AnyHash))
+            .returns(T.any(Knockapi::Models::TenantSetParams::Settings::Branding, Knockapi::Util::AnyHash))
         end
         def branding=(_)
         end
@@ -84,8 +85,8 @@ module Knockapi
         end
 
         sig do
-          params(_: T.nilable(Knockapi::Models::Recipients::PreferenceSetRequest))
-            .returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetRequest))
+          params(_: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash)))
+            .returns(T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash)))
         end
         def preference_set=(_)
         end

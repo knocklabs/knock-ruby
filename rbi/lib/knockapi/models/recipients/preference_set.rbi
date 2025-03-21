@@ -70,8 +70,12 @@ module Knockapi
         end
 
         sig do
-          params(_: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes))
-            .returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes))
+          params(
+            _: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+          )
+            .returns(
+              T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+            )
         end
         def channel_types=(_)
         end
@@ -202,8 +206,12 @@ module Knockapi
             end
 
             sig do
-              params(_: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes))
-                .returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes))
+              params(
+                _: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+              )
+                .returns(
+                  T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+                )
             end
             def channel_types=(_)
             end
@@ -266,8 +274,12 @@ module Knockapi
             end
 
             sig do
-              params(_: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes))
-                .returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes))
+              params(
+                _: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+              )
+                .returns(
+                  T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+                )
             end
             def channel_types=(_)
             end

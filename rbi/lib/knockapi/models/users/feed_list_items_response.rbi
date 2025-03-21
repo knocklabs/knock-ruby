@@ -96,8 +96,8 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::Users::FeedListItemsResponse::Source)
-            .returns(Knockapi::Models::Users::FeedListItemsResponse::Source)
+          params(_: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash))
+            .returns(T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash))
         end
         def source=(_)
         end
