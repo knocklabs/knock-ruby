@@ -260,10 +260,8 @@ module Knockapi
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(String, Knockapi::Models::Message::Actor::ObjectReference)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(String, Knockapi::Models::Message::Actor::ObjectReference)]
+        #   def self.variants; end
       end
 
       module EngagementStatus
@@ -277,11 +275,9 @@ module Knockapi
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -320,10 +316,8 @@ module Knockapi
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(String, Knockapi::Models::Message::Recipient::ObjectReference)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(String, Knockapi::Models::Message::Recipient::ObjectReference)]
+        #   def self.variants; end
       end
 
       class Source < Knockapi::BaseModel
@@ -377,11 +371,9 @@ module Knockapi
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
     end
   end

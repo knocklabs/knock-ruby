@@ -286,11 +286,9 @@ module Knockapi
 
                 finalize!
 
-                class << self
-                  # @!parse
-                  #   # @return [Array<Symbol>]
-                  #   def values; end
-                end
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def self.values; end
               end
             end
           end
@@ -371,11 +369,9 @@ module Knockapi
 
                 finalize!
 
-                class << self
-                  # @!parse
-                  #   # @return [Array<Symbol>]
-                  #   def values; end
-                end
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def self.values; end
               end
             end
 
@@ -447,27 +443,21 @@ module Knockapi
 
                 finalize!
 
-                class << self
-                  # @!parse
-                  #   # @return [Array<Symbol>]
-                  #   def values; end
-                end
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def self.values; end
               end
             end
 
             # @!parse
-            #   class << self
-            #     # @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock)]
-            #     def variants; end
-            #   end
+            #   # @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock)]
+            #   def self.variants; end
           end
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent)]
+        #   def self.variants; end
       end
     end
   end

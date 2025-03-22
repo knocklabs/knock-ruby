@@ -52,16 +52,6 @@ module Knockapi
         module Connection
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) do
-              {
-                fixed: T.any(
-                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-                )
-              }
-            end
-
           class DiscordChannelConnection < Knockapi::BaseModel
             # The Discord channel ID
             sig { returns(String) }
@@ -137,15 +127,13 @@ module Knockapi
             end
           end
 
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
-                )
-            end
-            def variants
-            end
+          sig do
+            override
+              .returns(
+                [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
+              )
+          end
+          def self.variants
           end
         end
       end

@@ -216,9 +216,6 @@ module Knockapi
       module Actor
         extend Knockapi::Union
 
-        Variants =
-          type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Actor::ObjectReference)} }
-
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -238,10 +235,8 @@ module Knockapi
           end
         end
 
-        class << self
-          sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
-          def variants
-          end
+        sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
+        def self.variants
         end
       end
 
@@ -257,10 +252,8 @@ module Knockapi
         LINK_CLICKED = T.let(:link_clicked, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
         ARCHIVED = T.let(:archived, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -268,9 +261,6 @@ module Knockapi
       #   reference (id, collection).
       module Recipient
         extend Knockapi::Union
-
-        Variants =
-          type_template(:out) { {fixed: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference)} }
 
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
@@ -291,10 +281,8 @@ module Knockapi
           end
         end
 
-        class << self
-          sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
-          def variants
-          end
+        sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
+        def self.variants
         end
       end
 
@@ -344,10 +332,8 @@ module Knockapi
         NOT_SENT = T.let(:not_sent, Knockapi::Models::Message::Status::TaggedSymbol)
         BOUNCED = T.let(:bounced, Knockapi::Models::Message::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::Message::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::Message::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

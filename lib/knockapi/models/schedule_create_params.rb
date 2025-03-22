@@ -105,10 +105,8 @@ module Knockapi
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
+        #   def self.variants; end
       end
     end
   end

@@ -141,10 +141,8 @@ module Knockapi
           INCLUDE = T.let(:include, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
           ONLY = T.let(:only, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
 
-          class << self
-            sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol]) }
-            def values
-            end
+          sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol]) }
+          def self.values
           end
         end
 
@@ -162,10 +160,8 @@ module Knockapi
           SEEN = T.let(:seen, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
           ALL = T.let(:all, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
 
-          class << self
-            sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol]) }
-            def values
-            end
+          sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol]) }
+          def self.values
           end
         end
       end

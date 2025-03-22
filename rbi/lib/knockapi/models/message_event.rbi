@@ -60,9 +60,6 @@ module Knockapi
       module Recipient
         extend Knockapi::Union
 
-        Variants =
-          type_template(:out) { {fixed: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)} }
-
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -82,10 +79,8 @@ module Knockapi
           end
         end
 
-        class << self
-          sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]) }
-          def variants
-          end
+        sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]) }
+        def self.variants
         end
       end
 
@@ -109,10 +104,8 @@ module Knockapi
         MESSAGE_ARCHIVED = T.let(:"message.archived", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
         MESSAGE_UNARCHIVED = T.let(:"message.unarchived", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::MessageEvent::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::MessageEvent::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

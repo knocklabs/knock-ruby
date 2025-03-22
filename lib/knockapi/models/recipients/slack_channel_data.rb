@@ -81,10 +81,8 @@ module Knockapi
           end
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
+          #   def self.variants; end
         end
 
         class Token < Knockapi::BaseModel

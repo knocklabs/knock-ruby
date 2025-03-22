@@ -6,12 +6,8 @@ module Knockapi
     module InlineTenantRequest
       extend Knockapi::Union
 
-      Variants = type_template(:out) { {fixed: T.any(String, Knockapi::Models::TenantRequest)} }
-
-      class << self
-        sig { override.returns([String, Knockapi::Models::TenantRequest]) }
-        def variants
-        end
+      sig { override.returns([String, Knockapi::Models::TenantRequest]) }
+      def self.variants
       end
     end
   end

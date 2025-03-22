@@ -130,14 +130,10 @@ module Knockapi
         module Body
           extend Knockapi::Union
 
-          Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
-
           UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
 
-          class << self
-            sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
-            def variants
-            end
+          sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
+          def self.variants
           end
         end
 
@@ -154,10 +150,8 @@ module Knockapi
           DELETE = T.let(:DELETE, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
           PATCH = T.let(:PATCH, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
 
-          class << self
-            sig { override.returns(T::Array[Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol]) }
-            def values
-            end
+          sig { override.returns(T::Array[Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol]) }
+          def self.values
           end
         end
       end
@@ -206,14 +200,10 @@ module Knockapi
         module Body
           extend Knockapi::Union
 
-          Variants = type_template(:out) { {fixed: T.any(String, T::Hash[Symbol, T.anything])} }
-
           UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
 
-          class << self
-            sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
-            def variants
-            end
+          sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
+          def self.variants
           end
         end
       end

@@ -110,10 +110,8 @@ module Knockapi
           end
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
+          #   def self.variants; end
         end
       end
     end

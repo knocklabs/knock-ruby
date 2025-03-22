@@ -91,9 +91,6 @@ module Knockapi
       module Recipient
         extend Knockapi::Union
 
-        Variants =
-          type_template(:out) { {fixed: T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)} }
-
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -113,10 +110,8 @@ module Knockapi
           end
         end
 
-        class << self
-          sig { override.returns([String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]) }
-          def variants
-          end
+        sig { override.returns([String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]) }
+        def self.variants
         end
       end
     end

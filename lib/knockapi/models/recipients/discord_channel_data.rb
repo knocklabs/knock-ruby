@@ -82,10 +82,8 @@ module Knockapi
           end
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection)]
+          #   def self.variants; end
         end
       end
     end

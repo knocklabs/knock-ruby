@@ -58,16 +58,6 @@ module Knockapi
         module Connection
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) do
-              {
-                fixed: T.any(
-                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-                )
-              }
-            end
-
           class MsTeamsTokenConnection < Knockapi::BaseModel
             # The Microsoft Teams channel ID
             sig { returns(T.nilable(String)) }
@@ -173,15 +163,13 @@ module Knockapi
             end
           end
 
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
-                )
-            end
-            def variants
-            end
+          sig do
+            override
+              .returns(
+                [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
+              )
+          end
+          def self.variants
           end
         end
       end

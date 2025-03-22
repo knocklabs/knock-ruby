@@ -91,11 +91,9 @@ module Knockapi
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -134,10 +132,8 @@ module Knockapi
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
+        #   def self.variants; end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -176,10 +172,8 @@ module Knockapi
         end
 
         # @!parse
-        #   class << self
-        #     # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
+        #   def self.variants; end
       end
     end
   end

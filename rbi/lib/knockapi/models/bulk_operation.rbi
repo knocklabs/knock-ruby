@@ -128,10 +128,8 @@ module Knockapi
         COMPLETED = T.let(:completed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
         FAILED = T.let(:failed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::BulkOperation::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::BulkOperation::Status::TaggedSymbol]) }
+        def self.values
         end
       end
 

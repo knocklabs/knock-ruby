@@ -66,28 +66,13 @@ module Knockapi
         module Data
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) do
-              {
-                fixed: T.any(
-                  Knockapi::Models::Recipients::PushChannelData,
-                  Knockapi::Models::Recipients::SlackChannelData,
-                  Knockapi::Models::Recipients::MsTeamsChannelData,
-                  Knockapi::Models::Recipients::DiscordChannelData,
-                  Knockapi::Models::Recipients::OneSignalChannelData
-                )
-              }
-            end
-
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
-                )
-            end
-            def variants
-            end
+          sig do
+            override
+              .returns(
+                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
+              )
+          end
+          def self.variants
           end
         end
       end

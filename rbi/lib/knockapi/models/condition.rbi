@@ -59,10 +59,8 @@ module Knockapi
         IS_TIMESTAMP_BETWEEN = T.let(:is_timestamp_between, Knockapi::Models::Condition::Operator::TaggedSymbol)
         IS_AUDIENCE_MEMBER = T.let(:is_audience_member, Knockapi::Models::Condition::Operator::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::Condition::Operator::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::Condition::Operator::TaggedSymbol]) }
+        def self.values
         end
       end
     end

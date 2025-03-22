@@ -118,13 +118,8 @@ module Knockapi
         module Chat
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
-
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          def self.variants
           end
         end
 
@@ -133,13 +128,8 @@ module Knockapi
         module Email
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
-
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          def self.variants
           end
         end
 
@@ -148,13 +138,8 @@ module Knockapi
         module HTTP
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
-
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          def self.variants
           end
         end
 
@@ -163,13 +148,8 @@ module Knockapi
         module InAppFeed
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
-
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          def self.variants
           end
         end
 
@@ -178,13 +158,8 @@ module Knockapi
         module Push
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
-
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          def self.variants
           end
         end
 
@@ -193,13 +168,8 @@ module Knockapi
         module SMS
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) { {fixed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)} }
-
-          class << self
-            sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-            def variants
-            end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          def self.variants
           end
         end
       end

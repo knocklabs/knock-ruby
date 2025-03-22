@@ -66,16 +66,6 @@ module Knockapi
         module Connection
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) do
-              {
-                fixed: T.any(
-                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-                )
-              }
-            end
-
           class SlackTokenConnection < Knockapi::BaseModel
             sig { returns(T.nilable(String)) }
             attr_accessor :access_token
@@ -124,15 +114,13 @@ module Knockapi
             end
           end
 
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
-                )
-            end
-            def variants
-            end
+          sig do
+            override
+              .returns(
+                [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
+              )
+          end
+          def self.variants
           end
         end
 

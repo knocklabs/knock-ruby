@@ -113,16 +113,6 @@ module Knockapi
         module Category
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) do
-              {
-                fixed: T.any(
-                  T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
-                )
-              }
-            end
-
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
@@ -164,15 +154,13 @@ module Knockapi
             end
           end
 
-          class << self
-            sig do
-              override
-                .returns(
-                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
-                )
-            end
-            def variants
-            end
+          sig do
+            override
+              .returns(
+                [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
+              )
+          end
+          def self.variants
           end
         end
 
@@ -180,16 +168,6 @@ module Knockapi
         module Workflow
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) do
-              {
-                fixed: T.any(
-                  T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
-                )
-              }
-            end
-
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
@@ -231,15 +209,13 @@ module Knockapi
             end
           end
 
-          class << self
-            sig do
-              override
-                .returns(
-                  [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
-                )
-            end
-            def variants
-            end
+          sig do
+            override
+              .returns(
+                [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
+              )
+          end
+          def self.variants
           end
         end
       end

@@ -126,10 +126,8 @@ module Knockapi
           variant Knockapi::Models::MessageDeliveryLog::Request::Body::UnionMember1Map
 
           # @!parse
-          #   class << self
-          #     # @return [Array(String, Hash{Symbol=>Object})]
-          #     def variants; end
-          #   end
+          #   # @return [Array(String, Hash{Symbol=>Object})]
+          #   def self.variants; end
         end
 
         module Method
@@ -143,11 +141,9 @@ module Knockapi
 
           finalize!
 
-          class << self
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def values; end
-          end
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def self.values; end
         end
       end
 
@@ -196,10 +192,8 @@ module Knockapi
           variant Knockapi::Models::MessageDeliveryLog::Response::Body::UnionMember1Map
 
           # @!parse
-          #   class << self
-          #     # @return [Array(String, Hash{Symbol=>Object})]
-          #     def variants; end
-          #   end
+          #   # @return [Array(String, Hash{Symbol=>Object})]
+          #   def self.variants; end
         end
       end
     end

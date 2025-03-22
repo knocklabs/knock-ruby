@@ -95,10 +95,8 @@ module Knockapi
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #   def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -112,10 +110,8 @@ module Knockapi
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #   def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -129,10 +125,8 @@ module Knockapi
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #   def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -146,10 +140,8 @@ module Knockapi
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #   def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -163,10 +155,8 @@ module Knockapi
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #   def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -180,10 +170,8 @@ module Knockapi
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
+          #   def self.variants; end
         end
       end
     end

@@ -70,19 +70,6 @@ module Knockapi
       module Data
         extend Knockapi::Union
 
-        Variants =
-          type_template(:out) do
-            {
-              fixed: T.any(
-                Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
-              )
-            }
-          end
-
         class MessageEmailContent < Knockapi::BaseModel
           sig { returns(String) }
           attr_accessor :_typename
@@ -386,15 +373,13 @@ module Knockapi
                     Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                   )
 
-                class << self
-                  sig do
-                    override
-                      .returns(
-                        T::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol]
-                      )
-                  end
-                  def values
-                  end
+                sig do
+                  override
+                    .returns(
+                      T::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol]
+                    )
+                end
+                def self.values
                 end
               end
             end
@@ -455,16 +440,6 @@ module Knockapi
           # A content (text or markdown) block in a message in an app feed
           module Block
             extend Knockapi::Union
-
-            Variants =
-              type_template(:out) do
-                {
-                  fixed: T.any(
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                  )
-                }
-              end
 
             class MessageInAppFeedContentBlock < Knockapi::BaseModel
               sig { returns(String) }
@@ -536,17 +511,15 @@ module Knockapi
                     Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
                   )
 
-                class << self
-                  sig do
-                    override
-                      .returns(
-                        T::Array[
-                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                        ]
-                      )
-                  end
-                  def values
-                  end
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                      ]
+                    )
+                end
+                def self.values
                 end
               end
             end
@@ -644,43 +617,37 @@ module Knockapi
                     Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                   )
 
-                class << self
-                  sig do
-                    override
-                      .returns(
-                        T::Array[
-                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                        ]
-                      )
-                  end
-                  def values
-                  end
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                      ]
+                    )
+                end
+                def self.values
                 end
               end
             end
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    [Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
-                  )
-              end
-              def variants
-              end
+            sig do
+              override
+                .returns(
+                  [Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
+                )
+            end
+            def self.variants
             end
           end
         end
 
-        class << self
-          sig do
-            override
-              .returns(
-                [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]
-              )
-          end
-          def variants
-          end
+        sig do
+          override
+            .returns(
+              [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]
+            )
+        end
+        def self.variants
         end
       end
     end

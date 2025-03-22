@@ -171,10 +171,8 @@ module Knockapi
         LINK_CLICKED = T.let(:link_clicked, Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol)
         ARCHIVED = T.let(:archived, Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -193,10 +191,8 @@ module Knockapi
         NOT_SENT = T.let(:not_sent, Knockapi::Models::MessageListParams::Status::TaggedSymbol)
         BOUNCED = T.let(:bounced, Knockapi::Models::MessageListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::MessageListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::MessageListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

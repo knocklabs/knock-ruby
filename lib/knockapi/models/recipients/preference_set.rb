@@ -83,10 +83,8 @@ module Knockapi
           end
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject)]
+          #   def self.variants; end
         end
 
         # Workflow or category preferences within a preference set
@@ -123,10 +121,8 @@ module Knockapi
           end
 
           # @!parse
-          #   class << self
-          #     # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject)]
-          #     def variants; end
-          #   end
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject)]
+          #   def self.variants; end
         end
       end
     end

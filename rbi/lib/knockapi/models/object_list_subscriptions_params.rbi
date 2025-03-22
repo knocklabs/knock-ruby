@@ -137,10 +137,8 @@ module Knockapi
         RECIPIENT = T.let(:recipient, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)
         OBJECT = T.let(:object, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -149,9 +147,6 @@ module Knockapi
       module Object
         extend Knockapi::Union
 
-        Variants =
-          type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)} }
-
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -171,10 +166,8 @@ module Knockapi
           end
         end
 
-        class << self
-          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]) }
-          def variants
-          end
+        sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]) }
+        def self.variants
         end
       end
 
@@ -183,9 +176,6 @@ module Knockapi
       module Recipient
         extend Knockapi::Union
 
-        Variants =
-          type_template(:out) { {fixed: T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)} }
-
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
@@ -205,10 +195,8 @@ module Knockapi
           end
         end
 
-        class << self
-          sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]) }
-          def variants
-          end
+        sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]) }
+        def self.variants
         end
       end
     end

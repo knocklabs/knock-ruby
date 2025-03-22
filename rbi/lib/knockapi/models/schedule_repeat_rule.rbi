@@ -71,10 +71,8 @@ module Knockapi
         MONTHLY = T.let(:monthly, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
         HOURLY = T.let(:hourly, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -92,10 +90,8 @@ module Knockapi
         SAT = T.let(:sat, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
         SUN = T.let(:sun, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol]) }
+        def self.values
         end
       end
     end

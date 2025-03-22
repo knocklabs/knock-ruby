@@ -153,12 +153,10 @@ module Knockapi
             T.let(:unarchive, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
           DELETE = T.let(:delete, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
 
-          class << self
-            sig do
-              override.returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override.returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -176,13 +174,11 @@ module Knockapi
             T.let(:include, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol)
           ONLY = T.let(:only, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -215,13 +211,11 @@ module Knockapi
           BOUNCED =
             T.let(:bounced, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -262,15 +256,13 @@ module Knockapi
               Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end

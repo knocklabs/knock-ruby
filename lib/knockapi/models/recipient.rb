@@ -13,10 +13,8 @@ module Knockapi
       variant -> { Knockapi::Models::Object }
 
       # @!parse
-      #   class << self
-      #     # @return [Array(Knockapi::Models::User, Knockapi::Models::Object)]
-      #     def variants; end
-      #   end
+      #   # @return [Array(Knockapi::Models::User, Knockapi::Models::Object)]
+      #   def self.variants; end
     end
   end
 end

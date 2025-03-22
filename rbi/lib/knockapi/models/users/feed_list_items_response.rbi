@@ -159,16 +159,6 @@ module Knockapi
         module Block
           extend Knockapi::Union
 
-          Variants =
-            type_template(:out) do
-              {
-                fixed: T.any(
-                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-                )
-              }
-            end
-
           class MessageInAppFeedContentBlock < Knockapi::BaseModel
             sig { returns(String) }
             attr_accessor :content
@@ -237,15 +227,13 @@ module Knockapi
                   Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol]
+                  )
+              end
+              def self.values
               end
             end
           end
@@ -337,28 +325,24 @@ module Knockapi
                   Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol]
+                  )
+              end
+              def self.values
               end
             end
           end
 
-          class << self
-            sig do
-              override
-                .returns(
-                  [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
-                )
-            end
-            def variants
-            end
+          sig do
+            override
+              .returns(
+                [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
+              )
+          end
+          def self.variants
           end
         end
 

@@ -13,10 +13,8 @@ module Knockapi
       variant -> { Knockapi::Models::TenantRequest }
 
       # @!parse
-      #   class << self
-      #     # @return [Array(String, Knockapi::Models::TenantRequest)]
-      #     def variants; end
-      #   end
+      #   # @return [Array(String, Knockapi::Models::TenantRequest)]
+      #   def self.variants; end
     end
   end
 end

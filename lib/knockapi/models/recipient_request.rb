@@ -18,10 +18,8 @@ module Knockapi
       variant -> { Knockapi::Models::InlineObjectRequest }
 
       # @!parse
-      #   class << self
-      #     # @return [Array(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-      #     def variants; end
-      #   end
+      #   # @return [Array(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+      #   def self.variants; end
     end
   end
 end
