@@ -118,7 +118,8 @@ module Knockapi
               Symbol,
               T.any(
                 T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Util::AnyHash
               )
               ]
             ),
@@ -128,7 +129,8 @@ module Knockapi
               Symbol,
               T.any(
                 T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Util::AnyHash
               )
               ]
             )
@@ -214,7 +216,7 @@ module Knockapi
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash)),
-                conditions: T.nilable(T::Array[Knockapi::Models::Condition])
+                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Util::AnyHash)])
               )
                 .returns(T.attached_class)
             end
@@ -293,7 +295,7 @@ module Knockapi
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash)),
-                conditions: T.nilable(T::Array[Knockapi::Models::Condition])
+                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Util::AnyHash)])
               )
                 .returns(T.attached_class)
             end

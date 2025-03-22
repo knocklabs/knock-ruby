@@ -20,7 +20,7 @@ module Knockapi
 
         sig do
           params(
-            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest)],
+            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)],
             request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)

@@ -20,7 +20,7 @@ module Knockapi
 
         sig do
           params(
-            objects: T::Array[Knockapi::Models::InlineObjectRequest],
+            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Util::AnyHash)],
             request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)

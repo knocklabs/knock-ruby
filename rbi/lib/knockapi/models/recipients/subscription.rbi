@@ -69,7 +69,7 @@ module Knockapi
             _typename: String,
             inserted_at: Time,
             object: T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash),
-            recipient: T.any(Knockapi::Models::User, Knockapi::Models::Object),
+            recipient: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object),
             updated_at: Time,
             properties: T.nilable(T::Hash[Symbol, T.anything])
           )

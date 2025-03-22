@@ -68,8 +68,8 @@ module Knockapi
           id: String,
           _typename: String,
           inserted_at: Time,
-          recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference),
-          type: Knockapi::Models::MessageEvent::Type::TaggedSymbol,
+          recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference, Knockapi::Util::AnyHash),
+          type: Knockapi::Models::MessageEvent::Type::OrSymbol,
           data: T.nilable(T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)

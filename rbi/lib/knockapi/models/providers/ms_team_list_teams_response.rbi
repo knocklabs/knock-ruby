@@ -26,7 +26,7 @@ module Knockapi
         # The response from a teams for Microsoft Teams provider request
         sig do
           params(
-            ms_teams_teams: T::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam],
+            ms_teams_teams: T::Array[T.any(Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam, Knockapi::Util::AnyHash)],
             skip_token: T.nilable(String)
           )
             .returns(T.attached_class)

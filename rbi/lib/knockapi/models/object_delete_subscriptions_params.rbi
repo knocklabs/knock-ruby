@@ -27,7 +27,14 @@ module Knockapi
 
       sig do
         params(
-          recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
+          recipients: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::InlineIdentifyUserRequest,
+            Knockapi::Util::AnyHash,
+            Knockapi::Models::InlineObjectRequest
+          )
+          ],
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)

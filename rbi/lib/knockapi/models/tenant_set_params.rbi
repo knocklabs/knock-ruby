@@ -43,8 +43,12 @@ module Knockapi
 
       sig do
         params(
-          channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
-          preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
+          channel_data: T.nilable(
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Util::AnyHash)]
+          ),
+          preferences: T.nilable(
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash)]
+          ),
           settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Util::AnyHash),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )

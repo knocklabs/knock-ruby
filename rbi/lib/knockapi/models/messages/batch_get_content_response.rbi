@@ -72,6 +72,7 @@ module Knockapi
             _typename: String,
             data: T.any(
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
+              Knockapi::Util::AnyHash,
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
@@ -484,7 +485,12 @@ module Knockapi
               sig do
                 params(
                   blocks: T.nilable(
-                    T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block]
+                    T::Array[
+                    T.any(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block,
+                      Knockapi::Util::AnyHash
+                    )
+                    ]
                   ),
                   json_content: T.nilable(T::Hash[Symbol, T.anything]),
                   summary: T.nilable(String)
@@ -550,7 +556,7 @@ module Knockapi
                   params(
                     content: String,
                     name: String,
-                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::OrSymbol
                   )
                     .returns(T.attached_class)
                 end
@@ -664,6 +670,7 @@ module Knockapi
                 blocks: T::Array[
                 T.any(
                   Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                  Knockapi::Util::AnyHash,
                   Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
                 )
                 ]
@@ -754,7 +761,7 @@ module Knockapi
                     content: String,
                     name: String,
                     rendered: String,
-                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::OrSymbol
                   )
                     .returns(T.attached_class)
                 end
@@ -873,10 +880,13 @@ module Knockapi
                 sig do
                   params(
                     buttons: T::Array[
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
+                    T.any(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button,
+                      Knockapi::Util::AnyHash
+                    )
                     ],
                     name: String,
-                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                    type: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::OrSymbol
                   )
                     .returns(T.attached_class)
                 end

@@ -27,7 +27,7 @@ module Knockapi
           params(
             channel_id: String,
             access_token_object: String,
-            query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])

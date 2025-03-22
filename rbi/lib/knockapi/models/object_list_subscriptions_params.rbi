@@ -49,9 +49,23 @@ module Knockapi
 
       sig do
         params(
-          _: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
+          _: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
+            Knockapi::Util::AnyHash
+          )
+          ]
         )
-          .returns(T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)])
+          .returns(
+            T::Array[
+            T.any(
+              String,
+              Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Util::AnyHash
+            )
+            ]
+          )
       end
       def objects=(_)
       end
@@ -78,10 +92,22 @@ module Knockapi
 
       sig do
         params(
-          _: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
+          _: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
+            Knockapi::Util::AnyHash
+          )
+          ]
         )
           .returns(
-            T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
+            T::Array[
+            T.any(
+              String,
+              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
+              Knockapi::Util::AnyHash
+            )
+            ]
           )
       end
       def recipients=(_)
@@ -92,9 +118,21 @@ module Knockapi
           after: String,
           before: String,
           mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
-          objects: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)],
+          objects: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
+            Knockapi::Util::AnyHash
+          )
+          ],
           page_size: Integer,
-          recipients: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)],
+          recipients: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
+            Knockapi::Util::AnyHash
+          )
+          ],
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)

@@ -100,8 +100,8 @@ module Knockapi
       end
 
       sig do
-        params(_: T::Array[Knockapi::Models::BulkOperation::ErrorItem])
-          .returns(T::Array[Knockapi::Models::BulkOperation::ErrorItem])
+        params(_: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)])
+          .returns(T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)])
       end
       def error_items=(_)
       end
@@ -131,12 +131,12 @@ module Knockapi
           inserted_at: Time,
           name: String,
           processed_rows: Integer,
-          status: Knockapi::Models::BulkOperation::Status::TaggedSymbol,
+          status: Knockapi::Models::BulkOperation::Status::OrSymbol,
           success_count: Integer,
           updated_at: Time,
           completed_at: T.nilable(Time),
           error_count: Integer,
-          error_items: T::Array[Knockapi::Models::BulkOperation::ErrorItem],
+          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)],
           failed_at: T.nilable(Time),
           started_at: T.nilable(Time)
         )

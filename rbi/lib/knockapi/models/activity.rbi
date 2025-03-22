@@ -56,8 +56,8 @@ module Knockapi
       end
 
       sig do
-        params(_: T.any(Knockapi::Models::User, Knockapi::Models::Object))
-          .returns(T.any(Knockapi::Models::User, Knockapi::Models::Object))
+        params(_: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object))
+          .returns(T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object))
       end
       def recipient=(_)
       end
@@ -75,10 +75,10 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)),
+          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object)),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           inserted_at: Time,
-          recipient: T.any(Knockapi::Models::User, Knockapi::Models::Object),
+          recipient: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object),
           updated_at: Time
         )
           .returns(T.attached_class)

@@ -30,7 +30,7 @@ module Knockapi
             channel_id: String,
             ms_teams_tenant_object: String,
             team_id: String,
-            query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Util::AnyHash),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamListChannelsResponse)
@@ -53,7 +53,7 @@ module Knockapi
           params(
             channel_id: String,
             ms_teams_tenant_object: String,
-            query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Util::AnyHash),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamListTeamsResponse)

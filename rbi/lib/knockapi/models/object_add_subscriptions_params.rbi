@@ -39,7 +39,14 @@ module Knockapi
 
       sig do
         params(
-          recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
+          recipients: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::InlineIdentifyUserRequest,
+            Knockapi::Util::AnyHash,
+            Knockapi::Models::InlineObjectRequest
+          )
+          ],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )

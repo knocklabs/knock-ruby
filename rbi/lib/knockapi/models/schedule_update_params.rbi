@@ -65,8 +65,8 @@ module Knockapi
       end
 
       sig do
-        params(_: T::Array[Knockapi::Models::ScheduleRepeatRule])
-          .returns(T::Array[Knockapi::Models::ScheduleRepeatRule])
+        params(_: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)])
+          .returns(T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)])
       end
       def repeats=(_)
       end
@@ -95,13 +95,18 @@ module Knockapi
         params(
           schedule_ids: T::Array[String],
           actor: T.nilable(
-            T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Util::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
-          repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],
+          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)],
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)

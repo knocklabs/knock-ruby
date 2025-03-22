@@ -139,8 +139,8 @@ module Knockapi
         end
 
         sig do
-          params(_: Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
-            .returns(Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
+          params(_: Knockapi::Models::MessageDeliveryLog::Request::Method::OrSymbol)
+            .returns(Knockapi::Models::MessageDeliveryLog::Request::Method::OrSymbol)
         end
         def method_=(_)
         end
@@ -167,7 +167,7 @@ module Knockapi
             body: T.any(String, T::Hash[Symbol, T.anything]),
             headers: T.nilable(T::Hash[Symbol, T.anything]),
             host: String,
-            method_: Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol,
+            method_: Knockapi::Models::MessageDeliveryLog::Request::Method::OrSymbol,
             path: String,
             query: T.nilable(String)
           )

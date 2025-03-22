@@ -47,6 +47,7 @@ module Knockapi
           params(
             data: T.any(
               Knockapi::Models::Recipients::PushChannelData,
+              Knockapi::Util::AnyHash,
               Knockapi::Models::Recipients::OneSignalChannelData,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,

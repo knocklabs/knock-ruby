@@ -26,7 +26,7 @@ module Knockapi
       # A response containing a list of audience members
       sig do
         params(
-          entries: T::Array[Knockapi::Models::AudienceMember],
+          entries: T::Array[T.any(Knockapi::Models::AudienceMember, Knockapi::Util::AnyHash)],
           page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)

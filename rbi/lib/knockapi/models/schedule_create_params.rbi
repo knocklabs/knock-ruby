@@ -76,13 +76,13 @@ module Knockapi
 
       sig do
         params(
-          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)],
-          repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],
+          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference, Knockapi::Util::AnyHash)],
+          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)

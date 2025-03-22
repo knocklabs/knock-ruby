@@ -44,6 +44,7 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+              Knockapi::Util::AnyHash,
               Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
             )
             ]

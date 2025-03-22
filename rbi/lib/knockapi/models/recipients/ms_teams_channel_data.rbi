@@ -53,6 +53,7 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+              Knockapi::Util::AnyHash,
               Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
             )
             ],

@@ -58,6 +58,7 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+              Knockapi::Util::AnyHash,
               Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
             )
             ],

@@ -20,7 +20,7 @@ module Knockapi
 
         sig do
           params(
-            subscriptions: T::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
+            subscriptions: T::Array[T.any(Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription, Knockapi::Util::AnyHash)],
             request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
           )
             .returns(T.attached_class)
@@ -81,7 +81,14 @@ module Knockapi
           sig do
             params(
               id: String,
-              recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
+              recipients: T::Array[
+              T.any(
+                String,
+                Knockapi::Models::InlineIdentifyUserRequest,
+                Knockapi::Util::AnyHash,
+                Knockapi::Models::InlineObjectRequest
+              )
+              ],
               properties: T.nilable(T::Hash[Symbol, T.anything])
             )
               .returns(T.attached_class)

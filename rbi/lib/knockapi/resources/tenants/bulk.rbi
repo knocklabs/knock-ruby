@@ -22,7 +22,7 @@ module Knockapi
         # Bulk set tenants
         sig do
           params(
-            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest)],
+            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)

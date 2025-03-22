@@ -26,8 +26,12 @@ module Knockapi
       end
 
       sig do
-        params(_: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)])
-          .returns(T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)])
+        params(
+          _: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)]
+          )
       end
       def actors=(_)
       end
@@ -76,8 +80,8 @@ module Knockapi
       end
 
       sig do
-        params(_: T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol])
-          .returns(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol])
+        params(_: T::Array[Knockapi::Models::Message::EngagementStatus::OrSymbol])
+          .returns(T::Array[Knockapi::Models::Message::EngagementStatus::OrSymbol])
       end
       def engagement_statuses=(_)
       end
@@ -136,8 +140,8 @@ module Knockapi
       end
 
       sig do
-        params(_: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference))
-          .returns(T.any(String, Knockapi::Models::Message::Recipient::ObjectReference))
+        params(_: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash))
+          .returns(T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash))
       end
       def recipient=(_)
       end
@@ -178,8 +182,7 @@ module Knockapi
       end
 
       sig do
-        params(_: Knockapi::Models::Message::Status::TaggedSymbol)
-          .returns(Knockapi::Models::Message::Status::TaggedSymbol)
+        params(_: Knockapi::Models::Message::Status::OrSymbol).returns(Knockapi::Models::Message::Status::OrSymbol)
       end
       def status=(_)
       end
@@ -217,22 +220,22 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)],
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)],
           archived_at: T.nilable(Time),
           channel_id: String,
           clicked_at: T.nilable(Time),
           data: T.nilable(T::Hash[Symbol, T.anything]),
-          engagement_statuses: T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol],
+          engagement_statuses: T::Array[Knockapi::Models::Message::EngagementStatus::OrSymbol],
           inserted_at: Time,
           interacted_at: T.nilable(Time),
           link_clicked_at: T.nilable(Time),
           metadata: T.nilable(T::Hash[Symbol, T.anything]),
           read_at: T.nilable(Time),
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference),
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash),
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
           source: T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash),
-          status: Knockapi::Models::Message::Status::TaggedSymbol,
+          status: Knockapi::Models::Message::Status::OrSymbol,
           tenant: T.nilable(String),
           updated_at: Time,
           workflow: T.nilable(String)

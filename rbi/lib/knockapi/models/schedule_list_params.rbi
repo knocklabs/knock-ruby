@@ -52,8 +52,12 @@ module Knockapi
       end
 
       sig do
-        params(_: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)])
-          .returns(T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)])
+        params(
+          _: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference, Knockapi::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference, Knockapi::Util::AnyHash)]
+          )
       end
       def recipients=(_)
       end
@@ -73,7 +77,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)],
+          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference, Knockapi::Util::AnyHash)],
           tenant: String,
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )

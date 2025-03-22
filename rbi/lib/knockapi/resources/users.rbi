@@ -15,9 +15,13 @@ module Knockapi
       sig do
         params(
           user_id: String,
-          channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
+          channel_data: T.nilable(
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Util::AnyHash)]
+          ),
           created_at: T.nilable(Time),
-          preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
+          preferences: T.nilable(
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash)]
+          ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(Knockapi::Models::User)
@@ -273,6 +277,7 @@ module Knockapi
           channel_id: String,
           data: T.any(
             Knockapi::Models::Recipients::PushChannelData,
+            Knockapi::Util::AnyHash,
             Knockapi::Models::Recipients::OneSignalChannelData,
             Knockapi::Models::Recipients::SlackChannelData,
             Knockapi::Models::Recipients::MsTeamsChannelData,
@@ -304,17 +309,19 @@ module Knockapi
             Symbol,
             T.any(
               T::Boolean,
-              Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+              Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+              Knockapi::Util::AnyHash
             )
             ]
           ),
-          channel_types: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes),
+          channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash)),
           workflows: T.nilable(
             T::Hash[
             Symbol,
             T.any(
               T::Boolean,
-              Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+              Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+              Knockapi::Util::AnyHash
             )
             ]
           ),

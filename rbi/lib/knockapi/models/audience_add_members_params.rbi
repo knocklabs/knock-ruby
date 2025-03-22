@@ -19,7 +19,7 @@ module Knockapi
 
       sig do
         params(
-          members: T::Array[Knockapi::Models::AudienceAddMembersParams::Member],
+          members: T::Array[T.any(Knockapi::Models::AudienceAddMembersParams::Member, Knockapi::Util::AnyHash)],
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)

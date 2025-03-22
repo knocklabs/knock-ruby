@@ -7,7 +7,7 @@ module Knockapi
       sig do
         params(
           key: String,
-          members: T::Array[Knockapi::Models::AudienceAddMembersParams::Member],
+          members: T::Array[T.any(Knockapi::Models::AudienceAddMembersParams::Member, Knockapi::Util::AnyHash)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(String)
@@ -44,7 +44,7 @@ module Knockapi
       sig do
         params(
           key: String,
-          members: T::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
+          members: T::Array[T.any(Knockapi::Models::AudienceRemoveMembersParams::Member, Knockapi::Util::AnyHash)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
         )
           .returns(String)

@@ -187,11 +187,12 @@ module Knockapi
           params(
             id: String,
             _typename: String,
-            activities: T::Array[Knockapi::Models::Activity],
-            actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Models::Object)],
+            activities: T::Array[T.any(Knockapi::Models::Activity, Knockapi::Util::AnyHash)],
+            actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object)],
             blocks: T::Array[
             T.any(
               Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+              Knockapi::Util::AnyHash,
               Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
             )
             ],
@@ -330,7 +331,7 @@ module Knockapi
                 content: String,
                 name: String,
                 rendered: String,
-                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::OrSymbol
               )
                 .returns(T.attached_class)
             end
@@ -438,9 +439,14 @@ module Knockapi
             # A set of buttons in a message in an app feed
             sig do
               params(
-                buttons: T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
+                buttons: T::Array[
+                T.any(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
+                  Knockapi::Util::AnyHash
+                )
+                ],
                 name: String,
-                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::OrSymbol
               )
                 .returns(T.attached_class)
             end

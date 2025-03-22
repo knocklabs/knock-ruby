@@ -70,10 +70,24 @@ module Knockapi
 
       sig do
         params(
-          _: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+          _: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::InlineIdentifyUserRequest,
+            Knockapi::Util::AnyHash,
+            Knockapi::Models::InlineObjectRequest
+          )
+          ]
         )
           .returns(
-            T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+            T::Array[
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Util::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
+            ]
           )
       end
       def recipients=(_)
@@ -94,12 +108,24 @@ module Knockapi
       sig do
         params(
           actor: T.nilable(
-            T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Util::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ),
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
-          recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
+          recipients: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::InlineIdentifyUserRequest,
+            Knockapi::Util::AnyHash,
+            Knockapi::Models::InlineObjectRequest
+          )
+          ],
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
         )
           .returns(T.attached_class)
