@@ -49,7 +49,7 @@ module Knockapi
 
       case page_data
       in {slack_channels: Array | nil => slack_channels}
-        @slack_channels = slack_channels&.map { model.coerce(_1) }
+        @slack_channels = slack_channels&.map { Knockapi::Converter.coerce(model, _1) }
       else
       end
     end

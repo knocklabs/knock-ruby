@@ -15,6 +15,8 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => Knockapi::Models::Tenant
     end

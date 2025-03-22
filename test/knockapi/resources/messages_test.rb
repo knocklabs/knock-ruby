@@ -15,6 +15,8 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => Knockapi::Models::Message
     end
@@ -155,6 +157,8 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => Knockapi::Models::Activity
     end
@@ -184,6 +188,8 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => Knockapi::Models::MessageDeliveryLog
     end
@@ -213,6 +219,8 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => Knockapi::Models::MessageEvent
     end

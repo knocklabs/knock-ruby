@@ -43,7 +43,7 @@ module Knockapi
 
       case page_data
       in {items: Array | nil => items}
-        @items = items&.map { model.coerce(_1) }
+        @items = items&.map { Knockapi::Converter.coerce(model, _1) }
       else
       end
 

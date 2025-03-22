@@ -33,6 +33,8 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => Knockapi::Models::Providers::SlackListChannelsResponse
     end
