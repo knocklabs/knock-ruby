@@ -8,27 +8,11 @@ module Knockapi
 
       # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
-      def channel_data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
-          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
-      end
-      def channel_data=(_)
-      end
+      attr_accessor :channel_data
 
       # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
-      def preferences
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
-          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
-      end
-      def preferences=(_)
-      end
+      attr_accessor :preferences
 
       sig do
         params(

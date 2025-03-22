@@ -14,38 +14,11 @@ module Knockapi
             ]
           )
         end
-        def connections
-        end
-
-        sig do
-          params(
-            _: T::Array[
-            T.any(
-              Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-              Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-            )
-            ]
-          )
-            .returns(
-              T::Array[
-              T.any(
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-              )
-              ]
-            )
-        end
-        def connections=(_)
-        end
+        attr_accessor :connections
 
         # The Microsoft Teams tenant ID
         sig { returns(T.nilable(String)) }
-        def ms_teams_tenant_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def ms_teams_tenant_id=(_)
-        end
+        attr_accessor :ms_teams_tenant_id
 
         # Microsoft Teams channel data
         sig do
@@ -98,39 +71,19 @@ module Knockapi
           class MsTeamsTokenConnection < Knockapi::BaseModel
             # The Microsoft Teams channel ID
             sig { returns(T.nilable(String)) }
-            def ms_teams_channel_id
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def ms_teams_channel_id=(_)
-            end
+            attr_accessor :ms_teams_channel_id
 
             # The Microsoft Teams team ID
             sig { returns(T.nilable(String)) }
-            def ms_teams_team_id
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def ms_teams_team_id=(_)
-            end
+            attr_accessor :ms_teams_team_id
 
             # The Microsoft Teams tenant ID
             sig { returns(T.nilable(String)) }
-            def ms_teams_tenant_id
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def ms_teams_tenant_id=(_)
-            end
+            attr_accessor :ms_teams_tenant_id
 
             # The Microsoft Teams user ID
             sig { returns(T.nilable(String)) }
-            def ms_teams_user_id
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def ms_teams_user_id=(_)
-            end
+            attr_accessor :ms_teams_user_id
 
             # Microsoft Teams token connection
             sig do
@@ -167,25 +120,18 @@ module Knockapi
                 Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
               )
             end
-            def incoming_webhook
-            end
+            attr_reader :incoming_webhook
 
             sig do
               params(
-                _: T.any(
+                incoming_webhook: T.any(
                   Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
                   Knockapi::Util::AnyHash
                 )
               )
-                .returns(
-                  T.any(
-                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
-                    Knockapi::Util::AnyHash
-                  )
-                )
+                .void
             end
-            def incoming_webhook=(_)
-            end
+            attr_writer :incoming_webhook
 
             # Microsoft Teams incoming webhook connection
             sig do
@@ -214,12 +160,7 @@ module Knockapi
             class IncomingWebhook < Knockapi::BaseModel
               # The URL of the incoming webhook
               sig { returns(String) }
-              def url
-              end
-
-              sig { params(_: String).returns(String) }
-              def url=(_)
-              end
+              attr_accessor :url
 
               # The incoming webhook
               sig { params(url: String).returns(T.attached_class) }

@@ -5,20 +5,10 @@ module Knockapi
     module Recipients
       class RecipientsChannelData < Knockapi::BaseModel
         sig { returns(String) }
-        def _typename
-        end
-
-        sig { params(_: String).returns(String) }
-        def _typename=(_)
-        end
+        attr_accessor :_typename
 
         sig { returns(String) }
-        def channel_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def channel_id=(_)
-        end
+        attr_accessor :channel_id
 
         # Channel data for push providers
         sig do
@@ -32,31 +22,7 @@ module Knockapi
             )
           )
         end
-        def data
-        end
-
-        sig do
-          params(
-            _: T.any(
-              Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Models::Recipients::SlackChannelData,
-              Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData,
-              Knockapi::Models::Recipients::OneSignalChannelData
-            )
-          )
-            .returns(
-              T.any(
-                Knockapi::Models::Recipients::PushChannelData,
-                Knockapi::Models::Recipients::SlackChannelData,
-                Knockapi::Models::Recipients::MsTeamsChannelData,
-                Knockapi::Models::Recipients::DiscordChannelData,
-                Knockapi::Models::Recipients::OneSignalChannelData
-              )
-            )
-        end
-        def data=(_)
-        end
+        attr_accessor :data
 
         # Channel data for various channel types
         sig do

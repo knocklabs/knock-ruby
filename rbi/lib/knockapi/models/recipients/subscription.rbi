@@ -5,63 +5,28 @@ module Knockapi
     module Recipients
       class Subscription < Knockapi::BaseModel
         sig { returns(String) }
-        def _typename
-        end
-
-        sig { params(_: String).returns(String) }
-        def _typename=(_)
-        end
+        attr_accessor :_typename
 
         sig { returns(Time) }
-        def inserted_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def inserted_at=(_)
-        end
+        attr_accessor :inserted_at
 
         # A custom-object entity which belongs to a collection.
         sig { returns(Knockapi::Models::Object) }
-        def object
-        end
+        attr_reader :object
 
-        sig do
-          params(_: T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash))
-            .returns(T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash))
-        end
-        def object=(_)
-        end
+        sig { params(object: T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash)).void }
+        attr_writer :object
 
         # A recipient, which is either a user or an object
         sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
-        def recipient
-        end
-
-        sig do
-          params(_: T.any(Knockapi::Models::User, Knockapi::Models::Object))
-            .returns(T.any(Knockapi::Models::User, Knockapi::Models::Object))
-        end
-        def recipient=(_)
-        end
+        attr_accessor :recipient
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         # The custom properties associated with the subscription
         sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-        def properties
-        end
-
-        sig do
-          params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-        end
-        def properties=(_)
-        end
+        attr_accessor :properties
 
         # A subscription object
         sig do

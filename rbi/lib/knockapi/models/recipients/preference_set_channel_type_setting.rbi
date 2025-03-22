@@ -5,12 +5,7 @@ module Knockapi
     module Recipients
       class PreferenceSetChannelTypeSetting < Knockapi::BaseModel
         sig { returns(T::Array[Knockapi::Models::Condition]) }
-        def conditions
-        end
-
-        sig { params(_: T::Array[Knockapi::Models::Condition]).returns(T::Array[Knockapi::Models::Condition]) }
-        def conditions=(_)
-        end
+        attr_accessor :conditions
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.

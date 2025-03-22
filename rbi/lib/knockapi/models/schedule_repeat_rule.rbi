@@ -4,66 +4,28 @@ module Knockapi
   module Models
     class ScheduleRepeatRule < Knockapi::BaseModel
       sig { returns(String) }
-      def _typename
-      end
-
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      attr_accessor :_typename
 
       sig { returns(Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol) }
-      def frequency
-      end
-
-      sig do
-        params(_: Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
-          .returns(Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol)
-      end
-      def frequency=(_)
-      end
+      attr_accessor :frequency
 
       sig { returns(T.nilable(Integer)) }
-      def day_of_month
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def day_of_month=(_)
-      end
+      attr_accessor :day_of_month
 
       sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol])) }
-      def days
-      end
-
-      sig do
-        params(_: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]))
-          .returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]))
-      end
-      def days=(_)
-      end
+      attr_accessor :days
 
       sig { returns(T.nilable(Integer)) }
-      def hours
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def hours=(_)
-      end
+      attr_accessor :hours
 
       sig { returns(T.nilable(Integer)) }
-      def interval
-      end
+      attr_reader :interval
 
-      sig { params(_: Integer).returns(Integer) }
-      def interval=(_)
-      end
+      sig { params(interval: Integer).void }
+      attr_writer :interval
 
       sig { returns(T.nilable(Integer)) }
-      def minutes
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def minutes=(_)
-      end
+      attr_accessor :minutes
 
       # A schedule repeat rule
       sig do

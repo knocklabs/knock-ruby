@@ -16,31 +16,7 @@ module Knockapi
             )
           )
         end
-        def data
-        end
-
-        sig do
-          params(
-            _: T.any(
-              Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Models::Recipients::OneSignalChannelData,
-              Knockapi::Models::Recipients::SlackChannelData,
-              Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
-            )
-          )
-            .returns(
-              T.any(
-                Knockapi::Models::Recipients::PushChannelData,
-                Knockapi::Models::Recipients::OneSignalChannelData,
-                Knockapi::Models::Recipients::SlackChannelData,
-                Knockapi::Models::Recipients::MsTeamsChannelData,
-                Knockapi::Models::Recipients::DiscordChannelData
-              )
-            )
-        end
-        def data=(_)
-        end
+        attr_accessor :data
 
         # Set channel data for a type of channel
         sig do

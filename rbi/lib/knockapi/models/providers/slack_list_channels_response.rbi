@@ -5,44 +5,19 @@ module Knockapi
     module Providers
       class SlackListChannelsResponse < Knockapi::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(String) }
-        def context_team_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def context_team_id=(_)
-        end
+        attr_accessor :context_team_id
 
         sig { returns(T::Boolean) }
-        def is_im
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def is_im=(_)
-        end
+        attr_accessor :is_im
 
         sig { returns(T::Boolean) }
-        def is_private
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def is_private=(_)
-        end
+        attr_accessor :is_private
 
         sig { returns(String) }
-        def name
-        end
-
-        sig { params(_: String).returns(String) }
-        def name=(_)
-        end
+        attr_accessor :name
 
         sig do
           params(id: String, context_team_id: String, is_im: T::Boolean, is_private: T::Boolean, name: String)

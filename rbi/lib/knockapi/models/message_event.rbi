@@ -4,63 +4,25 @@ module Knockapi
   module Models
     class MessageEvent < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(String) }
-      def _typename
-      end
-
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      attr_accessor :_typename
 
       sig { returns(Time) }
-      def inserted_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def inserted_at=(_)
-      end
+      attr_accessor :inserted_at
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       sig { returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)) }
-      def recipient
-      end
-
-      sig do
-        params(_: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference))
-          .returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference))
-      end
-      def recipient=(_)
-      end
+      attr_accessor :recipient
 
       sig { returns(Knockapi::Models::MessageEvent::Type::TaggedSymbol) }
-      def type
-      end
-
-      sig do
-        params(_: Knockapi::Models::MessageEvent::Type::TaggedSymbol)
-          .returns(Knockapi::Models::MessageEvent::Type::TaggedSymbol)
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       # The data associated with the event. Only present for some event types
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def data=(_)
-      end
+      attr_accessor :data
 
       # A single event that occurred for a message
       sig do
@@ -104,21 +66,11 @@ module Knockapi
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # The collection the object belongs to
           sig { returns(String) }
-          def collection
-          end
-
-          sig { params(_: String).returns(String) }
-          def collection=(_)
-          end
+          attr_accessor :collection
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }

@@ -11,52 +11,40 @@ module Knockapi
     DEFAULT_MAX_RETRY_DELAY = T.let(8.0, Float)
 
     sig { returns(String) }
-    def bearer_token
-    end
+    attr_reader :bearer_token
 
     sig { returns(Knockapi::Resources::Recipients) }
-    def recipients
-    end
+    attr_reader :recipients
 
     sig { returns(Knockapi::Resources::Users) }
-    def users
-    end
+    attr_reader :users
 
     sig { returns(Knockapi::Resources::Objects) }
-    def objects
-    end
+    attr_reader :objects
 
     sig { returns(Knockapi::Resources::Tenants) }
-    def tenants
-    end
+    attr_reader :tenants
 
     sig { returns(Knockapi::Resources::BulkOperations) }
-    def bulk_operations
-    end
+    attr_reader :bulk_operations
 
     sig { returns(Knockapi::Resources::Messages) }
-    def messages
-    end
+    attr_reader :messages
 
     sig { returns(Knockapi::Resources::Providers) }
-    def providers
-    end
+    attr_reader :providers
 
     sig { returns(Knockapi::Resources::Workflows) }
-    def workflows
-    end
+    attr_reader :workflows
 
     sig { returns(Knockapi::Resources::Schedules) }
-    def schedules
-    end
+    attr_reader :schedules
 
     sig { returns(Knockapi::Resources::Channels) }
-    def channels
-    end
+    attr_reader :channels
 
     sig { returns(Knockapi::Resources::Audiences) }
-    def audiences
-    end
+    attr_reader :audiences
 
     # @api private
     sig { override.returns(T::Hash[String, String]) }

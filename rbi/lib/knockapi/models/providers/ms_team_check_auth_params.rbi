@@ -9,12 +9,7 @@ module Knockapi
 
         # A JSON encoded string containing the Microsoft Teams tenant object reference
         sig { returns(String) }
-        def ms_teams_tenant_object
-        end
-
-        sig { params(_: String).returns(String) }
-        def ms_teams_tenant_object=(_)
-        end
+        attr_accessor :ms_teams_tenant_object
 
         sig do
           params(

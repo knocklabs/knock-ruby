@@ -16,45 +16,17 @@ module Knockapi
           )
         )
       end
-      def actor
-      end
-
-      sig do
-        params(
-          _: T.nilable(
-            T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
-          )
-        )
-          .returns(
-            T.nilable(
-              T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
-            )
-          )
-      end
-      def actor=(_)
-      end
+      attr_accessor :actor
 
       # An optional key that is used in the workflow cancellation endpoint to target a
       #   cancellation of any workflow runs associated with this trigger.
       sig { returns(T.nilable(String)) }
-      def cancellation_key
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def cancellation_key=(_)
-      end
+      attr_accessor :cancellation_key
 
       # An optional map of data to be used in the workflow. This data will be available
       #   to the workflow as a map in the `data` field.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def data=(_)
-      end
+      attr_accessor :data
 
       # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
       #   single trigger.
@@ -65,12 +37,11 @@ module Knockapi
           )
         )
       end
-      def recipients
-      end
+      attr_reader :recipients
 
       sig do
         params(
-          _: T::Array[
+          recipients: T::Array[
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
@@ -79,31 +50,13 @@ module Knockapi
           )
           ]
         )
-          .returns(
-            T::Array[
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Util::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-            ]
-          )
+          .void
       end
-      def recipients=(_)
-      end
+      attr_writer :recipients
 
       # An inline tenant request
       sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
-      def tenant
-      end
-
-      sig do
-        params(_: T.nilable(T.any(String, Knockapi::Models::TenantRequest)))
-          .returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest)))
-      end
-      def tenant=(_)
-      end
+      attr_accessor :tenant
 
       sig do
         params(

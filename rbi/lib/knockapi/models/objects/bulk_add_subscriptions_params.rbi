@@ -8,15 +8,7 @@ module Knockapi
         include Knockapi::RequestParameters
 
         sig { returns(T::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription]) }
-        def subscriptions
-        end
-
-        sig do
-          params(_: T::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription])
-            .returns(T::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription])
-        end
-        def subscriptions=(_)
-        end
+        attr_accessor :subscriptions
 
         sig do
           params(
@@ -42,41 +34,17 @@ module Knockapi
 
         class Subscription < Knockapi::BaseModel
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           sig do
             returns(
               T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
             )
           end
-          def recipients
-          end
-
-          sig do
-            params(
-              _: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-            )
-              .returns(
-                T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-              )
-          end
-          def recipients=(_)
-          end
+          attr_accessor :recipients
 
           sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-          def properties
-          end
-
-          sig do
-            params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-          end
-          def properties=(_)
-          end
+          attr_accessor :properties
 
           sig do
             params(

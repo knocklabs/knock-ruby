@@ -8,12 +8,7 @@ module Knockapi
         include Knockapi::RequestParameters
 
         sig { returns(T::Array[String]) }
-        def user_ids
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def user_ids=(_)
-        end
+        attr_accessor :user_ids
 
         sig do
           params(

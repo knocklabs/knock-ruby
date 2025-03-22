@@ -4,123 +4,56 @@ module Knockapi
   module Models
     class BulkOperation < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(String) }
-      def _typename
-      end
-
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      attr_accessor :_typename
 
       sig { returns(Integer) }
-      def estimated_total_rows
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def estimated_total_rows=(_)
-      end
+      attr_accessor :estimated_total_rows
 
       sig { returns(Time) }
-      def inserted_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def inserted_at=(_)
-      end
+      attr_accessor :inserted_at
 
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(Integer) }
-      def processed_rows
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def processed_rows=(_)
-      end
+      attr_accessor :processed_rows
 
       sig { returns(Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: Knockapi::Models::BulkOperation::Status::TaggedSymbol)
-          .returns(Knockapi::Models::BulkOperation::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       sig { returns(Integer) }
-      def success_count
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def success_count=(_)
-      end
+      attr_accessor :success_count
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig { returns(T.nilable(Time)) }
-      def completed_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def completed_at=(_)
-      end
+      attr_accessor :completed_at
 
       sig { returns(T.nilable(Integer)) }
-      def error_count
-      end
+      attr_reader :error_count
 
-      sig { params(_: Integer).returns(Integer) }
-      def error_count=(_)
-      end
+      sig { params(error_count: Integer).void }
+      attr_writer :error_count
 
       # A list of items that failed to be processed
       sig { returns(T.nilable(T::Array[Knockapi::Models::BulkOperation::ErrorItem])) }
-      def error_items
-      end
+      attr_reader :error_items
 
       sig do
-        params(_: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)])
-          .returns(T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)])
+        params(error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)])
+          .void
       end
-      def error_items=(_)
-      end
+      attr_writer :error_items
 
       sig { returns(T.nilable(Time)) }
-      def failed_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def failed_at=(_)
-      end
+      attr_accessor :failed_at
 
       sig { returns(T.nilable(Time)) }
-      def started_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def started_at=(_)
-      end
+      attr_accessor :started_at
 
       # A bulk operation entity
       sig do
@@ -204,20 +137,10 @@ module Knockapi
 
       class ErrorItem < Knockapi::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(T.nilable(String)) }
-        def collection
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def collection=(_)
-        end
+        attr_accessor :collection
 
         sig { params(id: String, collection: T.nilable(String)).returns(T.attached_class) }
         def self.new(id:, collection: nil)

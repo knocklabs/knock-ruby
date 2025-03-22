@@ -7,15 +7,7 @@ module Knockapi
       include Knockapi::RequestParameters
 
       sig { returns(T::Array[Knockapi::Models::AudienceAddMembersParams::Member]) }
-      def members
-      end
-
-      sig do
-        params(_: T::Array[Knockapi::Models::AudienceAddMembersParams::Member])
-          .returns(T::Array[Knockapi::Models::AudienceAddMembersParams::Member])
-      end
-      def members=(_)
-      end
+      attr_accessor :members
 
       sig do
         params(
@@ -45,23 +37,13 @@ module Knockapi
         #   It will perform an upsert against the user you're supplying, replacing any
         #   properties specified.
         sig { returns(Knockapi::Models::InlineIdentifyUserRequest) }
-        def user
-        end
+        attr_reader :user
 
-        sig do
-          params(_: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash))
-            .returns(T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash))
-        end
-        def user=(_)
-        end
+        sig { params(user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash)).void }
+        attr_writer :user
 
         sig { returns(T.nilable(String)) }
-        def tenant
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def tenant=(_)
-        end
+        attr_accessor :tenant
 
         # A request for an individual audience member
         sig do

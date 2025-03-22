@@ -4,24 +4,17 @@ module Knockapi
   module Models
     class AudienceListMembersResponse < Knockapi::BaseModel
       sig { returns(T::Array[Knockapi::Models::AudienceMember]) }
-      def entries
-      end
-
-      sig { params(_: T::Array[Knockapi::Models::AudienceMember]).returns(T::Array[Knockapi::Models::AudienceMember]) }
-      def entries=(_)
-      end
+      attr_accessor :entries
 
       # The information about a paginated result
       sig { returns(Knockapi::Models::AudienceListMembersResponse::PageInfo) }
-      def page_info
-      end
+      attr_reader :page_info
 
       sig do
-        params(_: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash))
-          .returns(T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash))
+        params(page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash))
+          .void
       end
-      def page_info=(_)
-      end
+      attr_writer :page_info
 
       # A response containing a list of audience members
       sig do
@@ -48,36 +41,16 @@ module Knockapi
 
       class PageInfo < Knockapi::BaseModel
         sig { returns(String) }
-        def _typename
-        end
-
-        sig { params(_: String).returns(String) }
-        def _typename=(_)
-        end
+        attr_accessor :_typename
 
         sig { returns(Integer) }
-        def page_size
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def page_size=(_)
-        end
+        attr_accessor :page_size
 
         sig { returns(T.nilable(String)) }
-        def after
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def after=(_)
-        end
+        attr_accessor :after
 
         sig { returns(T.nilable(String)) }
-        def before
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def before=(_)
-        end
+        attr_accessor :before
 
         # The information about a paginated result
         sig do

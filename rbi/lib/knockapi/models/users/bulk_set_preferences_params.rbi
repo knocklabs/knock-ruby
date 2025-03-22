@@ -9,23 +9,16 @@ module Knockapi
 
         # Set preferences for a recipient
         sig { returns(Knockapi::Models::Recipients::PreferenceSetRequest) }
-        def preferences
-        end
+        attr_reader :preferences
 
         sig do
-          params(_: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
-            .returns(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
+          params(preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
+            .void
         end
-        def preferences=(_)
-        end
+        attr_writer :preferences
 
         sig { returns(T::Array[String]) }
-        def user_ids
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def user_ids=(_)
-        end
+        attr_accessor :user_ids
 
         sig do
           params(

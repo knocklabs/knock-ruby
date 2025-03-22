@@ -14,29 +14,7 @@ module Knockapi
             ]
           )
         end
-        def connections
-        end
-
-        sig do
-          params(
-            _: T::Array[
-            T.any(
-              Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-              Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-            )
-            ]
-          )
-            .returns(
-              T::Array[
-              T.any(
-                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-              )
-              ]
-            )
-        end
-        def connections=(_)
-        end
+        attr_accessor :connections
 
         # Discord channel data
         sig do
@@ -87,12 +65,7 @@ module Knockapi
           class DiscordChannelConnection < Knockapi::BaseModel
             # The Discord channel ID
             sig { returns(String) }
-            def channel_id
-            end
-
-            sig { params(_: String).returns(String) }
-            def channel_id=(_)
-            end
+            attr_accessor :channel_id
 
             # Discord channel connection
             sig { params(channel_id: String).returns(T.attached_class) }
@@ -111,25 +84,18 @@ module Knockapi
                 Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
               )
             end
-            def incoming_webhook
-            end
+            attr_reader :incoming_webhook
 
             sig do
               params(
-                _: T.any(
+                incoming_webhook: T.any(
                   Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
                   Knockapi::Util::AnyHash
                 )
               )
-                .returns(
-                  T.any(
-                    Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
-                    Knockapi::Util::AnyHash
-                  )
-                )
+                .void
             end
-            def incoming_webhook=(_)
-            end
+            attr_writer :incoming_webhook
 
             # Discord incoming webhook connection
             sig do
@@ -158,12 +124,7 @@ module Knockapi
             class IncomingWebhook < Knockapi::BaseModel
               # The URL of the incoming webhook
               sig { returns(String) }
-              def url
-              end
-
-              sig { params(_: String).returns(String) }
-              def url=(_)
-              end
+              attr_accessor :url
 
               # The incoming webhook
               sig { params(url: String).returns(T.attached_class) }

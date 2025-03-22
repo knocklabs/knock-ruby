@@ -9,25 +9,18 @@ module Knockapi
 
         # A JSON encoded string containing the Microsoft Teams tenant object reference
         sig { returns(String) }
-        def ms_teams_tenant_object
-        end
-
-        sig { params(_: String).returns(String) }
-        def ms_teams_tenant_object=(_)
-        end
+        attr_accessor :ms_teams_tenant_object
 
         sig { returns(T.nilable(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions)) }
-        def query_options
-        end
+        attr_reader :query_options
 
         sig do
           params(
-            _: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Util::AnyHash)
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Util::AnyHash)
           )
-            .returns(T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Util::AnyHash))
+            .void
         end
-        def query_options=(_)
-        end
+        attr_writer :query_options
 
         sig do
           params(
@@ -57,42 +50,34 @@ module Knockapi
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to filter teams
           sig { returns(T.nilable(String)) }
-          def filter
-          end
+          attr_reader :filter
 
-          sig { params(_: String).returns(String) }
-          def filter=(_)
-          end
+          sig { params(filter: String).void }
+          attr_writer :filter
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to select fields on a team
           sig { returns(T.nilable(String)) }
-          def select_
-          end
+          attr_reader :select_
 
-          sig { params(_: String).returns(String) }
-          def select_=(_)
-          end
+          sig { params(select_: String).void }
+          attr_writer :select_
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to retrieve the next page of results
           sig { returns(T.nilable(String)) }
-          def skiptoken
-          end
+          attr_reader :skiptoken
 
-          sig { params(_: String).returns(String) }
-          def skiptoken=(_)
-          end
+          sig { params(skiptoken: String).void }
+          attr_writer :skiptoken
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to limit the number of teams returned
           sig { returns(T.nilable(Integer)) }
-          def top
-          end
+          attr_reader :top
 
-          sig { params(_: Integer).returns(Integer) }
-          def top=(_)
-          end
+          sig { params(top: Integer).void }
+          attr_writer :top
 
           sig do
             params(filter: String, select_: String, skiptoken: String, top: Integer).returns(T.attached_class)

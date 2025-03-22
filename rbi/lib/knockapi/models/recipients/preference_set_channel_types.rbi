@@ -7,104 +7,80 @@ module Knockapi
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
-        def chat
-        end
+        attr_reader :chat
 
         sig do
           params(
-            _: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            chat: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def chat=(_)
-        end
+        attr_writer :chat
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
-        def email
-        end
+        attr_reader :email
 
         sig do
           params(
-            _: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            email: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def email=(_)
-        end
+        attr_writer :email
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
-        def http
-        end
+        attr_reader :http
 
         sig do
           params(
-            _: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            http: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def http=(_)
-        end
+        attr_writer :http
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
-        def in_app_feed
-        end
+        attr_reader :in_app_feed
 
         sig do
           params(
-            _: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            in_app_feed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def in_app_feed=(_)
-        end
+        attr_writer :in_app_feed
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
-        def push
-        end
+        attr_reader :push
 
         sig do
           params(
-            _: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            push: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def push=(_)
-        end
+        attr_writer :push
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
-        def sms
-        end
+        attr_reader :sms
 
         sig do
           params(
-            _: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            sms: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def sms=(_)
-        end
+        attr_writer :sms
 
         # Channel type preferences
         sig do

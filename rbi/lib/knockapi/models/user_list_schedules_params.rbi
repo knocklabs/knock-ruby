@@ -8,48 +8,38 @@ module Knockapi
 
       # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
-      def after
-      end
+      attr_reader :after
 
-      sig { params(_: String).returns(String) }
-      def after=(_)
-      end
+      sig { params(after: String).void }
+      attr_writer :after
 
       # The cursor to fetch entries before
       sig { returns(T.nilable(String)) }
-      def before
-      end
+      attr_reader :before
 
-      sig { params(_: String).returns(String) }
-      def before=(_)
-      end
+      sig { params(before: String).void }
+      attr_writer :before
 
       # The page size to fetch
       sig { returns(T.nilable(Integer)) }
-      def page_size
-      end
+      attr_reader :page_size
 
-      sig { params(_: Integer).returns(Integer) }
-      def page_size=(_)
-      end
+      sig { params(page_size: Integer).void }
+      attr_writer :page_size
 
       # The ID of the tenant to list schedules for
       sig { returns(T.nilable(String)) }
-      def tenant
-      end
+      attr_reader :tenant
 
-      sig { params(_: String).returns(String) }
-      def tenant=(_)
-      end
+      sig { params(tenant: String).void }
+      attr_writer :tenant
 
       # The ID of the workflow to list schedules for
       sig { returns(T.nilable(String)) }
-      def workflow
-      end
+      attr_reader :workflow
 
-      sig { params(_: String).returns(String) }
-      def workflow=(_)
-      end
+      sig { params(workflow: String).void }
+      attr_writer :workflow
 
       sig do
         params(

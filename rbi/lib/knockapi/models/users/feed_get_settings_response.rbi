@@ -5,15 +5,15 @@ module Knockapi
     module Users
       class FeedGetSettingsResponse < Knockapi::BaseModel
         sig { returns(Knockapi::Models::Users::FeedGetSettingsResponse::Features) }
-        def features
-        end
+        attr_reader :features
 
         sig do
-          params(_: T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Util::AnyHash))
-            .returns(T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Util::AnyHash))
+          params(
+            features: T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Util::AnyHash)
+          )
+            .void
         end
-        def features=(_)
-        end
+        attr_writer :features
 
         # The response for the user's feed settings
         sig do
@@ -31,12 +31,7 @@ module Knockapi
 
         class Features < Knockapi::BaseModel
           sig { returns(T::Boolean) }
-          def branding_required
-          end
-
-          sig { params(_: T::Boolean).returns(T::Boolean) }
-          def branding_required=(_)
-          end
+          attr_accessor :branding_required
 
           sig { params(branding_required: T::Boolean).returns(T.attached_class) }
           def self.new(branding_required:)

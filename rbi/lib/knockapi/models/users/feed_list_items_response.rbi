@@ -5,39 +5,16 @@ module Knockapi
     module Users
       class FeedListItemsResponse < Knockapi::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(String) }
-        def _typename
-        end
-
-        sig { params(_: String).returns(String) }
-        def _typename=(_)
-        end
+        attr_accessor :_typename
 
         sig { returns(T::Array[Knockapi::Models::Activity]) }
-        def activities
-        end
-
-        sig { params(_: T::Array[Knockapi::Models::Activity]).returns(T::Array[Knockapi::Models::Activity]) }
-        def activities=(_)
-        end
+        attr_accessor :activities
 
         sig { returns(T::Array[T.any(Knockapi::Models::User, Knockapi::Models::Object)]) }
-        def actors
-        end
-
-        sig do
-          params(_: T::Array[T.any(Knockapi::Models::User, Knockapi::Models::Object)])
-            .returns(T::Array[T.any(Knockapi::Models::User, Knockapi::Models::Object)])
-        end
-        def actors=(_)
-        end
+        attr_accessor :actors
 
         sig do
           returns(
@@ -49,138 +26,49 @@ module Knockapi
             ]
           )
         end
-        def blocks
-        end
-
-        sig do
-          params(
-            _: T::Array[
-            T.any(
-              Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-              Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-            )
-            ]
-          )
-            .returns(
-              T::Array[
-              T.any(
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-              )
-              ]
-            )
-        end
-        def blocks=(_)
-        end
+        attr_accessor :blocks
 
         sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-        def data
-        end
-
-        sig do
-          params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-        end
-        def data=(_)
-        end
+        attr_accessor :data
 
         sig { returns(String) }
-        def inserted_at
-        end
-
-        sig { params(_: String).returns(String) }
-        def inserted_at=(_)
-        end
+        attr_accessor :inserted_at
 
         sig { returns(Knockapi::Models::Users::FeedListItemsResponse::Source) }
-        def source
-        end
+        attr_reader :source
 
-        sig do
-          params(_: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash))
-            .returns(T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash))
-        end
-        def source=(_)
-        end
+        sig { params(source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash)).void }
+        attr_writer :source
 
         sig { returns(T.nilable(String)) }
-        def tenant
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def tenant=(_)
-        end
+        attr_accessor :tenant
 
         sig { returns(Integer) }
-        def total_activities
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def total_activities=(_)
-        end
+        attr_accessor :total_activities
 
         sig { returns(Integer) }
-        def total_actors
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def total_actors=(_)
-        end
+        attr_accessor :total_actors
 
         sig { returns(String) }
-        def updated_at
-        end
-
-        sig { params(_: String).returns(String) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig { returns(T.nilable(String)) }
-        def archived_at
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def archived_at=(_)
-        end
+        attr_accessor :archived_at
 
         sig { returns(T.nilable(String)) }
-        def clicked_at
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def clicked_at=(_)
-        end
+        attr_accessor :clicked_at
 
         sig { returns(T.nilable(String)) }
-        def interacted_at
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def interacted_at=(_)
-        end
+        attr_accessor :interacted_at
 
         sig { returns(T.nilable(String)) }
-        def link_clicked_at
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def link_clicked_at=(_)
-        end
+        attr_accessor :link_clicked_at
 
         sig { returns(T.nilable(String)) }
-        def read_at
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def read_at=(_)
-        end
+        attr_accessor :read_at
 
         sig { returns(T.nilable(String)) }
-        def seen_at
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def seen_at=(_)
-        end
+        attr_accessor :seen_at
 
         # An in-app feed message in a user's feed
         sig do
@@ -283,47 +171,20 @@ module Knockapi
 
           class MessageInAppFeedContentBlock < Knockapi::BaseModel
             sig { returns(String) }
-            def content
-            end
-
-            sig { params(_: String).returns(String) }
-            def content=(_)
-            end
+            attr_accessor :content
 
             sig { returns(String) }
-            def name
-            end
-
-            sig { params(_: String).returns(String) }
-            def name=(_)
-            end
+            attr_accessor :name
 
             sig { returns(String) }
-            def rendered
-            end
-
-            sig { params(_: String).returns(String) }
-            def rendered=(_)
-            end
+            attr_accessor :rendered
 
             sig do
               returns(
                 Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
               )
             end
-            def type
-            end
-
-            sig do
-              params(
-                _: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-              )
-                .returns(
-                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                )
-            end
-            def type=(_)
-            end
+            attr_accessor :type
 
             # A content (text or markdown) block in a message in an app feed
             sig do
@@ -395,46 +256,17 @@ module Knockapi
                 T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button]
               )
             end
-            def buttons
-            end
-
-            sig do
-              params(
-                _: T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button]
-              )
-                .returns(
-                  T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button]
-                )
-            end
-            def buttons=(_)
-            end
+            attr_accessor :buttons
 
             sig { returns(String) }
-            def name
-            end
-
-            sig { params(_: String).returns(String) }
-            def name=(_)
-            end
+            attr_accessor :name
 
             sig do
               returns(
                 Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
               )
             end
-            def type
-            end
-
-            sig do
-              params(
-                _: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-              )
-                .returns(
-                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                )
-            end
-            def type=(_)
-            end
+            attr_accessor :type
 
             # A set of buttons in a message in an app feed
             sig do
@@ -468,28 +300,13 @@ module Knockapi
 
             class Button < Knockapi::BaseModel
               sig { returns(String) }
-              def action
-              end
-
-              sig { params(_: String).returns(String) }
-              def action=(_)
-              end
+              attr_accessor :action
 
               sig { returns(String) }
-              def label
-              end
-
-              sig { params(_: String).returns(String) }
-              def label=(_)
-              end
+              attr_accessor :label
 
               sig { returns(String) }
-              def name
-              end
-
-              sig { params(_: String).returns(String) }
-              def name=(_)
-              end
+              attr_accessor :name
 
               # A button in a set of buttons
               sig { params(action: String, label: String, name: String).returns(T.attached_class) }
@@ -547,36 +364,16 @@ module Knockapi
 
         class Source < Knockapi::BaseModel
           sig { returns(String) }
-          def _typename
-          end
-
-          sig { params(_: String).returns(String) }
-          def _typename=(_)
-          end
+          attr_accessor :_typename
 
           sig { returns(T::Array[String]) }
-          def categories
-          end
-
-          sig { params(_: T::Array[String]).returns(T::Array[String]) }
-          def categories=(_)
-          end
+          attr_accessor :categories
 
           sig { returns(String) }
-          def key
-          end
-
-          sig { params(_: String).returns(String) }
-          def key=(_)
-          end
+          attr_accessor :key
 
           sig { returns(String) }
-          def version_id
-          end
-
-          sig { params(_: String).returns(String) }
-          def version_id=(_)
-          end
+          attr_accessor :version_id
 
           sig do
             params(_typename: String, categories: T::Array[String], key: String, version_id: String)

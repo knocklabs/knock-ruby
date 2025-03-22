@@ -7,72 +7,26 @@ module Knockapi
       include Knockapi::RequestParameters
 
       sig { returns(T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]) }
-      def recipients
-      end
-
-      sig do
-        params(_: T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)])
-          .returns(T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)])
-      end
-      def recipients=(_)
-      end
+      attr_accessor :recipients
 
       sig { returns(T::Array[Knockapi::Models::ScheduleRepeatRule]) }
-      def repeats
-      end
-
-      sig do
-        params(_: T::Array[Knockapi::Models::ScheduleRepeatRule])
-          .returns(T::Array[Knockapi::Models::ScheduleRepeatRule])
-      end
-      def repeats=(_)
-      end
+      attr_accessor :repeats
 
       sig { returns(String) }
-      def workflow
-      end
-
-      sig { params(_: String).returns(String) }
-      def workflow=(_)
-      end
+      attr_accessor :workflow
 
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig { returns(T.nilable(Time)) }
-      def ending_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def ending_at=(_)
-      end
+      attr_accessor :ending_at
 
       sig { returns(T.nilable(Time)) }
-      def scheduled_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def scheduled_at=(_)
-      end
+      attr_accessor :scheduled_at
 
       # An inline tenant request
       sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
-      def tenant
-      end
-
-      sig do
-        params(_: T.nilable(T.any(String, Knockapi::Models::TenantRequest)))
-          .returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest)))
-      end
-      def tenant=(_)
-      end
+      attr_accessor :tenant
 
       sig do
         params(
@@ -128,21 +82,11 @@ module Knockapi
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # The collection the object belongs to
           sig { returns(String) }
-          def collection
-          end
-
-          sig { params(_: String).returns(String) }
-          def collection=(_)
-          end
+          attr_accessor :collection
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }

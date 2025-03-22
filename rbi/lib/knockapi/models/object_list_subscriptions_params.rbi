@@ -8,33 +8,24 @@ module Knockapi
 
       # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
-      def after
-      end
+      attr_reader :after
 
-      sig { params(_: String).returns(String) }
-      def after=(_)
-      end
+      sig { params(after: String).void }
+      attr_writer :after
 
       # The cursor to fetch entries before
       sig { returns(T.nilable(String)) }
-      def before
-      end
+      attr_reader :before
 
-      sig { params(_: String).returns(String) }
-      def before=(_)
-      end
+      sig { params(before: String).void }
+      attr_writer :before
 
       # Mode of the request
       sig { returns(T.nilable(Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)) }
-      def mode
-      end
+      attr_reader :mode
 
-      sig do
-        params(_: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
-          .returns(Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)
-      end
-      def mode=(_)
-      end
+      sig { params(mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol).void }
+      attr_writer :mode
 
       # Objects to filter by (only used if mode is `recipient`)
       sig do
@@ -44,12 +35,11 @@ module Knockapi
           )
         )
       end
-      def objects
-      end
+      attr_reader :objects
 
       sig do
         params(
-          _: T::Array[
+          objects: T::Array[
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
@@ -57,27 +47,16 @@ module Knockapi
           )
           ]
         )
-          .returns(
-            T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
-              Knockapi::Util::AnyHash
-            )
-            ]
-          )
+          .void
       end
-      def objects=(_)
-      end
+      attr_writer :objects
 
       # The page size to fetch
       sig { returns(T.nilable(Integer)) }
-      def page_size
-      end
+      attr_reader :page_size
 
-      sig { params(_: Integer).returns(Integer) }
-      def page_size=(_)
-      end
+      sig { params(page_size: Integer).void }
+      attr_writer :page_size
 
       # Recipients to filter by (only used if mode is `object`)
       sig do
@@ -87,12 +66,11 @@ module Knockapi
           )
         )
       end
-      def recipients
-      end
+      attr_reader :recipients
 
       sig do
         params(
-          _: T::Array[
+          recipients: T::Array[
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
@@ -100,18 +78,9 @@ module Knockapi
           )
           ]
         )
-          .returns(
-            T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
-              Knockapi::Util::AnyHash
-            )
-            ]
-          )
+          .void
       end
-      def recipients=(_)
-      end
+      attr_writer :recipients
 
       sig do
         params(
@@ -186,21 +155,11 @@ module Knockapi
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # The collection the object belongs to
           sig { returns(String) }
-          def collection
-          end
-
-          sig { params(_: String).returns(String) }
-          def collection=(_)
-          end
+          attr_accessor :collection
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
@@ -230,21 +189,11 @@ module Knockapi
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # The collection the object belongs to
           sig { returns(String) }
-          def collection
-          end
-
-          sig { params(_: String).returns(String) }
-          def collection=(_)
-          end
+          attr_accessor :collection
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }

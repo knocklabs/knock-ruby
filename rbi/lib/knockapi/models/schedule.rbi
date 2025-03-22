@@ -4,113 +4,45 @@ module Knockapi
   module Models
     class Schedule < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(Time) }
-      def inserted_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def inserted_at=(_)
-      end
+      attr_accessor :inserted_at
 
       # A recipient, which is either a user or an object
       sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
-      def recipient
-      end
-
-      sig do
-        params(_: T.any(Knockapi::Models::User, Knockapi::Models::Object))
-          .returns(T.any(Knockapi::Models::User, Knockapi::Models::Object))
-      end
-      def recipient=(_)
-      end
+      attr_accessor :recipient
 
       sig { returns(T::Array[Knockapi::Models::ScheduleRepeatRule]) }
-      def repeats
-      end
-
-      sig do
-        params(_: T::Array[Knockapi::Models::ScheduleRepeatRule])
-          .returns(T::Array[Knockapi::Models::ScheduleRepeatRule])
-      end
-      def repeats=(_)
-      end
+      attr_accessor :repeats
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig { returns(String) }
-      def workflow
-      end
-
-      sig { params(_: String).returns(String) }
-      def workflow=(_)
-      end
+      attr_accessor :workflow
 
       sig { returns(T.nilable(String)) }
-      def _typename
-      end
+      attr_reader :_typename
 
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      sig { params(_typename: String).void }
+      attr_writer :_typename
 
       # A recipient, which is either a user or an object
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
-      def actor
-      end
-
-      sig do
-        params(_: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)))
-          .returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)))
-      end
-      def actor=(_)
-      end
+      attr_accessor :actor
 
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig { returns(T.nilable(Time)) }
-      def last_occurrence_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def last_occurrence_at=(_)
-      end
+      attr_accessor :last_occurrence_at
 
       sig { returns(T.nilable(Time)) }
-      def next_occurrence_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def next_occurrence_at=(_)
-      end
+      attr_accessor :next_occurrence_at
 
       sig { returns(T.nilable(String)) }
-      def tenant
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def tenant=(_)
-      end
+      attr_accessor :tenant
 
       # A schedule that represents a recurring workflow execution
       sig do

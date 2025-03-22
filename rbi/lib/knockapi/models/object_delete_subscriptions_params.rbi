@@ -11,19 +11,7 @@ module Knockapi
           T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
         )
       end
-      def recipients
-      end
-
-      sig do
-        params(
-          _: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-        )
-          .returns(
-            T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-          )
-      end
-      def recipients=(_)
-      end
+      attr_accessor :recipients
 
       sig do
         params(

@@ -5,214 +5,127 @@ module Knockapi
     class Message < Knockapi::BaseModel
       # The message ID
       sig { returns(T.nilable(String)) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      sig { params(id: String).void }
+      attr_writer :id
 
       sig { returns(T.nilable(String)) }
-      def _typename
-      end
+      attr_reader :_typename
 
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      sig { params(_typename: String).void }
+      attr_writer :_typename
 
       # A list of actor representations associated with the message (up to 10)
       sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)])) }
-      def actors
-      end
+      attr_reader :actors
 
       sig do
         params(
-          _: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)]
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)]
-          )
+          .void
       end
-      def actors=(_)
-      end
+      attr_writer :actors
 
       # Timestamp when message was archived
       sig { returns(T.nilable(Time)) }
-      def archived_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def archived_at=(_)
-      end
+      attr_accessor :archived_at
 
       # Channel ID associated with the message
       sig { returns(T.nilable(String)) }
-      def channel_id
-      end
+      attr_reader :channel_id
 
-      sig { params(_: String).returns(String) }
-      def channel_id=(_)
-      end
+      sig { params(channel_id: String).void }
+      attr_writer :channel_id
 
       # Timestamp when message was clicked
       sig { returns(T.nilable(Time)) }
-      def clicked_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def clicked_at=(_)
-      end
+      attr_accessor :clicked_at
 
       # Additional message data
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def data=(_)
-      end
+      attr_accessor :data
 
       # List of engagement statuses
       sig { returns(T.nilable(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol])) }
-      def engagement_statuses
-      end
+      attr_reader :engagement_statuses
 
-      sig do
-        params(_: T::Array[Knockapi::Models::Message::EngagementStatus::OrSymbol])
-          .returns(T::Array[Knockapi::Models::Message::EngagementStatus::OrSymbol])
-      end
-      def engagement_statuses=(_)
-      end
+      sig { params(engagement_statuses: T::Array[Knockapi::Models::Message::EngagementStatus::OrSymbol]).void }
+      attr_writer :engagement_statuses
 
       # Timestamp of creation
       sig { returns(T.nilable(Time)) }
-      def inserted_at
-      end
+      attr_reader :inserted_at
 
-      sig { params(_: Time).returns(Time) }
-      def inserted_at=(_)
-      end
+      sig { params(inserted_at: Time).void }
+      attr_writer :inserted_at
 
       # Timestamp when message was interacted with
       sig { returns(T.nilable(Time)) }
-      def interacted_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def interacted_at=(_)
-      end
+      attr_accessor :interacted_at
 
       # Timestamp when a link in the message was clicked
       sig { returns(T.nilable(Time)) }
-      def link_clicked_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def link_clicked_at=(_)
-      end
+      attr_accessor :link_clicked_at
 
       # Message metadata
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def metadata
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       # Timestamp when message was read
       sig { returns(T.nilable(Time)) }
-      def read_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def read_at=(_)
-      end
+      attr_accessor :read_at
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       sig { returns(T.nilable(T.any(String, Knockapi::Models::Message::Recipient::ObjectReference))) }
-      def recipient
-      end
+      attr_reader :recipient
 
       sig do
-        params(_: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash))
-          .returns(T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash))
+        params(
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash)
+        )
+          .void
       end
-      def recipient=(_)
-      end
+      attr_writer :recipient
 
       # Timestamp when message was scheduled for
       sig { returns(T.nilable(Time)) }
-      def scheduled_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def scheduled_at=(_)
-      end
+      attr_accessor :scheduled_at
 
       # Timestamp when message was seen
       sig { returns(T.nilable(Time)) }
-      def seen_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def seen_at=(_)
-      end
+      attr_accessor :seen_at
 
       # Source information
       sig { returns(T.nilable(Knockapi::Models::Message::Source)) }
-      def source
-      end
+      attr_reader :source
 
-      sig do
-        params(_: T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash))
-          .returns(T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash))
-      end
-      def source=(_)
-      end
+      sig { params(source: T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash)).void }
+      attr_writer :source
 
       # Message delivery status
       sig { returns(T.nilable(Knockapi::Models::Message::Status::TaggedSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: Knockapi::Models::Message::Status::OrSymbol).returns(Knockapi::Models::Message::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: Knockapi::Models::Message::Status::OrSymbol).void }
+      attr_writer :status
 
       # Tenant ID that the message belongs to
       sig { returns(T.nilable(String)) }
-      def tenant
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def tenant=(_)
-      end
+      attr_accessor :tenant
 
       # Timestamp of last update
       sig { returns(T.nilable(Time)) }
-      def updated_at
-      end
+      attr_reader :updated_at
 
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      sig { params(updated_at: Time).void }
+      attr_writer :updated_at
 
       # Workflow key used to create the message
       sig { returns(T.nilable(String)) }
-      def workflow
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def workflow=(_)
-      end
+      attr_accessor :workflow
 
       # Represents a single message that was generated by a workflow for a given
       #   channel.
@@ -309,21 +222,11 @@ module Knockapi
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # The collection the object belongs to
           sig { returns(String) }
-          def collection
-          end
-
-          sig { params(_: String).returns(String) }
-          def collection=(_)
-          end
+          attr_accessor :collection
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
@@ -372,21 +275,11 @@ module Knockapi
         class ObjectReference < Knockapi::BaseModel
           # An object identifier
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # The collection the object belongs to
           sig { returns(String) }
-          def collection
-          end
-
-          sig { params(_: String).returns(String) }
-          def collection=(_)
-          end
+          attr_accessor :collection
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
@@ -407,39 +300,19 @@ module Knockapi
 
       class Source < Knockapi::BaseModel
         sig { returns(String) }
-        def _typename
-        end
-
-        sig { params(_: String).returns(String) }
-        def _typename=(_)
-        end
+        attr_accessor :_typename
 
         # The workflow categories
         sig { returns(T::Array[String]) }
-        def categories
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def categories=(_)
-        end
+        attr_accessor :categories
 
         # The workflow key
         sig { returns(String) }
-        def key
-        end
-
-        sig { params(_: String).returns(String) }
-        def key=(_)
-        end
+        attr_accessor :key
 
         # The source version ID
         sig { returns(String) }
-        def version_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def version_id=(_)
-        end
+        attr_accessor :version_id
 
         # Source information
         sig do

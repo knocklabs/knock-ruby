@@ -7,12 +7,7 @@ module Knockapi
       include Knockapi::RequestParameters
 
       sig { returns(T::Array[String]) }
-      def schedule_ids
-      end
-
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def schedule_ids=(_)
-      end
+      attr_accessor :schedule_ids
 
       sig do
         params(

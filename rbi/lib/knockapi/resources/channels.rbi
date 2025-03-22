@@ -4,8 +4,7 @@ module Knockapi
   module Resources
     class Channels
       sig { returns(Knockapi::Resources::Channels::Bulk) }
-      def bulk
-      end
+      attr_reader :bulk
 
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:)

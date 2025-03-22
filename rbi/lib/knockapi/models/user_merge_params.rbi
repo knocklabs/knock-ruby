@@ -8,12 +8,7 @@ module Knockapi
 
       # The user ID to merge from
       sig { returns(String) }
-      def from_user_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def from_user_id=(_)
-      end
+      attr_accessor :from_user_id
 
       sig do
         params(

@@ -12,30 +12,11 @@ module Knockapi
           T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
         )
       end
-      def recipients
-      end
-
-      sig do
-        params(
-          _: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-        )
-          .returns(
-            T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-          )
-      end
-      def recipients=(_)
-      end
+      attr_accessor :recipients
 
       # The custom properties associated with the subscription
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def properties
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def properties=(_)
-      end
+      attr_accessor :properties
 
       sig do
         params(

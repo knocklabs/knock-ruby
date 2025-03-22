@@ -7,20 +7,10 @@ module Knockapi
     Elem = type_member
 
     sig { returns(T.nilable(T::Array[Elem])) }
-    def items
-    end
-
-    sig { params(_: T.nilable(T::Array[Elem])).returns(T.nilable(T::Array[Elem])) }
-    def items=(_)
-    end
+    attr_accessor :items
 
     sig { returns(PageInfo) }
-    def page_info
-    end
-
-    sig { params(_: PageInfo).returns(PageInfo) }
-    def page_info=(_)
-    end
+    attr_accessor :page_info
 
     sig { returns(String) }
     def inspect
@@ -28,12 +18,10 @@ module Knockapi
 
     class PageInfo < Knockapi::BaseModel
       sig { returns(T.nilable(String)) }
-      def after
-      end
+      attr_reader :after
 
-      sig { params(_: String).returns(String) }
-      def after=(_)
-      end
+      sig { params(after: String).void }
+      attr_writer :after
 
       sig { params(after: String).returns(T.attached_class) }
       def self.new(after: nil)

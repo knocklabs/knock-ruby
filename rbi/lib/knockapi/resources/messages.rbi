@@ -4,8 +4,7 @@ module Knockapi
   module Resources
     class Messages
       sig { returns(Knockapi::Resources::Messages::Batch) }
-      def batch
-      end
+      attr_reader :batch
 
       # List messages
       sig do

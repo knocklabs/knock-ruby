@@ -4,47 +4,21 @@ module Knockapi
   module Models
     class TenantRequest < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
-      def channel_data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
-          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
-      end
-      def channel_data=(_)
-      end
+      attr_accessor :channel_data
 
       # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
-      def preferences
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
-          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
-      end
-      def preferences=(_)
-      end
+      attr_accessor :preferences
 
       sig { returns(T.nilable(Knockapi::Models::TenantRequest::Settings)) }
-      def settings
-      end
+      attr_reader :settings
 
-      sig do
-        params(_: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Util::AnyHash))
-          .returns(T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Util::AnyHash))
-      end
-      def settings=(_)
-      end
+      sig { params(settings: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Util::AnyHash)).void }
+      attr_writer :settings
 
       # A tenant to be set in the system
       sig do
@@ -79,27 +53,22 @@ module Knockapi
 
       class Settings < Knockapi::BaseModel
         sig { returns(T.nilable(Knockapi::Models::TenantRequest::Settings::Branding)) }
-        def branding
-        end
+        attr_reader :branding
 
-        sig do
-          params(_: T.any(Knockapi::Models::TenantRequest::Settings::Branding, Knockapi::Util::AnyHash))
-            .returns(T.any(Knockapi::Models::TenantRequest::Settings::Branding, Knockapi::Util::AnyHash))
-        end
-        def branding=(_)
-        end
+        sig { params(branding: T.any(Knockapi::Models::TenantRequest::Settings::Branding, Knockapi::Util::AnyHash)).void }
+        attr_writer :branding
 
         # Set preferences for a recipient
         sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetRequest)) }
-        def preference_set
-        end
+        attr_reader :preference_set
 
         sig do
-          params(_: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash)))
-            .returns(T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash)))
+          params(
+            preference_set: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash))
+          )
+            .void
         end
-        def preference_set=(_)
-        end
+        attr_writer :preference_set
 
         sig do
           params(
@@ -125,36 +94,16 @@ module Knockapi
 
         class Branding < Knockapi::BaseModel
           sig { returns(T.nilable(String)) }
-          def icon_url
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def icon_url=(_)
-          end
+          attr_accessor :icon_url
 
           sig { returns(T.nilable(String)) }
-          def logo_url
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def logo_url=(_)
-          end
+          attr_accessor :logo_url
 
           sig { returns(T.nilable(String)) }
-          def primary_color
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def primary_color=(_)
-          end
+          attr_accessor :primary_color
 
           sig { returns(T.nilable(String)) }
-          def primary_color_contrast
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def primary_color_contrast=(_)
-          end
+          attr_accessor :primary_color_contrast
 
           sig do
             params(

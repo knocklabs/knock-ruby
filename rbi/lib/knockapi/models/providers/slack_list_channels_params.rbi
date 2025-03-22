@@ -9,27 +9,18 @@ module Knockapi
 
         # A JSON encoded string containing the access token object reference
         sig { returns(String) }
-        def access_token_object
-        end
-
-        sig { params(_: String).returns(String) }
-        def access_token_object=(_)
-        end
+        attr_accessor :access_token_object
 
         sig { returns(T.nilable(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions)) }
-        def query_options
-        end
+        attr_reader :query_options
 
         sig do
           params(
-            _: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
+            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def query_options=(_)
-        end
+        attr_writer :query_options
 
         sig do
           params(
@@ -58,48 +49,38 @@ module Knockapi
         class QueryOptions < Knockapi::BaseModel
           # A cursor to paginate through the channels
           sig { returns(T.nilable(String)) }
-          def cursor
-          end
+          attr_reader :cursor
 
-          sig { params(_: String).returns(String) }
-          def cursor=(_)
-          end
+          sig { params(cursor: String).void }
+          attr_writer :cursor
 
           # Whether to exclude archived channels
           sig { returns(T.nilable(T::Boolean)) }
-          def exclude_archived
-          end
+          attr_reader :exclude_archived
 
-          sig { params(_: T::Boolean).returns(T::Boolean) }
-          def exclude_archived=(_)
-          end
+          sig { params(exclude_archived: T::Boolean).void }
+          attr_writer :exclude_archived
 
           # The number of channels to return
           sig { returns(T.nilable(Integer)) }
-          def limit
-          end
+          attr_reader :limit
 
-          sig { params(_: Integer).returns(Integer) }
-          def limit=(_)
-          end
+          sig { params(limit: Integer).void }
+          attr_writer :limit
 
           # The ID of the Slack team to get channels for
           sig { returns(T.nilable(String)) }
-          def team_id
-          end
+          attr_reader :team_id
 
-          sig { params(_: String).returns(String) }
-          def team_id=(_)
-          end
+          sig { params(team_id: String).void }
+          attr_writer :team_id
 
           # The types of channels to return (comma separated list)
           sig { returns(T.nilable(String)) }
-          def types
-          end
+          attr_reader :types
 
-          sig { params(_: String).returns(String) }
-          def types=(_)
-          end
+          sig { params(types: String).void }
+          attr_writer :types
 
           sig do
             params(

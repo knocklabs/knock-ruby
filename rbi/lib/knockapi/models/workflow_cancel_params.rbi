@@ -9,30 +9,15 @@ module Knockapi
       # The cancellation key supplied to the workflow trigger endpoint to use for
       #   cancelling one or more workflow runs.
       sig { returns(String) }
-      def cancellation_key
-      end
-
-      sig { params(_: String).returns(String) }
-      def cancellation_key=(_)
-      end
+      attr_accessor :cancellation_key
 
       # An optional list of recipients to cancel the workflow for using the cancellation
       #   key.
       sig { returns(T.nilable(T::Array[String])) }
-      def recipients
-      end
-
-      sig { params(_: T.nilable(T::Array[String])).returns(T.nilable(T::Array[String])) }
-      def recipients=(_)
-      end
+      attr_accessor :recipients
 
       sig { returns(T.nilable(String)) }
-      def tenant
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def tenant=(_)
-      end
+      attr_accessor :tenant
 
       sig do
         params(

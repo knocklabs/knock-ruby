@@ -4,16 +4,13 @@ module Knockapi
   module Resources
     class Recipients
       sig { returns(Knockapi::Resources::Recipients::Subscriptions) }
-      def subscriptions
-      end
+      attr_reader :subscriptions
 
       sig { returns(Knockapi::Resources::Recipients::Preferences) }
-      def preferences
-      end
+      attr_reader :preferences
 
       sig { returns(Knockapi::Resources::Recipients::ChannelData) }
-      def channel_data
-      end
+      attr_reader :channel_data
 
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:)

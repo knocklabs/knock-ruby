@@ -4,48 +4,23 @@ module Knockapi
   module Models
     class AudienceMember < Knockapi::BaseModel
       sig { returns(String) }
-      def _typename
-      end
-
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      attr_accessor :_typename
 
       sig { returns(Time) }
-      def added_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def added_at=(_)
-      end
+      attr_accessor :added_at
 
       # A user object
       sig { returns(Knockapi::Models::User) }
-      def user
-      end
+      attr_reader :user
 
-      sig do
-        params(_: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash))
-          .returns(T.any(Knockapi::Models::User, Knockapi::Util::AnyHash))
-      end
-      def user=(_)
-      end
+      sig { params(user: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash)).void }
+      attr_writer :user
 
       sig { returns(String) }
-      def user_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def user_id=(_)
-      end
+      attr_accessor :user_id
 
       sig { returns(T.nilable(String)) }
-      def tenant
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def tenant=(_)
-      end
+      attr_accessor :tenant
 
       # A user belonging to an audience
       sig do

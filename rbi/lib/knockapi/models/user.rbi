@@ -4,76 +4,31 @@ module Knockapi
   module Models
     class User < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(String) }
-      def _typename
-      end
-
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      attr_accessor :_typename
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig { returns(T.nilable(String)) }
-      def avatar
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def avatar=(_)
-      end
+      attr_accessor :avatar
 
       sig { returns(T.nilable(Time)) }
-      def created_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(String)) }
-      def email
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def email=(_)
-      end
+      attr_accessor :email
 
       sig { returns(T.nilable(String)) }
-      def name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(T.nilable(String)) }
-      def phone_number
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def phone_number=(_)
-      end
+      attr_accessor :phone_number
 
       sig { returns(T.nilable(String)) }
-      def timezone
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def timezone=(_)
-      end
+      attr_accessor :timezone
 
       # A user object
       sig do

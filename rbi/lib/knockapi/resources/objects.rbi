@@ -4,8 +4,7 @@ module Knockapi
   module Resources
     class Objects
       sig { returns(Knockapi::Resources::Objects::Bulk) }
-      def bulk
-      end
+      attr_reader :bulk
 
       # List objects in a collection
       sig do

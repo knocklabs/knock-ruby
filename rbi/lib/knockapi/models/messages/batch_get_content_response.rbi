@@ -5,12 +5,7 @@ module Knockapi
     module Messages
       class BatchGetContentResponseItem < Knockapi::BaseModel
         sig { returns(String) }
-        def _typename
-        end
-
-        sig { params(_: String).returns(String) }
-        def _typename=(_)
-        end
+        attr_accessor :_typename
 
         # The contents of an email message
         sig do
@@ -24,47 +19,13 @@ module Knockapi
             )
           )
         end
-        def data
-        end
-
-        sig do
-          params(
-            _: T.any(
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
-            )
-          )
-            .returns(
-              T.any(
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
-              )
-            )
-        end
-        def data=(_)
-        end
+        attr_accessor :data
 
         sig { returns(Time) }
-        def inserted_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def inserted_at=(_)
-        end
+        attr_accessor :inserted_at
 
         sig { returns(String) }
-        def message_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def message_id=(_)
-        end
+        attr_accessor :message_id
 
         # The contents of a message
         sig do
@@ -125,76 +86,31 @@ module Knockapi
 
           class MessageEmailContent < Knockapi::BaseModel
             sig { returns(String) }
-            def _typename
-            end
-
-            sig { params(_: String).returns(String) }
-            def _typename=(_)
-            end
+            attr_accessor :_typename
 
             sig { returns(String) }
-            def from
-            end
-
-            sig { params(_: String).returns(String) }
-            def from=(_)
-            end
+            attr_accessor :from
 
             sig { returns(String) }
-            def html_body
-            end
-
-            sig { params(_: String).returns(String) }
-            def html_body=(_)
-            end
+            attr_accessor :html_body
 
             sig { returns(String) }
-            def subject_line
-            end
-
-            sig { params(_: String).returns(String) }
-            def subject_line=(_)
-            end
+            attr_accessor :subject_line
 
             sig { returns(String) }
-            def text_body
-            end
-
-            sig { params(_: String).returns(String) }
-            def text_body=(_)
-            end
+            attr_accessor :text_body
 
             sig { returns(String) }
-            def to
-            end
-
-            sig { params(_: String).returns(String) }
-            def to=(_)
-            end
+            attr_accessor :to
 
             sig { returns(T.nilable(String)) }
-            def bcc
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def bcc=(_)
-            end
+            attr_accessor :bcc
 
             sig { returns(T.nilable(String)) }
-            def cc
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def cc=(_)
-            end
+            attr_accessor :cc
 
             sig { returns(T.nilable(String)) }
-            def reply_to
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def reply_to=(_)
-            end
+            attr_accessor :reply_to
 
             # The contents of an email message
             sig do
@@ -236,28 +152,13 @@ module Knockapi
 
           class MessageSMSContent < Knockapi::BaseModel
             sig { returns(String) }
-            def _typename
-            end
-
-            sig { params(_: String).returns(String) }
-            def _typename=(_)
-            end
+            attr_accessor :_typename
 
             sig { returns(String) }
-            def body
-            end
-
-            sig { params(_: String).returns(String) }
-            def body=(_)
-            end
+            attr_accessor :body
 
             sig { returns(String) }
-            def to
-            end
-
-            sig { params(_: String).returns(String) }
-            def to=(_)
-            end
+            attr_accessor :to
 
             # The contents of an SMS message
             sig { params(_typename: String, body: String, to: String).returns(T.attached_class) }
@@ -271,51 +172,19 @@ module Knockapi
 
           class MessagePushContent < Knockapi::BaseModel
             sig { returns(String) }
-            def token
-            end
-
-            sig { params(_: String).returns(String) }
-            def token=(_)
-            end
+            attr_accessor :token
 
             sig { returns(String) }
-            def _typename
-            end
-
-            sig { params(_: String).returns(String) }
-            def _typename=(_)
-            end
+            attr_accessor :_typename
 
             sig { returns(String) }
-            def body
-            end
-
-            sig { params(_: String).returns(String) }
-            def body=(_)
-            end
+            attr_accessor :body
 
             sig { returns(String) }
-            def title
-            end
-
-            sig { params(_: String).returns(String) }
-            def title=(_)
-            end
+            attr_accessor :title
 
             sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-            def data
-            end
-
-            sig do
-              params(
-                _: T.nilable(
-                  T::Hash[Symbol,
-                          T.anything]
-                )
-              ).returns(T.nilable(T::Hash[Symbol, T.anything]))
-            end
-            def data=(_)
-            end
+            attr_accessor :data
 
             # The contents of a push message
             sig do
@@ -349,57 +218,28 @@ module Knockapi
 
           class MessageChatContent < Knockapi::BaseModel
             sig { returns(String) }
-            def _typename
-            end
-
-            sig { params(_: String).returns(String) }
-            def _typename=(_)
-            end
+            attr_accessor :_typename
 
             # The channel data connection from the recipient to the underlying provider
             sig { returns(T::Hash[Symbol, T.anything]) }
-            def connection
-            end
-
-            sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
-            def connection=(_)
-            end
+            attr_accessor :connection
 
             sig { returns(Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template) }
-            def template
-            end
+            attr_reader :template
 
             sig do
               params(
-                _: T.any(
+                template: T.any(
                   Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
                   Knockapi::Util::AnyHash
                 )
               )
-                .returns(
-                  T.any(
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
-                    Knockapi::Util::AnyHash
-                  )
-                )
+                .void
             end
-            def template=(_)
-            end
+            attr_writer :template
 
             sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-            def metadata
-            end
-
-            sig do
-              params(
-                _: T.nilable(
-                  T::Hash[Symbol,
-                          T.anything]
-                )
-              ).returns(T.nilable(T::Hash[Symbol, T.anything]))
-            end
-            def metadata=(_)
-            end
+            attr_accessor :metadata
 
             # The contents of a chat message
             sig do
@@ -440,47 +280,14 @@ module Knockapi
                   )
                 )
               end
-              def blocks
-              end
-
-              sig do
-                params(
-                  _: T.nilable(
-                    T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block]
-                  )
-                )
-                  .returns(
-                    T.nilable(
-                      T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block]
-                    )
-                  )
-              end
-              def blocks=(_)
-              end
+              attr_accessor :blocks
 
               # The JSON content of the message
               sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-              def json_content
-              end
-
-              sig do
-                params(
-                  _: T.nilable(
-                    T::Hash[Symbol,
-                            T.anything]
-                  )
-                ).returns(T.nilable(T::Hash[Symbol, T.anything]))
-              end
-              def json_content=(_)
-              end
+              attr_accessor :json_content
 
               sig { returns(T.nilable(String)) }
-              def summary
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def summary=(_)
-              end
+              attr_accessor :summary
 
               sig do
                 params(
@@ -517,39 +324,17 @@ module Knockapi
 
               class Block < Knockapi::BaseModel
                 sig { returns(String) }
-                def content
-                end
-
-                sig { params(_: String).returns(String) }
-                def content=(_)
-                end
+                attr_accessor :content
 
                 sig { returns(String) }
-                def name
-                end
-
-                sig { params(_: String).returns(String) }
-                def name=(_)
-                end
+                attr_accessor :name
 
                 sig do
                   returns(
                     Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                   )
                 end
-                def type
-                end
-
-                sig do
-                  params(
-                    _: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
-                  )
-                    .returns(
-                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
-                    )
-                end
-                def type=(_)
-                end
+                attr_accessor :type
 
                 # A block in a chat message
                 sig do
@@ -621,12 +406,7 @@ module Knockapi
 
           class MessageInAppFeedContent < Knockapi::BaseModel
             sig { returns(String) }
-            def _typename
-            end
-
-            sig { params(_: String).returns(String) }
-            def _typename=(_)
-            end
+            attr_accessor :_typename
 
             # The blocks of the message
             sig do
@@ -639,29 +419,7 @@ module Knockapi
                 ]
               )
             end
-            def blocks
-            end
-
-            sig do
-              params(
-                _: T::Array[
-                T.any(
-                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                )
-                ]
-              )
-                .returns(
-                  T::Array[
-                  T.any(
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                  )
-                  ]
-                )
-            end
-            def blocks=(_)
-            end
+            attr_accessor :blocks
 
             # The contents of a message in an app feed
             sig do
@@ -713,47 +471,20 @@ module Knockapi
 
               class MessageInAppFeedContentBlock < Knockapi::BaseModel
                 sig { returns(String) }
-                def content
-                end
-
-                sig { params(_: String).returns(String) }
-                def content=(_)
-                end
+                attr_accessor :content
 
                 sig { returns(String) }
-                def name
-                end
-
-                sig { params(_: String).returns(String) }
-                def name=(_)
-                end
+                attr_accessor :name
 
                 sig { returns(String) }
-                def rendered
-                end
-
-                sig { params(_: String).returns(String) }
-                def rendered=(_)
-                end
+                attr_accessor :rendered
 
                 sig do
                   returns(
                     Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
                   )
                 end
-                def type
-                end
-
-                sig do
-                  params(
-                    _: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                  )
-                    .returns(
-                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                    )
-                end
-                def type=(_)
-                end
+                attr_accessor :type
 
                 # A content (text or markdown) block in a message in an app feed
                 sig do
@@ -831,50 +562,17 @@ module Knockapi
                     ]
                   )
                 end
-                def buttons
-                end
-
-                sig do
-                  params(
-                    _: T::Array[
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
-                    ]
-                  )
-                    .returns(
-                      T::Array[
-                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
-                      ]
-                    )
-                end
-                def buttons=(_)
-                end
+                attr_accessor :buttons
 
                 sig { returns(String) }
-                def name
-                end
-
-                sig { params(_: String).returns(String) }
-                def name=(_)
-                end
+                attr_accessor :name
 
                 sig do
                   returns(
                     Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                   )
                 end
-                def type
-                end
-
-                sig do
-                  params(
-                    _: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                  )
-                    .returns(
-                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                    )
-                end
-                def type=(_)
-                end
+                attr_accessor :type
 
                 # A set of buttons in a message in an app feed
                 sig do
@@ -910,28 +608,13 @@ module Knockapi
 
                 class Button < Knockapi::BaseModel
                   sig { returns(String) }
-                  def action
-                  end
-
-                  sig { params(_: String).returns(String) }
-                  def action=(_)
-                  end
+                  attr_accessor :action
 
                   sig { returns(String) }
-                  def label
-                  end
-
-                  sig { params(_: String).returns(String) }
-                  def label=(_)
-                  end
+                  attr_accessor :label
 
                   sig { returns(String) }
-                  def name
-                  end
-
-                  sig { params(_: String).returns(String) }
-                  def name=(_)
-                  end
+                  attr_accessor :name
 
                   # A button in a set of buttons
                   sig { params(action: String, label: String, name: String).returns(T.attached_class) }

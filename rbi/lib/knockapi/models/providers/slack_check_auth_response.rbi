@@ -5,15 +5,15 @@ module Knockapi
     module Providers
       class SlackCheckAuthResponse < Knockapi::BaseModel
         sig { returns(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection) }
-        def connection
-        end
+        attr_reader :connection
 
         sig do
-          params(_: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Util::AnyHash))
-            .returns(T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Util::AnyHash))
+          params(
+            connection: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Util::AnyHash)
+          )
+            .void
         end
-        def connection=(_)
-        end
+        attr_writer :connection
 
         # The response from a Slack auth check request
         sig do
@@ -31,20 +31,10 @@ module Knockapi
 
         class Connection < Knockapi::BaseModel
           sig { returns(T::Boolean) }
-          def ok
-          end
-
-          sig { params(_: T::Boolean).returns(T::Boolean) }
-          def ok=(_)
-          end
+          attr_accessor :ok
 
           sig { returns(T.nilable(String)) }
-          def reason
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def reason=(_)
-          end
+          attr_accessor :reason
 
           sig { params(ok: T::Boolean, reason: T.nilable(String)).returns(T.attached_class) }
           def self.new(ok:, reason: nil)

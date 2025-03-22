@@ -8,15 +8,7 @@ module Knockapi
         include Knockapi::RequestParameters
 
         sig { returns(T::Array[Knockapi::Models::InlineIdentifyUserRequest]) }
-        def users
-        end
-
-        sig do
-          params(_: T::Array[Knockapi::Models::InlineIdentifyUserRequest])
-            .returns(T::Array[Knockapi::Models::InlineIdentifyUserRequest])
-        end
-        def users=(_)
-        end
+        attr_accessor :users
 
         sig do
           params(

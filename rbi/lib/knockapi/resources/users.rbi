@@ -4,12 +4,10 @@ module Knockapi
   module Resources
     class Users
       sig { returns(Knockapi::Resources::Users::Feeds) }
-      def feeds
-      end
+      attr_reader :feeds
 
       sig { returns(Knockapi::Resources::Users::Bulk) }
-      def bulk
-      end
+      attr_reader :bulk
 
       # Identify user
       sig do

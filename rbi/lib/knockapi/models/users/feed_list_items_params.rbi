@@ -9,99 +9,73 @@ module Knockapi
 
         # The cursor to fetch entries after
         sig { returns(T.nilable(String)) }
-        def after
-        end
+        attr_reader :after
 
-        sig { params(_: String).returns(String) }
-        def after=(_)
-        end
+        sig { params(after: String).void }
+        attr_writer :after
 
         # The archived status of the feed items to return
         sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)) }
-        def archived
-        end
+        attr_reader :archived
 
-        sig do
-          params(_: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
-            .returns(Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)
-        end
-        def archived=(_)
-        end
+        sig { params(archived: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol).void }
+        attr_writer :archived
 
         # The cursor to fetch entries before
         sig { returns(T.nilable(String)) }
-        def before
-        end
+        attr_reader :before
 
-        sig { params(_: String).returns(String) }
-        def before=(_)
-        end
+        sig { params(before: String).void }
+        attr_writer :before
 
         # Whether the feed items have a tenant
         sig { returns(T.nilable(T::Boolean)) }
-        def has_tenant
-        end
+        attr_reader :has_tenant
 
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def has_tenant=(_)
-        end
+        sig { params(has_tenant: T::Boolean).void }
+        attr_writer :has_tenant
 
         # The page size to fetch
         sig { returns(T.nilable(Integer)) }
-        def page_size
-        end
+        attr_reader :page_size
 
-        sig { params(_: Integer).returns(Integer) }
-        def page_size=(_)
-        end
+        sig { params(page_size: Integer).void }
+        attr_writer :page_size
 
         # The source of the feed items to return
         sig { returns(T.nilable(String)) }
-        def source
-        end
+        attr_reader :source
 
-        sig { params(_: String).returns(String) }
-        def source=(_)
-        end
+        sig { params(source: String).void }
+        attr_writer :source
 
         # The status of the feed items to return
         sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)) }
-        def status
-        end
+        attr_reader :status
 
-        sig do
-          params(_: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
-            .returns(Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)
-        end
-        def status=(_)
-        end
+        sig { params(status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol).void }
+        attr_writer :status
 
         # The tenant of the feed items to return
         sig { returns(T.nilable(String)) }
-        def tenant
-        end
+        attr_reader :tenant
 
-        sig { params(_: String).returns(String) }
-        def tenant=(_)
-        end
+        sig { params(tenant: String).void }
+        attr_writer :tenant
 
         # The trigger data of the feed items to return (as a JSON string)
         sig { returns(T.nilable(String)) }
-        def trigger_data
-        end
+        attr_reader :trigger_data
 
-        sig { params(_: String).returns(String) }
-        def trigger_data=(_)
-        end
+        sig { params(trigger_data: String).void }
+        attr_writer :trigger_data
 
         # The workflow categories of the feed items to return
         sig { returns(T.nilable(T::Array[String])) }
-        def workflow_categories
-        end
+        attr_reader :workflow_categories
 
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def workflow_categories=(_)
-        end
+        sig { params(workflow_categories: T::Array[String]).void }
+        attr_writer :workflow_categories
 
         sig do
           params(

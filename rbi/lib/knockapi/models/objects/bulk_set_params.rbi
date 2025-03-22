@@ -8,15 +8,7 @@ module Knockapi
         include Knockapi::RequestParameters
 
         sig { returns(T::Array[Knockapi::Models::InlineObjectRequest]) }
-        def objects
-        end
-
-        sig do
-          params(_: T::Array[Knockapi::Models::InlineObjectRequest])
-            .returns(T::Array[Knockapi::Models::InlineObjectRequest])
-        end
-        def objects=(_)
-        end
+        attr_accessor :objects
 
         sig do
           params(

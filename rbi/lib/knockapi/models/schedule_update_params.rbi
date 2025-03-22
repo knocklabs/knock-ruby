@@ -7,12 +7,7 @@ module Knockapi
       include Knockapi::RequestParameters
 
       sig { returns(T::Array[String]) }
-      def schedule_ids
-      end
-
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def schedule_ids=(_)
-      end
+      attr_accessor :schedule_ids
 
       # Specifies a recipient in a request. This can either be a user identifier
       #   (string), an inline user request (object), or an inline object request, which is
@@ -24,72 +19,26 @@ module Knockapi
           )
         )
       end
-      def actor
-      end
-
-      sig do
-        params(
-          _: T.nilable(
-            T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
-          )
-        )
-          .returns(
-            T.nilable(
-              T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
-            )
-          )
-      end
-      def actor=(_)
-      end
+      attr_accessor :actor
 
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig { returns(T.nilable(Time)) }
-      def ending_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def ending_at=(_)
-      end
+      attr_accessor :ending_at
 
       sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule])) }
-      def repeats
-      end
+      attr_reader :repeats
 
-      sig do
-        params(_: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)])
-          .returns(T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)])
-      end
-      def repeats=(_)
-      end
+      sig { params(repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)]).void }
+      attr_writer :repeats
 
       sig { returns(T.nilable(Time)) }
-      def scheduled_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def scheduled_at=(_)
-      end
+      attr_accessor :scheduled_at
 
       # An inline tenant request
       sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
-      def tenant
-      end
-
-      sig do
-        params(_: T.nilable(T.any(String, Knockapi::Models::TenantRequest)))
-          .returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest)))
-      end
-      def tenant=(_)
-      end
+      attr_accessor :tenant
 
       sig do
         params(

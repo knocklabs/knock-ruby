@@ -8,93 +8,74 @@ module Knockapi
         include Knockapi::RequestParameters
 
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)) }
-        def archived
-        end
+        attr_reader :archived
 
-        sig do
-          params(_: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)
-            .returns(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)
-        end
-        def archived=(_)
-        end
+        sig { params(archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol).void }
+        attr_writer :archived
 
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)) }
-        def delivery_status
-        end
+        attr_reader :delivery_status
 
         sig do
-          params(_: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
-            .returns(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)
+          params(
+            delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol
+          )
+            .void
         end
-        def delivery_status=(_)
-        end
+        attr_writer :delivery_status
 
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)) }
-        def engagement_status
-        end
+        attr_reader :engagement_status
 
         sig do
-          params(_: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
-            .returns(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)
+          params(
+            engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol
+          )
+            .void
         end
-        def engagement_status=(_)
-        end
+        attr_writer :engagement_status
 
         sig { returns(T.nilable(T::Boolean)) }
-        def has_tenant
-        end
+        attr_reader :has_tenant
 
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def has_tenant=(_)
-        end
+        sig { params(has_tenant: T::Boolean).void }
+        attr_writer :has_tenant
 
         sig { returns(T.nilable(Time)) }
-        def newer_than
-        end
+        attr_reader :newer_than
 
-        sig { params(_: Time).returns(Time) }
-        def newer_than=(_)
-        end
+        sig { params(newer_than: Time).void }
+        attr_writer :newer_than
 
         sig { returns(T.nilable(Time)) }
-        def older_than
-        end
+        attr_reader :older_than
 
-        sig { params(_: Time).returns(Time) }
-        def older_than=(_)
-        end
+        sig { params(older_than: Time).void }
+        attr_writer :older_than
 
         sig { returns(T.nilable(T::Array[String])) }
-        def recipient_ids
-        end
+        attr_reader :recipient_ids
 
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def recipient_ids=(_)
-        end
+        sig { params(recipient_ids: T::Array[String]).void }
+        attr_writer :recipient_ids
 
         sig { returns(T.nilable(T::Array[String])) }
-        def tenants
-        end
+        attr_reader :tenants
 
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def tenants=(_)
-        end
+        sig { params(tenants: T::Array[String]).void }
+        attr_writer :tenants
 
         sig { returns(T.nilable(String)) }
-        def trigger_data
-        end
+        attr_reader :trigger_data
 
-        sig { params(_: String).returns(String) }
-        def trigger_data=(_)
-        end
+        sig { params(trigger_data: String).void }
+        attr_writer :trigger_data
 
         sig { returns(T.nilable(T::Array[String])) }
-        def workflows
-        end
+        attr_reader :workflows
 
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def workflows=(_)
-        end
+        sig { params(workflows: T::Array[String]).void }
+        attr_writer :workflows
 
         sig do
           params(

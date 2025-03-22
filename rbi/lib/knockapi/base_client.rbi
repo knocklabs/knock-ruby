@@ -83,13 +83,9 @@ module Knockapi
       end
     end
 
+    # @api private
     sig { returns(T.anything) }
-    def requester
-    end
-
-    sig { params(_: T.anything).returns(T.anything) }
-    def requester=(_)
-    end
+    attr_accessor :requester
 
     # @api private
     sig do

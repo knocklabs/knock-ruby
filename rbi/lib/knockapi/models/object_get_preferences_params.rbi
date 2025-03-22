@@ -8,12 +8,10 @@ module Knockapi
 
       # Tenant ID
       sig { returns(T.nilable(String)) }
-      def tenant
-      end
+      attr_reader :tenant
 
-      sig { params(_: String).returns(String) }
-      def tenant=(_)
-      end
+      sig { params(tenant: String).void }
+      attr_writer :tenant
 
       sig do
         params(tenant: String, request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))

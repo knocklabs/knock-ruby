@@ -8,30 +8,24 @@ module Knockapi
 
       # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
-      def after
-      end
+      attr_reader :after
 
-      sig { params(_: String).returns(String) }
-      def after=(_)
-      end
+      sig { params(after: String).void }
+      attr_writer :after
 
       # The cursor to fetch entries before
       sig { returns(T.nilable(String)) }
-      def before
-      end
+      attr_reader :before
 
-      sig { params(_: String).returns(String) }
-      def before=(_)
-      end
+      sig { params(before: String).void }
+      attr_writer :before
 
       # The page size to fetch
       sig { returns(T.nilable(Integer)) }
-      def page_size
-      end
+      attr_reader :page_size
 
-      sig { params(_: Integer).returns(Integer) }
-      def page_size=(_)
-      end
+      sig { params(page_size: Integer).void }
+      attr_writer :page_size
 
       sig do
         params(

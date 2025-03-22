@@ -4,52 +4,21 @@ module Knockapi
   module Models
     class InlineObjectRequest < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(String) }
-      def collection
-      end
-
-      sig { params(_: String).returns(String) }
-      def collection=(_)
-      end
+      attr_accessor :collection
 
       # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
-      def channel_data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
-          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]))
-      end
-      def channel_data=(_)
-      end
+      attr_accessor :channel_data
 
       sig { returns(T.nilable(Time)) }
-      def created_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # Inline set preferences for a recipient, where the key is the preference set name
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
-      def preferences
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
-          .returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]))
-      end
-      def preferences=(_)
-      end
+      attr_accessor :preferences
 
       # Inline identifies a custom object belonging to a collection
       sig do

@@ -4,44 +4,19 @@ module Knockapi
   module Models
     class Object < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(String) }
-      def _typename
-      end
-
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      attr_accessor :_typename
 
       sig { returns(String) }
-      def collection
-      end
-
-      sig { params(_: String).returns(String) }
-      def collection=(_)
-      end
+      attr_accessor :collection
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig { returns(T.nilable(Time)) }
-      def created_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # A custom-object entity which belongs to a collection.
       sig do

@@ -5,20 +5,10 @@ module Knockapi
     module Recipients
       class PreferenceSet < Knockapi::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(String) }
-        def _typename
-        end
-
-        sig { params(_: String).returns(String) }
-        def _typename=(_)
-        end
+        attr_accessor :_typename
 
         # A map of categories and their settings
         sig do
@@ -34,51 +24,19 @@ module Knockapi
             )
           )
         end
-        def categories
-        end
-
-        sig do
-          params(
-            _: T.nilable(
-              T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
-              )
-              ]
-            )
-          )
-            .returns(
-              T.nilable(
-                T::Hash[
-                Symbol,
-                T.any(
-                  T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
-                )
-                ]
-              )
-            )
-        end
-        def categories=(_)
-        end
+        attr_accessor :categories
 
         # Channel type preferences
         sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
-        def channel_types
-        end
+        attr_reader :channel_types
 
         sig do
           params(
-            _: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+            channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
           )
-            .returns(
-              T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
-            )
+            .void
         end
-        def channel_types=(_)
-        end
+        attr_writer :channel_types
 
         # A map of workflows and their settings
         sig do
@@ -94,35 +52,7 @@ module Knockapi
             )
           )
         end
-        def workflows
-        end
-
-        sig do
-          params(
-            _: T.nilable(
-              T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
-              )
-              ]
-            )
-          )
-            .returns(
-              T.nilable(
-                T::Hash[
-                Symbol,
-                T.any(
-                  T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
-                )
-                ]
-              )
-            )
-        end
-        def workflows=(_)
-        end
+        attr_accessor :workflows
 
         # A preference set object.
         sig do
@@ -204,30 +134,18 @@ module Knockapi
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
-            def channel_types
-            end
+            attr_reader :channel_types
 
             sig do
               params(
-                _: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+                channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
               )
-                .returns(
-                  T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
-                )
+                .void
             end
-            def channel_types=(_)
-            end
+            attr_writer :channel_types
 
             sig { returns(T.nilable(T::Array[Knockapi::Models::Condition])) }
-            def conditions
-            end
-
-            sig do
-              params(_: T.nilable(T::Array[Knockapi::Models::Condition]))
-                .returns(T.nilable(T::Array[Knockapi::Models::Condition]))
-            end
-            def conditions=(_)
-            end
+            attr_accessor :conditions
 
             # The settings object for a workflow or category, where you can specify channel
             #   types or conditions.
@@ -283,30 +201,18 @@ module Knockapi
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
-            def channel_types
-            end
+            attr_reader :channel_types
 
             sig do
               params(
-                _: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+                channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
               )
-                .returns(
-                  T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
-                )
+                .void
             end
-            def channel_types=(_)
-            end
+            attr_writer :channel_types
 
             sig { returns(T.nilable(T::Array[Knockapi::Models::Condition])) }
-            def conditions
-            end
-
-            sig do
-              params(_: T.nilable(T::Array[Knockapi::Models::Condition]))
-                .returns(T.nilable(T::Array[Knockapi::Models::Condition]))
-            end
-            def conditions=(_)
-            end
+            attr_accessor :conditions
 
             # The settings object for a workflow or category, where you can specify channel
             #   types or conditions.

@@ -9,12 +9,7 @@ module Knockapi
 
         # A JSON encoded string containing the access token object reference
         sig { returns(String) }
-        def access_token_object
-        end
-
-        sig { params(_: String).returns(String) }
-        def access_token_object=(_)
-        end
+        attr_accessor :access_token_object
 
         sig do
           params(

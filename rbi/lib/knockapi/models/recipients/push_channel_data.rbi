@@ -5,12 +5,7 @@ module Knockapi
     module Recipients
       class PushChannelData < Knockapi::BaseModel
         sig { returns(T::Array[String]) }
-        def tokens
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def tokens=(_)
-        end
+        attr_accessor :tokens
 
         # Channel data for push providers
         sig { params(tokens: T::Array[String]).returns(T.attached_class) }

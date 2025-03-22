@@ -8,12 +8,10 @@ module Knockapi
 
       # Metadata about the interaction
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, T.anything]).void }
+      attr_writer :metadata
 
       sig do
         params(

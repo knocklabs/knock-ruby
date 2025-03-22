@@ -9,12 +9,7 @@ module Knockapi
 
         # The IDs of the objects to delete
         sig { returns(T::Array[String]) }
-        def object_ids
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def object_ids=(_)
-        end
+        attr_accessor :object_ids
 
         sig do
           params(

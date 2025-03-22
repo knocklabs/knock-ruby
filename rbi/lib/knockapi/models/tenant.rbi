@@ -4,20 +4,10 @@ module Knockapi
   module Models
     class Tenant < Knockapi::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(String) }
-      def _typename
-      end
-
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      attr_accessor :_typename
 
       # A tenant entity
       sig { params(id: String, _typename: String).returns(T.attached_class) }

@@ -7,20 +7,10 @@ module Knockapi
     Elem = type_member
 
     sig { returns(String) }
-    def next_cursor
-    end
-
-    sig { params(_: String).returns(String) }
-    def next_cursor=(_)
-    end
+    attr_accessor :next_cursor
 
     sig { returns(T.nilable(T::Array[Elem])) }
-    def slack_channels
-    end
-
-    sig { params(_: T.nilable(T::Array[Elem])).returns(T.nilable(T::Array[Elem])) }
-    def slack_channels=(_)
-    end
+    attr_accessor :slack_channels
 
     sig { returns(String) }
     def inspect

@@ -5,15 +5,7 @@ module Knockapi
     module Providers
       class MsTeamListChannelsResponse < Knockapi::BaseModel
         sig { returns(T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]) }
-        def ms_teams_channels
-        end
-
-        sig do
-          params(_: T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel])
-            .returns(T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel])
-        end
-        def ms_teams_channels=(_)
-        end
+        attr_accessor :ms_teams_channels
 
         # The response from a channels for Microsoft Teams provider request
         sig do
@@ -36,52 +28,31 @@ module Knockapi
 
         class MsTeamsChannel < Knockapi::BaseModel
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           sig { returns(String) }
-          def display_name
-          end
-
-          sig { params(_: String).returns(String) }
-          def display_name=(_)
-          end
+          attr_accessor :display_name
 
           sig { returns(T.nilable(String)) }
-          def created_date_time
-          end
+          attr_reader :created_date_time
 
-          sig { params(_: String).returns(String) }
-          def created_date_time=(_)
-          end
+          sig { params(created_date_time: String).void }
+          attr_writer :created_date_time
 
           sig { returns(T.nilable(String)) }
-          def description
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def description=(_)
-          end
+          attr_accessor :description
 
           sig { returns(T.nilable(T::Boolean)) }
-          def is_archived
-          end
+          attr_reader :is_archived
 
-          sig { params(_: T::Boolean).returns(T::Boolean) }
-          def is_archived=(_)
-          end
+          sig { params(is_archived: T::Boolean).void }
+          attr_writer :is_archived
 
           sig { returns(T.nilable(String)) }
-          def membership_type
-          end
+          attr_reader :membership_type
 
-          sig { params(_: String).returns(String) }
-          def membership_type=(_)
-          end
+          sig { params(membership_type: String).void }
+          attr_writer :membership_type
 
           sig do
             params(

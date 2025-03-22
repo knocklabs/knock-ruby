@@ -8,15 +8,7 @@ module Knockapi
         include Knockapi::RequestParameters
 
         sig { returns(T::Array[T.any(String, Knockapi::Models::TenantRequest)]) }
-        def tenants
-        end
-
-        sig do
-          params(_: T::Array[T.any(String, Knockapi::Models::TenantRequest)])
-            .returns(T::Array[T.any(String, Knockapi::Models::TenantRequest)])
-        end
-        def tenants=(_)
-        end
+        attr_accessor :tenants
 
         sig do
           params(

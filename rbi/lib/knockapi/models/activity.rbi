@@ -4,71 +4,43 @@ module Knockapi
   module Models
     class Activity < Knockapi::BaseModel
       sig { returns(T.nilable(String)) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      sig { params(id: String).void }
+      attr_writer :id
 
       sig { returns(T.nilable(String)) }
-      def _typename
-      end
+      attr_reader :_typename
 
-      sig { params(_: String).returns(String) }
-      def _typename=(_)
-      end
+      sig { params(_typename: String).void }
+      attr_writer :_typename
 
       # A recipient, which is either a user or an object
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
-      def actor
-      end
-
-      sig do
-        params(_: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)))
-          .returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)))
-      end
-      def actor=(_)
-      end
+      attr_accessor :actor
 
       # The data associated with the activity
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def data
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def data=(_)
-      end
+      attr_accessor :data
 
       sig { returns(T.nilable(Time)) }
-      def inserted_at
-      end
+      attr_reader :inserted_at
 
-      sig { params(_: Time).returns(Time) }
-      def inserted_at=(_)
-      end
+      sig { params(inserted_at: Time).void }
+      attr_writer :inserted_at
 
       # A recipient, which is either a user or an object
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
-      def recipient
-      end
+      attr_reader :recipient
 
-      sig do
-        params(_: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object))
-          .returns(T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object))
-      end
-      def recipient=(_)
-      end
+      sig { params(recipient: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object)).void }
+      attr_writer :recipient
 
       sig { returns(T.nilable(Time)) }
-      def updated_at
-      end
+      attr_reader :updated_at
 
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      sig { params(updated_at: Time).void }
+      attr_writer :updated_at
 
       # An activity associated with a workflow run
       sig do

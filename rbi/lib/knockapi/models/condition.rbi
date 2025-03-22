@@ -4,31 +4,13 @@ module Knockapi
   module Models
     class Condition < Knockapi::BaseModel
       sig { returns(T.nilable(String)) }
-      def argument
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def argument=(_)
-      end
+      attr_accessor :argument
 
       sig { returns(Knockapi::Models::Condition::Operator::OrSymbol) }
-      def operator
-      end
-
-      sig do
-        params(_: Knockapi::Models::Condition::Operator::OrSymbol)
-          .returns(Knockapi::Models::Condition::Operator::OrSymbol)
-      end
-      def operator=(_)
-      end
+      attr_accessor :operator
 
       sig { returns(String) }
-      def variable
-      end
-
-      sig { params(_: String).returns(String) }
-      def variable=(_)
-      end
+      attr_accessor :variable
 
       # A condition to be evaluated
       sig do

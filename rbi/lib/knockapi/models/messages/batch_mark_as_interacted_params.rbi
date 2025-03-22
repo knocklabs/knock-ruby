@@ -9,23 +9,11 @@ module Knockapi
 
         # The message IDs to update
         sig { returns(T::Array[String]) }
-        def message_ids
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def message_ids=(_)
-        end
+        attr_accessor :message_ids
 
         # Metadata about the interaction
         sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-        def metadata
-        end
-
-        sig do
-          params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-        end
-        def metadata=(_)
-        end
+        attr_accessor :metadata
 
         sig do
           params(

@@ -5,23 +5,10 @@ module Knockapi
     module Providers
       class MsTeamListTeamsResponse < Knockapi::BaseModel
         sig { returns(T::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam]) }
-        def ms_teams_teams
-        end
-
-        sig do
-          params(_: T::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam])
-            .returns(T::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam])
-        end
-        def ms_teams_teams=(_)
-        end
+        attr_accessor :ms_teams_teams
 
         sig { returns(T.nilable(String)) }
-        def skip_token
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def skip_token=(_)
-        end
+        attr_accessor :skip_token
 
         # The response from a teams for Microsoft Teams provider request
         sig do
@@ -48,28 +35,13 @@ module Knockapi
 
         class MsTeamsTeam < Knockapi::BaseModel
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           sig { returns(String) }
-          def display_name
-          end
-
-          sig { params(_: String).returns(String) }
-          def display_name=(_)
-          end
+          attr_accessor :display_name
 
           sig { returns(T.nilable(String)) }
-          def description
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def description=(_)
-          end
+          attr_accessor :description
 
           sig do
             params(id: String, display_name: String, description: T.nilable(String)).returns(T.attached_class)

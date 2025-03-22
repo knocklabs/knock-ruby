@@ -9,36 +9,22 @@ module Knockapi
 
         # A JSON encoded string containing the Microsoft Teams tenant object reference
         sig { returns(String) }
-        def ms_teams_tenant_object
-        end
-
-        sig { params(_: String).returns(String) }
-        def ms_teams_tenant_object=(_)
-        end
+        attr_accessor :ms_teams_tenant_object
 
         # The ID of the Microsoft Teams team to list channels from
         sig { returns(String) }
-        def team_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def team_id=(_)
-        end
+        attr_accessor :team_id
 
         sig { returns(T.nilable(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions)) }
-        def query_options
-        end
+        attr_reader :query_options
 
         sig do
           params(
-            _: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
           )
-            .returns(
-              T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
-            )
+            .void
         end
-        def query_options=(_)
-        end
+        attr_writer :query_options
 
         sig do
           params(
@@ -70,22 +56,18 @@ module Knockapi
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to filter channels
           sig { returns(T.nilable(String)) }
-          def filter
-          end
+          attr_reader :filter
 
-          sig { params(_: String).returns(String) }
-          def filter=(_)
-          end
+          sig { params(filter: String).void }
+          attr_writer :filter
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to select fields on a channel
           sig { returns(T.nilable(String)) }
-          def select_
-          end
+          attr_reader :select_
 
-          sig { params(_: String).returns(String) }
-          def select_=(_)
-          end
+          sig { params(select_: String).void }
+          attr_writer :select_
 
           sig { params(filter: String, select_: String).returns(T.attached_class) }
           def self.new(filter: nil, select_: nil)

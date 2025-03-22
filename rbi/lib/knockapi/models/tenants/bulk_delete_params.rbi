@@ -9,12 +9,7 @@ module Knockapi
 
         # The IDs of the tenants to delete
         sig { returns(T::Array[String]) }
-        def tenant_ids
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def tenant_ids=(_)
-        end
+        attr_accessor :tenant_ids
 
         sig do
           params(

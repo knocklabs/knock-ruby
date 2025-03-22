@@ -9,12 +9,7 @@ module Knockapi
 
         # The IDs of the messages to fetch contents of
         sig { returns(T::Array[String]) }
-        def message_ids
-        end
-
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def message_ids=(_)
-        end
+        attr_accessor :message_ids
 
         sig do
           params(

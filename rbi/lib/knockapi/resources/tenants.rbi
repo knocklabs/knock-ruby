@@ -4,8 +4,7 @@ module Knockapi
   module Resources
     class Tenants
       sig { returns(Knockapi::Resources::Tenants::Bulk) }
-      def bulk
-      end
+      attr_reader :bulk
 
       # List tenants
       sig do
