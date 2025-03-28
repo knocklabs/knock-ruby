@@ -119,15 +119,15 @@ module Knockapi
         module Body
           extend Knockapi::Union
 
-          UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
-
           variant String
 
-          variant Knockapi::Models::MessageDeliveryLog::Request::Body::UnionMember1Map
+          variant -> { Knockapi::Models::MessageDeliveryLog::Request::Body::UnionMember1Map }
 
           # @!parse
           #   # @return [Array(String, Hash{Symbol=>Object})]
           #   def self.variants; end
+
+          UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
         end
 
         module Method
@@ -185,15 +185,15 @@ module Knockapi
         module Body
           extend Knockapi::Union
 
-          UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
-
           variant String
 
-          variant Knockapi::Models::MessageDeliveryLog::Response::Body::UnionMember1Map
+          variant -> { Knockapi::Models::MessageDeliveryLog::Response::Body::UnionMember1Map }
 
           # @!parse
           #   # @return [Array(String, Hash{Symbol=>Object})]
           #   def self.variants; end
+
+          UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
         end
       end
     end

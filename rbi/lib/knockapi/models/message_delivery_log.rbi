@@ -130,11 +130,11 @@ module Knockapi
         module Body
           extend Knockapi::Union
 
-          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
-
           sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
           def self.variants
           end
+
+          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
         end
 
         module Method
@@ -200,11 +200,11 @@ module Knockapi
         module Body
           extend Knockapi::Union
 
-          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
-
           sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
           def self.variants
           end
+
+          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
         end
       end
     end
