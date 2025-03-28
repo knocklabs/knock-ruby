@@ -49,7 +49,7 @@ module Knockapi
 
       case page_data
       in {page_info: Hash | nil => page_info}
-        @page_info = Knockapi::ItemsCursor::PageInfo.coerce(page_info)
+        @page_info = Knockapi::Converter.coerce(Knockapi::ItemsCursor::PageInfo, page_info)
       else
       end
     end
