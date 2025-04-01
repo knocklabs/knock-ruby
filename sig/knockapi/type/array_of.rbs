@@ -1,6 +1,6 @@
 module Knockapi
   module Type
-    class ArrayOf
+    class ArrayOf[Elem]
       include Knockapi::Type::Converter
 
       def self.[]: (
@@ -15,13 +15,13 @@ module Knockapi
       def ==: (top other) -> bool
 
       def coerce: (
-        Enumerable[top] | top value,
+        Enumerable[Elem] | top value,
         state: Knockapi::Type::Converter::state
       ) -> (::Array[top] | top)
 
-      def dump: (Enumerable[top] | top value) -> (::Array[top] | top)
+      def dump: (Enumerable[Elem] | top value) -> (::Array[top] | top)
 
-      def item_type: -> top
+      def item_type: -> Elem
 
       def nilable?: -> bool
 
