@@ -9,7 +9,7 @@ module Knockapi
       & Knockapi::request_parameters
 
     class WorkflowCancelParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       attr_accessor cancellation_key: String

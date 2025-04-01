@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Messages
       class BatchGetContentParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         # The IDs of the messages to fetch contents of

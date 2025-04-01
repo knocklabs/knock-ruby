@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class UserGetParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       sig do

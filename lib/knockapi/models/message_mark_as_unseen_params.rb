@@ -4,7 +4,7 @@ module Knockapi
   module Models
     class MessageMarkAsUnseenParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::RequestParameters::Converter
+      #   extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       # @!parse

@@ -3,7 +3,7 @@ module Knockapi
     type object_get_params = {  } & Knockapi::request_parameters
 
     class ObjectGetParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       def initialize: (?request_options: Knockapi::request_opts) -> void

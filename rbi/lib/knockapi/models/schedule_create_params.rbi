@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class ScheduleCreateParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       sig { returns(T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]) }

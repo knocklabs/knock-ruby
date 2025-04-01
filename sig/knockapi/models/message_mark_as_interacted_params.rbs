@@ -4,7 +4,7 @@ module Knockapi
       { metadata: ::Hash[Symbol, top] } & Knockapi::request_parameters
 
     class MessageMarkAsInteractedParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       attr_reader metadata: ::Hash[Symbol, top]?

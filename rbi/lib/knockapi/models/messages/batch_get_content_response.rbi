@@ -656,7 +656,10 @@ module Knockapi
       end
 
       BatchGetContentResponse =
-        T.let(Knockapi::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem], Knockapi::Converter)
+        T.let(
+          Knockapi::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem],
+          Knockapi::Type::Converter
+        )
     end
   end
 end

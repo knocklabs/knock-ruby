@@ -4,7 +4,7 @@ module Knockapi
       { tenant: String } & Knockapi::request_parameters
 
     class ObjectGetPreferencesParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       attr_reader tenant: String?

@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Channels
       class BulkUpdateMessageStatusParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)) }

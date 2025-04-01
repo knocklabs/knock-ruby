@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class TenantSetParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       # Allows inline setting channel data for a recipient

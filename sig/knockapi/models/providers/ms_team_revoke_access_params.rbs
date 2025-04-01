@@ -5,7 +5,7 @@ module Knockapi
         { ms_teams_tenant_object: String } & Knockapi::request_parameters
 
       class MsTeamRevokeAccessParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         attr_accessor ms_teams_tenant_object: String

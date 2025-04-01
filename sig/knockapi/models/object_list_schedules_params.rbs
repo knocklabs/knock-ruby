@@ -11,7 +11,7 @@ module Knockapi
       & Knockapi::request_parameters
 
     class ObjectListSchedulesParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       attr_reader after: String?

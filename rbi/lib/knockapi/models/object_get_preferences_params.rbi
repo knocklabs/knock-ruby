@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class ObjectGetPreferencesParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       # Tenant ID

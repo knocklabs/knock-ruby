@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class MessageMarkAsInteractedParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       # Metadata about the interaction

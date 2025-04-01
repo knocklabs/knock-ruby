@@ -6,7 +6,7 @@ module Knockapi
         & Knockapi::request_parameters
 
       class BulkSetParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         attr_accessor objects: ::Array[Knockapi::Models::InlineObjectRequest]

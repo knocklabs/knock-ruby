@@ -6,7 +6,7 @@ module Knockapi
         & Knockapi::request_parameters
 
       class BulkIdentifyParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         attr_accessor users: ::Array[Knockapi::Models::InlineIdentifyUserRequest]

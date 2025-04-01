@@ -134,7 +134,7 @@ module Knockapi
           def self.variants
           end
 
-          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
+          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Type::Converter)
         end
 
         module Method
@@ -204,7 +204,7 @@ module Knockapi
           def self.variants
           end
 
-          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Converter)
+          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Type::Converter)
         end
       end
     end

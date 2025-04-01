@@ -5,7 +5,7 @@ module Knockapi
     module Messages
       class BatchMarkAsInteractedParams < Knockapi::BaseModel
         # @!parse
-        #   extend Knockapi::RequestParameters::Converter
+        #   extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         # @!attribute message_ids

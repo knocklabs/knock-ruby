@@ -9,7 +9,7 @@ module Knockapi
         & Knockapi::request_parameters
 
       class SlackListChannelsParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         attr_accessor access_token_object: String

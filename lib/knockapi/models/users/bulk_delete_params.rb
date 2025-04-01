@@ -5,7 +5,7 @@ module Knockapi
     module Users
       class BulkDeleteParams < Knockapi::BaseModel
         # @!parse
-        #   extend Knockapi::RequestParameters::Converter
+        #   extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         # @!attribute user_ids

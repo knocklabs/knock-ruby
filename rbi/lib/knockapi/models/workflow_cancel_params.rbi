@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class WorkflowCancelParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       # The cancellation key supplied to the workflow trigger endpoint to use for

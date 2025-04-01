@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Users
       class BulkIdentifyParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         sig { returns(T::Array[Knockapi::Models::InlineIdentifyUserRequest]) }

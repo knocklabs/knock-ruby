@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Tenants
       class BulkSetParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         sig { returns(T::Array[T.any(String, Knockapi::Models::TenantRequest)]) }

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Knockapi
-  class Client < Knockapi::BaseClient
+  class Client < Knockapi::Transport::BaseClient
     # Default max number of retries to attempt after a failed retryable request.
     DEFAULT_MAX_RETRIES = 2
 

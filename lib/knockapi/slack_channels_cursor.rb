@@ -23,7 +23,7 @@ module Knockapi
   #
   #   slacks => Array
   class SlackChannelsCursor
-    include Knockapi::BasePage
+    include Knockapi::Type::BasePage
 
     # @return [String]
     attr_accessor :next_cursor
@@ -33,7 +33,7 @@ module Knockapi
 
     # @api private
     #
-    # @param client [Knockapi::BaseClient]
+    # @param client [Knockapi::Transport::BaseClient]
     # @param req [Hash{Symbol=>Object}]
     # @param headers [Hash{String=>String}, Net::HTTPHeader]
     # @param page_data [Hash{Symbol=>Object}]
@@ -49,7 +49,7 @@ module Knockapi
 
       case page_data
       in {slack_channels: Array | nil => slack_channels}
-        @slack_channels = slack_channels&.map { Knockapi::Converter.coerce(model, _1) }
+        @slack_channels = slack_channels&.map { Knockapi::Type::Converter.coerce(model, _1) }
       else
       end
     end

@@ -2,7 +2,7 @@
 
 module Knockapi
   class SlackChannelsCursor
-    include Knockapi::BasePage
+    include Knockapi::Type::BasePage
 
     Elem = type_member
 

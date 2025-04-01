@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Tenants
       class BulkDeleteParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         # The IDs of the tenants to delete

@@ -13,7 +13,7 @@ module Knockapi
       & Knockapi::request_parameters
 
     class ScheduleCreateParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       attr_accessor recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient]

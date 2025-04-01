@@ -17,7 +17,7 @@ module Knockapi
         & Knockapi::request_parameters
 
       class BulkUpdateMessageStatusParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         attr_reader archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived?

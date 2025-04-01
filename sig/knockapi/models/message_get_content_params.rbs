@@ -3,7 +3,7 @@ module Knockapi
     type message_get_content_params = {  } & Knockapi::request_parameters
 
     class MessageGetContentParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       def initialize: (?request_options: Knockapi::request_opts) -> void

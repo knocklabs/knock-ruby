@@ -4,7 +4,7 @@ module Knockapi
   module Models
     class ObjectSetChannelDataParams < Knockapi::Models::Recipients::ChannelDataRequest
       # @!parse
-      #   extend Knockapi::RequestParameters::Converter
+      #   extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       # @!parse

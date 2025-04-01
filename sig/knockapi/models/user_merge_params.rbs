@@ -4,7 +4,7 @@ module Knockapi
       { from_user_id: String } & Knockapi::request_parameters
 
     class UserMergeParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       attr_accessor from_user_id: String

@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Providers
       class SlackRevokeAccessParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         # A JSON encoded string containing the access token object reference

@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class WorkflowTriggerParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       # Specifies a recipient in a request. This can either be a user identifier

@@ -8,7 +8,7 @@ module Knockapi
         & Knockapi::request_parameters
 
       class BulkAddSubscriptionsParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         attr_accessor subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription]

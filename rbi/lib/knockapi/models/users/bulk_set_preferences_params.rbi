@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Users
       class BulkSetPreferencesParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         # Set preferences for a recipient

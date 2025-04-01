@@ -5,7 +5,7 @@ module Knockapi
         { access_token_object: String } & Knockapi::request_parameters
 
       class SlackCheckAuthParams < Knockapi::BaseModel
-        extend Knockapi::RequestParameters::Converter
+        extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         attr_accessor access_token_object: String

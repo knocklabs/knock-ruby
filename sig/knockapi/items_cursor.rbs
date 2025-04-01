@@ -1,6 +1,6 @@
 module Knockapi
   class ItemsCursor[Elem]
-    include Knockapi::BasePage[Elem]
+    include Knockapi::Type::BasePage[Elem]
 
     attr_accessor items: ::Array[Elem]?
 

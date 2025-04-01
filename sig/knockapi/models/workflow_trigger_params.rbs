@@ -11,7 +11,7 @@ module Knockapi
       & Knockapi::request_parameters
 
     class WorkflowTriggerParams < Knockapi::BaseModel
-      extend Knockapi::RequestParameters::Converter
+      extend Knockapi::Type::RequestParameters::Converter
       include Knockapi::RequestParameters
 
       attr_accessor actor: Knockapi::Models::recipient_request?

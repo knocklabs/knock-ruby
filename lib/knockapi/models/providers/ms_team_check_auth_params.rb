@@ -5,7 +5,7 @@ module Knockapi
     module Providers
       class MsTeamCheckAuthParams < Knockapi::BaseModel
         # @!parse
-        #   extend Knockapi::RequestParameters::Converter
+        #   extend Knockapi::Type::RequestParameters::Converter
         include Knockapi::RequestParameters
 
         # @!attribute ms_teams_tenant_object

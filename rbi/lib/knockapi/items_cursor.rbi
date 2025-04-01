@@ -2,7 +2,7 @@
 
 module Knockapi
   class ItemsCursor
-    include Knockapi::BasePage
+    include Knockapi::Type::BasePage
 
     Elem = type_member
 

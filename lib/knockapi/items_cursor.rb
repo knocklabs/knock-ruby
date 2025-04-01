@@ -23,7 +23,7 @@ module Knockapi
   #
   #   messages => Array
   class ItemsCursor
-    include Knockapi::BasePage
+    include Knockapi::Type::BasePage
 
     # @return [Array<Object>, nil]
     attr_accessor :items
@@ -33,7 +33,7 @@ module Knockapi
 
     # @api private
     #
-    # @param client [Knockapi::BaseClient]
+    # @param client [Knockapi::Transport::BaseClient]
     # @param req [Hash{Symbol=>Object}]
     # @param headers [Hash{String=>String}, Net::HTTPHeader]
     # @param page_data [Hash{Symbol=>Object}]
@@ -43,13 +43,13 @@ module Knockapi
 
       case page_data
       in {items: Array | nil => items}
-        @items = items&.map { Knockapi::Converter.coerce(model, _1) }
+        @items = items&.map { Knockapi::Type::Converter.coerce(model, _1) }
       else
       end
 
       case page_data
       in {page_info: Hash | nil => page_info}
-        @page_info = Knockapi::Converter.coerce(Knockapi::ItemsCursor::PageInfo, page_info)
+        @page_info = Knockapi::Type::Converter.coerce(Knockapi::ItemsCursor::PageInfo, page_info)
       else
       end
     end
