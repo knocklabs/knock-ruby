@@ -84,7 +84,7 @@ module Knockapi
     end
 
     # @api private
-    sig { returns(T.anything) }
+    sig { returns(Knockapi::PooledNetRequester) }
     attr_accessor :requester
 
     # @api private

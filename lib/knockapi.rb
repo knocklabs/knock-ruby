@@ -36,7 +36,6 @@ require "connection_pool"
 # Package files.
 require_relative "knockapi/version"
 require_relative "knockapi/util"
-require_relative "knockapi/extern"
 require_relative "knockapi/base_model"
 require_relative "knockapi/base_page"
 require_relative "knockapi/request_options"

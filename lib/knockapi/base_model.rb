@@ -1127,9 +1127,6 @@ module Knockapi
     end
 
     # @return [String]
-    def to_s = @data.to_s
-
-    # @return [String]
     def inspect
       rows = self.class.known_fields.keys.map do
         "#{_1}=#{@data.key?(_1) ? public_send(_1) : ''}"
