@@ -85,7 +85,12 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil)
+            def self.new(
+              ms_teams_channel_id: nil,
+              ms_teams_team_id: nil,
+              ms_teams_tenant_id: nil,
+              ms_teams_user_id: nil
+            )
             end
 
             sig do

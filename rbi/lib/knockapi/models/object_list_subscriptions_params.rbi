@@ -106,7 +106,15 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(after: nil, before: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
+      def self.new(
+        after: nil,
+        before: nil,
+        mode: nil,
+        objects: nil,
+        page_size: nil,
+        recipients: nil,
+        request_options: {}
+      )
       end
 
       sig do

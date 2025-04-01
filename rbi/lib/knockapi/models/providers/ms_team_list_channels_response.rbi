@@ -65,7 +65,14 @@ module Knockapi
             )
               .returns(T.attached_class)
           end
-          def self.new(id:, display_name:, created_date_time: nil, description: nil, is_archived: nil, membership_type: nil)
+          def self.new(
+            id:,
+            display_name:,
+            created_date_time: nil,
+            description: nil,
+            is_archived: nil,
+            membership_type: nil
+          )
           end
 
           sig do

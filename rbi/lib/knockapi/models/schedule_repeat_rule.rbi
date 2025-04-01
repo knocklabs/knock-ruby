@@ -40,7 +40,15 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(_typename:, frequency:, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil)
+      def self.new(
+        _typename:,
+        frequency:,
+        day_of_month: nil,
+        days: nil,
+        hours: nil,
+        interval: nil,
+        minutes: nil
+      )
       end
 
       sig do

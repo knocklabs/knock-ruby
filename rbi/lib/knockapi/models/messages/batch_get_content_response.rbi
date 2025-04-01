@@ -114,7 +114,17 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(_typename:, from:, html_body:, subject_line:, text_body:, to:, bcc: nil, cc: nil, reply_to: nil)
+            def self.new(
+              _typename:,
+              from:,
+              html_body:,
+              subject_line:,
+              text_body:,
+              to:,
+              bcc: nil,
+              cc: nil,
+              reply_to: nil
+            )
             end
 
             sig do

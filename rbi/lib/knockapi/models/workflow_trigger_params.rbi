@@ -83,7 +83,14 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(actor: nil, cancellation_key: nil, data: nil, recipients: nil, tenant: nil, request_options: {})
+      def self.new(
+        actor: nil,
+        cancellation_key: nil,
+        data: nil,
+        recipients: nil,
+        tenant: nil,
+        request_options: {}
+      )
       end
 
       sig do
