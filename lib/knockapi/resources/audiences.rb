@@ -5,13 +5,11 @@ module Knockapi
     class Audiences
       # Add members
       #
-      # @param key [String] The key of the audience to add members to
+      # @overload add_members(key, members:, request_options: {})
       #
-      # @param params [Knockapi::Models::AudienceAddMembersParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Array<Knockapi::Models::AudienceAddMembersParams::Member>] :members
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param key [String]
+      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #
@@ -29,11 +27,10 @@ module Knockapi
 
       # List members
       #
-      # @param key [String] The key of the audience to list members for
+      # @overload list_members(key, request_options: {})
       #
-      # @param params [Knockapi::Models::AudienceListMembersParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param key [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::AudienceListMembersResponse]
       #
@@ -49,13 +46,11 @@ module Knockapi
 
       # Remove members
       #
-      # @param key [String] The key of the audience to remove members from
+      # @overload remove_members(key, members:, request_options: {})
       #
-      # @param params [Knockapi::Models::AudienceRemoveMembersParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] :members
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param key [String]
+      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #

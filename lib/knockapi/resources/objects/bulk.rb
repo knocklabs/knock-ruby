@@ -6,13 +6,11 @@ module Knockapi
       class Bulk
         # Bulk delete objects
         #
-        # @param collection [String] The collection to delete objects from
+        # @overload delete(collection, object_ids:, request_options: {})
         #
-        # @param params [Knockapi::Models::Objects::BulkDeleteParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [Array<String>] :object_ids The IDs of the objects to delete
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param collection [String]
+        # @param object_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
@@ -31,13 +29,11 @@ module Knockapi
         # Add subscriptions for a set of objects in a single collection. If a subscription
         #   already exists, it will be updated.
         #
-        # @param collection [String] The collection to add subscriptions for
+        # @overload add_subscriptions(collection, subscriptions:, request_options: {})
         #
-        # @param params [Knockapi::Models::Objects::BulkAddSubscriptionsParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>] :subscriptions
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param collection [String]
+        # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
@@ -55,13 +51,11 @@ module Knockapi
 
         # Bulk set objects
         #
-        # @param collection [String] The collection to set objects in
+        # @overload set(collection, objects:, request_options: {})
         #
-        # @param params [Knockapi::Models::Objects::BulkSetParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [Array<Knockapi::Models::InlineObjectRequest>] :objects
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param collection [String]
+        # @param objects [Array<Knockapi::Models::InlineObjectRequest>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #

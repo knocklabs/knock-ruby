@@ -6,13 +6,11 @@ module Knockapi
       class Feeds
         # Returns the feed settings for a user.
         #
-        # @param user_id [String] The user ID
+        # @overload get_settings(user_id, channel_id, request_options: {})
         #
-        # @param channel_id [String] The channel ID
-        #
-        # @param params [Knockapi::Models::Users::FeedGetSettingsParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param user_id [String]
+        # @param channel_id [String]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Users::FeedGetSettingsResponse]
         #
@@ -29,33 +27,21 @@ module Knockapi
         # Returns a paginated list of feed items for a user, including metadata about the
         #   feed.
         #
-        # @param user_id [String] The user ID
+        # @overload list_items(user_id, channel_id, after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #
-        # @param channel_id [String] The channel ID
-        #
-        # @param params [Knockapi::Models::Users::FeedListItemsParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :after The cursor to fetch entries after
-        #
-        #   @option params [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived] :archived The archived status of the feed items to return
-        #
-        #   @option params [String] :before The cursor to fetch entries before
-        #
-        #   @option params [Boolean] :has_tenant Whether the feed items have a tenant
-        #
-        #   @option params [Integer] :page_size The page size to fetch
-        #
-        #   @option params [String] :source The source of the feed items to return
-        #
-        #   @option params [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status] :status The status of the feed items to return
-        #
-        #   @option params [String] :tenant The tenant of the feed items to return
-        #
-        #   @option params [String] :trigger_data The trigger data of the feed items to return (as a JSON string)
-        #
-        #   @option params [Array<String>] :workflow_categories The workflow categories of the feed items to return
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param user_id [String]
+        # @param channel_id [String]
+        # @param after [String]
+        # @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived]
+        # @param before [String]
+        # @param has_tenant [Boolean]
+        # @param page_size [Integer]
+        # @param source [String]
+        # @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status]
+        # @param tenant [String]
+        # @param trigger_data [String]
+        # @param workflow_categories [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::EntriesCursor<Knockapi::Models::Users::FeedListItemsResponse>]
         #

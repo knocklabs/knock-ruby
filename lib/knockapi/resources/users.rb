@@ -11,17 +11,13 @@ module Knockapi
 
       # Identify user
       #
-      # @param user_id [String] User ID
+      # @overload update(user_id, channel_data: nil, created_at: nil, preferences: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::UserUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] :channel_data Allows inline setting channel data for a recipient
-      #
-      #   @option params [Time, nil] :created_at
-      #
-      #   @option params [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] :preferences Inline set preferences for a recipient, where the key is the preference set name
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      # @param created_at [Time, nil]
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::User]
       #
@@ -39,15 +35,12 @@ module Knockapi
 
       # List users
       #
-      # @param params [Knockapi::Models::UserListParams, Hash{Symbol=>Object}] .
+      # @overload list(after: nil, before: nil, page_size: nil, request_options: {})
       #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::User>]
       #
@@ -66,11 +59,10 @@ module Knockapi
 
       # Delete user
       #
-      # @param user_id [String] User ID
+      # @overload delete(user_id, request_options: {})
       #
-      # @param params [Knockapi::Models::UserDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #
@@ -86,11 +78,10 @@ module Knockapi
 
       # Get user
       #
-      # @param user_id [String] User ID
+      # @overload get(user_id, request_options: {})
       #
-      # @param params [Knockapi::Models::UserGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::User]
       #
@@ -106,13 +97,11 @@ module Knockapi
 
       # Get channel data
       #
-      # @param user_id [String] The user ID
+      # @overload get_channel_data(user_id, channel_id, request_options: {})
       #
-      # @param channel_id [String] The channel ID
-      #
-      # @param params [Knockapi::Models::UserGetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param channel_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
@@ -128,15 +117,12 @@ module Knockapi
 
       # Get preference set
       #
-      # @param user_id [String] User ID
+      # @overload get_preferences(user_id, preference_set_id, tenant: nil, request_options: {})
       #
-      # @param preference_set_id [String] Preference set ID
-      #
-      # @param params [Knockapi::Models::UserGetPreferencesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :tenant Tenant ID
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param preference_set_id [String]
+      # @param tenant [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
       #
@@ -154,37 +140,23 @@ module Knockapi
 
       # List messages
       #
-      # @param user_id [String] The user ID
+      # @overload list_messages(user_id, after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::UserListMessagesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [String] :channel_id The channel ID
-      #
-      #   @option params [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>] :engagement_status The engagement status of the message
-      #
-      #   @option params [Array<String>] :message_ids The message IDs to filter messages by
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [String] :source The source of the message (workflow key)
-      #
-      #   @option params [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>] :status The status of the message
-      #
-      #   @option params [String] :tenant The tenant ID
-      #
-      #   @option params [String] :trigger_data The trigger data to filter messages by. Must be a valid JSON object.
-      #
-      #   @option params [Array<String>] :workflow_categories The workflow categories to filter messages by
-      #
-      #   @option params [String] :workflow_recipient_run_id The workflow recipient run ID to filter messages by
-      #
-      #   @option params [String] :workflow_run_id The workflow run ID to filter messages by
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param after [String]
+      # @param before [String]
+      # @param channel_id [String]
+      # @param engagement_status [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>]
+      # @param message_ids [Array<String>]
+      # @param page_size [Integer]
+      # @param source [String]
+      # @param status [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>]
+      # @param tenant [String]
+      # @param trigger_data [String]
+      # @param workflow_categories [Array<String>]
+      # @param workflow_recipient_run_id [String]
+      # @param workflow_run_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
       #
@@ -203,11 +175,10 @@ module Knockapi
 
       # List preference sets
       #
-      # @param user_id [String] User ID
+      # @overload list_preferences(user_id, request_options: {})
       #
-      # @param params [Knockapi::Models::UserListPreferencesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::PreferenceSet>]
       #
@@ -223,21 +194,15 @@ module Knockapi
 
       # List schedules
       #
-      # @param user_id [String] The ID of the user to list schedules for
+      # @overload list_schedules(user_id, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::UserListSchedulesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [String] :tenant The ID of the tenant to list schedules for
-      #
-      #   @option params [String] :workflow The ID of the workflow to list schedules for
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param tenant [String]
+      # @param workflow [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
       #
@@ -256,17 +221,13 @@ module Knockapi
 
       # List subscriptions
       #
-      # @param user_id [String] User ID
+      # @overload list_subscriptions(user_id, after: nil, before: nil, page_size: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::UserListSubscriptionsParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
       #
@@ -286,13 +247,11 @@ module Knockapi
       # Merge two users together, where the user specified with the `from_user_id` param
       #   will be merged into the user specified by `user_id`.
       #
-      # @param user_id [String] User ID
+      # @overload merge(user_id, from_user_id:, request_options: {})
       #
-      # @param params [Knockapi::Models::UserMergeParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :from_user_id The user ID to merge from
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param from_user_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::User]
       #
@@ -310,15 +269,12 @@ module Knockapi
 
       # Set channel data
       #
-      # @param user_id [String] The user ID
+      # @overload set_channel_data(user_id, channel_id, data:, request_options: {})
       #
-      # @param channel_id [String] The channel ID
-      #
-      # @param params [Knockapi::Models::UserSetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] :data Channel data for push providers
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param channel_id [String]
+      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
@@ -337,21 +293,14 @@ module Knockapi
       # Updates a complete preference set for a user. This is a destructive operation
       #   that will replace the existing preference set for the user.
       #
-      # @param user_id [String] User ID
+      # @overload set_preferences(user_id, preference_set_id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #
-      # @param preference_set_id [String] Preference set ID
-      #
-      # @param params [Knockapi::Models::UserSetPreferencesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] :categories A setting for a preference set, where the key in the object is the category, and
-      #     the values are the preference settings for that category.
-      #
-      #   @option params [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] :channel_types Channel type preferences
-      #
-      #   @option params [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] :workflows A setting for a preference set, where the key in the object is the workflow key,
-      #     and the values are the preference settings for that workflow.
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param preference_set_id [String]
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
       #
@@ -369,13 +318,11 @@ module Knockapi
 
       # Unset channel data
       #
-      # @param user_id [String] The user ID
+      # @overload unset_channel_data(user_id, channel_id, request_options: {})
       #
-      # @param channel_id [String] The channel ID
-      #
-      # @param params [Knockapi::Models::UserUnsetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param user_id [String]
+      # @param channel_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #

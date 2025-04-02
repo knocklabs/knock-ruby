@@ -6,11 +6,10 @@ module Knockapi
       class Bulk
         # Bulk delete users
         #
-        # @param params [Knockapi::Models::Users::BulkDeleteParams, Hash{Symbol=>Object}] .
+        # @overload delete(user_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :user_ids
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param user_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
@@ -28,11 +27,10 @@ module Knockapi
 
         # Bulk identifies users
         #
-        # @param params [Knockapi::Models::Users::BulkIdentifyParams, Hash{Symbol=>Object}] .
+        # @overload identify(users:, request_options: {})
         #
-        #   @option params [Array<Knockapi::Models::InlineIdentifyUserRequest>] :users
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
@@ -50,13 +48,11 @@ module Knockapi
 
         # Bulk set preferences
         #
-        # @param params [Knockapi::Models::Users::BulkSetPreferencesParams, Hash{Symbol=>Object}] .
+        # @overload set_preferences(preferences:, user_ids:, request_options: {})
         #
-        #   @option params [Knockapi::Models::Recipients::PreferenceSetRequest] :preferences Set preferences for a recipient
-        #
-        #   @option params [Array<String>] :user_ids
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
+        # @param user_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #

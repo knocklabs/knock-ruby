@@ -5,23 +5,16 @@ module Knockapi
     class Schedules
       # Create schedules
       #
-      # @param params [Knockapi::Models::ScheduleCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
-      #   @option params [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>] :recipients
-      #
-      #   @option params [Array<Knockapi::Models::ScheduleRepeatRule>] :repeats
-      #
-      #   @option params [String] :workflow
-      #
-      #   @option params [Hash{Symbol=>Object}, nil] :data
-      #
-      #   @option params [Time, nil] :ending_at
-      #
-      #   @option params [Time, nil] :scheduled_at
-      #
-      #   @option params [String, Knockapi::Models::TenantRequest, nil] :tenant An inline tenant request
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
+      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
+      # @param workflow [String]
+      # @param data [Hash{Symbol=>Object}, nil]
+      # @param ending_at [Time, nil]
+      # @param scheduled_at [Time, nil]
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Schedule>]
       #
@@ -39,25 +32,16 @@ module Knockapi
 
       # Update schedules
       #
-      # @param params [Knockapi::Models::ScheduleUpdateParams, Hash{Symbol=>Object}] .
+      # @overload update(schedule_ids:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
-      #   @option params [Array<String>] :schedule_ids
-      #
-      #   @option params [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] :actor Specifies a recipient in a request. This can either be a user identifier
-      #     (string), an inline user request (object), or an inline object request, which is
-      #     determined by the presence of a `collection` property.
-      #
-      #   @option params [Hash{Symbol=>Object}, nil] :data
-      #
-      #   @option params [Time, nil] :ending_at
-      #
-      #   @option params [Array<Knockapi::Models::ScheduleRepeatRule>] :repeats
-      #
-      #   @option params [Time, nil] :scheduled_at
-      #
-      #   @option params [String, Knockapi::Models::TenantRequest, nil] :tenant An inline tenant request
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param schedule_ids [Array<String>]
+      # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
+      # @param data [Hash{Symbol=>Object}, nil]
+      # @param ending_at [Time, nil]
+      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
+      # @param scheduled_at [Time, nil]
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Schedule>]
       #
@@ -75,21 +59,15 @@ module Knockapi
 
       # List schedules
       #
-      # @param params [Knockapi::Models::ScheduleListParams, Hash{Symbol=>Object}] .
+      # @overload list(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {})
       #
-      #   @option params [String] :workflow Filter by workflow
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Array<String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference>] :recipients Filter by recipient
-      #
-      #   @option params [String] :tenant Filter by tenant
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param workflow [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param recipients [Array<String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference>]
+      # @param tenant [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
       #
@@ -108,11 +86,10 @@ module Knockapi
 
       # Delete schedules
       #
-      # @param params [Knockapi::Models::ScheduleDeleteParams, Hash{Symbol=>Object}] .
+      # @overload delete(schedule_ids:, request_options: {})
       #
-      #   @option params [Array<String>] :schedule_ids
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param schedule_ids [Array<String>]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Schedule>]
       #

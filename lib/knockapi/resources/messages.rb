@@ -8,35 +8,22 @@ module Knockapi
 
       # List messages
       #
-      # @param params [Knockapi::Models::MessageListParams, Hash{Symbol=>Object}] .
+      # @overload list(after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [String] :channel_id The channel ID
-      #
-      #   @option params [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>] :engagement_status The engagement status of the message
-      #
-      #   @option params [Array<String>] :message_ids The message IDs to filter messages by
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [String] :source The source of the message (workflow key)
-      #
-      #   @option params [Array<Symbol, Knockapi::Models::MessageListParams::Status>] :status The status of the message
-      #
-      #   @option params [String] :tenant The tenant ID
-      #
-      #   @option params [String] :trigger_data The trigger data to filter messages by. Must be a valid JSON object.
-      #
-      #   @option params [Array<String>] :workflow_categories The workflow categories to filter messages by
-      #
-      #   @option params [String] :workflow_recipient_run_id The workflow recipient run ID to filter messages by
-      #
-      #   @option params [String] :workflow_run_id The workflow run ID to filter messages by
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after [String]
+      # @param before [String]
+      # @param channel_id [String]
+      # @param engagement_status [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>]
+      # @param message_ids [Array<String>]
+      # @param page_size [Integer]
+      # @param source [String]
+      # @param status [Array<Symbol, Knockapi::Models::MessageListParams::Status>]
+      # @param tenant [String]
+      # @param trigger_data [String]
+      # @param workflow_categories [Array<String>]
+      # @param workflow_recipient_run_id [String]
+      # @param workflow_run_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
       #
@@ -55,11 +42,10 @@ module Knockapi
 
       # Archive message
       #
-      # @param message_id [String] The message ID
+      # @overload archive(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageArchiveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #
@@ -75,11 +61,10 @@ module Knockapi
 
       # Get message
       #
-      # @param message_id [String] The message ID
+      # @overload get(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #
@@ -96,11 +81,10 @@ module Knockapi
       # Returns the fully rendered contents of a message, where the response depends on
       #   the channel the message was sent on.
       #
-      # @param message_id [String] The ID of the message to fetch contents of
+      # @overload get_content(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageGetContentParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::MessageGetContentResponse]
       #
@@ -116,19 +100,14 @@ module Knockapi
 
       # List activities
       #
-      # @param message_id [String] The ID of the message to fetch activities for
+      # @overload list_activities(message_id, after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageListActivitiesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [String] :trigger_data The trigger data to filter activities by
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param trigger_data [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::ItemsCursor<Knockapi::Models::Activity>]
       #
@@ -147,17 +126,13 @@ module Knockapi
 
       # List delivery logs
       #
-      # @param message_id [String] The ID of the message to fetch delivery logs for
+      # @overload list_delivery_logs(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageListDeliveryLogsParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::MessageDeliveryLog>]
       #
@@ -176,17 +151,13 @@ module Knockapi
 
       # List events
       #
-      # @param message_id [String] The ID of the message to fetch events for
+      # @overload list_events(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageListEventsParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::MessageEvent>]
       #
@@ -205,13 +176,11 @@ module Knockapi
 
       # Mark message as interacted
       #
-      # @param message_id [String] The message ID
+      # @overload mark_as_interacted(message_id, metadata: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageMarkAsInteractedParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Hash{Symbol=>Object}] :metadata Metadata about the interaction
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param metadata [Hash{Symbol=>Object}]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #
@@ -229,11 +198,10 @@ module Knockapi
 
       # Mark message as read
       #
-      # @param message_id [String] The message ID
+      # @overload mark_as_read(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageMarkAsReadParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #
@@ -249,11 +217,10 @@ module Knockapi
 
       # Mark message as seen
       #
-      # @param message_id [String] The message ID
+      # @overload mark_as_seen(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageMarkAsSeenParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #
@@ -269,11 +236,10 @@ module Knockapi
 
       # Mark message as unread
       #
-      # @param message_id [String] The message ID
+      # @overload mark_as_unread(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageMarkAsUnreadParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #
@@ -289,11 +255,10 @@ module Knockapi
 
       # Mark message as unseen
       #
-      # @param message_id [String] The message ID
+      # @overload mark_as_unseen(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageMarkAsUnseenParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #
@@ -309,11 +274,10 @@ module Knockapi
 
       # Unarchive message
       #
-      # @param message_id [String] The message ID
+      # @overload unarchive(message_id, request_options: {})
       #
-      # @param params [Knockapi::Models::MessageUnarchiveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param message_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Message]
       #

@@ -5,11 +5,10 @@ module Knockapi
     class BulkOperations
       # Retrieves a bulk operation (if it exists) and displays the current state of it.
       #
-      # @param id [String] The ID of the bulk operation to retrieve
+      # @overload get(id, request_options: {})
       #
-      # @param params [Knockapi::Models::BulkOperationGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::BulkOperation]
       #

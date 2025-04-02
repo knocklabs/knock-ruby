@@ -8,15 +8,12 @@ module Knockapi
 
       # List tenants
       #
-      # @param params [Knockapi::Models::TenantListParams, Hash{Symbol=>Object}] .
+      # @overload list(after: nil, before: nil, page_size: nil, request_options: {})
       #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Tenant>]
       #
@@ -35,11 +32,10 @@ module Knockapi
 
       # Delete a tenant
       #
-      # @param tenant_id [String] The ID of the tenant
+      # @overload delete(tenant_id, request_options: {})
       #
-      # @param params [Knockapi::Models::TenantDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param tenant_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #
@@ -55,11 +51,10 @@ module Knockapi
 
       # Get a tenant
       #
-      # @param tenant_id [String] The ID of the tenant
+      # @overload get(tenant_id, request_options: {})
       #
-      # @param params [Knockapi::Models::TenantGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param tenant_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Tenant]
       #
@@ -75,17 +70,13 @@ module Knockapi
 
       # Set a tenant
       #
-      # @param tenant_id [String] The ID of the tenant
+      # @overload set(tenant_id, channel_data: nil, preferences: nil, settings: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::TenantSetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] :channel_data Allows inline setting channel data for a recipient
-      #
-      #   @option params [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] :preferences Inline set preferences for a recipient, where the key is the preference set name
-      #
-      #   @option params [Knockapi::Models::TenantSetParams::Settings] :settings
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param tenant_id [String]
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      # @param settings [Knockapi::Models::TenantSetParams::Settings]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Tenant]
       #

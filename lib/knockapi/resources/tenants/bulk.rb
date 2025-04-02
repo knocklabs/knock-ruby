@@ -6,11 +6,10 @@ module Knockapi
       class Bulk
         # Bulk delete tenants
         #
-        # @param params [Knockapi::Models::Tenants::BulkDeleteParams, Hash{Symbol=>Object}] .
+        # @overload delete(tenant_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :tenant_ids The IDs of the tenants to delete
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param tenant_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
@@ -28,11 +27,10 @@ module Knockapi
 
         # Bulk set tenants
         #
-        # @param params [Knockapi::Models::Tenants::BulkSetParams, Hash{Symbol=>Object}] .
+        # @overload set(tenants:, request_options: {})
         #
-        #   @option params [Array<String, Knockapi::Models::TenantRequest>] :tenants
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param tenants [Array<String, Knockapi::Models::TenantRequest>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #

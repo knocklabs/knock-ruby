@@ -9,33 +9,21 @@ module Knockapi
         #   parameter, where the action is a status change action (e.g. `archive`,
         #   `unarchive`).
         #
-        # @param channel_id [String] The ID of the channel to update messages for
+        # @overload update_message_status(channel_id, action, archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
         #
-        # @param action [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action] The action to perform on the messages
-        #
-        # @param params [Knockapi::Models::Channels::BulkUpdateMessageStatusParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived] :archived
-        #
-        #   @option params [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] :delivery_status
-        #
-        #   @option params [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus] :engagement_status
-        #
-        #   @option params [Boolean] :has_tenant
-        #
-        #   @option params [Time] :newer_than
-        #
-        #   @option params [Time] :older_than
-        #
-        #   @option params [Array<String>] :recipient_ids
-        #
-        #   @option params [Array<String>] :tenants
-        #
-        #   @option params [String] :trigger_data
-        #
-        #   @option params [Array<String>] :workflows
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param action [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action]
+        # @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived]
+        # @param delivery_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus]
+        # @param engagement_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus]
+        # @param has_tenant [Boolean]
+        # @param newer_than [Time]
+        # @param older_than [Time]
+        # @param recipient_ids [Array<String>]
+        # @param tenants [Array<String>]
+        # @param trigger_data [String]
+        # @param workflows [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #

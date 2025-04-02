@@ -7,19 +7,13 @@ module Knockapi
       #   will cancel any queued workflow runs associated with that key/cancellation key
       #   pair. Can optionally be provided one or more recipients to scope the request to.
       #
-      # @param key [String] Workflow key
+      # @overload cancel(key, cancellation_key:, recipients: nil, tenant: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::WorkflowCancelParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :cancellation_key The cancellation key supplied to the workflow trigger endpoint to use for
-      #     cancelling one or more workflow runs.
-      #
-      #   @option params [Array<String>, nil] :recipients An optional list of recipients to cancel the workflow for using the cancellation
-      #     key.
-      #
-      #   @option params [String, nil] :tenant
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param key [String]
+      # @param cancellation_key [String]
+      # @param recipients [Array<String>, nil]
+      # @param tenant [String, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #
@@ -39,26 +33,15 @@ module Knockapi
       #   the parameters provided. Returns an identifier for the workflow run request. All
       #   workflow runs are executed asynchronously.
       #
-      # @param key [String] Workflow key
+      # @overload trigger(key, actor: nil, cancellation_key: nil, data: nil, recipients: nil, tenant: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::WorkflowTriggerParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] :actor Specifies a recipient in a request. This can either be a user identifier
-      #     (string), an inline user request (object), or an inline object request, which is
-      #     determined by the presence of a `collection` property.
-      #
-      #   @option params [String, nil] :cancellation_key An optional key that is used in the workflow cancellation endpoint to target a
-      #     cancellation of any workflow runs associated with this trigger.
-      #
-      #   @option params [Hash{Symbol=>Object}, nil] :data An optional map of data to be used in the workflow. This data will be available
-      #     to the workflow as a map in the `data` field.
-      #
-      #   @option params [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] :recipients The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-      #     single trigger.
-      #
-      #   @option params [String, Knockapi::Models::TenantRequest, nil] :tenant An inline tenant request
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param key [String]
+      # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
+      # @param cancellation_key [String, nil]
+      # @param data [Hash{Symbol=>Object}, nil]
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::WorkflowTriggerResponse]
       #

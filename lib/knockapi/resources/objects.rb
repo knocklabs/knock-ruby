@@ -8,17 +8,13 @@ module Knockapi
 
       # List objects in a collection
       #
-      # @param collection [String] Collection name
+      # @overload list(collection, after: nil, before: nil, page_size: nil, request_options: {})
       #
-      # @param params [Knockapi::Models::ObjectListParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Object>]
       #
@@ -37,13 +33,11 @@ module Knockapi
 
       # Delete an object
       #
-      # @param collection [String] Collection name
+      # @overload delete(collection, object_id_, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param params [Knockapi::Models::ObjectDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #
@@ -60,17 +54,13 @@ module Knockapi
       # Add subscriptions for an object. If a subscription already exists, it will be
       #   updated.
       #
-      # @param collection [String] Collection name
+      # @overload add_subscriptions(collection, object_id_, recipients:, properties: nil, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param params [Knockapi::Models::ObjectAddSubscriptionsParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] :recipients The recipients to subscribe to the object
-      #
-      #   @option params [Hash{Symbol=>Object}, nil] :properties The custom properties associated with the subscription
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      # @param properties [Hash{Symbol=>Object}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::Subscription>]
       #
@@ -88,15 +78,12 @@ module Knockapi
 
       # Delete subscriptions
       #
-      # @param collection [String] Collection name
+      # @overload delete_subscriptions(collection, object_id_, recipients:, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param params [Knockapi::Models::ObjectDeleteSubscriptionsParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] :recipients
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::Subscription>]
       #
@@ -114,13 +101,11 @@ module Knockapi
 
       # Get an object
       #
-      # @param collection [String] Collection name
+      # @overload get(collection, object_id_, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param params [Knockapi::Models::ObjectGetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Object]
       #
@@ -136,15 +121,12 @@ module Knockapi
 
       # Get channel data
       #
-      # @param collection [String] The collection
+      # @overload get_channel_data(collection, object_id_, channel_id, request_options: {})
       #
-      # @param object_id_ [String] The object ID
-      #
-      # @param channel_id [String] The channel ID
-      #
-      # @param params [Knockapi::Models::ObjectGetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param channel_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
@@ -160,17 +142,13 @@ module Knockapi
 
       # Get a preference set
       #
-      # @param collection [String] Collection
+      # @overload get_preferences(collection, object_id_, preference_set_id, tenant: nil, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param preference_set_id [String] Preference set ID
-      #
-      # @param params [Knockapi::Models::ObjectGetPreferencesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :tenant Tenant ID
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param preference_set_id [String]
+      # @param tenant [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
       #
@@ -188,39 +166,24 @@ module Knockapi
 
       # List messages
       #
-      # @param collection [String] The collection name
+      # @overload list_messages(collection, object_id_, after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
-      # @param object_id_ [String] The object ID
-      #
-      # @param params [Knockapi::Models::ObjectListMessagesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [String] :channel_id The channel ID
-      #
-      #   @option params [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>] :engagement_status The engagement status of the message
-      #
-      #   @option params [Array<String>] :message_ids The message IDs to filter messages by
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [String] :source The source of the message (workflow key)
-      #
-      #   @option params [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>] :status The status of the message
-      #
-      #   @option params [String] :tenant The tenant ID
-      #
-      #   @option params [String] :trigger_data The trigger data to filter messages by. Must be a valid JSON object.
-      #
-      #   @option params [Array<String>] :workflow_categories The workflow categories to filter messages by
-      #
-      #   @option params [String] :workflow_recipient_run_id The workflow recipient run ID to filter messages by
-      #
-      #   @option params [String] :workflow_run_id The workflow run ID to filter messages by
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param after [String]
+      # @param before [String]
+      # @param channel_id [String]
+      # @param engagement_status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>]
+      # @param message_ids [Array<String>]
+      # @param page_size [Integer]
+      # @param source [String]
+      # @param status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>]
+      # @param tenant [String]
+      # @param trigger_data [String]
+      # @param workflow_categories [Array<String>]
+      # @param workflow_recipient_run_id [String]
+      # @param workflow_run_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
       #
@@ -239,23 +202,16 @@ module Knockapi
 
       # List schedules
       #
-      # @param collection [String] The collection of the object to list schedules for
+      # @overload list_schedules(collection, object_id_, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       #
-      # @param object_id_ [String] The ID of the object to list schedules for
-      #
-      # @param params [Knockapi::Models::ObjectListSchedulesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [String] :tenant The ID of the tenant to list schedules for
-      #
-      #   @option params [String] :workflow The ID of the workflow to list schedules for
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param after [String]
+      # @param before [String]
+      # @param page_size [Integer]
+      # @param tenant [String]
+      # @param workflow [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
       #
@@ -276,25 +232,17 @@ module Knockapi
       #   the object, or all subscriptions that this object has. Determined by the `mode`
       #   query parameter.
       #
-      # @param collection [String] Collection name
+      # @overload list_subscriptions(collection, object_id_, after: nil, before: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param params [Knockapi::Models::ObjectListSubscriptionsParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :after The cursor to fetch entries after
-      #
-      #   @option params [String] :before The cursor to fetch entries before
-      #
-      #   @option params [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode] :mode Mode of the request
-      #
-      #   @option params [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>] :objects Objects to filter by (only used if mode is `recipient`)
-      #
-      #   @option params [Integer] :page_size The page size to fetch
-      #
-      #   @option params [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>] :recipients Recipients to filter by (only used if mode is `object`)
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param after [String]
+      # @param before [String]
+      # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
+      # @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
+      # @param page_size [Integer]
+      # @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
       #
@@ -313,17 +261,13 @@ module Knockapi
 
       # Set (identify) an object
       #
-      # @param collection [String] Collection name
+      # @overload set(collection, object_id_, channel_data: nil, preferences: nil, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param params [Knockapi::Models::ObjectSetParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] :channel_data Allows inline setting channel data for a recipient
-      #
-      #   @option params [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] :preferences Inline set preferences for a recipient, where the key is the preference set name
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Object]
       #
@@ -341,17 +285,13 @@ module Knockapi
 
       # Set channel data
       #
-      # @param collection [String] The collection
+      # @overload set_channel_data(collection, object_id_, channel_id, data:, request_options: {})
       #
-      # @param object_id_ [String] The object ID
-      #
-      # @param channel_id [String] The channel ID
-      #
-      # @param params [Knockapi::Models::ObjectSetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] :data Channel data for push providers
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param channel_id [String]
+      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
@@ -369,23 +309,15 @@ module Knockapi
 
       # Update a preference set
       #
-      # @param collection [String] Collection
+      # @overload set_preferences(collection, object_id_, preference_set_id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #
-      # @param object_id_ [String] Object ID
-      #
-      # @param preference_set_id [String] Preference set ID
-      #
-      # @param params [Knockapi::Models::ObjectSetPreferencesParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] :categories A setting for a preference set, where the key in the object is the category, and
-      #     the values are the preference settings for that category.
-      #
-      #   @option params [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] :channel_types Channel type preferences
-      #
-      #   @option params [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] :workflows A setting for a preference set, where the key in the object is the workflow key,
-      #     and the values are the preference settings for that workflow.
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param preference_set_id [String]
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
       #
@@ -403,15 +335,12 @@ module Knockapi
 
       # Unset channel data
       #
-      # @param collection [String] The collection
+      # @overload unset_channel_data(collection, object_id_, channel_id, request_options: {})
       #
-      # @param object_id_ [String] The object ID
-      #
-      # @param channel_id [String] The channel ID
-      #
-      # @param params [Knockapi::Models::ObjectUnsetChannelDataParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param channel_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #

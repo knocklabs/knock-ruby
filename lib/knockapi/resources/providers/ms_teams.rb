@@ -7,13 +7,11 @@ module Knockapi
         # Check if a connection to Microsoft Teams has been authorized for a given
         #   Microsoft Teams tenant object
         #
-        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to check
+        # @overload check_auth(channel_id, ms_teams_tenant_object:, request_options: {})
         #
-        # @param params [Knockapi::Models::Providers::MsTeamCheckAuthParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :ms_teams_tenant_object A JSON encoded string containing the Microsoft Teams tenant object reference
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param ms_teams_tenant_object [String]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::MsTeamCheckAuthResponse]
         #
@@ -32,17 +30,13 @@ module Knockapi
         # List the Microsoft Teams channels within a team. By default, archived and
         #   private channels are excluded from the results.
         #
-        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to get channels for
+        # @overload list_channels(channel_id, ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
         #
-        # @param params [Knockapi::Models::Providers::MsTeamListChannelsParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :ms_teams_tenant_object A JSON encoded string containing the Microsoft Teams tenant object reference
-        #
-        #   @option params [String] :team_id The ID of the Microsoft Teams team to list channels from
-        #
-        #   @option params [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions] :query_options
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param ms_teams_tenant_object [String]
+        # @param team_id [String]
+        # @param query_options [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::MsTeamListChannelsResponse]
         #
@@ -61,15 +55,12 @@ module Knockapi
         # Get a list of teams belonging to the Microsoft Entra tenant. By default,
         #   archived and private channels are excluded from the results.
         #
-        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to get teams for
+        # @overload list_teams(channel_id, ms_teams_tenant_object:, query_options: nil, request_options: {})
         #
-        # @param params [Knockapi::Models::Providers::MsTeamListTeamsParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :ms_teams_tenant_object A JSON encoded string containing the Microsoft Teams tenant object reference
-        #
-        #   @option params [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions] :query_options
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param ms_teams_tenant_object [String]
+        # @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::MsTeamListTeamsResponse]
         #
@@ -87,13 +78,11 @@ module Knockapi
 
         # Remove a Microsoft Entra tenant ID from a Microsoft Teams tenant object
         #
-        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to revoke access for
+        # @overload revoke_access(channel_id, ms_teams_tenant_object:, request_options: {})
         #
-        # @param params [Knockapi::Models::Providers::MsTeamRevokeAccessParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :ms_teams_tenant_object A JSON encoded string containing the Microsoft Teams tenant object reference
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param ms_teams_tenant_object [String]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [String]
         #

@@ -6,11 +6,10 @@ module Knockapi
       class Batch
         # Mark messages as archived
         #
-        # @param params [Knockapi::Models::Messages::BatchArchiveParams, Hash{Symbol=>Object}] .
+        # @overload archive(message_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The message IDs to update
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #
@@ -28,11 +27,10 @@ module Knockapi
 
         # Get the contents of multiple messages in a single request.
         #
-        # @param params [Knockapi::Models::Messages::BatchGetContentParams, Hash{Symbol=>Object}] .
+        # @overload get_content(message_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The IDs of the messages to fetch contents of
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Messages::BatchGetContentResponseItem>]
         #
@@ -50,13 +48,11 @@ module Knockapi
 
         # Mark messages as interacted
         #
-        # @param params [Knockapi::Models::Messages::BatchMarkAsInteractedParams, Hash{Symbol=>Object}] .
+        # @overload mark_as_interacted(message_ids:, metadata: nil, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The message IDs to update
-        #
-        #   @option params [Hash{Symbol=>Object}, nil] :metadata Metadata about the interaction
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param metadata [Hash{Symbol=>Object}, nil]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #
@@ -74,11 +70,10 @@ module Knockapi
 
         # Mark messages as read
         #
-        # @param params [Knockapi::Models::Messages::BatchMarkAsReadParams, Hash{Symbol=>Object}] .
+        # @overload mark_as_read(message_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The message IDs to update
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #
@@ -96,11 +91,10 @@ module Knockapi
 
         # Mark messages as seen
         #
-        # @param params [Knockapi::Models::Messages::BatchMarkAsSeenParams, Hash{Symbol=>Object}] .
+        # @overload mark_as_seen(message_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The message IDs to update
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #
@@ -118,11 +112,10 @@ module Knockapi
 
         # Mark messages as unread
         #
-        # @param params [Knockapi::Models::Messages::BatchMarkAsUnreadParams, Hash{Symbol=>Object}] .
+        # @overload mark_as_unread(message_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The message IDs to update
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #
@@ -140,11 +133,10 @@ module Knockapi
 
         # Mark messages as unseen
         #
-        # @param params [Knockapi::Models::Messages::BatchMarkAsUnseenParams, Hash{Symbol=>Object}] .
+        # @overload mark_as_unseen(message_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The message IDs to update
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #
@@ -162,11 +154,10 @@ module Knockapi
 
         # Mark messages as unarchived
         #
-        # @param params [Knockapi::Models::Messages::BatchUnarchiveParams, Hash{Symbol=>Object}] .
+        # @overload unarchive(message_ids:, request_options: {})
         #
-        #   @option params [Array<String>] :message_ids The message IDs to update
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param message_ids [Array<String>]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #

@@ -6,13 +6,11 @@ module Knockapi
       class Slack
         # Check if a Slack channel is authenticated
         #
-        # @param channel_id [String] The ID of the Knock Slack channel to check
+        # @overload check_auth(channel_id, access_token_object:, request_options: {})
         #
-        # @param params [Knockapi::Models::Providers::SlackCheckAuthParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :access_token_object A JSON encoded string containing the access token object reference
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param access_token_object [String]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::SlackCheckAuthResponse]
         #
@@ -30,15 +28,12 @@ module Knockapi
 
         # List Slack channels for a Slack workspace
         #
-        # @param channel_id [String] The ID of the Knock Slack channel to get channels for
+        # @overload list_channels(channel_id, access_token_object:, query_options: nil, request_options: {})
         #
-        # @param params [Knockapi::Models::Providers::SlackListChannelsParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :access_token_object A JSON encoded string containing the access token object reference
-        #
-        #   @option params [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions] :query_options
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param access_token_object [String]
+        # @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::SlackChannelsCursor<Knockapi::Models::Providers::SlackListChannelsResponse>]
         #
@@ -57,13 +52,11 @@ module Knockapi
 
         # Revoke access for a Slack channel
         #
-        # @param channel_id [String] The ID of the Knock Slack channel to revoke access for
+        # @overload revoke_access(channel_id, access_token_object:, request_options: {})
         #
-        # @param params [Knockapi::Models::Providers::SlackRevokeAccessParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :access_token_object A JSON encoded string containing the access token object reference
-        #
-        #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param channel_id [String]
+        # @param access_token_object [String]
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [String]
         #
