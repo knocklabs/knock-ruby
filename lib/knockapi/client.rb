@@ -62,9 +62,9 @@ module Knockapi
 
     # Creates and returns a new client for interacting with the API.
     #
-    # @param base_url [String, nil] Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
-    #
     # @param bearer_token [String, nil] Defaults to `ENV["KNOCK_API_KEY"]`
+    #
+    # @param base_url [String, nil] Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
     #
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
     #
@@ -74,8 +74,8 @@ module Knockapi
     #
     # @param max_retry_delay [Float]
     def initialize(
-      base_url: nil,
       bearer_token: ENV["KNOCK_API_KEY"],
+      base_url: nil,
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
@@ -84,7 +84,7 @@ module Knockapi
       base_url ||= "https://api.knock.app"
 
       if bearer_token.nil?
-        raise ArgumentError.new("bearer_token is required")
+        raise ArgumentError.new("bearer_token is required, and can be set via environ: \"KNOCK_API_KEY\"")
       end
 
       @bearer_token = bearer_token.to_s
