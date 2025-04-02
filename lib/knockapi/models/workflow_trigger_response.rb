@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Workflows#trigger
     class WorkflowTriggerResponse < Knockapi::BaseModel
       # @!attribute workflow_run_id
       #   The ID of the workflow trigger. This value allows you to track individual

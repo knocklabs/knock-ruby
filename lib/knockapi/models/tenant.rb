@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Tenants#list
     class Tenant < Knockapi::BaseModel
       # @!attribute id
       #

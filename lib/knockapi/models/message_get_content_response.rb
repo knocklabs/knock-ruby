@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Messages#get_content
     class MessageGetContentResponse < Knockapi::BaseModel
       # @!attribute _typename
       #

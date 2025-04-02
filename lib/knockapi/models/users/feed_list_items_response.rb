@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Users
+      # @see Knockapi::Resources::Users::Feeds#list_items
       class FeedListItemsResponse < Knockapi::BaseModel
         # @!attribute id
         #

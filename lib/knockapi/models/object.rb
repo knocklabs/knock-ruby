@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Objects#list
     class Object < Knockapi::BaseModel
       # @!attribute id
       #

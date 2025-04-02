@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Providers
+      # @see Knockapi::Resources::Providers::Slack#list_channels
       class SlackListChannelsResponse < Knockapi::BaseModel
         # @!attribute id
         #

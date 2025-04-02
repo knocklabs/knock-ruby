@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Messages#list_delivery_logs
     class MessageDeliveryLog < Knockapi::BaseModel
       # @!attribute id
       #

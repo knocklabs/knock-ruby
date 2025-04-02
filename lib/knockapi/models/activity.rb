@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Messages#list_activities
     class Activity < Knockapi::BaseModel
       # @!attribute [r] id
       #

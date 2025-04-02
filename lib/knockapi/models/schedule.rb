@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Schedules#list
     class Schedule < Knockapi::BaseModel
       # @!attribute id
       #

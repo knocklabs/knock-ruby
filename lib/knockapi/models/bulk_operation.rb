@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::BulkOperations#get
     class BulkOperation < Knockapi::BaseModel
       # @!attribute id
       #

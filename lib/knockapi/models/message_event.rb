@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Messages#list_events
     class MessageEvent < Knockapi::BaseModel
       # @!attribute id
       #

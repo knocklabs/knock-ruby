@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Users#update
     class User < Knockapi::BaseModel
       # @!attribute id
       #

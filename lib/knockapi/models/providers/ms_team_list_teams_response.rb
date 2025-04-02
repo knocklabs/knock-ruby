@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Providers
+      # @see Knockapi::Resources::Providers::MsTeams#list_teams
       class MsTeamListTeamsResponse < Knockapi::BaseModel
         # @!attribute ms_teams_teams
         #

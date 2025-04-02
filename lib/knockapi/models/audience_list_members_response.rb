@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Audiences#list_members
     class AudienceListMembersResponse < Knockapi::BaseModel
       # @!attribute entries
       #

@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Providers
+      # @see Knockapi::Resources::Providers::MsTeams#list_channels
       class MsTeamListChannelsResponse < Knockapi::BaseModel
         # @!attribute ms_teams_channels
         #

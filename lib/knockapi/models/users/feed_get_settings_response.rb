@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Users
+      # @see Knockapi::Resources::Users::Feeds#get_settings
       class FeedGetSettingsResponse < Knockapi::BaseModel
         # @!attribute features
         #

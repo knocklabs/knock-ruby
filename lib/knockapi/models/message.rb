@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Messages#list
     class Message < Knockapi::BaseModel
       # @!attribute [r] id
       #   The message ID
