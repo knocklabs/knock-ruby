@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Objects#get_channel_data
     class ObjectGetChannelDataParams < Knockapi::BaseModel
       # @!parse
       #   extend Knockapi::Type::RequestParameters::Converter

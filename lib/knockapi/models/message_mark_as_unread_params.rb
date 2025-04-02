@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Messages#mark_as_unread
     class MessageMarkAsUnreadParams < Knockapi::BaseModel
       # @!parse
       #   extend Knockapi::Type::RequestParameters::Converter

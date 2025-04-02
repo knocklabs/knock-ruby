@@ -12,6 +12,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::BulkOperation]
+      #
+      # @see Knockapi::Models::BulkOperationGetParams
       def get(id, params = {})
         @client.request(
           method: :get,
@@ -21,6 +23,8 @@ module Knockapi
         )
       end
 
+      # @api private
+      #
       # @param client [Knockapi::Client]
       def initialize(client:)
         @client = client

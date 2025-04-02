@@ -63,6 +63,7 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+            # @see Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::BaseModel
               # @!attribute url
               #   The URL of the incoming webhook

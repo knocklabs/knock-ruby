@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Schedules#create
     class ScheduleCreateParams < Knockapi::BaseModel
       # @!parse
       #   extend Knockapi::Type::RequestParameters::Converter

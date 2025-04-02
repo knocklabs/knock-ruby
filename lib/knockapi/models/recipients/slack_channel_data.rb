@@ -85,6 +85,7 @@ module Knockapi
           #   def self.variants; end
         end
 
+        # @see Knockapi::Models::Recipients::SlackChannelData#token
         class Token < Knockapi::BaseModel
           # @!attribute access_token
           #

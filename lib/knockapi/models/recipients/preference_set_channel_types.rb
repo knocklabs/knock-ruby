@@ -86,6 +86,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
+        #
+        # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#chat
         module Chat
           extend Knockapi::Union
 
@@ -101,6 +103,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
+        #
+        # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#email
         module Email
           extend Knockapi::Union
 
@@ -116,6 +120,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
+        #
+        # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#http
         module HTTP
           extend Knockapi::Union
 
@@ -131,6 +137,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
+        #
+        # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#in_app_feed
         module InAppFeed
           extend Knockapi::Union
 
@@ -146,6 +154,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
+        #
+        # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#push
         module Push
           extend Knockapi::Union
 
@@ -161,6 +171,8 @@ module Knockapi
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
+        #
+        # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#sms
         module SMS
           extend Knockapi::Union
 

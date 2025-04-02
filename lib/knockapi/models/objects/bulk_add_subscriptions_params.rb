@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Objects
+      # @see Knockapi::Resources::Objects::Bulk#add_subscriptions
       class BulkAddSubscriptionsParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

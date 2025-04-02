@@ -45,6 +45,7 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+      # @see Knockapi::Models::TenantRequest#settings
       class Settings < Knockapi::BaseModel
         # @!attribute [r] branding
         #
@@ -69,6 +70,7 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+        # @see Knockapi::Models::TenantRequest::Settings#branding
         class Branding < Knockapi::BaseModel
           # @!attribute icon_url
           #

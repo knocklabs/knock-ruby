@@ -43,6 +43,7 @@ module Knockapi
         )
         end
 
+        # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
         def self.new(client:)
         end

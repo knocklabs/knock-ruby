@@ -24,6 +24,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Array<Knockapi::Models::Schedule>]
+      #
+      # @see Knockapi::Models::ScheduleCreateParams
       def create(params)
         parsed, options = Knockapi::Models::ScheduleCreateParams.dump_request(params)
         @client.request(
@@ -58,6 +60,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Array<Knockapi::Models::Schedule>]
+      #
+      # @see Knockapi::Models::ScheduleUpdateParams
       def update(params)
         parsed, options = Knockapi::Models::ScheduleUpdateParams.dump_request(params)
         @client.request(
@@ -88,6 +92,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
+      #
+      # @see Knockapi::Models::ScheduleListParams
       def list(params)
         parsed, options = Knockapi::Models::ScheduleListParams.dump_request(params)
         @client.request(
@@ -109,6 +115,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Array<Knockapi::Models::Schedule>]
+      #
+      # @see Knockapi::Models::ScheduleDeleteParams
       def delete(params)
         parsed, options = Knockapi::Models::ScheduleDeleteParams.dump_request(params)
         @client.request(
@@ -120,6 +128,8 @@ module Knockapi
         )
       end
 
+      # @api private
+      #
       # @param client [Knockapi::Client]
       def initialize(client:)
         @client = client

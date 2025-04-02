@@ -122,6 +122,7 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+      # @see Knockapi::Models::BulkOperation#status
       module Status
         extend Knockapi::Enum
 

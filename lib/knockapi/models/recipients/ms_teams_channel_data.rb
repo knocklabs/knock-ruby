@@ -91,6 +91,7 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+            # @see Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::BaseModel
               # @!attribute url
               #   The URL of the incoming webhook

@@ -24,6 +24,7 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+      # @see Knockapi::Models::AudienceListMembersResponse#page_info
       class PageInfo < Knockapi::BaseModel
         # @!attribute _typename
         #

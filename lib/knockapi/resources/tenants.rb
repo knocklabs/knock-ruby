@@ -19,6 +19,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::EntriesCursor<Knockapi::Models::Tenant>]
+      #
+      # @see Knockapi::Models::TenantListParams
       def list(params = {})
         parsed, options = Knockapi::Models::TenantListParams.dump_request(params)
         @client.request(
@@ -40,6 +42,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [String]
+      #
+      # @see Knockapi::Models::TenantDeleteParams
       def delete(tenant_id, params = {})
         @client.request(
           method: :delete,
@@ -58,6 +62,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Tenant]
+      #
+      # @see Knockapi::Models::TenantGetParams
       def get(tenant_id, params = {})
         @client.request(
           method: :get,
@@ -82,6 +88,8 @@ module Knockapi
       #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [Knockapi::Models::Tenant]
+      #
+      # @see Knockapi::Models::TenantSetParams
       def set(tenant_id, params = {})
         parsed, options = Knockapi::Models::TenantSetParams.dump_request(params)
         @client.request(
@@ -93,6 +101,8 @@ module Knockapi
         )
       end
 
+      # @api private
+      #
       # @param client [Knockapi::Client]
       def initialize(client:)
         @client = client

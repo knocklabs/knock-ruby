@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Channels
+      # @see Knockapi::Resources::Channels::Bulk#update_message_status
       class BulkUpdateMessageStatusParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

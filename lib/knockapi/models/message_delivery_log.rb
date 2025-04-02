@@ -55,6 +55,7 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+      # @see Knockapi::Models::MessageDeliveryLog#request
       class Request < Knockapi::BaseModel
         # @!attribute [r] body
         #
@@ -116,6 +117,7 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+        # @see Knockapi::Models::MessageDeliveryLog::Request#body
         module Body
           extend Knockapi::Union
 
@@ -130,6 +132,7 @@ module Knockapi
           UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
         end
 
+        # @see Knockapi::Models::MessageDeliveryLog::Request#method_
         module Method
           extend Knockapi::Enum
 
@@ -147,6 +150,7 @@ module Knockapi
         end
       end
 
+      # @see Knockapi::Models::MessageDeliveryLog#response
       class Response < Knockapi::BaseModel
         # @!attribute [r] body
         #
@@ -182,6 +186,7 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+        # @see Knockapi::Models::MessageDeliveryLog::Response#body
         module Body
           extend Knockapi::Union
 

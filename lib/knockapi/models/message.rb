@@ -282,6 +282,8 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
+      #
+      # @see Knockapi::Models::Message#recipient
       module Recipient
         extend Knockapi::Union
 
@@ -320,6 +322,7 @@ module Knockapi
         #   def self.variants; end
       end
 
+      # @see Knockapi::Models::Message#source
       class Source < Knockapi::BaseModel
         # @!attribute _typename
         #
@@ -358,6 +361,8 @@ module Knockapi
       end
 
       # Message delivery status
+      #
+      # @see Knockapi::Models::Message#status
       module Status
         extend Knockapi::Enum
 

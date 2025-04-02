@@ -18,6 +18,7 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+        # @see Knockapi::Models::Providers::MsTeamCheckAuthResponse#connection
         class Connection < Knockapi::BaseModel
           # @!attribute ok
           #

@@ -38,6 +38,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::BulkOperation]
+        #
+        # @see Knockapi::Models::Channels::BulkUpdateMessageStatusParams
         def update_message_status(channel_id, action, params = {})
           parsed, options = Knockapi::Models::Channels::BulkUpdateMessageStatusParams.dump_request(params)
           @client.request(
@@ -49,6 +51,8 @@ module Knockapi
           )
         end
 
+        # @api private
+        #
         # @param client [Knockapi::Client]
         def initialize(client:)
           @client = client

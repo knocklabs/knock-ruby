@@ -15,6 +15,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::BulkOperation]
+        #
+        # @see Knockapi::Models::Objects::BulkDeleteParams
         def delete(collection, params)
           parsed, options = Knockapi::Models::Objects::BulkDeleteParams.dump_request(params)
           @client.request(
@@ -38,6 +40,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::BulkOperation]
+        #
+        # @see Knockapi::Models::Objects::BulkAddSubscriptionsParams
         def add_subscriptions(collection, params)
           parsed, options = Knockapi::Models::Objects::BulkAddSubscriptionsParams.dump_request(params)
           @client.request(
@@ -60,6 +64,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::BulkOperation]
+        #
+        # @see Knockapi::Models::Objects::BulkSetParams
         def set(collection, params)
           parsed, options = Knockapi::Models::Objects::BulkSetParams.dump_request(params)
           @client.request(
@@ -71,6 +77,8 @@ module Knockapi
           )
         end
 
+        # @api private
+        #
         # @param client [Knockapi::Client]
         def initialize(client:)
           @client = client

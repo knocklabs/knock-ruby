@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Users#update
     class UserUpdateParams < Knockapi::Models::IdentifyUserRequest
       # @!parse
       #   extend Knockapi::Type::RequestParameters::Converter

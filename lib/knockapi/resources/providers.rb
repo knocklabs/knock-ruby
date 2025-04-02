@@ -9,6 +9,8 @@ module Knockapi
       # @return [Knockapi::Resources::Providers::MsTeams]
       attr_reader :ms_teams
 
+      # @api private
+      #
       # @param client [Knockapi::Client]
       def initialize(client:)
         @client = client

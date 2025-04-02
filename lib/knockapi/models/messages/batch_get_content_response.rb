@@ -38,6 +38,8 @@ module Knockapi
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
         # The contents of an email message
+        #
+        # @see Knockapi::Models::Messages::BatchGetContentResponseItem#data
         module Data
           extend Knockapi::Union
 
@@ -223,6 +225,7 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+            # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent#template
             class Template < Knockapi::BaseModel
               # @!attribute blocks
               #   The structured blocks of the message
@@ -280,6 +283,7 @@ module Knockapi
 
                 # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+                # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block#type
                 module Type
                   extend Knockapi::Enum
 
@@ -363,6 +367,7 @@ module Knockapi
 
                 # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+                # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock#type
                 module Type
                   extend Knockapi::Enum
 
@@ -438,6 +443,7 @@ module Knockapi
                   # def initialize: (Hash | Knockapi::BaseModel) -> void
                 end
 
+                # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock#type
                 module Type
                   extend Knockapi::Enum
 

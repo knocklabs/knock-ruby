@@ -108,6 +108,7 @@ module Knockapi
       def delete(schedule_ids:, request_options: {})
       end
 
+      # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:)
       end

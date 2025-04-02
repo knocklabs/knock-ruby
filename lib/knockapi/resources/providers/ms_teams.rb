@@ -16,6 +16,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::Providers::MsTeamCheckAuthResponse]
+        #
+        # @see Knockapi::Models::Providers::MsTeamCheckAuthParams
         def check_auth(channel_id, params)
           parsed, options = Knockapi::Models::Providers::MsTeamCheckAuthParams.dump_request(params)
           @client.request(
@@ -43,6 +45,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::Providers::MsTeamListChannelsResponse]
+        #
+        # @see Knockapi::Models::Providers::MsTeamListChannelsParams
         def list_channels(channel_id, params)
           parsed, options = Knockapi::Models::Providers::MsTeamListChannelsParams.dump_request(params)
           @client.request(
@@ -68,6 +72,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::Providers::MsTeamListTeamsResponse]
+        #
+        # @see Knockapi::Models::Providers::MsTeamListTeamsParams
         def list_teams(channel_id, params)
           parsed, options = Knockapi::Models::Providers::MsTeamListTeamsParams.dump_request(params)
           @client.request(
@@ -90,6 +96,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [String]
+        #
+        # @see Knockapi::Models::Providers::MsTeamRevokeAccessParams
         def revoke_access(channel_id, params)
           parsed, options = Knockapi::Models::Providers::MsTeamRevokeAccessParams.dump_request(params)
           @client.request(
@@ -101,6 +109,8 @@ module Knockapi
           )
         end
 
+        # @api private
+        #
         # @param client [Knockapi::Client]
         def initialize(client:)
           @client = client

@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Users#set_preferences
     class UserSetPreferencesParams < Knockapi::Models::Recipients::PreferenceSetRequest
       # @!parse
       #   extend Knockapi::Type::RequestParameters::Converter

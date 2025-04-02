@@ -4,6 +4,8 @@ module Knockapi
   module Resources
     class Recipients
       class Preferences
+        # @api private
+        #
         # @param client [Knockapi::Client]
         def initialize(client:)
           @client = client

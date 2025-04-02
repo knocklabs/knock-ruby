@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Messages
+      # @see Knockapi::Resources::Messages::Batch#mark_as_interacted
       class BatchMarkAsInteractedParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

@@ -9,6 +9,7 @@ module Knockapi
       sig { returns(Knockapi::Resources::Providers::MsTeams) }
       attr_reader :ms_teams
 
+      # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:)
       end

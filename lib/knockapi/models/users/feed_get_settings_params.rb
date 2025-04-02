@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Users
+      # @see Knockapi::Resources::Users::Feeds#get_settings
       class FeedGetSettingsParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

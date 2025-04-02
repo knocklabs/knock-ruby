@@ -18,6 +18,7 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+        # @see Knockapi::Models::Users::FeedGetSettingsResponse#features
         class Features < Knockapi::BaseModel
           # @!attribute branding_required
           #

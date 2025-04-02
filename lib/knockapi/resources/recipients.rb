@@ -12,6 +12,8 @@ module Knockapi
       # @return [Knockapi::Resources::Recipients::ChannelData]
       attr_reader :channel_data
 
+      # @api private
+      #
       # @param client [Knockapi::Client]
       def initialize(client:)
         @client = client

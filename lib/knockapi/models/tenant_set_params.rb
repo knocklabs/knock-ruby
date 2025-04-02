@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @see Knockapi::Resources::Tenants#set
     class TenantSetParams < Knockapi::BaseModel
       # @!parse
       #   extend Knockapi::Type::RequestParameters::Converter
@@ -66,6 +67,7 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+        # @see Knockapi::Models::TenantSetParams::Settings#branding
         class Branding < Knockapi::BaseModel
           # @!attribute icon_url
           #

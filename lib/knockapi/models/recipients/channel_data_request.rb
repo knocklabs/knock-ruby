@@ -20,6 +20,8 @@ module Knockapi
         # def initialize: (Hash | Knockapi::BaseModel) -> void
 
         # Channel data for push providers
+        #
+        # @see Knockapi::Models::Recipients::ChannelDataRequest#data
         module Data
           extend Knockapi::Union
 

@@ -12,6 +12,7 @@ module Knockapi
       sig { returns(Knockapi::Resources::Recipients::ChannelData) }
       attr_reader :channel_data
 
+      # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:)
       end

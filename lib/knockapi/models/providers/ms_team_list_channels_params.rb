@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Providers
+      # @see Knockapi::Resources::Providers::MsTeams#list_channels
       class MsTeamListChannelsParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

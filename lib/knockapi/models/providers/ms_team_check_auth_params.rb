@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Providers
+      # @see Knockapi::Resources::Providers::MsTeams#check_auth
       class MsTeamCheckAuthParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

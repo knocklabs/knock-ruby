@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Messages
+      # @see Knockapi::Resources::Messages::Batch#unarchive
       class BatchUnarchiveParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

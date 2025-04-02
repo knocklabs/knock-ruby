@@ -6,6 +6,7 @@ module Knockapi
       sig { returns(Knockapi::Resources::Channels::Bulk) }
       attr_reader :bulk
 
+      # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:)
       end

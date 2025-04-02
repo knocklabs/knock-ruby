@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Providers
+      # @see Knockapi::Resources::Providers::Slack#check_auth
       class SlackCheckAuthParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

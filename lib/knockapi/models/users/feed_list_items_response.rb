@@ -186,6 +186,7 @@ module Knockapi
 
             # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+            # @see Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock#type
             module Type
               extend Knockapi::Enum
 
@@ -257,6 +258,7 @@ module Knockapi
               # def initialize: (Hash | Knockapi::BaseModel) -> void
             end
 
+            # @see Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock#type
             module Type
               extend Knockapi::Enum
 
@@ -275,6 +277,7 @@ module Knockapi
           #   def self.variants; end
         end
 
+        # @see Knockapi::Models::Users::FeedListItemsResponse#source
         class Source < Knockapi::BaseModel
           # @!attribute _typename
           #

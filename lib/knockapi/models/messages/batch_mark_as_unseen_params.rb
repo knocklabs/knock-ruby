@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Messages
+      # @see Knockapi::Resources::Messages::Batch#mark_as_unseen
       class BatchMarkAsUnseenParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

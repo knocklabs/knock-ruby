@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Tenants
+      # @see Knockapi::Resources::Tenants::Bulk#set
       class BulkSetParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

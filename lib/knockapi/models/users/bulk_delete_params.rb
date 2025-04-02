@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Users
+      # @see Knockapi::Resources::Users::Bulk#delete
       class BulkDeleteParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

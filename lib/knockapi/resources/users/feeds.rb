@@ -15,6 +15,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::Models::Users::FeedGetSettingsResponse]
+        #
+        # @see Knockapi::Models::Users::FeedGetSettingsParams
         def get_settings(user_id, channel_id, params = {})
           @client.request(
             method: :get,
@@ -56,6 +58,8 @@ module Knockapi
         #   @option params [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [Knockapi::EntriesCursor<Knockapi::Models::Users::FeedListItemsResponse>]
+        #
+        # @see Knockapi::Models::Users::FeedListItemsParams
         def list_items(user_id, channel_id, params = {})
           parsed, options = Knockapi::Models::Users::FeedListItemsParams.dump_request(params)
           @client.request(
@@ -68,6 +72,8 @@ module Knockapi
           )
         end
 
+        # @api private
+        #
         # @param client [Knockapi::Client]
         def initialize(client:)
           @client = client

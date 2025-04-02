@@ -3,6 +3,7 @@
 module Knockapi
   module Models
     module Providers
+      # @see Knockapi::Resources::Providers::Slack#list_channels
       class SlackListChannelsParams < Knockapi::BaseModel
         # @!parse
         #   extend Knockapi::Type::RequestParameters::Converter

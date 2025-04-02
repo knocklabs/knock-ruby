@@ -29,6 +29,7 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+      # @see Knockapi::Models::Condition#operator
       module Operator
         extend Knockapi::Enum
 

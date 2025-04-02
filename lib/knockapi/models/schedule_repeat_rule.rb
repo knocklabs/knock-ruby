@@ -57,6 +57,7 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::BaseModel) -> void
 
+      # @see Knockapi::Models::ScheduleRepeatRule#frequency
       module Frequency
         extend Knockapi::Enum
 
