@@ -368,6 +368,7 @@ module Knockapi
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                     )
                   end
@@ -506,6 +507,7 @@ module Knockapi
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
                     )
                   end
@@ -617,6 +619,7 @@ module Knockapi
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                     )
                   end

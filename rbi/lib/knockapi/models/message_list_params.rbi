@@ -163,7 +163,7 @@ module Knockapi
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageListParams::EngagementStatus) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol) }
 
         SEEN = T.let(:seen, Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol)
         READ = T.let(:read, Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol)
@@ -180,7 +180,8 @@ module Knockapi
         extend Knockapi::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageListParams::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::MessageListParams::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, Knockapi::Models::MessageListParams::Status::TaggedSymbol) }
 
         QUEUED = T.let(:queued, Knockapi::Models::MessageListParams::Status::TaggedSymbol)
         SENT = T.let(:sent, Knockapi::Models::MessageListParams::Status::TaggedSymbol)

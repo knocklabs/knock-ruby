@@ -88,7 +88,7 @@ module Knockapi
         extend Knockapi::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageEvent::Type) }
-        OrSymbol = T.type_alias { T.any(Symbol, Knockapi::Models::MessageEvent::Type::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String, Knockapi::Models::MessageEvent::Type::TaggedSymbol) }
 
         MESSAGE_QUEUED = T.let(:"message.queued", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
         MESSAGE_SENT = T.let(:"message.sent", Knockapi::Models::MessageEvent::Type::TaggedSymbol)

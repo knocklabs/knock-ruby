@@ -212,6 +212,7 @@ module Knockapi
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
                   )
                 end
@@ -315,6 +316,7 @@ module Knockapi
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
                   )
                 end

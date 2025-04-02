@@ -140,7 +140,7 @@ module Knockapi
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol) }
 
         RECIPIENT = T.let(:recipient, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)
         OBJECT = T.let(:object, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)

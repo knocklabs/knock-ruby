@@ -135,7 +135,7 @@ module Knockapi
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol) }
 
           EXCLUDE = T.let(:exclude, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
           INCLUDE = T.let(:include, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
@@ -152,7 +152,7 @@ module Knockapi
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Status) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol) }
 
           UNREAD = T.let(:unread, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
           READ = T.let(:read, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)

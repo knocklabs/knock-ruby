@@ -142,7 +142,7 @@ module Knockapi
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol) }
 
           GET = T.let(:GET, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
           POST = T.let(:POST, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
