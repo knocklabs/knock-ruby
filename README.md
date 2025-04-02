@@ -141,7 +141,7 @@ Due to limitations with the Sorbet type system, where a method otherwise can tak
 Please follow Sorbet's [setup guides](https://sorbet.org/docs/adopting) for best experience.
 
 ```ruby
-model = WorkflowTriggerParams.new(
+model = Knockapi::Models::WorkflowTriggerParams.new(
   "dinosaurs-loose",
   data: {
     dinosaur: "triceratops"
