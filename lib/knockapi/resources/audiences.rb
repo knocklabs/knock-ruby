@@ -18,7 +18,7 @@ module Knockapi
         parsed, options = Knockapi::Models::AudienceAddMembersParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["v1/audiences/%0s/members", key],
+          path: ["v1/audiences/%1$s/members", key],
           body: parsed,
           model: String,
           options: options
@@ -37,7 +37,7 @@ module Knockapi
       def list_members(key, params = {})
         @client.request(
           method: :get,
-          path: ["v1/audiences/%0s/members", key],
+          path: ["v1/audiences/%1$s/members", key],
           model: Knockapi::Models::AudienceListMembersResponse,
           options: params[:request_options]
         )
@@ -58,7 +58,7 @@ module Knockapi
         parsed, options = Knockapi::Models::AudienceRemoveMembersParams.dump_request(params)
         @client.request(
           method: :delete,
-          path: ["v1/audiences/%0s/members", key],
+          path: ["v1/audiences/%1$s/members", key],
           body: parsed,
           model: String,
           options: options

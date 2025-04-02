@@ -25,7 +25,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectListParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/objects/%0s", collection],
+          path: ["v1/objects/%1$s", collection],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::Object,
@@ -47,7 +47,7 @@ module Knockapi
       def delete(collection, object_id_, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/objects/%0s/%1s", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s", collection, object_id_],
           model: String,
           options: params[:request_options]
         )
@@ -73,7 +73,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectAddSubscriptionsParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["v1/objects/%0s/%1s/subscriptions", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
           body: parsed,
           model: Knockapi::ArrayOf[Knockapi::Models::Recipients::Subscription],
           options: options
@@ -97,7 +97,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectDeleteSubscriptionsParams.dump_request(params)
         @client.request(
           method: :delete,
-          path: ["v1/objects/%0s/%1s/subscriptions", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
           body: parsed,
           model: Knockapi::ArrayOf[Knockapi::Models::Recipients::Subscription],
           options: options
@@ -118,7 +118,7 @@ module Knockapi
       def get(collection, object_id_, params = {})
         @client.request(
           method: :get,
-          path: ["v1/objects/%0s/%1s", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s", collection, object_id_],
           model: Knockapi::Models::Object,
           options: params[:request_options]
         )
@@ -140,7 +140,7 @@ module Knockapi
       def get_channel_data(collection, object_id_, channel_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/objects/%0s/%1s/channel_data/%2s", collection, object_id_, channel_id],
+          path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
           model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: params[:request_options]
         )
@@ -165,7 +165,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectGetPreferencesParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/objects/%0s/%1s/preferences/%2s", collection, object_id_, preference_set_id],
+          path: ["v1/objects/%1$s/%2$s/preferences/%3$s", collection, object_id_, preference_set_id],
           query: parsed,
           model: Knockapi::Models::Recipients::PreferenceSet,
           options: options
@@ -213,7 +213,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectListMessagesParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/objects/%0s/%1s/messages", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s/messages", collection, object_id_],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::Message,
@@ -246,7 +246,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectListSchedulesParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/objects/%0s/%1s/schedules", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s/schedules", collection, object_id_],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::Schedule,
@@ -283,7 +283,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectListSubscriptionsParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/objects/%0s/%1s/subscriptions", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::Recipients::Subscription,
@@ -310,7 +310,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectSetParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/objects/%0s/%1s", collection, object_id_],
+          path: ["v1/objects/%1$s/%2$s", collection, object_id_],
           body: parsed,
           model: Knockapi::Models::Object,
           options: options
@@ -336,7 +336,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectSetChannelDataParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/objects/%0s/%1s/channel_data/%2s", collection, object_id_, channel_id],
+          path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
           body: parsed,
           model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: options
@@ -368,7 +368,7 @@ module Knockapi
         parsed, options = Knockapi::Models::ObjectSetPreferencesParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/objects/%0s/%1s/preferences/%2s", collection, object_id_, preference_set_id],
+          path: ["v1/objects/%1$s/%2$s/preferences/%3$s", collection, object_id_, preference_set_id],
           body: parsed,
           model: Knockapi::Models::Recipients::PreferenceSet,
           options: options
@@ -391,7 +391,7 @@ module Knockapi
       def unset_channel_data(collection, object_id_, channel_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/objects/%0s/%1s/channel_data/%2s", collection, object_id_, channel_id],
+          path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
           model: String,
           options: params[:request_options]
         )

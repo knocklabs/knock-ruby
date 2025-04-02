@@ -43,7 +43,7 @@ module Knockapi
       def delete(tenant_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/tenants/%0s", tenant_id],
+          path: ["v1/tenants/%1$s", tenant_id],
           model: String,
           options: params[:request_options]
         )
@@ -61,7 +61,7 @@ module Knockapi
       def get(tenant_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/tenants/%0s", tenant_id],
+          path: ["v1/tenants/%1$s", tenant_id],
           model: Knockapi::Models::Tenant,
           options: params[:request_options]
         )
@@ -86,7 +86,7 @@ module Knockapi
         parsed, options = Knockapi::Models::TenantSetParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/tenants/%0s", tenant_id],
+          path: ["v1/tenants/%1$s", tenant_id],
           body: parsed,
           model: Knockapi::Models::Tenant,
           options: options

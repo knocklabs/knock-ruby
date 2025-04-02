@@ -18,7 +18,7 @@ module Knockapi
         def get_settings(user_id, channel_id, params = {})
           @client.request(
             method: :get,
-            path: ["v1/users/%0s/feeds/%1s/settings", user_id, channel_id],
+            path: ["v1/users/%1$s/feeds/%2$s/settings", user_id, channel_id],
             model: Knockapi::Models::Users::FeedGetSettingsResponse,
             options: params[:request_options]
           )
@@ -60,7 +60,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Users::FeedListItemsParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["v1/users/%0s/feeds/%1s", user_id, channel_id],
+            path: ["v1/users/%1$s/feeds/%2$s", user_id, channel_id],
             query: parsed,
             page: Knockapi::EntriesCursor,
             model: Knockapi::Models::Users::FeedListItemsResponse,

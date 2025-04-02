@@ -63,7 +63,7 @@ module Knockapi
       def archive(message_id, params = {})
         @client.request(
           method: :put,
-          path: ["v1/messages/%0s/archived", message_id],
+          path: ["v1/messages/%1$s/archived", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -81,7 +81,7 @@ module Knockapi
       def get(message_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/messages/%0s", message_id],
+          path: ["v1/messages/%1$s", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -100,7 +100,7 @@ module Knockapi
       def get_content(message_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/messages/%0s/content", message_id],
+          path: ["v1/messages/%1$s/content", message_id],
           model: Knockapi::Models::MessageGetContentResponse,
           options: params[:request_options]
         )
@@ -127,7 +127,7 @@ module Knockapi
         parsed, options = Knockapi::Models::MessageListActivitiesParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/messages/%0s/activities", message_id],
+          path: ["v1/messages/%1$s/activities", message_id],
           query: parsed,
           page: Knockapi::ItemsCursor,
           model: Knockapi::Models::Activity,
@@ -154,7 +154,7 @@ module Knockapi
         parsed, options = Knockapi::Models::MessageListDeliveryLogsParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/messages/%0s/delivery_logs", message_id],
+          path: ["v1/messages/%1$s/delivery_logs", message_id],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::MessageDeliveryLog,
@@ -181,7 +181,7 @@ module Knockapi
         parsed, options = Knockapi::Models::MessageListEventsParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/messages/%0s/events", message_id],
+          path: ["v1/messages/%1$s/events", message_id],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::MessageEvent,
@@ -204,7 +204,7 @@ module Knockapi
         parsed, options = Knockapi::Models::MessageMarkAsInteractedParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/messages/%0s/interacted", message_id],
+          path: ["v1/messages/%1$s/interacted", message_id],
           body: parsed,
           model: Knockapi::Models::Message,
           options: options
@@ -223,7 +223,7 @@ module Knockapi
       def mark_as_read(message_id, params = {})
         @client.request(
           method: :put,
-          path: ["v1/messages/%0s/read", message_id],
+          path: ["v1/messages/%1$s/read", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -241,7 +241,7 @@ module Knockapi
       def mark_as_seen(message_id, params = {})
         @client.request(
           method: :put,
-          path: ["v1/messages/%0s/seen", message_id],
+          path: ["v1/messages/%1$s/seen", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -259,7 +259,7 @@ module Knockapi
       def mark_as_unread(message_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/messages/%0s/unread", message_id],
+          path: ["v1/messages/%1$s/unread", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -277,7 +277,7 @@ module Knockapi
       def mark_as_unseen(message_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/messages/%0s/unseen", message_id],
+          path: ["v1/messages/%1$s/unseen", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -295,7 +295,7 @@ module Knockapi
       def unarchive(message_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/messages/%0s/unarchived", message_id],
+          path: ["v1/messages/%1$s/unarchived", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )

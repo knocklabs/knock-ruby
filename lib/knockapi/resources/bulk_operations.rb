@@ -15,7 +15,7 @@ module Knockapi
       def get(id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/bulk_operations/%0s", id],
+          path: ["v1/bulk_operations/%1$s", id],
           model: Knockapi::Models::BulkOperation,
           options: params[:request_options]
         )

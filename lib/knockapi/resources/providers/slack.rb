@@ -19,7 +19,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Providers::SlackCheckAuthParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["v1/providers/slack/%0s/auth_check", channel_id],
+            path: ["v1/providers/slack/%1$s/auth_check", channel_id],
             query: parsed,
             model: Knockapi::Models::Providers::SlackCheckAuthResponse,
             options: options
@@ -43,7 +43,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Providers::SlackListChannelsParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["v1/providers/slack/%0s/channels", channel_id],
+            path: ["v1/providers/slack/%1$s/channels", channel_id],
             query: parsed,
             page: Knockapi::SlackChannelsCursor,
             model: Knockapi::Models::Providers::SlackListChannelsResponse,
@@ -66,7 +66,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Providers::SlackRevokeAccessParams.dump_request(params)
           @client.request(
             method: :put,
-            path: ["v1/providers/slack/%0s/revoke_access", channel_id],
+            path: ["v1/providers/slack/%1$s/revoke_access", channel_id],
             query: parsed,
             model: String,
             options: options

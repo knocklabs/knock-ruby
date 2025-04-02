@@ -28,7 +28,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserUpdateParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/users/%0s", user_id],
+          path: ["v1/users/%1$s", user_id],
           body: parsed,
           model: Knockapi::Models::User,
           options: options
@@ -72,7 +72,7 @@ module Knockapi
       def delete(user_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/users/%0s", user_id],
+          path: ["v1/users/%1$s", user_id],
           model: String,
           options: params[:request_options]
         )
@@ -90,7 +90,7 @@ module Knockapi
       def get(user_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/users/%0s", user_id],
+          path: ["v1/users/%1$s", user_id],
           model: Knockapi::Models::User,
           options: params[:request_options]
         )
@@ -110,7 +110,7 @@ module Knockapi
       def get_channel_data(user_id, channel_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/users/%0s/channel_data/%1s", user_id, channel_id],
+          path: ["v1/users/%1$s/channel_data/%2$s", user_id, channel_id],
           model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: params[:request_options]
         )
@@ -133,7 +133,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserGetPreferencesParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/users/%0s/preferences/%1s", user_id, preference_set_id],
+          path: ["v1/users/%1$s/preferences/%2$s", user_id, preference_set_id],
           query: parsed,
           model: Knockapi::Models::Recipients::PreferenceSet,
           options: options
@@ -179,7 +179,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserListMessagesParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/users/%0s/messages", user_id],
+          path: ["v1/users/%1$s/messages", user_id],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::Message,
@@ -199,7 +199,7 @@ module Knockapi
       def list_preferences(user_id, params = {})
         @client.request(
           method: :get,
-          path: ["v1/users/%0s/preferences", user_id],
+          path: ["v1/users/%1$s/preferences", user_id],
           model: Knockapi::ArrayOf[Knockapi::Models::Recipients::PreferenceSet],
           options: params[:request_options]
         )
@@ -228,7 +228,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserListSchedulesParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/users/%0s/schedules", user_id],
+          path: ["v1/users/%1$s/schedules", user_id],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::Schedule,
@@ -255,7 +255,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserListSubscriptionsParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["v1/users/%0s/subscriptions", user_id],
+          path: ["v1/users/%1$s/subscriptions", user_id],
           query: parsed,
           page: Knockapi::EntriesCursor,
           model: Knockapi::Models::Recipients::Subscription,
@@ -279,7 +279,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserMergeParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["v1/users/%0s/merge", user_id],
+          path: ["v1/users/%1$s/merge", user_id],
           body: parsed,
           model: Knockapi::Models::User,
           options: options
@@ -303,7 +303,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserSetChannelDataParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/users/%0s/channel_data/%1s", user_id, channel_id],
+          path: ["v1/users/%1$s/channel_data/%2$s", user_id, channel_id],
           body: parsed,
           model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: options
@@ -334,7 +334,7 @@ module Knockapi
         parsed, options = Knockapi::Models::UserSetPreferencesParams.dump_request(params)
         @client.request(
           method: :put,
-          path: ["v1/users/%0s/preferences/%1s", user_id, preference_set_id],
+          path: ["v1/users/%1$s/preferences/%2$s", user_id, preference_set_id],
           body: parsed,
           model: Knockapi::Models::Recipients::PreferenceSet,
           options: options
@@ -355,7 +355,7 @@ module Knockapi
       def unset_channel_data(user_id, channel_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/users/%0s/channel_data/%1s", user_id, channel_id],
+          path: ["v1/users/%1$s/channel_data/%2$s", user_id, channel_id],
           model: String,
           options: params[:request_options]
         )

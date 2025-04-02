@@ -19,7 +19,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Objects::BulkDeleteParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["v1/objects/%0s/bulk/delete", collection],
+            path: ["v1/objects/%1$s/bulk/delete", collection],
             query: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options
@@ -42,7 +42,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Objects::BulkAddSubscriptionsParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["v1/objects/%0s/bulk/subscriptions/add", collection],
+            path: ["v1/objects/%1$s/bulk/subscriptions/add", collection],
             body: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options
@@ -64,7 +64,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Objects::BulkSetParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["v1/objects/%0s/bulk/set", collection],
+            path: ["v1/objects/%1$s/bulk/set", collection],
             body: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options

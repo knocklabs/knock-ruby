@@ -42,7 +42,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Channels::BulkUpdateMessageStatusParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["v1/channels/%0s/messages/bulk/%1s", channel_id, action],
+            path: ["v1/channels/%1$s/messages/bulk/%2$s", channel_id, action],
             body: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options

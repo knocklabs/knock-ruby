@@ -20,7 +20,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Providers::MsTeamCheckAuthParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["v1/providers/ms-teams/%0s/auth_check", channel_id],
+            path: ["v1/providers/ms-teams/%1$s/auth_check", channel_id],
             query: parsed,
             model: Knockapi::Models::Providers::MsTeamCheckAuthResponse,
             options: options
@@ -47,7 +47,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Providers::MsTeamListChannelsParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["v1/providers/ms-teams/%0s/channels", channel_id],
+            path: ["v1/providers/ms-teams/%1$s/channels", channel_id],
             query: parsed,
             model: Knockapi::Models::Providers::MsTeamListChannelsResponse,
             options: options
@@ -72,7 +72,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Providers::MsTeamListTeamsParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["v1/providers/ms-teams/%0s/teams", channel_id],
+            path: ["v1/providers/ms-teams/%1$s/teams", channel_id],
             query: parsed,
             model: Knockapi::Models::Providers::MsTeamListTeamsResponse,
             options: options
@@ -94,7 +94,7 @@ module Knockapi
           parsed, options = Knockapi::Models::Providers::MsTeamRevokeAccessParams.dump_request(params)
           @client.request(
             method: :put,
-            path: ["v1/providers/ms-teams/%0s/revoke_access", channel_id],
+            path: ["v1/providers/ms-teams/%1$s/revoke_access", channel_id],
             query: parsed,
             model: String,
             options: options

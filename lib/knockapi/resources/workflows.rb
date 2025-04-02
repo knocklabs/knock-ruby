@@ -26,7 +26,7 @@ module Knockapi
         parsed, options = Knockapi::Models::WorkflowCancelParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["v1/workflows/%0s/cancel", key],
+          path: ["v1/workflows/%1$s/cancel", key],
           body: parsed,
           model: String,
           options: options
@@ -63,7 +63,7 @@ module Knockapi
         parsed, options = Knockapi::Models::WorkflowTriggerParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["v1/workflows/%0s/trigger", key],
+          path: ["v1/workflows/%1$s/trigger", key],
           body: parsed,
           model: Knockapi::Models::WorkflowTriggerResponse,
           options: options
