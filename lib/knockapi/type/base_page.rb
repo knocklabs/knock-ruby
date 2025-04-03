@@ -29,7 +29,7 @@ module Knockapi
       # @return [Boolean]
       def next_page? = (raise NotImplementedError)
 
-      # @raise [Knockapi::APIError]
+      # @raise [Knockapi::Errors::APIError]
       # @return [Knockapi::Type::BasePage]
       def next_page = (raise NotImplementedError)
 

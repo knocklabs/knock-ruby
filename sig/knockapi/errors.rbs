@@ -1,99 +1,129 @@
 module Knockapi
-  class Error < StandardError
-    attr_accessor cause: StandardError?
+  module Errors
+    class Error < StandardError
+      attr_accessor cause: StandardError?
+    end
+
+    class ConversionError < Knockapi::Errors::Error
+    end
+
+    class APIError < Knockapi::Errors::Error
+      attr_accessor url: URI::Generic
+
+      attr_accessor status: Integer?
+
+      attr_accessor body: top?
+
+      def initialize: (
+        url: URI::Generic,
+        ?status: Integer?,
+        ?body: Object?,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIConnectionError < Knockapi::Errors::APIError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APITimeoutError < Knockapi::Errors::APIConnectionError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIStatusError < Knockapi::Errors::APIError
+      def self.for: (
+        url: URI::Generic,
+        status: Integer,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> instance
+
+      def initialize: (
+        url: URI::Generic,
+        status: Integer,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class BadRequestError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: 400
+    end
+
+    class AuthenticationError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: 401
+    end
+
+    class PermissionDeniedError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: 403
+    end
+
+    class NotFoundError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: 404
+    end
+
+    class ConflictError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: 409
+    end
+
+    class UnprocessableEntityError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: 422
+    end
+
+    class RateLimitError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: 429
+    end
+
+    class InternalServerError < Knockapi::Errors::APIStatusError
+      HTTP_STATUS: Range[Integer]
+    end
   end
 
-  class ConversionError < Knockapi::Error
-  end
+  class Error = Knockapi::Errors::Error
 
-  class APIError < Knockapi::Error
-    attr_accessor url: URI::Generic
+  class ConversionError = Knockapi::Errors::ConversionError
 
-    attr_accessor status: Integer?
+  class APIError = Knockapi::Errors::APIError
 
-    attr_accessor body: top?
+  class APIStatusError = Knockapi::Errors::APIStatusError
 
-    def initialize: (
-      url: URI::Generic,
-      ?status: Integer?,
-      ?body: Object?,
-      ?request: nil,
-      ?response: nil,
-      ?message: String?
-    ) -> void
-  end
+  class APIConnectionError = Knockapi::Errors::APIConnectionError
 
-  class APIConnectionError < Knockapi::APIError
-    def initialize: (
-      url: URI::Generic,
-      ?status: nil,
-      ?body: nil,
-      ?request: nil,
-      ?response: nil,
-      ?message: String?
-    ) -> void
-  end
+  class APITimeoutError = Knockapi::Errors::APITimeoutError
 
-  class APITimeoutError < Knockapi::APIConnectionError
-    def initialize: (
-      url: URI::Generic,
-      ?status: nil,
-      ?body: nil,
-      ?request: nil,
-      ?response: nil,
-      ?message: String?
-    ) -> void
-  end
+  class BadRequestError = Knockapi::Errors::BadRequestError
 
-  class APIStatusError < Knockapi::APIError
-    def self.for: (
-      url: URI::Generic,
-      status: Integer,
-      body: Object?,
-      request: nil,
-      response: nil,
-      ?message: String?
-    ) -> instance
+  class AuthenticationError = Knockapi::Errors::AuthenticationError
 
-    def initialize: (
-      url: URI::Generic,
-      status: Integer,
-      body: Object?,
-      request: nil,
-      response: nil,
-      ?message: String?
-    ) -> void
-  end
+  class PermissionDeniedError = Knockapi::Errors::PermissionDeniedError
 
-  class BadRequestError < Knockapi::APIStatusError
-    HTTP_STATUS: 400
-  end
+  class NotFoundError = Knockapi::Errors::NotFoundError
 
-  class AuthenticationError < Knockapi::APIStatusError
-    HTTP_STATUS: 401
-  end
+  class ConflictError = Knockapi::Errors::ConflictError
 
-  class PermissionDeniedError < Knockapi::APIStatusError
-    HTTP_STATUS: 403
-  end
+  class UnprocessableEntityError = Knockapi::Errors::UnprocessableEntityError
 
-  class NotFoundError < Knockapi::APIStatusError
-    HTTP_STATUS: 404
-  end
+  class RateLimitError = Knockapi::Errors::RateLimitError
 
-  class ConflictError < Knockapi::APIStatusError
-    HTTP_STATUS: 409
-  end
-
-  class UnprocessableEntityError < Knockapi::APIStatusError
-    HTTP_STATUS: 422
-  end
-
-  class RateLimitError < Knockapi::APIStatusError
-    HTTP_STATUS: 429
-  end
-
-  class InternalServerError < Knockapi::APIStatusError
-    HTTP_STATUS: Range[Integer]
-  end
+  class InternalServerError = Knockapi::Errors::InternalServerError
 end

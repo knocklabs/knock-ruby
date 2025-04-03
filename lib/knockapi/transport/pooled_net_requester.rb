@@ -153,7 +153,7 @@ module Knockapi
             end
           end
         rescue Timeout::Error
-          raise Knockapi::APITimeoutError
+          raise Knockapi::Errors::APITimeoutError
         end
 
         conn, _, response = enum.next

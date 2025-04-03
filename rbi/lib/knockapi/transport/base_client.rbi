@@ -82,9 +82,10 @@ module Knockapi
         # @api private
         sig do
           params(
-            status: T.any(Integer, Knockapi::APIConnectionError),
+            status: T.any(Integer, Knockapi::Errors::APIConnectionError),
             stream: T.nilable(T::Enumerable[String])
-          ).void
+          )
+            .void
         end
         def reap_connection!(status, stream:)
         end

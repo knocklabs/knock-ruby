@@ -188,7 +188,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::APIConnectionError) do
+    assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {}})
     end
 
@@ -206,7 +206,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(303, {"location" => "/redirected"}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::APIConnectionError) do
+    assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {}})
     end
 
@@ -221,7 +221,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::APIConnectionError) do
+    assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {"Authorization" => "Bearer xyz"}})
     end
 
@@ -236,7 +236,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "https://example.com/redirected"}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::APIConnectionError) do
+    assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {"Authorization" => "Bearer xyz"}})
     end
 
