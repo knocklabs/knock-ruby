@@ -6,11 +6,11 @@ module Knockapi
           preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
           user_ids: ::Array[String]
         }
-        & Knockapi::request_parameters
+        & Knockapi::Internal::Type::request_parameters
 
       class BulkSetPreferencesParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         attr_accessor preferences: Knockapi::Models::Recipients::PreferenceSetRequest
 

@@ -4,8 +4,8 @@ module Knockapi
   module Models
     module Objects
       class BulkDeleteParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # The IDs of the objects to delete
         sig { returns(T::Array[String]) }
@@ -14,7 +14,7 @@ module Knockapi
         sig do
           params(
             object_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Messages#mark_as_interacted
     class MessageMarkAsInteractedParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute [r] metadata
       #   Metadata about the interaction

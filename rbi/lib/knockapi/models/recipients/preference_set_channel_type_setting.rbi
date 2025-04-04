@@ -10,7 +10,7 @@ module Knockapi
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         sig do
-          params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Util::AnyHash)])
+          params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::Util::AnyHash)])
             .returns(T.attached_class)
         end
         def self.new(conditions:)

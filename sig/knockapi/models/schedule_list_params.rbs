@@ -9,11 +9,11 @@ module Knockapi
         recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
         tenant: String
       }
-      & Knockapi::request_parameters
+      & Knockapi::Internal::Type::request_parameters
 
     class ScheduleListParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_accessor workflow: String
 

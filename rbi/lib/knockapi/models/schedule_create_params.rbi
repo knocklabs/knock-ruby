@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class ScheduleCreateParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       sig { returns(T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]) }
       attr_accessor :recipients
@@ -30,14 +30,20 @@ module Knockapi
 
       sig do
         params(
-          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference, Knockapi::Util::AnyHash)],
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)],
+          recipients: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
+            Knockapi::Internal::Util::AnyHash
+          )
+          ],
+          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::Util::AnyHash)],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)),
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

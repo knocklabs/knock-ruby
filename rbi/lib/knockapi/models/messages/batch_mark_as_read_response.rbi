@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     module Messages
-      BatchMarkAsReadResponse = T.let(Knockapi::ArrayOf[Knockapi::Models::Message], Knockapi::Type::Converter)
+      BatchMarkAsReadResponse =
+        T.let(Knockapi::ArrayOf[Knockapi::Models::Message], Knockapi::Internal::Type::Converter)
     end
   end
 end

@@ -4,8 +4,8 @@ module Knockapi
   module Models
     module Messages
       class BatchMarkAsInteractedParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # The message IDs to update
         sig { returns(T::Array[String]) }
@@ -19,7 +19,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Schedules#update
     class ScheduleUpdateParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute schedule_ids
       #

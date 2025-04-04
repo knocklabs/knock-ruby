@@ -8,11 +8,11 @@ module Knockapi
         recipients: ::Array[Knockapi::Models::recipient_request],
         tenant: Knockapi::Models::inline_tenant_request?
       }
-      & Knockapi::request_parameters
+      & Knockapi::Internal::Type::request_parameters
 
     class WorkflowTriggerParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_accessor actor: Knockapi::Models::recipient_request?
 

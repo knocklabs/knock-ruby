@@ -4,8 +4,8 @@ module Knockapi
   module Models
     module Providers
       class MsTeamRevokeAccessParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # A JSON encoded string containing the Microsoft Teams tenant object reference
         sig { returns(String) }
@@ -14,7 +14,7 @@ module Knockapi
         sig do
           params(
             ms_teams_tenant_object: String,
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

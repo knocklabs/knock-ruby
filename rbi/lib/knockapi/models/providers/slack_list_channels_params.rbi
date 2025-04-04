@@ -4,8 +4,8 @@ module Knockapi
   module Models
     module Providers
       class SlackListChannelsParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # A JSON encoded string containing the access token object reference
         sig { returns(String) }
@@ -16,7 +16,10 @@ module Knockapi
 
         sig do
           params(
-            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash)
+            query_options: T.any(
+              Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .void
         end
@@ -25,8 +28,11 @@ module Knockapi
         sig do
           params(
             access_token_object: String,
-            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash),
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+            query_options: T.any(
+              Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+              Knockapi::Internal::Util::AnyHash
+            ),
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

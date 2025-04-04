@@ -29,7 +29,7 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
     response = @knock.providers.slack.list_channels("channel_id", access_token_object: "access_token_object")
 
     assert_pattern do
-      response => Knockapi::SlackChannelsCursor
+      response => Knockapi::Internal::SlackChannelsCursor
     end
 
     row = response.to_enum.first

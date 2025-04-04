@@ -11,7 +11,11 @@ module Knockapi
 
         sig do
           params(
-            chat: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            chat: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .void
         end
@@ -24,7 +28,11 @@ module Knockapi
 
         sig do
           params(
-            email: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            email: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .void
         end
@@ -37,7 +45,11 @@ module Knockapi
 
         sig do
           params(
-            http: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            http: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .void
         end
@@ -50,7 +62,11 @@ module Knockapi
 
         sig do
           params(
-            in_app_feed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            in_app_feed: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .void
         end
@@ -63,7 +79,11 @@ module Knockapi
 
         sig do
           params(
-            push: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            push: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .void
         end
@@ -76,7 +96,11 @@ module Knockapi
 
         sig do
           params(
-            sms: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            sms: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .void
         end
@@ -85,12 +109,36 @@ module Knockapi
         # Channel type preferences
         sig do
           params(
-            chat: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash),
-            email: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash),
-            http: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash),
-            in_app_feed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash),
-            push: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash),
-            sms: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, Knockapi::Util::AnyHash)
+            chat: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            ),
+            email: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            ),
+            http: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            ),
+            in_app_feed: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            ),
+            push: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            ),
+            sms: T.any(
+              T::Boolean,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Internal::Util::AnyHash
+            )
           )
             .returns(T.attached_class)
         end

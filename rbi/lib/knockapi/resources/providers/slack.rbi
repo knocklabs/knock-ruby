@@ -9,7 +9,7 @@ module Knockapi
           params(
             channel_id: String,
             access_token_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(Knockapi::Models::Providers::SlackCheckAuthResponse)
         end
@@ -27,10 +27,13 @@ module Knockapi
           params(
             channel_id: String,
             access_token_object: String,
-            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Util::AnyHash),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            query_options: T.any(
+              Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+              Knockapi::Internal::Util::AnyHash
+            ),
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
-            .returns(Knockapi::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])
+            .returns(Knockapi::Internal::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])
         end
         def list_channels(
           # The ID of the Knock Slack channel to get channels for
@@ -47,7 +50,7 @@ module Knockapi
           params(
             channel_id: String,
             access_token_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(String)
         end

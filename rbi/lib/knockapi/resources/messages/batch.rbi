@@ -8,7 +8,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Message])
         end
@@ -23,7 +23,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem])
         end
@@ -39,7 +39,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Message])
         end
@@ -56,7 +56,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Message])
         end
@@ -71,7 +71,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Message])
         end
@@ -86,7 +86,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Message])
         end
@@ -101,7 +101,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Message])
         end
@@ -116,7 +116,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Message])
         end

@@ -1,0 +1,19 @@
+module Knockapi
+  class Unknown = Knockapi::Internal::Type::Unknown
+
+  class BooleanModel = Knockapi::Internal::Type::BooleanModel
+
+  module Enum = Knockapi::Internal::Type::Enum
+
+  module Union = Knockapi::Internal::Type::Union
+
+  class ArrayOf = Knockapi::Internal::Type::ArrayOf
+
+  class HashOf = Knockapi::Internal::Type::HashOf
+
+  class BaseModel = Knockapi::Internal::Type::BaseModel
+
+  type request_parameters = Knockapi::Internal::Type::request_parameters
+
+  module RequestParameters = Knockapi::Internal::Type::RequestParameters
+end

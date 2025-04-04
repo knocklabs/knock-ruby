@@ -15,7 +15,7 @@ module Knockapi
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::Tenant>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Tenant>]
       #
       # @see Knockapi::Models::TenantListParams
       def list(params = {})
@@ -24,7 +24,7 @@ module Knockapi
           method: :get,
           path: "v1/tenants",
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::Tenant,
           options: options
         )

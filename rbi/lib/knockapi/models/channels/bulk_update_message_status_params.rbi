@@ -4,8 +4,8 @@ module Knockapi
   module Models
     module Channels
       class BulkUpdateMessageStatusParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)) }
         attr_reader :archived
@@ -89,7 +89,7 @@ module Knockapi
             tenants: T::Array[String],
             trigger_data: String,
             workflows: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

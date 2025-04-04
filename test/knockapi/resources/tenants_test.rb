@@ -11,7 +11,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     response = @knock.tenants.list
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first

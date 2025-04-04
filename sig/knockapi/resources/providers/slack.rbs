@@ -13,7 +13,7 @@ module Knockapi
           access_token_object: String,
           ?query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse]
+        ) -> Knockapi::Internal::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse]
 
         def revoke_access: (
           String channel_id,

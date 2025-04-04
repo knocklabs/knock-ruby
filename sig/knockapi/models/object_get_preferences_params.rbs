@@ -1,11 +1,11 @@
 module Knockapi
   module Models
     type object_get_preferences_params =
-      { tenant: String } & Knockapi::request_parameters
+      { tenant: String } & Knockapi::Internal::Type::request_parameters
 
     class ObjectGetPreferencesParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_reader tenant: String?
 

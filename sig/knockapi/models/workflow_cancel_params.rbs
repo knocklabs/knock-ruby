@@ -6,11 +6,11 @@ module Knockapi
         recipients: ::Array[String]?,
         tenant: String?
       }
-      & Knockapi::request_parameters
+      & Knockapi::Internal::Type::request_parameters
 
     class WorkflowCancelParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_accessor cancellation_key: String
 

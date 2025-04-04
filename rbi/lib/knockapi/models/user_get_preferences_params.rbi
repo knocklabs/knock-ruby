@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class UserGetPreferencesParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # Tenant ID
       sig { returns(T.nilable(String)) }
@@ -14,7 +14,10 @@ module Knockapi
       attr_writer :tenant
 
       sig do
-        params(tenant: String, request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+        params(
+          tenant: String,
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+        )
           .returns(T.attached_class)
       end
       def self.new(tenant: nil, request_options: {})

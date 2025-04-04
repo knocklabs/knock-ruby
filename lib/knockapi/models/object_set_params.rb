@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Objects#set
     class ObjectSetParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute channel_data
       #   Allows inline setting channel data for a recipient

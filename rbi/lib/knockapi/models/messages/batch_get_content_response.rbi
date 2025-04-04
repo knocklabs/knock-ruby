@@ -33,7 +33,7 @@ module Knockapi
             _typename: String,
             data: T.any(
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
               Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
@@ -228,7 +228,7 @@ module Knockapi
               params(
                 template: T.any(
                   Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
-                  Knockapi::Util::AnyHash
+                  Knockapi::Internal::Util::AnyHash
                 )
               )
                 .void
@@ -245,7 +245,7 @@ module Knockapi
                 connection: T::Hash[Symbol, T.anything],
                 template: T.any(
                   Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
-                  Knockapi::Util::AnyHash
+                  Knockapi::Internal::Util::AnyHash
                 ),
                 metadata: T.nilable(T::Hash[Symbol, T.anything])
               )
@@ -292,7 +292,7 @@ module Knockapi
                     T::Array[
                     T.any(
                       Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block,
-                      Knockapi::Util::AnyHash
+                      Knockapi::Internal::Util::AnyHash
                     )
                     ]
                   ),
@@ -424,7 +424,7 @@ module Knockapi
                 blocks: T::Array[
                 T.any(
                   Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Util::AnyHash,
+                  Knockapi::Internal::Util::AnyHash,
                   Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
                 )
                 ]
@@ -565,7 +565,7 @@ module Knockapi
                     buttons: T::Array[
                     T.any(
                       Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button,
-                      Knockapi::Util::AnyHash
+                      Knockapi::Internal::Util::AnyHash
                     )
                     ],
                     name: String,
@@ -671,7 +671,7 @@ module Knockapi
       BatchGetContentResponse =
         T.let(
           Knockapi::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem],
-          Knockapi::Type::Converter
+          Knockapi::Internal::Type::Converter
         )
     end
   end

@@ -6,8 +6,8 @@ module Knockapi
       # @see Knockapi::Resources::Channels::Bulk#update_message_status
       class BulkUpdateMessageStatusParams < Knockapi::BaseModel
         # @!parse
-        #   extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute [r] archived
         #

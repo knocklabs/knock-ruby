@@ -2,11 +2,11 @@ module Knockapi
   module Models
     type user_list_subscriptions_params =
       { after: String, before: String, page_size: Integer }
-      & Knockapi::request_parameters
+      & Knockapi::Internal::Type::request_parameters
 
     class UserListSubscriptionsParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_reader after: String?
 

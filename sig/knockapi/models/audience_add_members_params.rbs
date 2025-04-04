@@ -2,11 +2,11 @@ module Knockapi
   module Models
     type audience_add_members_params =
       { members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member] }
-      & Knockapi::request_parameters
+      & Knockapi::Internal::Type::request_parameters
 
     class AudienceAddMembersParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_accessor members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member]
 

@@ -44,7 +44,9 @@ module Knockapi
       attr_reader :error_items
 
       sig do
-        params(error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)])
+        params(
+          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::Util::AnyHash)]
+        )
           .void
       end
       attr_writer :error_items
@@ -69,7 +71,7 @@ module Knockapi
           updated_at: Time,
           completed_at: T.nilable(Time),
           error_count: Integer,
-          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Util::AnyHash)],
+          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::Util::AnyHash)],
           failed_at: T.nilable(Time),
           started_at: T.nilable(Time)
         )

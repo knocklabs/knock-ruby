@@ -22,7 +22,7 @@ module Knockapi
 
         sig do
           params(
-            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Util::AnyHash))
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::Util::AnyHash))
           )
             .void
         end
@@ -34,11 +34,11 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
             )
             ],
-            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Util::AnyHash))
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::Util::AnyHash))
           )
             .returns(T.attached_class)
         end

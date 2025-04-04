@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Workflows#trigger
     class WorkflowTriggerParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute actor
       #   Specifies a recipient in a request. This can either be a user identifier

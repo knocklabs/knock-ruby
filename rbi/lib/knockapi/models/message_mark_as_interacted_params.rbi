@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class MessageMarkAsInteractedParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # Metadata about the interaction
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
@@ -16,7 +16,7 @@ module Knockapi
       sig do
         params(
           metadata: T::Hash[Symbol, T.anything],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

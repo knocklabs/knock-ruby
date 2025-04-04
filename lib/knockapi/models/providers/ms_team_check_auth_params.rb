@@ -6,8 +6,8 @@ module Knockapi
       # @see Knockapi::Resources::Providers::MsTeams#check_auth
       class MsTeamCheckAuthParams < Knockapi::BaseModel
         # @!parse
-        #   extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute ms_teams_tenant_object
         #   A JSON encoded string containing the Microsoft Teams tenant object reference

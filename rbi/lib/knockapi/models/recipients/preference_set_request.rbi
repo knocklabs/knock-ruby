@@ -27,7 +27,9 @@ module Knockapi
 
         sig do
           params(
-            channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+            channel_types: T.nilable(
+              T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::Util::AnyHash)
+            )
           )
             .void
         end
@@ -59,18 +61,20 @@ module Knockapi
               T.any(
                 T::Boolean,
                 Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Util::AnyHash
+                Knockapi::Internal::Util::AnyHash
               )
               ]
             ),
-            channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash)),
+            channel_types: T.nilable(
+              T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::Util::AnyHash)
+            ),
             workflows: T.nilable(
               T::Hash[
               Symbol,
               T.any(
                 T::Boolean,
                 Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Util::AnyHash
+                Knockapi::Internal::Util::AnyHash
               )
               ]
             )
@@ -120,7 +124,9 @@ module Knockapi
 
             sig do
               params(
-                channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+                channel_types: T.nilable(
+                  T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::Util::AnyHash)
+                )
               )
                 .void
             end
@@ -133,8 +139,10 @@ module Knockapi
             #   types or conditions.
             sig do
               params(
-                channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash)),
-                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Util::AnyHash)])
+                channel_types: T.nilable(
+                  T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::Util::AnyHash)
+                ),
+                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::Util::AnyHash)])
               )
                 .returns(T.attached_class)
             end
@@ -175,7 +183,9 @@ module Knockapi
 
             sig do
               params(
-                channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash))
+                channel_types: T.nilable(
+                  T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::Util::AnyHash)
+                )
               )
                 .void
             end
@@ -188,8 +198,10 @@ module Knockapi
             #   types or conditions.
             sig do
               params(
-                channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Util::AnyHash)),
-                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Util::AnyHash)])
+                channel_types: T.nilable(
+                  T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::Util::AnyHash)
+                ),
+                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::Util::AnyHash)])
               )
                 .returns(T.attached_class)
             end

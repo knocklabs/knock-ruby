@@ -10,11 +10,11 @@ module Knockapi
         scheduled_at: Time?,
         tenant: Knockapi::Models::inline_tenant_request?
       }
-      & Knockapi::request_parameters
+      & Knockapi::Internal::Type::request_parameters
 
     class ScheduleCreateParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_accessor recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient]
 

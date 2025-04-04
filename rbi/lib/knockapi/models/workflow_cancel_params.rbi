@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class WorkflowCancelParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # The cancellation key supplied to the workflow trigger endpoint to use for
       #   cancelling one or more workflow runs.
@@ -24,7 +24,7 @@ module Knockapi
           cancellation_key: String,
           recipients: T.nilable(T::Array[String]),
           tenant: T.nilable(String),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

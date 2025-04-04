@@ -32,7 +32,7 @@ module Knockapi
           _typename: String,
           data: T.any(
             Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
-            Knockapi::Util::AnyHash,
+            Knockapi::Internal::Util::AnyHash,
             Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
             Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
             Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
@@ -227,7 +227,7 @@ module Knockapi
             params(
               template: T.any(
                 Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
-                Knockapi::Util::AnyHash
+                Knockapi::Internal::Util::AnyHash
               )
             )
               .void
@@ -244,7 +244,7 @@ module Knockapi
               connection: T::Hash[Symbol, T.anything],
               template: T.any(
                 Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
-                Knockapi::Util::AnyHash
+                Knockapi::Internal::Util::AnyHash
               ),
               metadata: T.nilable(T::Hash[Symbol, T.anything])
             )
@@ -291,7 +291,7 @@ module Knockapi
                   T::Array[
                   T.any(
                     Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block,
-                    Knockapi::Util::AnyHash
+                    Knockapi::Internal::Util::AnyHash
                   )
                   ]
                 ),
@@ -421,7 +421,7 @@ module Knockapi
               blocks: T::Array[
               T.any(
                 Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                Knockapi::Util::AnyHash,
+                Knockapi::Internal::Util::AnyHash,
                 Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
               )
               ]
@@ -562,7 +562,7 @@ module Knockapi
                   buttons: T::Array[
                   T.any(
                     Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button,
-                    Knockapi::Util::AnyHash
+                    Knockapi::Internal::Util::AnyHash
                   )
                   ],
                   name: String,

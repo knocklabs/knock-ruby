@@ -11,7 +11,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.list
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first
@@ -153,7 +153,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.list_activities("message_id")
 
     assert_pattern do
-      response => Knockapi::ItemsCursor
+      response => Knockapi::Internal::ItemsCursor
     end
 
     row = response.to_enum.first
@@ -184,7 +184,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.list_delivery_logs("message_id")
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first
@@ -215,7 +215,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.list_events("message_id")
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first

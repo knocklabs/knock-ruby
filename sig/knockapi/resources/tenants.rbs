@@ -8,7 +8,7 @@ module Knockapi
         ?before: String,
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::EntriesCursor[Knockapi::Models::Tenant]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Tenant]
 
       def delete: (
         String tenant_id,

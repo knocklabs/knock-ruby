@@ -12,7 +12,7 @@ module Knockapi
           cancellation_key: String,
           recipients: T.nilable(T::Array[String]),
           tenant: T.nilable(String),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(String)
       end
@@ -40,7 +40,7 @@ module Knockapi
             T.any(
               String,
               Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::InlineObjectRequest
             )
           ),
@@ -50,12 +50,12 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Util::AnyHash,
+            Knockapi::Internal::Util::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ],
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)),
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(Knockapi::Models::WorkflowTriggerResponse)
       end

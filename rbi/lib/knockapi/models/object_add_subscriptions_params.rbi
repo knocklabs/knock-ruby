@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class ObjectAddSubscriptionsParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # The recipients to subscribe to the object
       sig do
@@ -24,12 +24,12 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Util::AnyHash,
+            Knockapi::Internal::Util::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

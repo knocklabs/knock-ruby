@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Audiences#remove_members
     class AudienceRemoveMembersParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute members
       #

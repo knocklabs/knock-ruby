@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class UserListSchedulesParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
@@ -48,7 +48,7 @@ module Knockapi
           page_size: Integer,
           tenant: String,
           workflow: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

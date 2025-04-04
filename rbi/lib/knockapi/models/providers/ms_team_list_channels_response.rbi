@@ -10,7 +10,12 @@ module Knockapi
         # The response from a channels for Microsoft Teams provider request
         sig do
           params(
-            ms_teams_channels: T::Array[T.any(Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel, Knockapi::Util::AnyHash)]
+            ms_teams_channels: T::Array[
+            T.any(
+              Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel,
+              Knockapi::Internal::Util::AnyHash
+            )
+            ]
           )
             .returns(T.attached_class)
         end

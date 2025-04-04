@@ -31,7 +31,7 @@ module Knockapi
         ?recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
         ?tenant: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule]
 
       def delete: (
         schedule_ids: ::Array[String],

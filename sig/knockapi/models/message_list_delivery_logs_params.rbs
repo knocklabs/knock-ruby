@@ -2,11 +2,11 @@ module Knockapi
   module Models
     type message_list_delivery_logs_params =
       { after: String, before: String, page_size: Integer }
-      & Knockapi::request_parameters
+      & Knockapi::Internal::Type::request_parameters
 
     class MessageListDeliveryLogsParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       attr_reader after: String?
 

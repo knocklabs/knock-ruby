@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Objects#add_subscriptions
     class ObjectAddSubscriptionsParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute recipients
       #   The recipients to subscribe to the object

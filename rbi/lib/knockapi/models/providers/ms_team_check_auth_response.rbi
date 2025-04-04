@@ -9,7 +9,7 @@ module Knockapi
 
         sig do
           params(
-            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Util::AnyHash)
+            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Internal::Util::AnyHash)
           )
             .void
         end
@@ -18,7 +18,7 @@ module Knockapi
         # The response from a Microsoft Teams auth check request
         sig do
           params(
-            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Util::AnyHash)
+            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

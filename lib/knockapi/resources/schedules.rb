@@ -69,7 +69,7 @@ module Knockapi
       # @param tenant [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Schedule>]
       #
       # @see Knockapi::Models::ScheduleListParams
       def list(params)
@@ -78,7 +78,7 @@ module Knockapi
           method: :get,
           path: "v1/schedules",
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::Schedule,
           options: options
         )

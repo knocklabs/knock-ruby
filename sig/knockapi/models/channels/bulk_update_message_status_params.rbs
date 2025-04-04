@@ -14,11 +14,11 @@ module Knockapi
           trigger_data: String,
           workflows: ::Array[String]
         }
-        & Knockapi::request_parameters
+        & Knockapi::Internal::Type::request_parameters
 
       class BulkUpdateMessageStatusParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         attr_reader archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived?
 

@@ -25,7 +25,7 @@ module Knockapi
       # @param workflow_run_id [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
       #
       # @see Knockapi::Models::MessageListParams
       def list(params = {})
@@ -34,7 +34,7 @@ module Knockapi
           method: :get,
           path: "v1/messages",
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::Message,
           options: options
         )
@@ -109,7 +109,7 @@ module Knockapi
       # @param trigger_data [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::ItemsCursor<Knockapi::Models::Activity>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Activity>]
       #
       # @see Knockapi::Models::MessageListActivitiesParams
       def list_activities(message_id, params = {})
@@ -118,7 +118,7 @@ module Knockapi
           method: :get,
           path: ["v1/messages/%1$s/activities", message_id],
           query: parsed,
-          page: Knockapi::ItemsCursor,
+          page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Models::Activity,
           options: options
         )
@@ -134,7 +134,7 @@ module Knockapi
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::MessageDeliveryLog>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::MessageDeliveryLog>]
       #
       # @see Knockapi::Models::MessageListDeliveryLogsParams
       def list_delivery_logs(message_id, params = {})
@@ -143,7 +143,7 @@ module Knockapi
           method: :get,
           path: ["v1/messages/%1$s/delivery_logs", message_id],
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::MessageDeliveryLog,
           options: options
         )
@@ -159,7 +159,7 @@ module Knockapi
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::MessageEvent>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::MessageEvent>]
       #
       # @see Knockapi::Models::MessageListEventsParams
       def list_events(message_id, params = {})
@@ -168,7 +168,7 @@ module Knockapi
           method: :get,
           path: ["v1/messages/%1$s/events", message_id],
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::MessageEvent,
           options: options
         )

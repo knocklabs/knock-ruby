@@ -11,7 +11,9 @@ module Knockapi
       attr_reader :page_info
 
       sig do
-        params(page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash))
+        params(
+          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Internal::Util::AnyHash)
+        )
           .void
       end
       attr_writer :page_info
@@ -19,8 +21,8 @@ module Knockapi
       # A response containing a list of audience members
       sig do
         params(
-          entries: T::Array[T.any(Knockapi::Models::AudienceMember, Knockapi::Util::AnyHash)],
-          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Util::AnyHash)
+          entries: T::Array[T.any(Knockapi::Models::AudienceMember, Knockapi::Internal::Util::AnyHash)],
+          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

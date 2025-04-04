@@ -6,14 +6,20 @@ module Knockapi
       # Create schedules
       sig do
         params(
-          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference, Knockapi::Util::AnyHash)],
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)],
+          recipients: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
+            Knockapi::Internal::Util::AnyHash
+          )
+          ],
+          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::Util::AnyHash)],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)),
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end
@@ -38,16 +44,16 @@ module Knockapi
             T.any(
               String,
               Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::InlineObjectRequest
             )
           ),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)],
+          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::Util::AnyHash)],
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)),
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end
@@ -74,11 +80,17 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference, Knockapi::Util::AnyHash)],
+          recipients: T::Array[
+          T.any(
+            String,
+            Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
+            Knockapi::Internal::Util::AnyHash
+          )
+          ],
           tenant: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
-          .returns(Knockapi::EntriesCursor[Knockapi::Models::Schedule])
+          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
       end
       def list(
         # Filter by workflow
@@ -101,7 +113,7 @@ module Knockapi
       sig do
         params(
           schedule_ids: T::Array[String],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end

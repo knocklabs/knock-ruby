@@ -42,7 +42,7 @@ module Knockapi
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::User>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::User>]
       #
       # @see Knockapi::Models::UserListParams
       def list(params = {})
@@ -51,7 +51,7 @@ module Knockapi
           method: :get,
           path: "v1/users",
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::User,
           options: options
         )
@@ -158,7 +158,7 @@ module Knockapi
       # @param workflow_run_id [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::Message>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
       #
       # @see Knockapi::Models::UserListMessagesParams
       def list_messages(user_id, params = {})
@@ -167,7 +167,7 @@ module Knockapi
           method: :get,
           path: ["v1/users/%1$s/messages", user_id],
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::Message,
           options: options
         )
@@ -204,7 +204,7 @@ module Knockapi
       # @param workflow [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::Schedule>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Schedule>]
       #
       # @see Knockapi::Models::UserListSchedulesParams
       def list_schedules(user_id, params = {})
@@ -213,7 +213,7 @@ module Knockapi
           method: :get,
           path: ["v1/users/%1$s/schedules", user_id],
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::Schedule,
           options: options
         )
@@ -229,7 +229,7 @@ module Knockapi
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
       #
       # @see Knockapi::Models::UserListSubscriptionsParams
       def list_subscriptions(user_id, params = {})
@@ -238,7 +238,7 @@ module Knockapi
           method: :get,
           path: ["v1/users/%1$s/subscriptions", user_id],
           query: parsed,
-          page: Knockapi::EntriesCursor,
+          page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::Recipients::Subscription,
           options: options
         )

@@ -3,6 +3,6 @@
 module Knockapi
   module Models
     UserListPreferencesResponse =
-      T.let(Knockapi::ArrayOf[Knockapi::Models::Recipients::PreferenceSet], Knockapi::Type::Converter)
+      T.let(Knockapi::ArrayOf[Knockapi::Models::Recipients::PreferenceSet], Knockapi::Internal::Type::Converter)
   end
 end

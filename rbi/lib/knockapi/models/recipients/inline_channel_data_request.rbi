@@ -4,7 +4,10 @@ module Knockapi
   module Models
     module Recipients
       InlineChannelDataRequest =
-        T.let(Knockapi::HashOf[Knockapi::Models::Recipients::ChannelDataRequest], Knockapi::Type::Converter)
+        T.let(
+          Knockapi::HashOf[Knockapi::Models::Recipients::ChannelDataRequest],
+          Knockapi::Internal::Type::Converter
+        )
     end
   end
 end

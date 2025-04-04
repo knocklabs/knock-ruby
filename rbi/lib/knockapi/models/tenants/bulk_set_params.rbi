@@ -4,16 +4,16 @@ module Knockapi
   module Models
     module Tenants
       class BulkSetParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         sig { returns(T::Array[T.any(String, Knockapi::Models::TenantRequest)]) }
         attr_accessor :tenants
 
         sig do
           params(
-            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)],
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

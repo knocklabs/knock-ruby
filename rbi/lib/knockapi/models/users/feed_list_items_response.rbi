@@ -37,7 +37,12 @@ module Knockapi
         sig { returns(Knockapi::Models::Users::FeedListItemsResponse::Source) }
         attr_reader :source
 
-        sig { params(source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash)).void }
+        sig do
+          params(
+            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::Util::AnyHash)
+          )
+            .void
+        end
         attr_writer :source
 
         sig { returns(T.nilable(String)) }
@@ -75,18 +80,18 @@ module Knockapi
           params(
             id: String,
             _typename: String,
-            activities: T::Array[T.any(Knockapi::Models::Activity, Knockapi::Util::AnyHash)],
-            actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object)],
+            activities: T::Array[T.any(Knockapi::Models::Activity, Knockapi::Internal::Util::AnyHash)],
+            actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object)],
             blocks: T::Array[
             T.any(
               Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
             )
             ],
             data: T.nilable(T::Hash[Symbol, T.anything]),
             inserted_at: String,
-            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Util::AnyHash),
+            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::Util::AnyHash),
             tenant: T.nilable(String),
             total_activities: Integer,
             total_actors: Integer,
@@ -263,7 +268,7 @@ module Knockapi
                 buttons: T::Array[
                 T.any(
                   Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
-                  Knockapi::Util::AnyHash
+                  Knockapi::Internal::Util::AnyHash
                 )
                 ],
                 name: String,

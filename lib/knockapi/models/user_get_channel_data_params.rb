@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Users#get_channel_data
     class UserGetChannelDataParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!parse
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]

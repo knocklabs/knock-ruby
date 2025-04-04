@@ -3,11 +3,11 @@ module Knockapi
     module Objects
       type bulk_set_params =
         { objects: ::Array[Knockapi::Models::InlineObjectRequest] }
-        & Knockapi::request_parameters
+        & Knockapi::Internal::Type::request_parameters
 
       class BulkSetParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         attr_accessor objects: ::Array[Knockapi::Models::InlineObjectRequest]
 

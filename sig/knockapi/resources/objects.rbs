@@ -9,7 +9,7 @@ module Knockapi
         ?before: String,
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::EntriesCursor[Knockapi::Models::Object]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Object]
 
       def delete: (
         String collection,
@@ -70,7 +70,7 @@ module Knockapi
         ?workflow_recipient_run_id: String,
         ?workflow_run_id: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::EntriesCursor[Knockapi::Models::Message]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Message]
 
       def list_schedules: (
         String collection,
@@ -81,7 +81,7 @@ module Knockapi
         ?tenant: String,
         ?workflow: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::EntriesCursor[Knockapi::Models::Schedule]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule]
 
       def list_subscriptions: (
         String collection,
@@ -93,7 +93,7 @@ module Knockapi
         ?page_size: Integer,
         ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::EntriesCursor[Knockapi::Models::Recipients::Subscription]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription]
 
       def set: (
         String collection,

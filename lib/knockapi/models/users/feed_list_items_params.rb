@@ -6,8 +6,8 @@ module Knockapi
       # @see Knockapi::Resources::Users::Feeds#list_items
       class FeedListItemsParams < Knockapi::BaseModel
         # @!parse
-        #   extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute [r] after
         #   The cursor to fetch entries after

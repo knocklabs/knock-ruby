@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Messages#list_delivery_logs
     class MessageListDeliveryLogsParams < Knockapi::BaseModel
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute [r] after
       #   The cursor to fetch entries after

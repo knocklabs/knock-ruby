@@ -2,11 +2,12 @@ module Knockapi
   module Models
     module Messages
       type batch_mark_as_read_params =
-        { message_ids: ::Array[String] } & Knockapi::request_parameters
+        { message_ids: ::Array[String] }
+        & Knockapi::Internal::Type::request_parameters
 
       class BatchMarkAsReadParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         attr_accessor message_ids: ::Array[String]
 

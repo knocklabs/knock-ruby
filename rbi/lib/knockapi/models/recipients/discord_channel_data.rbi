@@ -22,7 +22,7 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
             )
             ]
@@ -80,7 +80,7 @@ module Knockapi
               params(
                 incoming_webhook: T.any(
                   Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Util::AnyHash
+                  Knockapi::Internal::Util::AnyHash
                 )
               )
                 .void
@@ -92,7 +92,7 @@ module Knockapi
               params(
                 incoming_webhook: T.any(
                   Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Util::AnyHash
+                  Knockapi::Internal::Util::AnyHash
                 )
               )
                 .returns(T.attached_class)

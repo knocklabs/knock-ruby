@@ -7,12 +7,7 @@ module Knockapi
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              Knockapi::RequestOptions,
-              Knockapi::Util::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(Knockapi::Models::BulkOperation)
       end

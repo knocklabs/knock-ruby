@@ -29,7 +29,7 @@ class Knockapi::Test::Resources::Users::FeedsTest < Knockapi::Test::ResourceTest
     response = @knock.users.feeds.list_items("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first

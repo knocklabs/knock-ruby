@@ -14,7 +14,7 @@ module Knockapi
         sig { returns(Knockapi::Models::Object) }
         attr_reader :object
 
-        sig { params(object: T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash)).void }
+        sig { params(object: T.any(Knockapi::Models::Object, Knockapi::Internal::Util::AnyHash)).void }
         attr_writer :object
 
         # A recipient, which is either a user or an object
@@ -33,8 +33,8 @@ module Knockapi
           params(
             _typename: String,
             inserted_at: Time,
-            object: T.any(Knockapi::Models::Object, Knockapi::Util::AnyHash),
-            recipient: T.any(Knockapi::Models::User, Knockapi::Util::AnyHash, Knockapi::Models::Object),
+            object: T.any(Knockapi::Models::Object, Knockapi::Internal::Util::AnyHash),
+            recipient: T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object),
             updated_at: Time,
             properties: T.nilable(T::Hash[Symbol, T.anything])
           )

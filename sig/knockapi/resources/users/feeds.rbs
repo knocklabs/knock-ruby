@@ -22,7 +22,7 @@ module Knockapi
           ?trigger_data: String,
           ?workflow_categories: ::Array[String],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse]
+        ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse]
 
         def initialize: (client: Knockapi::Client) -> void
       end

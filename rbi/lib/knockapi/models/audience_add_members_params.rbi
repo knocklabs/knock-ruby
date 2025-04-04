@@ -3,16 +3,16 @@
 module Knockapi
   module Models
     class AudienceAddMembersParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       sig { returns(T::Array[Knockapi::Models::AudienceAddMembersParams::Member]) }
       attr_accessor :members
 
       sig do
         params(
-          members: T::Array[T.any(Knockapi::Models::AudienceAddMembersParams::Member, Knockapi::Util::AnyHash)],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          members: T::Array[T.any(Knockapi::Models::AudienceAddMembersParams::Member, Knockapi::Internal::Util::AnyHash)],
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -39,7 +39,7 @@ module Knockapi
         sig { returns(Knockapi::Models::InlineIdentifyUserRequest) }
         attr_reader :user
 
-        sig { params(user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash)).void }
+        sig { params(user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::Util::AnyHash)).void }
         attr_writer :user
 
         sig { returns(T.nilable(String)) }
@@ -48,7 +48,7 @@ module Knockapi
         # A request for an individual audience member
         sig do
           params(
-            user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash),
+            user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::Util::AnyHash),
             tenant: T.nilable(String)
           )
             .returns(T.attached_class)

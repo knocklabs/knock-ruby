@@ -5,8 +5,8 @@ module Knockapi
     # @see Knockapi::Resources::Objects#set_channel_data
     class ObjectSetChannelDataParams < Knockapi::Models::Recipients::ChannelDataRequest
       # @!parse
-      #   extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # @!parse
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]

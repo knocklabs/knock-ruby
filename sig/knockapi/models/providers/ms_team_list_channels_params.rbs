@@ -7,11 +7,11 @@ module Knockapi
           team_id: String,
           query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions
         }
-        & Knockapi::request_parameters
+        & Knockapi::Internal::Type::request_parameters
 
       class MsTeamListChannelsParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         attr_accessor ms_teams_tenant_object: String
 

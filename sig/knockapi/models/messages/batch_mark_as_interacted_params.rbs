@@ -3,11 +3,11 @@ module Knockapi
     module Messages
       type batch_mark_as_interacted_params =
         { message_ids: ::Array[String], metadata: ::Hash[Symbol, top]? }
-        & Knockapi::request_parameters
+        & Knockapi::Internal::Type::request_parameters
 
       class BatchMarkAsInteractedParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         attr_accessor message_ids: ::Array[String]
 

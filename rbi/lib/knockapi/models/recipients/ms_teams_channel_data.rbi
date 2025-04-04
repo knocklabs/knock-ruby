@@ -26,7 +26,7 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
             )
             ],
@@ -121,7 +121,7 @@ module Knockapi
               params(
                 incoming_webhook: T.any(
                   Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Util::AnyHash
+                  Knockapi::Internal::Util::AnyHash
                 )
               )
                 .void
@@ -133,7 +133,7 @@ module Knockapi
               params(
                 incoming_webhook: T.any(
                   Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Util::AnyHash
+                  Knockapi::Internal::Util::AnyHash
                 )
               )
                 .returns(T.attached_class)

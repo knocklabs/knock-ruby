@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class WorkflowTriggerParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # Specifies a recipient in a request. This can either be a user identifier
       #   (string), an inline user request (object), or an inline object request, which is
@@ -45,7 +45,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Util::AnyHash,
+            Knockapi::Internal::Util::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ]
@@ -64,7 +64,7 @@ module Knockapi
             T.any(
               String,
               Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::InlineObjectRequest
             )
           ),
@@ -74,12 +74,12 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Util::AnyHash,
+            Knockapi::Internal::Util::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ],
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)),
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

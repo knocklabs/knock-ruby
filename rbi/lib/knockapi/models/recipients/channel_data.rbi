@@ -31,7 +31,7 @@ module Knockapi
             channel_id: String,
             data: T.any(
               Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
               Knockapi::Models::Recipients::DiscordChannelData,

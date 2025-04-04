@@ -40,7 +40,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
     response = @knock.schedules.list(workflow: "workflow")
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first

@@ -12,9 +12,9 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
-          .returns(Knockapi::EntriesCursor[Knockapi::Models::Tenant])
+          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Tenant])
       end
       def list(
         # The cursor to fetch entries after
@@ -31,7 +31,7 @@ module Knockapi
       sig do
         params(
           tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(String)
       end
@@ -46,7 +46,7 @@ module Knockapi
       sig do
         params(
           tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(Knockapi::Models::Tenant)
       end
@@ -62,13 +62,13 @@ module Knockapi
         params(
           tenant_id: String,
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::Util::AnyHash)]
           ),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash)]
           ),
-          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Util::AnyHash),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::Util::AnyHash),
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
         )
           .returns(Knockapi::Models::Tenant)
       end

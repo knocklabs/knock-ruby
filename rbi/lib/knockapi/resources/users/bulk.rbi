@@ -8,7 +8,7 @@ module Knockapi
         sig do
           params(
             user_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -18,8 +18,8 @@ module Knockapi
         # Bulk identifies users
         sig do
           params(
-            users: T::Array[T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Util::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            users: T::Array[T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::Util::AnyHash)],
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -29,9 +29,9 @@ module Knockapi
         # Bulk set preferences
         sig do
           params(
-            preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Util::AnyHash),
+            preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash),
             user_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end

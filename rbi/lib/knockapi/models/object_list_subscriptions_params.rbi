@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class ObjectListSubscriptionsParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       # The cursor to fetch entries after
       sig { returns(T.nilable(String)) }
@@ -43,7 +43,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
-            Knockapi::Util::AnyHash
+            Knockapi::Internal::Util::AnyHash
           )
           ]
         )
@@ -74,7 +74,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
-            Knockapi::Util::AnyHash
+            Knockapi::Internal::Util::AnyHash
           )
           ]
         )
@@ -91,7 +91,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
-            Knockapi::Util::AnyHash
+            Knockapi::Internal::Util::AnyHash
           )
           ],
           page_size: Integer,
@@ -99,10 +99,10 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
-            Knockapi::Util::AnyHash
+            Knockapi::Internal::Util::AnyHash
           )
           ],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

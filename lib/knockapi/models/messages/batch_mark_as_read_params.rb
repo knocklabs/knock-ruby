@@ -6,8 +6,8 @@ module Knockapi
       # @see Knockapi::Resources::Messages::Batch#mark_as_read
       class BatchMarkAsReadParams < Knockapi::BaseModel
         # @!parse
-        #   extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute message_ids
         #

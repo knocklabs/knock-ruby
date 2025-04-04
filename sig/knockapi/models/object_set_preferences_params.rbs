@@ -1,10 +1,11 @@
 module Knockapi
   module Models
-    type object_set_preferences_params = {  } & Knockapi::request_parameters
+    type object_set_preferences_params =
+      {  } & Knockapi::Internal::Type::request_parameters
 
     class ObjectSetPreferencesParams < Knockapi::Models::Recipients::PreferenceSetRequest
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       def initialize: (?request_options: Knockapi::request_opts) -> void
 

@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class ScheduleUpdateParams < Knockapi::BaseModel
-      extend Knockapi::Type::RequestParameters::Converter
-      include Knockapi::RequestParameters
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
 
       sig { returns(T::Array[String]) }
       attr_accessor :schedule_ids
@@ -30,7 +30,10 @@ module Knockapi
       sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule])) }
       attr_reader :repeats
 
-      sig { params(repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)]).void }
+      sig do
+        params(repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::Util::AnyHash)])
+          .void
+      end
       attr_writer :repeats
 
       sig { returns(T.nilable(Time)) }
@@ -47,16 +50,16 @@ module Knockapi
             T.any(
               String,
               Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Util::AnyHash,
+              Knockapi::Internal::Util::AnyHash,
               Knockapi::Models::InlineObjectRequest
             )
           ),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Util::AnyHash)],
+          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::Util::AnyHash)],
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Util::AnyHash)),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)),
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -9,7 +9,7 @@ module Knockapi
 
         sig do
           params(
-            features: T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Util::AnyHash)
+            features: T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Internal::Util::AnyHash)
           )
             .void
         end
@@ -18,7 +18,7 @@ module Knockapi
         # The response for the user's feed settings
         sig do
           params(
-            features: T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Util::AnyHash)
+            features: T.any(Knockapi::Models::Users::FeedGetSettingsResponse::Features, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

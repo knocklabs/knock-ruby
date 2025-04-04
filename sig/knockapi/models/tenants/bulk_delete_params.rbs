@@ -2,11 +2,12 @@ module Knockapi
   module Models
     module Tenants
       type bulk_delete_params =
-        { tenant_ids: ::Array[String] } & Knockapi::request_parameters
+        { tenant_ids: ::Array[String] }
+        & Knockapi::Internal::Type::request_parameters
 
       class BulkDeleteParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         attr_accessor tenant_ids: ::Array[String]
 

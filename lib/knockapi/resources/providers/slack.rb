@@ -35,7 +35,7 @@ module Knockapi
         # @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::SlackChannelsCursor<Knockapi::Models::Providers::SlackListChannelsResponse>]
+        # @return [Knockapi::Internal::SlackChannelsCursor<Knockapi::Models::Providers::SlackListChannelsResponse>]
         #
         # @see Knockapi::Models::Providers::SlackListChannelsParams
         def list_channels(channel_id, params)
@@ -44,7 +44,7 @@ module Knockapi
             method: :get,
             path: ["v1/providers/slack/%1$s/channels", channel_id],
             query: parsed,
-            page: Knockapi::SlackChannelsCursor,
+            page: Knockapi::Internal::SlackChannelsCursor,
             model: Knockapi::Models::Providers::SlackListChannelsResponse,
             options: options
           )

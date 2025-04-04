@@ -37,7 +37,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.list
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first
@@ -150,7 +150,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.list_messages("user_id")
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first
@@ -207,7 +207,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.list_schedules("user_id")
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first
@@ -243,7 +243,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.list_subscriptions("user_id")
 
     assert_pattern do
-      response => Knockapi::EntriesCursor
+      response => Knockapi::Internal::EntriesCursor
     end
 
     row = response.to_enum.first

@@ -4,8 +4,8 @@ module Knockapi
   module Models
     module Messages
       class BatchUnarchiveParams < Knockapi::BaseModel
-        extend Knockapi::Type::RequestParameters::Converter
-        include Knockapi::RequestParameters
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
 
         sig { returns(T::Array[String]) }
         attr_accessor :message_ids
@@ -13,7 +13,7 @@ module Knockapi
         sig do
           params(
             message_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

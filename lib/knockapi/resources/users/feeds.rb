@@ -43,7 +43,7 @@ module Knockapi
         # @param workflow_categories [Array<String>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::EntriesCursor<Knockapi::Models::Users::FeedListItemsResponse>]
+        # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Users::FeedListItemsResponse>]
         #
         # @see Knockapi::Models::Users::FeedListItemsParams
         def list_items(user_id, channel_id, params = {})
@@ -52,7 +52,7 @@ module Knockapi
             method: :get,
             path: ["v1/users/%1$s/feeds/%2$s", user_id, channel_id],
             query: parsed,
-            page: Knockapi::EntriesCursor,
+            page: Knockapi::Internal::EntriesCursor,
             model: Knockapi::Models::Users::FeedListItemsResponse,
             options: options
           )

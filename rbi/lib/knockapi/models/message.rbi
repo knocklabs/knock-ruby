@@ -22,7 +22,7 @@ module Knockapi
 
       sig do
         params(
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)]
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::Util::AnyHash)]
         )
           .void
       end
@@ -84,7 +84,7 @@ module Knockapi
 
       sig do
         params(
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash)
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::Util::AnyHash)
         )
           .void
       end
@@ -102,7 +102,7 @@ module Knockapi
       sig { returns(T.nilable(Knockapi::Models::Message::Source)) }
       attr_reader :source
 
-      sig { params(source: T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash)).void }
+      sig { params(source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::Util::AnyHash)).void }
       attr_writer :source
 
       # Message delivery status
@@ -133,7 +133,7 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Util::AnyHash)],
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::Util::AnyHash)],
           archived_at: T.nilable(Time),
           channel_id: String,
           clicked_at: T.nilable(Time),
@@ -144,10 +144,10 @@ module Knockapi
           link_clicked_at: T.nilable(Time),
           metadata: T.nilable(T::Hash[Symbol, T.anything]),
           read_at: T.nilable(Time),
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Util::AnyHash),
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::Util::AnyHash),
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
-          source: T.any(Knockapi::Models::Message::Source, Knockapi::Util::AnyHash),
+          source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::Util::AnyHash),
           status: Knockapi::Models::Message::Status::OrSymbol,
           tenant: T.nilable(String),
           updated_at: Time,
