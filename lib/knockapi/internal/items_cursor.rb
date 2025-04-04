@@ -2,6 +2,8 @@
 
 module Knockapi
   module Internal
+    # @generic Elem
+    #
     # @example
     #   if items_cursor.has_next?
     #     items_cursor = items_cursor.next_page
@@ -14,7 +16,7 @@ module Knockapi
     class ItemsCursor
       include Knockapi::Internal::Type::BasePage
 
-      # @return [Array<Object>, nil]
+      # @return [Array<generic<Elem>>, nil]
       attr_accessor :items
 
       # @return [PageInfo]
@@ -62,6 +64,8 @@ module Knockapi
       end
 
       # @param blk [Proc]
+      #
+      # @yieldparam [generic<Elem>]
       def auto_paging_each(&blk)
         unless block_given?
           raise ArgumentError.new("A block must be given to ##{__method__}")

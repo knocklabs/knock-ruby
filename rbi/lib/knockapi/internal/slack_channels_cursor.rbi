@@ -3,9 +3,9 @@
 module Knockapi
   module Internal
     class SlackChannelsCursor
-      include Knockapi::Internal::Type::BasePage
-
       Elem = type_member
+
+      include Knockapi::Internal::Type::BasePage
 
       sig { returns(String) }
       attr_accessor :next_cursor

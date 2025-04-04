@@ -2,6 +2,8 @@
 
 module Knockapi
   module Internal
+    # @generic Elem
+    #
     # @example
     #   if slack_channels_cursor.has_next?
     #     slack_channels_cursor = slack_channels_cursor.next_page
@@ -17,7 +19,7 @@ module Knockapi
       # @return [String]
       attr_accessor :next_cursor
 
-      # @return [Array<Object>, nil]
+      # @return [Array<generic<Elem>>, nil]
       attr_accessor :slack_channels
 
       # @api private
@@ -61,6 +63,8 @@ module Knockapi
       end
 
       # @param blk [Proc]
+      #
+      # @yieldparam [generic<Elem>]
       def auto_paging_each(&blk)
         unless block_given?
           raise ArgumentError.new("A block must be given to ##{__method__}")

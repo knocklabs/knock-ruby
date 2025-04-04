@@ -40,7 +40,7 @@ module Knockapi
         sig(:final) do
           override
             .params(value: T.any(
-              T::Enumerable[Elem],
+              T::Array[T.anything],
               T.anything
             ),
                     state: Knockapi::Internal::Type::Converter::State)
@@ -52,7 +52,7 @@ module Knockapi
         # @api private
         sig(:final) do
           override
-            .params(value: T.any(T::Enumerable[Elem], T.anything))
+            .params(value: T.any(T::Array[T.anything], T.anything))
             .returns(T.any(T::Array[T.anything], T.anything))
         end
         def dump(value)
