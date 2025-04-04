@@ -11,18 +11,6 @@ module Knockapi
     #   entries_cursor.auto_paging_each do |user|
     #     puts(user)
     #   end
-    #
-    # @example
-    #   users =
-    #     entries_cursor
-    #     .to_enum
-    #     .lazy
-    #     .select { _1.object_id.even? }
-    #     .map(&:itself)
-    #     .take(2)
-    #     .to_a
-    #
-    #   users => Array
     class EntriesCursor
       include Knockapi::Internal::Type::BasePage
 

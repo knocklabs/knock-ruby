@@ -11,18 +11,6 @@ module Knockapi
     #   slack_channels_cursor.auto_paging_each do |slack|
     #     puts(slack)
     #   end
-    #
-    # @example
-    #   slacks =
-    #     slack_channels_cursor
-    #     .to_enum
-    #     .lazy
-    #     .select { _1.object_id.even? }
-    #     .map(&:itself)
-    #     .take(2)
-    #     .to_a
-    #
-    #   slacks => Array
     class SlackChannelsCursor
       include Knockapi::Internal::Type::BasePage
 

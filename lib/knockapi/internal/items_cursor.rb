@@ -11,18 +11,6 @@ module Knockapi
     #   items_cursor.auto_paging_each do |message|
     #     puts(message)
     #   end
-    #
-    # @example
-    #   messages =
-    #     items_cursor
-    #     .to_enum
-    #     .lazy
-    #     .select { _1.object_id.even? }
-    #     .map(&:itself)
-    #     .take(2)
-    #     .to_a
-    #
-    #   messages => Array
     class ItemsCursor
       include Knockapi::Internal::Type::BasePage
 
