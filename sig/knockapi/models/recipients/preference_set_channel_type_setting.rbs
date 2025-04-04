@@ -4,7 +4,7 @@ module Knockapi
       type preference_set_channel_type_setting =
         { conditions: ::Array[Knockapi::Models::Condition] }
 
-      class PreferenceSetChannelTypeSetting < Knockapi::BaseModel
+      class PreferenceSetChannelTypeSetting < Knockapi::Internal::Type::BaseModel
         attr_accessor conditions: ::Array[Knockapi::Models::Condition]
 
         def initialize: (

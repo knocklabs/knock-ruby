@@ -8,7 +8,7 @@ module Knockapi
       }
       & Knockapi::Internal::Type::request_parameters
 
-    class TenantSetParams < Knockapi::BaseModel
+    class TenantSetParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -37,7 +37,7 @@ module Knockapi
           preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
         }
 
-      class Settings < Knockapi::BaseModel
+      class Settings < Knockapi::Internal::Type::BaseModel
         attr_reader branding: Knockapi::Models::TenantSetParams::Settings::Branding?
 
         def branding=: (
@@ -61,7 +61,7 @@ module Knockapi
             primary_color_contrast: String?
           }
 
-        class Branding < Knockapi::BaseModel
+        class Branding < Knockapi::Internal::Type::BaseModel
           attr_accessor icon_url: String?
 
           attr_accessor logo_url: String?

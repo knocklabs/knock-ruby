@@ -10,7 +10,7 @@ module Knockapi
           name: String
         }
 
-      class SlackListChannelsResponse < Knockapi::BaseModel
+      class SlackListChannelsResponse < Knockapi::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor context_team_id: String

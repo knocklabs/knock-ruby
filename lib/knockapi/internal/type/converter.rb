@@ -31,10 +31,10 @@ module Knockapi
         def dump(value)
           case value
           in Array
-            value.map { Knockapi::Unknown.dump(_1) }
+            value.map { Knockapi::Internal::Type::Unknown.dump(_1) }
           in Hash
-            value.transform_values { Knockapi::Unknown.dump(_1) }
-          in Knockapi::BaseModel
+            value.transform_values { Knockapi::Internal::Type::Unknown.dump(_1) }
+          in Knockapi::Internal::Type::BaseModel
             value.class.dump(value)
           else
             value
@@ -64,7 +64,7 @@ module Knockapi
             in Hash
               type_info(spec.slice(:const, :enum, :union).first&.last)
             in true | false
-              -> { Knockapi::BooleanModel }
+              -> { Knockapi::Internal::Type::BooleanModel }
             in Knockapi::Internal::Type::Converter | Class | Symbol
               -> { spec }
             in NilClass | Integer | Float
@@ -209,7 +209,7 @@ module Knockapi
           #
           # @return [Object]
           def dump(target, value)
-            target.is_a?(Knockapi::Internal::Type::Converter) ? target.dump(value) : Knockapi::Unknown.dump(value)
+            target.is_a?(Knockapi::Internal::Type::Converter) ? target.dump(value) : Knockapi::Internal::Type::Unknown.dump(value)
           end
         end
       end

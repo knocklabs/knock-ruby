@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Schedules#list
-    class ScheduleListParams < Knockapi::BaseModel
+    class ScheduleListParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -48,7 +48,8 @@ module Knockapi
       #   Filter by recipient
       #
       #   @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference>, nil]
-      optional :recipients, -> { Knockapi::ArrayOf[union: Knockapi::Models::ScheduleListParams::Recipient] }
+      optional :recipients,
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ScheduleListParams::Recipient] }
 
       # @!parse
       #   # @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference>]
@@ -75,12 +76,12 @@ module Knockapi
       #   #
       #   def initialize(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         # A user identifier
         variant String
@@ -88,7 +89,7 @@ module Knockapi
         # An object reference to a recipient
         variant -> { Knockapi::Models::ScheduleListParams::Recipient::ObjectReference }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -109,7 +110,7 @@ module Knockapi
           #   #
           #   def initialize(id:, collection:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse

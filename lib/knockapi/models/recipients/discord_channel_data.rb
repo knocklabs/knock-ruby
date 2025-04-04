@@ -3,12 +3,12 @@
 module Knockapi
   module Models
     module Recipients
-      class DiscordChannelData < Knockapi::BaseModel
+      class DiscordChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute connections
         #
         #   @return [Array<Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>]
         required :connections,
-                 -> { Knockapi::ArrayOf[union: Knockapi::Models::Recipients::DiscordChannelData::Connection] }
+                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::DiscordChannelData::Connection] }
 
         # @!parse
         #   # Discord channel data
@@ -17,11 +17,11 @@ module Knockapi
         #   #
         #   def initialize(connections:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # Discord channel connection
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           # Discord channel connection
           variant -> { Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection }
@@ -29,7 +29,7 @@ module Knockapi
           # Discord incoming webhook connection
           variant -> { Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection }
 
-          class DiscordChannelConnection < Knockapi::BaseModel
+          class DiscordChannelConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_id
             #   The Discord channel ID
             #
@@ -43,10 +43,10 @@ module Knockapi
             #   #
             #   def initialize(channel_id:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class DiscordIncomingWebhookConnection < Knockapi::BaseModel
+          class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute incoming_webhook
             #   The incoming webhook
             #
@@ -61,10 +61,10 @@ module Knockapi
             #   #
             #   def initialize(incoming_webhook:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
             # @see Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection#incoming_webhook
-            class IncomingWebhook < Knockapi::BaseModel
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               # @!attribute url
               #   The URL of the incoming webhook
               #
@@ -78,7 +78,7 @@ module Knockapi
               #   #
               #   def initialize(url:, **) = super
 
-              # def initialize: (Hash | Knockapi::BaseModel) -> void
+              # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
             end
           end
 

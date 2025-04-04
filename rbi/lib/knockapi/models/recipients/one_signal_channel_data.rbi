@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class OneSignalChannelData < Knockapi::BaseModel
+      class OneSignalChannelData < Knockapi::Internal::Type::BaseModel
         # The OneSignal player IDs
         sig { returns(T::Array[String]) }
         attr_accessor :player_ids

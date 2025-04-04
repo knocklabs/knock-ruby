@@ -3,7 +3,7 @@ module Knockapi
     type message_mark_as_read_params =
       {  } & Knockapi::Internal::Type::request_parameters
 
-    class MessageMarkAsReadParams < Knockapi::BaseModel
+    class MessageMarkAsReadParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Tenants#list
-    class Tenant < Knockapi::BaseModel
+    class Tenant < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -22,7 +22,7 @@ module Knockapi
       #   #
       #   def initialize(id:, _typename:, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

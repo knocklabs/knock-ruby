@@ -4,12 +4,12 @@ module Knockapi
   module Models
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#list_channels
-      class MsTeamListChannelsResponse < Knockapi::BaseModel
+      class MsTeamListChannelsResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute ms_teams_channels
         #
         #   @return [Array<Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel>]
         required :ms_teams_channels,
-                 -> { Knockapi::ArrayOf[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel] }
+                 -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel] }
 
         # @!parse
         #   # The response from a channels for Microsoft Teams provider request
@@ -18,9 +18,9 @@ module Knockapi
         #   #
         #   def initialize(ms_teams_channels:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-        class MsTeamsChannel < Knockapi::BaseModel
+        class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #
           #   @return [String]
@@ -48,7 +48,7 @@ module Knockapi
           # @!attribute [r] is_archived
           #
           #   @return [Boolean, nil]
-          optional :is_archived, Knockapi::BooleanModel, api_name: :isArchived
+          optional :is_archived, Knockapi::Internal::Type::BooleanModel, api_name: :isArchived
 
           # @!parse
           #   # @return [Boolean]
@@ -73,7 +73,7 @@ module Knockapi
           #   #
           #   def initialize(id:, display_name:, created_date_time: nil, description: nil, is_archived: nil, membership_type: nil, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

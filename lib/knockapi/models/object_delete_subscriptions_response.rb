@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
-    ObjectDeleteSubscriptionsResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Recipients::Subscription }]
+    ObjectDeleteSubscriptionsResponse =
+      Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Recipients::Subscription }]
   end
 end

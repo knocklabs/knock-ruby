@@ -3,11 +3,11 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Audiences#list_members
-    class AudienceListMembersResponse < Knockapi::BaseModel
+    class AudienceListMembersResponse < Knockapi::Internal::Type::BaseModel
       # @!attribute entries
       #
       #   @return [Array<Knockapi::Models::AudienceMember>]
-      required :entries, -> { Knockapi::ArrayOf[Knockapi::Models::AudienceMember] }
+      required :entries, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::AudienceMember] }
 
       # @!attribute page_info
       #   The information about a paginated result
@@ -23,10 +23,10 @@ module Knockapi
       #   #
       #   def initialize(entries:, page_info:, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # @see Knockapi::Models::AudienceListMembersResponse#page_info
-      class PageInfo < Knockapi::BaseModel
+      class PageInfo < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
         #
         #   @return [String]
@@ -57,7 +57,7 @@ module Knockapi
         #   #
         #   def initialize(_typename:, page_size:, after: nil, before: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

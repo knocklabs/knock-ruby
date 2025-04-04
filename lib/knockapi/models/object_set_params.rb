@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#set
-    class ObjectSetParams < Knockapi::BaseModel
+    class ObjectSetParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -13,7 +13,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
                nil?: true
 
       # @!attribute preferences
@@ -21,7 +21,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
                nil?: true
 
       # @!parse
@@ -31,7 +31,7 @@ module Knockapi
       #   #
       #   def initialize(channel_data: nil, preferences: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

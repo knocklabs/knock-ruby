@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Providers
-      class MsTeamListChannelsParams < Knockapi::BaseModel
+      class MsTeamListChannelsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -20,10 +20,7 @@ module Knockapi
 
         sig do
           params(
-            query_options: T.any(
-              Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-              Knockapi::Internal::Util::AnyHash
-            )
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash)
           )
             .void
         end
@@ -33,11 +30,8 @@ module Knockapi
           params(
             ms_teams_tenant_object: String,
             team_id: String,
-            query_options: T.any(
-              Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-              Knockapi::Internal::Util::AnyHash
-            ),
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -58,7 +52,7 @@ module Knockapi
         def to_hash
         end
 
-        class QueryOptions < Knockapi::BaseModel
+        class QueryOptions < Knockapi::Internal::Type::BaseModel
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to filter channels
           sig { returns(T.nilable(String)) }

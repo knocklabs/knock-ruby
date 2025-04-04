@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Objects
-      class BulkAddSubscriptionsParams < Knockapi::BaseModel
+      class BulkAddSubscriptionsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -12,13 +12,8 @@ module Knockapi
 
         sig do
           params(
-            subscriptions: T::Array[
-            T.any(
-              Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription,
-              Knockapi::Internal::Util::AnyHash
-            )
-            ],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            subscriptions: T::Array[T.any(Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription, Knockapi::Internal::AnyHash)],
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -37,7 +32,7 @@ module Knockapi
         def to_hash
         end
 
-        class Subscription < Knockapi::BaseModel
+        class Subscription < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :id
 
@@ -58,7 +53,7 @@ module Knockapi
               T.any(
                 String,
                 Knockapi::Models::InlineIdentifyUserRequest,
-                Knockapi::Internal::Util::AnyHash,
+                Knockapi::Internal::AnyHash,
                 Knockapi::Models::InlineObjectRequest
               )
               ],

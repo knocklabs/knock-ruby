@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class WorkflowCancelParams < Knockapi::BaseModel
+    class WorkflowCancelParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -24,7 +24,7 @@ module Knockapi
           cancellation_key: String,
           recipients: T.nilable(T::Array[String]),
           tenant: T.nilable(String),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

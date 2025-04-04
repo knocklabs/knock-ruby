@@ -3,13 +3,13 @@
 module Knockapi
   module Models
     module Providers
-      class SlackCheckAuthResponse < Knockapi::BaseModel
+      class SlackCheckAuthResponse < Knockapi::Internal::Type::BaseModel
         sig { returns(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection) }
         attr_reader :connection
 
         sig do
           params(
-            connection: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Internal::Util::AnyHash)
+            connection: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Internal::AnyHash)
           )
             .void
         end
@@ -18,7 +18,7 @@ module Knockapi
         # The response from a Slack auth check request
         sig do
           params(
-            connection: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Internal::Util::AnyHash)
+            connection: T.any(Knockapi::Models::Providers::SlackCheckAuthResponse::Connection, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -29,7 +29,7 @@ module Knockapi
         def to_hash
         end
 
-        class Connection < Knockapi::BaseModel
+        class Connection < Knockapi::Internal::Type::BaseModel
           sig { returns(T::Boolean) }
           attr_accessor :ok
 

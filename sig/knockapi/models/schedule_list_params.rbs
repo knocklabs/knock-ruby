@@ -11,7 +11,7 @@ module Knockapi
       }
       & Knockapi::Internal::Type::request_parameters
 
-    class ScheduleListParams < Knockapi::BaseModel
+    class ScheduleListParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -56,11 +56,11 @@ module Knockapi
         | Knockapi::Models::ScheduleListParams::Recipient::ObjectReference
 
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         type object_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String

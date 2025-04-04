@@ -5,7 +5,7 @@ module Knockapi
         { tenants: ::Array[Knockapi::Models::inline_tenant_request] }
         & Knockapi::Internal::Type::request_parameters
 
-      class BulkSetParams < Knockapi::BaseModel
+      class BulkSetParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 

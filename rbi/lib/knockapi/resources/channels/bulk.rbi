@@ -22,7 +22,7 @@ module Knockapi
             tenants: T::Array[String],
             trigger_data: String,
             workflows: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end

@@ -16,7 +16,7 @@ module Knockapi
         }
         & Knockapi::Internal::Type::request_parameters
 
-      class BulkUpdateMessageStatusParams < Knockapi::BaseModel
+      class BulkUpdateMessageStatusParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -95,7 +95,7 @@ module Knockapi
           | :delete
 
         module Action
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           SEEN: :seen
           UNSEEN: :unseen
@@ -114,7 +114,7 @@ module Knockapi
         type archived = :exclude | :include | :only
 
         module Archived
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           EXCLUDE: :exclude
           INCLUDE: :include
@@ -133,7 +133,7 @@ module Knockapi
           | :bounced
 
         module DeliveryStatus
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           QUEUED: :queued
           SENT: :sent
@@ -157,7 +157,7 @@ module Knockapi
           | :interacted
 
         module EngagementStatus
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           SEEN: :seen
           UNSEEN: :unseen

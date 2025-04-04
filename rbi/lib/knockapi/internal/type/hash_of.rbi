@@ -17,11 +17,11 @@ module Knockapi
         sig(:final) do
           params(
             type_info: T.any(
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               T.proc.returns(Knockapi::Internal::Type::Converter::Input),
               Knockapi::Internal::Type::Converter::Input
             ),
-            spec: Knockapi::Internal::Util::AnyHash
+            spec: Knockapi::Internal::AnyHash
           )
             .returns(T.attached_class)
         end
@@ -43,7 +43,7 @@ module Knockapi
               value: T.any(T::Hash[T.anything, T.anything], T.anything),
               state: Knockapi::Internal::Type::Converter::State
             )
-            .returns(T.any(Knockapi::Internal::Util::AnyHash, T.anything))
+            .returns(T.any(Knockapi::Internal::AnyHash, T.anything))
         end
         def coerce(value, state:)
         end
@@ -52,7 +52,7 @@ module Knockapi
         sig(:final) do
           override
             .params(value: T.any(T::Hash[T.anything, T.anything], T.anything))
-            .returns(T.any(Knockapi::Internal::Util::AnyHash, T.anything))
+            .returns(T.any(Knockapi::Internal::AnyHash, T.anything))
         end
         def dump(value)
         end
@@ -71,11 +71,11 @@ module Knockapi
         sig(:final) do
           params(
             type_info: T.any(
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               T.proc.returns(Knockapi::Internal::Type::Converter::Input),
               Knockapi::Internal::Type::Converter::Input
             ),
-            spec: Knockapi::Internal::Util::AnyHash
+            spec: Knockapi::Internal::AnyHash
           )
             .void
         end

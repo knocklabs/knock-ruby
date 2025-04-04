@@ -3,7 +3,7 @@ module Knockapi
     type message_get_params =
       {  } & Knockapi::Internal::Type::request_parameters
 
-    class MessageGetParams < Knockapi::BaseModel
+    class MessageGetParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

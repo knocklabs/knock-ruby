@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#delete_subscriptions
-    class ObjectDeleteSubscriptionsParams < Knockapi::BaseModel
+    class ObjectDeleteSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -11,7 +11,7 @@ module Knockapi
       # @!attribute recipients
       #
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      required :recipients, -> { Knockapi::ArrayOf[union: Knockapi::Models::RecipientRequest] }
+      required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
 
       # @!parse
       #   # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
@@ -19,7 +19,7 @@ module Knockapi
       #   #
       #   def initialize(recipients:, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

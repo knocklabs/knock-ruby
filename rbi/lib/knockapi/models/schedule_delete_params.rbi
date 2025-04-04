@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class ScheduleDeleteParams < Knockapi::BaseModel
+    class ScheduleDeleteParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -12,7 +12,7 @@ module Knockapi
       sig do
         params(
           schedule_ids: T::Array[String],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

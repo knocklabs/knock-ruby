@@ -3,7 +3,7 @@ module Knockapi
     type object_get_preferences_params =
       { tenant: String } & Knockapi::Internal::Type::request_parameters
 
-    class ObjectGetPreferencesParams < Knockapi::BaseModel
+    class ObjectGetPreferencesParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

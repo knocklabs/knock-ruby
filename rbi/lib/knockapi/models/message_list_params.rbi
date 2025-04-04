@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class MessageListParams < Knockapi::BaseModel
+    class MessageListParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -112,7 +112,7 @@ module Knockapi
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -159,7 +159,7 @@ module Knockapi
       end
 
       module EngagementStatus
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageListParams::EngagementStatus) }
         OrSymbol =
@@ -177,7 +177,7 @@ module Knockapi
       end
 
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageListParams::Status) }
         OrSymbol =

@@ -18,7 +18,7 @@ module Knockapi
       }
       & Knockapi::Internal::Type::request_parameters
 
-    class UserListMessagesParams < Knockapi::BaseModel
+    class UserListMessagesParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -101,7 +101,7 @@ module Knockapi
         :seen | :read | :interacted | :link_clicked | :archived
 
       module EngagementStatus
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         SEEN: :seen
         READ: :read
@@ -122,7 +122,7 @@ module Knockapi
         | :bounced
 
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         QUEUED: :queued
         SENT: :sent

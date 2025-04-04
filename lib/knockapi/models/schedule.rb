@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Schedules#list
-    class Schedule < Knockapi::BaseModel
+    class Schedule < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -23,7 +23,7 @@ module Knockapi
       # @!attribute repeats
       #
       #   @return [Array<Knockapi::Models::ScheduleRepeatRule>]
-      required :repeats, -> { Knockapi::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
+      required :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
 
       # @!attribute updated_at
       #
@@ -53,7 +53,7 @@ module Knockapi
       # @!attribute data
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute last_occurrence_at
       #
@@ -104,7 +104,7 @@ module Knockapi
       #     super
       #   end
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

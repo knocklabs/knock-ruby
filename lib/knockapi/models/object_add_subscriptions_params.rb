@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#add_subscriptions
-    class ObjectAddSubscriptionsParams < Knockapi::BaseModel
+    class ObjectAddSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -12,13 +12,13 @@ module Knockapi
       #   The recipients to subscribe to the object
       #
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      required :recipients, -> { Knockapi::ArrayOf[union: Knockapi::Models::RecipientRequest] }
+      required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
 
       # @!attribute properties
       #   The custom properties associated with the subscription
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :properties, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!parse
       #   # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
@@ -27,7 +27,7 @@ module Knockapi
       #   #
       #   def initialize(recipients:, properties: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

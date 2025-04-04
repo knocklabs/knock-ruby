@@ -8,7 +8,7 @@ module Knockapi
           data: Knockapi::Models::Recipients::RecipientsChannelData::data
         }
 
-      class RecipientsChannelData < Knockapi::BaseModel
+      class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
         attr_accessor _typename: String
 
         attr_accessor channel_id: String
@@ -31,7 +31,7 @@ module Knockapi
           | Knockapi::Models::Recipients::OneSignalChannelData
 
         module Data
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
         end

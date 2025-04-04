@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class MessageDeliveryLog < Knockapi::BaseModel
+    class MessageDeliveryLog < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -19,20 +19,14 @@ module Knockapi
       sig { returns(Knockapi::Models::MessageDeliveryLog::Request) }
       attr_reader :request
 
-      sig do
-        params(request: T.any(Knockapi::Models::MessageDeliveryLog::Request, Knockapi::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(request: T.any(Knockapi::Models::MessageDeliveryLog::Request, Knockapi::Internal::AnyHash)).void }
       attr_writer :request
 
       # A message delivery log response
       sig { returns(Knockapi::Models::MessageDeliveryLog::Response) }
       attr_reader :response
 
-      sig do
-        params(response: T.any(Knockapi::Models::MessageDeliveryLog::Response, Knockapi::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(response: T.any(Knockapi::Models::MessageDeliveryLog::Response, Knockapi::Internal::AnyHash)).void }
       attr_writer :response
 
       sig { returns(String) }
@@ -45,8 +39,8 @@ module Knockapi
           _typename: String,
           environment_id: String,
           inserted_at: String,
-          request: T.any(Knockapi::Models::MessageDeliveryLog::Request, Knockapi::Internal::Util::AnyHash),
-          response: T.any(Knockapi::Models::MessageDeliveryLog::Response, Knockapi::Internal::Util::AnyHash),
+          request: T.any(Knockapi::Models::MessageDeliveryLog::Request, Knockapi::Internal::AnyHash),
+          response: T.any(Knockapi::Models::MessageDeliveryLog::Response, Knockapi::Internal::AnyHash),
           service_name: String
         )
           .returns(T.attached_class)
@@ -71,7 +65,7 @@ module Knockapi
       def to_hash
       end
 
-      class Request < Knockapi::BaseModel
+      class Request < Knockapi::Internal::Type::BaseModel
         sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
         attr_reader :body
 
@@ -134,17 +128,21 @@ module Knockapi
         end
 
         module Body
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
           def self.variants
           end
 
-          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Internal::Type::Converter)
+          UnionMember1Map =
+            T.let(
+              Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
+              Knockapi::Internal::Type::Converter
+            )
         end
 
         module Method
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method) }
           OrSymbol =
@@ -162,7 +160,7 @@ module Knockapi
         end
       end
 
-      class Response < Knockapi::BaseModel
+      class Response < Knockapi::Internal::Type::BaseModel
         sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
         attr_reader :body
 
@@ -204,13 +202,17 @@ module Knockapi
         end
 
         module Body
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
           def self.variants
           end
 
-          UnionMember1Map = T.let(Knockapi::HashOf[Knockapi::Unknown], Knockapi::Internal::Type::Converter)
+          UnionMember1Map =
+            T.let(
+              Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
+              Knockapi::Internal::Type::Converter
+            )
         end
       end
     end

@@ -3,7 +3,7 @@ module Knockapi
     module Recipients
       type one_signal_channel_data = { player_ids: ::Array[String] }
 
-      class OneSignalChannelData < Knockapi::BaseModel
+      class OneSignalChannelData < Knockapi::Internal::Type::BaseModel
         attr_accessor player_ids: ::Array[String]
 
         def initialize: (player_ids: ::Array[String]) -> void

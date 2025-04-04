@@ -10,7 +10,7 @@ module Knockapi
         data: ::Hash[Symbol, top]?
       }
 
-    class MessageEvent < Knockapi::BaseModel
+    class MessageEvent < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String
@@ -38,11 +38,11 @@ module Knockapi
         String | Knockapi::Models::MessageEvent::Recipient::ObjectReference
 
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         type object_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
@@ -71,7 +71,7 @@ module Knockapi
         | :"message.unarchived"
 
       module Type
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         MESSAGE_QUEUED: :"message.queued"
         MESSAGE_SENT: :"message.sent"

@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class PushChannelData < Knockapi::BaseModel
+      class PushChannelData < Knockapi::Internal::Type::BaseModel
         sig { returns(T::Array[String]) }
         attr_accessor :tokens
 

@@ -3,6 +3,6 @@
 module Knockapi
   module Models
     ScheduleCreateResponse =
-      T.let(Knockapi::ArrayOf[Knockapi::Models::Schedule], Knockapi::Internal::Type::Converter)
+      T.let(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule], Knockapi::Internal::Type::Converter)
   end
 end

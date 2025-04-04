@@ -8,7 +8,7 @@ module Knockapi
         }
         & Knockapi::Internal::Type::request_parameters
 
-      class MsTeamListTeamsParams < Knockapi::BaseModel
+      class MsTeamListTeamsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -31,7 +31,7 @@ module Knockapi
         type query_options =
           { filter: String, select_: String, skiptoken: String, top: Integer }
 
-        class QueryOptions < Knockapi::BaseModel
+        class QueryOptions < Knockapi::Internal::Type::BaseModel
           attr_reader filter: String?
 
           def filter=: (String) -> String

@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class UserListSchedulesParams < Knockapi::BaseModel
+    class UserListSchedulesParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -48,7 +48,7 @@ module Knockapi
           page_size: Integer,
           tenant: String,
           workflow: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

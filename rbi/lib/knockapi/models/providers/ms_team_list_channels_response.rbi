@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Providers
-      class MsTeamListChannelsResponse < Knockapi::BaseModel
+      class MsTeamListChannelsResponse < Knockapi::Internal::Type::BaseModel
         sig { returns(T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]) }
         attr_accessor :ms_teams_channels
 
@@ -13,7 +13,7 @@ module Knockapi
             ms_teams_channels: T::Array[
             T.any(
               Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel,
-              Knockapi::Internal::Util::AnyHash
+              Knockapi::Internal::AnyHash
             )
             ]
           )
@@ -31,7 +31,7 @@ module Knockapi
         def to_hash
         end
 
-        class MsTeamsChannel < Knockapi::BaseModel
+        class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :id
 

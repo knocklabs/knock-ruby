@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class UserGetPreferencesParams < Knockapi::BaseModel
+    class UserGetPreferencesParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -14,10 +14,7 @@ module Knockapi
       attr_writer :tenant
 
       sig do
-        params(
-          tenant: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
-        )
+        params(tenant: String, request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(tenant: nil, request_options: {})

@@ -7,7 +7,7 @@ module Knockapi
         }
         & Knockapi::Internal::Type::request_parameters
 
-      class BulkAddSubscriptionsParams < Knockapi::BaseModel
+      class BulkAddSubscriptionsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -27,7 +27,7 @@ module Knockapi
             properties: ::Hash[Symbol, top]?
           }
 
-        class Subscription < Knockapi::BaseModel
+        class Subscription < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]

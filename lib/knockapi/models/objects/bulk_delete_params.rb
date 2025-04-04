@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Objects
       # @see Knockapi::Resources::Objects::Bulk#delete
-      class BulkDeleteParams < Knockapi::BaseModel
+      class BulkDeleteParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -13,7 +13,7 @@ module Knockapi
         #   The IDs of the objects to delete
         #
         #   @return [Array<String>]
-        required :object_ids, Knockapi::ArrayOf[String]
+        required :object_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @param object_ids [Array<String>]
@@ -21,7 +21,7 @@ module Knockapi
         #   #
         #   def initialize(object_ids:, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

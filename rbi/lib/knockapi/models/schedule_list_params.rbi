@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class ScheduleListParams < Knockapi::BaseModel
+    class ScheduleListParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -45,7 +45,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-            Knockapi::Internal::Util::AnyHash
+            Knockapi::Internal::AnyHash
           )
           ]
         )
@@ -70,11 +70,11 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-            Knockapi::Internal::Util::AnyHash
+            Knockapi::Internal::AnyHash
           )
           ],
           tenant: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -109,9 +109,9 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id

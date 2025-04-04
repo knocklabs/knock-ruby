@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Users
-      class BulkIdentifyParams < Knockapi::BaseModel
+      class BulkIdentifyParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -12,8 +12,8 @@ module Knockapi
 
         sig do
           params(
-            users: T::Array[T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::Util::AnyHash)],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            users: T::Array[T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::AnyHash)],
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

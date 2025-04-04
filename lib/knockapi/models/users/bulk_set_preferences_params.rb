@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Users
       # @see Knockapi::Resources::Users::Bulk#set_preferences
-      class BulkSetPreferencesParams < Knockapi::BaseModel
+      class BulkSetPreferencesParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -18,7 +18,7 @@ module Knockapi
         # @!attribute user_ids
         #
         #   @return [Array<String>]
-        required :user_ids, Knockapi::ArrayOf[String]
+        required :user_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
@@ -27,7 +27,7 @@ module Knockapi
         #   #
         #   def initialize(preferences:, user_ids:, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

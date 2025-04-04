@@ -5,7 +5,7 @@ module Knockapi
         { user_ids: ::Array[String] }
         & Knockapi::Internal::Type::request_parameters
 
-      class BulkDeleteParams < Knockapi::BaseModel
+      class BulkDeleteParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 

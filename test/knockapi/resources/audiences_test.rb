@@ -28,7 +28,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
 
     assert_pattern do
       response => {
-        entries: ^(Knockapi::ArrayOf[Knockapi::Models::AudienceMember]),
+        entries: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::AudienceMember]),
         page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
       }
     end

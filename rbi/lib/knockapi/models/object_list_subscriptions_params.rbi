@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class ObjectListSubscriptionsParams < Knockapi::BaseModel
+    class ObjectListSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -43,7 +43,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
-            Knockapi::Internal::Util::AnyHash
+            Knockapi::Internal::AnyHash
           )
           ]
         )
@@ -74,7 +74,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
-            Knockapi::Internal::Util::AnyHash
+            Knockapi::Internal::AnyHash
           )
           ]
         )
@@ -91,7 +91,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
-            Knockapi::Internal::Util::AnyHash
+            Knockapi::Internal::AnyHash
           )
           ],
           page_size: Integer,
@@ -99,10 +99,10 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
-            Knockapi::Internal::Util::AnyHash
+            Knockapi::Internal::AnyHash
           )
           ],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -136,7 +136,7 @@ module Knockapi
 
       # Mode of the request
       module Mode
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode) }
         OrSymbol =
@@ -153,9 +153,9 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Object
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -182,9 +182,9 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id

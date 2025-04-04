@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Workflows#trigger
-    class WorkflowTriggerParams < Knockapi::BaseModel
+    class WorkflowTriggerParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -28,14 +28,14 @@ module Knockapi
       #     to the workflow as a map in the `data` field.
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute [r] recipients
       #   The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
       #     single trigger.
       #
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>, nil]
-      optional :recipients, -> { Knockapi::ArrayOf[union: Knockapi::Models::RecipientRequest] }
+      optional :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
 
       # @!parse
       #   # @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
@@ -57,7 +57,7 @@ module Knockapi
       #   #
       #   def initialize(actor: nil, cancellation_key: nil, data: nil, recipients: nil, tenant: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

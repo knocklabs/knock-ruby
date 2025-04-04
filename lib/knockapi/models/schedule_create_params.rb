@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Schedules#create
-    class ScheduleCreateParams < Knockapi::BaseModel
+    class ScheduleCreateParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -11,12 +11,13 @@ module Knockapi
       # @!attribute recipients
       #
       #   @return [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
-      required :recipients, -> { Knockapi::ArrayOf[union: Knockapi::Models::ScheduleCreateParams::Recipient] }
+      required :recipients,
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ScheduleCreateParams::Recipient] }
 
       # @!attribute repeats
       #
       #   @return [Array<Knockapi::Models::ScheduleRepeatRule>]
-      required :repeats, -> { Knockapi::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
+      required :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
 
       # @!attribute workflow
       #
@@ -26,7 +27,7 @@ module Knockapi
       # @!attribute data
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute ending_at
       #
@@ -68,12 +69,12 @@ module Knockapi
       #     super
       #   end
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         # A user identifier
         variant String
@@ -81,7 +82,7 @@ module Knockapi
         # An object reference to a recipient
         variant -> { Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -102,7 +103,7 @@ module Knockapi
           #   #
           #   def initialize(id:, collection:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse

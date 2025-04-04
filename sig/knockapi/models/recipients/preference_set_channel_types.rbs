@@ -11,7 +11,7 @@ module Knockapi
           sms: Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms
         }
 
-      class PreferenceSetChannelTypes < Knockapi::BaseModel
+      class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
         attr_reader chat: Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat?
 
         def chat=: (
@@ -63,7 +63,7 @@ module Knockapi
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         module Chat
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
@@ -72,7 +72,7 @@ module Knockapi
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         module Email
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
@@ -81,7 +81,7 @@ module Knockapi
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         module HTTP
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
@@ -90,7 +90,7 @@ module Knockapi
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         module InAppFeed
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
@@ -99,7 +99,7 @@ module Knockapi
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         module Push
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end
@@ -108,7 +108,7 @@ module Knockapi
           bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
 
         module SMS
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         end

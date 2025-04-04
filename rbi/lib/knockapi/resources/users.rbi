@@ -14,13 +14,13 @@ module Knockapi
         params(
           user_id: String,
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
           ),
           created_at: T.nilable(Time),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::User)
       end
@@ -42,7 +42,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::User])
       end
@@ -61,7 +61,7 @@ module Knockapi
       sig do
         params(
           user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(String)
       end
@@ -76,7 +76,7 @@ module Knockapi
       sig do
         params(
           user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::User)
       end
@@ -92,7 +92,7 @@ module Knockapi
         params(
           user_id: String,
           channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
@@ -111,7 +111,7 @@ module Knockapi
           user_id: String,
           preference_set_id: String,
           tenant: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
@@ -143,7 +143,7 @@ module Knockapi
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
       end
@@ -184,7 +184,7 @@ module Knockapi
       sig do
         params(
           user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Recipients::PreferenceSet])
       end
@@ -204,7 +204,7 @@ module Knockapi
           page_size: Integer,
           tenant: String,
           workflow: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
       end
@@ -232,7 +232,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
@@ -255,7 +255,7 @@ module Knockapi
         params(
           user_id: String,
           from_user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::User)
       end
@@ -275,13 +275,13 @@ module Knockapi
           channel_id: String,
           data: T.any(
             Knockapi::Models::Recipients::PushChannelData,
-            Knockapi::Internal::Util::AnyHash,
+            Knockapi::Internal::AnyHash,
             Knockapi::Models::Recipients::OneSignalChannelData,
             Knockapi::Models::Recipients::SlackChannelData,
             Knockapi::Models::Recipients::MsTeamsChannelData,
             Knockapi::Models::Recipients::DiscordChannelData
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
@@ -308,24 +308,22 @@ module Knockapi
             T.any(
               T::Boolean,
               Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
-              Knockapi::Internal::Util::AnyHash
+              Knockapi::Internal::AnyHash
             )
             ]
           ),
-          channel_types: T.nilable(
-            T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::Util::AnyHash)
-          ),
+          channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
           workflows: T.nilable(
             T::Hash[
             Symbol,
             T.any(
               T::Boolean,
               Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
-              Knockapi::Internal::Util::AnyHash
+              Knockapi::Internal::AnyHash
             )
             ]
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
@@ -351,7 +349,7 @@ module Knockapi
         params(
           user_id: String,
           channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(String)
       end

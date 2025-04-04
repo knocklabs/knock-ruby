@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list_delivery_logs
-    class MessageDeliveryLog < Knockapi::BaseModel
+    class MessageDeliveryLog < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -54,10 +54,10 @@ module Knockapi
       #   #
       #   def initialize(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # @see Knockapi::Models::MessageDeliveryLog#request
-      class Request < Knockapi::BaseModel
+      class Request < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] body
         #
         #   @return [String, Hash{Symbol=>Object}, nil]
@@ -70,7 +70,7 @@ module Knockapi
         # @!attribute headers
         #
         #   @return [Hash{Symbol=>Object}, nil]
-        optional :headers, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+        optional :headers, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
         # @!attribute [r] host
         #
@@ -116,11 +116,11 @@ module Knockapi
         #   #
         #   def initialize(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # @see Knockapi::Models::MessageDeliveryLog::Request#body
         module Body
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           variant String
 
@@ -130,12 +130,12 @@ module Knockapi
           #   # @return [Array(String, Hash{Symbol=>Object})]
           #   def self.variants; end
 
-          UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
+          UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
 
         # @see Knockapi::Models::MessageDeliveryLog::Request#method_
         module Method
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           GET = :GET
           POST = :POST
@@ -152,7 +152,7 @@ module Knockapi
       end
 
       # @see Knockapi::Models::MessageDeliveryLog#response
-      class Response < Knockapi::BaseModel
+      class Response < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] body
         #
         #   @return [String, Hash{Symbol=>Object}, nil]
@@ -165,7 +165,7 @@ module Knockapi
         # @!attribute headers
         #
         #   @return [Hash{Symbol=>Object}, nil]
-        optional :headers, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+        optional :headers, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
         # @!attribute [r] status
         #
@@ -185,11 +185,11 @@ module Knockapi
         #   #
         #   def initialize(body: nil, headers: nil, status: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # @see Knockapi::Models::MessageDeliveryLog::Response#body
         module Body
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           variant String
 
@@ -199,7 +199,7 @@ module Knockapi
           #   # @return [Array(String, Hash{Symbol=>Object})]
           #   def self.variants; end
 
-          UnionMember1Map = Knockapi::HashOf[Knockapi::Unknown]
+          UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
       end
     end

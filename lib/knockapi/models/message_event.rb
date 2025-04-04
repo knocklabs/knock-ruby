@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list_events
-    class MessageEvent < Knockapi::BaseModel
+    class MessageEvent < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -35,7 +35,7 @@ module Knockapi
       #   The data associated with the event. Only present for some event types
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!parse
       #   # A single event that occurred for a message
@@ -49,14 +49,14 @@ module Knockapi
       #   #
       #   def initialize(id:, _typename:, inserted_at:, recipient:, type:, data: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       #
       # @see Knockapi::Models::MessageEvent#recipient
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         # A user identifier
         variant String
@@ -64,7 +64,7 @@ module Knockapi
         # An object reference to a recipient
         variant -> { Knockapi::Models::MessageEvent::Recipient::ObjectReference }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -85,7 +85,7 @@ module Knockapi
           #   #
           #   def initialize(id:, collection:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
@@ -95,7 +95,7 @@ module Knockapi
 
       # @see Knockapi::Models::MessageEvent#type
       module Type
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         MESSAGE_QUEUED = :"message.queued"
         MESSAGE_SENT = :"message.sent"

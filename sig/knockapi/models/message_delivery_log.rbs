@@ -11,7 +11,7 @@ module Knockapi
         service_name: String
       }
 
-    class MessageDeliveryLog < Knockapi::BaseModel
+    class MessageDeliveryLog < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String
@@ -48,7 +48,7 @@ module Knockapi
           query: String?
         }
 
-      class Request < Knockapi::BaseModel
+      class Request < Knockapi::Internal::Type::BaseModel
         attr_reader body: Knockapi::Models::MessageDeliveryLog::Request::body?
 
         def body=: (
@@ -87,7 +87,7 @@ module Knockapi
         type body = String | ::Hash[Symbol, top]
 
         module Body
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [String, ::Hash[Symbol, top]]
 
@@ -99,7 +99,7 @@ module Knockapi
         type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
 
         module Method
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           GET: :GET
           POST: :POST
@@ -118,7 +118,7 @@ module Knockapi
           status: Integer
         }
 
-      class Response < Knockapi::BaseModel
+      class Response < Knockapi::Internal::Type::BaseModel
         attr_reader body: Knockapi::Models::MessageDeliveryLog::Response::body?
 
         def body=: (
@@ -142,7 +142,7 @@ module Knockapi
         type body = String | ::Hash[Symbol, top]
 
         module Body
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [String, ::Hash[Symbol, top]]
 

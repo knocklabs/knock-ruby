@@ -9,7 +9,7 @@ module Knockapi
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?
       }
 
-    class InlineObjectRequest < Knockapi::BaseModel
+    class InlineObjectRequest < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor collection: String

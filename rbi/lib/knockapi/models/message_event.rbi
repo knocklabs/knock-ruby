@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class MessageEvent < Knockapi::BaseModel
+    class MessageEvent < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -30,11 +30,7 @@ module Knockapi
           id: String,
           _typename: String,
           inserted_at: Time,
-          recipient: T.any(
-            String,
-            Knockapi::Models::MessageEvent::Recipient::ObjectReference,
-            Knockapi::Internal::Util::AnyHash
-          ),
+          recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference, Knockapi::Internal::AnyHash),
           type: Knockapi::Models::MessageEvent::Type::OrSymbol,
           data: T.nilable(T::Hash[Symbol, T.anything])
         )
@@ -62,9 +58,9 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -89,7 +85,7 @@ module Knockapi
       end
 
       module Type
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageEvent::Type) }
         OrSymbol = T.type_alias { T.any(Symbol, String, Knockapi::Models::MessageEvent::Type::TaggedSymbol) }

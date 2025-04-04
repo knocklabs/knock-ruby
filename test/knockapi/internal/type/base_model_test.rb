@@ -3,26 +3,26 @@
 require_relative "../../test_helper"
 
 class Knockapi::Test::PrimitiveModelTest < Minitest::Test
-  A = Knockapi::ArrayOf[-> { Integer }]
-  H = Knockapi::HashOf[-> { Integer }, nil?: true]
+  A = Knockapi::Internal::Type::ArrayOf[-> { Integer }]
+  H = Knockapi::Internal::Type::HashOf[-> { Integer }, nil?: true]
 
   module E
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
   end
 
   module U
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
   end
 
-  class B < Knockapi::BaseModel
+  class B < Knockapi::Internal::Type::BaseModel
     optional :a, Integer
     optional :b, B
   end
 
   def test_typing
     converters = [
-      Knockapi::Unknown,
-      Knockapi::BooleanModel,
+      Knockapi::Internal::Type::Unknown,
+      Knockapi::Internal::Type::BooleanModel,
       A,
       H,
       E,
@@ -39,11 +39,11 @@ class Knockapi::Test::PrimitiveModelTest < Minitest::Test
 
   def test_coerce
     cases = {
-      [Knockapi::Unknown, :a] => [{yes: 1}, :a],
+      [Knockapi::Internal::Type::Unknown, :a] => [{yes: 1}, :a],
       [NilClass, :a] => [{maybe: 1}, nil],
       [NilClass, nil] => [{yes: 1}, nil],
-      [Knockapi::BooleanModel, true] => [{yes: 1}, true],
-      [Knockapi::BooleanModel, "true"] => [{no: 1}, "true"],
+      [Knockapi::Internal::Type::BooleanModel, true] => [{yes: 1}, true],
+      [Knockapi::Internal::Type::BooleanModel, "true"] => [{no: 1}, "true"],
       [Integer, 1] => [{yes: 1}, 1],
       [Integer, 1.0] => [{maybe: 1}, 1],
       [Integer, "1"] => [{maybe: 1}, 1],
@@ -76,7 +76,7 @@ class Knockapi::Test::PrimitiveModelTest < Minitest::Test
 
   def test_dump
     cases = {
-      [Knockapi::Unknown, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
+      [Knockapi::Internal::Type::Unknown, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [A, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [H, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [E, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
@@ -85,8 +85,8 @@ class Knockapi::Test::PrimitiveModelTest < Minitest::Test
       [String, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [:b, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [nil, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
-      [Knockapi::BooleanModel, true] => true,
-      [Knockapi::BooleanModel, "true"] => "true",
+      [Knockapi::Internal::Type::BooleanModel, true] => true,
+      [Knockapi::Internal::Type::BooleanModel, "true"] => "true",
       [Integer, "1"] => "1",
       [Float, 1] => 1,
       [String, "one"] => "one",
@@ -126,27 +126,27 @@ end
 
 class Knockapi::Test::EnumModelTest < Minitest::Test
   module E1
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
 
     TRUE = true
   end
 
   module E2
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
 
     ONE = 1
     TWO = 2
   end
 
   module E3
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
 
     ONE = 1.0
     TWO = 2.0
   end
 
   module E4
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
 
     ONE = :one
     TWO = :two
@@ -216,14 +216,14 @@ class Knockapi::Test::EnumModelTest < Minitest::Test
 end
 
 class Knockapi::Test::CollectionModelTest < Minitest::Test
-  A1 = Knockapi::ArrayOf[-> { Integer }]
-  H1 = Knockapi::HashOf[Integer]
+  A1 = Knockapi::Internal::Type::ArrayOf[-> { Integer }]
+  H1 = Knockapi::Internal::Type::HashOf[Integer]
 
-  A2 = Knockapi::ArrayOf[H1]
-  H2 = Knockapi::HashOf[-> { A1 }]
+  A2 = Knockapi::Internal::Type::ArrayOf[H1]
+  H2 = Knockapi::Internal::Type::HashOf[-> { A1 }]
 
-  A3 = Knockapi::ArrayOf[Integer, nil?: true]
-  H3 = Knockapi::HashOf[Integer, nil?: true]
+  A3 = Knockapi::Internal::Type::ArrayOf[Integer, nil?: true]
+  H3 = Knockapi::Internal::Type::HashOf[Integer, nil?: true]
 
   def test_coerce
     cases = {
@@ -263,7 +263,7 @@ class Knockapi::Test::CollectionModelTest < Minitest::Test
 end
 
 class Knockapi::Test::BaseModelTest < Minitest::Test
-  class M1 < Knockapi::BaseModel
+  class M1 < Knockapi::Internal::Type::BaseModel
     required :a, Integer
   end
 
@@ -273,7 +273,7 @@ class Knockapi::Test::BaseModelTest < Minitest::Test
     optional :c, String
   end
 
-  class M3 < Knockapi::BaseModel
+  class M3 < Knockapi::Internal::Type::BaseModel
     optional :c, const: :c
     required :d, const: :d
   end
@@ -290,7 +290,7 @@ class Knockapi::Test::BaseModelTest < Minitest::Test
     end
   end
 
-  class M5 < Knockapi::BaseModel
+  class M5 < Knockapi::Internal::Type::BaseModel
     request_only do
       required :c, const: :c
     end
@@ -301,7 +301,7 @@ class Knockapi::Test::BaseModelTest < Minitest::Test
   end
 
   class M6 < M1
-    required :a, Knockapi::ArrayOf[M6]
+    required :a, Knockapi::Internal::Type::ArrayOf[M6]
   end
 
   def test_coerce
@@ -337,7 +337,7 @@ class Knockapi::Test::BaseModelTest < Minitest::Test
       assert_pattern do
         coerced = Knockapi::Internal::Type::Converter.coerce(target, input, state: state)
         assert_equal(coerced, coerced)
-        if coerced.is_a?(Knockapi::BaseModel)
+        if coerced.is_a?(Knockapi::Internal::Type::BaseModel)
           coerced.to_h => ^expect
         else
           coerced => ^expect
@@ -403,27 +403,27 @@ end
 
 class Knockapi::Test::UnionTest < Minitest::Test
   module U0
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
   end
 
   module U1
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
     variant const: :a
     variant const: 2
   end
 
-  class M1 < Knockapi::BaseModel
+  class M1 < Knockapi::Internal::Type::BaseModel
     required :t, const: :a, api_name: :type
     optional :c, String
   end
 
-  class M2 < Knockapi::BaseModel
+  class M2 < Knockapi::Internal::Type::BaseModel
     required :type, const: :b
     optional :c, String
   end
 
   module U2
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
     discriminator :type
 
     variant :a, M1
@@ -431,7 +431,7 @@ class Knockapi::Test::UnionTest < Minitest::Test
   end
 
   module U3
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
     discriminator :type
 
     variant :a, M1
@@ -439,37 +439,37 @@ class Knockapi::Test::UnionTest < Minitest::Test
   end
 
   module U4
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
     discriminator :type
 
     variant String
     variant :a, M1
   end
 
-  class M3 < Knockapi::BaseModel
+  class M3 < Knockapi::Internal::Type::BaseModel
     optional :recur, -> { U5 }
     required :a, Integer
   end
 
-  class M4 < Knockapi::BaseModel
+  class M4 < Knockapi::Internal::Type::BaseModel
     optional :recur, -> { U5 }
-    required :a, Knockapi::ArrayOf[-> { U5 }]
+    required :a, Knockapi::Internal::Type::ArrayOf[-> { U5 }]
   end
 
-  class M5 < Knockapi::BaseModel
+  class M5 < Knockapi::Internal::Type::BaseModel
     optional :recur, -> { U5 }
-    required :b, Knockapi::ArrayOf[-> { U5 }]
+    required :b, Knockapi::Internal::Type::ArrayOf[-> { U5 }]
   end
 
   module U5
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
 
     variant -> { M3 }
     variant -> { M4 }
   end
 
   module U6
-    extend Knockapi::Union
+    extend Knockapi::Internal::Type::Union
 
     variant -> { M3 }
     variant -> { M5 }
@@ -480,7 +480,7 @@ class Knockapi::Test::UnionTest < Minitest::Test
     tap do
       model.recur
       flunk
-    rescue Knockapi::ConversionError => e
+    rescue Knockapi::Errors::ConversionError => e
       assert_kind_of(ArgumentError, e.cause)
     end
   end
@@ -513,7 +513,7 @@ class Knockapi::Test::UnionTest < Minitest::Test
       assert_pattern do
         coerced = Knockapi::Internal::Type::Converter.coerce(target, input, state: state)
         assert_equal(coerced, coerced)
-        if coerced.is_a?(Knockapi::BaseModel)
+        if coerced.is_a?(Knockapi::Internal::Type::BaseModel)
           coerced.to_h => ^expect
         else
           coerced => ^expect
@@ -527,29 +527,29 @@ end
 
 class Knockapi::Test::BaseModelQoLTest < Minitest::Test
   module E1
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
 
     A = 1
   end
 
   module E2
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
 
     A = 1
   end
 
   module E3
-    extend Knockapi::Enum
+    extend Knockapi::Internal::Type::Enum
 
     A = 2
     B = 3
   end
 
-  class M1 < Knockapi::BaseModel
+  class M1 < Knockapi::Internal::Type::BaseModel
     required :a, Integer
   end
 
-  class M2 < Knockapi::BaseModel
+  class M2 < Knockapi::Internal::Type::BaseModel
     required :a, Integer, nil?: true
   end
 
@@ -559,9 +559,9 @@ class Knockapi::Test::BaseModelQoLTest < Minitest::Test
 
   def test_equality
     cases = {
-      [Knockapi::Unknown, Knockapi::Unknown] => true,
-      [Knockapi::BooleanModel, Knockapi::BooleanModel] => true,
-      [Knockapi::Unknown, Knockapi::BooleanModel] => false,
+      [Knockapi::Internal::Type::Unknown, Knockapi::Internal::Type::Unknown] => true,
+      [Knockapi::Internal::Type::BooleanModel, Knockapi::Internal::Type::BooleanModel] => true,
+      [Knockapi::Internal::Type::Unknown, Knockapi::Internal::Type::BooleanModel] => false,
       [E1, E2] => true,
       [E1, E3] => false,
       [M1, M2] => false,

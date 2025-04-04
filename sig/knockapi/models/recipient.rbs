@@ -3,7 +3,7 @@ module Knockapi
     type recipient = Knockapi::Models::User | Knockapi::Models::Object
 
     module Recipient
-      extend Knockapi::Union
+      extend Knockapi::Internal::Type::Union
 
       def self?.variants: -> [Knockapi::Models::User, Knockapi::Models::Object]
     end

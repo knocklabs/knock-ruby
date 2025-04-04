@@ -1,0 +1,4 @@
+module Knockapi
+  module Internal
+  end
+end

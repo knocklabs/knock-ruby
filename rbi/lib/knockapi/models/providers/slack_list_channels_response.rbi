@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Providers
-      class SlackListChannelsResponse < Knockapi::BaseModel
+      class SlackListChannelsResponse < Knockapi::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 

@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Schedules#update
-    class ScheduleUpdateParams < Knockapi::BaseModel
+    class ScheduleUpdateParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -11,7 +11,7 @@ module Knockapi
       # @!attribute schedule_ids
       #
       #   @return [Array<String>]
-      required :schedule_ids, Knockapi::ArrayOf[String]
+      required :schedule_ids, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!attribute actor
       #   Specifies a recipient in a request. This can either be a user identifier
@@ -24,7 +24,7 @@ module Knockapi
       # @!attribute data
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute ending_at
       #
@@ -34,7 +34,7 @@ module Knockapi
       # @!attribute [r] repeats
       #
       #   @return [Array<Knockapi::Models::ScheduleRepeatRule>, nil]
-      optional :repeats, -> { Knockapi::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
+      optional :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
 
       # @!parse
       #   # @return [Array<Knockapi::Models::ScheduleRepeatRule>]
@@ -75,7 +75,7 @@ module Knockapi
       #     super
       #   end
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

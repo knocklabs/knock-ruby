@@ -2,7 +2,7 @@ module Knockapi
   module Models
     type object_get_params = {  } & Knockapi::Internal::Type::request_parameters
 
-    class ObjectGetParams < Knockapi::BaseModel
+    class ObjectGetParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

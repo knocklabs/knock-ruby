@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Users
       # @see Knockapi::Resources::Users::Feeds#list_items
-      class FeedListItemsResponse < Knockapi::BaseModel
+      class FeedListItemsResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -18,22 +18,23 @@ module Knockapi
         # @!attribute activities
         #
         #   @return [Array<Knockapi::Models::Activity>]
-        required :activities, -> { Knockapi::ArrayOf[Knockapi::Models::Activity] }
+        required :activities, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Activity] }
 
         # @!attribute actors
         #
         #   @return [Array<Knockapi::Models::User, Knockapi::Models::Object>]
-        required :actors, -> { Knockapi::ArrayOf[union: Knockapi::Models::Recipient] }
+        required :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipient] }
 
         # @!attribute blocks
         #
         #   @return [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>]
-        required :blocks, -> { Knockapi::ArrayOf[union: Knockapi::Models::Users::FeedListItemsResponse::Block] }
+        required :blocks,
+                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Users::FeedListItemsResponse::Block] }
 
         # @!attribute data
         #
         #   @return [Hash{Symbol=>Object}, nil]
-        required :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+        required :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
         # @!attribute inserted_at
         #
@@ -141,11 +142,11 @@ module Knockapi
         #     super
         #   end
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # A content (text or markdown) block in a message in an app feed
         module Block
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           # A content (text or markdown) block in a message in an app feed
           variant -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock }
@@ -153,7 +154,7 @@ module Knockapi
           # A set of buttons in a message in an app feed
           variant -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock }
 
-          class MessageInAppFeedContentBlock < Knockapi::BaseModel
+          class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
             # @!attribute content
             #
             #   @return [String]
@@ -185,11 +186,11 @@ module Knockapi
             #   #
             #   def initialize(content:, name:, rendered:, type:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
             # @see Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock#type
             module Type
-              extend Knockapi::Enum
+              extend Knockapi::Internal::Type::Enum
 
               MARKDOWN = :markdown
               TEXT = :text
@@ -202,12 +203,12 @@ module Knockapi
             end
           end
 
-          class MessageInAppFeedButtonSetBlock < Knockapi::BaseModel
+          class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
             # @!attribute buttons
             #
             #   @return [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button>]
             required :buttons,
-                     -> { Knockapi::ArrayOf[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button] }
+                     -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button] }
 
             # @!attribute name
             #
@@ -229,9 +230,9 @@ module Knockapi
             #   #
             #   def initialize(buttons:, name:, type:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-            class Button < Knockapi::BaseModel
+            class Button < Knockapi::Internal::Type::BaseModel
               # @!attribute action
               #
               #   @return [String]
@@ -256,12 +257,12 @@ module Knockapi
               #   #
               #   def initialize(action:, label:, name:, **) = super
 
-              # def initialize: (Hash | Knockapi::BaseModel) -> void
+              # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
             end
 
             # @see Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock#type
             module Type
-              extend Knockapi::Enum
+              extend Knockapi::Internal::Type::Enum
 
               BUTTON_SET = :button_set
 
@@ -279,7 +280,7 @@ module Knockapi
         end
 
         # @see Knockapi::Models::Users::FeedListItemsResponse#source
-        class Source < Knockapi::BaseModel
+        class Source < Knockapi::Internal::Type::BaseModel
           # @!attribute _typename
           #
           #   @return [String]
@@ -288,7 +289,7 @@ module Knockapi
           # @!attribute categories
           #
           #   @return [Array<String>]
-          required :categories, Knockapi::ArrayOf[String]
+          required :categories, Knockapi::Internal::Type::ArrayOf[String]
 
           # @!attribute key
           #
@@ -308,7 +309,7 @@ module Knockapi
           #   #
           #   def initialize(_typename:, categories:, key:, version_id:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class MessageMarkAsInteractedParams < Knockapi::BaseModel
+    class MessageMarkAsInteractedParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -16,7 +16,7 @@ module Knockapi
       sig do
         params(
           metadata: T::Hash[Symbol, T.anything],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

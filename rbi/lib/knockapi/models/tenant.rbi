@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class Tenant < Knockapi::BaseModel
+    class Tenant < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

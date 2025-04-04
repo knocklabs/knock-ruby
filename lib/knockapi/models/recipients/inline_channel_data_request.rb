@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     module Recipients
-      InlineChannelDataRequest = Knockapi::HashOf[-> { Knockapi::Models::Recipients::ChannelDataRequest }]
+      InlineChannelDataRequest =
+        Knockapi::Internal::Type::HashOf[-> { Knockapi::Models::Recipients::ChannelDataRequest }]
     end
   end
 end

@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Messages
       # @see Knockapi::Resources::Messages::Batch#mark_as_interacted
-      class BatchMarkAsInteractedParams < Knockapi::BaseModel
+      class BatchMarkAsInteractedParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -13,13 +13,13 @@ module Knockapi
         #   The message IDs to update
         #
         #   @return [Array<String>]
-        required :message_ids, Knockapi::ArrayOf[String]
+        required :message_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute metadata
         #   Metadata about the interaction
         #
         #   @return [Hash{Symbol=>Object}, nil]
-        optional :metadata, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+        optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
         # @!parse
         #   # @param message_ids [Array<String>]
@@ -28,7 +28,7 @@ module Knockapi
         #   #
         #   def initialize(message_ids:, metadata: nil, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

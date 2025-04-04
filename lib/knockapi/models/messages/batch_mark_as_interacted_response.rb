@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Messages
-      BatchMarkAsInteractedResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Message }]
+      BatchMarkAsInteractedResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Message }]
     end
   end
 end

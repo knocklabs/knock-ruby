@@ -13,7 +13,7 @@ module Knockapi
         timezone: String?
       }
 
-    class User < Knockapi::BaseModel
+    class User < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String

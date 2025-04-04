@@ -25,10 +25,10 @@ module Knockapi
               ),
               body: T.nilable(T.anything),
               unwrap: T.nilable(Symbol),
-              page: T.nilable(T::Class[Knockapi::Internal::Type::BasePage[Knockapi::BaseModel]]),
+              page: T.nilable(T::Class[Knockapi::Internal::Type::BasePage[Knockapi::Internal::Type::BaseModel]]),
               stream: T.nilable(T::Class[T.anything]),
               model: T.nilable(Knockapi::Internal::Type::Converter::Input),
-              options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+              options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
             }
           end
 
@@ -136,7 +136,7 @@ module Knockapi
           overridable
             .params(
               req: Knockapi::Internal::Transport::BaseClient::RequestComponentsShape,
-              opts: Knockapi::Internal::Util::AnyHash
+              opts: Knockapi::Internal::AnyHash
             )
             .returns(Knockapi::Internal::Transport::BaseClient::RequestInputShape)
         end
@@ -180,10 +180,10 @@ module Knockapi
             ),
             body: T.nilable(T.anything),
             unwrap: T.nilable(Symbol),
-            page: T.nilable(T::Class[Knockapi::Internal::Type::BasePage[Knockapi::BaseModel]]),
+            page: T.nilable(T::Class[Knockapi::Internal::Type::BasePage[Knockapi::Internal::Type::BaseModel]]),
             stream: T.nilable(T::Class[T.anything]),
             model: T.nilable(Knockapi::Internal::Type::Converter::Input),
-            options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(T.anything)
         end
@@ -196,7 +196,7 @@ module Knockapi
           unwrap: nil,
           page: nil,
           stream: nil,
-          model: Knockapi::Unknown,
+          model: Knockapi::Internal::Type::Unknown,
           options: {}
         )
         end

@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Users
       # @see Knockapi::Resources::Users::Bulk#identify
-      class BulkIdentifyParams < Knockapi::BaseModel
+      class BulkIdentifyParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -12,7 +12,7 @@ module Knockapi
         # @!attribute users
         #
         #   @return [Array<Knockapi::Models::InlineIdentifyUserRequest>]
-        required :users, -> { Knockapi::ArrayOf[Knockapi::Models::InlineIdentifyUserRequest] }
+        required :users, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::InlineIdentifyUserRequest] }
 
         # @!parse
         #   # @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>]
@@ -20,7 +20,7 @@ module Knockapi
         #   #
         #   def initialize(users:, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

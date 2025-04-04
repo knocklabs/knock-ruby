@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class MsTeamsChannelData < Knockapi::BaseModel
+      class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
         sig do
           returns(
             T::Array[
@@ -26,7 +26,7 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
             )
             ],
@@ -56,9 +56,9 @@ module Knockapi
 
         # Microsoft Teams token connection
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
-          class MsTeamsTokenConnection < Knockapi::BaseModel
+          class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
             # The Microsoft Teams channel ID
             sig { returns(T.nilable(String)) }
             attr_accessor :ms_teams_channel_id
@@ -108,7 +108,7 @@ module Knockapi
             end
           end
 
-          class MsTeamsIncomingWebhookConnection < Knockapi::BaseModel
+          class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             # The incoming webhook
             sig do
               returns(
@@ -121,7 +121,7 @@ module Knockapi
               params(
                 incoming_webhook: T.any(
                   Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Internal::Util::AnyHash
+                  Knockapi::Internal::AnyHash
                 )
               )
                 .void
@@ -133,7 +133,7 @@ module Knockapi
               params(
                 incoming_webhook: T.any(
                   Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Internal::Util::AnyHash
+                  Knockapi::Internal::AnyHash
                 )
               )
                 .returns(T.attached_class)
@@ -152,7 +152,7 @@ module Knockapi
             def to_hash
             end
 
-            class IncomingWebhook < Knockapi::BaseModel
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               # The URL of the incoming webhook
               sig { returns(String) }
               attr_accessor :url

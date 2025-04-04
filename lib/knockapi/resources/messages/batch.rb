@@ -20,7 +20,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/archived",
             body: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -41,7 +41,7 @@ module Knockapi
             method: :get,
             path: "v1/messages/batch/content",
             query: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem],
             options: options
           )
         end
@@ -63,7 +63,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/interacted",
             body: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -84,7 +84,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/read",
             body: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -105,7 +105,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/seen",
             body: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -126,7 +126,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/unread",
             body: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -147,7 +147,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/unseen",
             body: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -168,7 +168,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/unarchived",
             body: parsed,
-            model: Knockapi::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end

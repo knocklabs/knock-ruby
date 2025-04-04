@@ -2,6 +2,6 @@
 
 module Knockapi
   module Models
-    ScheduleDeleteResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Schedule }]
+    ScheduleDeleteResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Schedule }]
   end
 end

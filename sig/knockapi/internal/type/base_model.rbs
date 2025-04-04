@@ -7,10 +7,10 @@ module Knockapi
         type known_field =
           { mode: (:coerce | :dump)?, required: bool, nilable: bool }
 
-        def self.known_fields: -> ::Hash[Symbol, (Knockapi::BaseModel::known_field
+        def self.known_fields: -> ::Hash[Symbol, (Knockapi::Internal::Type::BaseModel::known_field
         & { type_fn: (^-> Knockapi::Internal::Type::Converter::input) })]
 
-        def self.fields: -> ::Hash[Symbol, (Knockapi::BaseModel::known_field
+        def self.fields: -> ::Hash[Symbol, (Knockapi::Internal::Type::BaseModel::known_field
         & { type: Knockapi::Internal::Type::Converter::input })]
 
         private def self.add_field: (
@@ -52,7 +52,7 @@ module Knockapi
         def ==: (top other) -> bool
 
         def self.coerce: (
-          Knockapi::BaseModel | ::Hash[top, top] | top value,
+          Knockapi::Internal::Type::BaseModel | ::Hash[top, top] | top value,
           state: Knockapi::Internal::Type::Converter::state
         ) -> (instance | top)
 

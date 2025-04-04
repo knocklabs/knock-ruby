@@ -52,7 +52,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.add_subscriptions("collection", "object_id", recipients: %w[user_1 user_2])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Recipients::Subscription])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription])
     end
   end
 
@@ -64,7 +64,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.delete_subscriptions("collection", "object_id", recipients: [{id: "user_1"}])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Recipients::Subscription])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription])
     end
   end
 
@@ -126,9 +126,9 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       response => {
         id: String,
         _typename: String,
-        categories: ^(Knockapi::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
-        workflows: ^(Knockapi::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
   end
@@ -155,16 +155,16 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       row => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::ArrayOf[union: Knockapi::Models::Message::Actor]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
-        data: ^(Knockapi::HashOf[Knockapi::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
-        metadata: ^(Knockapi::HashOf[Knockapi::Unknown]) | nil,
+        metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
         recipient: Knockapi::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
@@ -201,12 +201,12 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         id: String,
         inserted_at: Time,
         recipient: Knockapi::Models::Recipient,
-        repeats: ^(Knockapi::ArrayOf[Knockapi::Models::ScheduleRepeatRule]),
+        repeats: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule]),
         updated_at: Time,
         workflow: String,
         _typename: String | nil,
         actor: Knockapi::Models::Recipient | nil,
-        data: ^(Knockapi::HashOf[Knockapi::Unknown]) | nil,
+        data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         last_occurrence_at: Time | nil,
         next_occurrence_at: Time | nil,
         tenant: String | nil
@@ -239,7 +239,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         object: Knockapi::Models::Object,
         recipient: Knockapi::Models::Recipient,
         updated_at: Time,
-        properties: ^(Knockapi::HashOf[Knockapi::Unknown]) | nil
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end
@@ -307,9 +307,9 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       response => {
         id: String,
         _typename: String,
-        categories: ^(Knockapi::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
-        workflows: ^(Knockapi::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
   end

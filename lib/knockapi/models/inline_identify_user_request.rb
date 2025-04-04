@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class InlineIdentifyUserRequest < Knockapi::BaseModel
+    class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #   The ID of the user to identify. This is an ID that you supply.
       #
@@ -14,7 +14,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
                nil?: true
 
       # @!attribute created_at
@@ -28,7 +28,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
                nil?: true
 
       # @!parse
@@ -44,7 +44,7 @@ module Knockapi
       #   #
       #   def initialize(id:, channel_data: nil, created_at: nil, preferences: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

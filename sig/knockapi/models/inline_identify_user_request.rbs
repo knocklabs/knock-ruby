@@ -8,7 +8,7 @@ module Knockapi
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?
       }
 
-    class InlineIdentifyUserRequest < Knockapi::BaseModel
+    class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?

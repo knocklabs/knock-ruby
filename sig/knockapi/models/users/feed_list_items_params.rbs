@@ -16,7 +16,7 @@ module Knockapi
         }
         & Knockapi::Internal::Type::request_parameters
 
-      class FeedListItemsParams < Knockapi::BaseModel
+      class FeedListItemsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -83,7 +83,7 @@ module Knockapi
         type archived = :exclude | :include | :only
 
         module Archived
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           EXCLUDE: :exclude
           INCLUDE: :include
@@ -95,7 +95,7 @@ module Knockapi
         type status = :unread | :read | :unseen | :seen | :all
 
         module Status
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           UNREAD: :unread
           READ: :read

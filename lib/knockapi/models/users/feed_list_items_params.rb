@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Users
       # @see Knockapi::Resources::Users::Feeds#list_items
-      class FeedListItemsParams < Knockapi::BaseModel
+      class FeedListItemsParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -43,7 +43,7 @@ module Knockapi
         #   Whether the feed items have a tenant
         #
         #   @return [Boolean, nil]
-        optional :has_tenant, Knockapi::BooleanModel
+        optional :has_tenant, Knockapi::Internal::Type::BooleanModel
 
         # @!parse
         #   # @return [Boolean]
@@ -103,7 +103,7 @@ module Knockapi
         #   The workflow categories of the feed items to return
         #
         #   @return [Array<String>, nil]
-        optional :workflow_categories, Knockapi::ArrayOf[String]
+        optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @return [Array<String>]
@@ -139,11 +139,11 @@ module Knockapi
         #     super
         #   end
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # The archived status of the feed items to return
         module Archived
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           EXCLUDE = :exclude
           INCLUDE = :include
@@ -158,7 +158,7 @@ module Knockapi
 
         # The status of the feed items to return
         module Status
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           UNREAD = :unread
           READ = :read

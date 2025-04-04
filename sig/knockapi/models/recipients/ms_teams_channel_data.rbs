@@ -7,7 +7,7 @@ module Knockapi
           ms_teams_tenant_id: String?
         }
 
-      class MsTeamsChannelData < Knockapi::BaseModel
+      class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection]
 
         attr_accessor ms_teams_tenant_id: String?
@@ -24,7 +24,7 @@ module Knockapi
           | Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
 
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           type ms_teams_token_connection =
             {
@@ -34,7 +34,7 @@ module Knockapi
               ms_teams_user_id: String?
             }
 
-          class MsTeamsTokenConnection < Knockapi::BaseModel
+          class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor ms_teams_channel_id: String?
 
             attr_accessor ms_teams_team_id: String?
@@ -58,7 +58,7 @@ module Knockapi
               incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
             }
 
-          class MsTeamsIncomingWebhookConnection < Knockapi::BaseModel
+          class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
 
             def initialize: (
@@ -69,7 +69,7 @@ module Knockapi
 
             type incoming_webhook = { url: String }
 
-            class IncomingWebhook < Knockapi::BaseModel
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               attr_accessor url: String
 
               def initialize: (url: String) -> void

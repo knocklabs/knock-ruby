@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Messages
-      BatchMarkAsUnreadResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Message }]
+      BatchMarkAsUnreadResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Message }]
     end
   end
 end

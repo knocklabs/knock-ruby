@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Users
-      class BulkDeleteParams < Knockapi::BaseModel
+      class BulkDeleteParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -13,7 +13,7 @@ module Knockapi
         sig do
           params(
             user_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

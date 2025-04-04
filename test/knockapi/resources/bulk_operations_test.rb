@@ -27,7 +27,7 @@ class Knockapi::Test::Resources::BulkOperationsTest < Knockapi::Test::ResourceTe
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knockapi::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
+        error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         started_at: Time | nil
       }

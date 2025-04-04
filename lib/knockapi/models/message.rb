@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list
-    class Message < Knockapi::BaseModel
+    class Message < Knockapi::Internal::Type::BaseModel
       # @!attribute [r] id
       #   The message ID
       #
@@ -27,7 +27,7 @@ module Knockapi
       #   A list of actor representations associated with the message (up to 10)
       #
       #   @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>, nil]
-      optional :actors, -> { Knockapi::ArrayOf[union: Knockapi::Models::Message::Actor] }
+      optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor] }
 
       # @!parse
       #   # @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
@@ -59,13 +59,14 @@ module Knockapi
       #   Additional message data
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute [r] engagement_statuses
       #   List of engagement statuses
       #
       #   @return [Array<Symbol, Knockapi::Models::Message::EngagementStatus>, nil]
-      optional :engagement_statuses, -> { Knockapi::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus] }
+      optional :engagement_statuses,
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus] }
 
       # @!parse
       #   # @return [Array<Symbol, Knockapi::Models::Message::EngagementStatus>]
@@ -97,7 +98,7 @@ module Knockapi
       #   Message metadata
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :metadata, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute read_at
       #   Timestamp when message was read
@@ -223,12 +224,12 @@ module Knockapi
       #     super
       #   end
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Actor
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         # A user identifier
         variant String
@@ -236,7 +237,7 @@ module Knockapi
         # An object reference to a recipient
         variant -> { Knockapi::Models::Message::Actor::ObjectReference }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -257,7 +258,7 @@ module Knockapi
           #   #
           #   def initialize(id:, collection:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
@@ -266,7 +267,7 @@ module Knockapi
       end
 
       module EngagementStatus
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         SEEN = :seen
         READ = :read
@@ -286,7 +287,7 @@ module Knockapi
       #
       # @see Knockapi::Models::Message#recipient
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         # A user identifier
         variant String
@@ -294,7 +295,7 @@ module Knockapi
         # An object reference to a recipient
         variant -> { Knockapi::Models::Message::Recipient::ObjectReference }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -315,7 +316,7 @@ module Knockapi
           #   #
           #   def initialize(id:, collection:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
@@ -324,7 +325,7 @@ module Knockapi
       end
 
       # @see Knockapi::Models::Message#source
-      class Source < Knockapi::BaseModel
+      class Source < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
         #
         #   @return [String]
@@ -334,7 +335,7 @@ module Knockapi
         #   The workflow categories
         #
         #   @return [Array<String>]
-        required :categories, Knockapi::ArrayOf[String]
+        required :categories, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute key
         #   The workflow key
@@ -358,14 +359,14 @@ module Knockapi
         #   #
         #   def initialize(_typename:, categories:, key:, version_id:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
 
       # Message delivery status
       #
       # @see Knockapi::Models::Message#status
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         QUEUED = :queued
         SENT = :sent

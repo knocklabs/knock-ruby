@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Users
       # @see Knockapi::Resources::Users::Feeds#get_settings
-      class FeedGetSettingsResponse < Knockapi::BaseModel
+      class FeedGetSettingsResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute features
         #
         #   @return [Knockapi::Models::Users::FeedGetSettingsResponse::Features]
@@ -17,21 +17,21 @@ module Knockapi
         #   #
         #   def initialize(features:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # @see Knockapi::Models::Users::FeedGetSettingsResponse#features
-        class Features < Knockapi::BaseModel
+        class Features < Knockapi::Internal::Type::BaseModel
           # @!attribute branding_required
           #
           #   @return [Boolean]
-          required :branding_required, Knockapi::BooleanModel
+          required :branding_required, Knockapi::Internal::Type::BooleanModel
 
           # @!parse
           #   # @param branding_required [Boolean]
           #   #
           #   def initialize(branding_required:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

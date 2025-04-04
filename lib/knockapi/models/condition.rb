@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class Condition < Knockapi::BaseModel
+    class Condition < Knockapi::Internal::Type::BaseModel
       # @!attribute argument
       #
       #   @return [String, nil]
@@ -27,11 +27,11 @@ module Knockapi
       #   #
       #   def initialize(argument:, operator:, variable:, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # @see Knockapi::Models::Condition#operator
       module Operator
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         EQUAL_TO = :equal_to
         NOT_EQUAL_TO = :not_equal_to

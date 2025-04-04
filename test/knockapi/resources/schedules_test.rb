@@ -16,7 +16,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
       )
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Schedule])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule])
     end
   end
 
@@ -28,7 +28,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
     response = @knock.schedules.update(schedule_ids: ["123e4567-e89b-12d3-a456-426614174000"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Schedule])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule])
     end
   end
 
@@ -55,12 +55,12 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
         id: String,
         inserted_at: Time,
         recipient: Knockapi::Models::Recipient,
-        repeats: ^(Knockapi::ArrayOf[Knockapi::Models::ScheduleRepeatRule]),
+        repeats: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule]),
         updated_at: Time,
         workflow: String,
         _typename: String | nil,
         actor: Knockapi::Models::Recipient | nil,
-        data: ^(Knockapi::HashOf[Knockapi::Unknown]) | nil,
+        data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         last_occurrence_at: Time | nil,
         next_occurrence_at: Time | nil,
         tenant: String | nil
@@ -76,7 +76,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
     response = @knock.schedules.delete(schedule_ids: ["123e4567-e89b-12d3-a456-426614174000"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Schedule])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule])
     end
   end
 end

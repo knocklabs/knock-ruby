@@ -98,32 +98,4 @@ module Knockapi
       HTTP_STATUS: Range[Integer]
     end
   end
-
-  class Error = Knockapi::Errors::Error
-
-  class ConversionError = Knockapi::Errors::ConversionError
-
-  class APIError = Knockapi::Errors::APIError
-
-  class APIStatusError = Knockapi::Errors::APIStatusError
-
-  class APIConnectionError = Knockapi::Errors::APIConnectionError
-
-  class APITimeoutError = Knockapi::Errors::APITimeoutError
-
-  class BadRequestError = Knockapi::Errors::BadRequestError
-
-  class AuthenticationError = Knockapi::Errors::AuthenticationError
-
-  class PermissionDeniedError = Knockapi::Errors::PermissionDeniedError
-
-  class NotFoundError = Knockapi::Errors::NotFoundError
-
-  class ConflictError = Knockapi::Errors::ConflictError
-
-  class UnprocessableEntityError = Knockapi::Errors::UnprocessableEntityError
-
-  class RateLimitError = Knockapi::Errors::RateLimitError
-
-  class InternalServerError = Knockapi::Errors::InternalServerError
 end

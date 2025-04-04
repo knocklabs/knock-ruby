@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list
-    class MessageListParams < Knockapi::BaseModel
+    class MessageListParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -43,7 +43,7 @@ module Knockapi
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>, nil]
       optional :engagement_status,
-               -> { Knockapi::ArrayOf[enum: Knockapi::Models::MessageListParams::EngagementStatus] }
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::MessageListParams::EngagementStatus] }
 
       # @!parse
       #   # @return [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>]
@@ -53,7 +53,7 @@ module Knockapi
       #   The message IDs to filter messages by
       #
       #   @return [Array<String>, nil]
-      optional :message_ids, Knockapi::ArrayOf[String]
+      optional :message_ids, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -83,7 +83,8 @@ module Knockapi
       #   The status of the message
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::Status>, nil]
-      optional :status, -> { Knockapi::ArrayOf[enum: Knockapi::Models::MessageListParams::Status] }
+      optional :status,
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::MessageListParams::Status] }
 
       # @!parse
       #   # @return [Array<Symbol, Knockapi::Models::MessageListParams::Status>]
@@ -113,7 +114,7 @@ module Knockapi
       #   The workflow categories to filter messages by
       #
       #   @return [Array<String>, nil]
-      optional :workflow_categories, Knockapi::ArrayOf[String]
+      optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -175,10 +176,10 @@ module Knockapi
       #     super
       #   end
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       module EngagementStatus
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         SEEN = :seen
         READ = :read
@@ -194,7 +195,7 @@ module Knockapi
       end
 
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         QUEUED = :queued
         SENT = :sent

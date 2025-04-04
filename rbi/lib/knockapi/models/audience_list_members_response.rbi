@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class AudienceListMembersResponse < Knockapi::BaseModel
+    class AudienceListMembersResponse < Knockapi::Internal::Type::BaseModel
       sig { returns(T::Array[Knockapi::Models::AudienceMember]) }
       attr_accessor :entries
 
@@ -12,7 +12,7 @@ module Knockapi
 
       sig do
         params(
-          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Internal::Util::AnyHash)
+          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Internal::AnyHash)
         )
           .void
       end
@@ -21,8 +21,8 @@ module Knockapi
       # A response containing a list of audience members
       sig do
         params(
-          entries: T::Array[T.any(Knockapi::Models::AudienceMember, Knockapi::Internal::Util::AnyHash)],
-          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Internal::Util::AnyHash)
+          entries: T::Array[T.any(Knockapi::Models::AudienceMember, Knockapi::Internal::AnyHash)],
+          page_info: T.any(Knockapi::Models::AudienceListMembersResponse::PageInfo, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -41,7 +41,7 @@ module Knockapi
       def to_hash
       end
 
-      class PageInfo < Knockapi::BaseModel
+      class PageInfo < Knockapi::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :_typename
 

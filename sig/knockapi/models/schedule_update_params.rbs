@@ -12,7 +12,7 @@ module Knockapi
       }
       & Knockapi::Internal::Type::request_parameters
 
-    class ScheduleUpdateParams < Knockapi::BaseModel
+    class ScheduleUpdateParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

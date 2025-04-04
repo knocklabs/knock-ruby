@@ -10,7 +10,7 @@ module Knockapi
       def inspect: -> String
 
       type page_info = { after: String }
-      class PageInfo < Knockapi::BaseModel
+      class PageInfo < Knockapi::Internal::Type::BaseModel
         attr_reader after: String?
 
         def after=: (String) -> String

@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
-    UserListPreferencesResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Recipients::PreferenceSet }]
+    UserListPreferencesResponse =
+      Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Recipients::PreferenceSet }]
   end
 end

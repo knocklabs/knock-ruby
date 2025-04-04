@@ -3,7 +3,7 @@ module Knockapi
     type audience_list_members_params =
       {  } & Knockapi::Internal::Type::request_parameters
 
-    class AudienceListMembersParams < Knockapi::BaseModel
+    class AudienceListMembersParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

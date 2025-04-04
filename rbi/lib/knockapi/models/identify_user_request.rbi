@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class IdentifyUserRequest < Knockapi::BaseModel
+    class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # Allows inline setting channel data for a recipient
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_accessor :channel_data
@@ -20,11 +20,11 @@ module Knockapi
       sig do
         params(
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
           ),
           created_at: T.nilable(Time),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           )
         )
           .returns(T.attached_class)

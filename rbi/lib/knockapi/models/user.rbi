@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class User < Knockapi::BaseModel
+    class User < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

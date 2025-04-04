@@ -3,11 +3,11 @@
 module Knockapi
   module Models
     module Recipients
-      class PushChannelData < Knockapi::BaseModel
+      class PushChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute tokens
         #
         #   @return [Array<String>]
-        required :tokens, Knockapi::ArrayOf[String]
+        required :tokens, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # Channel data for push providers
@@ -16,7 +16,7 @@ module Knockapi
         #   #
         #   def initialize(tokens:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

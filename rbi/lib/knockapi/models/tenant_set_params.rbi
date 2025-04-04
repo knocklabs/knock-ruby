@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class TenantSetParams < Knockapi::BaseModel
+    class TenantSetParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -17,22 +17,19 @@ module Knockapi
       sig { returns(T.nilable(Knockapi::Models::TenantSetParams::Settings)) }
       attr_reader :settings
 
-      sig do
-        params(settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::Util::AnyHash))
-          .void
-      end
+      sig { params(settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash)).void }
       attr_writer :settings
 
       sig do
         params(
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
           ),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           ),
-          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::Util::AnyHash),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash),
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -53,13 +50,13 @@ module Knockapi
       def to_hash
       end
 
-      class Settings < Knockapi::BaseModel
+      class Settings < Knockapi::Internal::Type::BaseModel
         sig { returns(T.nilable(Knockapi::Models::TenantSetParams::Settings::Branding)) }
         attr_reader :branding
 
         sig do
           params(
-            branding: T.any(Knockapi::Models::TenantSetParams::Settings::Branding, Knockapi::Internal::Util::AnyHash)
+            branding: T.any(Knockapi::Models::TenantSetParams::Settings::Branding, Knockapi::Internal::AnyHash)
           )
             .void
         end
@@ -71,7 +68,7 @@ module Knockapi
 
         sig do
           params(
-            preference_set: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash))
+            preference_set: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash))
           )
             .void
         end
@@ -79,8 +76,8 @@ module Knockapi
 
         sig do
           params(
-            branding: T.any(Knockapi::Models::TenantSetParams::Settings::Branding, Knockapi::Internal::Util::AnyHash),
-            preference_set: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash))
+            branding: T.any(Knockapi::Models::TenantSetParams::Settings::Branding, Knockapi::Internal::AnyHash),
+            preference_set: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash))
           )
             .returns(T.attached_class)
         end
@@ -99,7 +96,7 @@ module Knockapi
         def to_hash
         end
 
-        class Branding < Knockapi::BaseModel
+        class Branding < Knockapi::Internal::Type::BaseModel
           sig { returns(T.nilable(String)) }
           attr_accessor :icon_url
 

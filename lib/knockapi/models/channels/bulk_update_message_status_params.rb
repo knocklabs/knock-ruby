@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Channels
       # @see Knockapi::Resources::Channels::Bulk#update_message_status
-      class BulkUpdateMessageStatusParams < Knockapi::BaseModel
+      class BulkUpdateMessageStatusParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -41,7 +41,7 @@ module Knockapi
         # @!attribute [r] has_tenant
         #
         #   @return [Boolean, nil]
-        optional :has_tenant, Knockapi::BooleanModel
+        optional :has_tenant, Knockapi::Internal::Type::BooleanModel
 
         # @!parse
         #   # @return [Boolean]
@@ -68,7 +68,7 @@ module Knockapi
         # @!attribute [r] recipient_ids
         #
         #   @return [Array<String>, nil]
-        optional :recipient_ids, Knockapi::ArrayOf[String]
+        optional :recipient_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @return [Array<String>]
@@ -77,7 +77,7 @@ module Knockapi
         # @!attribute [r] tenants
         #
         #   @return [Array<String>, nil]
-        optional :tenants, Knockapi::ArrayOf[String]
+        optional :tenants, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @return [Array<String>]
@@ -95,7 +95,7 @@ module Knockapi
         # @!attribute [r] workflows
         #
         #   @return [Array<String>, nil]
-        optional :workflows, Knockapi::ArrayOf[String]
+        optional :workflows, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @return [Array<String>]
@@ -131,10 +131,10 @@ module Knockapi
         #     super
         #   end
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         module Action
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           SEEN = :seen
           UNSEEN = :unseen
@@ -155,7 +155,7 @@ module Knockapi
         end
 
         module Archived
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           EXCLUDE = :exclude
           INCLUDE = :include
@@ -169,7 +169,7 @@ module Knockapi
         end
 
         module DeliveryStatus
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           QUEUED = :queued
           SENT = :sent
@@ -187,7 +187,7 @@ module Knockapi
         end
 
         module EngagementStatus
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           SEEN = :seen
           UNSEEN = :unseen

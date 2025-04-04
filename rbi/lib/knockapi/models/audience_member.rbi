@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class AudienceMember < Knockapi::BaseModel
+    class AudienceMember < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :_typename
 
@@ -13,7 +13,7 @@ module Knockapi
       sig { returns(Knockapi::Models::User) }
       attr_reader :user
 
-      sig { params(user: T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash)).void }
+      sig { params(user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash)).void }
       attr_writer :user
 
       sig { returns(String) }
@@ -27,7 +27,7 @@ module Knockapi
         params(
           _typename: String,
           added_at: Time,
-          user: T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash),
+          user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash),
           user_id: String,
           tenant: T.nilable(String)
         )

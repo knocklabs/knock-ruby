@@ -2,7 +2,7 @@ module Knockapi
   module Models
     type tenant = { id: String, _typename: String }
 
-    class Tenant < Knockapi::BaseModel
+    class Tenant < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String

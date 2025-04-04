@@ -6,7 +6,7 @@ module Knockapi
         page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
       }
 
-    class AudienceListMembersResponse < Knockapi::BaseModel
+    class AudienceListMembersResponse < Knockapi::Internal::Type::BaseModel
       attr_accessor entries: ::Array[Knockapi::Models::AudienceMember]
 
       attr_accessor page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
@@ -26,7 +26,7 @@ module Knockapi
           before: String?
         }
 
-      class PageInfo < Knockapi::BaseModel
+      class PageInfo < Knockapi::Internal::Type::BaseModel
         attr_accessor _typename: String
 
         attr_accessor page_size: Integer

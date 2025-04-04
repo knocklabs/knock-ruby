@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Users
-      class FeedListItemsParams < Knockapi::BaseModel
+      class FeedListItemsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -89,7 +89,7 @@ module Knockapi
             tenant: String,
             trigger_data: String,
             workflow_categories: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -131,7 +131,7 @@ module Knockapi
 
         # The archived status of the feed items to return
         module Archived
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived) }
           OrSymbol =
@@ -148,7 +148,7 @@ module Knockapi
 
         # The status of the feed items to return
         module Status
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Status) }
           OrSymbol =

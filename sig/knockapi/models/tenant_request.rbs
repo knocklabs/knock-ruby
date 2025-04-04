@@ -8,7 +8,7 @@ module Knockapi
         settings: Knockapi::Models::TenantRequest::Settings
       }
 
-    class TenantRequest < Knockapi::BaseModel
+    class TenantRequest < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
@@ -36,7 +36,7 @@ module Knockapi
           preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
         }
 
-      class Settings < Knockapi::BaseModel
+      class Settings < Knockapi::Internal::Type::BaseModel
         attr_reader branding: Knockapi::Models::TenantRequest::Settings::Branding?
 
         def branding=: (
@@ -60,7 +60,7 @@ module Knockapi
             primary_color_contrast: String?
           }
 
-        class Branding < Knockapi::BaseModel
+        class Branding < Knockapi::Internal::Type::BaseModel
           attr_accessor icon_url: String?
 
           attr_accessor logo_url: String?

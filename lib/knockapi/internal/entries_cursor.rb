@@ -91,7 +91,7 @@ module Knockapi
         "#<#{self.class}:0x#{object_id.to_s(16)} entries=#{entries.inspect} page_info=#{page_info.inspect}>"
       end
 
-      class PageInfo < Knockapi::BaseModel
+      class PageInfo < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] after
         #
         #   @return [String, nil]
@@ -106,7 +106,7 @@ module Knockapi
         #   #
         #   def initialize(after: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

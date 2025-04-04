@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Audiences#remove_members
-    class AudienceRemoveMembersParams < Knockapi::BaseModel
+    class AudienceRemoveMembersParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -11,7 +11,8 @@ module Knockapi
       # @!attribute members
       #
       #   @return [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
-      required :members, -> { Knockapi::ArrayOf[Knockapi::Models::AudienceRemoveMembersParams::Member] }
+      required :members,
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::AudienceRemoveMembersParams::Member] }
 
       # @!parse
       #   # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
@@ -19,9 +20,9 @@ module Knockapi
       #   #
       #   def initialize(members:, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-      class Member < Knockapi::BaseModel
+      class Member < Knockapi::Internal::Type::BaseModel
         # @!attribute user
         #   A set of parameters to inline-identify a user with. Inline identifying the user
         #     will ensure that the user is available before the request is executed in Knock.
@@ -44,7 +45,7 @@ module Knockapi
         #   #
         #   def initialize(user:, tenant: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#list_subscriptions
-    class ObjectListSubscriptionsParams < Knockapi::BaseModel
+    class ObjectListSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -43,7 +43,7 @@ module Knockapi
       #
       #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>, nil]
       optional :objects,
-               -> { Knockapi::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Object] }
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Object] }
 
       # @!parse
       #   # @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
@@ -64,7 +64,7 @@ module Knockapi
       #
       #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>, nil]
       optional :recipients,
-               -> { Knockapi::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Recipient] }
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Recipient] }
 
       # @!parse
       #   # @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
@@ -81,11 +81,11 @@ module Knockapi
       #   #
       #   def initialize(after: nil, before: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # Mode of the request
       module Mode
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         RECIPIENT = :recipient
         OBJECT = :object
@@ -100,7 +100,7 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Object
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         # A user identifier
         variant String
@@ -108,7 +108,7 @@ module Knockapi
         # An object reference to a recipient
         variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -129,7 +129,7 @@ module Knockapi
           #   #
           #   def initialize(id:, collection:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
@@ -140,7 +140,7 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         # A user identifier
         variant String
@@ -148,7 +148,7 @@ module Knockapi
         # An object reference to a recipient
         variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -169,7 +169,7 @@ module Knockapi
           #   #
           #   def initialize(id:, collection:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse

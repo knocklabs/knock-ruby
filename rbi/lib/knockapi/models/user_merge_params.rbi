@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class UserMergeParams < Knockapi::BaseModel
+    class UserMergeParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -13,7 +13,7 @@ module Knockapi
       sig do
         params(
           from_user_id: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

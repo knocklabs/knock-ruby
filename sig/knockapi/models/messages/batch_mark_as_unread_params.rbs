@@ -5,7 +5,7 @@ module Knockapi
         { message_ids: ::Array[String] }
         & Knockapi::Internal::Type::request_parameters
 
-      class BatchMarkAsUnreadParams < Knockapi::BaseModel
+      class BatchMarkAsUnreadParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 

@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#list
-    class Object < Knockapi::BaseModel
+    class Object < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -40,7 +40,7 @@ module Knockapi
       #   #
       #   def initialize(id:, _typename:, collection:, updated_at:, created_at: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

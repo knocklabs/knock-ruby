@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Messages
-      BatchArchiveResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Message }]
+      BatchArchiveResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Message }]
     end
   end
 end

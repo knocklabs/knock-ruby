@@ -6,7 +6,7 @@ module Knockapi
           ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
         }
 
-      class MsTeamListChannelsResponse < Knockapi::BaseModel
+      class MsTeamListChannelsResponse < Knockapi::Internal::Type::BaseModel
         attr_accessor ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
 
         def initialize: (
@@ -25,7 +25,7 @@ module Knockapi
             membership_type: String
           }
 
-        class MsTeamsChannel < Knockapi::BaseModel
+        class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor display_name: String

@@ -4,7 +4,7 @@ module Knockapi
       type feed_get_settings_response =
         { features: Knockapi::Models::Users::FeedGetSettingsResponse::Features }
 
-      class FeedGetSettingsResponse < Knockapi::BaseModel
+      class FeedGetSettingsResponse < Knockapi::Internal::Type::BaseModel
         attr_accessor features: Knockapi::Models::Users::FeedGetSettingsResponse::Features
 
         def initialize: (
@@ -15,7 +15,7 @@ module Knockapi
 
         type features = { branding_required: bool }
 
-        class Features < Knockapi::BaseModel
+        class Features < Knockapi::Internal::Type::BaseModel
           attr_accessor branding_required: bool
 
           def initialize: (branding_required: bool) -> void

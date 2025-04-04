@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class TenantRequest < Knockapi::BaseModel
+    class TenantRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -13,7 +13,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
                nil?: true
 
       # @!attribute preferences
@@ -21,7 +21,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
                nil?: true
 
       # @!attribute [r] settings
@@ -43,10 +43,10 @@ module Knockapi
       #   #
       #   def initialize(id:, channel_data: nil, preferences: nil, settings: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # @see Knockapi::Models::TenantRequest#settings
-      class Settings < Knockapi::BaseModel
+      class Settings < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] branding
         #
         #   @return [Knockapi::Models::TenantRequest::Settings::Branding, nil]
@@ -68,10 +68,10 @@ module Knockapi
         #   #
         #   def initialize(branding: nil, preference_set: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # @see Knockapi::Models::TenantRequest::Settings#branding
-        class Branding < Knockapi::BaseModel
+        class Branding < Knockapi::Internal::Type::BaseModel
           # @!attribute icon_url
           #
           #   @return [String, nil]
@@ -100,7 +100,7 @@ module Knockapi
           #   #
           #   def initialize(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

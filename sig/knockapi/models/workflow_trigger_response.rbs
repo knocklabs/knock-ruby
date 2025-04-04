@@ -2,7 +2,7 @@ module Knockapi
   module Models
     type workflow_trigger_response = { workflow_run_id: String }
 
-    class WorkflowTriggerResponse < Knockapi::BaseModel
+    class WorkflowTriggerResponse < Knockapi::Internal::Type::BaseModel
       attr_accessor workflow_run_id: String
 
       def initialize: (workflow_run_id: String) -> void

@@ -10,7 +10,7 @@ module Knockapi
           params(
             channel_id: String,
             ms_teams_tenant_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamCheckAuthResponse)
         end
@@ -30,11 +30,8 @@ module Knockapi
             channel_id: String,
             ms_teams_tenant_object: String,
             team_id: String,
-            query_options: T.any(
-              Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-              Knockapi::Internal::Util::AnyHash
-            ),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamListChannelsResponse)
         end
@@ -56,8 +53,8 @@ module Knockapi
           params(
             channel_id: String,
             ms_teams_tenant_object: String,
-            query_options: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Internal::Util::AnyHash),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            query_options: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Internal::AnyHash),
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::Providers::MsTeamListTeamsResponse)
         end
@@ -76,7 +73,7 @@ module Knockapi
           params(
             channel_id: String,
             ms_teams_tenant_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(String)
         end

@@ -2,13 +2,13 @@
 
 module Knockapi
   module Models
-    class IdentifyUserRequest < Knockapi::BaseModel
+    class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute channel_data
       #   Allows inline setting channel data for a recipient
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
                nil?: true
 
       # @!attribute created_at
@@ -21,7 +21,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
                nil?: true
 
       # @!parse
@@ -35,7 +35,7 @@ module Knockapi
       #   #
       #   def initialize(channel_data: nil, created_at: nil, preferences: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

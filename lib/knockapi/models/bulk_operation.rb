@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::BulkOperations#get
-    class BulkOperation < Knockapi::BaseModel
+    class BulkOperation < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -67,7 +67,8 @@ module Knockapi
       #   A list of items that failed to be processed
       #
       #   @return [Array<Knockapi::Models::BulkOperation::ErrorItem>, nil]
-      optional :error_items, -> { Knockapi::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem] }
+      optional :error_items,
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem] }
 
       # @!parse
       #   # @return [Array<Knockapi::Models::BulkOperation::ErrorItem>]
@@ -121,11 +122,11 @@ module Knockapi
       #     super
       #   end
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # @see Knockapi::Models::BulkOperation#status
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         QUEUED = :queued
         PROCESSING = :processing
@@ -139,7 +140,7 @@ module Knockapi
         #   def self.values; end
       end
 
-      class ErrorItem < Knockapi::BaseModel
+      class ErrorItem < Knockapi::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -156,7 +157,7 @@ module Knockapi
         #   #
         #   def initialize(id:, collection: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

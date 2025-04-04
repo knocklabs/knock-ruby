@@ -11,7 +11,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.archive(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
     end
   end
 
@@ -23,7 +23,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.get_content(message_ids: ["string"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem])
     end
   end
 
@@ -35,7 +35,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.mark_as_interacted(message_ids: ["1jNaXzB2RZX3LY8wVQnfCKyPnv7"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
     end
   end
 
@@ -47,7 +47,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.mark_as_read(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
     end
   end
 
@@ -59,7 +59,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.mark_as_seen(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
     end
   end
 
@@ -71,7 +71,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.mark_as_unread(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
     end
   end
 
@@ -83,7 +83,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.mark_as_unseen(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
     end
   end
 
@@ -95,7 +95,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.unarchive(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
 
     assert_pattern do
-      response => ^(Knockapi::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
     end
   end
 end

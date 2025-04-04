@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#mark_as_interacted
-    class MessageMarkAsInteractedParams < Knockapi::BaseModel
+    class MessageMarkAsInteractedParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -12,7 +12,7 @@ module Knockapi
       #   Metadata about the interaction
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :metadata, Knockapi::HashOf[Knockapi::Unknown]
+      optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
       # @!parse
       #   # @return [Hash{Symbol=>Object}]
@@ -24,7 +24,7 @@ module Knockapi
       #   #
       #   def initialize(metadata: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

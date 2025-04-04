@@ -11,7 +11,7 @@ module Knockapi
         updated_at: Time
       }
 
-    class Activity < Knockapi::BaseModel
+    class Activity < Knockapi::Internal::Type::BaseModel
       attr_reader id: String?
 
       def id=: (String) -> String

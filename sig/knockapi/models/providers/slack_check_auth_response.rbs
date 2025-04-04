@@ -6,7 +6,7 @@ module Knockapi
           connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection
         }
 
-      class SlackCheckAuthResponse < Knockapi::BaseModel
+      class SlackCheckAuthResponse < Knockapi::Internal::Type::BaseModel
         attr_accessor connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection
 
         def initialize: (
@@ -17,7 +17,7 @@ module Knockapi
 
         type connection = { ok: bool, reason: String? }
 
-        class Connection < Knockapi::BaseModel
+        class Connection < Knockapi::Internal::Type::BaseModel
           attr_accessor ok: bool
 
           attr_accessor reason: String?

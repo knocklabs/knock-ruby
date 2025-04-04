@@ -5,7 +5,7 @@ module Knockapi
         { users: ::Array[Knockapi::Models::InlineIdentifyUserRequest] }
         & Knockapi::Internal::Type::request_parameters
 
-      class BulkIdentifyParams < Knockapi::BaseModel
+      class BulkIdentifyParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 

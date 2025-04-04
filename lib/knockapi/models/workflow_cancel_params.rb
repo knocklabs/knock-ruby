@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Workflows#cancel
-    class WorkflowCancelParams < Knockapi::BaseModel
+    class WorkflowCancelParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -20,7 +20,7 @@ module Knockapi
       #     key.
       #
       #   @return [Array<String>, nil]
-      optional :recipients, Knockapi::ArrayOf[String], nil?: true
+      optional :recipients, Knockapi::Internal::Type::ArrayOf[String], nil?: true
 
       # @!attribute tenant
       #
@@ -35,7 +35,7 @@ module Knockapi
       #   #
       #   def initialize(cancellation_key:, recipients: nil, tenant: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

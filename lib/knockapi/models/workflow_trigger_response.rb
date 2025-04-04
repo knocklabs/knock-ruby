@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Workflows#trigger
-    class WorkflowTriggerResponse < Knockapi::BaseModel
+    class WorkflowTriggerResponse < Knockapi::Internal::Type::BaseModel
       # @!attribute workflow_run_id
       #   The ID of the workflow trigger. This value allows you to track individual
       #     workflow runs associated with this trigger request.
@@ -18,7 +18,7 @@ module Knockapi
       #   #
       #   def initialize(workflow_run_id:, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

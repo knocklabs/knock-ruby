@@ -3,12 +3,12 @@
 module Knockapi
   module Models
     module Recipients
-      class SlackChannelData < Knockapi::BaseModel
+      class SlackChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute connections
         #
         #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
         required :connections,
-                 -> { Knockapi::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
+                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
 
         # @!attribute token
         #   A token that's used to store the access token for a Slack workspace.
@@ -24,11 +24,11 @@ module Knockapi
         #   #
         #   def initialize(connections:, token: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # A Slack connection, which either includes a channel_id or a user_id
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           # A Slack connection, which either includes a channel_id or a user_id
           variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection }
@@ -36,7 +36,7 @@ module Knockapi
           # An incoming webhook Slack connection
           variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection }
 
-          class SlackTokenConnection < Knockapi::BaseModel
+          class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute access_token
             #
             #   @return [String, nil]
@@ -61,10 +61,10 @@ module Knockapi
             #   #
             #   def initialize(access_token: nil, channel_id: nil, user_id: nil, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class SlackIncomingWebhookConnection < Knockapi::BaseModel
+          class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute url
             #
             #   @return [String]
@@ -77,7 +77,7 @@ module Knockapi
             #   #
             #   def initialize(url:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
           # @!parse
@@ -86,7 +86,7 @@ module Knockapi
         end
 
         # @see Knockapi::Models::Recipients::SlackChannelData#token
-        class Token < Knockapi::BaseModel
+        class Token < Knockapi::Internal::Type::BaseModel
           # @!attribute access_token
           #
           #   @return [String, nil]
@@ -99,7 +99,7 @@ module Knockapi
           #   #
           #   def initialize(access_token:, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

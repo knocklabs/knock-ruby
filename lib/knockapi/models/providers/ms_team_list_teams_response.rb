@@ -4,12 +4,12 @@ module Knockapi
   module Models
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#list_teams
-      class MsTeamListTeamsResponse < Knockapi::BaseModel
+      class MsTeamListTeamsResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute ms_teams_teams
         #
         #   @return [Array<Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam>]
         required :ms_teams_teams,
-                 -> { Knockapi::ArrayOf[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam] }
+                 -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam] }
 
         # @!attribute skip_token
         #
@@ -24,9 +24,9 @@ module Knockapi
         #   #
         #   def initialize(ms_teams_teams:, skip_token:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-        class MsTeamsTeam < Knockapi::BaseModel
+        class MsTeamsTeam < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #
           #   @return [String]
@@ -49,7 +49,7 @@ module Knockapi
           #   #
           #   def initialize(id:, display_name:, description: nil, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

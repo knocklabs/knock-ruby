@@ -9,7 +9,7 @@ module Knockapi
         created_at: Time?
       }
 
-    class Object < Knockapi::BaseModel
+    class Object < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String

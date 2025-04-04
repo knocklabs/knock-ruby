@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class ScheduleRepeatRule < Knockapi::BaseModel
+    class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :_typename
 
@@ -69,7 +69,7 @@ module Knockapi
       end
 
       module Frequency
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency) }
         OrSymbol =
@@ -86,7 +86,7 @@ module Knockapi
       end
 
       module Day
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Day) }
         OrSymbol =

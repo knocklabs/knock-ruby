@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Messages
       # @see Knockapi::Resources::Messages::Batch#unarchive
-      class BatchUnarchiveParams < Knockapi::BaseModel
+      class BatchUnarchiveParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -12,7 +12,7 @@ module Knockapi
         # @!attribute message_ids
         #
         #   @return [Array<String>]
-        required :message_ids, Knockapi::ArrayOf[String]
+        required :message_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @param message_ids [Array<String>]
@@ -20,7 +20,7 @@ module Knockapi
         #   #
         #   def initialize(message_ids:, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

@@ -7,7 +7,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       sig do
-        params(request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+        params(request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           .returns(T.attached_class)
       end
       def self.new(request_options: {})

@@ -17,11 +17,11 @@ module Knockapi
         sig(:final) do
           params(
             type_info: T.any(
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               T.proc.returns(Knockapi::Internal::Type::Converter::Input),
               Knockapi::Internal::Type::Converter::Input
             ),
-            spec: Knockapi::Internal::Util::AnyHash
+            spec: Knockapi::Internal::AnyHash
           )
             .returns(T.attached_class)
         end
@@ -72,11 +72,11 @@ module Knockapi
         sig(:final) do
           params(
             type_info: T.any(
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               T.proc.returns(Knockapi::Internal::Type::Converter::Input),
               Knockapi::Internal::Type::Converter::Input
             ),
-            spec: Knockapi::Internal::Util::AnyHash
+            spec: Knockapi::Internal::AnyHash
           )
             .void
         end

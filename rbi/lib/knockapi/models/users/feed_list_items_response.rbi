@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Users
-      class FeedListItemsResponse < Knockapi::BaseModel
+      class FeedListItemsResponse < Knockapi::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -38,9 +38,7 @@ module Knockapi
         attr_reader :source
 
         sig do
-          params(
-            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::Util::AnyHash)
-          )
+          params(source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::AnyHash))
             .void
         end
         attr_writer :source
@@ -80,18 +78,18 @@ module Knockapi
           params(
             id: String,
             _typename: String,
-            activities: T::Array[T.any(Knockapi::Models::Activity, Knockapi::Internal::Util::AnyHash)],
-            actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object)],
+            activities: T::Array[T.any(Knockapi::Models::Activity, Knockapi::Internal::AnyHash)],
+            actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)],
             blocks: T::Array[
             T.any(
               Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
             )
             ],
             data: T.nilable(T::Hash[Symbol, T.anything]),
             inserted_at: String,
-            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::Util::AnyHash),
+            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::AnyHash),
             tenant: T.nilable(String),
             total_activities: Integer,
             total_actors: Integer,
@@ -162,9 +160,9 @@ module Knockapi
 
         # A content (text or markdown) block in a message in an app feed
         module Block
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
-          class MessageInAppFeedContentBlock < Knockapi::BaseModel
+          class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
             sig { returns(String) }
             attr_accessor :content
 
@@ -209,7 +207,7 @@ module Knockapi
             end
 
             module Type
-              extend Knockapi::Enum
+              extend Knockapi::Internal::Type::Enum
 
               TaggedSymbol =
                 T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type) }
@@ -244,7 +242,7 @@ module Knockapi
             end
           end
 
-          class MessageInAppFeedButtonSetBlock < Knockapi::BaseModel
+          class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
             sig do
               returns(
                 T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button]
@@ -268,7 +266,7 @@ module Knockapi
                 buttons: T::Array[
                 T.any(
                   Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
-                  Knockapi::Internal::Util::AnyHash
+                  Knockapi::Internal::AnyHash
                 )
                 ],
                 name: String,
@@ -292,7 +290,7 @@ module Knockapi
             def to_hash
             end
 
-            class Button < Knockapi::BaseModel
+            class Button < Knockapi::Internal::Type::BaseModel
               sig { returns(String) }
               attr_accessor :action
 
@@ -313,7 +311,7 @@ module Knockapi
             end
 
             module Type
-              extend Knockapi::Enum
+              extend Knockapi::Internal::Type::Enum
 
               TaggedSymbol =
                 T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type) }
@@ -353,7 +351,7 @@ module Knockapi
           end
         end
 
-        class Source < Knockapi::BaseModel
+        class Source < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :_typename
 

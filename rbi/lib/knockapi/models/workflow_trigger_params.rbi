@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class WorkflowTriggerParams < Knockapi::BaseModel
+    class WorkflowTriggerParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -45,7 +45,7 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::Util::AnyHash,
+            Knockapi::Internal::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ]
@@ -64,7 +64,7 @@ module Knockapi
             T.any(
               String,
               Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::InlineObjectRequest
             )
           ),
@@ -74,12 +74,12 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::Util::AnyHash,
+            Knockapi::Internal::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ],
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::Util::AnyHash)),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -3,12 +3,12 @@
 module Knockapi
   module Models
     module Recipients
-      class MsTeamsChannelData < Knockapi::BaseModel
+      class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute connections
         #
         #   @return [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
         required :connections,
-                 -> { Knockapi::ArrayOf[union: Knockapi::Models::Recipients::MsTeamsChannelData::Connection] }
+                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::MsTeamsChannelData::Connection] }
 
         # @!attribute ms_teams_tenant_id
         #   The Microsoft Teams tenant ID
@@ -24,11 +24,11 @@ module Knockapi
         #   #
         #   def initialize(connections:, ms_teams_tenant_id: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # Microsoft Teams token connection
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           # Microsoft Teams token connection
           variant -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection }
@@ -36,7 +36,7 @@ module Knockapi
           # Microsoft Teams incoming webhook connection
           variant -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection }
 
-          class MsTeamsTokenConnection < Knockapi::BaseModel
+          class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute ms_teams_channel_id
             #   The Microsoft Teams channel ID
             #
@@ -71,10 +71,10 @@ module Knockapi
             #   #
             #   def initialize(ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class MsTeamsIncomingWebhookConnection < Knockapi::BaseModel
+          class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute incoming_webhook
             #   The incoming webhook
             #
@@ -89,10 +89,10 @@ module Knockapi
             #   #
             #   def initialize(incoming_webhook:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
             # @see Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection#incoming_webhook
-            class IncomingWebhook < Knockapi::BaseModel
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               # @!attribute url
               #   The URL of the incoming webhook
               #
@@ -106,7 +106,7 @@ module Knockapi
               #   #
               #   def initialize(url:, **) = super
 
-              # def initialize: (Hash | Knockapi::BaseModel) -> void
+              # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
             end
           end
 

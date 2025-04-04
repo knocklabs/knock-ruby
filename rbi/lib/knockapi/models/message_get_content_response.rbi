@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class MessageGetContentResponse < Knockapi::BaseModel
+    class MessageGetContentResponse < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :_typename
 
@@ -32,7 +32,7 @@ module Knockapi
           _typename: String,
           data: T.any(
             Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
-            Knockapi::Internal::Util::AnyHash,
+            Knockapi::Internal::AnyHash,
             Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
             Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
             Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
@@ -68,9 +68,9 @@ module Knockapi
 
       # The contents of an email message
       module Data
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
-        class MessageEmailContent < Knockapi::BaseModel
+        class MessageEmailContent < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :_typename
 
@@ -146,7 +146,7 @@ module Knockapi
           end
         end
 
-        class MessageSMSContent < Knockapi::BaseModel
+        class MessageSMSContent < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :_typename
 
@@ -166,7 +166,7 @@ module Knockapi
           end
         end
 
-        class MessagePushContent < Knockapi::BaseModel
+        class MessagePushContent < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :token
 
@@ -212,7 +212,7 @@ module Knockapi
           end
         end
 
-        class MessageChatContent < Knockapi::BaseModel
+        class MessageChatContent < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :_typename
 
@@ -227,7 +227,7 @@ module Knockapi
             params(
               template: T.any(
                 Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
-                Knockapi::Internal::Util::AnyHash
+                Knockapi::Internal::AnyHash
               )
             )
               .void
@@ -244,7 +244,7 @@ module Knockapi
               connection: T::Hash[Symbol, T.anything],
               template: T.any(
                 Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
-                Knockapi::Internal::Util::AnyHash
+                Knockapi::Internal::AnyHash
               ),
               metadata: T.nilable(T::Hash[Symbol, T.anything])
             )
@@ -267,7 +267,7 @@ module Knockapi
           def to_hash
           end
 
-          class Template < Knockapi::BaseModel
+          class Template < Knockapi::Internal::Type::BaseModel
             # The structured blocks of the message
             sig do
               returns(
@@ -291,7 +291,7 @@ module Knockapi
                   T::Array[
                   T.any(
                     Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block,
-                    Knockapi::Internal::Util::AnyHash
+                    Knockapi::Internal::AnyHash
                   )
                   ]
                 ),
@@ -318,7 +318,7 @@ module Knockapi
             def to_hash
             end
 
-            class Block < Knockapi::BaseModel
+            class Block < Knockapi::Internal::Type::BaseModel
               sig { returns(String) }
               attr_accessor :content
 
@@ -358,7 +358,7 @@ module Knockapi
               end
 
               module Type
-                extend Knockapi::Enum
+                extend Knockapi::Internal::Type::Enum
 
                 TaggedSymbol =
                   T.type_alias do
@@ -397,7 +397,7 @@ module Knockapi
           end
         end
 
-        class MessageInAppFeedContent < Knockapi::BaseModel
+        class MessageInAppFeedContent < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :_typename
 
@@ -421,7 +421,7 @@ module Knockapi
               blocks: T::Array[
               T.any(
                 Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                Knockapi::Internal::Util::AnyHash,
+                Knockapi::Internal::AnyHash,
                 Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
               )
               ]
@@ -450,9 +450,9 @@ module Knockapi
 
           # A content (text or markdown) block in a message in an app feed
           module Block
-            extend Knockapi::Union
+            extend Knockapi::Internal::Type::Union
 
-            class MessageInAppFeedContentBlock < Knockapi::BaseModel
+            class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
               sig { returns(String) }
               attr_accessor :content
 
@@ -497,7 +497,7 @@ module Knockapi
               end
 
               module Type
-                extend Knockapi::Enum
+                extend Knockapi::Internal::Type::Enum
 
                 TaggedSymbol =
                   T.type_alias do
@@ -536,7 +536,7 @@ module Knockapi
               end
             end
 
-            class MessageInAppFeedButtonSetBlock < Knockapi::BaseModel
+            class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
               sig do
                 returns(
                   T::Array[
@@ -562,7 +562,7 @@ module Knockapi
                   buttons: T::Array[
                   T.any(
                     Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button,
-                    Knockapi::Internal::Util::AnyHash
+                    Knockapi::Internal::AnyHash
                   )
                   ],
                   name: String,
@@ -588,7 +588,7 @@ module Knockapi
               def to_hash
               end
 
-              class Button < Knockapi::BaseModel
+              class Button < Knockapi::Internal::Type::BaseModel
                 sig { returns(String) }
                 attr_accessor :action
 
@@ -609,7 +609,7 @@ module Knockapi
               end
 
               module Type
-                extend Knockapi::Enum
+                extend Knockapi::Internal::Type::Enum
 
                 TaggedSymbol =
                   T.type_alias do

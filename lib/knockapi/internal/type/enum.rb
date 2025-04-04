@@ -37,7 +37,7 @@ module Knockapi
         #
         # @return [Boolean]
         def ==(other)
-          other.is_a?(Module) && other.singleton_class <= Knockapi::Enum && other.values.to_set == values.to_set
+          other.is_a?(Module) && other.singleton_class <= Knockapi::Internal::Type::Enum && other.values.to_set == values.to_set
         end
 
         # @api private

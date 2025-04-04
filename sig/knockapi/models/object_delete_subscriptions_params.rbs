@@ -4,7 +4,7 @@ module Knockapi
       { recipients: ::Array[Knockapi::Models::recipient_request] }
       & Knockapi::Internal::Type::request_parameters
 
-    class ObjectDeleteSubscriptionsParams < Knockapi::BaseModel
+    class ObjectDeleteSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

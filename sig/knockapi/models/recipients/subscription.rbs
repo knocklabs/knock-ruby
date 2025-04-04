@@ -11,7 +11,7 @@ module Knockapi
           properties: ::Hash[Symbol, top]?
         }
 
-      class Subscription < Knockapi::BaseModel
+      class Subscription < Knockapi::Internal::Type::BaseModel
         attr_accessor _typename: String
 
         attr_accessor inserted_at: Time

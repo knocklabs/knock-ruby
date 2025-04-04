@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class ChannelDataRequest < Knockapi::BaseModel
+      class ChannelDataRequest < Knockapi::Internal::Type::BaseModel
         # Channel data for push providers
         sig do
           returns(
@@ -23,7 +23,7 @@ module Knockapi
           params(
             data: T.any(
               Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::OneSignalChannelData,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
@@ -54,7 +54,7 @@ module Knockapi
 
         # Channel data for push providers
         module Data
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           sig do
             override

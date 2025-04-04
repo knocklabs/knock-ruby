@@ -143,32 +143,4 @@ module Knockapi
       HTTP_STATUS = T.let((500..), T::Range[Integer])
     end
   end
-
-  Error = Knockapi::Errors::Error
-
-  ConversionError = Knockapi::Errors::ConversionError
-
-  APIError = Knockapi::Errors::APIError
-
-  APIStatusError = Knockapi::Errors::APIStatusError
-
-  APIConnectionError = Knockapi::Errors::APIConnectionError
-
-  APITimeoutError = Knockapi::Errors::APITimeoutError
-
-  BadRequestError = Knockapi::Errors::BadRequestError
-
-  AuthenticationError = Knockapi::Errors::AuthenticationError
-
-  PermissionDeniedError = Knockapi::Errors::PermissionDeniedError
-
-  NotFoundError = Knockapi::Errors::NotFoundError
-
-  ConflictError = Knockapi::Errors::ConflictError
-
-  UnprocessableEntityError = Knockapi::Errors::UnprocessableEntityError
-
-  RateLimitError = Knockapi::Errors::RateLimitError
-
-  InternalServerError = Knockapi::Errors::InternalServerError
 end

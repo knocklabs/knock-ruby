@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class Condition < Knockapi::BaseModel
+    class Condition < Knockapi::Internal::Type::BaseModel
       sig { returns(T.nilable(String)) }
       attr_accessor :argument
 
@@ -34,7 +34,7 @@ module Knockapi
       end
 
       module Operator
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Condition::Operator) }
         OrSymbol = T.type_alias { T.any(Symbol, String, Knockapi::Models::Condition::Operator::TaggedSymbol) }

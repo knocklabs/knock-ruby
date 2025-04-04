@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class BulkOperation < Knockapi::BaseModel
+    class BulkOperation < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -45,7 +45,7 @@ module Knockapi
 
       sig do
         params(
-          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::Util::AnyHash)]
+          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -71,7 +71,7 @@ module Knockapi
           updated_at: Time,
           completed_at: T.nilable(Time),
           error_count: Integer,
-          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::Util::AnyHash)],
+          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::AnyHash)],
           failed_at: T.nilable(Time),
           started_at: T.nilable(Time)
         )
@@ -120,7 +120,7 @@ module Knockapi
       end
 
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::BulkOperation::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String, Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
@@ -135,7 +135,7 @@ module Knockapi
         end
       end
 
-      class ErrorItem < Knockapi::BaseModel
+      class ErrorItem < Knockapi::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 

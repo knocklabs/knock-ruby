@@ -8,7 +8,7 @@ module Knockapi
         message_id: String
       }
 
-    class MessageGetContentResponse < Knockapi::BaseModel
+    class MessageGetContentResponse < Knockapi::Internal::Type::BaseModel
       attr_accessor _typename: String
 
       attr_accessor data: Knockapi::Models::MessageGetContentResponse::data
@@ -34,7 +34,7 @@ module Knockapi
         | Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
 
       module Data
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         type message_email_content =
           {
@@ -49,7 +49,7 @@ module Knockapi
             reply_to: String?
           }
 
-        class MessageEmailContent < Knockapi::BaseModel
+        class MessageEmailContent < Knockapi::Internal::Type::BaseModel
           attr_accessor _typename: String
 
           attr_accessor from: String
@@ -86,7 +86,7 @@ module Knockapi
         type message_sms_content =
           { _typename: String, body: String, to: String }
 
-        class MessageSMSContent < Knockapi::BaseModel
+        class MessageSMSContent < Knockapi::Internal::Type::BaseModel
           attr_accessor _typename: String
 
           attr_accessor body: String
@@ -107,7 +107,7 @@ module Knockapi
             data: ::Hash[Symbol, top]?
           }
 
-        class MessagePushContent < Knockapi::BaseModel
+        class MessagePushContent < Knockapi::Internal::Type::BaseModel
           attr_accessor token: String
 
           attr_accessor _typename: String
@@ -137,7 +137,7 @@ module Knockapi
             metadata: ::Hash[Symbol, top]?
           }
 
-        class MessageChatContent < Knockapi::BaseModel
+        class MessageChatContent < Knockapi::Internal::Type::BaseModel
           attr_accessor _typename: String
 
           attr_accessor connection: ::Hash[Symbol, top]
@@ -162,7 +162,7 @@ module Knockapi
               summary: String?
             }
 
-          class Template < Knockapi::BaseModel
+          class Template < Knockapi::Internal::Type::BaseModel
             attr_accessor blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block]?
 
             attr_accessor json_content: ::Hash[Symbol, top]?
@@ -184,7 +184,7 @@ module Knockapi
                 type: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::type_
               }
 
-            class Block < Knockapi::BaseModel
+            class Block < Knockapi::Internal::Type::BaseModel
               attr_accessor content: String
 
               attr_accessor name: String
@@ -202,7 +202,7 @@ module Knockapi
               type type_ = :text | :markdown
 
               module Type
-                extend Knockapi::Enum
+                extend Knockapi::Internal::Type::Enum
 
                 TEXT: :text
                 MARKDOWN: :markdown
@@ -219,7 +219,7 @@ module Knockapi
             blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::block]
           }
 
-        class MessageInAppFeedContent < Knockapi::BaseModel
+        class MessageInAppFeedContent < Knockapi::Internal::Type::BaseModel
           attr_accessor _typename: String
 
           attr_accessor blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::block]
@@ -236,7 +236,7 @@ module Knockapi
             | Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
 
           module Block
-            extend Knockapi::Union
+            extend Knockapi::Internal::Type::Union
 
             type message_in_app_feed_content_block =
               {
@@ -246,7 +246,7 @@ module Knockapi
                 type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_
               }
 
-            class MessageInAppFeedContentBlock < Knockapi::BaseModel
+            class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
               attr_accessor content: String
 
               attr_accessor name: String
@@ -267,7 +267,7 @@ module Knockapi
               type type_ = :markdown | :text
 
               module Type
-                extend Knockapi::Enum
+                extend Knockapi::Internal::Type::Enum
 
                 MARKDOWN: :markdown
                 TEXT: :text
@@ -283,7 +283,7 @@ module Knockapi
                 type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_
               }
 
-            class MessageInAppFeedButtonSetBlock < Knockapi::BaseModel
+            class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
               attr_accessor buttons: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button]
 
               attr_accessor name: String
@@ -300,7 +300,7 @@ module Knockapi
 
               type button = { action: String, label: String, name: String }
 
-              class Button < Knockapi::BaseModel
+              class Button < Knockapi::Internal::Type::BaseModel
                 attr_accessor action: String
 
                 attr_accessor label: String
@@ -319,7 +319,7 @@ module Knockapi
               type type_ = :button_set
 
               module Type
-                extend Knockapi::Enum
+                extend Knockapi::Internal::Type::Enum
 
                 BUTTON_SET: :button_set
 

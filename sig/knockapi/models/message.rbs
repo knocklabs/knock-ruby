@@ -25,7 +25,7 @@ module Knockapi
         workflow: String?
       }
 
-    class Message < Knockapi::BaseModel
+    class Message < Knockapi::Internal::Type::BaseModel
       attr_reader id: String?
 
       def id=: (String) -> String
@@ -127,11 +127,11 @@ module Knockapi
       type actor = String | Knockapi::Models::Message::Actor::ObjectReference
 
       module Actor
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         type object_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
@@ -148,7 +148,7 @@ module Knockapi
         :seen | :read | :interacted | :link_clicked | :archived
 
       module EngagementStatus
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         SEEN: :seen
         READ: :read
@@ -163,11 +163,11 @@ module Knockapi
         String | Knockapi::Models::Message::Recipient::ObjectReference
 
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
         type object_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
@@ -188,7 +188,7 @@ module Knockapi
           version_id: String
         }
 
-      class Source < Knockapi::BaseModel
+      class Source < Knockapi::Internal::Type::BaseModel
         attr_accessor _typename: String
 
         attr_accessor categories: ::Array[String]
@@ -217,7 +217,7 @@ module Knockapi
         | :bounced
 
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         QUEUED: :queued
         SENT: :sent

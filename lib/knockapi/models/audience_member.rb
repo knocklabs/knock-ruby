@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class AudienceMember < Knockapi::BaseModel
+    class AudienceMember < Knockapi::Internal::Type::BaseModel
       # @!attribute _typename
       #
       #   @return [String]
@@ -40,7 +40,7 @@ module Knockapi
       #   #
       #   def initialize(_typename:, added_at:, user:, user_id:, tenant: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

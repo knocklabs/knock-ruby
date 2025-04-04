@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class ScheduleRepeatRule < Knockapi::BaseModel
+    class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
       # @!attribute _typename
       #
       #   @return [String]
@@ -21,7 +21,9 @@ module Knockapi
       # @!attribute days
       #
       #   @return [Array<Symbol, Knockapi::Models::ScheduleRepeatRule::Day>, nil]
-      optional :days, -> { Knockapi::ArrayOf[enum: Knockapi::Models::ScheduleRepeatRule::Day] }, nil?: true
+      optional :days,
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::ScheduleRepeatRule::Day] },
+               nil?: true
 
       # @!attribute hours
       #
@@ -55,11 +57,11 @@ module Knockapi
       #   #
       #   def initialize(_typename:, frequency:, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # @see Knockapi::Models::ScheduleRepeatRule#frequency
       module Frequency
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         DAILY = :daily
         WEEKLY = :weekly
@@ -74,7 +76,7 @@ module Knockapi
       end
 
       module Day
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         MON = :mon
         TUE = :tue

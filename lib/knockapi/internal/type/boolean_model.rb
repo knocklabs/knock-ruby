@@ -19,7 +19,7 @@ module Knockapi
         # @param other [Object]
         #
         # @return [Boolean]
-        def self.==(other) = other.is_a?(Class) && other <= Knockapi::BooleanModel
+        def self.==(other) = other.is_a?(Class) && other <= Knockapi::Internal::Type::BooleanModel
 
         class << self
           # @api private

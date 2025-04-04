@@ -3,7 +3,7 @@ module Knockapi
     type object_delete_params =
       {  } & Knockapi::Internal::Type::request_parameters
 
-    class ObjectDeleteParams < Knockapi::BaseModel
+    class ObjectDeleteParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

@@ -3,11 +3,11 @@
 module Knockapi
   module Models
     module Recipients
-      class PreferenceSetChannelTypeSetting < Knockapi::BaseModel
+      class PreferenceSetChannelTypeSetting < Knockapi::Internal::Type::BaseModel
         # @!attribute conditions
         #
         #   @return [Array<Knockapi::Models::Condition>]
-        required :conditions, -> { Knockapi::ArrayOf[Knockapi::Models::Condition] }
+        required :conditions, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Condition] }
 
         # @!parse
         #   # A set of settings for a channel type. Currently, this can only be a list of
@@ -17,7 +17,7 @@ module Knockapi
         #   #
         #   def initialize(conditions:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Providers
       # @see Knockapi::Resources::Providers::Slack#list_channels
-      class SlackListChannelsResponse < Knockapi::BaseModel
+      class SlackListChannelsResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -18,12 +18,12 @@ module Knockapi
         # @!attribute is_im
         #
         #   @return [Boolean]
-        required :is_im, Knockapi::BooleanModel
+        required :is_im, Knockapi::Internal::Type::BooleanModel
 
         # @!attribute is_private
         #
         #   @return [Boolean]
-        required :is_private, Knockapi::BooleanModel
+        required :is_private, Knockapi::Internal::Type::BooleanModel
 
         # @!attribute name
         #
@@ -39,7 +39,7 @@ module Knockapi
         #   #
         #   def initialize(id:, context_team_id:, is_im:, is_private:, name:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

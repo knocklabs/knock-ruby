@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Users#list_subscriptions
-    class UserListSubscriptionsParams < Knockapi::BaseModel
+    class UserListSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -46,7 +46,7 @@ module Knockapi
       #   #
       #   def initialize(after: nil, before: nil, page_size: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

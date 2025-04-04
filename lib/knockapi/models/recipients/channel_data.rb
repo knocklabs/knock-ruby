@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class RecipientsChannelData < Knockapi::BaseModel
+      class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
         #
         #   @return [String]
@@ -29,13 +29,13 @@ module Knockapi
         #   #
         #   def initialize(_typename:, channel_id:, data:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # Channel data for push providers
         #
         # @see Knockapi::Models::Recipients::RecipientsChannelData#data
         module Data
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           # Channel data for push providers
           variant -> { Knockapi::Models::Recipients::PushChannelData }

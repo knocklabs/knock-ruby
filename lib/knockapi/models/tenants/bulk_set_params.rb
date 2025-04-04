@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Tenants
       # @see Knockapi::Resources::Tenants::Bulk#set
-      class BulkSetParams < Knockapi::BaseModel
+      class BulkSetParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -12,7 +12,7 @@ module Knockapi
         # @!attribute tenants
         #
         #   @return [Array<String, Knockapi::Models::TenantRequest>]
-        required :tenants, -> { Knockapi::ArrayOf[union: Knockapi::Models::InlineTenantRequest] }
+        required :tenants, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::InlineTenantRequest] }
 
         # @!parse
         #   # @param tenants [Array<String, Knockapi::Models::TenantRequest>]
@@ -20,7 +20,7 @@ module Knockapi
         #   #
         #   def initialize(tenants:, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

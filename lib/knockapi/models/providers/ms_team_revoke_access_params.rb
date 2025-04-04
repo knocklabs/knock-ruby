@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#revoke_access
-      class MsTeamRevokeAccessParams < Knockapi::BaseModel
+      class MsTeamRevokeAccessParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -21,7 +21,7 @@ module Knockapi
         #   #
         #   def initialize(ms_teams_tenant_object:, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

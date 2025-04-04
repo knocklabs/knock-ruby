@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#check_auth
-      class MsTeamCheckAuthResponse < Knockapi::BaseModel
+      class MsTeamCheckAuthResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute connection
         #
         #   @return [Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection]
@@ -17,14 +17,14 @@ module Knockapi
         #   #
         #   def initialize(connection:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # @see Knockapi::Models::Providers::MsTeamCheckAuthResponse#connection
-        class Connection < Knockapi::BaseModel
+        class Connection < Knockapi::Internal::Type::BaseModel
           # @!attribute ok
           #
           #   @return [Boolean]
-          required :ok, Knockapi::BooleanModel
+          required :ok, Knockapi::Internal::Type::BooleanModel
 
           # @!attribute reason
           #
@@ -37,7 +37,7 @@ module Knockapi
           #   #
           #   def initialize(ok:, reason: nil, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

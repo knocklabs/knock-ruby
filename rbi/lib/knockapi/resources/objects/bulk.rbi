@@ -9,7 +9,7 @@ module Knockapi
           params(
             collection: String,
             object_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -27,13 +27,8 @@ module Knockapi
         sig do
           params(
             collection: String,
-            subscriptions: T::Array[
-            T.any(
-              Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription,
-              Knockapi::Internal::Util::AnyHash
-            )
-            ],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            subscriptions: T::Array[T.any(Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription, Knockapi::Internal::AnyHash)],
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -49,8 +44,8 @@ module Knockapi
         sig do
           params(
             collection: String,
-            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::Util::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::AnyHash)],
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end

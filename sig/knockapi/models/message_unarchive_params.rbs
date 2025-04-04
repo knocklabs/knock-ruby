@@ -3,7 +3,7 @@ module Knockapi
     type message_unarchive_params =
       {  } & Knockapi::Internal::Type::request_parameters
 
-    class MessageUnarchiveParams < Knockapi::BaseModel
+    class MessageUnarchiveParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

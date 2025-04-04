@@ -3,7 +3,7 @@ module Knockapi
     type message_mark_as_unseen_params =
       {  } & Knockapi::Internal::Type::request_parameters
 
-    class MessageMarkAsUnseenParams < Knockapi::BaseModel
+    class MessageMarkAsUnseenParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

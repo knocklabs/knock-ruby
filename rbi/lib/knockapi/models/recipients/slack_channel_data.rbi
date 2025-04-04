@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class SlackChannelData < Knockapi::BaseModel
+      class SlackChannelData < Knockapi::Internal::Type::BaseModel
         sig do
           returns(
             T::Array[
@@ -22,7 +22,7 @@ module Knockapi
 
         sig do
           params(
-            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::Util::AnyHash))
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
           )
             .void
         end
@@ -34,11 +34,11 @@ module Knockapi
             connections: T::Array[
             T.any(
               Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
             )
             ],
-            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::Util::AnyHash))
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
           )
             .returns(T.attached_class)
         end
@@ -64,9 +64,9 @@ module Knockapi
 
         # A Slack connection, which either includes a channel_id or a user_id
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
-          class SlackTokenConnection < Knockapi::BaseModel
+          class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
             sig { returns(T.nilable(String)) }
             attr_accessor :access_token
 
@@ -100,7 +100,7 @@ module Knockapi
             end
           end
 
-          class SlackIncomingWebhookConnection < Knockapi::BaseModel
+          class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             sig { returns(String) }
             attr_accessor :url
 
@@ -124,7 +124,7 @@ module Knockapi
           end
         end
 
-        class Token < Knockapi::BaseModel
+        class Token < Knockapi::Internal::Type::BaseModel
           sig { returns(T.nilable(String)) }
           attr_accessor :access_token
 

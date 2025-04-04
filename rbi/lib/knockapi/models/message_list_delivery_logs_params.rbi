@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class MessageListDeliveryLogsParams < Knockapi::BaseModel
+    class MessageListDeliveryLogsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -32,7 +32,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

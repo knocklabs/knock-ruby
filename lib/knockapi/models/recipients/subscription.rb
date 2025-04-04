@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class Subscription < Knockapi::BaseModel
+      class Subscription < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
         #
         #   @return [String]
@@ -35,7 +35,7 @@ module Knockapi
         #   The custom properties associated with the subscription
         #
         #   @return [Hash{Symbol=>Object}, nil]
-        optional :properties, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+        optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
         # @!parse
         #   # A subscription object
@@ -49,7 +49,7 @@ module Knockapi
         #   #
         #   def initialize(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

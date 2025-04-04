@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     module Recipients
-      InlinePreferenceSetRequest = Knockapi::HashOf[-> { Knockapi::Models::Recipients::PreferenceSetRequest }]
+      InlinePreferenceSetRequest =
+        Knockapi::Internal::Type::HashOf[-> { Knockapi::Models::Recipients::PreferenceSetRequest }]
     end
   end
 end

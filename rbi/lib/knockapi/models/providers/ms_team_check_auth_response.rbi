@@ -3,13 +3,13 @@
 module Knockapi
   module Models
     module Providers
-      class MsTeamCheckAuthResponse < Knockapi::BaseModel
+      class MsTeamCheckAuthResponse < Knockapi::Internal::Type::BaseModel
         sig { returns(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection) }
         attr_reader :connection
 
         sig do
           params(
-            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Internal::Util::AnyHash)
+            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Internal::AnyHash)
           )
             .void
         end
@@ -18,7 +18,7 @@ module Knockapi
         # The response from a Microsoft Teams auth check request
         sig do
           params(
-            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Internal::Util::AnyHash)
+            connection: T.any(Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -29,7 +29,7 @@ module Knockapi
         def to_hash
         end
 
-        class Connection < Knockapi::BaseModel
+        class Connection < Knockapi::Internal::Type::BaseModel
           sig { returns(T::Boolean) }
           attr_accessor :ok
 

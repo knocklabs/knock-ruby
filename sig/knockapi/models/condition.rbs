@@ -7,7 +7,7 @@ module Knockapi
         variable: String
       }
 
-    class Condition < Knockapi::BaseModel
+    class Condition < Knockapi::Internal::Type::BaseModel
       attr_accessor argument: String?
 
       attr_accessor operator: Knockapi::Models::Condition::operator
@@ -42,7 +42,7 @@ module Knockapi
         | :is_audience_member
 
       module Operator
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         EQUAL_TO: :equal_to
         NOT_EQUAL_TO: :not_equal_to

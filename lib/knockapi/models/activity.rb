@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list_activities
-    class Activity < Knockapi::BaseModel
+    class Activity < Knockapi::Internal::Type::BaseModel
       # @!attribute [r] id
       #
       #   @return [String, nil]
@@ -32,7 +32,7 @@ module Knockapi
       #   The data associated with the activity
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute [r] inserted_at
       #
@@ -75,7 +75,7 @@ module Knockapi
       #   #
       #   def initialize(id: nil, _typename: nil, actor: nil, data: nil, inserted_at: nil, recipient: nil, updated_at: nil, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

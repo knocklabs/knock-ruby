@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Messages
-      class BatchGetContentResponseItem < Knockapi::BaseModel
+      class BatchGetContentResponseItem < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
         #
         #   @return [String]
@@ -35,13 +35,13 @@ module Knockapi
         #   #
         #   def initialize(_typename:, data:, inserted_at:, message_id:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # The contents of an email message
         #
         # @see Knockapi::Models::Messages::BatchGetContentResponseItem#data
         module Data
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           # The contents of an email message
           variant -> { Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent }
@@ -58,7 +58,7 @@ module Knockapi
           # The contents of a message in an app feed
           variant -> { Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent }
 
-          class MessageEmailContent < Knockapi::BaseModel
+          class MessageEmailContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
             #
             #   @return [String]
@@ -119,10 +119,10 @@ module Knockapi
             #   #
             #   def initialize(_typename:, from:, html_body:, subject_line:, text_body:, to:, bcc: nil, cc: nil, reply_to: nil, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class MessageSMSContent < Knockapi::BaseModel
+          class MessageSMSContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
             #
             #   @return [String]
@@ -147,10 +147,10 @@ module Knockapi
             #   #
             #   def initialize(_typename:, body:, to:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class MessagePushContent < Knockapi::BaseModel
+          class MessagePushContent < Knockapi::Internal::Type::BaseModel
             # @!attribute token
             #
             #   @return [String]
@@ -174,7 +174,7 @@ module Knockapi
             # @!attribute data
             #
             #   @return [Hash{Symbol=>Object}, nil]
-            optional :data, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+            optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
             # @!parse
             #   # The contents of a push message
@@ -187,10 +187,10 @@ module Knockapi
             #   #
             #   def initialize(token:, _typename:, body:, title:, data: nil, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class MessageChatContent < Knockapi::BaseModel
+          class MessageChatContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
             #
             #   @return [String]
@@ -200,7 +200,7 @@ module Knockapi
             #   The channel data connection from the recipient to the underlying provider
             #
             #   @return [Hash{Symbol=>Object}]
-            required :connection, Knockapi::HashOf[Knockapi::Unknown]
+            required :connection, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
             # @!attribute template
             #
@@ -211,7 +211,9 @@ module Knockapi
             # @!attribute metadata
             #
             #   @return [Hash{Symbol=>Object}, nil]
-            optional :metadata, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+            optional :metadata,
+                     Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
+                     nil?: true
 
             # @!parse
             #   # The contents of a chat message
@@ -223,23 +225,25 @@ module Knockapi
             #   #
             #   def initialize(_typename:, connection:, template:, metadata: nil, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
             # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent#template
-            class Template < Knockapi::BaseModel
+            class Template < Knockapi::Internal::Type::BaseModel
               # @!attribute blocks
               #   The structured blocks of the message
               #
               #   @return [Array<Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block>, nil]
               optional :blocks,
-                       -> { Knockapi::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block] },
+                       -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block] },
                        nil?: true
 
               # @!attribute json_content
               #   The JSON content of the message
               #
               #   @return [Hash{Symbol=>Object}, nil]
-              optional :json_content, Knockapi::HashOf[Knockapi::Unknown], nil?: true
+              optional :json_content,
+                       Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
+                       nil?: true
 
               # @!attribute summary
               #
@@ -253,9 +257,9 @@ module Knockapi
               #   #
               #   def initialize(blocks: nil, json_content: nil, summary: nil, **) = super
 
-              # def initialize: (Hash | Knockapi::BaseModel) -> void
+              # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-              class Block < Knockapi::BaseModel
+              class Block < Knockapi::Internal::Type::BaseModel
                 # @!attribute content
                 #
                 #   @return [String]
@@ -281,11 +285,11 @@ module Knockapi
                 #   #
                 #   def initialize(content:, name:, type:, **) = super
 
-                # def initialize: (Hash | Knockapi::BaseModel) -> void
+                # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
                 # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block#type
                 module Type
-                  extend Knockapi::Enum
+                  extend Knockapi::Internal::Type::Enum
 
                   TEXT = :text
                   MARKDOWN = :markdown
@@ -300,7 +304,7 @@ module Knockapi
             end
           end
 
-          class MessageInAppFeedContent < Knockapi::BaseModel
+          class MessageInAppFeedContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
             #
             #   @return [String]
@@ -311,7 +315,7 @@ module Knockapi
             #
             #   @return [Array<Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock>]
             required :blocks,
-                     -> { Knockapi::ArrayOf[union: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block] }
+                     -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block] }
 
             # @!parse
             #   # The contents of a message in an app feed
@@ -321,11 +325,11 @@ module Knockapi
             #   #
             #   def initialize(_typename:, blocks:, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
             # A content (text or markdown) block in a message in an app feed
             module Block
-              extend Knockapi::Union
+              extend Knockapi::Internal::Type::Union
 
               # A content (text or markdown) block in a message in an app feed
               variant -> { Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock }
@@ -333,7 +337,7 @@ module Knockapi
               # A set of buttons in a message in an app feed
               variant -> { Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock }
 
-              class MessageInAppFeedContentBlock < Knockapi::BaseModel
+              class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
                 # @!attribute content
                 #
                 #   @return [String]
@@ -365,11 +369,11 @@ module Knockapi
                 #   #
                 #   def initialize(content:, name:, rendered:, type:, **) = super
 
-                # def initialize: (Hash | Knockapi::BaseModel) -> void
+                # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
                 # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock#type
                 module Type
-                  extend Knockapi::Enum
+                  extend Knockapi::Internal::Type::Enum
 
                   MARKDOWN = :markdown
                   TEXT = :text
@@ -382,13 +386,13 @@ module Knockapi
                 end
               end
 
-              class MessageInAppFeedButtonSetBlock < Knockapi::BaseModel
+              class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
                 # @!attribute buttons
                 #
                 #   @return [Array<Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button>]
                 required :buttons,
                          -> do
-                           Knockapi::ArrayOf[
+                           Knockapi::Internal::Type::ArrayOf[
                            Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
                            ]
                          end
@@ -413,9 +417,9 @@ module Knockapi
                 #   #
                 #   def initialize(buttons:, name:, type:, **) = super
 
-                # def initialize: (Hash | Knockapi::BaseModel) -> void
+                # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-                class Button < Knockapi::BaseModel
+                class Button < Knockapi::Internal::Type::BaseModel
                   # @!attribute action
                   #
                   #   @return [String]
@@ -440,12 +444,12 @@ module Knockapi
                   #   #
                   #   def initialize(action:, label:, name:, **) = super
 
-                  # def initialize: (Hash | Knockapi::BaseModel) -> void
+                  # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
                 end
 
                 # @see Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock#type
                 module Type
-                  extend Knockapi::Enum
+                  extend Knockapi::Internal::Type::Enum
 
                   BUTTON_SET = :button_set
 
@@ -470,7 +474,7 @@ module Knockapi
       end
 
       BatchGetContentResponse =
-        Knockapi::ArrayOf[-> { Knockapi::Models::Messages::BatchGetContentResponseItem }]
+        Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Messages::BatchGetContentResponseItem }]
     end
   end
 end

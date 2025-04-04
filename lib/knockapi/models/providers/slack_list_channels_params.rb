@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Providers
       # @see Knockapi::Resources::Providers::Slack#list_channels
-      class SlackListChannelsParams < Knockapi::BaseModel
+      class SlackListChannelsParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -31,9 +31,9 @@ module Knockapi
         #   #
         #   def initialize(access_token_object:, query_options: nil, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-        class QueryOptions < Knockapi::BaseModel
+        class QueryOptions < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] cursor
           #   A cursor to paginate through the channels
           #
@@ -48,7 +48,7 @@ module Knockapi
           #   Whether to exclude archived channels
           #
           #   @return [Boolean, nil]
-          optional :exclude_archived, Knockapi::BooleanModel
+          optional :exclude_archived, Knockapi::Internal::Type::BooleanModel
 
           # @!parse
           #   # @return [Boolean]
@@ -93,7 +93,7 @@ module Knockapi
           #   #
           #   def initialize(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil, **) = super
 
-          # def initialize: (Hash | Knockapi::BaseModel) -> void
+          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
       end
     end

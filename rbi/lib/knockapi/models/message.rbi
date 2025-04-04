@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class Message < Knockapi::BaseModel
+    class Message < Knockapi::Internal::Type::BaseModel
       # The message ID
       sig { returns(T.nilable(String)) }
       attr_reader :id
@@ -22,7 +22,7 @@ module Knockapi
 
       sig do
         params(
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::Util::AnyHash)]
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -84,7 +84,7 @@ module Knockapi
 
       sig do
         params(
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::Util::AnyHash)
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::AnyHash)
         )
           .void
       end
@@ -102,7 +102,7 @@ module Knockapi
       sig { returns(T.nilable(Knockapi::Models::Message::Source)) }
       attr_reader :source
 
-      sig { params(source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::Util::AnyHash)).void }
+      sig { params(source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::AnyHash)).void }
       attr_writer :source
 
       # Message delivery status
@@ -133,7 +133,7 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::Util::AnyHash)],
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::AnyHash)],
           archived_at: T.nilable(Time),
           channel_id: String,
           clicked_at: T.nilable(Time),
@@ -144,10 +144,10 @@ module Knockapi
           link_clicked_at: T.nilable(Time),
           metadata: T.nilable(T::Hash[Symbol, T.anything]),
           read_at: T.nilable(Time),
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::Util::AnyHash),
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::AnyHash),
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
-          source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::Util::AnyHash),
+          source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::AnyHash),
           status: Knockapi::Models::Message::Status::OrSymbol,
           tenant: T.nilable(String),
           updated_at: Time,
@@ -214,9 +214,9 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Actor
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -241,7 +241,7 @@ module Knockapi
       end
 
       module EngagementStatus
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Message::EngagementStatus) }
         OrSymbol =
@@ -261,9 +261,9 @@ module Knockapi
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       module Recipient
-        extend Knockapi::Union
+        extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -287,7 +287,7 @@ module Knockapi
         end
       end
 
-      class Source < Knockapi::BaseModel
+      class Source < Knockapi::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :_typename
 
@@ -320,7 +320,7 @@ module Knockapi
 
       # Message delivery status
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Message::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String, Knockapi::Models::Message::Status::TaggedSymbol) }

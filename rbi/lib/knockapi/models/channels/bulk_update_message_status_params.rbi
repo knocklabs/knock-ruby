@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Channels
-      class BulkUpdateMessageStatusParams < Knockapi::BaseModel
+      class BulkUpdateMessageStatusParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -89,7 +89,7 @@ module Knockapi
             tenants: T::Array[String],
             trigger_data: String,
             workflows: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -130,7 +130,7 @@ module Knockapi
         end
 
         module Action
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action) }
@@ -161,7 +161,7 @@ module Knockapi
         end
 
         module Archived
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived) }
@@ -183,7 +183,7 @@ module Knockapi
         end
 
         module DeliveryStatus
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus) }
@@ -226,7 +226,7 @@ module Knockapi
         end
 
         module EngagementStatus
-          extend Knockapi::Enum
+          extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus) }

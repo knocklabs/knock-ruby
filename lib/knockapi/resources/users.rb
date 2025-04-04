@@ -187,7 +187,7 @@ module Knockapi
         @client.request(
           method: :get,
           path: ["v1/users/%1$s/preferences", user_id],
-          model: Knockapi::ArrayOf[Knockapi::Models::Recipients::PreferenceSet],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::PreferenceSet],
           options: params[:request_options]
         )
       end

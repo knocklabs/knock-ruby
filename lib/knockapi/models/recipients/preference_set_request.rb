@@ -3,14 +3,14 @@
 module Knockapi
   module Models
     module Recipients
-      class PreferenceSetRequest < Knockapi::BaseModel
+      class PreferenceSetRequest < Knockapi::Internal::Type::BaseModel
         # @!attribute categories
         #   A setting for a preference set, where the key in the object is the category, and
         #     the values are the preference settings for that category.
         #
         #   @return [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
         optional :categories,
-                 -> { Knockapi::HashOf[union: Knockapi::Models::Recipients::PreferenceSetRequest::Category] },
+                 -> { Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSetRequest::Category] },
                  nil?: true
 
         # @!attribute channel_types
@@ -25,7 +25,7 @@ module Knockapi
         #
         #   @return [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
         optional :workflows,
-                 -> { Knockapi::HashOf[union: Knockapi::Models::Recipients::PreferenceSetRequest::Workflow] },
+                 -> { Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSetRequest::Workflow] },
                  nil?: true
 
         # @!parse
@@ -37,18 +37,18 @@ module Knockapi
         #   #
         #   def initialize(categories: nil, channel_types: nil, workflows: nil, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # Workflow or category preferences within a preference set
         module Category
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::BooleanModel
+          variant Knockapi::Internal::Type::BooleanModel
 
           # The settings object for a workflow or category, where you can specify channel types or conditions.
           variant -> { Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject }
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
+          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_types
             #   Channel type preferences
             #
@@ -58,7 +58,7 @@ module Knockapi
             # @!attribute conditions
             #
             #   @return [Array<Knockapi::Models::Condition>, nil]
-            optional :conditions, -> { Knockapi::ArrayOf[Knockapi::Models::Condition] }, nil?: true
+            optional :conditions, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Condition] }, nil?: true
 
             # @!parse
             #   # The settings object for a workflow or category, where you can specify channel
@@ -69,7 +69,7 @@ module Knockapi
             #   #
             #   def initialize(channel_types: nil, conditions: nil, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
           # @!parse
@@ -79,14 +79,14 @@ module Knockapi
 
         # Workflow or category preferences within a preference set
         module Workflow
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::BooleanModel
+          variant Knockapi::Internal::Type::BooleanModel
 
           # The settings object for a workflow or category, where you can specify channel types or conditions.
           variant -> { Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject }
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
+          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_types
             #   Channel type preferences
             #
@@ -96,7 +96,7 @@ module Knockapi
             # @!attribute conditions
             #
             #   @return [Array<Knockapi::Models::Condition>, nil]
-            optional :conditions, -> { Knockapi::ArrayOf[Knockapi::Models::Condition] }, nil?: true
+            optional :conditions, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Condition] }, nil?: true
 
             # @!parse
             #   # The settings object for a workflow or category, where you can specify channel
@@ -107,7 +107,7 @@ module Knockapi
             #   #
             #   def initialize(channel_types: nil, conditions: nil, **) = super
 
-            # def initialize: (Hash | Knockapi::BaseModel) -> void
+            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
           # @!parse

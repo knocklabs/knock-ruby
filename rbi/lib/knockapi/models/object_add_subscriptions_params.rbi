@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class ObjectAddSubscriptionsParams < Knockapi::BaseModel
+    class ObjectAddSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -24,12 +24,12 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::Util::AnyHash,
+            Knockapi::Internal::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

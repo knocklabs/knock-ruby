@@ -6,7 +6,7 @@ module Knockapi
           connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection]
         }
 
-      class DiscordChannelData < Knockapi::BaseModel
+      class DiscordChannelData < Knockapi::Internal::Type::BaseModel
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection]
 
         def initialize: (
@@ -20,11 +20,11 @@ module Knockapi
           | Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
 
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           type discord_channel_connection = { channel_id: String }
 
-          class DiscordChannelConnection < Knockapi::BaseModel
+          class DiscordChannelConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor channel_id: String
 
             def initialize: (channel_id: String) -> void
@@ -37,7 +37,7 @@ module Knockapi
               incoming_webhook: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
             }
 
-          class DiscordIncomingWebhookConnection < Knockapi::BaseModel
+          class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor incoming_webhook: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
 
             def initialize: (
@@ -48,7 +48,7 @@ module Knockapi
 
             type incoming_webhook = { url: String }
 
-            class IncomingWebhook < Knockapi::BaseModel
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               attr_accessor url: String
 
               def initialize: (url: String) -> void

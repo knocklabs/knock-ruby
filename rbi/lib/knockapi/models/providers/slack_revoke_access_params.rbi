@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Providers
-      class SlackRevokeAccessParams < Knockapi::BaseModel
+      class SlackRevokeAccessParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -14,7 +14,7 @@ module Knockapi
         sig do
           params(
             access_token_object: String,
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

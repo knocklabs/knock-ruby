@@ -8,7 +8,7 @@ module Knockapi
         }
         & Knockapi::Internal::Type::request_parameters
 
-      class SlackListChannelsParams < Knockapi::BaseModel
+      class SlackListChannelsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -37,7 +37,7 @@ module Knockapi
             types: String
           }
 
-        class QueryOptions < Knockapi::BaseModel
+        class QueryOptions < Knockapi::Internal::Type::BaseModel
           attr_reader cursor: String?
 
           def cursor=: (String) -> String

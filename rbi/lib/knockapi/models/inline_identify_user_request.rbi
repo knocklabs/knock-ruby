@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class InlineIdentifyUserRequest < Knockapi::BaseModel
+    class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # The ID of the user to identify. This is an ID that you supply.
       sig { returns(String) }
       attr_accessor :id
@@ -27,11 +27,11 @@ module Knockapi
         params(
           id: String,
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
           ),
           created_at: T.nilable(Time),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           )
         )
           .returns(T.attached_class)

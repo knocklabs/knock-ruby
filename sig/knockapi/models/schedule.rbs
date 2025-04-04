@@ -16,7 +16,7 @@ module Knockapi
         tenant: String?
       }
 
-    class Schedule < Knockapi::BaseModel
+    class Schedule < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor inserted_at: Time

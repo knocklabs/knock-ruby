@@ -18,7 +18,7 @@ module Knockapi
         started_at: Time?
       }
 
-    class BulkOperation < Knockapi::BaseModel
+    class BulkOperation < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String
@@ -75,7 +75,7 @@ module Knockapi
       type status = :queued | :processing | :completed | :failed
 
       module Status
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         QUEUED: :queued
         PROCESSING: :processing
@@ -87,7 +87,7 @@ module Knockapi
 
       type error_item = { id: String, collection: String? }
 
-      class ErrorItem < Knockapi::BaseModel
+      class ErrorItem < Knockapi::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor collection: String?

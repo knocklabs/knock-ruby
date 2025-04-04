@@ -25,7 +25,7 @@ module Knockapi
           method: :post,
           path: "v1/schedules",
           body: parsed,
-          model: Knockapi::ArrayOf[Knockapi::Models::Schedule],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule],
           options: options
         )
       end
@@ -52,7 +52,7 @@ module Knockapi
           method: :put,
           path: "v1/schedules",
           body: parsed,
-          model: Knockapi::ArrayOf[Knockapi::Models::Schedule],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule],
           options: options
         )
       end
@@ -100,7 +100,7 @@ module Knockapi
           method: :delete,
           path: "v1/schedules",
           body: parsed,
-          model: Knockapi::ArrayOf[Knockapi::Models::Schedule],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule],
           options: options
         )
       end

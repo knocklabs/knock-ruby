@@ -17,7 +17,7 @@ module Knockapi
       def inspect
       end
 
-      class PageInfo < Knockapi::BaseModel
+      class PageInfo < Knockapi::Internal::Type::BaseModel
         sig { returns(T.nilable(String)) }
         attr_reader :after
 

@@ -40,7 +40,7 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
 
     assert_pattern do
       response => {
-        ms_teams_channels: ^(Knockapi::ArrayOf[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel])
+        ms_teams_channels: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel])
       }
     end
   end
@@ -59,7 +59,7 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
 
     assert_pattern do
       response => {
-        ms_teams_teams: ^(Knockapi::ArrayOf[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam]),
+        ms_teams_teams: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam]),
         skip_token: String | nil
       }
     end

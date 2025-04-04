@@ -71,7 +71,7 @@ module Knockapi
           method: :post,
           path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
           body: parsed,
-          model: Knockapi::ArrayOf[Knockapi::Models::Recipients::Subscription],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription],
           options: options
         )
       end
@@ -94,7 +94,7 @@ module Knockapi
           method: :delete,
           path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
           body: parsed,
-          model: Knockapi::ArrayOf[Knockapi::Models::Recipients::Subscription],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription],
           options: options
         )
       end

@@ -55,7 +55,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
     end
 
@@ -68,7 +68,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
     end
 
@@ -80,7 +80,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {max_retries: 3})
     end
 
@@ -93,7 +93,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {max_retries: 4})
     end
 
@@ -106,7 +106,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {"retry-after" => "1.3"}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
     end
 
@@ -120,7 +120,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {"retry-after" => (Time.now + 10).httpdate}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       Thread.current.thread_variable_set(:time_now, Time.now)
       knock.users.get("user_id")
       Thread.current.thread_variable_set(:time_now, nil)
@@ -136,7 +136,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {"retry-after-ms" => "1300"}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
     end
 
@@ -149,7 +149,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
     end
 
@@ -162,7 +162,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {extra_headers: {"x-stainless-retry-count" => nil}})
     end
 
@@ -175,7 +175,7 @@ class KnockapiTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     knock.requester = requester
 
-    assert_raises(Knockapi::InternalServerError) do
+    assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {extra_headers: {"x-stainless-retry-count" => "42"}})
     end
 

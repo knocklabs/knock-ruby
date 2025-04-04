@@ -2,6 +2,6 @@
 
 module Knockapi
   module Models
-    ScheduleUpdateResponse = Knockapi::ArrayOf[-> { Knockapi::Models::Schedule }]
+    ScheduleUpdateResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Schedule }]
   end
 end

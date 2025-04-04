@@ -3,12 +3,12 @@
 module Knockapi
   module Models
     module Recipients
-      class OneSignalChannelData < Knockapi::BaseModel
+      class OneSignalChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute player_ids
         #   The OneSignal player IDs
         #
         #   @return [Array<String>]
-        required :player_ids, Knockapi::ArrayOf[String]
+        required :player_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # OneSignal channel data
@@ -17,7 +17,7 @@ module Knockapi
         #   #
         #   def initialize(player_ids:, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

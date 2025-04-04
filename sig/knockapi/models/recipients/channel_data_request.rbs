@@ -4,7 +4,7 @@ module Knockapi
       type channel_data_request =
         { data: Knockapi::Models::Recipients::ChannelDataRequest::data }
 
-      class ChannelDataRequest < Knockapi::BaseModel
+      class ChannelDataRequest < Knockapi::Internal::Type::BaseModel
         attr_accessor data: Knockapi::Models::Recipients::ChannelDataRequest::data
 
         def initialize: (
@@ -21,7 +21,7 @@ module Knockapi
           | Knockapi::Models::Recipients::DiscordChannelData
 
         module Data
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
         end

@@ -4,7 +4,7 @@ module Knockapi
       { after: String, before: String, page_size: Integer }
       & Knockapi::Internal::Type::request_parameters
 
-    class UserListParams < Knockapi::BaseModel
+    class UserListParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

@@ -7,7 +7,7 @@ module Knockapi
           token: Knockapi::Models::Recipients::SlackChannelData::Token?
         }
 
-      class SlackChannelData < Knockapi::BaseModel
+      class SlackChannelData < Knockapi::Internal::Type::BaseModel
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
 
         attr_accessor token: Knockapi::Models::Recipients::SlackChannelData::Token?
@@ -24,12 +24,12 @@ module Knockapi
           | Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
 
         module Connection
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           type slack_token_connection =
             { access_token: String?, channel_id: String?, user_id: String? }
 
-          class SlackTokenConnection < Knockapi::BaseModel
+          class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor access_token: String?
 
             attr_accessor channel_id: String?
@@ -47,7 +47,7 @@ module Knockapi
 
           type slack_incoming_webhook_connection = { url: String }
 
-          class SlackIncomingWebhookConnection < Knockapi::BaseModel
+          class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor url: String
 
             def initialize: (url: String) -> void
@@ -60,7 +60,7 @@ module Knockapi
 
         type token = { access_token: String? }
 
-        class Token < Knockapi::BaseModel
+        class Token < Knockapi::Internal::Type::BaseModel
           attr_accessor access_token: String?
 
           def initialize: (access_token: String?) -> void

@@ -4,7 +4,7 @@ module Knockapi
       { schedule_ids: ::Array[String] }
       & Knockapi::Internal::Type::request_parameters
 
-    class ScheduleDeleteParams < Knockapi::BaseModel
+    class ScheduleDeleteParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class Activity < Knockapi::BaseModel
+    class Activity < Knockapi::Internal::Type::BaseModel
       sig { returns(T.nilable(String)) }
       attr_reader :id
 
@@ -34,9 +34,7 @@ module Knockapi
       attr_reader :recipient
 
       sig do
-        params(
-          recipient: T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object)
-        )
+        params(recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object))
           .void
       end
       attr_writer :recipient
@@ -52,10 +50,10 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object)),
+          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           inserted_at: Time,
-          recipient: T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object),
+          recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object),
           updated_at: Time
         )
           .returns(T.attached_class)

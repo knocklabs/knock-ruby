@@ -9,7 +9,7 @@ module Knockapi
           params(
             user_id: String,
             channel_id: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::Users::FeedGetSettingsResponse)
         end
@@ -38,7 +38,7 @@ module Knockapi
             tenant: String,
             trigger_data: String,
             workflow_categories: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash))
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse])
         end

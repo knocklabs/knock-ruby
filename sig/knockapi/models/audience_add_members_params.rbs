@@ -4,7 +4,7 @@ module Knockapi
       { members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member] }
       & Knockapi::Internal::Type::request_parameters
 
-    class AudienceAddMembersParams < Knockapi::BaseModel
+    class AudienceAddMembersParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -20,7 +20,7 @@ module Knockapi
       type member =
         { user: Knockapi::Models::InlineIdentifyUserRequest, tenant: String? }
 
-      class Member < Knockapi::BaseModel
+      class Member < Knockapi::Internal::Type::BaseModel
         attr_accessor user: Knockapi::Models::InlineIdentifyUserRequest
 
         attr_accessor tenant: String?

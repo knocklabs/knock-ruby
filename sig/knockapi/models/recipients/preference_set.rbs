@@ -10,7 +10,7 @@ module Knockapi
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
         }
 
-      class PreferenceSet < Knockapi::BaseModel
+      class PreferenceSet < Knockapi::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor _typename: String
@@ -36,7 +36,7 @@ module Knockapi
           | Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
 
         module Category
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           type preference_set_workflow_category_setting_object =
             {
@@ -44,7 +44,7 @@ module Knockapi
               conditions: ::Array[Knockapi::Models::Condition]?
             }
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
+          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
 
             attr_accessor conditions: ::Array[Knockapi::Models::Condition]?
@@ -65,7 +65,7 @@ module Knockapi
           | Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
 
         module Workflow
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           type preference_set_workflow_category_setting_object =
             {
@@ -73,7 +73,7 @@ module Knockapi
               conditions: ::Array[Knockapi::Models::Condition]?
             }
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::BaseModel
+          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
 
             attr_accessor conditions: ::Array[Knockapi::Models::Condition]?

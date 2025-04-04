@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Objects
       # @see Knockapi::Resources::Objects::Bulk#set
-      class BulkSetParams < Knockapi::BaseModel
+      class BulkSetParams < Knockapi::Internal::Type::BaseModel
         # @!parse
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
@@ -12,7 +12,7 @@ module Knockapi
         # @!attribute objects
         #
         #   @return [Array<Knockapi::Models::InlineObjectRequest>]
-        required :objects, -> { Knockapi::ArrayOf[Knockapi::Models::InlineObjectRequest] }
+        required :objects, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::InlineObjectRequest] }
 
         # @!parse
         #   # @param objects [Array<Knockapi::Models::InlineObjectRequest>]
@@ -20,7 +20,7 @@ module Knockapi
         #   #
         #   def initialize(objects:, request_options: {}, **) = super
 
-        # def initialize: (Hash | Knockapi::BaseModel) -> void
+        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
     end
   end

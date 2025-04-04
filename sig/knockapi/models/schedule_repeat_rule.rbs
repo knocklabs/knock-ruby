@@ -11,7 +11,7 @@ module Knockapi
         minutes: Integer?
       }
 
-    class ScheduleRepeatRule < Knockapi::BaseModel
+    class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
       attr_accessor _typename: String
 
       attr_accessor frequency: Knockapi::Models::ScheduleRepeatRule::frequency
@@ -43,7 +43,7 @@ module Knockapi
       type frequency = :daily | :weekly | :monthly | :hourly
 
       module Frequency
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         DAILY: :daily
         WEEKLY: :weekly
@@ -56,7 +56,7 @@ module Knockapi
       type day = :mon | :tue | :wed | :thu | :fri | :sat | :sun
 
       module Day
-        extend Knockapi::Enum
+        extend Knockapi::Internal::Type::Enum
 
         MON: :mon
         TUE: :tue

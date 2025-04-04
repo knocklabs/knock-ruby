@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class RecipientsChannelData < Knockapi::BaseModel
+      class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :_typename
 
@@ -31,7 +31,7 @@ module Knockapi
             channel_id: String,
             data: T.any(
               Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Internal::Util::AnyHash,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
               Knockapi::Models::Recipients::DiscordChannelData,
@@ -64,7 +64,7 @@ module Knockapi
 
         # Channel data for push providers
         module Data
-          extend Knockapi::Union
+          extend Knockapi::Internal::Type::Union
 
           sig do
             override

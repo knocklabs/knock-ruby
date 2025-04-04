@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Schedules#delete
-    class ScheduleDeleteParams < Knockapi::BaseModel
+    class ScheduleDeleteParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
@@ -11,7 +11,7 @@ module Knockapi
       # @!attribute schedule_ids
       #
       #   @return [Array<String>]
-      required :schedule_ids, Knockapi::ArrayOf[String]
+      required :schedule_ids, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @param schedule_ids [Array<String>]
@@ -19,7 +19,7 @@ module Knockapi
       #   #
       #   def initialize(schedule_ids:, request_options: {}, **) = super
 
-      # def initialize: (Hash | Knockapi::BaseModel) -> void
+      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end
   end
 end

@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class ObjectDeleteSubscriptionsParams < Knockapi::BaseModel
+    class ObjectDeleteSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
@@ -19,11 +19,11 @@ module Knockapi
           T.any(
             String,
             Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::Util::AnyHash,
+            Knockapi::Internal::AnyHash,
             Knockapi::Models::InlineObjectRequest
           )
           ],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

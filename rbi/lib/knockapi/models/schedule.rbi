@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class Schedule < Knockapi::BaseModel
+    class Schedule < Knockapi::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -49,12 +49,12 @@ module Knockapi
         params(
           id: String,
           inserted_at: Time,
-          recipient: T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object),
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::Util::AnyHash)],
+          recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object),
+          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           updated_at: Time,
           workflow: String,
           _typename: String,
-          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::Util::AnyHash, Knockapi::Models::Object)),
+          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           last_occurrence_at: T.nilable(Time),
           next_occurrence_at: T.nilable(Time),

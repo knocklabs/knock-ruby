@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Objects
-      class BulkSetParams < Knockapi::BaseModel
+      class BulkSetParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
@@ -12,8 +12,8 @@ module Knockapi
 
         sig do
           params(
-            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::Util::AnyHash)],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::Util::AnyHash)
+            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::AnyHash)],
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
