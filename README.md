@@ -143,7 +143,7 @@ Due to limitations with the Sorbet type system, where a method otherwise can tak
 Please follow Sorbet's [setup guides](https://sorbet.org/docs/adopting) for best experience.
 
 ```ruby
-model = Knockapi::Models::WorkflowTriggerParams.new(
+params = Knockapi::Models::WorkflowTriggerParams.new(
   "dinosaurs-loose",
   data: {
     dinosaur: "triceratops"
@@ -151,7 +151,7 @@ model = Knockapi::Models::WorkflowTriggerParams.new(
   recipients: ["dnedry"]
 )
 
-knock.workflows.trigger(**model)
+knock.workflows.trigger(**params)
 ```
 
 ## Advanced
