@@ -3,9 +3,9 @@
 module Knockapi
   module Internal
     class ItemsCursor
-      Elem = type_member
-
       include Knockapi::Internal::Type::BasePage
+
+      Elem = type_member
 
       sig { returns(T.nilable(T::Array[Elem])) }
       attr_accessor :items
