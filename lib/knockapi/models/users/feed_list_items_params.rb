@@ -43,7 +43,7 @@ module Knockapi
         #   Whether the feed items have a tenant
         #
         #   @return [Boolean, nil]
-        optional :has_tenant, Knockapi::Internal::Type::BooleanModel
+        optional :has_tenant, Knockapi::Internal::Type::Boolean
 
         # @!parse
         #   # @return [Boolean]

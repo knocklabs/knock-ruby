@@ -24,7 +24,7 @@ module Knockapi
           # @!attribute branding_required
           #
           #   @return [Boolean]
-          required :branding_required, Knockapi::Internal::Type::BooleanModel
+          required :branding_required, Knockapi::Internal::Type::Boolean
 
           # @!parse
           #   # @param branding_required [Boolean]

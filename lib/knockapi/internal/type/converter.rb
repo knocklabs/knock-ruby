@@ -64,7 +64,7 @@ module Knockapi
             in Hash
               type_info(spec.slice(:const, :enum, :union).first&.last)
             in true | false
-              -> { Knockapi::Internal::Type::BooleanModel }
+              -> { Knockapi::Internal::Type::Boolean }
             in Knockapi::Internal::Type::Converter | Class | Symbol
               -> { spec }
             in NilClass | Integer | Float

@@ -24,7 +24,7 @@ module Knockapi
           # @!attribute ok
           #
           #   @return [Boolean]
-          required :ok, Knockapi::Internal::Type::BooleanModel
+          required :ok, Knockapi::Internal::Type::Boolean
 
           # @!attribute reason
           #

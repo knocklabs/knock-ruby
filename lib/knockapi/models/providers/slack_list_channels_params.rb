@@ -48,7 +48,7 @@ module Knockapi
           #   Whether to exclude archived channels
           #
           #   @return [Boolean, nil]
-          optional :exclude_archived, Knockapi::Internal::Type::BooleanModel
+          optional :exclude_archived, Knockapi::Internal::Type::Boolean
 
           # @!parse
           #   # @return [Boolean]

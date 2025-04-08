@@ -43,8 +43,8 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
       row => {
         id: String,
         context_team_id: String,
-        is_im: Knockapi::Internal::Type::BooleanModel,
-        is_private: Knockapi::Internal::Type::BooleanModel,
+        is_im: Knockapi::Internal::Type::Boolean,
+        is_private: Knockapi::Internal::Type::Boolean,
         name: String
       }
     end

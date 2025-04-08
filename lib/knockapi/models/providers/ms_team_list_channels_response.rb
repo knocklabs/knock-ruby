@@ -48,7 +48,7 @@ module Knockapi
           # @!attribute [r] is_archived
           #
           #   @return [Boolean, nil]
-          optional :is_archived, Knockapi::Internal::Type::BooleanModel, api_name: :isArchived
+          optional :is_archived, Knockapi::Internal::Type::Boolean, api_name: :isArchived
 
           # @!parse
           #   # @return [Boolean]

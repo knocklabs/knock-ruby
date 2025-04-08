@@ -91,7 +91,7 @@ module Knockapi
         module Chat
           extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::Internal::Type::BooleanModel
+          variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
@@ -108,7 +108,7 @@ module Knockapi
         module Email
           extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::Internal::Type::BooleanModel
+          variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
@@ -125,7 +125,7 @@ module Knockapi
         module HTTP
           extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::Internal::Type::BooleanModel
+          variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
@@ -142,7 +142,7 @@ module Knockapi
         module InAppFeed
           extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::Internal::Type::BooleanModel
+          variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
@@ -159,7 +159,7 @@ module Knockapi
         module Push
           extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::Internal::Type::BooleanModel
+          variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
@@ -176,7 +176,7 @@ module Knockapi
         module SMS
           extend Knockapi::Internal::Type::Union
 
-          variant Knockapi::Internal::Type::BooleanModel
+          variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }

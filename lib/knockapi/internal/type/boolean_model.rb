@@ -8,7 +8,7 @@ module Knockapi
       # @abstract
       #
       # Ruby has no Boolean class; this is something for models to refer to.
-      class BooleanModel
+      class Boolean
         extend Knockapi::Internal::Type::Converter
 
         # @param other [Object]
@@ -19,7 +19,7 @@ module Knockapi
         # @param other [Object]
         #
         # @return [Boolean]
-        def self.==(other) = other.is_a?(Class) && other <= Knockapi::Internal::Type::BooleanModel
+        def self.==(other) = other.is_a?(Class) && other <= Knockapi::Internal::Type::Boolean
 
         class << self
           # @api private

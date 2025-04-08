@@ -1,7 +1,7 @@
 module Knockapi
   module Internal
     module Type
-      class BooleanModel
+      class Boolean
         extend Knockapi::Internal::Type::Converter
 
         def self.===: (top other) -> bool

@@ -18,12 +18,12 @@ module Knockapi
         # @!attribute is_im
         #
         #   @return [Boolean]
-        required :is_im, Knockapi::Internal::Type::BooleanModel
+        required :is_im, Knockapi::Internal::Type::Boolean
 
         # @!attribute is_private
         #
         #   @return [Boolean]
-        required :is_private, Knockapi::Internal::Type::BooleanModel
+        required :is_private, Knockapi::Internal::Type::Boolean
 
         # @!attribute name
         #
