@@ -2,8 +2,6 @@
 
 module Knockapi
   module Internal
-    # rubocop:disable Metrics/ModuleLength
-
     # @api private
     module Util
       # @api private
@@ -694,7 +692,5 @@ module Knockapi
         end
       end
     end
-
-    # rubocop:enable Metrics/ModuleLength
   end
 end
