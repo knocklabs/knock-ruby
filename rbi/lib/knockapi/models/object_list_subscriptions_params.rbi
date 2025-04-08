@@ -149,7 +149,7 @@ module Knockapi
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      #   reference (id, collection).
+      # reference (id, collection).
       module Object
         extend Knockapi::Internal::Type::Union
 
@@ -175,7 +175,7 @@ module Knockapi
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      #   reference (id, collection).
+      # reference (id, collection).
       module Recipient
         extend Knockapi::Internal::Type::Union
 

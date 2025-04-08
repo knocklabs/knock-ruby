@@ -5,6 +5,7 @@ include:
   - 'Rakefile'
   - 'examples/**/*.rb'
   - 'lib/**/*.rb'
+  - 'test/knockapi/resource_namespaces.rb'
   - 'test/knockapi/test_helper.rb'
 exclude:
   - 'rbi/**/*'

@@ -79,7 +79,7 @@ module Knockapi
       end
 
       # Returns the fully rendered contents of a message, where the response depends on
-      #   the channel the message was sent on.
+      # the channel the message was sent on.
       #
       # @overload get_content(message_id, request_options: {})
       #

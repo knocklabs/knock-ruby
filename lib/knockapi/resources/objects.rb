@@ -52,7 +52,7 @@ module Knockapi
       end
 
       # Add subscriptions for an object. If a subscription already exists, it will be
-      #   updated.
+      # updated.
       #
       # @overload add_subscriptions(collection, object_id_, recipients:, properties: nil, request_options: {})
       #
@@ -229,8 +229,8 @@ module Knockapi
       end
 
       # List subscriptions for an object. Either list all subscriptions that belong to
-      #   the object, or all subscriptions that this object has. Determined by the `mode`
-      #   query parameter.
+      # the object, or all subscriptions that this object has. Determined by the `mode`
+      # query parameter.
       #
       # @overload list_subscriptions(collection, object_id_, after: nil, before: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
       #

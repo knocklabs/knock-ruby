@@ -5,9 +5,9 @@ module Knockapi
     class Channels
       class Bulk
         # Bulk update messages for a specific channel. The channel is specified by the
-        #   `channel_id` parameter. The action to perform is specified by the `action`
-        #   parameter, where the action is a status change action (e.g. `archive`,
-        #   `unarchive`).
+        # `channel_id` parameter. The action to perform is specified by the `action`
+        # parameter, where the action is a status change action (e.g. `archive`,
+        # `unarchive`).
         sig do
           params(
             channel_id: String,

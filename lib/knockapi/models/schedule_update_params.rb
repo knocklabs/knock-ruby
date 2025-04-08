@@ -15,8 +15,8 @@ module Knockapi
 
       # @!attribute actor
       #   Specifies a recipient in a request. This can either be a user identifier
-      #     (string), an inline user request (object), or an inline object request, which is
-      #     determined by the presence of a `collection` property.
+      #   (string), an inline user request (object), or an inline object request, which is
+      #   determined by the presence of a `collection` property.
       #
       #   @return [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
       optional :actor, union: -> { Knockapi::Models::RecipientRequest }, nil?: true

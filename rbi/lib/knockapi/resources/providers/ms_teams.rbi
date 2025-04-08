@@ -5,7 +5,7 @@ module Knockapi
     class Providers
       class MsTeams
         # Check if a connection to Microsoft Teams has been authorized for a given
-        #   Microsoft Teams tenant object
+        # Microsoft Teams tenant object
         sig do
           params(
             channel_id: String,
@@ -22,7 +22,7 @@ module Knockapi
           request_options: {}
         ); end
         # List the Microsoft Teams channels within a team. By default, archived and
-        #   private channels are excluded from the results.
+        # private channels are excluded from the results.
         sig do
           params(
             channel_id: String,
@@ -44,7 +44,7 @@ module Knockapi
           request_options: {}
         ); end
         # Get a list of teams belonging to the Microsoft Entra tenant. By default,
-        #   archived and private channels are excluded from the results.
+        # archived and private channels are excluded from the results.
         sig do
           params(
             channel_id: String,

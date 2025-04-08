@@ -21,7 +21,7 @@ module Knockapi
           request_options: {}
         ); end
         # Add subscriptions for a set of objects in a single collection. If a subscription
-        #   already exists, it will be updated.
+        # already exists, it will be updated.
         sig do
           params(
             collection: String,

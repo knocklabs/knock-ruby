@@ -43,7 +43,7 @@ module Knockapi
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] filter
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #     to the Microsoft Graph API to filter channels
+          #   to the Microsoft Graph API to filter channels
           #
           #   @return [String, nil]
           optional :filter, String, api_name: :$filter
@@ -54,7 +54,7 @@ module Knockapi
 
           # @!attribute [r] select_
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #     to the Microsoft Graph API to select fields on a channel
+          #   to the Microsoft Graph API to select fields on a channel
           #
           #   @return [String, nil]
           optional :select_, String, api_name: :$select

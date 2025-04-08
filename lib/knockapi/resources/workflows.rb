@@ -4,8 +4,8 @@ module Knockapi
   module Resources
     class Workflows
       # When invoked for a workflow using a specific workflow key and cancellation key,
-      #   will cancel any queued workflow runs associated with that key/cancellation key
-      #   pair. Can optionally be provided one or more recipients to scope the request to.
+      # will cancel any queued workflow runs associated with that key/cancellation key
+      # pair. Can optionally be provided one or more recipients to scope the request to.
       #
       # @overload cancel(key, cancellation_key:, recipients: nil, tenant: nil, request_options: {})
       #
@@ -30,8 +30,8 @@ module Knockapi
       end
 
       # Trigger a workflow specified by the key to run for the given recipients, using
-      #   the parameters provided. Returns an identifier for the workflow run request. All
-      #   workflow runs are executed asynchronously.
+      # the parameters provided. Returns an identifier for the workflow run request. All
+      # workflow runs are executed asynchronously.
       #
       # @overload trigger(key, actor: nil, cancellation_key: nil, data: nil, recipients: nil, tenant: nil, request_options: {})
       #

@@ -72,7 +72,7 @@ module Knockapi
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
       # A reference to a recipient, either a user identifier (string) or an object
-      #   reference (id, collection).
+      # reference (id, collection).
       module Recipient
         extend Knockapi::Internal::Type::Union
 

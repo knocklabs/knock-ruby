@@ -11,7 +11,7 @@ module Knockapi
 
         # @!parse
         #   # A set of settings for a channel type. Currently, this can only be a list of
-        #   #   conditions to apply.
+        #   # conditions to apply.
         #   #
         #   # @param conditions [Array<Knockapi::Models::Condition>]
         #   #

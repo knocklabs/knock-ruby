@@ -36,7 +36,7 @@ module Knockapi
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] filter
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #     to the Microsoft Graph API to filter teams
+          #   to the Microsoft Graph API to filter teams
           #
           #   @return [String, nil]
           optional :filter, String, api_name: :$filter
@@ -47,7 +47,7 @@ module Knockapi
 
           # @!attribute [r] select_
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #     to the Microsoft Graph API to select fields on a team
+          #   to the Microsoft Graph API to select fields on a team
           #
           #   @return [String, nil]
           optional :select_, String, api_name: :$select
@@ -58,7 +58,7 @@ module Knockapi
 
           # @!attribute [r] skiptoken
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #     to the Microsoft Graph API to retrieve the next page of results
+          #   to the Microsoft Graph API to retrieve the next page of results
           #
           #   @return [String, nil]
           optional :skiptoken, String, api_name: :$skiptoken
@@ -69,7 +69,7 @@ module Knockapi
 
           # @!attribute [r] top
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #     to the Microsoft Graph API to limit the number of teams returned
+          #   to the Microsoft Graph API to limit the number of teams returned
           #
           #   @return [Integer, nil]
           optional :top, Integer, api_name: :$top

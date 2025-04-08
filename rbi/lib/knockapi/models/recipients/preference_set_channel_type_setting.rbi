@@ -8,7 +8,7 @@ module Knockapi
         attr_accessor :conditions
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         sig do
           params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
             .returns(T.attached_class)

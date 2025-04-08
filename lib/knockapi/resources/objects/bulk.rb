@@ -27,7 +27,7 @@ module Knockapi
         end
 
         # Add subscriptions for a set of objects in a single collection. If a subscription
-        #   already exists, it will be updated.
+        # already exists, it will be updated.
         #
         # @overload add_subscriptions(collection, subscriptions:, request_options: {})
         #

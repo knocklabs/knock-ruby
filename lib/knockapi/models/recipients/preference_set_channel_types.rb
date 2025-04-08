@@ -6,7 +6,7 @@ module Knockapi
       class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] chat
         #   A set of settings for a channel type. Currently, this can only be a list of
-        #     conditions to apply.
+        #   conditions to apply.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :chat, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat }
@@ -17,7 +17,7 @@ module Knockapi
 
         # @!attribute [r] email
         #   A set of settings for a channel type. Currently, this can only be a list of
-        #     conditions to apply.
+        #   conditions to apply.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :email, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email }
@@ -28,7 +28,7 @@ module Knockapi
 
         # @!attribute [r] http
         #   A set of settings for a channel type. Currently, this can only be a list of
-        #     conditions to apply.
+        #   conditions to apply.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :http, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP }
@@ -39,7 +39,7 @@ module Knockapi
 
         # @!attribute [r] in_app_feed
         #   A set of settings for a channel type. Currently, this can only be a list of
-        #     conditions to apply.
+        #   conditions to apply.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :in_app_feed, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed }
@@ -50,7 +50,7 @@ module Knockapi
 
         # @!attribute [r] push
         #   A set of settings for a channel type. Currently, this can only be a list of
-        #     conditions to apply.
+        #   conditions to apply.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :push, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push }
@@ -61,7 +61,7 @@ module Knockapi
 
         # @!attribute [r] sms
         #   A set of settings for a channel type. Currently, this can only be a list of
-        #     conditions to apply.
+        #   conditions to apply.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :sms, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS }
@@ -85,7 +85,7 @@ module Knockapi
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#chat
         module Chat
@@ -102,7 +102,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#email
         module Email
@@ -119,7 +119,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#http
         module HTTP
@@ -136,7 +136,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#in_app_feed
         module InAppFeed
@@ -153,7 +153,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#push
         module Push
@@ -170,7 +170,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#sms
         module SMS

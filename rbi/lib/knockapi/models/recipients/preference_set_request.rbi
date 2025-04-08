@@ -5,7 +5,7 @@ module Knockapi
     module Recipients
       class PreferenceSetRequest < Knockapi::Internal::Type::BaseModel
         # A setting for a preference set, where the key in the object is the category, and
-        #   the values are the preference settings for that category.
+        # the values are the preference settings for that category.
         sig do
           returns(
             T.nilable(
@@ -34,7 +34,7 @@ module Knockapi
         attr_writer :channel_types
 
         # A setting for a preference set, where the key in the object is the workflow key,
-        #   and the values are the preference settings for that workflow.
+        # and the values are the preference settings for that workflow.
         sig do
           returns(
             T.nilable(
@@ -128,7 +128,7 @@ module Knockapi
             attr_accessor :conditions
 
             # The settings object for a workflow or category, where you can specify channel
-            #   types or conditions.
+            # types or conditions.
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
@@ -180,7 +180,7 @@ module Knockapi
             attr_accessor :conditions
 
             # The settings object for a workflow or category, where you can specify channel
-            #   types or conditions.
+            # types or conditions.
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),

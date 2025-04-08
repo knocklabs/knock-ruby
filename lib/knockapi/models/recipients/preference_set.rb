@@ -72,7 +72,7 @@ module Knockapi
 
             # @!parse
             #   # The settings object for a workflow or category, where you can specify channel
-            #   #   types or conditions.
+            #   # types or conditions.
             #   #
             #   # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
             #   # @param conditions [Array<Knockapi::Models::Condition>, nil]
@@ -110,7 +110,7 @@ module Knockapi
 
             # @!parse
             #   # The settings object for a workflow or category, where you can specify channel
-            #   #   types or conditions.
+            #   # types or conditions.
             #   #
             #   # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
             #   # @param conditions [Array<Knockapi::Models::Condition>, nil]

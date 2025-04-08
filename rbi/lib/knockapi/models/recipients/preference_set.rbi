@@ -136,7 +136,7 @@ module Knockapi
             attr_accessor :conditions
 
             # The settings object for a workflow or category, where you can specify channel
-            #   types or conditions.
+            # types or conditions.
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
@@ -188,7 +188,7 @@ module Knockapi
             attr_accessor :conditions
 
             # The settings object for a workflow or category, where you can specify channel
-            #   types or conditions.
+            # types or conditions.
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),

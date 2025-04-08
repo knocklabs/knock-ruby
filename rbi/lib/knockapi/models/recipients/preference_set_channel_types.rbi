@@ -5,7 +5,7 @@ module Knockapi
     module Recipients
       class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :chat
 
@@ -22,7 +22,7 @@ module Knockapi
         attr_writer :chat
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :email
 
@@ -39,7 +39,7 @@ module Knockapi
         attr_writer :email
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :http
 
@@ -56,7 +56,7 @@ module Knockapi
         attr_writer :http
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :in_app_feed
 
@@ -73,7 +73,7 @@ module Knockapi
         attr_writer :in_app_feed
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :push
 
@@ -90,7 +90,7 @@ module Knockapi
         attr_writer :push
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :sms
 
@@ -160,7 +160,7 @@ module Knockapi
         def to_hash; end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         module Chat
           extend Knockapi::Internal::Type::Union
 
@@ -169,7 +169,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         module Email
           extend Knockapi::Internal::Type::Union
 
@@ -178,7 +178,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         module HTTP
           extend Knockapi::Internal::Type::Union
 
@@ -187,7 +187,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         module InAppFeed
           extend Knockapi::Internal::Type::Union
 
@@ -196,7 +196,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         module Push
           extend Knockapi::Internal::Type::Union
 
@@ -205,7 +205,7 @@ module Knockapi
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
-        #   conditions to apply.
+        # conditions to apply.
         module SMS
           extend Knockapi::Internal::Type::Union
 

@@ -21,7 +21,7 @@ module Knockapi
           request_options: {}
         ); end
         # Returns a paginated list of feed items for a user, including metadata about the
-        #   feed.
+        # feed.
         sig do
           params(
             user_id: String,

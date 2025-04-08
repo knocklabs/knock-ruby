@@ -52,7 +52,7 @@ module Knockapi
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #   to the Microsoft Graph API to filter channels
+          # to the Microsoft Graph API to filter channels
           sig { returns(T.nilable(String)) }
           attr_reader :filter
 
@@ -60,7 +60,7 @@ module Knockapi
           attr_writer :filter
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #   to the Microsoft Graph API to select fields on a channel
+          # to the Microsoft Graph API to select fields on a channel
           sig { returns(T.nilable(String)) }
           attr_reader :select_
 

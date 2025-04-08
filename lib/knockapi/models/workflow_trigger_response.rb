@@ -6,7 +6,7 @@ module Knockapi
     class WorkflowTriggerResponse < Knockapi::Internal::Type::BaseModel
       # @!attribute workflow_run_id
       #   The ID of the workflow trigger. This value allows you to track individual
-      #     workflow runs associated with this trigger request.
+      #   workflow runs associated with this trigger request.
       #
       #   @return [String]
       required :workflow_run_id, String

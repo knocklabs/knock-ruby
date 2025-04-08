@@ -26,8 +26,8 @@ module Knockapi
 
       # @!parse
       #   # A set of parameters to identify a user with. Does not include the user ID, as
-      #   #   that's specified elsewhere in the request. You can supply any additional
-      #   #   properties you'd like to upsert against the user.
+      #   # that's specified elsewhere in the request. You can supply any additional
+      #   # properties you'd like to upsert against the user.
       #   #
       #   # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       #   # @param created_at [Time, nil]

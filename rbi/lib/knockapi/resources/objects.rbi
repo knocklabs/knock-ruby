@@ -45,7 +45,7 @@ module Knockapi
         request_options: {}
       ); end
       # Add subscriptions for an object. If a subscription already exists, it will be
-      #   updated.
+      # updated.
       sig do
         params(
           collection: String,
@@ -243,8 +243,8 @@ module Knockapi
         request_options: {}
       ); end
       # List subscriptions for an object. Either list all subscriptions that belong to
-      #   the object, or all subscriptions that this object has. Determined by the `mode`
-      #   query parameter.
+      # the object, or all subscriptions that this object has. Determined by the `mode`
+      # query parameter.
       sig do
         params(
           collection: String,
@@ -384,12 +384,12 @@ module Knockapi
         # Preference set ID
         preference_set_id,
         # A setting for a preference set, where the key in the object is the category, and
-        #   the values are the preference settings for that category.
+        # the values are the preference settings for that category.
         categories: nil,
         # Channel type preferences
         channel_types: nil,
         # A setting for a preference set, where the key in the object is the workflow key,
-        #   and the values are the preference settings for that workflow.
+        # and the values are the preference settings for that workflow.
         workflows: nil,
         request_options: {}
       ); end

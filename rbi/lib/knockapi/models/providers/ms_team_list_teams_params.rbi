@@ -46,7 +46,7 @@ module Knockapi
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #   to the Microsoft Graph API to filter teams
+          # to the Microsoft Graph API to filter teams
           sig { returns(T.nilable(String)) }
           attr_reader :filter
 
@@ -54,7 +54,7 @@ module Knockapi
           attr_writer :filter
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #   to the Microsoft Graph API to select fields on a team
+          # to the Microsoft Graph API to select fields on a team
           sig { returns(T.nilable(String)) }
           attr_reader :select_
 
@@ -62,7 +62,7 @@ module Knockapi
           attr_writer :select_
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #   to the Microsoft Graph API to retrieve the next page of results
+          # to the Microsoft Graph API to retrieve the next page of results
           sig { returns(T.nilable(String)) }
           attr_reader :skiptoken
 
@@ -70,7 +70,7 @@ module Knockapi
           attr_writer :skiptoken
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          #   to the Microsoft Graph API to limit the number of teams returned
+          # to the Microsoft Graph API to limit the number of teams returned
           sig { returns(T.nilable(Integer)) }
           attr_reader :top
 

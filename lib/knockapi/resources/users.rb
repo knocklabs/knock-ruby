@@ -245,7 +245,7 @@ module Knockapi
       end
 
       # Merge two users together, where the user specified with the `from_user_id` param
-      #   will be merged into the user specified by `user_id`.
+      # will be merged into the user specified by `user_id`.
       #
       # @overload merge(user_id, from_user_id:, request_options: {})
       #
@@ -291,7 +291,7 @@ module Knockapi
       end
 
       # Updates a complete preference set for a user. This is a destructive operation
-      #   that will replace the existing preference set for the user.
+      # that will replace the existing preference set for the user.
       #
       # @overload set_preferences(user_id, preference_set_id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #

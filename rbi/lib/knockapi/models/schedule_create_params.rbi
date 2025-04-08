@@ -75,7 +75,7 @@ module Knockapi
       def to_hash; end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      #   reference (id, collection).
+      # reference (id, collection).
       module Recipient
         extend Knockapi::Internal::Type::Union
 

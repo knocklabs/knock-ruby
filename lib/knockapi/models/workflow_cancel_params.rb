@@ -10,14 +10,14 @@ module Knockapi
 
       # @!attribute cancellation_key
       #   The cancellation key supplied to the workflow trigger endpoint to use for
-      #     cancelling one or more workflow runs.
+      #   cancelling one or more workflow runs.
       #
       #   @return [String]
       required :cancellation_key, String
 
       # @!attribute recipients
       #   An optional list of recipients to cancel the workflow for using the cancellation
-      #     key.
+      #   key.
       #
       #   @return [Array<String>, nil]
       optional :recipients, Knockapi::Internal::Type::ArrayOf[String], nil?: true

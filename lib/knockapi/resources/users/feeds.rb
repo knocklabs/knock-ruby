@@ -25,7 +25,7 @@ module Knockapi
         end
 
         # Returns a paginated list of feed items for a user, including metadata about the
-        #   feed.
+        # feed.
         #
         # @overload list_items(user_id, channel_id, after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #

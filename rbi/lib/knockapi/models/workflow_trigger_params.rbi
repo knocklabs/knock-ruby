@@ -7,8 +7,8 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # Specifies a recipient in a request. This can either be a user identifier
-      #   (string), an inline user request (object), or an inline object request, which is
-      #   determined by the presence of a `collection` property.
+      # (string), an inline user request (object), or an inline object request, which is
+      # determined by the presence of a `collection` property.
       sig do
         returns(
           T.nilable(
@@ -19,17 +19,17 @@ module Knockapi
       attr_accessor :actor
 
       # An optional key that is used in the workflow cancellation endpoint to target a
-      #   cancellation of any workflow runs associated with this trigger.
+      # cancellation of any workflow runs associated with this trigger.
       sig { returns(T.nilable(String)) }
       attr_accessor :cancellation_key
 
       # An optional map of data to be used in the workflow. This data will be available
-      #   to the workflow as a map in the `data` field.
+      # to the workflow as a map in the `data` field.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
       # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-      #   single trigger.
+      # single trigger.
       sig do
         returns(
           T.nilable(

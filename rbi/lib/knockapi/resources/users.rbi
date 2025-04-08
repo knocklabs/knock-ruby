@@ -230,7 +230,7 @@ module Knockapi
         request_options: {}
       ); end
       # Merge two users together, where the user specified with the `from_user_id` param
-      #   will be merged into the user specified by `user_id`.
+      # will be merged into the user specified by `user_id`.
       sig do
         params(
           user_id: String,
@@ -273,7 +273,7 @@ module Knockapi
         request_options: {}
       ); end
       # Updates a complete preference set for a user. This is a destructive operation
-      #   that will replace the existing preference set for the user.
+      # that will replace the existing preference set for the user.
       sig do
         params(
           user_id: String,
@@ -309,12 +309,12 @@ module Knockapi
         # Preference set ID
         preference_set_id,
         # A setting for a preference set, where the key in the object is the category, and
-        #   the values are the preference settings for that category.
+        # the values are the preference settings for that category.
         categories: nil,
         # Channel type preferences
         channel_types: nil,
         # A setting for a preference set, where the key in the object is the workflow key,
-        #   and the values are the preference settings for that workflow.
+        # and the values are the preference settings for that workflow.
         workflows: nil,
         request_options: {}
       ); end
