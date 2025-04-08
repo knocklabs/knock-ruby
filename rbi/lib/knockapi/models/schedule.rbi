@@ -75,9 +75,7 @@ module Knockapi
         last_occurrence_at: nil,
         next_occurrence_at: nil,
         tenant: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -97,8 +95,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

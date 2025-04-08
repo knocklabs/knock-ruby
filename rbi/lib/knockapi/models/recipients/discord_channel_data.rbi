@@ -7,10 +7,10 @@ module Knockapi
         sig do
           returns(
             T::Array[
-            T.any(
-              Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-              Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-            )
+              T.any(
+                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+              )
             ]
           )
         end
@@ -20,33 +20,31 @@ module Knockapi
         sig do
           params(
             connections: T::Array[
-            T.any(
-              Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-            )
+              T.any(
+                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                Knockapi::Internal::AnyHash,
+                Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+              )
             ]
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:)
-        end
+        def self.new(connections:); end
 
         sig do
           override
             .returns(
               {
                 connections: T::Array[
-                T.any(
-                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
-                  Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-                )
+                  T.any(
+                    Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                    Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+                  )
                 ]
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # Discord channel connection
         module Connection
@@ -59,12 +57,10 @@ module Knockapi
 
             # Discord channel connection
             sig { params(channel_id: String).returns(T.attached_class) }
-            def self.new(channel_id:)
-            end
+            def self.new(channel_id:); end
 
             sig { override.returns({channel_id: String}) }
-            def to_hash
-            end
+            def to_hash; end
           end
 
           class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -97,8 +93,7 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(incoming_webhook:)
-            end
+            def self.new(incoming_webhook:); end
 
             sig do
               override
@@ -108,8 +103,7 @@ module Knockapi
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
 
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               # The URL of the incoming webhook
@@ -118,12 +112,10 @@ module Knockapi
 
               # The incoming webhook
               sig { params(url: String).returns(T.attached_class) }
-              def self.new(url:)
-              end
+              def self.new(url:); end
 
               sig { override.returns({url: String}) }
-              def to_hash
-              end
+              def to_hash; end
             end
           end
 
@@ -133,8 +125,7 @@ module Knockapi
                 [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
               )
           end
-          def self.variants
-          end
+          def self.variants; end
         end
       end
     end

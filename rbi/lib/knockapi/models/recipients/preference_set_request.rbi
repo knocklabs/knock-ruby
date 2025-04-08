@@ -10,11 +10,11 @@ module Knockapi
           returns(
             T.nilable(
               T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
-              )
+                Symbol,
+                T.any(
+                  T::Boolean,
+                  Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+                )
               ]
             )
           )
@@ -39,11 +39,11 @@ module Knockapi
           returns(
             T.nilable(
               T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
-              )
+                Symbol,
+                T.any(
+                  T::Boolean,
+                  Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+                )
               ]
             )
           )
@@ -55,30 +55,29 @@ module Knockapi
           params(
             categories: T.nilable(
               T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Internal::AnyHash
-              )
+                Symbol,
+                T.any(
+                  T::Boolean,
+                  Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Internal::AnyHash
+                )
               ]
             ),
             channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
             workflows: T.nilable(
               T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Internal::AnyHash
-              )
+                Symbol,
+                T.any(
+                  T::Boolean,
+                  Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Internal::AnyHash
+                )
               ]
             )
           )
             .returns(T.attached_class)
         end
-        def self.new(categories: nil, channel_types: nil, workflows: nil)
-        end
+        def self.new(categories: nil, channel_types: nil, workflows: nil); end
 
         sig do
           override
@@ -86,28 +85,27 @@ module Knockapi
               {
                 categories: T.nilable(
                   T::Hash[
-                  Symbol,
-                  T.any(
-                    T::Boolean,
-                    Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
-                  )
+                    Symbol,
+                    T.any(
+                      T::Boolean,
+                      Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+                    )
                   ]
                 ),
                 channel_types: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes),
                 workflows: T.nilable(
                   T::Hash[
-                  Symbol,
-                  T.any(
-                    T::Boolean,
-                    Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
-                  )
+                    Symbol,
+                    T.any(
+                      T::Boolean,
+                      Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+                    )
                   ]
                 )
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # Workflow or category preferences within a preference set
         module Category
@@ -138,8 +136,7 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(channel_types: nil, conditions: nil)
-            end
+            def self.new(channel_types: nil, conditions: nil); end
 
             sig do
               override
@@ -150,8 +147,7 @@ module Knockapi
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
           end
 
           sig do
@@ -160,8 +156,7 @@ module Knockapi
                 [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
               )
           end
-          def self.variants
-          end
+          def self.variants; end
         end
 
         # Workflow or category preferences within a preference set
@@ -193,8 +188,7 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(channel_types: nil, conditions: nil)
-            end
+            def self.new(channel_types: nil, conditions: nil); end
 
             sig do
               override
@@ -205,8 +199,7 @@ module Knockapi
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
           end
 
           sig do
@@ -215,8 +208,7 @@ module Knockapi
                 [T::Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
               )
           end
-          def self.variants
-          end
+          def self.variants; end
         end
       end
     end

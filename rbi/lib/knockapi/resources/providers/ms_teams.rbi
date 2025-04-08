@@ -20,9 +20,7 @@ module Knockapi
           # A JSON encoded string containing the Microsoft Teams tenant object reference
           ms_teams_tenant_object:,
           request_options: {}
-        )
-        end
-
+        ); end
         # List the Microsoft Teams channels within a team. By default, archived and
         #   private channels are excluded from the results.
         sig do
@@ -44,9 +42,7 @@ module Knockapi
           team_id:,
           query_options: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # Get a list of teams belonging to the Microsoft Entra tenant. By default,
         #   archived and private channels are excluded from the results.
         sig do
@@ -65,9 +61,7 @@ module Knockapi
           ms_teams_tenant_object:,
           query_options: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # Remove a Microsoft Entra tenant ID from a Microsoft Teams tenant object
         sig do
           params(
@@ -83,13 +77,10 @@ module Knockapi
           # A JSON encoded string containing the Microsoft Teams tenant object reference
           ms_teams_tenant_object:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

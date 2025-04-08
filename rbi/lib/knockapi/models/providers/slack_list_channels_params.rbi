@@ -30,8 +30,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(access_token_object:, query_options: nil, request_options: {})
-        end
+        def self.new(access_token_object:, query_options: nil, request_options: {}); end
 
         sig do
           override
@@ -43,8 +42,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # A cursor to paginate through the channels
@@ -92,8 +90,7 @@ module Knockapi
             )
               .returns(T.attached_class)
           end
-          def self.new(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil)
-          end
+          def self.new(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil); end
 
           sig do
             override
@@ -105,8 +102,7 @@ module Knockapi
                          types: String
                        })
           end
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

@@ -393,7 +393,7 @@ module Knockapi
                 required :buttons,
                          -> do
                            Knockapi::Internal::Type::ArrayOf[
-                           Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
+                             Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
                            ]
                          end
 

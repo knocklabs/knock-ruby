@@ -16,8 +16,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(members:, request_options: {})
-      end
+      def self.new(members:, request_options: {}); end
 
       sig do
         override
@@ -28,8 +27,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Member < Knockapi::Internal::Type::BaseModel
         # A set of parameters to inline-identify a user with. Inline identifying the user
@@ -53,12 +51,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(user:, tenant: nil)
-        end
+        def self.new(user:, tenant: nil); end
 
         sig { override.returns({user: Knockapi::Models::InlineIdentifyUserRequest, tenant: T.nilable(String)}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

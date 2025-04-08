@@ -17,12 +17,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(user_ids:, request_options: {})
-        end
+        def self.new(user_ids:, request_options: {}); end
 
         sig { override.returns({user_ids: T::Array[String], request_options: Knockapi::RequestOptions}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

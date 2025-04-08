@@ -36,8 +36,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, _typename:, inserted_at:, recipient:, type:, data: nil)
-      end
+      def self.new(id:, _typename:, inserted_at:, recipient:, type:, data: nil); end
 
       sig do
         override
@@ -52,8 +51,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
@@ -71,17 +69,14 @@ module Knockapi
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:)
-          end
+          def self.new(id:, collection:); end
 
           sig { override.returns({id: String, collection: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]) }
-        def self.variants
-        end
+        def self.variants; end
       end
 
       module Type
@@ -105,8 +100,7 @@ module Knockapi
         MESSAGE_UNARCHIVED = T.let(:"message.unarchived", Knockapi::Models::MessageEvent::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::MessageEvent::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

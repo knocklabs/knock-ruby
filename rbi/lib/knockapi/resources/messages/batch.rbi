@@ -16,9 +16,7 @@ module Knockapi
           # The message IDs to update
           message_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Get the contents of multiple messages in a single request.
         sig do
           params(
@@ -31,9 +29,7 @@ module Knockapi
           # The IDs of the messages to fetch contents of
           message_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Mark messages as interacted
         sig do
           params(
@@ -49,9 +45,7 @@ module Knockapi
           # Metadata about the interaction
           metadata: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # Mark messages as read
         sig do
           params(
@@ -64,9 +58,7 @@ module Knockapi
           # The message IDs to update
           message_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Mark messages as seen
         sig do
           params(
@@ -79,9 +71,7 @@ module Knockapi
           # The message IDs to update
           message_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Mark messages as unread
         sig do
           params(
@@ -94,9 +84,7 @@ module Knockapi
           # The message IDs to update
           message_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Mark messages as unseen
         sig do
           params(
@@ -109,9 +97,7 @@ module Knockapi
           # The message IDs to update
           message_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Mark messages as unarchived
         sig do
           params(
@@ -124,13 +110,10 @@ module Knockapi
           # The message IDs to update
           message_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

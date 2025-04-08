@@ -55,9 +55,7 @@ module Knockapi
         name: nil,
         phone_number: nil,
         timezone: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -74,8 +72,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

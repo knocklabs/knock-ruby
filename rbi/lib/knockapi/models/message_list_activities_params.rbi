@@ -44,8 +44,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
-      end
+      def self.new(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {}); end
 
       sig do
         override
@@ -59,8 +58,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

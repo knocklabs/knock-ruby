@@ -177,9 +177,7 @@ module Knockapi
         tenant: nil,
         updated_at: nil,
         workflow: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -208,8 +206,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
@@ -227,17 +224,14 @@ module Knockapi
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:)
-          end
+          def self.new(id:, collection:); end
 
           sig { override.returns({id: String, collection: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
-        def self.variants
-        end
+        def self.variants; end
       end
 
       module EngagementStatus
@@ -254,8 +248,7 @@ module Knockapi
         ARCHIVED = T.let(:archived, Knockapi::Models::Message::EngagementStatus::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -274,17 +267,14 @@ module Knockapi
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:)
-          end
+          def self.new(id:, collection:); end
 
           sig { override.returns({id: String, collection: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
-        def self.variants
-        end
+        def self.variants; end
       end
 
       class Source < Knockapi::Internal::Type::BaseModel
@@ -308,14 +298,12 @@ module Knockapi
           params(_typename: String, categories: T::Array[String], key: String, version_id: String)
             .returns(T.attached_class)
         end
-        def self.new(_typename:, categories:, key:, version_id:)
-        end
+        def self.new(_typename:, categories:, key:, version_id:); end
 
         sig do
           override.returns({_typename: String, categories: T::Array[String], key: String, version_id: String})
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # Message delivery status
@@ -334,8 +322,7 @@ module Knockapi
         BOUNCED = T.let(:bounced, Knockapi::Models::Message::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::Message::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

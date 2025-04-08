@@ -19,9 +19,7 @@ module Knockapi
           # The channel ID
           channel_id,
           request_options: {}
-        )
-        end
-
+        ); end
         # Returns a paginated list of feed items for a user, including metadata about the
         #   feed.
         sig do
@@ -68,13 +66,10 @@ module Knockapi
           # The workflow categories of the feed items to return
           workflow_categories: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

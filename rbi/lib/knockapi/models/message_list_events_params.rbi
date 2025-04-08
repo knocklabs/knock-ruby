@@ -36,8 +36,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(after: nil, before: nil, page_size: nil, request_options: {})
-      end
+      def self.new(after: nil, before: nil, page_size: nil, request_options: {}); end
 
       sig do
         override
@@ -48,8 +47,7 @@ module Knockapi
                      request_options: Knockapi::RequestOptions
                    })
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

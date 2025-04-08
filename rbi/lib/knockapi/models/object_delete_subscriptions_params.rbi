@@ -16,19 +16,18 @@ module Knockapi
       sig do
         params(
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::InlineObjectRequest
-          )
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ],
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(recipients:, request_options: {})
-      end
+      def self.new(recipients:, request_options: {}); end
 
       sig do
         override
@@ -39,8 +38,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

@@ -29,8 +29,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, _typename:, collection:, updated_at:, created_at: nil)
-      end
+      def self.new(id:, _typename:, collection:, updated_at:, created_at: nil); end
 
       sig do
         override
@@ -38,8 +37,7 @@ module Knockapi
             {id: String, _typename: String, collection: String, updated_at: Time, created_at: T.nilable(Time)}
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

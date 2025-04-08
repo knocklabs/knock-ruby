@@ -11,16 +11,15 @@ module Knockapi
         sig do
           params(
             ms_teams_channels: T::Array[
-            T.any(
-              Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel,
-              Knockapi::Internal::AnyHash
-            )
+              T.any(
+                Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel,
+                Knockapi::Internal::AnyHash
+              )
             ]
           )
             .returns(T.attached_class)
         end
-        def self.new(ms_teams_channels:)
-        end
+        def self.new(ms_teams_channels:); end
 
         sig do
           override
@@ -28,8 +27,7 @@ module Knockapi
               {ms_teams_channels: T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]}
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
@@ -93,8 +91,7 @@ module Knockapi
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

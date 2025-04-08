@@ -21,8 +21,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(argument:, operator:, variable:)
-      end
+      def self.new(argument:, operator:, variable:); end
 
       sig do
         override
@@ -30,8 +29,7 @@ module Knockapi
             {argument: T.nilable(String), operator: Knockapi::Models::Condition::Operator::OrSymbol, variable: String}
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module Operator
         extend Knockapi::Internal::Type::Enum
@@ -60,8 +58,7 @@ module Knockapi
         IS_AUDIENCE_MEMBER = T.let(:is_audience_member, Knockapi::Models::Condition::Operator::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::Condition::Operator::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

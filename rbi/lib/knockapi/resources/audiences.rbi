@@ -17,9 +17,7 @@ module Knockapi
         key,
         members:,
         request_options: {}
-      )
-      end
-
+      ); end
       # List members
       sig do
         params(
@@ -32,9 +30,7 @@ module Knockapi
         # The key of the audience to list members for
         key,
         request_options: {}
-      )
-      end
-
+      ); end
       # Remove members
       sig do
         params(
@@ -49,13 +45,10 @@ module Knockapi
         key,
         members:,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

@@ -12,8 +12,7 @@ module Knockapi
         override
           .returns([String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest])
       end
-      def self.variants
-      end
+      def self.variants; end
     end
   end
 end

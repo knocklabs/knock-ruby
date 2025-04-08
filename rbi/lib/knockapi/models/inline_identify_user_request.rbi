@@ -36,8 +36,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, channel_data: nil, created_at: nil, preferences: nil)
-      end
+      def self.new(id:, channel_data: nil, created_at: nil, preferences: nil); end
 
       sig do
         override
@@ -50,8 +49,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

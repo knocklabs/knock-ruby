@@ -142,8 +142,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil)
-        end
+        def self.new(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil); end
 
         sig do
           override
@@ -158,8 +157,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
@@ -167,8 +165,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-          def self.variants
-          end
+          def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -177,8 +174,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-          def self.variants
-          end
+          def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -187,8 +183,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-          def self.variants
-          end
+          def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -197,8 +192,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-          def self.variants
-          end
+          def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -207,8 +201,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-          def self.variants
-          end
+          def self.variants; end
         end
 
         # A set of settings for a channel type. Currently, this can only be a list of
@@ -217,8 +210,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
-          def self.variants
-          end
+          def self.variants; end
         end
       end
     end

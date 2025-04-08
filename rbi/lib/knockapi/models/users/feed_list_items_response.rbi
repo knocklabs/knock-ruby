@@ -19,10 +19,10 @@ module Knockapi
         sig do
           returns(
             T::Array[
-            T.any(
-              Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-              Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-            )
+              T.any(
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+              )
             ]
           )
         end
@@ -81,11 +81,11 @@ module Knockapi
             activities: T::Array[T.any(Knockapi::Models::Activity, Knockapi::Internal::AnyHash)],
             actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)],
             blocks: T::Array[
-            T.any(
-              Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-            )
+              T.any(
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                Knockapi::Internal::AnyHash,
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+              )
             ],
             data: T.nilable(T::Hash[Symbol, T.anything]),
             inserted_at: String,
@@ -122,9 +122,7 @@ module Knockapi
           link_clicked_at: nil,
           read_at: nil,
           seen_at: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -134,10 +132,10 @@ module Knockapi
                 activities: T::Array[Knockapi::Models::Activity],
                 actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Models::Object)],
                 blocks: T::Array[
-                T.any(
-                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-                )
+                  T.any(
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+                  )
                 ],
                 data: T.nilable(T::Hash[Symbol, T.anything]),
                 inserted_at: String,
@@ -155,8 +153,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # A content (text or markdown) block in a message in an app feed
         module Block
@@ -189,8 +186,7 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(content:, name:, rendered:, type:)
-            end
+            def self.new(content:, name:, rendered:, type:); end
 
             sig do
               override
@@ -203,8 +199,7 @@ module Knockapi
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
 
             module Type
               extend Knockapi::Internal::Type::Enum
@@ -237,8 +232,7 @@ module Knockapi
                     T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol]
                   )
               end
-              def self.values
-              end
+              def self.values; end
             end
           end
 
@@ -264,18 +258,17 @@ module Knockapi
             sig do
               params(
                 buttons: T::Array[
-                T.any(
-                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
-                  Knockapi::Internal::AnyHash
-                )
+                  T.any(
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
+                    Knockapi::Internal::AnyHash
+                  )
                 ],
                 name: String,
                 type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::OrSymbol
               )
                 .returns(T.attached_class)
             end
-            def self.new(buttons:, name:, type:)
-            end
+            def self.new(buttons:, name:, type:); end
 
             sig do
               override
@@ -287,8 +280,7 @@ module Knockapi
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
 
             class Button < Knockapi::Internal::Type::BaseModel
               sig { returns(String) }
@@ -302,12 +294,10 @@ module Knockapi
 
               # A button in a set of buttons
               sig { params(action: String, label: String, name: String).returns(T.attached_class) }
-              def self.new(action:, label:, name:)
-              end
+              def self.new(action:, label:, name:); end
 
               sig { override.returns({action: String, label: String, name: String}) }
-              def to_hash
-              end
+              def to_hash; end
             end
 
             module Type
@@ -336,8 +326,7 @@ module Knockapi
                     T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol]
                   )
               end
-              def self.values
-              end
+              def self.values; end
             end
           end
 
@@ -347,8 +336,7 @@ module Knockapi
                 [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
               )
           end
-          def self.variants
-          end
+          def self.variants; end
         end
 
         class Source < Knockapi::Internal::Type::BaseModel
@@ -368,8 +356,7 @@ module Knockapi
             params(_typename: String, categories: T::Array[String], key: String, version_id: String)
               .returns(T.attached_class)
           end
-          def self.new(_typename:, categories:, key:, version_id:)
-          end
+          def self.new(_typename:, categories:, key:, version_id:); end
 
           sig do
             override.returns(
@@ -381,8 +368,7 @@ module Knockapi
               }
             )
           end
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

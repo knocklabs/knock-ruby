@@ -31,11 +31,11 @@ module Knockapi
       sig do
         params(
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
-            Knockapi::Internal::AnyHash
-          )
+            T.any(
+              String,
+              Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
           ],
           repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           workflow: String,
@@ -56,9 +56,7 @@ module Knockapi
         scheduled_at: nil,
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -74,8 +72,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
@@ -93,17 +90,14 @@ module Knockapi
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:)
-          end
+          def self.new(id:, collection:); end
 
           sig { override.returns({id: String, collection: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         sig { override.returns([String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]) }
-        def self.variants
-        end
+        def self.variants; end
       end
     end
   end

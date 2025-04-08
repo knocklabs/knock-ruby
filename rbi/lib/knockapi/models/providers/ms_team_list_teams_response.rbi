@@ -18,8 +18,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(ms_teams_teams:, skip_token:)
-        end
+        def self.new(ms_teams_teams:, skip_token:); end
 
         sig do
           override
@@ -30,8 +29,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class MsTeamsTeam < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
@@ -46,12 +44,10 @@ module Knockapi
           sig do
             params(id: String, display_name: String, description: T.nilable(String)).returns(T.attached_class)
           end
-          def self.new(id:, display_name:, description: nil)
-          end
+          def self.new(id:, display_name:, description: nil); end
 
           sig { override.returns({id: String, display_name: String, description: T.nilable(String)}) }
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

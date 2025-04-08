@@ -48,8 +48,7 @@ module Knockapi
 
     # @api private
     sig { override.returns(T::Hash[String, String]) }
-    private def auth_headers
-    end
+    private def auth_headers; end
 
     # Creates and returns a new client for interacting with the API.
     sig do
@@ -73,7 +72,6 @@ module Knockapi
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
       max_retry_delay: DEFAULT_MAX_RETRY_DELAY
-    )
-    end
+    ); end
   end
 end

@@ -33,9 +33,7 @@ module Knockapi
         # Inline set preferences for a recipient, where the key is the preference set name
         preferences: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List users
       sig do
         params(
@@ -54,9 +52,7 @@ module Knockapi
         # The page size to fetch
         page_size: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Delete user
       sig do
         params(
@@ -69,9 +65,7 @@ module Knockapi
         # User ID
         user_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get user
       sig do
         params(
@@ -84,9 +78,7 @@ module Knockapi
         # User ID
         user_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get channel data
       sig do
         params(
@@ -102,9 +94,7 @@ module Knockapi
         # The channel ID
         channel_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get preference set
       sig do
         params(
@@ -123,9 +113,7 @@ module Knockapi
         # Tenant ID
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List messages
       sig do
         params(
@@ -177,9 +165,7 @@ module Knockapi
         # The workflow run ID to filter messages by
         workflow_run_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List preference sets
       sig do
         params(
@@ -192,9 +178,7 @@ module Knockapi
         # User ID
         user_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # List schedules
       sig do
         params(
@@ -222,9 +206,7 @@ module Knockapi
         # The ID of the workflow to list schedules for
         workflow: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List subscriptions
       sig do
         params(
@@ -246,9 +228,7 @@ module Knockapi
         # The page size to fetch
         page_size: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Merge two users together, where the user specified with the `from_user_id` param
       #   will be merged into the user specified by `user_id`.
       sig do
@@ -265,9 +245,7 @@ module Knockapi
         # The user ID to merge from
         from_user_id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Set channel data
       sig do
         params(
@@ -293,9 +271,7 @@ module Knockapi
         # Channel data for push providers
         data:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Updates a complete preference set for a user. This is a destructive operation
       #   that will replace the existing preference set for the user.
       sig do
@@ -304,23 +280,23 @@ module Knockapi
           preference_set_id: String,
           categories: T.nilable(
             T::Hash[
-            Symbol,
-            T.any(
-              T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
-              Knockapi::Internal::AnyHash
-            )
+              Symbol,
+              T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Internal::AnyHash
+              )
             ]
           ),
           channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
           workflows: T.nilable(
             T::Hash[
-            Symbol,
-            T.any(
-              T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
-              Knockapi::Internal::AnyHash
-            )
+              Symbol,
+              T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Internal::AnyHash
+              )
             ]
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
@@ -341,9 +317,7 @@ module Knockapi
         #   and the values are the preference settings for that workflow.
         workflows: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Unset channel data
       sig do
         params(
@@ -359,13 +333,10 @@ module Knockapi
         # The channel ID
         channel_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

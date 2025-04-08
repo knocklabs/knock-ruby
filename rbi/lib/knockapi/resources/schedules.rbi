@@ -7,11 +7,11 @@ module Knockapi
       sig do
         params(
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
-            Knockapi::Internal::AnyHash
-          )
+            T.any(
+              String,
+              Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
           ],
           repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           workflow: String,
@@ -33,9 +33,7 @@ module Knockapi
         # An inline tenant request
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Update schedules
       sig do
         params(
@@ -70,9 +68,7 @@ module Knockapi
         # An inline tenant request
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List schedules
       sig do
         params(
@@ -81,11 +77,11 @@ module Knockapi
           before: String,
           page_size: Integer,
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-            Knockapi::Internal::AnyHash
-          )
+            T.any(
+              String,
+              Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
           ],
           tenant: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
@@ -106,9 +102,7 @@ module Knockapi
         # Filter by tenant
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Delete schedules
       sig do
         params(
@@ -117,13 +111,11 @@ module Knockapi
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end
-      def delete(schedule_ids:, request_options: {})
-      end
+      def delete(schedule_ids:, request_options: {}); end
 
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

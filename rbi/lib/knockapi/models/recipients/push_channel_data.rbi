@@ -9,12 +9,10 @@ module Knockapi
 
         # Channel data for push providers
         sig { params(tokens: T::Array[String]).returns(T.attached_class) }
-        def self.new(tokens:)
-        end
+        def self.new(tokens:); end
 
         sig { override.returns({tokens: T::Array[String]}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

@@ -12,8 +12,7 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def delete(user_ids:, request_options: {})
-        end
+        def delete(user_ids:, request_options: {}); end
 
         # Bulk identifies users
         sig do
@@ -23,8 +22,7 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def identify(users:, request_options: {})
-        end
+        def identify(users:, request_options: {}); end
 
         # Bulk set preferences
         sig do
@@ -40,13 +38,10 @@ module Knockapi
           preferences:,
           user_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

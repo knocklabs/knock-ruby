@@ -40,8 +40,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, channel_id:, data:)
-        end
+        def self.new(_typename:, channel_id:, data:); end
 
         sig do
           override
@@ -59,8 +58,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # Channel data for push providers
         module Data
@@ -72,8 +70,7 @@ module Knockapi
                 [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
               )
           end
-          def self.variants
-          end
+          def self.variants; end
         end
       end
     end

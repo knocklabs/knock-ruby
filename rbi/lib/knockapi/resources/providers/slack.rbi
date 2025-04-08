@@ -19,9 +19,7 @@ module Knockapi
           # A JSON encoded string containing the access token object reference
           access_token_object:,
           request_options: {}
-        )
-        end
-
+        ); end
         # List Slack channels for a Slack workspace
         sig do
           params(
@@ -39,9 +37,7 @@ module Knockapi
           access_token_object:,
           query_options: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # Revoke access for a Slack channel
         sig do
           params(
@@ -57,13 +53,10 @@ module Knockapi
           # A JSON encoded string containing the access token object reference
           access_token_object:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

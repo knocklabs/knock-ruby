@@ -40,8 +40,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil)
-        end
+        def self.new(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil); end
 
         sig do
           override
@@ -56,8 +55,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

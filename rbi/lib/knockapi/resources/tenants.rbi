@@ -24,9 +24,7 @@ module Knockapi
         # The page size to fetch
         page_size: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Delete a tenant
       sig do
         params(
@@ -39,9 +37,7 @@ module Knockapi
         # The ID of the tenant
         tenant_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a tenant
       sig do
         params(
@@ -54,9 +50,7 @@ module Knockapi
         # The ID of the tenant
         tenant_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Set a tenant
       sig do
         params(
@@ -81,13 +75,10 @@ module Knockapi
         preferences: nil,
         settings: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

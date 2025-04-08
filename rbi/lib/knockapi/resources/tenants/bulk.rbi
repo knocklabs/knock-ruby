@@ -16,9 +16,7 @@ module Knockapi
           # The IDs of the tenants to delete
           tenant_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Bulk set tenants
         sig do
           params(
@@ -27,13 +25,11 @@ module Knockapi
           )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def set(tenants:, request_options: {})
-        end
+        def set(tenants:, request_options: {}); end
 
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

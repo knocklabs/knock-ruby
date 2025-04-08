@@ -33,8 +33,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(channel_data: nil, preferences: nil, settings: nil, request_options: {})
-      end
+      def self.new(channel_data: nil, preferences: nil, settings: nil, request_options: {}); end
 
       sig do
         override
@@ -47,8 +46,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Settings < Knockapi::Internal::Type::BaseModel
         sig { returns(T.nilable(Knockapi::Models::TenantSetParams::Settings::Branding)) }
@@ -81,8 +79,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(branding: nil, preference_set: nil)
-        end
+        def self.new(branding: nil, preference_set: nil); end
 
         sig do
           override
@@ -93,8 +90,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class Branding < Knockapi::Internal::Type::BaseModel
           sig { returns(T.nilable(String)) }
@@ -118,8 +114,7 @@ module Knockapi
             )
               .returns(T.attached_class)
           end
-          def self.new(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
-          end
+          def self.new(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil); end
 
           sig do
             override
@@ -132,8 +127,7 @@ module Knockapi
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

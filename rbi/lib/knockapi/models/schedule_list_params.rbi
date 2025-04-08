@@ -42,11 +42,11 @@ module Knockapi
       sig do
         params(
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-            Knockapi::Internal::AnyHash
-          )
+            T.any(
+              String,
+              Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
           ]
         )
           .void
@@ -67,11 +67,11 @@ module Knockapi
           before: String,
           page_size: Integer,
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-            Knockapi::Internal::AnyHash
-          )
+            T.any(
+              String,
+              Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
           ],
           tenant: String,
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
@@ -103,8 +103,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
@@ -122,17 +121,14 @@ module Knockapi
 
           # An object reference to a recipient
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:)
-          end
+          def self.new(id:, collection:); end
 
           sig { override.returns({id: String, collection: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         sig { override.returns([String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]) }
-        def self.variants
-        end
+        def self.variants; end
       end
     end
   end

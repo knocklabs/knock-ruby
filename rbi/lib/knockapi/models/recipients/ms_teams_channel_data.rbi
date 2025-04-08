@@ -7,10 +7,10 @@ module Knockapi
         sig do
           returns(
             T::Array[
-            T.any(
-              Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-              Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-            )
+              T.any(
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+              )
             ]
           )
         end
@@ -24,35 +24,33 @@ module Knockapi
         sig do
           params(
             connections: T::Array[
-            T.any(
-              Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-            )
+              T.any(
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+                Knockapi::Internal::AnyHash,
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+              )
             ],
             ms_teams_tenant_id: T.nilable(String)
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:, ms_teams_tenant_id: nil)
-        end
+        def self.new(connections:, ms_teams_tenant_id: nil); end
 
         sig do
           override
             .returns(
               {
                 connections: T::Array[
-                T.any(
-                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-                )
+                  T.any(
+                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+                  )
                 ],
                 ms_teams_tenant_id: T.nilable(String)
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # Microsoft Teams token connection
         module Connection
@@ -104,8 +102,7 @@ module Knockapi
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
           end
 
           class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -138,8 +135,7 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(incoming_webhook:)
-            end
+            def self.new(incoming_webhook:); end
 
             sig do
               override
@@ -149,8 +145,7 @@ module Knockapi
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
 
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               # The URL of the incoming webhook
@@ -159,12 +154,10 @@ module Knockapi
 
               # The incoming webhook
               sig { params(url: String).returns(T.attached_class) }
-              def self.new(url:)
-              end
+              def self.new(url:); end
 
               sig { override.returns({url: String}) }
-              def to_hash
-              end
+              def to_hash; end
             end
           end
 
@@ -174,8 +167,7 @@ module Knockapi
                 [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
               )
           end
-          def self.variants
-          end
+          def self.variants; end
         end
       end
     end

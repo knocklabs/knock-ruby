@@ -7,10 +7,10 @@ module Knockapi
         sig do
           returns(
             T::Array[
-            T.any(
-              Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-              Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-            )
+              T.any(
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+              )
             ]
           )
         end
@@ -32,35 +32,33 @@ module Knockapi
         sig do
           params(
             connections: T::Array[
-            T.any(
-              Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-            )
+              T.any(
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                Knockapi::Internal::AnyHash,
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+              )
             ],
             token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:, token: nil)
-        end
+        def self.new(connections:, token: nil); end
 
         sig do
           override
             .returns(
               {
                 connections: T::Array[
-                T.any(
-                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-                )
+                  T.any(
+                    Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                    Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+                  )
                 ],
                 token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # A Slack connection, which either includes a channel_id or a user_id
         module Connection
@@ -85,8 +83,7 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(access_token: nil, channel_id: nil, user_id: nil)
-            end
+            def self.new(access_token: nil, channel_id: nil, user_id: nil); end
 
             sig do
               override
@@ -96,8 +93,7 @@ module Knockapi
                            user_id: T.nilable(String)
                          })
             end
-            def to_hash
-            end
+            def to_hash; end
           end
 
           class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -106,12 +102,10 @@ module Knockapi
 
             # An incoming webhook Slack connection
             sig { params(url: String).returns(T.attached_class) }
-            def self.new(url:)
-            end
+            def self.new(url:); end
 
             sig { override.returns({url: String}) }
-            def to_hash
-            end
+            def to_hash; end
           end
 
           sig do
@@ -120,8 +114,7 @@ module Knockapi
                 [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
               )
           end
-          def self.variants
-          end
+          def self.variants; end
         end
 
         class Token < Knockapi::Internal::Type::BaseModel
@@ -130,12 +123,10 @@ module Knockapi
 
           # A token that's used to store the access token for a Slack workspace.
           sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
-          def self.new(access_token:)
-          end
+          def self.new(access_token:); end
 
           sig { override.returns({access_token: T.nilable(String)}) }
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

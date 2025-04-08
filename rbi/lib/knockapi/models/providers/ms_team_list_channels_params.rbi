@@ -35,8 +35,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
-        end
+        def self.new(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {}); end
 
         sig do
           override
@@ -49,8 +48,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
@@ -70,12 +68,10 @@ module Knockapi
           attr_writer :select_
 
           sig { params(filter: String, select_: String).returns(T.attached_class) }
-          def self.new(filter: nil, select_: nil)
-          end
+          def self.new(filter: nil, select_: nil); end
 
           sig { override.returns({filter: String, select_: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

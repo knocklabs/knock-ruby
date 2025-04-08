@@ -19,9 +19,7 @@ module Knockapi
           # The IDs of the objects to delete
           object_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Add subscriptions for a set of objects in a single collection. If a subscription
         #   already exists, it will be updated.
         sig do
@@ -37,9 +35,7 @@ module Knockapi
           collection,
           subscriptions:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Bulk set objects
         sig do
           params(
@@ -54,13 +50,10 @@ module Knockapi
           collection,
           objects:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

@@ -17,8 +17,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(objects:, request_options: {})
-        end
+        def self.new(objects:, request_options: {}); end
 
         sig do
           override
@@ -26,8 +25,7 @@ module Knockapi
               {objects: T::Array[Knockapi::Models::InlineObjectRequest], request_options: Knockapi::RequestOptions}
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

@@ -14,8 +14,7 @@ module Knockapi
       attr_accessor :slack_channels
 
       sig { returns(String) }
-      def inspect
-      end
+      def inspect; end
     end
   end
 end

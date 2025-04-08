@@ -105,9 +105,7 @@ module Knockapi
           trigger_data: nil,
           workflows: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -126,8 +124,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module Action
           extend Knockapi::Internal::Type::Enum
@@ -156,8 +153,7 @@ module Knockapi
           sig do
             override.returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         module Archived
@@ -178,8 +174,7 @@ module Knockapi
             override
               .returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         module DeliveryStatus
@@ -221,8 +216,7 @@ module Knockapi
             override
               .returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         module EngagementStatus
@@ -274,8 +268,7 @@ module Knockapi
                 T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

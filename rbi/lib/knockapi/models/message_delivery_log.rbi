@@ -45,8 +45,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:)
-      end
+      def self.new(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:); end
 
       sig do
         override
@@ -62,8 +61,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Request < Knockapi::Internal::Type::BaseModel
         sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
@@ -108,8 +106,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil)
-        end
+        def self.new(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil); end
 
         sig do
           override
@@ -124,15 +121,13 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module Body
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
-          def self.variants
-          end
+          def self.variants; end
 
           UnionMember1Map =
             T.let(
@@ -155,8 +150,7 @@ module Knockapi
           PATCH = T.let(:PATCH, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
 
           sig { override.returns(T::Array[Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -185,8 +179,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(body: nil, headers: nil, status: nil)
-        end
+        def self.new(body: nil, headers: nil, status: nil); end
 
         sig do
           override
@@ -198,15 +191,13 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module Body
           extend Knockapi::Internal::Type::Union
 
           sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
-          def self.variants
-          end
+          def self.variants; end
 
           UnionMember1Map =
             T.let(

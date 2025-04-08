@@ -22,12 +22,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(connection:)
-        end
+        def self.new(connection:); end
 
         sig { override.returns({connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection}) }
-        def to_hash
-        end
+        def to_hash; end
 
         class Connection < Knockapi::Internal::Type::BaseModel
           sig { returns(T::Boolean) }
@@ -37,12 +35,10 @@ module Knockapi
           attr_accessor :reason
 
           sig { params(ok: T::Boolean, reason: T.nilable(String)).returns(T.attached_class) }
-          def self.new(ok:, reason: nil)
-          end
+          def self.new(ok:, reason: nil); end
 
           sig { override.returns({ok: T::Boolean, reason: T.nilable(String)}) }
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

@@ -390,7 +390,7 @@ module Knockapi
               required :buttons,
                        -> do
                          Knockapi::Internal::Type::ArrayOf[
-                         Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
+                           Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
                          ]
                        end
 

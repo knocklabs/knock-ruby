@@ -42,12 +42,12 @@ module Knockapi
       sig do
         params(
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::InlineObjectRequest
-          )
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ]
         )
           .void
@@ -71,12 +71,12 @@ module Knockapi
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::InlineObjectRequest
-          )
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ],
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
@@ -108,8 +108,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

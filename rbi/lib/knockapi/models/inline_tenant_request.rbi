@@ -7,8 +7,7 @@ module Knockapi
       extend Knockapi::Internal::Type::Union
 
       sig { override.returns([String, Knockapi::Models::TenantRequest]) }
-      def self.variants
-      end
+      def self.variants; end
     end
   end
 end

@@ -17,8 +17,7 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(subscriptions:, request_options: {})
-        end
+        def self.new(subscriptions:, request_options: {}); end
 
         sig do
           override
@@ -29,8 +28,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class Subscription < Knockapi::Internal::Type::BaseModel
           sig { returns(String) }
@@ -50,19 +48,18 @@ module Knockapi
             params(
               id: String,
               recipients: T::Array[
-              T.any(
-                String,
-                Knockapi::Models::InlineIdentifyUserRequest,
-                Knockapi::Internal::AnyHash,
-                Knockapi::Models::InlineObjectRequest
-              )
+                T.any(
+                  String,
+                  Knockapi::Models::InlineIdentifyUserRequest,
+                  Knockapi::Internal::AnyHash,
+                  Knockapi::Models::InlineObjectRequest
+                )
               ],
               properties: T.nilable(T::Hash[Symbol, T.anything])
             )
               .returns(T.attached_class)
           end
-          def self.new(id:, recipients:, properties: nil)
-          end
+          def self.new(id:, recipients:, properties: nil); end
 
           sig do
             override
@@ -74,8 +71,7 @@ module Knockapi
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
         end
       end
     end

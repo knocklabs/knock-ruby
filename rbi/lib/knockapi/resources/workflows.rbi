@@ -27,9 +27,7 @@ module Knockapi
         recipients: nil,
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Trigger a workflow specified by the key to run for the given recipients, using
       #   the parameters provided. Returns an identifier for the workflow run request. All
       #   workflow runs are executed asynchronously.
@@ -47,12 +45,12 @@ module Knockapi
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::InlineObjectRequest
-          )
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ],
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
@@ -78,13 +76,10 @@ module Knockapi
         # An inline tenant request
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

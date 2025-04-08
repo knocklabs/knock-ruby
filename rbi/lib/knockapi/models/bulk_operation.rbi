@@ -92,9 +92,7 @@ module Knockapi
         error_items: nil,
         failed_at: nil,
         started_at: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -116,8 +114,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module Status
         extend Knockapi::Internal::Type::Enum
@@ -131,8 +128,7 @@ module Knockapi
         FAILED = T.let(:failed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::BulkOperation::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class ErrorItem < Knockapi::Internal::Type::BaseModel
@@ -143,12 +139,10 @@ module Knockapi
         attr_accessor :collection
 
         sig { params(id: String, collection: T.nilable(String)).returns(T.attached_class) }
-        def self.new(id:, collection: nil)
-        end
+        def self.new(id:, collection: nil); end
 
         sig { override.returns({id: String, collection: T.nilable(String)}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

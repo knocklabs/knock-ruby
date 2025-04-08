@@ -134,9 +134,7 @@ module Knockapi
         workflow_recipient_run_id: nil,
         workflow_run_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -158,8 +156,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module EngagementStatus
         extend Knockapi::Internal::Type::Enum
@@ -176,8 +173,7 @@ module Knockapi
         ARCHIVED = T.let(:archived, Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       module Status
@@ -197,8 +193,7 @@ module Knockapi
         BOUNCED = T.let(:bounced, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

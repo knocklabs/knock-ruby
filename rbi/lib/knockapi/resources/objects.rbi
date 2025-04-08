@@ -27,9 +27,7 @@ module Knockapi
         # The page size to fetch
         page_size: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Delete an object
       sig do
         params(
@@ -45,9 +43,7 @@ module Knockapi
         # Object ID
         object_id_,
         request_options: {}
-      )
-      end
-
+      ); end
       # Add subscriptions for an object. If a subscription already exists, it will be
       #   updated.
       sig do
@@ -55,12 +51,12 @@ module Knockapi
           collection: String,
           object_id_: String,
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::InlineObjectRequest
-          )
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
@@ -77,21 +73,19 @@ module Knockapi
         # The custom properties associated with the subscription
         properties: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Delete subscriptions
       sig do
         params(
           collection: String,
           object_id_: String,
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::InlineIdentifyUserRequest,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::InlineObjectRequest
-          )
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
           ],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
@@ -104,9 +98,7 @@ module Knockapi
         object_id_,
         recipients:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get an object
       sig do
         params(
@@ -122,9 +114,7 @@ module Knockapi
         # Object ID
         object_id_,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get channel data
       sig do
         params(
@@ -143,9 +133,7 @@ module Knockapi
         # The channel ID
         channel_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a preference set
       sig do
         params(
@@ -167,9 +155,7 @@ module Knockapi
         # Tenant ID
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List messages
       sig do
         params(
@@ -224,9 +210,7 @@ module Knockapi
         # The workflow run ID to filter messages by
         workflow_run_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List schedules
       sig do
         params(
@@ -257,9 +241,7 @@ module Knockapi
         # The ID of the workflow to list schedules for
         workflow: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List subscriptions for an object. Either list all subscriptions that belong to
       #   the object, or all subscriptions that this object has. Determined by the `mode`
       #   query parameter.
@@ -271,19 +253,19 @@ module Knockapi
           before: String,
           mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
           objects: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
-            Knockapi::Internal::AnyHash
-          )
+            T.any(
+              String,
+              Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
           ],
           page_size: Integer,
           recipients: T::Array[
-          T.any(
-            String,
-            Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
-            Knockapi::Internal::AnyHash
-          )
+            T.any(
+              String,
+              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
           ],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
@@ -307,9 +289,7 @@ module Knockapi
         # Recipients to filter by (only used if mode is `object`)
         recipients: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Set (identify) an object
       sig do
         params(
@@ -335,9 +315,7 @@ module Knockapi
         # Inline set preferences for a recipient, where the key is the preference set name
         preferences: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Set channel data
       sig do
         params(
@@ -366,9 +344,7 @@ module Knockapi
         # Channel data for push providers
         data:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Update a preference set
       sig do
         params(
@@ -377,23 +353,23 @@ module Knockapi
           preference_set_id: String,
           categories: T.nilable(
             T::Hash[
-            Symbol,
-            T.any(
-              T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
-              Knockapi::Internal::AnyHash
-            )
+              Symbol,
+              T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Internal::AnyHash
+              )
             ]
           ),
           channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
           workflows: T.nilable(
             T::Hash[
-            Symbol,
-            T.any(
-              T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
-              Knockapi::Internal::AnyHash
-            )
+              Symbol,
+              T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Internal::AnyHash
+              )
             ]
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
@@ -416,9 +392,7 @@ module Knockapi
         #   and the values are the preference settings for that workflow.
         workflows: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Unset channel data
       sig do
         params(
@@ -437,13 +411,10 @@ module Knockapi
         # The channel ID
         channel_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

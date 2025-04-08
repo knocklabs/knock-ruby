@@ -105,9 +105,7 @@ module Knockapi
           trigger_data: nil,
           workflow_categories: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -126,8 +124,7 @@ module Knockapi
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The archived status of the feed items to return
         module Archived
@@ -142,8 +139,7 @@ module Knockapi
           ONLY = T.let(:only, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
 
           sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
 
         # The status of the feed items to return
@@ -161,8 +157,7 @@ module Knockapi
           ALL = T.let(:all, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
 
           sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

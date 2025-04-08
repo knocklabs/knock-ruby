@@ -15,13 +15,10 @@ module Knockapi
         # The ID of the bulk operation to retrieve
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

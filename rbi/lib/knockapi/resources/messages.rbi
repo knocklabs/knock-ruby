@@ -54,9 +54,7 @@ module Knockapi
         # The workflow run ID to filter messages by
         workflow_run_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Archive message
       sig do
         params(
@@ -69,9 +67,7 @@ module Knockapi
         # The message ID
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get message
       sig do
         params(
@@ -84,9 +80,7 @@ module Knockapi
         # The message ID
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Returns the fully rendered contents of a message, where the response depends on
       #   the channel the message was sent on.
       sig do
@@ -100,9 +94,7 @@ module Knockapi
         # The ID of the message to fetch contents of
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # List activities
       sig do
         params(
@@ -127,9 +119,7 @@ module Knockapi
         # The trigger data to filter activities by
         trigger_data: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List delivery logs
       sig do
         params(
@@ -151,9 +141,7 @@ module Knockapi
         # The page size to fetch
         page_size: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # List events
       sig do
         params(
@@ -175,9 +163,7 @@ module Knockapi
         # The page size to fetch
         page_size: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Mark message as interacted
       sig do
         params(
@@ -193,9 +179,7 @@ module Knockapi
         # Metadata about the interaction
         metadata: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Mark message as read
       sig do
         params(
@@ -208,9 +192,7 @@ module Knockapi
         # The message ID
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Mark message as seen
       sig do
         params(
@@ -223,9 +205,7 @@ module Knockapi
         # The message ID
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Mark message as unread
       sig do
         params(
@@ -238,9 +218,7 @@ module Knockapi
         # The message ID
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Mark message as unseen
       sig do
         params(
@@ -253,9 +231,7 @@ module Knockapi
         # The message ID
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Unarchive message
       sig do
         params(
@@ -268,13 +244,10 @@ module Knockapi
         # The message ID
         message_id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

@@ -69,9 +69,7 @@ module Knockapi
         scheduled_at: nil,
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -89,8 +87,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

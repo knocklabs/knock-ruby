@@ -65,8 +65,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module Frequency
         extend Knockapi::Internal::Type::Enum
@@ -81,8 +80,7 @@ module Knockapi
         HOURLY = T.let(:hourly, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       module Day
@@ -101,8 +99,7 @@ module Knockapi
         SUN = T.let(:sun, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

@@ -26,8 +26,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(entries:, page_info:)
-      end
+      def self.new(entries:, page_info:); end
 
       sig do
         override
@@ -38,8 +37,7 @@ module Knockapi
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class PageInfo < Knockapi::Internal::Type::BaseModel
         sig { returns(String) }
@@ -59,8 +57,7 @@ module Knockapi
           params(_typename: String, page_size: Integer, after: T.nilable(String), before: T.nilable(String))
             .returns(T.attached_class)
         end
-        def self.new(_typename:, page_size:, after: nil, before: nil)
-        end
+        def self.new(_typename:, page_size:, after: nil, before: nil); end
 
         sig do
           override
@@ -71,8 +68,7 @@ module Knockapi
                        before: T.nilable(String)
                      })
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

@@ -7,8 +7,7 @@ module Knockapi
       extend Knockapi::Internal::Type::Union
 
       sig { override.returns([Knockapi::Models::User, Knockapi::Models::Object]) }
-      def self.variants
-      end
+      def self.variants; end
     end
   end
 end
