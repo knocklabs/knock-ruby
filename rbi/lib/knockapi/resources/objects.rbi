@@ -380,7 +380,7 @@ module Knockapi
             Symbol,
             T.any(
               T::Boolean,
-              Knockapi::Models::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+              Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
               Knockapi::Internal::AnyHash
             )
             ]
@@ -391,7 +391,7 @@ module Knockapi
             Symbol,
             T.any(
               T::Boolean,
-              Knockapi::Models::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+              Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
               Knockapi::Internal::AnyHash
             )
             ]

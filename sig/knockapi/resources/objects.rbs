@@ -107,7 +107,7 @@ module Knockapi
         String collection,
         String object_id_,
         String channel_id,
-        data: Knockapi::Models::ChannelDataRequest::data,
+        data: Knockapi::Models::Recipients::ChannelDataRequest::data,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
@@ -115,9 +115,9 @@ module Knockapi
         String collection,
         String object_id_,
         String preference_set_id,
-        ?categories: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::category]?,
+        ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
         ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-        ?workflows: ::Hash[Symbol, Knockapi::Models::PreferenceSetRequest::workflow]?,
+        ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Recipients::PreferenceSet
 
