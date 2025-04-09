@@ -34,13 +34,14 @@ knock = Knockapi::Client.new(
   bearer_token: "My Bearer Token" # defaults to ENV["KNOCK_API_KEY"]
 )
 
-response = knock.workflows.trigger(
-  "dinosaurs-loose",
-  data: {
-    dinosaur: "triceratops"
-  },
-  recipients: ["dnedry"]
-)
+response =
+  knock.workflows.trigger(
+    "dinosaurs-loose",
+    data: {
+      dinosaur: "triceratops"
+    },
+    recipients: ["dnedry"]
+  )
 
 puts(response.workflow_run_id)
 ```
@@ -157,13 +158,14 @@ Due to limitations with the Sorbet type system, where a method otherwise can tak
 Please follow Sorbet's [setup guides](https://sorbet.org/docs/adopting) for best experience.
 
 ```ruby
-params = Knockapi::Models::WorkflowTriggerParams.new(
-  "dinosaurs-loose",
-  data: {
-    dinosaur: "triceratops"
-  },
-  recipients: ["dnedry"]
-)
+params =
+  Knockapi::Models::WorkflowTriggerParams.new(
+    "dinosaurs-loose",
+    data: {
+      dinosaur: "triceratops"
+    },
+    recipients: ["dnedry"]
+  )
 
 knock.workflows.trigger(**params)
 ```
