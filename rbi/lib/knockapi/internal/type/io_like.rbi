@@ -5,8 +5,8 @@ module Knockapi
     module Type
       # @api private
       #
-      # When we don't know what to expect for the value.
-      class Unknown
+      # Either `Pathname` or `StringIO`.
+      class IOLike
         extend Knockapi::Internal::Type::Converter
 
         abstract!
@@ -22,16 +22,22 @@ module Knockapi
           # @api private
           sig(:final) do
             override
-              .params(value: T.anything, state: Knockapi::Internal::Type::Converter::CoerceState)
-              .returns(T.anything)
+              .params(
+                value: T.any(StringIO, String, T.anything),
+                state: Knockapi::Internal::Type::Converter::CoerceState
+              )
+              .returns(T.any(StringIO, T.anything))
           end
           def coerce(value, state:); end
 
           # @api private
           sig(:final) do
             override
-              .params(value: T.anything, state: Knockapi::Internal::Type::Converter::DumpState)
-              .returns(T.anything)
+              .params(
+                value: T.any(Pathname, StringIO, IO, String, T.anything),
+                state: Knockapi::Internal::Type::Converter::DumpState
+              )
+              .returns(T.any(Pathname, StringIO, IO, String, T.anything))
           end
           def dump(value, state:); end
         end
