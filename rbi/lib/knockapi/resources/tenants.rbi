@@ -25,57 +25,6 @@ module Knockapi
         page_size: nil,
         request_options: {}
       ); end
-      # Delete a tenant
-      sig do
-        params(
-          tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(String)
-      end
-      def delete(
-        # The ID of the tenant
-        tenant_id,
-        request_options: {}
-      ); end
-      # Get a tenant
-      sig do
-        params(
-          tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Tenant)
-      end
-      def get(
-        # The ID of the tenant
-        tenant_id,
-        request_options: {}
-      ); end
-      # Set a tenant
-      sig do
-        params(
-          tenant_id: String,
-          channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
-          ),
-          preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
-          ),
-          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Tenant)
-      end
-      def set(
-        # The ID of the tenant
-        tenant_id,
-        # Allows inline setting channel data for a recipient
-        channel_data: nil,
-        # Inline set preferences for a recipient, where the key is the preference set name
-        preferences: nil,
-        settings: nil,
-        request_options: {}
-      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:); end

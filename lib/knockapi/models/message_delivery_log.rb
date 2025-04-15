@@ -60,17 +60,17 @@ module Knockapi
       class Request < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] body
         #
-        #   @return [String, Hash{Symbol=>Object}, nil]
+        #   @return [String, Object, nil]
         optional :body, union: -> { Knockapi::Models::MessageDeliveryLog::Request::Body }
 
         # @!parse
-        #   # @return [String, Hash{Symbol=>Object}]
+        #   # @return [String, Object]
         #   attr_writer :body
 
         # @!attribute headers
         #
-        #   @return [Hash{Symbol=>Object}, nil]
-        optional :headers, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+        #   @return [Object, nil]
+        optional :headers, Knockapi::Internal::Type::Unknown, nil?: true
 
         # @!attribute [r] host
         #
@@ -107,8 +107,8 @@ module Knockapi
         # @!parse
         #   # A message delivery log request
         #   #
-        #   # @param body [String, Hash{Symbol=>Object}]
-        #   # @param headers [Hash{Symbol=>Object}, nil]
+        #   # @param body [String, Object]
+        #   # @param headers [Object, nil]
         #   # @param host [String]
         #   # @param method_ [Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method]
         #   # @param path [String]
@@ -124,13 +124,11 @@ module Knockapi
 
           variant String
 
-          variant -> { Knockapi::Models::MessageDeliveryLog::Request::Body::UnionMember1Map }
+          variant Knockapi::Internal::Type::Unknown
 
           # @!parse
-          #   # @return [Array(String, Hash{Symbol=>Object})]
+          #   # @return [Array(String, Object)]
           #   def self.variants; end
-
-          UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
 
         # @see Knockapi::Models::MessageDeliveryLog::Request#method_
@@ -155,17 +153,17 @@ module Knockapi
       class Response < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] body
         #
-        #   @return [String, Hash{Symbol=>Object}, nil]
+        #   @return [String, Object, nil]
         optional :body, union: -> { Knockapi::Models::MessageDeliveryLog::Response::Body }
 
         # @!parse
-        #   # @return [String, Hash{Symbol=>Object}]
+        #   # @return [String, Object]
         #   attr_writer :body
 
         # @!attribute headers
         #
-        #   @return [Hash{Symbol=>Object}, nil]
-        optional :headers, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+        #   @return [Object, nil]
+        optional :headers, Knockapi::Internal::Type::Unknown, nil?: true
 
         # @!attribute [r] status
         #
@@ -179,8 +177,8 @@ module Knockapi
         # @!parse
         #   # A message delivery log response
         #   #
-        #   # @param body [String, Hash{Symbol=>Object}]
-        #   # @param headers [Hash{Symbol=>Object}, nil]
+        #   # @param body [String, Object]
+        #   # @param headers [Object, nil]
         #   # @param status [Integer]
         #   #
         #   def initialize(body: nil, headers: nil, status: nil, **) = super
@@ -193,13 +191,11 @@ module Knockapi
 
           variant String
 
-          variant -> { Knockapi::Models::MessageDeliveryLog::Response::Body::UnionMember1Map }
+          variant Knockapi::Internal::Type::Unknown
 
           # @!parse
-          #   # @return [Array(String, Hash{Symbol=>Object})]
+          #   # @return [Array(String, Object)]
           #   def self.variants; end
-
-          UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
       end
     end

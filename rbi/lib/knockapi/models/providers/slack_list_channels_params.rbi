@@ -53,17 +53,17 @@ module Knockapi
           attr_writer :cursor
 
           # Whether to exclude archived channels
-          sig { returns(T.nilable(T::Boolean)) }
+          sig { returns(T.nilable(String)) }
           attr_reader :exclude_archived
 
-          sig { params(exclude_archived: T::Boolean).void }
+          sig { params(exclude_archived: String).void }
           attr_writer :exclude_archived
 
           # The number of channels to return
-          sig { returns(T.nilable(Integer)) }
+          sig { returns(T.nilable(String)) }
           attr_reader :limit
 
-          sig { params(limit: Integer).void }
+          sig { params(limit: String).void }
           attr_writer :limit
 
           # The ID of the Slack team to get channels for
@@ -73,7 +73,7 @@ module Knockapi
           sig { params(team_id: String).void }
           attr_writer :team_id
 
-          # The types of channels to return (comma separated list)
+          # The types of channels to return
           sig { returns(T.nilable(String)) }
           attr_reader :types
 
@@ -81,26 +81,21 @@ module Knockapi
           attr_writer :types
 
           sig do
-            params(
-              cursor: String,
-              exclude_archived: T::Boolean,
-              limit: Integer,
-              team_id: String,
-              types: String
-            )
+            params(cursor: String, exclude_archived: String, limit: String, team_id: String, types: String)
               .returns(T.attached_class)
           end
           def self.new(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil); end
 
           sig do
-            override
-              .returns({
-                         cursor: String,
-                         exclude_archived: T::Boolean,
-                         limit: Integer,
-                         team_id: String,
-                         types: String
-                       })
+            override.returns(
+              {
+                cursor: String,
+                exclude_archived: String,
+                limit: String,
+                team_id: String,
+                types: String
+              }
+            )
           end
           def to_hash; end
         end

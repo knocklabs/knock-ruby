@@ -27,12 +27,11 @@ module Knockapi
       #   An optional map of data to be used in the workflow. This data will be available
       #   to the workflow as a map in the `data` field.
       #
-      #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+      #   @return [Hash{Symbol=>String}, nil]
+      optional :data, Knockapi::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute [r] recipients
-      #   The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-      #   single trigger.
+      #   The recipients to trigger the workflow for.
       #
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>, nil]
       optional :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
@@ -50,7 +49,7 @@ module Knockapi
       # @!parse
       #   # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
       #   # @param cancellation_key [String, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
+      #   # @param data [Hash{Symbol=>String}, nil]
       #   # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       #   # @param tenant [String, Knockapi::Models::TenantRequest, nil]
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]

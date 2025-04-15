@@ -116,10 +116,6 @@ module Knockapi
           idempotency_header: nil
         ); end
         # @api private
-        sig { overridable.returns(T::Hash[String, String]) }
-        private def auth_headers; end
-
-        # @api private
         sig { returns(String) }
         private def generate_idempotency_key; end
 

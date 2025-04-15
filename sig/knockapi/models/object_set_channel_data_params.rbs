@@ -3,7 +3,7 @@ module Knockapi
     type object_set_channel_data_params =
       {  } & Knockapi::Internal::Type::request_parameters
 
-    class ObjectSetChannelDataParams < Knockapi::Models::Recipients::ChannelDataRequest
+    class ObjectSetChannelDataParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

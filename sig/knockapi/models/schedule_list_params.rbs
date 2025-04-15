@@ -52,25 +52,24 @@ module Knockapi
       def to_hash: -> Knockapi::Models::schedule_list_params
 
       type recipient =
-        String
-        | Knockapi::Models::ScheduleListParams::Recipient::ObjectReference
+        String | Knockapi::Models::ScheduleListParams::Recipient::UnionMember1
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type union_member1 = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::ScheduleListParams::Recipient::object_reference
+          def to_hash: -> Knockapi::Models::ScheduleListParams::Recipient::union_member1
         end
 
-        def self?.variants: -> [String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1]
       end
     end
   end

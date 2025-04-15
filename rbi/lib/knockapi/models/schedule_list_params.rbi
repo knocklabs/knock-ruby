@@ -32,22 +32,12 @@ module Knockapi
       attr_writer :page_size
 
       # Filter by recipient
-      sig do
-        returns(
-          T.nilable(T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)])
-        )
-      end
+      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1)])) }
       attr_reader :recipients
 
       sig do
         params(
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ]
+          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -66,13 +56,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
+          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1, Knockapi::Internal::AnyHash)],
           tenant: String,
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -97,7 +81,7 @@ module Knockapi
               after: String,
               before: String,
               page_size: Integer,
-              recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)],
+              recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1)],
               tenant: String,
               request_options: Knockapi::RequestOptions
             }
@@ -110,7 +94,7 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -127,7 +111,7 @@ module Knockapi
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1]) }
         def self.variants; end
       end
     end

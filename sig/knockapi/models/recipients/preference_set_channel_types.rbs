@@ -60,57 +60,135 @@ module Knockapi
         def to_hash: -> Knockapi::Models::Recipients::preference_set_channel_types
 
         type chat =
-          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+          bool
+          | Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::Conditions
 
         module Chat
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          type conditions = { conditions: ::Array[Knockapi::Models::Condition] }
+
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            attr_accessor conditions: ::Array[Knockapi::Models::Condition]
+
+            def initialize: (
+              conditions: ::Array[Knockapi::Models::Condition]
+            ) -> void
+
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::conditions
+          end
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::Conditions]
         end
 
         type email =
-          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+          bool
+          | Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::Conditions
 
         module Email
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          type conditions = { conditions: ::Array[Knockapi::Models::Condition] }
+
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            attr_accessor conditions: ::Array[Knockapi::Models::Condition]
+
+            def initialize: (
+              conditions: ::Array[Knockapi::Models::Condition]
+            ) -> void
+
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::conditions
+          end
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::Conditions]
         end
 
         type http =
-          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+          bool
+          | Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::Conditions
 
         module HTTP
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          type conditions = { conditions: ::Array[Knockapi::Models::Condition] }
+
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            attr_accessor conditions: ::Array[Knockapi::Models::Condition]
+
+            def initialize: (
+              conditions: ::Array[Knockapi::Models::Condition]
+            ) -> void
+
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::conditions
+          end
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::Conditions]
         end
 
         type in_app_feed =
-          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+          bool
+          | Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::Conditions
 
         module InAppFeed
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          type conditions = { conditions: ::Array[Knockapi::Models::Condition] }
+
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            attr_accessor conditions: ::Array[Knockapi::Models::Condition]
+
+            def initialize: (
+              conditions: ::Array[Knockapi::Models::Condition]
+            ) -> void
+
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::conditions
+          end
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::Conditions]
         end
 
         type push =
-          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+          bool
+          | Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::Conditions
 
         module Push
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          type conditions = { conditions: ::Array[Knockapi::Models::Condition] }
+
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            attr_accessor conditions: ::Array[Knockapi::Models::Condition]
+
+            def initialize: (
+              conditions: ::Array[Knockapi::Models::Condition]
+            ) -> void
+
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::conditions
+          end
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::Conditions]
         end
 
         type sms =
-          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+          bool
+          | Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::Conditions
 
         module SMS
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+          type conditions = { conditions: ::Array[Knockapi::Models::Condition] }
+
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            attr_accessor conditions: ::Array[Knockapi::Models::Condition]
+
+            def initialize: (
+              conditions: ::Array[Knockapi::Models::Condition]
+            ) -> void
+
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::conditions
+          end
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::Conditions]
         end
       end
     end

@@ -174,33 +174,25 @@ module Knockapi
           sig { returns(String) }
           attr_accessor :title
 
-          sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+          sig { returns(T.nilable(T.anything)) }
           attr_accessor :data
 
           # The contents of a push message
           sig do
-            params(
-              token: String,
-              _typename: String,
-              body: String,
-              title: String,
-              data: T.nilable(T::Hash[Symbol, T.anything])
-            )
+            params(token: String, _typename: String, body: String, title: String, data: T.nilable(T.anything))
               .returns(T.attached_class)
           end
           def self.new(token:, _typename:, body:, title:, data: nil); end
 
           sig do
             override
-              .returns(
-                {
-                  token: String,
-                  _typename: String,
-                  body: String,
-                  title: String,
-                  data: T.nilable(T::Hash[Symbol, T.anything])
-                }
-              )
+              .returns({
+                         token: String,
+                         _typename: String,
+                         body: String,
+                         title: String,
+                         data: T.nilable(T.anything)
+                       })
           end
           def to_hash; end
         end
@@ -210,7 +202,7 @@ module Knockapi
           attr_accessor :_typename
 
           # The channel data connection from the recipient to the underlying provider
-          sig { returns(T::Hash[Symbol, T.anything]) }
+          sig { returns(T.anything) }
           attr_accessor :connection
 
           sig { returns(Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template) }
@@ -227,19 +219,19 @@ module Knockapi
           end
           attr_writer :template
 
-          sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+          sig { returns(T.nilable(T.anything)) }
           attr_accessor :metadata
 
           # The contents of a chat message
           sig do
             params(
               _typename: String,
-              connection: T::Hash[Symbol, T.anything],
+              connection: T.anything,
               template: T.any(
                 Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
                 Knockapi::Internal::AnyHash
               ),
-              metadata: T.nilable(T::Hash[Symbol, T.anything])
+              metadata: T.nilable(T.anything)
             )
               .returns(T.attached_class)
           end
@@ -250,9 +242,9 @@ module Knockapi
               .returns(
                 {
                   _typename: String,
-                  connection: T::Hash[Symbol, T.anything],
+                  connection: T.anything,
                   template: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
-                  metadata: T.nilable(T::Hash[Symbol, T.anything])
+                  metadata: T.nilable(T.anything)
                 }
               )
           end
@@ -270,7 +262,7 @@ module Knockapi
             attr_accessor :blocks
 
             # The JSON content of the message
-            sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+            sig { returns(T.nilable(T.anything)) }
             attr_accessor :json_content
 
             sig { returns(T.nilable(String)) }
@@ -286,7 +278,7 @@ module Knockapi
                     )
                   ]
                 ),
-                json_content: T.nilable(T::Hash[Symbol, T.anything]),
+                json_content: T.nilable(T.anything),
                 summary: T.nilable(String)
               )
                 .returns(T.attached_class)
@@ -300,7 +292,7 @@ module Knockapi
                     blocks: T.nilable(
                       T::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block]
                     ),
-                    json_content: T.nilable(T::Hash[Symbol, T.anything]),
+                    json_content: T.nilable(T.anything),
                     summary: T.nilable(String)
                   }
                 )
@@ -392,8 +384,8 @@ module Knockapi
             returns(
               T::Array[
                 T.any(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock,
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock
                 )
               ]
             )
@@ -406,9 +398,9 @@ module Knockapi
               _typename: String,
               blocks: T::Array[
                 T.any(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock,
                   Knockapi::Internal::AnyHash,
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock
                 )
               ]
             )
@@ -423,8 +415,8 @@ module Knockapi
                   _typename: String,
                   blocks: T::Array[
                     T.any(
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock,
+                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock
                     )
                   ]
                 }
@@ -436,7 +428,7 @@ module Knockapi
           module Block
             extend Knockapi::Internal::Type::Union
 
-            class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
+            class ContentBlock < Knockapi::Internal::Type::BaseModel
               sig { returns(String) }
               attr_accessor :content
 
@@ -448,7 +440,7 @@ module Knockapi
 
               sig do
                 returns(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type::TaggedSymbol
                 )
               end
               attr_accessor :type
@@ -459,7 +451,7 @@ module Knockapi
                   content: String,
                   name: String,
                   rendered: String,
-                  type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::OrSymbol
+                  type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type::OrSymbol
                 )
                   .returns(T.attached_class)
               end
@@ -472,7 +464,7 @@ module Knockapi
                       content: String,
                       name: String,
                       rendered: String,
-                      type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                      type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type::TaggedSymbol
                     }
                   )
               end
@@ -483,33 +475,33 @@ module Knockapi
 
                 TaggedSymbol =
                   T.type_alias do
-                    T.all(Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type)
+                    T.all(Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type)
                   end
                 OrSymbol =
                   T.type_alias do
                     T.any(
                       Symbol,
                       String,
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type::TaggedSymbol
                     )
                   end
 
                 MARKDOWN =
                   T.let(
                     :markdown,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type::TaggedSymbol
                   )
                 TEXT =
                   T.let(
                     :text,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type::TaggedSymbol
                   )
 
                 sig do
                   override
                     .returns(
                       T::Array[
-                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock::Type::TaggedSymbol
                       ]
                     )
                 end
@@ -517,12 +509,10 @@ module Knockapi
               end
             end
 
-            class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
+            class ButtonSetBlock < Knockapi::Internal::Type::BaseModel
               sig do
                 returns(
-                  T::Array[
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
-                  ]
+                  T::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Button]
                 )
               end
               attr_accessor :buttons
@@ -532,7 +522,7 @@ module Knockapi
 
               sig do
                 returns(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Type::TaggedSymbol
                 )
               end
               attr_accessor :type
@@ -542,12 +532,12 @@ module Knockapi
                 params(
                   buttons: T::Array[
                     T.any(
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button,
+                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Button,
                       Knockapi::Internal::AnyHash
                     )
                   ],
                   name: String,
-                  type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::OrSymbol
+                  type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Type::OrSymbol
                 )
                   .returns(T.attached_class)
               end
@@ -557,11 +547,9 @@ module Knockapi
                 override
                   .returns(
                     {
-                      buttons: T::Array[
-                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
-                      ],
+                      buttons: T::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Button],
                       name: String,
-                      type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                      type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Type::TaggedSymbol
                     }
                   )
               end
@@ -590,28 +578,28 @@ module Knockapi
 
                 TaggedSymbol =
                   T.type_alias do
-                    T.all(Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type)
+                    T.all(Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Type)
                   end
                 OrSymbol =
                   T.type_alias do
                     T.any(
                       Symbol,
                       String,
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Type::TaggedSymbol
                     )
                   end
 
                 BUTTON_SET =
                   T.let(
                     :button_set,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Type::TaggedSymbol
                   )
 
                 sig do
                   override
                     .returns(
                       T::Array[
-                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock::Type::TaggedSymbol
                       ]
                     )
                 end
@@ -622,7 +610,7 @@ module Knockapi
             sig do
               override
                 .returns(
-                  [Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock]
+                  [Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::ButtonSetBlock]
                 )
             end
             def self.variants; end

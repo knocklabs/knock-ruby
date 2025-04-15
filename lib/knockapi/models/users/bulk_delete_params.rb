@@ -10,6 +10,7 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute user_ids
+        #   The IDs of the users to delete
         #
         #   @return [Array<String>]
         required :user_ids, Knockapi::Internal::Type::ArrayOf[String]

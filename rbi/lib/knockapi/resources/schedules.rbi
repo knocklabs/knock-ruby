@@ -5,70 +5,18 @@ module Knockapi
     class Schedules
       # Create schedules
       sig do
-        params(
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
-          workflow: String,
-          data: T.nilable(T::Hash[Symbol, T.anything]),
-          ending_at: T.nilable(Time),
-          scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)))
           .returns(T::Array[Knockapi::Models::Schedule])
       end
-      def create(
-        recipients:,
-        repeats:,
-        workflow:,
-        data: nil,
-        ending_at: nil,
-        scheduled_at: nil,
-        # An inline tenant request
-        tenant: nil,
-        request_options: {}
-      ); end
+      def create(request_options: {}); end
+
       # Update schedules
       sig do
-        params(
-          schedule_ids: T::Array[String],
-          actor: T.nilable(
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ),
-          data: T.nilable(T::Hash[Symbol, T.anything]),
-          ending_at: T.nilable(Time),
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
-          scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)))
           .returns(T::Array[Knockapi::Models::Schedule])
       end
-      def update(
-        schedule_ids:,
-        # Specifies a recipient in a request. This can either be a user identifier
-        # (string), an inline user request (object), or an inline object request, which is
-        # determined by the presence of a `collection` property.
-        actor: nil,
-        data: nil,
-        ending_at: nil,
-        repeats: nil,
-        scheduled_at: nil,
-        # An inline tenant request
-        tenant: nil,
-        request_options: {}
-      ); end
+      def update(request_options: {}); end
+
       # List schedules
       sig do
         params(
@@ -76,13 +24,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ScheduleListParams::Recipient::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
+          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1, Knockapi::Internal::AnyHash)],
           tenant: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
@@ -105,13 +47,10 @@ module Knockapi
       ); end
       # Delete schedules
       sig do
-        params(
-          schedule_ids: T::Array[String],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)))
           .returns(T::Array[Knockapi::Models::Schedule])
       end
-      def delete(schedule_ids:, request_options: {}); end
+      def delete(request_options: {}); end
 
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }

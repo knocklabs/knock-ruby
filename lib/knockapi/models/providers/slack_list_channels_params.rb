@@ -47,21 +47,21 @@ module Knockapi
           # @!attribute [r] exclude_archived
           #   Whether to exclude archived channels
           #
-          #   @return [Boolean, nil]
-          optional :exclude_archived, Knockapi::Internal::Type::Boolean
+          #   @return [String, nil]
+          optional :exclude_archived, String
 
           # @!parse
-          #   # @return [Boolean]
+          #   # @return [String]
           #   attr_writer :exclude_archived
 
           # @!attribute [r] limit
           #   The number of channels to return
           #
-          #   @return [Integer, nil]
-          optional :limit, Integer
+          #   @return [String, nil]
+          optional :limit, String
 
           # @!parse
-          #   # @return [Integer]
+          #   # @return [String]
           #   attr_writer :limit
 
           # @!attribute [r] team_id
@@ -75,7 +75,7 @@ module Knockapi
           #   attr_writer :team_id
 
           # @!attribute [r] types
-          #   The types of channels to return (comma separated list)
+          #   The types of channels to return
           #
           #   @return [String, nil]
           optional :types, String
@@ -86,8 +86,8 @@ module Knockapi
 
           # @!parse
           #   # @param cursor [String]
-          #   # @param exclude_archived [Boolean]
-          #   # @param limit [Integer]
+          #   # @param exclude_archived [String]
+          #   # @param limit [String]
           #   # @param team_id [String]
           #   # @param types [String]
           #   #

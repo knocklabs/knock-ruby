@@ -3,29 +3,24 @@
 require_relative "../test_helper"
 
 class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
-  def test_create_required_params
+  def test_create
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response =
-      @knock.schedules.create(
-        recipients: ["user_123"],
-        repeats: [{__typename: "ScheduleRepeat", frequency: :daily}],
-        workflow: "comment-created"
-      )
+    response = @knock.schedules.create
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule])
     end
   end
 
-  def test_update_required_params
+  def test_update
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.schedules.update(schedule_ids: ["123e4567-e89b-12d3-a456-426614174000"])
+    response = @knock.schedules.update
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule])
@@ -60,7 +55,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
         workflow: String,
         _typename: String | nil,
         actor: Knockapi::Models::Recipient | nil,
-        data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
+        data: Knockapi::Internal::Type::Unknown | nil,
         last_occurrence_at: Time | nil,
         next_occurrence_at: Time | nil,
         tenant: String | nil
@@ -68,12 +63,12 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
     end
   end
 
-  def test_delete_required_params
+  def test_delete
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.schedules.delete(schedule_ids: ["123e4567-e89b-12d3-a456-426614174000"])
+    response = @knock.schedules.delete
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedule])

@@ -41,7 +41,7 @@ module Knockapi
       type request =
         {
           body: Knockapi::Models::MessageDeliveryLog::Request::body,
-          headers: ::Hash[Symbol, top]?,
+          headers: top?,
           host: String,
           method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
           path: String,
@@ -55,7 +55,7 @@ module Knockapi
           Knockapi::Models::MessageDeliveryLog::Request::body
         ) -> Knockapi::Models::MessageDeliveryLog::Request::body
 
-        attr_accessor headers: ::Hash[Symbol, top]?
+        attr_accessor headers: top?
 
         attr_reader host: String?
 
@@ -75,7 +75,7 @@ module Knockapi
 
         def initialize: (
           ?body: Knockapi::Models::MessageDeliveryLog::Request::body,
-          ?headers: ::Hash[Symbol, top]?,
+          ?headers: top?,
           ?host: String,
           ?method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
           ?path: String,
@@ -84,16 +84,12 @@ module Knockapi
 
         def to_hash: -> Knockapi::Models::MessageDeliveryLog::request
 
-        type body = String | ::Hash[Symbol, top]
+        type body = String | top
 
         module Body
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [String, ::Hash[Symbol, top]]
-
-          type union_member1_map = ::Hash[Symbol, top]
-
-          UnionMember1Map: union_member1_map
+          def self?.variants: -> [String, top]
         end
 
         type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
@@ -114,7 +110,7 @@ module Knockapi
       type response =
         {
           body: Knockapi::Models::MessageDeliveryLog::Response::body,
-          headers: ::Hash[Symbol, top]?,
+          headers: top?,
           status: Integer
         }
 
@@ -125,7 +121,7 @@ module Knockapi
           Knockapi::Models::MessageDeliveryLog::Response::body
         ) -> Knockapi::Models::MessageDeliveryLog::Response::body
 
-        attr_accessor headers: ::Hash[Symbol, top]?
+        attr_accessor headers: top?
 
         attr_reader status: Integer?
 
@@ -133,22 +129,18 @@ module Knockapi
 
         def initialize: (
           ?body: Knockapi::Models::MessageDeliveryLog::Response::body,
-          ?headers: ::Hash[Symbol, top]?,
+          ?headers: top?,
           ?status: Integer
         ) -> void
 
         def to_hash: -> Knockapi::Models::MessageDeliveryLog::response
 
-        type body = String | ::Hash[Symbol, top]
+        type body = String | top
 
         module Body
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [String, ::Hash[Symbol, top]]
-
-          type union_member1_map = ::Hash[Symbol, top]
-
-          UnionMember1Map: union_member1_map
+          def self?.variants: -> [String, top]
         end
       end
     end

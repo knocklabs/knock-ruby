@@ -16,48 +16,33 @@ module Knockapi
         def to_hash: -> Knockapi::Models::Recipients::discord_channel_data
 
         type connection =
-          Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection
-          | Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+          Knockapi::Models::Recipients::DiscordChannelData::Connection::ChannelConnection
+          | Knockapi::Models::Recipients::DiscordChannelData::Connection::IncomingWebhookConnection
 
         module Connection
           extend Knockapi::Internal::Type::Union
 
-          type discord_channel_connection = { channel_id: String }
+          type channel_connection = { channel_id: String }
 
-          class DiscordChannelConnection < Knockapi::Internal::Type::BaseModel
+          class ChannelConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor channel_id: String
 
             def initialize: (channel_id: String) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::DiscordChannelData::Connection::discord_channel_connection
+            def to_hash: -> Knockapi::Models::Recipients::DiscordChannelData::Connection::channel_connection
           end
 
-          type discord_incoming_webhook_connection =
-            {
-              incoming_webhook: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
-            }
+          type incoming_webhook_connection = { url: String }
 
-          class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
-            attr_accessor incoming_webhook: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+          class IncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+            attr_accessor url: String
 
-            def initialize: (
-              incoming_webhook: Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
-            ) -> void
+            def initialize: (url: String) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::DiscordChannelData::Connection::discord_incoming_webhook_connection
-
-            type incoming_webhook = { url: String }
-
-            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
-              attr_accessor url: String
-
-              def initialize: (url: String) -> void
-
-              def to_hash: -> Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::incoming_webhook
-            end
+            def to_hash: -> Knockapi::Models::Recipients::DiscordChannelData::Connection::incoming_webhook_connection
           end
 
-          def self?.variants: -> [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
+          def self?.variants: -> [Knockapi::Models::Recipients::DiscordChannelData::Connection::ChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::IncomingWebhookConnection]
         end
       end
     end

@@ -6,7 +6,7 @@ module Knockapi
       sig { returns(Knockapi::Resources::Messages::Batch) }
       attr_reader :batch
 
-      # List messages
+      # Returns a paginated list of messages
       sig do
         params(
           after: String,
@@ -55,7 +55,7 @@ module Knockapi
         workflow_run_id: nil,
         request_options: {}
       ); end
-      # Archive message
+      # Archives a message
       sig do
         params(
           message_id: String,
@@ -68,7 +68,7 @@ module Knockapi
         message_id,
         request_options: {}
       ); end
-      # Get message
+      # Retrieves a single message
       sig do
         params(
           message_id: String,
@@ -81,8 +81,7 @@ module Knockapi
         message_id,
         request_options: {}
       ); end
-      # Returns the fully rendered contents of a message, where the response depends on
-      # the channel the message was sent on.
+      # Get the contents of a message
       sig do
         params(
           message_id: String,
@@ -95,7 +94,7 @@ module Knockapi
         message_id,
         request_options: {}
       ); end
-      # List activities
+      # Get activities for a message
       sig do
         params(
           message_id: String,
@@ -120,7 +119,7 @@ module Knockapi
         trigger_data: nil,
         request_options: {}
       ); end
-      # List delivery logs
+      # Get delivery logs for a message
       sig do
         params(
           message_id: String,
@@ -142,7 +141,7 @@ module Knockapi
         page_size: nil,
         request_options: {}
       ); end
-      # List events
+      # Get events for a message
       sig do
         params(
           message_id: String,
@@ -164,7 +163,7 @@ module Knockapi
         page_size: nil,
         request_options: {}
       ); end
-      # Mark message as interacted
+      # Marks a message as interacted with
       sig do
         params(
           message_id: String,
@@ -180,7 +179,7 @@ module Knockapi
         metadata: nil,
         request_options: {}
       ); end
-      # Mark message as read
+      # Marks a message as read
       sig do
         params(
           message_id: String,
@@ -193,7 +192,7 @@ module Knockapi
         message_id,
         request_options: {}
       ); end
-      # Mark message as seen
+      # Marks a message as seen
       sig do
         params(
           message_id: String,
@@ -206,7 +205,7 @@ module Knockapi
         message_id,
         request_options: {}
       ); end
-      # Mark message as unread
+      # Marks a message as unread
       sig do
         params(
           message_id: String,
@@ -219,7 +218,7 @@ module Knockapi
         message_id,
         request_options: {}
       ); end
-      # Mark message as unseen
+      # Marks a message as unseen
       sig do
         params(
           message_id: String,
@@ -232,7 +231,7 @@ module Knockapi
         message_id,
         request_options: {}
       ); end
-      # Unarchive message
+      # Unarchives a message
       sig do
         params(
           message_id: String,

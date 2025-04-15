@@ -4,16 +4,18 @@ module Knockapi
   module Models
     module Recipients
       class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
-        sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
+        sig do
+          returns(
+            T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::Conditions))
+          )
+        end
         attr_reader :chat
 
         sig do
           params(
             chat: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::Conditions,
               Knockapi::Internal::AnyHash
             )
           )
@@ -21,16 +23,18 @@ module Knockapi
         end
         attr_writer :chat
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
-        sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
+        sig do
+          returns(
+            T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::Conditions))
+          )
+        end
         attr_reader :email
 
         sig do
           params(
             email: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::Conditions,
               Knockapi::Internal::AnyHash
             )
           )
@@ -38,16 +42,18 @@ module Knockapi
         end
         attr_writer :email
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
-        sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
+        sig do
+          returns(
+            T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::Conditions))
+          )
+        end
         attr_reader :http
 
         sig do
           params(
             http: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::Conditions,
               Knockapi::Internal::AnyHash
             )
           )
@@ -55,16 +61,20 @@ module Knockapi
         end
         attr_writer :http
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
-        sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
+        sig do
+          returns(
+            T.nilable(
+              T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::Conditions)
+            )
+          )
+        end
         attr_reader :in_app_feed
 
         sig do
           params(
             in_app_feed: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::Conditions,
               Knockapi::Internal::AnyHash
             )
           )
@@ -72,16 +82,18 @@ module Knockapi
         end
         attr_writer :in_app_feed
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
-        sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
+        sig do
+          returns(
+            T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::Conditions))
+          )
+        end
         attr_reader :push
 
         sig do
           params(
             push: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::Conditions,
               Knockapi::Internal::AnyHash
             )
           )
@@ -89,16 +101,18 @@ module Knockapi
         end
         attr_writer :push
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
-        sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
+        sig do
+          returns(
+            T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::Conditions))
+          )
+        end
         attr_reader :sms
 
         sig do
           params(
             sms: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::Conditions,
               Knockapi::Internal::AnyHash
             )
           )
@@ -111,32 +125,32 @@ module Knockapi
           params(
             chat: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::Conditions,
               Knockapi::Internal::AnyHash
             ),
             email: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::Conditions,
               Knockapi::Internal::AnyHash
             ),
             http: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::Conditions,
               Knockapi::Internal::AnyHash
             ),
             in_app_feed: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::Conditions,
               Knockapi::Internal::AnyHash
             ),
             push: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::Conditions,
               Knockapi::Internal::AnyHash
             ),
             sms: T.any(
               T::Boolean,
-              Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting,
+              Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::Conditions,
               Knockapi::Internal::AnyHash
             )
           )
@@ -148,68 +162,143 @@ module Knockapi
           override
             .returns(
               {
-                chat: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting),
-                email: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting),
-                http: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting),
-                in_app_feed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting),
-                push: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting),
-                sms: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)
+                chat: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::Conditions),
+                email: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::Conditions),
+                http: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::Conditions),
+                in_app_feed: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::Conditions),
+                push: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::Conditions),
+                sms: T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::Conditions)
               }
             )
         end
         def to_hash; end
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
         module Chat
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            sig { returns(T::Array[Knockapi::Models::Condition]) }
+            attr_accessor :conditions
+
+            sig do
+              params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                .returns(T.attached_class)
+            end
+            def self.new(conditions:); end
+
+            sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
+            def to_hash; end
+          end
+
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat::Conditions]) }
           def self.variants; end
         end
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
         module Email
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            sig { returns(T::Array[Knockapi::Models::Condition]) }
+            attr_accessor :conditions
+
+            sig do
+              params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                .returns(T.attached_class)
+            end
+            def self.new(conditions:); end
+
+            sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
+            def to_hash; end
+          end
+
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email::Conditions]) }
           def self.variants; end
         end
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
         module HTTP
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            sig { returns(T::Array[Knockapi::Models::Condition]) }
+            attr_accessor :conditions
+
+            sig do
+              params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                .returns(T.attached_class)
+            end
+            def self.new(conditions:); end
+
+            sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
+            def to_hash; end
+          end
+
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP::Conditions]) }
           def self.variants; end
         end
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
         module InAppFeed
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            sig { returns(T::Array[Knockapi::Models::Condition]) }
+            attr_accessor :conditions
+
+            sig do
+              params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                .returns(T.attached_class)
+            end
+            def self.new(conditions:); end
+
+            sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
+            def to_hash; end
+          end
+
+          sig do
+            override
+              .returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed::Conditions])
+          end
           def self.variants; end
         end
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
         module Push
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            sig { returns(T::Array[Knockapi::Models::Condition]) }
+            attr_accessor :conditions
+
+            sig do
+              params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                .returns(T.attached_class)
+            end
+            def self.new(conditions:); end
+
+            sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
+            def to_hash; end
+          end
+
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push::Conditions]) }
           def self.variants; end
         end
 
-        # A set of settings for a channel type. Currently, this can only be a list of
-        # conditions to apply.
         module SMS
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]) }
+          class Conditions < Knockapi::Internal::Type::BaseModel
+            sig { returns(T::Array[Knockapi::Models::Condition]) }
+            attr_accessor :conditions
+
+            sig do
+              params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                .returns(T.attached_class)
+            end
+            def self.new(conditions:); end
+
+            sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
+            def to_hash; end
+          end
+
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS::Conditions]) }
           def self.variants; end
         end
       end

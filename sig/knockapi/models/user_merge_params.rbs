@@ -7,10 +7,12 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor from_user_id: String
+      attr_reader from_user_id: String?
+
+      def from_user_id=: (String) -> String
 
       def initialize: (
-        from_user_id: String,
+        ?from_user_id: String,
         ?request_options: Knockapi::request_opts
       ) -> void
 

@@ -34,12 +34,12 @@ class Knockapi::Test::Resources::Tenants::BulkTest < Knockapi::Test::ResourceTes
     end
   end
 
-  def test_set_required_params
+  def test_set
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.tenants.bulk.set(tenants: ["string"])
+    response = @knock.tenants.bulk.set
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation

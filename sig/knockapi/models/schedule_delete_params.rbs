@@ -1,19 +1,13 @@
 module Knockapi
   module Models
     type schedule_delete_params =
-      { schedule_ids: ::Array[String] }
-      & Knockapi::Internal::Type::request_parameters
+      {  } & Knockapi::Internal::Type::request_parameters
 
     class ScheduleDeleteParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor schedule_ids: ::Array[String]
-
-      def initialize: (
-        schedule_ids: ::Array[String],
-        ?request_options: Knockapi::request_opts
-      ) -> void
+      def initialize: (?request_options: Knockapi::request_opts) -> void
 
       def to_hash: -> Knockapi::Models::schedule_delete_params
     end

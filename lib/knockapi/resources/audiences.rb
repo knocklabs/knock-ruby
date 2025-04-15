@@ -3,29 +3,26 @@
 module Knockapi
   module Resources
     class Audiences
-      # Add members
+      # Add members to an audience
       #
-      # @overload add_members(key, members:, request_options: {})
+      # @overload add_members(key, request_options: {})
       #
       # @param key [String]
-      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #
       # @see Knockapi::Models::AudienceAddMembersParams
-      def add_members(key, params)
-        parsed, options = Knockapi::Models::AudienceAddMembersParams.dump_request(params)
+      def add_members(key, params = {})
         @client.request(
           method: :post,
           path: ["v1/audiences/%1$s/members", key],
-          body: parsed,
           model: String,
-          options: options
+          options: params[:request_options]
         )
       end
 
-      # List members
+      # List members of an audience
       #
       # @overload list_members(key, request_options: {})
       #
@@ -44,25 +41,22 @@ module Knockapi
         )
       end
 
-      # Remove members
+      # Remove members from an audience
       #
-      # @overload remove_members(key, members:, request_options: {})
+      # @overload remove_members(key, request_options: {})
       #
       # @param key [String]
-      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
       #
       # @see Knockapi::Models::AudienceRemoveMembersParams
-      def remove_members(key, params)
-        parsed, options = Knockapi::Models::AudienceRemoveMembersParams.dump_request(params)
+      def remove_members(key, params = {})
         @client.request(
           method: :delete,
           path: ["v1/audiences/%1$s/members", key],
-          body: parsed,
           model: String,
-          options: options
+          options: params[:request_options]
         )
       end
 

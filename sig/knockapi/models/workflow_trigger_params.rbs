@@ -4,7 +4,7 @@ module Knockapi
       {
         actor: Knockapi::Models::recipient_request?,
         cancellation_key: String?,
-        data: ::Hash[Symbol, top]?,
+        data: ::Hash[Symbol, String]?,
         recipients: ::Array[Knockapi::Models::recipient_request],
         tenant: Knockapi::Models::inline_tenant_request?
       }
@@ -18,7 +18,7 @@ module Knockapi
 
       attr_accessor cancellation_key: String?
 
-      attr_accessor data: ::Hash[Symbol, top]?
+      attr_accessor data: ::Hash[Symbol, String]?
 
       attr_reader recipients: ::Array[Knockapi::Models::recipient_request]?
 
@@ -31,7 +31,7 @@ module Knockapi
       def initialize: (
         ?actor: Knockapi::Models::recipient_request?,
         ?cancellation_key: String?,
-        ?data: ::Hash[Symbol, top]?,
+        ?data: ::Hash[Symbol, String]?,
         ?recipients: ::Array[Knockapi::Models::recipient_request],
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts

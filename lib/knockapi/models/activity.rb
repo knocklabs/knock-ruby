@@ -31,8 +31,8 @@ module Knockapi
       # @!attribute data
       #   The data associated with the activity
       #
-      #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+      #   @return [Object, nil]
+      optional :data, Knockapi::Internal::Type::Unknown, nil?: true
 
       # @!attribute [r] inserted_at
       #
@@ -68,7 +68,7 @@ module Knockapi
       #   # @param id [String]
       #   # @param _typename [String]
       #   # @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
+      #   # @param data [Object, nil]
       #   # @param inserted_at [Time]
       #   # @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
       #   # @param updated_at [Time]

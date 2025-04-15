@@ -5,7 +5,7 @@ module Knockapi
         id: String,
         _typename: String,
         actor: Knockapi::Models::recipient?,
-        data: ::Hash[Symbol, top]?,
+        data: top?,
         inserted_at: Time,
         recipient: Knockapi::Models::recipient,
         updated_at: Time
@@ -22,7 +22,7 @@ module Knockapi
 
       attr_accessor actor: Knockapi::Models::recipient?
 
-      attr_accessor data: ::Hash[Symbol, top]?
+      attr_accessor data: top?
 
       attr_reader inserted_at: Time?
 
@@ -42,7 +42,7 @@ module Knockapi
         ?id: String,
         ?_typename: String,
         ?actor: Knockapi::Models::recipient?,
-        ?data: ::Hash[Symbol, top]?,
+        ?data: top?,
         ?inserted_at: Time,
         ?recipient: Knockapi::Models::recipient,
         ?updated_at: Time

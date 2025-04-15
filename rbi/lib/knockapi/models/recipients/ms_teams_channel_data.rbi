@@ -8,8 +8,8 @@ module Knockapi
           returns(
             T::Array[
               T.any(
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection,
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection
               )
             ]
           )
@@ -25,9 +25,9 @@ module Knockapi
           params(
             connections: T::Array[
               T.any(
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection,
                 Knockapi::Internal::AnyHash,
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection
               )
             ],
             ms_teams_tenant_id: T.nilable(String)
@@ -42,8 +42,8 @@ module Knockapi
               {
                 connections: T::Array[
                   T.any(
-                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
+                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection,
+                    Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection
                   )
                 ],
                 ms_teams_tenant_id: T.nilable(String)
@@ -52,119 +52,58 @@ module Knockapi
         end
         def to_hash; end
 
-        # Microsoft Teams token connection
+        # A Slack connection, which either includes a channel_id or a user_id
         module Connection
           extend Knockapi::Internal::Type::Union
 
-          class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
-            # The Microsoft Teams channel ID
+          class TokenConnection < Knockapi::Internal::Type::BaseModel
             sig { returns(T.nilable(String)) }
-            attr_accessor :ms_teams_channel_id
+            attr_accessor :access_token
 
-            # The Microsoft Teams team ID
             sig { returns(T.nilable(String)) }
-            attr_accessor :ms_teams_team_id
+            attr_accessor :channel_id
 
-            # The Microsoft Teams tenant ID
             sig { returns(T.nilable(String)) }
-            attr_accessor :ms_teams_tenant_id
+            attr_accessor :user_id
 
-            # The Microsoft Teams user ID
-            sig { returns(T.nilable(String)) }
-            attr_accessor :ms_teams_user_id
-
-            # Microsoft Teams token connection
+            # A Slack connection, which either includes a channel_id or a user_id
             sig do
               params(
-                ms_teams_channel_id: T.nilable(String),
-                ms_teams_team_id: T.nilable(String),
-                ms_teams_tenant_id: T.nilable(String),
-                ms_teams_user_id: T.nilable(String)
+                access_token: T.nilable(String),
+                channel_id: T.nilable(String),
+                user_id: T.nilable(String)
               )
                 .returns(T.attached_class)
             end
-            def self.new(
-              ms_teams_channel_id: nil,
-              ms_teams_team_id: nil,
-              ms_teams_tenant_id: nil,
-              ms_teams_user_id: nil
-            )
-            end
+            def self.new(access_token: nil, channel_id: nil, user_id: nil); end
 
             sig do
               override
-                .returns(
-                  {
-                    ms_teams_channel_id: T.nilable(String),
-                    ms_teams_team_id: T.nilable(String),
-                    ms_teams_tenant_id: T.nilable(String),
-                    ms_teams_user_id: T.nilable(String)
-                  }
-                )
+                .returns({
+                           access_token: T.nilable(String),
+                           channel_id: T.nilable(String),
+                           user_id: T.nilable(String)
+                         })
             end
             def to_hash; end
           end
 
-          class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
-            # The incoming webhook
-            sig do
-              returns(
-                Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
-              )
-            end
-            attr_reader :incoming_webhook
+          class IncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+            sig { returns(String) }
+            attr_accessor :url
 
-            sig do
-              params(
-                incoming_webhook: T.any(
-                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Internal::AnyHash
-                )
-              )
-                .void
-            end
-            attr_writer :incoming_webhook
+            # An incoming webhook Slack connection
+            sig { params(url: String).returns(T.attached_class) }
+            def self.new(url:); end
 
-            # Microsoft Teams incoming webhook connection
-            sig do
-              params(
-                incoming_webhook: T.any(
-                  Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
-                  Knockapi::Internal::AnyHash
-                )
-              )
-                .returns(T.attached_class)
-            end
-            def self.new(incoming_webhook:); end
-
-            sig do
-              override
-                .returns(
-                  {
-                    incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
-                  }
-                )
-            end
+            sig { override.returns({url: String}) }
             def to_hash; end
-
-            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
-              # The URL of the incoming webhook
-              sig { returns(String) }
-              attr_accessor :url
-
-              # The incoming webhook
-              sig { params(url: String).returns(T.attached_class) }
-              def self.new(url:); end
-
-              sig { override.returns({url: String}) }
-              def to_hash; end
-            end
           end
 
           sig do
             override
               .returns(
-                [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
+                [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection]
               )
           end
           def self.variants; end

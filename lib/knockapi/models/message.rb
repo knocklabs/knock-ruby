@@ -26,11 +26,11 @@ module Knockapi
       # @!attribute [r] actors
       #   A list of actor representations associated with the message (up to 10)
       #
-      #   @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>, nil]
+      #   @return [Array<String, Knockapi::Models::Message::Actor::UnionMember1>, nil]
       optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor] }
 
       # @!parse
-      #   # @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
+      #   # @return [Array<String, Knockapi::Models::Message::Actor::UnionMember1>]
       #   attr_writer :actors
 
       # @!attribute archived_at
@@ -58,8 +58,8 @@ module Knockapi
       # @!attribute data
       #   Additional message data
       #
-      #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+      #   @return [Object, nil]
+      optional :data, Knockapi::Internal::Type::Unknown, nil?: true
 
       # @!attribute [r] engagement_statuses
       #   List of engagement statuses
@@ -97,8 +97,8 @@ module Knockapi
       # @!attribute metadata
       #   Message metadata
       #
-      #   @return [Hash{Symbol=>Object}, nil]
-      optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+      #   @return [Object, nil]
+      optional :metadata, Knockapi::Internal::Type::Unknown, nil?: true
 
       # @!attribute read_at
       #   Timestamp when message was read
@@ -110,11 +110,11 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       #
-      #   @return [String, Knockapi::Models::Message::Recipient::ObjectReference, nil]
+      #   @return [String, Knockapi::Models::Message::Recipient::UnionMember1, nil]
       optional :recipient, union: -> { Knockapi::Models::Message::Recipient }
 
       # @!parse
-      #   # @return [String, Knockapi::Models::Message::Recipient::ObjectReference]
+      #   # @return [String, Knockapi::Models::Message::Recipient::UnionMember1]
       #   attr_writer :recipient
 
       # @!attribute scheduled_at
@@ -177,18 +177,18 @@ module Knockapi
       #   #
       #   # @param id [String]
       #   # @param _typename [String]
-      #   # @param actors [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
+      #   # @param actors [Array<String, Knockapi::Models::Message::Actor::UnionMember1>]
       #   # @param archived_at [Time, nil]
       #   # @param channel_id [String]
       #   # @param clicked_at [Time, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
+      #   # @param data [Object, nil]
       #   # @param engagement_statuses [Array<Symbol, Knockapi::Models::Message::EngagementStatus>]
       #   # @param inserted_at [Time]
       #   # @param interacted_at [Time, nil]
       #   # @param link_clicked_at [Time, nil]
-      #   # @param metadata [Hash{Symbol=>Object}, nil]
+      #   # @param metadata [Object, nil]
       #   # @param read_at [Time, nil]
-      #   # @param recipient [String, Knockapi::Models::Message::Recipient::ObjectReference]
+      #   # @param recipient [String, Knockapi::Models::Message::Recipient::UnionMember1]
       #   # @param scheduled_at [Time, nil]
       #   # @param seen_at [Time, nil]
       #   # @param source [Knockapi::Models::Message::Source]
@@ -235,9 +235,9 @@ module Knockapi
         variant String
 
         # An object reference to a recipient
-        variant -> { Knockapi::Models::Message::Actor::ObjectReference }
+        variant -> { Knockapi::Models::Message::Actor::UnionMember1 }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -262,7 +262,7 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::Message::Actor::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::Message::Actor::UnionMember1)]
         #   def self.variants; end
       end
 
@@ -293,9 +293,9 @@ module Knockapi
         variant String
 
         # An object reference to a recipient
-        variant -> { Knockapi::Models::Message::Recipient::ObjectReference }
+        variant -> { Knockapi::Models::Message::Recipient::UnionMember1 }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -320,7 +320,7 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::Message::Recipient::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::Message::Recipient::UnionMember1)]
         #   def self.variants; end
       end
 

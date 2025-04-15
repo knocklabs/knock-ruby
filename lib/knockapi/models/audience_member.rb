@@ -10,8 +10,8 @@ module Knockapi
 
       # @!attribute added_at
       #
-      #   @return [Time]
-      required :added_at, Time
+      #   @return [String]
+      required :added_at, String
 
       # @!attribute user
       #   A user object
@@ -33,7 +33,7 @@ module Knockapi
       #   # A user belonging to an audience
       #   #
       #   # @param _typename [String]
-      #   # @param added_at [Time]
+      #   # @param added_at [String]
       #   # @param user [Knockapi::Models::User]
       #   # @param user_id [String]
       #   # @param tenant [String, nil]

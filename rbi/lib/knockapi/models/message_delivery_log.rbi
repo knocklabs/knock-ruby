@@ -64,13 +64,13 @@ module Knockapi
       def to_hash; end
 
       class Request < Knockapi::Internal::Type::BaseModel
-        sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
+        sig { returns(T.nilable(T.any(String, T.anything))) }
         attr_reader :body
 
-        sig { params(body: T.any(String, T::Hash[Symbol, T.anything])).void }
+        sig { params(body: T.any(String, T.anything)).void }
         attr_writer :body
 
-        sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+        sig { returns(T.nilable(T.anything)) }
         attr_accessor :headers
 
         sig { returns(T.nilable(String)) }
@@ -97,8 +97,8 @@ module Knockapi
         # A message delivery log request
         sig do
           params(
-            body: T.any(String, T::Hash[Symbol, T.anything]),
-            headers: T.nilable(T::Hash[Symbol, T.anything]),
+            body: T.any(String, T.anything),
+            headers: T.nilable(T.anything),
             host: String,
             method_: Knockapi::Models::MessageDeliveryLog::Request::Method::OrSymbol,
             path: String,
@@ -112,8 +112,8 @@ module Knockapi
           override
             .returns(
               {
-                body: T.any(String, T::Hash[Symbol, T.anything]),
-                headers: T.nilable(T::Hash[Symbol, T.anything]),
+                body: T.any(String, T.anything),
+                headers: T.nilable(T.anything),
                 host: String,
                 method_: Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol,
                 path: String,
@@ -126,14 +126,8 @@ module Knockapi
         module Body
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
+          sig { override.returns([String, T.anything]) }
           def self.variants; end
-
-          UnionMember1Map =
-            T.let(
-              Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
-              Knockapi::Internal::Type::Converter
-            )
         end
 
         module Method
@@ -155,13 +149,13 @@ module Knockapi
       end
 
       class Response < Knockapi::Internal::Type::BaseModel
-        sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
+        sig { returns(T.nilable(T.any(String, T.anything))) }
         attr_reader :body
 
-        sig { params(body: T.any(String, T::Hash[Symbol, T.anything])).void }
+        sig { params(body: T.any(String, T.anything)).void }
         attr_writer :body
 
-        sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+        sig { returns(T.nilable(T.anything)) }
         attr_accessor :headers
 
         sig { returns(T.nilable(Integer)) }
@@ -172,38 +166,21 @@ module Knockapi
 
         # A message delivery log response
         sig do
-          params(
-            body: T.any(String, T::Hash[Symbol, T.anything]),
-            headers: T.nilable(T::Hash[Symbol, T.anything]),
-            status: Integer
-          )
+          params(body: T.any(String, T.anything), headers: T.nilable(T.anything), status: Integer)
             .returns(T.attached_class)
         end
         def self.new(body: nil, headers: nil, status: nil); end
 
         sig do
-          override
-            .returns(
-              {
-                body: T.any(String, T::Hash[Symbol, T.anything]),
-                headers: T.nilable(T::Hash[Symbol, T.anything]),
-                status: Integer
-              }
-            )
+          override.returns({body: T.any(String, T.anything), headers: T.nilable(T.anything), status: Integer})
         end
         def to_hash; end
 
         module Body
           extend Knockapi::Internal::Type::Union
 
-          sig { override.returns([String, T::Hash[Symbol, T.anything]]) }
+          sig { override.returns([String, T.anything]) }
           def self.variants; end
-
-          UnionMember1Map =
-            T.let(
-              Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
-              Knockapi::Internal::Type::Converter
-            )
         end
       end
     end

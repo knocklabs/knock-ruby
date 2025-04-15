@@ -6,7 +6,7 @@ module Knockapi
       class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute connections
         #
-        #   @return [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
+        #   @return [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection>]
         required :connections,
                  -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::MsTeamsChannelData::Connection] }
 
@@ -19,99 +19,69 @@ module Knockapi
         # @!parse
         #   # Microsoft Teams channel data
         #   #
-        #   # @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
+        #   # @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection>]
         #   # @param ms_teams_tenant_id [String, nil]
         #   #
         #   def initialize(connections:, ms_teams_tenant_id: nil, **) = super
 
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-        # Microsoft Teams token connection
+        # A Slack connection, which either includes a channel_id or a user_id
         module Connection
           extend Knockapi::Internal::Type::Union
 
-          # Microsoft Teams token connection
-          variant -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection }
+          # A Slack connection, which either includes a channel_id or a user_id
+          variant -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection }
 
-          # Microsoft Teams incoming webhook connection
-          variant -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection }
+          # An incoming webhook Slack connection
+          variant -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection }
 
-          class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
-            # @!attribute ms_teams_channel_id
-            #   The Microsoft Teams channel ID
+          class TokenConnection < Knockapi::Internal::Type::BaseModel
+            # @!attribute access_token
             #
             #   @return [String, nil]
-            optional :ms_teams_channel_id, String, nil?: true
+            optional :access_token, String, nil?: true
 
-            # @!attribute ms_teams_team_id
-            #   The Microsoft Teams team ID
+            # @!attribute channel_id
             #
             #   @return [String, nil]
-            optional :ms_teams_team_id, String, nil?: true
+            optional :channel_id, String, nil?: true
 
-            # @!attribute ms_teams_tenant_id
-            #   The Microsoft Teams tenant ID
+            # @!attribute user_id
             #
             #   @return [String, nil]
-            optional :ms_teams_tenant_id, String, nil?: true
-
-            # @!attribute ms_teams_user_id
-            #   The Microsoft Teams user ID
-            #
-            #   @return [String, nil]
-            optional :ms_teams_user_id, String, nil?: true
+            optional :user_id, String, nil?: true
 
             # @!parse
-            #   # Microsoft Teams token connection
+            #   # A Slack connection, which either includes a channel_id or a user_id
             #   #
-            #   # @param ms_teams_channel_id [String, nil]
-            #   # @param ms_teams_team_id [String, nil]
-            #   # @param ms_teams_tenant_id [String, nil]
-            #   # @param ms_teams_user_id [String, nil]
+            #   # @param access_token [String, nil]
+            #   # @param channel_id [String, nil]
+            #   # @param user_id [String, nil]
             #   #
-            #   def initialize(ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil, **) = super
+            #   def initialize(access_token: nil, channel_id: nil, user_id: nil, **) = super
 
             # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
-            # @!attribute incoming_webhook
-            #   The incoming webhook
+          class IncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+            # @!attribute url
             #
-            #   @return [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook]
-            required :incoming_webhook,
-                     -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook }
+            #   @return [String]
+            required :url, String
 
             # @!parse
-            #   # Microsoft Teams incoming webhook connection
+            #   # An incoming webhook Slack connection
             #   #
-            #   # @param incoming_webhook [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook]
+            #   # @param url [String]
             #   #
-            #   def initialize(incoming_webhook:, **) = super
+            #   def initialize(url:, **) = super
 
             # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
-
-            # @see Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection#incoming_webhook
-            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
-              # @!attribute url
-              #   The URL of the incoming webhook
-              #
-              #   @return [String]
-              required :url, String
-
-              # @!parse
-              #   # The incoming webhook
-              #   #
-              #   # @param url [String]
-              #   #
-              #   def initialize(url:, **) = super
-
-              # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
-            end
           end
 
           # @!parse
-          #   # @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
+          #   # @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection)]
           #   def self.variants; end
         end
       end

@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Users
       class Bulk
-        # Bulk delete users
+        # Bulk deletes a list of users
         #
         # @overload delete(user_ids:, request_options: {})
         #
@@ -19,52 +19,45 @@ module Knockapi
           @client.request(
             method: :post,
             path: "v1/users/bulk/delete",
-            body: parsed,
+            query: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options
           )
         end
 
-        # Bulk identifies users
+        # Bulk identifies a list of users
         #
-        # @overload identify(users:, request_options: {})
+        # @overload identify(request_options: {})
         #
-        # @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Users::BulkIdentifyParams
-        def identify(params)
-          parsed, options = Knockapi::Models::Users::BulkIdentifyParams.dump_request(params)
+        def identify(params = {})
           @client.request(
             method: :post,
             path: "v1/users/bulk/identify",
-            body: parsed,
             model: Knockapi::Models::BulkOperation,
-            options: options
+            options: params[:request_options]
           )
         end
 
-        # Bulk set preferences
+        # Bulk sets user preferences
         #
-        # @overload set_preferences(preferences:, user_ids:, request_options: {})
+        # @overload set_preferences(request_options: {})
         #
-        # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
-        # @param user_ids [Array<String>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Users::BulkSetPreferencesParams
-        def set_preferences(params)
-          parsed, options = Knockapi::Models::Users::BulkSetPreferencesParams.dump_request(params)
+        def set_preferences(params = {})
           @client.request(
             method: :post,
             path: "v1/users/bulk/preferences",
-            body: parsed,
             model: Knockapi::Models::BulkOperation,
-            options: options
+            options: params[:request_options]
           )
         end
 

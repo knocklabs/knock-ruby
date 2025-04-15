@@ -52,8 +52,8 @@ module Knockapi
 
       # @!attribute data
       #
-      #   @return [Hash{Symbol=>Object}, nil]
-      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+      #   @return [Object, nil]
+      optional :data, Knockapi::Internal::Type::Unknown, nil?: true
 
       # @!attribute last_occurrence_at
       #
@@ -81,7 +81,7 @@ module Knockapi
       #   # @param workflow [String]
       #   # @param _typename [String]
       #   # @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
+      #   # @param data [Object, nil]
       #   # @param last_occurrence_at [Time, nil]
       #   # @param next_occurrence_at [Time, nil]
       #   # @param tenant [String, nil]

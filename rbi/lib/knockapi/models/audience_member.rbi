@@ -6,7 +6,7 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :_typename
 
-      sig { returns(Time) }
+      sig { returns(String) }
       attr_accessor :added_at
 
       # A user object
@@ -26,7 +26,7 @@ module Knockapi
       sig do
         params(
           _typename: String,
-          added_at: Time,
+          added_at: String,
           user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash),
           user_id: String,
           tenant: T.nilable(String)
@@ -38,7 +38,7 @@ module Knockapi
       sig do
         override
           .returns(
-            {_typename: String, added_at: Time, user: Knockapi::Models::User, user_id: String, tenant: T.nilable(String)}
+            {_typename: String, added_at: String, user: Knockapi::Models::User, user_id: String, tenant: T.nilable(String)}
           )
       end
       def to_hash; end

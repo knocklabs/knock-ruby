@@ -20,7 +20,7 @@ module Knockapi
           access_token_object:,
           request_options: {}
         ); end
-        # List Slack channels for a Slack workspace
+        # Get Slack channels from a Slack workspace
         sig do
           params(
             channel_id: String,
@@ -28,7 +28,7 @@ module Knockapi
             query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
-            .returns(Knockapi::Internal::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])
+            .returns(Knockapi::Models::Providers::SlackListChannelsResponse)
         end
         def list_channels(
           # The ID of the Knock Slack channel to get channels for

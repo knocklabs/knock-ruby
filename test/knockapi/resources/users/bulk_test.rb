@@ -8,7 +8,7 @@ class Knockapi::Test::Resources::Users::BulkTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.bulk.delete(user_ids: %w[user_1 user_2])
+    response = @knock.users.bulk.delete(user_ids: ["string"])
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation
@@ -34,12 +34,12 @@ class Knockapi::Test::Resources::Users::BulkTest < Knockapi::Test::ResourceTest
     end
   end
 
-  def test_identify_required_params
+  def test_identify
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.bulk.identify(users: [{id: "user_1"}])
+    response = @knock.users.bulk.identify
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation
@@ -65,12 +65,12 @@ class Knockapi::Test::Resources::Users::BulkTest < Knockapi::Test::ResourceTest
     end
   end
 
-  def test_set_preferences_required_params
+  def test_set_preferences
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.bulk.set_preferences(preferences: {}, user_ids: %w[user_1 user_2])
+    response = @knock.users.bulk.set_preferences
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation

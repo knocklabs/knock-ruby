@@ -3,7 +3,7 @@ module Knockapi
     type audience_member =
       {
         _typename: String,
-        added_at: Time,
+        added_at: String,
         user: Knockapi::Models::User,
         user_id: String,
         tenant: String?
@@ -12,7 +12,7 @@ module Knockapi
     class AudienceMember < Knockapi::Internal::Type::BaseModel
       attr_accessor _typename: String
 
-      attr_accessor added_at: Time
+      attr_accessor added_at: String
 
       attr_accessor user: Knockapi::Models::User
 
@@ -22,7 +22,7 @@ module Knockapi
 
       def initialize: (
         _typename: String,
-        added_at: Time,
+        added_at: String,
         user: Knockapi::Models::User,
         user_id: String,
         ?tenant: String?

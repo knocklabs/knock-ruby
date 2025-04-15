@@ -30,9 +30,7 @@ bundle install
 require "bundler/setup"
 require "knockapi"
 
-knock = Knockapi::Client.new(
-  bearer_token: "My Bearer Token" # defaults to ENV["KNOCK_API_KEY"]
-)
+knock = Knockapi::Client.new(bearer_token: "My Bearer Token")
 
 response =
   knock.workflows.trigger(
@@ -104,7 +102,8 @@ You can use the `max_retries` option to configure or disable this:
 ```ruby
 # Configure the default for all requests:
 knock = Knockapi::Client.new(
-  max_retries: 0 # default is 2
+  max_retries: 0, # default is 2
+  bearer_token: "My Bearer Token"
 )
 
 # Or, configure per-request:
@@ -122,7 +121,8 @@ You can use the `timeout` option to configure or disable this:
 ```ruby
 # Configure the default for all requests:
 knock = Knockapi::Client.new(
-  timeout: nil # default is 60
+  timeout: nil, # default is 60
+  bearer_token: "My Bearer Token"
 )
 
 # Or, configure per-request:

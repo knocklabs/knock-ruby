@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Objects
       class Bulk
-        # Bulk delete objects
+        # Deletes objects in bulk for a given collection
         sig do
           params(
             collection: String,
@@ -20,27 +20,23 @@ module Knockapi
           object_ids:,
           request_options: {}
         ); end
-        # Add subscriptions for a set of objects in a single collection. If a subscription
-        # already exists, it will be updated.
+        # Bulk upserts subscriptions for a set of objects in a single collection
         sig do
           params(
             collection: String,
-            subscriptions: T::Array[T.any(Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription, Knockapi::Internal::AnyHash)],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
         def add_subscriptions(
-          # The collection to add subscriptions for
+          # The collection to upsert subscriptions for
           collection,
-          subscriptions:,
           request_options: {}
         ); end
-        # Bulk set objects
+        # Sets objects in bulk for a given collection
         sig do
           params(
             collection: String,
-            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::AnyHash)],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
@@ -48,7 +44,6 @@ module Knockapi
         def set(
           # The collection to set objects in
           collection,
-          objects:,
           request_options: {}
         ); end
         # @api private

@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Messages
       class Batch
-        # Mark messages as archived
+        # Marks one or more messages as archived
         sig do
           params(
             message_ids: T::Array[String],
@@ -17,10 +17,10 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Get the contents of multiple messages in a single request.
+        # Get the contents of multiple messages
         sig do
           params(
-            message_ids: T::Array[String],
+            message_ids: T::Array[T.anything],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem])
@@ -30,23 +30,14 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Mark messages as interacted
+        # Marks one or more messages as interacted
         sig do
-          params(
-            message_ids: T::Array[String],
-            metadata: T.nilable(T::Hash[Symbol, T.anything]),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)))
             .returns(T::Array[Knockapi::Models::Message])
         end
-        def mark_as_interacted(
-          # The message IDs to update
-          message_ids:,
-          # Metadata about the interaction
-          metadata: nil,
-          request_options: {}
-        ); end
-        # Mark messages as read
+        def mark_as_interacted(request_options: {}); end
+
+        # Marks one or more messages as read
         sig do
           params(
             message_ids: T::Array[String],
@@ -59,7 +50,7 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Mark messages as seen
+        # Marks one or more messages as seen
         sig do
           params(
             message_ids: T::Array[String],
@@ -72,7 +63,7 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Mark messages as unread
+        # Marks one or more messages as unread
         sig do
           params(
             message_ids: T::Array[String],
@@ -85,7 +76,7 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Mark messages as unseen
+        # Marks one or more messages as unseen
         sig do
           params(
             message_ids: T::Array[String],
@@ -98,7 +89,7 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Mark messages as unarchived
+        # Marks one or more messages as unarchived
         sig do
           params(
             message_ids: T::Array[String],

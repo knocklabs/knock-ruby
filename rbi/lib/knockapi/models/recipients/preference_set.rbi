@@ -10,17 +10,10 @@ module Knockapi
         sig { returns(String) }
         attr_accessor :_typename
 
-        # A map of categories and their settings
         sig do
           returns(
             T.nilable(
-              T::Hash[
-                Symbol,
-                T.any(
-                  T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
-                )
-              ]
+              T::Hash[Symbol, T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::UnionMember1)]
             )
           )
         end
@@ -38,17 +31,10 @@ module Knockapi
         end
         attr_writer :channel_types
 
-        # A map of workflows and their settings
         sig do
           returns(
             T.nilable(
-              T::Hash[
-                Symbol,
-                T.any(
-                  T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
-                )
-              ]
+              T::Hash[Symbol, T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::UnionMember1)]
             )
           )
         end
@@ -64,7 +50,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Models::Recipients::PreferenceSet::Category::UnionMember1,
                   Knockapi::Internal::AnyHash
                 )
               ]
@@ -75,7 +61,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Models::Recipients::PreferenceSet::Workflow::UnionMember1,
                   Knockapi::Internal::AnyHash
                 )
               ]
@@ -92,23 +78,11 @@ module Knockapi
                 id: String,
                 _typename: String,
                 categories: T.nilable(
-                  T::Hash[
-                    Symbol,
-                    T.any(
-                      T::Boolean,
-                      Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
-                    )
-                  ]
+                  T::Hash[Symbol, T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::UnionMember1)]
                 ),
                 channel_types: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes),
                 workflows: T.nilable(
-                  T::Hash[
-                    Symbol,
-                    T.any(
-                      T::Boolean,
-                      Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
-                    )
-                  ]
+                  T::Hash[Symbol, T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::UnionMember1)]
                 )
               }
             )
@@ -119,7 +93,7 @@ module Knockapi
         module Category
           extend Knockapi::Internal::Type::Union
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
+          class UnionMember1 < Knockapi::Internal::Type::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
             attr_reader :channel_types
@@ -133,14 +107,15 @@ module Knockapi
             attr_writer :channel_types
 
             sig { returns(T.nilable(T::Array[Knockapi::Models::Condition])) }
-            attr_accessor :conditions
+            attr_reader :conditions
 
-            # The settings object for a workflow or category, where you can specify channel
-            # types or conditions.
+            sig { params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)]).void }
+            attr_writer :conditions
+
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
-                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)]
               )
                 .returns(T.attached_class)
             end
@@ -151,19 +126,14 @@ module Knockapi
                 .returns(
                   {
                     channel_types: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes),
-                    conditions: T.nilable(T::Array[Knockapi::Models::Condition])
+                    conditions: T::Array[Knockapi::Models::Condition]
                   }
                 )
             end
             def to_hash; end
           end
 
-          sig do
-            override
-              .returns(
-                [T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject]
-              )
-          end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::UnionMember1]) }
           def self.variants; end
         end
 
@@ -171,7 +141,7 @@ module Knockapi
         module Workflow
           extend Knockapi::Internal::Type::Union
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
+          class UnionMember1 < Knockapi::Internal::Type::BaseModel
             # Channel type preferences
             sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes)) }
             attr_reader :channel_types
@@ -185,14 +155,15 @@ module Knockapi
             attr_writer :channel_types
 
             sig { returns(T.nilable(T::Array[Knockapi::Models::Condition])) }
-            attr_accessor :conditions
+            attr_reader :conditions
 
-            # The settings object for a workflow or category, where you can specify channel
-            # types or conditions.
+            sig { params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)]).void }
+            attr_writer :conditions
+
             sig do
               params(
                 channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
-                conditions: T.nilable(T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
+                conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)]
               )
                 .returns(T.attached_class)
             end
@@ -203,19 +174,14 @@ module Knockapi
                 .returns(
                   {
                     channel_types: T.nilable(Knockapi::Models::Recipients::PreferenceSetChannelTypes),
-                    conditions: T.nilable(T::Array[Knockapi::Models::Condition])
+                    conditions: T::Array[Knockapi::Models::Condition]
                   }
                 )
             end
             def to_hash; end
           end
 
-          sig do
-            override
-              .returns(
-                [T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject]
-              )
-          end
+          sig { override.returns([T::Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::UnionMember1]) }
           def self.variants; end
         end
       end

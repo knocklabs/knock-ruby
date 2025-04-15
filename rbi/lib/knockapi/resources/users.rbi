@@ -9,7 +9,7 @@ module Knockapi
       sig { returns(Knockapi::Resources::Users::Bulk) }
       attr_reader :bulk
 
-      # Identify user
+      # Identify a user
       sig do
         params(
           user_id: String,
@@ -34,7 +34,7 @@ module Knockapi
         preferences: nil,
         request_options: {}
       ); end
-      # List users
+      # Returns a list of users
       sig do
         params(
           after: String,
@@ -53,7 +53,7 @@ module Knockapi
         page_size: nil,
         request_options: {}
       ); end
-      # Delete user
+      # Deletes a user
       sig do
         params(
           user_id: String,
@@ -66,7 +66,7 @@ module Knockapi
         user_id,
         request_options: {}
       ); end
-      # Get user
+      # Returns a user
       sig do
         params(
           user_id: String,
@@ -79,7 +79,7 @@ module Knockapi
         user_id,
         request_options: {}
       ); end
-      # Get channel data
+      # Get channel data for a user
       sig do
         params(
           user_id: String,
@@ -95,26 +95,7 @@ module Knockapi
         channel_id,
         request_options: {}
       ); end
-      # Get preference set
-      sig do
-        params(
-          user_id: String,
-          preference_set_id: String,
-          tenant: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Recipients::PreferenceSet)
-      end
-      def get_preferences(
-        # User ID
-        user_id,
-        # Preference set ID
-        preference_set_id,
-        # Tenant ID
-        tenant: nil,
-        request_options: {}
-      ); end
-      # List messages
+      # Returns a paginated list of messages for a user
       sig do
         params(
           user_id: String,
@@ -166,7 +147,7 @@ module Knockapi
         workflow_run_id: nil,
         request_options: {}
       ); end
-      # List preference sets
+      # List preference sets for a user
       sig do
         params(
           user_id: String,
@@ -179,7 +160,7 @@ module Knockapi
         user_id,
         request_options: {}
       ); end
-      # List schedules
+      # List schedules for a user
       sig do
         params(
           user_id: String,
@@ -207,12 +188,19 @@ module Knockapi
         workflow: nil,
         request_options: {}
       ); end
-      # List subscriptions
+      # List subscriptions for a user
       sig do
         params(
           user_id: String,
           after: String,
           before: String,
+          objects: T::Array[
+            T.any(
+              String,
+              Knockapi::Models::UserListSubscriptionsParams::Object::UnionMember1,
+              Knockapi::Internal::AnyHash
+            )
+          ],
           page_size: Integer,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
@@ -225,12 +213,13 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before
         before: nil,
+        # Objects to filter by
+        objects: nil,
         # The page size to fetch
         page_size: nil,
         request_options: {}
       ); end
-      # Merge two users together, where the user specified with the `from_user_id` param
-      # will be merged into the user specified by `user_id`.
+      # Merges two users together
       sig do
         params(
           user_id: String,
@@ -242,23 +231,14 @@ module Knockapi
       def merge(
         # User ID
         user_id,
-        # The user ID to merge from
-        from_user_id:,
+        from_user_id: nil,
         request_options: {}
       ); end
-      # Set channel data
+      # Sets channel data for a user
       sig do
         params(
           user_id: String,
           channel_id: String,
-          data: T.any(
-            Knockapi::Models::Recipients::PushChannelData,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::Recipients::OneSignalChannelData,
-            Knockapi::Models::Recipients::SlackChannelData,
-            Knockapi::Models::Recipients::MsTeamsChannelData,
-            Knockapi::Models::Recipients::DiscordChannelData
-          ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
@@ -268,57 +248,9 @@ module Knockapi
         user_id,
         # The channel ID
         channel_id,
-        # Channel data for push providers
-        data:,
         request_options: {}
       ); end
-      # Updates a complete preference set for a user. This is a destructive operation
-      # that will replace the existing preference set for the user.
-      sig do
-        params(
-          user_id: String,
-          preference_set_id: String,
-          categories: T.nilable(
-            T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Internal::AnyHash
-              )
-            ]
-          ),
-          channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
-          workflows: T.nilable(
-            T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Internal::AnyHash
-              )
-            ]
-          ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Recipients::PreferenceSet)
-      end
-      def set_preferences(
-        # User ID
-        user_id,
-        # Preference set ID
-        preference_set_id,
-        # A setting for a preference set, where the key in the object is the category, and
-        # the values are the preference settings for that category.
-        categories: nil,
-        # Channel type preferences
-        channel_types: nil,
-        # A setting for a preference set, where the key in the object is the workflow key,
-        # and the values are the preference settings for that workflow.
-        workflows: nil,
-        request_options: {}
-      ); end
-      # Unset channel data
+      # Unsets channel data for a user
       sig do
         params(
           user_id: String,

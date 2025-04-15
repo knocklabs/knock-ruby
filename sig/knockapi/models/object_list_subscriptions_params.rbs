@@ -70,46 +70,46 @@ module Knockapi
 
       type object =
         String
-        | Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference
+        | Knockapi::Models::ObjectListSubscriptionsParams::Object::UnionMember1
 
       module Object
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type union_member1 = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
+          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::union_member1
         end
 
-        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Object::UnionMember1]
       end
 
       type recipient =
         String
-        | Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference
+        | Knockapi::Models::ObjectListSubscriptionsParams::Recipient::UnionMember1
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type union_member1 = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
+          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::union_member1
         end
 
-        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::UnionMember1]
       end
     end
   end

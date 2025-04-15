@@ -32,8 +32,6 @@ module Knockapi
 
     attr_reader audiences: Knockapi::Resources::Audiences
 
-    private def auth_headers: -> ::Hash[String, String]
-
     def initialize: (
       ?bearer_token: String?,
       ?base_url: String?,

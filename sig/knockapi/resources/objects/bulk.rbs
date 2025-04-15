@@ -10,13 +10,11 @@ module Knockapi
 
         def add_subscriptions: (
           String collection,
-          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::BulkOperation
 
         def set: (
           String collection,
-          objects: ::Array[Knockapi::Models::InlineObjectRequest],
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::BulkOperation
 

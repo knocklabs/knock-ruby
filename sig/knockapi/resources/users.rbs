@@ -36,13 +36,6 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
-      def get_preferences: (
-        String user_id,
-        String preference_set_id,
-        ?tenant: String,
-        ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Recipients::PreferenceSet
-
       def list_messages: (
         String user_id,
         ?after: String,
@@ -80,31 +73,22 @@ module Knockapi
         String user_id,
         ?after: String,
         ?before: String,
+        ?objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription]
 
       def merge: (
         String user_id,
-        from_user_id: String,
+        ?from_user_id: String,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::User
 
       def set_channel_data: (
         String user_id,
         String channel_id,
-        data: Knockapi::Models::Recipients::ChannelDataRequest::data,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Recipients::RecipientsChannelData
-
-      def set_preferences: (
-        String user_id,
-        String preference_set_id,
-        ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
-        ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-        ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?,
-        ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Recipients::PreferenceSet
 
       def unset_channel_data: (
         String user_id,

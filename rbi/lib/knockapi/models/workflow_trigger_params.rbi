@@ -25,11 +25,10 @@ module Knockapi
 
       # An optional map of data to be used in the workflow. This data will be available
       # to the workflow as a map in the `data` field.
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_accessor :data
 
-      # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-      # single trigger.
+      # The recipients to trigger the workflow for.
       sig do
         returns(
           T.nilable(
@@ -69,7 +68,7 @@ module Knockapi
             )
           ),
           cancellation_key: T.nilable(String),
-          data: T.nilable(T::Hash[Symbol, T.anything]),
+          data: T.nilable(T::Hash[Symbol, String]),
           recipients: T::Array[
             T.any(
               String,
@@ -101,7 +100,7 @@ module Knockapi
                 T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
               ),
               cancellation_key: T.nilable(String),
-              data: T.nilable(T::Hash[Symbol, T.anything]),
+              data: T.nilable(T::Hash[Symbol, String]),
               recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
               tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
               request_options: Knockapi::RequestOptions

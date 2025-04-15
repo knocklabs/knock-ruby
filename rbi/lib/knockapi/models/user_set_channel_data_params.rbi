@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    class UserSetChannelDataParams < Knockapi::Models::Recipients::ChannelDataRequest
+    class UserSetChannelDataParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 

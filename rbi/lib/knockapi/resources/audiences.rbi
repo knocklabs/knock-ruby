@@ -3,11 +3,10 @@
 module Knockapi
   module Resources
     class Audiences
-      # Add members
+      # Add members to an audience
       sig do
         params(
           key: String,
-          members: T::Array[T.any(Knockapi::Models::AudienceAddMembersParams::Member, Knockapi::Internal::AnyHash)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(String)
@@ -15,10 +14,9 @@ module Knockapi
       def add_members(
         # The key of the audience to add members to
         key,
-        members:,
         request_options: {}
       ); end
-      # List members
+      # List members of an audience
       sig do
         params(
           key: String,
@@ -31,11 +29,10 @@ module Knockapi
         key,
         request_options: {}
       ); end
-      # Remove members
+      # Remove members from an audience
       sig do
         params(
           key: String,
-          members: T::Array[T.any(Knockapi::Models::AudienceRemoveMembersParams::Member, Knockapi::Internal::AnyHash)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(String)
@@ -43,7 +40,6 @@ module Knockapi
       def remove_members(
         # The key of the audience to remove members from
         key,
-        members:,
         request_options: {}
       ); end
       # @api private

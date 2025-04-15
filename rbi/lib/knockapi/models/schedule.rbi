@@ -32,7 +32,7 @@ module Knockapi
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       attr_accessor :actor
 
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      sig { returns(T.nilable(T.anything)) }
       attr_accessor :data
 
       sig { returns(T.nilable(Time)) }
@@ -55,7 +55,7 @@ module Knockapi
           workflow: String,
           _typename: String,
           actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)),
-          data: T.nilable(T::Hash[Symbol, T.anything]),
+          data: T.nilable(T.anything),
           last_occurrence_at: T.nilable(Time),
           next_occurrence_at: T.nilable(Time),
           tenant: T.nilable(String)
@@ -88,7 +88,7 @@ module Knockapi
               workflow: String,
               _typename: String,
               actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)),
-              data: T.nilable(T::Hash[Symbol, T.anything]),
+              data: T.nilable(T.anything),
               last_occurrence_at: T.nilable(Time),
               next_occurrence_at: T.nilable(Time),
               tenant: T.nilable(String)

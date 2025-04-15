@@ -7,7 +7,7 @@ module Knockapi
         inserted_at: Time,
         recipient: Knockapi::Models::MessageEvent::recipient,
         type: Knockapi::Models::MessageEvent::type_,
-        data: ::Hash[Symbol, top]?
+        data: top?
       }
 
     class MessageEvent < Knockapi::Internal::Type::BaseModel
@@ -21,7 +21,7 @@ module Knockapi
 
       attr_accessor type: Knockapi::Models::MessageEvent::type_
 
-      attr_accessor data: ::Hash[Symbol, top]?
+      attr_accessor data: top?
 
       def initialize: (
         id: String,
@@ -29,30 +29,30 @@ module Knockapi
         inserted_at: Time,
         recipient: Knockapi::Models::MessageEvent::recipient,
         type: Knockapi::Models::MessageEvent::type_,
-        ?data: ::Hash[Symbol, top]?
+        ?data: top?
       ) -> void
 
       def to_hash: -> Knockapi::Models::message_event
 
       type recipient =
-        String | Knockapi::Models::MessageEvent::Recipient::ObjectReference
+        String | Knockapi::Models::MessageEvent::Recipient::UnionMember1
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type union_member1 = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::MessageEvent::Recipient::object_reference
+          def to_hash: -> Knockapi::Models::MessageEvent::Recipient::union_member1
         end
 
-        def self?.variants: -> [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::MessageEvent::Recipient::UnionMember1]
       end
 
       type type_ =

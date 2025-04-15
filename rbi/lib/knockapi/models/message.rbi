@@ -17,12 +17,12 @@ module Knockapi
       attr_writer :_typename
 
       # A list of actor representations associated with the message (up to 10)
-      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)])) }
+      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::Message::Actor::UnionMember1)])) }
       attr_reader :actors
 
       sig do
         params(
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::AnyHash)]
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::UnionMember1, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -44,7 +44,7 @@ module Knockapi
       attr_accessor :clicked_at
 
       # Additional message data
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      sig { returns(T.nilable(T.anything)) }
       attr_accessor :data
 
       # List of engagement statuses
@@ -70,7 +70,7 @@ module Knockapi
       attr_accessor :link_clicked_at
 
       # Message metadata
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      sig { returns(T.nilable(T.anything)) }
       attr_accessor :metadata
 
       # Timestamp when message was read
@@ -79,12 +79,12 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (id, collection).
-      sig { returns(T.nilable(T.any(String, Knockapi::Models::Message::Recipient::ObjectReference))) }
+      sig { returns(T.nilable(T.any(String, Knockapi::Models::Message::Recipient::UnionMember1))) }
       attr_reader :recipient
 
       sig do
         params(
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::AnyHash)
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::UnionMember1, Knockapi::Internal::AnyHash)
         )
           .void
       end
@@ -133,18 +133,18 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::AnyHash)],
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::UnionMember1, Knockapi::Internal::AnyHash)],
           archived_at: T.nilable(Time),
           channel_id: String,
           clicked_at: T.nilable(Time),
-          data: T.nilable(T::Hash[Symbol, T.anything]),
+          data: T.nilable(T.anything),
           engagement_statuses: T::Array[Knockapi::Models::Message::EngagementStatus::OrSymbol],
           inserted_at: Time,
           interacted_at: T.nilable(Time),
           link_clicked_at: T.nilable(Time),
-          metadata: T.nilable(T::Hash[Symbol, T.anything]),
+          metadata: T.nilable(T.anything),
           read_at: T.nilable(Time),
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::AnyHash),
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::UnionMember1, Knockapi::Internal::AnyHash),
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
           source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::AnyHash),
@@ -184,18 +184,18 @@ module Knockapi
             {
               id: String,
               _typename: String,
-              actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)],
+              actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::UnionMember1)],
               archived_at: T.nilable(Time),
               channel_id: String,
               clicked_at: T.nilable(Time),
-              data: T.nilable(T::Hash[Symbol, T.anything]),
+              data: T.nilable(T.anything),
               engagement_statuses: T::Array[Knockapi::Models::Message::EngagementStatus::TaggedSymbol],
               inserted_at: Time,
               interacted_at: T.nilable(Time),
               link_clicked_at: T.nilable(Time),
-              metadata: T.nilable(T::Hash[Symbol, T.anything]),
+              metadata: T.nilable(T.anything),
               read_at: T.nilable(Time),
-              recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference),
+              recipient: T.any(String, Knockapi::Models::Message::Recipient::UnionMember1),
               scheduled_at: T.nilable(Time),
               seen_at: T.nilable(Time),
               source: Knockapi::Models::Message::Source,
@@ -213,7 +213,7 @@ module Knockapi
       module Actor
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -230,7 +230,7 @@ module Knockapi
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::Message::Actor::UnionMember1]) }
         def self.variants; end
       end
 
@@ -256,7 +256,7 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -273,7 +273,7 @@ module Knockapi
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::Message::Recipient::UnionMember1]) }
         def self.variants; end
       end
 

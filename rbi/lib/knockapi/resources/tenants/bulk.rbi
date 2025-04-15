@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Tenants
       class Bulk
-        # Bulk delete tenants
+        # Deletes tenants in bulk
         sig do
           params(
             tenant_ids: T::Array[String],
@@ -17,15 +17,12 @@ module Knockapi
           tenant_ids:,
           request_options: {}
         ); end
-        # Bulk set tenants
+        # Sets tenants in bulk
         sig do
-          params(
-            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)))
             .returns(Knockapi::Models::BulkOperation)
         end
-        def set(tenants:, request_options: {}); end
+        def set(request_options: {}); end
 
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }

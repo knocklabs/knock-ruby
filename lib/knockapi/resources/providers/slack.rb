@@ -26,7 +26,7 @@ module Knockapi
           )
         end
 
-        # List Slack channels for a Slack workspace
+        # Get Slack channels from a Slack workspace
         #
         # @overload list_channels(channel_id, access_token_object:, query_options: nil, request_options: {})
         #
@@ -35,7 +35,7 @@ module Knockapi
         # @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Internal::SlackChannelsCursor<Knockapi::Models::Providers::SlackListChannelsResponse>]
+        # @return [Knockapi::Models::Providers::SlackListChannelsResponse]
         #
         # @see Knockapi::Models::Providers::SlackListChannelsParams
         def list_channels(channel_id, params)
@@ -44,7 +44,6 @@ module Knockapi
             method: :get,
             path: ["v1/providers/slack/%1$s/channels", channel_id],
             query: parsed,
-            page: Knockapi::Internal::SlackChannelsCursor,
             model: Knockapi::Models::Providers::SlackListChannelsResponse,
             options: options
           )

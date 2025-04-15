@@ -1,69 +1,15 @@
 module Knockapi
   module Models
     type schedule_create_params =
-      {
-        recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
-        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
-        workflow: String,
-        data: ::Hash[Symbol, top]?,
-        ending_at: Time?,
-        scheduled_at: Time?,
-        tenant: Knockapi::Models::inline_tenant_request?
-      }
-      & Knockapi::Internal::Type::request_parameters
+      {  } & Knockapi::Internal::Type::request_parameters
 
     class ScheduleCreateParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient]
-
-      attr_accessor repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]
-
-      attr_accessor workflow: String
-
-      attr_accessor data: ::Hash[Symbol, top]?
-
-      attr_accessor ending_at: Time?
-
-      attr_accessor scheduled_at: Time?
-
-      attr_accessor tenant: Knockapi::Models::inline_tenant_request?
-
-      def initialize: (
-        recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
-        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
-        workflow: String,
-        ?data: ::Hash[Symbol, top]?,
-        ?ending_at: Time?,
-        ?scheduled_at: Time?,
-        ?tenant: Knockapi::Models::inline_tenant_request?,
-        ?request_options: Knockapi::request_opts
-      ) -> void
+      def initialize: (?request_options: Knockapi::request_opts) -> void
 
       def to_hash: -> Knockapi::Models::schedule_create_params
-
-      type recipient =
-        String
-        | Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        type object_reference = { id: String, collection: String }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_accessor id: String
-
-          attr_accessor collection: String
-
-          def initialize: (id: String, collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::ScheduleCreateParams::Recipient::object_reference
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]
-      end
     end
   end
 end

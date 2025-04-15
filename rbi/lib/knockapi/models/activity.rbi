@@ -20,7 +20,7 @@ module Knockapi
       attr_accessor :actor
 
       # The data associated with the activity
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      sig { returns(T.nilable(T.anything)) }
       attr_accessor :data
 
       sig { returns(T.nilable(Time)) }
@@ -51,7 +51,7 @@ module Knockapi
           id: String,
           _typename: String,
           actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)),
-          data: T.nilable(T::Hash[Symbol, T.anything]),
+          data: T.nilable(T.anything),
           inserted_at: Time,
           recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object),
           updated_at: Time
@@ -76,7 +76,7 @@ module Knockapi
               id: String,
               _typename: String,
               actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)),
-              data: T.nilable(T::Hash[Symbol, T.anything]),
+              data: T.nilable(T.anything),
               inserted_at: Time,
               recipient: T.any(Knockapi::Models::User, Knockapi::Models::Object),
               updated_at: Time

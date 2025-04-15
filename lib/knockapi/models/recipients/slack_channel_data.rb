@@ -6,12 +6,11 @@ module Knockapi
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute connections
         #
-        #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
+        #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection>]
         required :connections,
                  -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
 
         # @!attribute token
-        #   A token that's used to store the access token for a Slack workspace.
         #
         #   @return [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
         optional :token, -> { Knockapi::Models::Recipients::SlackChannelData::Token }, nil?: true
@@ -19,7 +18,7 @@ module Knockapi
         # @!parse
         #   # Slack channel data
         #   #
-        #   # @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
+        #   # @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection>]
         #   # @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
         #   #
         #   def initialize(connections:, token: nil, **) = super
@@ -31,12 +30,12 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           # A Slack connection, which either includes a channel_id or a user_id
-          variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection }
+          variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection }
 
           # An incoming webhook Slack connection
-          variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection }
+          variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection }
 
-          class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
+          class TokenConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute access_token
             #
             #   @return [String, nil]
@@ -64,7 +63,7 @@ module Knockapi
             # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
           end
 
-          class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+          class IncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute url
             #
             #   @return [String]
@@ -81,7 +80,7 @@ module Knockapi
           end
 
           # @!parse
-          #   # @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
+          #   # @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection)]
           #   def self.variants; end
         end
 
@@ -93,8 +92,6 @@ module Knockapi
           required :access_token, String, nil?: true
 
           # @!parse
-          #   # A token that's used to store the access token for a Slack workspace.
-          #   #
           #   # @param access_token [String, nil]
           #   #
           #   def initialize(access_token:, **) = super

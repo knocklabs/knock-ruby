@@ -6,7 +6,7 @@ module Knockapi
       # @return [Knockapi::Resources::Messages::Batch]
       attr_reader :batch
 
-      # List messages
+      # Returns a paginated list of messages
       #
       # @overload list(after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
@@ -40,7 +40,7 @@ module Knockapi
         )
       end
 
-      # Archive message
+      # Archives a message
       #
       # @overload archive(message_id, request_options: {})
       #
@@ -59,7 +59,7 @@ module Knockapi
         )
       end
 
-      # Get message
+      # Retrieves a single message
       #
       # @overload get(message_id, request_options: {})
       #
@@ -78,8 +78,7 @@ module Knockapi
         )
       end
 
-      # Returns the fully rendered contents of a message, where the response depends on
-      # the channel the message was sent on.
+      # Get the contents of a message
       #
       # @overload get_content(message_id, request_options: {})
       #
@@ -98,7 +97,7 @@ module Knockapi
         )
       end
 
-      # List activities
+      # Get activities for a message
       #
       # @overload list_activities(message_id, after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
       #
@@ -124,7 +123,7 @@ module Knockapi
         )
       end
 
-      # List delivery logs
+      # Get delivery logs for a message
       #
       # @overload list_delivery_logs(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       #
@@ -149,7 +148,7 @@ module Knockapi
         )
       end
 
-      # List events
+      # Get events for a message
       #
       # @overload list_events(message_id, after: nil, before: nil, page_size: nil, request_options: {})
       #
@@ -174,7 +173,7 @@ module Knockapi
         )
       end
 
-      # Mark message as interacted
+      # Marks a message as interacted with
       #
       # @overload mark_as_interacted(message_id, metadata: nil, request_options: {})
       #
@@ -196,7 +195,7 @@ module Knockapi
         )
       end
 
-      # Mark message as read
+      # Marks a message as read
       #
       # @overload mark_as_read(message_id, request_options: {})
       #
@@ -215,7 +214,7 @@ module Knockapi
         )
       end
 
-      # Mark message as seen
+      # Marks a message as seen
       #
       # @overload mark_as_seen(message_id, request_options: {})
       #
@@ -234,7 +233,7 @@ module Knockapi
         )
       end
 
-      # Mark message as unread
+      # Marks a message as unread
       #
       # @overload mark_as_unread(message_id, request_options: {})
       #
@@ -253,7 +252,7 @@ module Knockapi
         )
       end
 
-      # Mark message as unseen
+      # Marks a message as unseen
       #
       # @overload mark_as_unseen(message_id, request_options: {})
       #
@@ -272,7 +271,7 @@ module Knockapi
         )
       end
 
-      # Unarchive message
+      # Unarchives a message
       #
       # @overload unarchive(message_id, request_options: {})
       #

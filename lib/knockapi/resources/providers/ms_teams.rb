@@ -27,8 +27,8 @@ module Knockapi
           )
         end
 
-        # List the Microsoft Teams channels within a team. By default, archived and
-        # private channels are excluded from the results.
+        # Get a list of the Microsoft Teams channels within a team. By default, archived
+        # and private channels are excluded from the results.
         #
         # @overload list_channels(channel_id, ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
         #
@@ -52,8 +52,7 @@ module Knockapi
           )
         end
 
-        # Get a list of teams belonging to the Microsoft Entra tenant. By default,
-        # archived and private channels are excluded from the results.
+        # Get a list of teams belonging to the Microsoft Entra tenant
         #
         # @overload list_teams(channel_id, ms_teams_tenant_object:, query_options: nil, request_options: {})
         #

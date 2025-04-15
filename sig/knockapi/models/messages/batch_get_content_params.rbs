@@ -2,17 +2,17 @@ module Knockapi
   module Models
     module Messages
       type batch_get_content_params =
-        { message_ids: ::Array[String] }
+        { message_ids: ::Array[top] }
         & Knockapi::Internal::Type::request_parameters
 
       class BatchGetContentParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        attr_accessor message_ids: ::Array[String]
+        attr_accessor message_ids: ::Array[top]
 
         def initialize: (
-          message_ids: ::Array[String],
+          message_ids: ::Array[top],
           ?request_options: Knockapi::request_opts
         ) -> void
 

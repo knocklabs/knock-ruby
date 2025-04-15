@@ -3,9 +3,7 @@
 module Knockapi
   module Resources
     class Workflows
-      # When invoked for a workflow using a specific workflow key and cancellation key,
-      # will cancel any queued workflow runs associated with that key/cancellation key
-      # pair. Can optionally be provided one or more recipients to scope the request to.
+      # Issues a cancellation request to inflight workflow runs
       sig do
         params(
           key: String,
@@ -28,9 +26,7 @@ module Knockapi
         tenant: nil,
         request_options: {}
       ); end
-      # Trigger a workflow specified by the key to run for the given recipients, using
-      # the parameters provided. Returns an identifier for the workflow run request. All
-      # workflow runs are executed asynchronously.
+      # Triggers a workflow
       sig do
         params(
           key: String,
@@ -43,7 +39,7 @@ module Knockapi
             )
           ),
           cancellation_key: T.nilable(String),
-          data: T.nilable(T::Hash[Symbol, T.anything]),
+          data: T.nilable(T::Hash[Symbol, String]),
           recipients: T::Array[
             T.any(
               String,
@@ -70,8 +66,7 @@ module Knockapi
         # An optional map of data to be used in the workflow. This data will be available
         # to the workflow as a map in the `data` field.
         data: nil,
-        # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-        # single trigger.
+        # The recipients to trigger the workflow for.
         recipients: nil,
         # An inline tenant request
         tenant: nil,

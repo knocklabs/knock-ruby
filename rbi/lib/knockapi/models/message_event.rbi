@@ -14,14 +14,14 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (id, collection).
-      sig { returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)) }
+      sig { returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::UnionMember1)) }
       attr_accessor :recipient
 
       sig { returns(Knockapi::Models::MessageEvent::Type::TaggedSymbol) }
       attr_accessor :type
 
       # The data associated with the event. Only present for some event types
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      sig { returns(T.nilable(T.anything)) }
       attr_accessor :data
 
       # A single event that occurred for a message
@@ -30,9 +30,9 @@ module Knockapi
           id: String,
           _typename: String,
           inserted_at: Time,
-          recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference, Knockapi::Internal::AnyHash),
+          recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::UnionMember1, Knockapi::Internal::AnyHash),
           type: Knockapi::Models::MessageEvent::Type::OrSymbol,
-          data: T.nilable(T::Hash[Symbol, T.anything])
+          data: T.nilable(T.anything)
         )
           .returns(T.attached_class)
       end
@@ -45,9 +45,9 @@ module Knockapi
               id: String,
               _typename: String,
               inserted_at: Time,
-              recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference),
+              recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::UnionMember1),
               type: Knockapi::Models::MessageEvent::Type::TaggedSymbol,
-              data: T.nilable(T::Hash[Symbol, T.anything])
+              data: T.nilable(T.anything)
             }
           )
       end
@@ -58,7 +58,7 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           # An object identifier
           sig { returns(String) }
           attr_accessor :id
@@ -75,7 +75,7 @@ module Knockapi
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::UnionMember1]) }
         def self.variants; end
       end
 

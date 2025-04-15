@@ -25,60 +25,68 @@ module Knockapi
 
         type category =
           bool
-          | Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+          | Knockapi::Models::Recipients::PreferenceSetRequest::Category::UnionMember1
 
         module Category
           extend Knockapi::Internal::Type::Union
 
-          type preference_set_workflow_category_setting_object =
+          type union_member1 =
             {
               channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              conditions: ::Array[Knockapi::Models::Condition]?
+              conditions: ::Array[Knockapi::Models::Condition]
             }
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
+          class UnionMember1 < Knockapi::Internal::Type::BaseModel
             attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
 
-            attr_accessor conditions: ::Array[Knockapi::Models::Condition]?
+            attr_reader conditions: ::Array[Knockapi::Models::Condition]?
+
+            def conditions=: (
+              ::Array[Knockapi::Models::Condition]
+            ) -> ::Array[Knockapi::Models::Condition]
 
             def initialize: (
               ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              ?conditions: ::Array[Knockapi::Models::Condition]?
+              ?conditions: ::Array[Knockapi::Models::Condition]
             ) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Category::preference_set_workflow_category_setting_object
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Category::union_member1
           end
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Category::UnionMember1]
         end
 
         type workflow =
           bool
-          | Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+          | Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::UnionMember1
 
         module Workflow
           extend Knockapi::Internal::Type::Union
 
-          type preference_set_workflow_category_setting_object =
+          type union_member1 =
             {
               channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              conditions: ::Array[Knockapi::Models::Condition]?
+              conditions: ::Array[Knockapi::Models::Condition]
             }
 
-          class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
+          class UnionMember1 < Knockapi::Internal::Type::BaseModel
             attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
 
-            attr_accessor conditions: ::Array[Knockapi::Models::Condition]?
+            attr_reader conditions: ::Array[Knockapi::Models::Condition]?
+
+            def conditions=: (
+              ::Array[Knockapi::Models::Condition]
+            ) -> ::Array[Knockapi::Models::Condition]
 
             def initialize: (
               ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              ?conditions: ::Array[Knockapi::Models::Condition]?
+              ?conditions: ::Array[Knockapi::Models::Condition]
             ) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::preference_set_workflow_category_setting_object
+            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::union_member1
           end
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::UnionMember1]
         end
       end
     end

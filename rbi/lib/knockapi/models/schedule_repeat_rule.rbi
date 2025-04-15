@@ -6,13 +6,13 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :_typename
 
-      sig { returns(Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol) }
+      sig { returns(Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol) }
       attr_accessor :frequency
 
       sig { returns(T.nilable(Integer)) }
       attr_accessor :day_of_month
 
-      sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol])) }
       attr_accessor :days
 
       sig { returns(T.nilable(Integer)) }
@@ -56,9 +56,9 @@ module Knockapi
           .returns(
             {
               _typename: String,
-              frequency: Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol,
+              frequency: Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol,
               day_of_month: T.nilable(Integer),
-              days: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]),
+              days: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol]),
               hours: T.nilable(Integer),
               interval: Integer,
               minutes: T.nilable(Integer)

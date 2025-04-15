@@ -1,20 +1,13 @@
 module Knockapi
   module Models
     module Tenants
-      type bulk_set_params =
-        { tenants: ::Array[Knockapi::Models::inline_tenant_request] }
-        & Knockapi::Internal::Type::request_parameters
+      type bulk_set_params = {  } & Knockapi::Internal::Type::request_parameters
 
       class BulkSetParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        attr_accessor tenants: ::Array[Knockapi::Models::inline_tenant_request]
-
-        def initialize: (
-          tenants: ::Array[Knockapi::Models::inline_tenant_request],
-          ?request_options: Knockapi::request_opts
-        ) -> void
+        def initialize: (?request_options: Knockapi::request_opts) -> void
 
         def to_hash: -> Knockapi::Models::Tenants::bulk_set_params
       end

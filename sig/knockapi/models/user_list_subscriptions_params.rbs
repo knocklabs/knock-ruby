@@ -1,7 +1,12 @@
 module Knockapi
   module Models
     type user_list_subscriptions_params =
-      { after: String, before: String, page_size: Integer }
+      {
+        after: String,
+        before: String,
+        objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object],
+        page_size: Integer
+      }
       & Knockapi::Internal::Type::request_parameters
 
     class UserListSubscriptionsParams < Knockapi::Internal::Type::BaseModel
@@ -16,6 +21,12 @@ module Knockapi
 
       def before=: (String) -> String
 
+      attr_reader objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object]?
+
+      def objects=: (
+        ::Array[Knockapi::Models::UserListSubscriptionsParams::object]
+      ) -> ::Array[Knockapi::Models::UserListSubscriptionsParams::object]
+
       attr_reader page_size: Integer?
 
       def page_size=: (Integer) -> Integer
@@ -23,11 +34,34 @@ module Knockapi
       def initialize: (
         ?after: String,
         ?before: String,
+        ?objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> Knockapi::Models::user_list_subscriptions_params
+
+      type object =
+        String
+        | Knockapi::Models::UserListSubscriptionsParams::Object::UnionMember1
+
+      module Object
+        extend Knockapi::Internal::Type::Union
+
+        type union_member1 = { id: String, collection: String }
+
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+          attr_accessor id: String
+
+          attr_accessor collection: String
+
+          def initialize: (id: String, collection: String) -> void
+
+          def to_hash: -> Knockapi::Models::UserListSubscriptionsParams::Object::union_member1
+        end
+
+        def self?.variants: -> [String, Knockapi::Models::UserListSubscriptionsParams::Object::UnionMember1]
+      end
     end
   end
 end

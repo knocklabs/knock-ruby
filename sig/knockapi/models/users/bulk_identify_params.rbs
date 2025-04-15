@@ -2,19 +2,13 @@ module Knockapi
   module Models
     module Users
       type bulk_identify_params =
-        { users: ::Array[Knockapi::Models::InlineIdentifyUserRequest] }
-        & Knockapi::Internal::Type::request_parameters
+        {  } & Knockapi::Internal::Type::request_parameters
 
       class BulkIdentifyParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        attr_accessor users: ::Array[Knockapi::Models::InlineIdentifyUserRequest]
-
-        def initialize: (
-          users: ::Array[Knockapi::Models::InlineIdentifyUserRequest],
-          ?request_options: Knockapi::request_opts
-        ) -> void
+        def initialize: (?request_options: Knockapi::request_opts) -> void
 
         def to_hash: -> Knockapi::Models::Users::bulk_identify_params
       end

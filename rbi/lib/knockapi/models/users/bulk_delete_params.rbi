@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # The IDs of the users to delete
         sig { returns(T::Array[String]) }
         attr_accessor :user_ids
 

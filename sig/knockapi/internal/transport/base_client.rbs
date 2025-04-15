@@ -67,8 +67,6 @@ module Knockapi
           ?idempotency_header: String?
         ) -> void
 
-        private def auth_headers: -> ::Hash[String, String]
-
         private def generate_idempotency_key: -> String
 
         private def build_request: (

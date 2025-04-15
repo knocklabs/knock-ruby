@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Tenants
       class Bulk
-        # Bulk delete tenants
+        # Deletes tenants in bulk
         #
         # @overload delete(tenant_ids:, request_options: {})
         #
@@ -25,24 +25,21 @@ module Knockapi
           )
         end
 
-        # Bulk set tenants
+        # Sets tenants in bulk
         #
-        # @overload set(tenants:, request_options: {})
+        # @overload set(request_options: {})
         #
-        # @param tenants [Array<String, Knockapi::Models::TenantRequest>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Tenants::BulkSetParams
-        def set(params)
-          parsed, options = Knockapi::Models::Tenants::BulkSetParams.dump_request(params)
+        def set(params = {})
           @client.request(
             method: :post,
             path: "v1/tenants/bulk/set",
-            body: parsed,
             model: Knockapi::Models::BulkOperation,
-            options: options
+            options: params[:request_options]
           )
         end
 

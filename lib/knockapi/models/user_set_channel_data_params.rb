@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Users#set_channel_data
-    class UserSetChannelDataParams < Knockapi::Models::Recipients::ChannelDataRequest
+    class UserSetChannelDataParams < Knockapi::Internal::Type::BaseModel
       # @!parse
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters

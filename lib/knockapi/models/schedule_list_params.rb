@@ -47,12 +47,12 @@ module Knockapi
       # @!attribute [r] recipients
       #   Filter by recipient
       #
-      #   @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference>, nil]
+      #   @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1>, nil]
       optional :recipients,
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ScheduleListParams::Recipient] }
 
       # @!parse
-      #   # @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference>]
+      #   # @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1>]
       #   attr_writer :recipients
 
       # @!attribute [r] tenant
@@ -70,7 +70,7 @@ module Knockapi
       #   # @param after [String]
       #   # @param before [String]
       #   # @param page_size [Integer]
-      #   # @param recipients [Array<String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference>]
+      #   # @param recipients [Array<String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1>]
       #   # @param tenant [String]
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       #   #
@@ -87,9 +87,9 @@ module Knockapi
         variant String
 
         # An object reference to a recipient
-        variant -> { Knockapi::Models::ScheduleListParams::Recipient::ObjectReference }
+        variant -> { Knockapi::Models::ScheduleListParams::Recipient::UnionMember1 }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class UnionMember1 < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   An object identifier
           #
@@ -114,7 +114,7 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::ScheduleListParams::Recipient::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1)]
         #   def self.variants; end
       end
     end

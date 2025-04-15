@@ -3,33 +3,52 @@ module Knockapi
     module Providers
       type slack_list_channels_response =
         {
-          id: String,
-          context_team_id: String,
-          is_im: bool,
-          is_private: bool,
-          name: String
+          next_cursor: String?,
+          slack_channels: ::Array[Knockapi::Models::Providers::SlackListChannelsResponse::SlackChannel]
         }
 
       class SlackListChannelsResponse < Knockapi::Internal::Type::BaseModel
-        attr_accessor id: String
+        attr_accessor next_cursor: String?
 
-        attr_accessor context_team_id: String
-
-        attr_accessor is_im: bool
-
-        attr_accessor is_private: bool
-
-        attr_accessor name: String
+        attr_accessor slack_channels: ::Array[Knockapi::Models::Providers::SlackListChannelsResponse::SlackChannel]
 
         def initialize: (
-          id: String,
-          context_team_id: String,
-          is_im: bool,
-          is_private: bool,
-          name: String
+          next_cursor: String?,
+          slack_channels: ::Array[Knockapi::Models::Providers::SlackListChannelsResponse::SlackChannel]
         ) -> void
 
         def to_hash: -> Knockapi::Models::Providers::slack_list_channels_response
+
+        type slack_channel =
+          {
+            id: String,
+            context_team_id: String,
+            is_im: bool,
+            is_private: bool,
+            name: String
+          }
+
+        class SlackChannel < Knockapi::Internal::Type::BaseModel
+          attr_accessor id: String
+
+          attr_accessor context_team_id: String
+
+          attr_accessor is_im: bool
+
+          attr_accessor is_private: bool
+
+          attr_accessor name: String
+
+          def initialize: (
+            id: String,
+            context_team_id: String,
+            is_im: bool,
+            is_private: bool,
+            name: String
+          ) -> void
+
+          def to_hash: -> Knockapi::Models::Providers::SlackListChannelsResponse::slack_channel
+        end
       end
     end
   end

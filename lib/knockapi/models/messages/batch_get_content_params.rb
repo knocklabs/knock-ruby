@@ -12,11 +12,11 @@ module Knockapi
         # @!attribute message_ids
         #   The IDs of the messages to fetch contents of
         #
-        #   @return [Array<String>]
-        required :message_ids, Knockapi::Internal::Type::ArrayOf[String]
+        #   @return [Array<Object>]
+        required :message_ids, Knockapi::Internal::Type::ArrayOf[Knockapi::Internal::Type::Unknown]
 
         # @!parse
-        #   # @param message_ids [Array<String>]
+        #   # @param message_ids [Array<Object>]
         #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(message_ids:, request_options: {}, **) = super
