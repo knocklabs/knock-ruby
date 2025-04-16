@@ -22,29 +22,6 @@ module Knockapi
       # @return [PageInfo]
       attr_accessor :page_info
 
-      # @api private
-      #
-      # @param client [Knockapi::Internal::Transport::BaseClient]
-      # @param req [Hash{Symbol=>Object}]
-      # @param headers [Hash{String=>String}, Net::HTTPHeader]
-      # @param page_data [Hash{Symbol=>Object}]
-      def initialize(client:, req:, headers:, page_data:)
-        super
-
-        case page_data
-        in {entries: Array | nil => entries}
-          @entries = entries&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
-        else
-        end
-
-        case page_data
-        in {page_info: Hash | nil => page_info}
-          @page_info =
-            Knockapi::Internal::Type::Converter.coerce(Knockapi::Internal::EntriesCursor::PageInfo, page_info)
-        else
-        end
-      end
-
       # @return [Boolean]
       def next_page?
         !page_info&.after.nil?
@@ -81,11 +58,33 @@ module Knockapi
 
       # @api private
       #
+      # @param client [Knockapi::Internal::Transport::BaseClient]
+      # @param req [Hash{Symbol=>Object}]
+      # @param headers [Hash{String=>String}, Net::HTTPHeader]
+      # @param page_data [Hash{Symbol=>Object}]
+      def initialize(client:, req:, headers:, page_data:)
+        super
+
+        case page_data
+        in {entries: Array | nil => entries}
+          @entries = entries&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
+        else
+        end
+        case page_data
+        in {page_info: Hash | nil => page_info}
+          @page_info =
+            Knockapi::Internal::Type::Converter.coerce(Knockapi::Internal::EntriesCursor::PageInfo, page_info)
+        else
+        end
+      end
+
+      # @api private
+      #
       # @return [String]
       def inspect
         model = Knockapi::Internal::Type::Converter.inspect(@model, depth: 1)
 
-        "#<#{self.class}[#{model}]:0x#{object_id.to_s(16)} page_info=#{page_info.inspect}>"
+        "#<#{self.class}[#{model}]:0x#{object_id.to_s(16)}>"
       end
 
       class PageInfo < Knockapi::Internal::Type::BaseModel

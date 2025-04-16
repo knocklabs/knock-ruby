@@ -22,28 +22,6 @@ module Knockapi
       # @return [Array<generic<Elem>>, nil]
       attr_accessor :slack_channels
 
-      # @api private
-      #
-      # @param client [Knockapi::Internal::Transport::BaseClient]
-      # @param req [Hash{Symbol=>Object}]
-      # @param headers [Hash{String=>String}, Net::HTTPHeader]
-      # @param page_data [Hash{Symbol=>Object}]
-      def initialize(client:, req:, headers:, page_data:)
-        super
-
-        case page_data
-        in {next_cursor: String | nil => next_cursor}
-          @next_cursor = next_cursor
-        else
-        end
-
-        case page_data
-        in {slack_channels: Array | nil => slack_channels}
-          @slack_channels = slack_channels&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
-        else
-        end
-      end
-
       # @return [Boolean]
       def next_page?
         !next_cursor.nil?
@@ -75,6 +53,23 @@ module Knockapi
 
           break unless page.next_page?
           page = page.next_page
+        end
+      end
+
+      # @api private
+      #
+      # @param client [Knockapi::Internal::Transport::BaseClient]
+      # @param req [Hash{Symbol=>Object}]
+      # @param headers [Hash{String=>String}, Net::HTTPHeader]
+      # @param page_data [Hash{Symbol=>Object}]
+      def initialize(client:, req:, headers:, page_data:)
+        super
+
+        @next_cursor = page_data[:next_cursor]
+        case page_data
+        in {slack_channels: Array | nil => slack_channels}
+          @slack_channels = slack_channels&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
+        else
         end
       end
 
