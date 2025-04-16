@@ -37,9 +37,9 @@ module Knockapi
         #
         # @return [Boolean]
         def ==(other)
-          # rubocop:disable Layout/LineLength
-          other.is_a?(Module) && other.singleton_class <= Knockapi::Internal::Type::Enum && other.values.to_set == values.to_set
-          # rubocop:enable Layout/LineLength
+          # rubocop:disable Style/CaseEquality
+          Knockapi::Internal::Type::Enum === other && other.values.to_set == values.to_set
+          # rubocop:enable Style/CaseEquality
         end
 
         # @api private
