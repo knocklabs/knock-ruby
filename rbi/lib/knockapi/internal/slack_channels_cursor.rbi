@@ -13,6 +13,7 @@ module Knockapi
       sig { returns(T.nilable(T::Array[Elem])) }
       attr_accessor :slack_channels
 
+      # @api private
       sig { returns(String) }
       def inspect; end
     end

@@ -13,6 +13,7 @@ module Knockapi
       sig { returns(PageInfo) }
       attr_accessor :page_info
 
+      # @api private
       sig { returns(String) }
       def inspect; end
 

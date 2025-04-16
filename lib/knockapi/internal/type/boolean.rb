@@ -11,6 +11,8 @@ module Knockapi
       class Boolean
         extend Knockapi::Internal::Type::Converter
 
+        private_class_method :new
+
         # @param other [Object]
         #
         # @return [Boolean]

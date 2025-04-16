@@ -49,6 +49,15 @@ module Knockapi
           end
         end
 
+        # @api private
+        #
+        # @param depth [Integer]
+        #
+        # @return [String]
+        def inspect(depth: 0)
+          super()
+        end
+
         # rubocop:enable Lint/UnusedMethodArgument
 
         class << self
@@ -238,6 +247,21 @@ module Knockapi
               target.dump(value, state: state)
             else
               Knockapi::Internal::Type::Unknown.dump(value, state: state)
+            end
+          end
+
+          # @api private
+          #
+          # @param target [Object]
+          # @param depth [Integer]
+          #
+          # @return [String]
+          def inspect(target, depth:)
+            case target
+            in Knockapi::Internal::Type::Converter
+              target.inspect(depth: depth.succ)
+            else
+              target.inspect
             end
           end
         end

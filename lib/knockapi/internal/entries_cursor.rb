@@ -30,11 +30,10 @@ module Knockapi
       # @param page_data [Hash{Symbol=>Object}]
       def initialize(client:, req:, headers:, page_data:)
         super
-        model = req.fetch(:model)
 
         case page_data
         in {entries: Array | nil => entries}
-          @entries = entries&.map { Knockapi::Internal::Type::Converter.coerce(model, _1) }
+          @entries = entries&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
         else
         end
 
@@ -70,17 +69,23 @@ module Knockapi
         unless block_given?
           raise ArgumentError.new("A block must be given to ##{__method__}")
         end
+
         page = self
         loop do
-          page.entries&.each { blk.call(_1) }
+          page.entries&.each(&blk)
+
           break unless page.next_page?
           page = page.next_page
         end
       end
 
+      # @api private
+      #
       # @return [String]
       def inspect
-        "#<#{self.class}:0x#{object_id.to_s(16)} entries=#{entries.inspect} page_info=#{page_info.inspect}>"
+        model = Knockapi::Internal::Type::Converter.inspect(@model, depth: 1)
+
+        "#<#{self.class}[#{model}]:0x#{object_id.to_s(16)} page_info=#{page_info.inspect}>"
       end
 
       class PageInfo < Knockapi::Internal::Type::BaseModel
