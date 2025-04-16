@@ -18,12 +18,6 @@ To use this gem, install via Bundler by adding the following to your application
 gem "knockapi", "~> 0.0.1.pre.alpha.0"
 ```
 
-To fetch an initial copy of the gem:
-
-```sh
-bundle install
-```
-
 ## Usage
 
 ```ruby
@@ -32,14 +26,13 @@ require "knockapi"
 
 knock = Knockapi::Client.new(bearer_token: "My Bearer Token")
 
-response =
-  knock.workflows.trigger(
-    "dinosaurs-loose",
-    data: {
-      dinosaur: "triceratops"
-    },
-    recipients: ["dnedry"]
-  )
+response = knock.workflows.trigger(
+  "dinosaurs-loose",
+  data: {
+    dinosaur: "triceratops"
+  },
+  recipients: ["dnedry"]
+)
 
 puts(response.workflow_run_id)
 ```
@@ -65,7 +58,7 @@ end
 
 ### Errors
 
-When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `Knockapi::Error` will be thrown:
+When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `Knockapi::Errors::APIError` will be thrown:
 
 ```ruby
 begin
@@ -165,14 +158,13 @@ Due to limitations with the Sorbet type system, where a method otherwise can tak
 Please follow Sorbet's [setup guides](https://sorbet.org/docs/adopting) for best experience.
 
 ```ruby
-params =
-  Knockapi::Models::WorkflowTriggerParams.new(
-    "dinosaurs-loose",
-    data: {
-      dinosaur: "triceratops"
-    },
-    recipients: ["dnedry"]
-  )
+params = Knockapi::Models::WorkflowTriggerParams.new(
+  "dinosaurs-loose",
+  data: {
+    dinosaur: "triceratops"
+  },
+  recipients: ["dnedry"]
+)
 
 knock.workflows.trigger(**params)
 ```
@@ -200,8 +192,7 @@ If you want to explicitly send an extra param, you can do so with the `extra_que
 To make requests to undocumented endpoints, you can make requests using `client.request`. Options on the client will be respected (such as retries) when making this request.
 
 ```ruby
-response =
-  client.request(
+response = client.request(
     method: :post,
     path: '/undocumented/endpoint',
     query: {"dog": "woof"},
