@@ -3,11 +3,15 @@
 module Knockapi
   module Models
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
-      # @!attribute id
+      # @!attribute [r] id
       #   The unique identifier for the user.
       #
-      #   @return [String]
-      required :id, String
+      #   @return [String, nil]
+      optional :id, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :id
 
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
@@ -42,7 +46,7 @@ module Knockapi
       #   # @param created_at [Time, nil]
       #   # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       #   #
-      #   def initialize(id:, channel_data: nil, created_at: nil, preferences: nil, **) = super
+      #   def initialize(id: nil, channel_data: nil, created_at: nil, preferences: nil, **) = super
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end

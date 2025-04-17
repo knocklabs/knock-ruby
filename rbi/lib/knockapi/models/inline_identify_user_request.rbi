@@ -4,8 +4,11 @@ module Knockapi
   module Models
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # The unique identifier for the user.
-      sig { returns(String) }
-      attr_accessor :id
+      sig { returns(T.nilable(String)) }
+      attr_reader :id
+
+      sig { params(id: String).void }
+      attr_writer :id
 
       # A request to set channel data for a type of channel inline.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
@@ -36,7 +39,7 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, channel_data: nil, created_at: nil, preferences: nil); end
+      def self.new(id: nil, channel_data: nil, created_at: nil, preferences: nil); end
 
       sig do
         override

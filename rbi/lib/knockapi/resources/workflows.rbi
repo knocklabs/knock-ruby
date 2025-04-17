@@ -60,7 +60,7 @@ module Knockapi
           .returns(Knockapi::Models::WorkflowTriggerResponse)
       end
       def trigger(
-        # Workflow key.
+        # Key of the workflow to trigger.
         key,
         # Specifies a recipient in a request. This can either be a user identifier
         # (string), an inline user request (object), or an inline object request, which is

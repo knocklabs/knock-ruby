@@ -9,7 +9,9 @@ module Knockapi
       }
 
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
-      attr_accessor id: String
+      attr_reader id: String?
+
+      def id=: (String) -> String
 
       attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
 
@@ -18,7 +20,7 @@ module Knockapi
       attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
 
       def initialize: (
-        id: String,
+        ?id: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?created_at: Time?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
