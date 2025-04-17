@@ -12,7 +12,7 @@ module Knockapi
       #   The recipients to trigger the workflow for. Can inline identify users, objects,
       #   or use a list of user ids. Cannot exceed 1000 recipients in a single trigger.
       #
-      #   @return [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference>]
+      #   @return [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
       required :recipients,
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ScheduleCreateParams::Recipient] }
 
@@ -53,7 +53,7 @@ module Knockapi
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
       # @!parse
-      #   # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference>]
+      #   # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
       #   # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
       #   # @param workflow [String]
       #   # @param data [Hash{Symbol=>Object}, nil]
@@ -86,10 +86,10 @@ module Knockapi
         # An identifier for a user recipient.
         variant String
 
-        # A reference to a recipient, either a user identifier (string) or an object reference (id, collection).
-        variant -> { Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference }
+        # A reference to a recipient object.
+        variant -> { Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference }
 
-        class RecipientReference < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] id
           #   An identifier for the recipient object.
           #
@@ -111,8 +111,7 @@ module Knockapi
           #   attr_writer :collection
 
           # @!parse
-          #   # A reference to a recipient, either a user identifier (string) or an object
-          #   # reference (id, collection).
+          #   # A reference to a recipient object.
           #   #
           #   # @param id [String]
           #   # @param collection [String]
@@ -123,7 +122,7 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference)]
+        #   # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
         #   def self.variants; end
       end
     end

@@ -30,9 +30,7 @@ module Knockapi
       # Objects to filter by.
       sig do
         returns(
-          T.nilable(
-            T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference)]
-          )
+          T.nilable(T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference)])
         )
       end
       attr_reader :objects
@@ -42,7 +40,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference,
+              Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference,
               Knockapi::Internal::AnyHash
             )
           ]
@@ -66,7 +64,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference,
+              Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference,
               Knockapi::Internal::AnyHash
             )
           ],
@@ -85,7 +83,7 @@ module Knockapi
               after: String,
               before: String,
               include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
-              objects: T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference)],
+              objects: T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference)],
               page_size: Integer,
               request_options: Knockapi::RequestOptions
             }
@@ -111,7 +109,7 @@ module Knockapi
       module Object
         extend Knockapi::Internal::Type::Union
 
-        class RecipientReference < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An identifier for the recipient object.
           sig { returns(T.nilable(String)) }
           attr_reader :id
@@ -126,8 +124,7 @@ module Knockapi
           sig { params(collection: String).void }
           attr_writer :collection
 
-          # A reference to a recipient, either a user identifier (string) or an object
-          # reference (id, collection).
+          # A reference to a recipient object.
           sig { params(id: String, collection: String).returns(T.attached_class) }
           def self.new(id: nil, collection: nil); end
 
@@ -135,7 +132,7 @@ module Knockapi
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference]) }
+        sig { override.returns([String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference]) }
         def self.variants; end
       end
     end

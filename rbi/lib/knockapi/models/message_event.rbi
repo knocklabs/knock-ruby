@@ -17,7 +17,7 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (id, collection).
-      sig { returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::RecipientReference)) }
+      sig { returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)) }
       attr_accessor :recipient
 
       # The type of event that occurred.
@@ -34,7 +34,7 @@ module Knockapi
           id: String,
           _typename: String,
           inserted_at: Time,
-          recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::RecipientReference, Knockapi::Internal::AnyHash),
+          recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference, Knockapi::Internal::AnyHash),
           type: Knockapi::Models::MessageEvent::Type::OrSymbol,
           data: T.nilable(T::Hash[Symbol, T.anything])
         )
@@ -49,7 +49,7 @@ module Knockapi
               id: String,
               _typename: String,
               inserted_at: Time,
-              recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::RecipientReference),
+              recipient: T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference),
               type: Knockapi::Models::MessageEvent::Type::TaggedSymbol,
               data: T.nilable(T::Hash[Symbol, T.anything])
             }
@@ -62,7 +62,7 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        class RecipientReference < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # An identifier for the recipient object.
           sig { returns(T.nilable(String)) }
           attr_reader :id
@@ -77,8 +77,7 @@ module Knockapi
           sig { params(collection: String).void }
           attr_writer :collection
 
-          # A reference to a recipient, either a user identifier (string) or an object
-          # reference (id, collection).
+          # A reference to a recipient object.
           sig { params(id: String, collection: String).returns(T.attached_class) }
           def self.new(id: nil, collection: nil); end
 
@@ -86,7 +85,7 @@ module Knockapi
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::RecipientReference]) }
+        sig { override.returns([String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]) }
         def self.variants; end
       end
 

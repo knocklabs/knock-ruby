@@ -29,7 +29,7 @@ module Knockapi
       #   attr_writer :before
 
       # @!attribute [r] channel_id
-      #   The unique identifier for the channel.
+      #   Limits the results to items with the corresponding channel id.
       #
       #   @return [String, nil]
       optional :channel_id, String
@@ -39,7 +39,8 @@ module Knockapi
       #   attr_writer :channel_id
 
       # @!attribute [r] engagement_status
-      #   The engagement status to filter messages by.
+      #   One or more of `read`, `seen`, `interacted`, `link_clicked`, `archived`. Limits
+      #   results to messages with the given engagement status(es).
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>, nil]
       optional :engagement_status,
@@ -50,7 +51,8 @@ module Knockapi
       #   attr_writer :engagement_status
 
       # @!attribute [r] message_ids
-      #   The message IDs to filter messages by.
+      #   Limits the results to only the message ids given (max 50). Note: when using this
+      #   option, the results will be subject to any other filters applied to the query.
       #
       #   @return [Array<String>, nil]
       optional :message_ids, Knockapi::Internal::Type::ArrayOf[String]
@@ -70,7 +72,7 @@ module Knockapi
       #   attr_writer :page_size
 
       # @!attribute [r] source
-      #   The source of the message (workflow key).
+      #   Limits the results to only items of the source workflow.
       #
       #   @return [String, nil]
       optional :source, String
@@ -80,7 +82,9 @@ module Knockapi
       #   attr_writer :source
 
       # @!attribute [r] status
-      #   The delivery status to filter messages by.
+      #   One or more of `queued`, `sent`, `delivered`, `delivery_attempted`,
+      #   `undelivered`, `bounced`, `not_sent`. Limits results to messages with the given
+      #   delivery status(es).
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::Status>, nil]
       optional :status,
@@ -91,7 +95,8 @@ module Knockapi
       #   attr_writer :status
 
       # @!attribute [r] tenant
-      #   The unique identifier for the tenant.
+      #   Limits the results to items with the corresponding tenant, or where the tenant
+      #   is empty.
       #
       #   @return [String, nil]
       optional :tenant, String
@@ -101,7 +106,7 @@ module Knockapi
       #   attr_writer :tenant
 
       # @!attribute [r] trigger_data
-      #   The trigger data to filter messages by. Must be a valid JSON object.
+      #   Limits the results to only items that were generated with the given data.
       #
       #   @return [String, nil]
       optional :trigger_data, String
@@ -111,7 +116,7 @@ module Knockapi
       #   attr_writer :trigger_data
 
       # @!attribute [r] workflow_categories
-      #   The workflow categories to filter messages by.
+      #   Limits the results to only items related to any of the provided categories.
       #
       #   @return [Array<String>, nil]
       optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
@@ -121,7 +126,7 @@ module Knockapi
       #   attr_writer :workflow_categories
 
       # @!attribute [r] workflow_recipient_run_id
-      #   The workflow recipient run ID to filter messages by.
+      #   Limits the results to messages for a specific recipient's workflow run.
       #
       #   @return [String, nil]
       optional :workflow_recipient_run_id, String
@@ -131,7 +136,7 @@ module Knockapi
       #   attr_writer :workflow_recipient_run_id
 
       # @!attribute [r] workflow_run_id
-      #   The workflow run ID to filter messages by.
+      #   Limits the results to messages triggered by the top-level workflow run ID.
       #
       #   @return [String, nil]
       optional :workflow_run_id, String

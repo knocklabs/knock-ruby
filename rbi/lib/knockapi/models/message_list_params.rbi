@@ -20,21 +20,23 @@ module Knockapi
       sig { params(before: String).void }
       attr_writer :before
 
-      # The unique identifier for the channel.
+      # Limits the results to items with the corresponding channel id.
       sig { returns(T.nilable(String)) }
       attr_reader :channel_id
 
       sig { params(channel_id: String).void }
       attr_writer :channel_id
 
-      # The engagement status to filter messages by.
+      # One or more of `read`, `seen`, `interacted`, `link_clicked`, `archived`. Limits
+      # results to messages with the given engagement status(es).
       sig { returns(T.nilable(T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol])) }
       attr_reader :engagement_status
 
       sig { params(engagement_status: T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol]).void }
       attr_writer :engagement_status
 
-      # The message IDs to filter messages by.
+      # Limits the results to only the message ids given (max 50). Note: when using this
+      # option, the results will be subject to any other filters applied to the query.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :message_ids
 
@@ -48,49 +50,52 @@ module Knockapi
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
-      # The source of the message (workflow key).
+      # Limits the results to only items of the source workflow.
       sig { returns(T.nilable(String)) }
       attr_reader :source
 
       sig { params(source: String).void }
       attr_writer :source
 
-      # The delivery status to filter messages by.
+      # One or more of `queued`, `sent`, `delivered`, `delivery_attempted`,
+      # `undelivered`, `bounced`, `not_sent`. Limits results to messages with the given
+      # delivery status(es).
       sig { returns(T.nilable(T::Array[Knockapi::Models::MessageListParams::Status::OrSymbol])) }
       attr_reader :status
 
       sig { params(status: T::Array[Knockapi::Models::MessageListParams::Status::OrSymbol]).void }
       attr_writer :status
 
-      # The unique identifier for the tenant.
+      # Limits the results to items with the corresponding tenant, or where the tenant
+      # is empty.
       sig { returns(T.nilable(String)) }
       attr_reader :tenant
 
       sig { params(tenant: String).void }
       attr_writer :tenant
 
-      # The trigger data to filter messages by. Must be a valid JSON object.
+      # Limits the results to only items that were generated with the given data.
       sig { returns(T.nilable(String)) }
       attr_reader :trigger_data
 
       sig { params(trigger_data: String).void }
       attr_writer :trigger_data
 
-      # The workflow categories to filter messages by.
+      # Limits the results to only items related to any of the provided categories.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :workflow_categories
 
       sig { params(workflow_categories: T::Array[String]).void }
       attr_writer :workflow_categories
 
-      # The workflow recipient run ID to filter messages by.
+      # Limits the results to messages for a specific recipient's workflow run.
       sig { returns(T.nilable(String)) }
       attr_reader :workflow_recipient_run_id
 
       sig { params(workflow_recipient_run_id: String).void }
       attr_writer :workflow_recipient_run_id
 
-      # The workflow run ID to filter messages by.
+      # Limits the results to messages triggered by the top-level workflow run ID.
       sig { returns(T.nilable(String)) }
       attr_reader :workflow_run_id
 

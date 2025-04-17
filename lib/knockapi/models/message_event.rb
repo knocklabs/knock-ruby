@@ -26,7 +26,7 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       #
-      #   @return [String, Knockapi::Models::MessageEvent::Recipient::RecipientReference]
+      #   @return [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
       required :recipient, union: -> { Knockapi::Models::MessageEvent::Recipient }
 
       # @!attribute type
@@ -47,7 +47,7 @@ module Knockapi
       #   # @param id [String]
       #   # @param _typename [String]
       #   # @param inserted_at [Time]
-      #   # @param recipient [String, Knockapi::Models::MessageEvent::Recipient::RecipientReference]
+      #   # @param recipient [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
       #   # @param type [Symbol, Knockapi::Models::MessageEvent::Type]
       #   # @param data [Hash{Symbol=>Object}, nil]
       #   #
@@ -65,10 +65,10 @@ module Knockapi
         # An identifier for a user recipient.
         variant String
 
-        # A reference to a recipient, either a user identifier (string) or an object reference (id, collection).
-        variant -> { Knockapi::Models::MessageEvent::Recipient::RecipientReference }
+        # A reference to a recipient object.
+        variant -> { Knockapi::Models::MessageEvent::Recipient::ObjectReference }
 
-        class RecipientReference < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] id
           #   An identifier for the recipient object.
           #
@@ -90,8 +90,7 @@ module Knockapi
           #   attr_writer :collection
 
           # @!parse
-          #   # A reference to a recipient, either a user identifier (string) or an object
-          #   # reference (id, collection).
+          #   # A reference to a recipient object.
           #   #
           #   # @param id [String]
           #   # @param collection [String]
@@ -102,7 +101,7 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::MessageEvent::Recipient::RecipientReference)]
+        #   # @return [Array(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)]
         #   def self.variants; end
       end
 

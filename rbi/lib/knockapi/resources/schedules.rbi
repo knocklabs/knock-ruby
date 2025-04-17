@@ -10,7 +10,7 @@ module Knockapi
           recipients: T::Array[
             T.any(
               String,
-              Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference,
+              Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
               Knockapi::Internal::AnyHash
             )
           ],

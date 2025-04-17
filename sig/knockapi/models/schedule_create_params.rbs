@@ -45,14 +45,14 @@ module Knockapi
 
       type recipient =
         String
-        | Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference
+        | Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type recipient_reference = { id: String, collection: String }
+        type object_reference = { id: String, collection: String }
 
-        class RecipientReference < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_reader id: String?
 
           def id=: (String) -> String
@@ -63,10 +63,10 @@ module Knockapi
 
           def initialize: (?id: String, ?collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::ScheduleCreateParams::Recipient::recipient_reference
+          def to_hash: -> Knockapi::Models::ScheduleCreateParams::Recipient::object_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference]
+        def self?.variants: -> [String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]
       end
     end
   end
