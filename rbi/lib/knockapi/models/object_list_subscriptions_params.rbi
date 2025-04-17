@@ -38,7 +38,7 @@ module Knockapi
       sig do
         returns(
           T.nilable(
-            T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
+            T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference)]
           )
         )
       end
@@ -49,7 +49,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ]
@@ -69,7 +69,7 @@ module Knockapi
       sig do
         returns(
           T.nilable(
-            T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
+            T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference)]
           )
         )
       end
@@ -80,7 +80,7 @@ module Knockapi
           recipients: T::Array[
             T.any(
               String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
+              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ]
@@ -98,7 +98,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ],
@@ -106,7 +106,7 @@ module Knockapi
           recipients: T::Array[
             T.any(
               String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
+              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ],
@@ -132,9 +132,9 @@ module Knockapi
               before: String,
               include: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol],
               mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
-              objects: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)],
+              objects: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference)],
               page_size: Integer,
-              recipients: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)],
+              recipients: T::Array[T.any(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference)],
               request_options: Knockapi::RequestOptions
             }
           )
@@ -174,24 +174,31 @@ module Knockapi
       module Object
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
           # An identifier for the recipient object.
-          sig { returns(String) }
-          attr_accessor :id
+          sig { returns(T.nilable(String)) }
+          attr_reader :id
+
+          sig { params(id: String).void }
+          attr_writer :id
 
           # The collection the recipient object belongs to.
-          sig { returns(String) }
-          attr_accessor :collection
+          sig { returns(T.nilable(String)) }
+          attr_reader :collection
 
-          # An object reference to a recipient.
+          sig { params(collection: String).void }
+          attr_writer :collection
+
+          # A reference to a recipient, either a user identifier (string) or an object
+          # reference (id, collection).
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:); end
+          def self.new(id: nil, collection: nil); end
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference]) }
         def self.variants; end
       end
 
@@ -200,24 +207,31 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
           # An identifier for the recipient object.
-          sig { returns(String) }
-          attr_accessor :id
+          sig { returns(T.nilable(String)) }
+          attr_reader :id
+
+          sig { params(id: String).void }
+          attr_writer :id
 
           # The collection the recipient object belongs to.
-          sig { returns(String) }
-          attr_accessor :collection
+          sig { returns(T.nilable(String)) }
+          attr_reader :collection
 
-          # An object reference to a recipient.
+          sig { params(collection: String).void }
+          attr_writer :collection
+
+          # A reference to a recipient, either a user identifier (string) or an object
+          # reference (id, collection).
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:); end
+          def self.new(id: nil, collection: nil); end
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference]) }
         def self.variants; end
       end
     end

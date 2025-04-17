@@ -27,11 +27,11 @@ module Knockapi
       # @!attribute [r] actors
       #   A list of messages.
       #
-      #   @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>, nil]
+      #   @return [Array<String, Knockapi::Models::Message::Actor::RecipientReference>, nil]
       optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor] }
 
       # @!parse
-      #   # @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
+      #   # @return [Array<String, Knockapi::Models::Message::Actor::RecipientReference>]
       #   attr_writer :actors
 
       # @!attribute archived_at
@@ -111,11 +111,11 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       #
-      #   @return [String, Knockapi::Models::Message::Recipient::ObjectReference, nil]
+      #   @return [String, Knockapi::Models::Message::Recipient::RecipientReference, nil]
       optional :recipient, union: -> { Knockapi::Models::Message::Recipient }
 
       # @!parse
-      #   # @return [String, Knockapi::Models::Message::Recipient::ObjectReference]
+      #   # @return [String, Knockapi::Models::Message::Recipient::RecipientReference]
       #   attr_writer :recipient
 
       # @!attribute scheduled_at
@@ -179,7 +179,7 @@ module Knockapi
       #   #
       #   # @param id [String]
       #   # @param _typename [String]
-      #   # @param actors [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
+      #   # @param actors [Array<String, Knockapi::Models::Message::Actor::RecipientReference>]
       #   # @param archived_at [Time, nil]
       #   # @param channel_id [String]
       #   # @param clicked_at [Time, nil]
@@ -190,7 +190,7 @@ module Knockapi
       #   # @param link_clicked_at [Time, nil]
       #   # @param metadata [Hash{Symbol=>Object}, nil]
       #   # @param read_at [Time, nil]
-      #   # @param recipient [String, Knockapi::Models::Message::Recipient::ObjectReference]
+      #   # @param recipient [String, Knockapi::Models::Message::Recipient::RecipientReference]
       #   # @param scheduled_at [Time, nil]
       #   # @param seen_at [Time, nil]
       #   # @param source [Knockapi::Models::Message::Source]
@@ -236,35 +236,44 @@ module Knockapi
         # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient.
-        variant -> { Knockapi::Models::Message::Actor::ObjectReference }
+        # A reference to a recipient, either a user identifier (string) or an object reference (id, collection).
+        variant -> { Knockapi::Models::Message::Actor::RecipientReference }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          # @!attribute [r] id
           #   An identifier for the recipient object.
           #
-          #   @return [String]
-          required :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String]
-          required :collection, String
+          #   @return [String, nil]
+          optional :id, String
 
           # @!parse
-          #   # An object reference to a recipient.
+          #   # @return [String]
+          #   attr_writer :id
+
+          # @!attribute [r] collection
+          #   The collection the recipient object belongs to.
+          #
+          #   @return [String, nil]
+          optional :collection, String
+
+          # @!parse
+          #   # @return [String]
+          #   attr_writer :collection
+
+          # @!parse
+          #   # A reference to a recipient, either a user identifier (string) or an object
+          #   # reference (id, collection).
           #   #
           #   # @param id [String]
           #   # @param collection [String]
           #   #
-          #   def initialize(id:, collection:, **) = super
+          #   def initialize(id: nil, collection: nil, **) = super
 
           # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::Message::Actor::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::Message::Actor::RecipientReference)]
         #   def self.variants; end
       end
 
@@ -296,35 +305,44 @@ module Knockapi
         # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient.
-        variant -> { Knockapi::Models::Message::Recipient::ObjectReference }
+        # A reference to a recipient, either a user identifier (string) or an object reference (id, collection).
+        variant -> { Knockapi::Models::Message::Recipient::RecipientReference }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          # @!attribute [r] id
           #   An identifier for the recipient object.
           #
-          #   @return [String]
-          required :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String]
-          required :collection, String
+          #   @return [String, nil]
+          optional :id, String
 
           # @!parse
-          #   # An object reference to a recipient.
+          #   # @return [String]
+          #   attr_writer :id
+
+          # @!attribute [r] collection
+          #   The collection the recipient object belongs to.
+          #
+          #   @return [String, nil]
+          optional :collection, String
+
+          # @!parse
+          #   # @return [String]
+          #   attr_writer :collection
+
+          # @!parse
+          #   # A reference to a recipient, either a user identifier (string) or an object
+          #   # reference (id, collection).
           #   #
           #   # @param id [String]
           #   # @param collection [String]
           #   #
-          #   def initialize(id:, collection:, **) = super
+          #   def initialize(id: nil, collection: nil, **) = super
 
           # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::Message::Recipient::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::Message::Recipient::RecipientReference)]
         #   def self.variants; end
       end
 

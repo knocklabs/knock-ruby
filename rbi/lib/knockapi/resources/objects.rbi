@@ -266,7 +266,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ],
@@ -274,7 +274,7 @@ module Knockapi
           recipients: T::Array[
             T.any(
               String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
+              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ],

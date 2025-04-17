@@ -18,12 +18,12 @@ module Knockapi
       attr_writer :_typename
 
       # A list of messages.
-      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)])) }
+      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::Message::Actor::RecipientReference)])) }
       attr_reader :actors
 
       sig do
         params(
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::AnyHash)]
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::RecipientReference, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -80,12 +80,12 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (id, collection).
-      sig { returns(T.nilable(T.any(String, Knockapi::Models::Message::Recipient::ObjectReference))) }
+      sig { returns(T.nilable(T.any(String, Knockapi::Models::Message::Recipient::RecipientReference))) }
       attr_reader :recipient
 
       sig do
         params(
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::AnyHash)
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::RecipientReference, Knockapi::Internal::AnyHash)
         )
           .void
       end
@@ -135,7 +135,7 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference, Knockapi::Internal::AnyHash)],
+          actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::RecipientReference, Knockapi::Internal::AnyHash)],
           archived_at: T.nilable(Time),
           channel_id: String,
           clicked_at: T.nilable(Time),
@@ -146,7 +146,7 @@ module Knockapi
           link_clicked_at: T.nilable(Time),
           metadata: T.nilable(T::Hash[Symbol, T.anything]),
           read_at: T.nilable(Time),
-          recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference, Knockapi::Internal::AnyHash),
+          recipient: T.any(String, Knockapi::Models::Message::Recipient::RecipientReference, Knockapi::Internal::AnyHash),
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
           source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::AnyHash),
@@ -186,7 +186,7 @@ module Knockapi
             {
               id: String,
               _typename: String,
-              actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::ObjectReference)],
+              actors: T::Array[T.any(String, Knockapi::Models::Message::Actor::RecipientReference)],
               archived_at: T.nilable(Time),
               channel_id: String,
               clicked_at: T.nilable(Time),
@@ -197,7 +197,7 @@ module Knockapi
               link_clicked_at: T.nilable(Time),
               metadata: T.nilable(T::Hash[Symbol, T.anything]),
               read_at: T.nilable(Time),
-              recipient: T.any(String, Knockapi::Models::Message::Recipient::ObjectReference),
+              recipient: T.any(String, Knockapi::Models::Message::Recipient::RecipientReference),
               scheduled_at: T.nilable(Time),
               seen_at: T.nilable(Time),
               source: Knockapi::Models::Message::Source,
@@ -215,24 +215,31 @@ module Knockapi
       module Actor
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
           # An identifier for the recipient object.
-          sig { returns(String) }
-          attr_accessor :id
+          sig { returns(T.nilable(String)) }
+          attr_reader :id
+
+          sig { params(id: String).void }
+          attr_writer :id
 
           # The collection the recipient object belongs to.
-          sig { returns(String) }
-          attr_accessor :collection
+          sig { returns(T.nilable(String)) }
+          attr_reader :collection
 
-          # An object reference to a recipient.
+          sig { params(collection: String).void }
+          attr_writer :collection
+
+          # A reference to a recipient, either a user identifier (string) or an object
+          # reference (id, collection).
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:); end
+          def self.new(id: nil, collection: nil); end
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::Message::Actor::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::Message::Actor::RecipientReference]) }
         def self.variants; end
       end
 
@@ -260,24 +267,31 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
           # An identifier for the recipient object.
-          sig { returns(String) }
-          attr_accessor :id
+          sig { returns(T.nilable(String)) }
+          attr_reader :id
+
+          sig { params(id: String).void }
+          attr_writer :id
 
           # The collection the recipient object belongs to.
-          sig { returns(String) }
-          attr_accessor :collection
+          sig { returns(T.nilable(String)) }
+          attr_reader :collection
 
-          # An object reference to a recipient.
+          sig { params(collection: String).void }
+          attr_writer :collection
+
+          # A reference to a recipient, either a user identifier (string) or an object
+          # reference (id, collection).
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:); end
+          def self.new(id: nil, collection: nil); end
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::Message::Recipient::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::Message::Recipient::RecipientReference]) }
         def self.variants; end
       end
 

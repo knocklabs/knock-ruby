@@ -88,46 +88,54 @@ module Knockapi
 
       type object =
         String
-        | Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference
+        | Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference
 
       module Object
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type recipient_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_accessor id: String
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
 
-          attr_accessor collection: String
+          def id=: (String) -> String
 
-          def initialize: (id: String, collection: String) -> void
+          attr_reader collection: String?
 
-          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
+          def collection=: (String) -> String
+
+          def initialize: (?id: String, ?collection: String) -> void
+
+          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::recipient_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference]
       end
 
       type recipient =
         String
-        | Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference
+        | Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type recipient_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_accessor id: String
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
 
-          attr_accessor collection: String
+          def id=: (String) -> String
 
-          def initialize: (id: String, collection: String) -> void
+          attr_reader collection: String?
 
-          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
+          def collection=: (String) -> String
+
+          def initialize: (?id: String, ?collection: String) -> void
+
+          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::recipient_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference]
       end
     end
   end

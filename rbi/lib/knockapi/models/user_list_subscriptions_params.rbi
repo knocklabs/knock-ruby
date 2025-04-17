@@ -30,7 +30,9 @@ module Knockapi
       # Objects to filter by.
       sig do
         returns(
-          T.nilable(T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference)])
+          T.nilable(
+            T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference)]
+          )
         )
       end
       attr_reader :objects
@@ -40,7 +42,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ]
@@ -64,7 +66,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ],
@@ -83,7 +85,7 @@ module Knockapi
               after: String,
               before: String,
               include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
-              objects: T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference)],
+              objects: T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference)],
               page_size: Integer,
               request_options: Knockapi::RequestOptions
             }
@@ -109,24 +111,31 @@ module Knockapi
       module Object
         extend Knockapi::Internal::Type::Union
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
           # An identifier for the recipient object.
-          sig { returns(String) }
-          attr_accessor :id
+          sig { returns(T.nilable(String)) }
+          attr_reader :id
+
+          sig { params(id: String).void }
+          attr_writer :id
 
           # The collection the recipient object belongs to.
-          sig { returns(String) }
-          attr_accessor :collection
+          sig { returns(T.nilable(String)) }
+          attr_reader :collection
 
-          # An object reference to a recipient.
+          sig { params(collection: String).void }
+          attr_writer :collection
+
+          # A reference to a recipient, either a user identifier (string) or an object
+          # reference (id, collection).
           sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:); end
+          def self.new(id: nil, collection: nil); end
 
           sig { override.returns({id: String, collection: String}) }
           def to_hash; end
         end
 
-        sig { override.returns([String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference]) }
+        sig { override.returns([String, Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference]) }
         def self.variants; end
       end
     end

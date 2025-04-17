@@ -232,7 +232,7 @@ module Knockapi
       # @param after [String]
       # @param before [String]
       # @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>]
-      # @param objects [Array<String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference>]
+      # @param objects [Array<String, Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference>]
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

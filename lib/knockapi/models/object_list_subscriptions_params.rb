@@ -52,12 +52,12 @@ module Knockapi
       # @!attribute [r] objects
       #   Objects to filter by (only used if mode is `recipient`).
       #
-      #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>, nil]
+      #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference>, nil]
       optional :objects,
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Object] }
 
       # @!parse
-      #   # @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
+      #   # @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference>]
       #   attr_writer :objects
 
       # @!attribute [r] page_size
@@ -73,12 +73,12 @@ module Knockapi
       # @!attribute [r] recipients
       #   Recipients to filter by (only used if mode is `object`).
       #
-      #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>, nil]
+      #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference>, nil]
       optional :recipients,
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Recipient] }
 
       # @!parse
-      #   # @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
+      #   # @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference>]
       #   attr_writer :recipients
 
       # @!parse
@@ -86,9 +86,9 @@ module Knockapi
       #   # @param before [String]
       #   # @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
       #   # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
-      #   # @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
+      #   # @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference>]
       #   # @param page_size [Integer]
-      #   # @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
+      #   # @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference>]
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
@@ -141,35 +141,44 @@ module Knockapi
         # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient.
-        variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference }
+        # A reference to a recipient, either a user identifier (string) or an object reference (id, collection).
+        variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          # @!attribute [r] id
           #   An identifier for the recipient object.
           #
-          #   @return [String]
-          required :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String]
-          required :collection, String
+          #   @return [String, nil]
+          optional :id, String
 
           # @!parse
-          #   # An object reference to a recipient.
+          #   # @return [String]
+          #   attr_writer :id
+
+          # @!attribute [r] collection
+          #   The collection the recipient object belongs to.
+          #
+          #   @return [String, nil]
+          optional :collection, String
+
+          # @!parse
+          #   # @return [String]
+          #   attr_writer :collection
+
+          # @!parse
+          #   # A reference to a recipient, either a user identifier (string) or an object
+          #   # reference (id, collection).
           #   #
           #   # @param id [String]
           #   # @param collection [String]
           #   #
-          #   def initialize(id:, collection:, **) = super
+          #   def initialize(id: nil, collection: nil, **) = super
 
           # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference)]
         #   def self.variants; end
       end
 
@@ -181,35 +190,44 @@ module Knockapi
         # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient.
-        variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference }
+        # A reference to a recipient, either a user identifier (string) or an object reference (id, collection).
+        variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          # @!attribute [r] id
           #   An identifier for the recipient object.
           #
-          #   @return [String]
-          required :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String]
-          required :collection, String
+          #   @return [String, nil]
+          optional :id, String
 
           # @!parse
-          #   # An object reference to a recipient.
+          #   # @return [String]
+          #   attr_writer :id
+
+          # @!attribute [r] collection
+          #   The collection the recipient object belongs to.
+          #
+          #   @return [String, nil]
+          optional :collection, String
+
+          # @!parse
+          #   # @return [String]
+          #   attr_writer :collection
+
+          # @!parse
+          #   # A reference to a recipient, either a user identifier (string) or an object
+          #   # reference (id, collection).
           #   #
           #   # @param id [String]
           #   # @param collection [String]
           #   #
-          #   def initialize(id:, collection:, **) = super
+          #   def initialize(id: nil, collection: nil, **) = super
 
           # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference)]
         #   def self.variants; end
       end
     end

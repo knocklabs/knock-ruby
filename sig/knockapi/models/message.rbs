@@ -124,24 +124,28 @@ module Knockapi
 
       def to_hash: -> Knockapi::Models::message
 
-      type actor = String | Knockapi::Models::Message::Actor::ObjectReference
+      type actor = String | Knockapi::Models::Message::Actor::RecipientReference
 
       module Actor
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type recipient_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_accessor id: String
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
 
-          attr_accessor collection: String
+          def id=: (String) -> String
 
-          def initialize: (id: String, collection: String) -> void
+          attr_reader collection: String?
 
-          def to_hash: -> Knockapi::Models::Message::Actor::object_reference
+          def collection=: (String) -> String
+
+          def initialize: (?id: String, ?collection: String) -> void
+
+          def to_hash: -> Knockapi::Models::Message::Actor::recipient_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::Message::Actor::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::Message::Actor::RecipientReference]
       end
 
       type engagement_status =
@@ -160,24 +164,28 @@ module Knockapi
       end
 
       type recipient =
-        String | Knockapi::Models::Message::Recipient::ObjectReference
+        String | Knockapi::Models::Message::Recipient::RecipientReference
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type object_reference = { id: String, collection: String }
+        type recipient_reference = { id: String, collection: String }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_accessor id: String
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
 
-          attr_accessor collection: String
+          def id=: (String) -> String
 
-          def initialize: (id: String, collection: String) -> void
+          attr_reader collection: String?
 
-          def to_hash: -> Knockapi::Models::Message::Recipient::object_reference
+          def collection=: (String) -> String
+
+          def initialize: (?id: String, ?collection: String) -> void
+
+          def to_hash: -> Knockapi::Models::Message::Recipient::recipient_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::Message::Recipient::ObjectReference]
+        def self?.variants: -> [String, Knockapi::Models::Message::Recipient::RecipientReference]
       end
 
       type source =

@@ -225,7 +225,7 @@ module Knockapi
           objects: T::Array[
             T.any(
               String,
-              Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference,
+              Knockapi::Models::UserListSubscriptionsParams::Object::RecipientReference,
               Knockapi::Internal::AnyHash
             )
           ],

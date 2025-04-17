@@ -12,7 +12,7 @@ module Knockapi
       #   The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
       #   single trigger.
       #
-      #   @return [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
+      #   @return [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference>]
       required :recipients,
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ScheduleCreateParams::Recipient] }
 
@@ -53,7 +53,7 @@ module Knockapi
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
       # @!parse
-      #   # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
+      #   # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference>]
       #   # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
       #   # @param workflow [String]
       #   # @param data [Hash{Symbol=>Object}, nil]
@@ -86,35 +86,44 @@ module Knockapi
         # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient.
-        variant -> { Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference }
+        # A reference to a recipient, either a user identifier (string) or an object reference (id, collection).
+        variant -> { Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference }
 
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
+        class RecipientReference < Knockapi::Internal::Type::BaseModel
+          # @!attribute [r] id
           #   An identifier for the recipient object.
           #
-          #   @return [String]
-          required :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String]
-          required :collection, String
+          #   @return [String, nil]
+          optional :id, String
 
           # @!parse
-          #   # An object reference to a recipient.
+          #   # @return [String]
+          #   attr_writer :id
+
+          # @!attribute [r] collection
+          #   The collection the recipient object belongs to.
+          #
+          #   @return [String, nil]
+          optional :collection, String
+
+          # @!parse
+          #   # @return [String]
+          #   attr_writer :collection
+
+          # @!parse
+          #   # A reference to a recipient, either a user identifier (string) or an object
+          #   # reference (id, collection).
           #   #
           #   # @param id [String]
           #   # @param collection [String]
           #   #
-          #   def initialize(id:, collection:, **) = super
+          #   def initialize(id: nil, collection: nil, **) = super
 
           # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
+        #   # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference)]
         #   def self.variants; end
       end
     end

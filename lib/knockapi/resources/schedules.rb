@@ -8,7 +8,7 @@ module Knockapi
       #
       # @overload create(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
-      # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
+      # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::RecipientReference>]
       # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
       # @param workflow [String]
       # @param data [Hash{Symbol=>Object}, nil]

@@ -247,9 +247,9 @@ module Knockapi
       # @param before [String]
       # @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
       # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
-      # @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
+      # @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::RecipientReference>]
       # @param page_size [Integer]
-      # @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
+      # @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::RecipientReference>]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
