@@ -33,20 +33,20 @@ module Knockapi
       # the parameters provided. Returns an identifier for the workflow run request. All
       # workflow runs are executed asynchronously.
       #
-      # @overload trigger(key, actor: nil, cancellation_key: nil, data: nil, recipients: nil, tenant: nil, request_options: {})
+      # @overload trigger(key, recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {})
       #
       # @param key [String]
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
       # @param cancellation_key [String, nil]
       # @param data [Hash{Symbol=>Object}, nil]
-      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       # @param tenant [String, Knockapi::Models::TenantRequest, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::WorkflowTriggerResponse]
       #
       # @see Knockapi::Models::WorkflowTriggerParams
-      def trigger(key, params = {})
+      def trigger(key, params)
         parsed, options = Knockapi::Models::WorkflowTriggerParams.dump_request(params)
         @client.request(
           method: :post,

@@ -30,10 +30,10 @@ knock = Knockapi::Client.new(
 
 response = knock.workflows.trigger(
   "dinosaurs-loose",
+  recipients: ["dnedry"],
   data: {
     dinosaur: "triceratops"
-  },
-  recipients: ["dnedry"]
+  }
 )
 
 puts(response.workflow_run_id)
@@ -160,10 +160,10 @@ Please follow Sorbet's [setup guides](https://sorbet.org/docs/adopting) for best
 ```ruby
 params = Knockapi::Models::WorkflowTriggerParams.new(
   "dinosaurs-loose",
+  recipients: ["dnedry"],
   data: {
     dinosaur: "triceratops"
-  },
-  recipients: ["dnedry"]
+  }
 )
 
 knock.workflows.trigger(**params)

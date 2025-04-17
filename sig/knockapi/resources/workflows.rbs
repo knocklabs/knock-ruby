@@ -11,10 +11,10 @@ module Knockapi
 
       def trigger: (
         String key,
+        recipients: ::Array[Knockapi::Models::recipient_request],
         ?actor: Knockapi::Models::recipient_request?,
         ?cancellation_key: String?,
         ?data: ::Hash[Symbol, top]?,
-        ?recipients: ::Array[Knockapi::Models::recipient_request],
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::WorkflowTriggerResponse

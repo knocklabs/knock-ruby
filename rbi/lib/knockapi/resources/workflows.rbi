@@ -36,6 +36,14 @@ module Knockapi
       sig do
         params(
           key: String,
+          recipients: T::Array[
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
+          ],
           actor: T.nilable(
             T.any(
               String,
@@ -46,14 +54,6 @@ module Knockapi
           ),
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ],
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
@@ -62,6 +62,9 @@ module Knockapi
       def trigger(
         # Key of the workflow to trigger.
         key,
+        # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
+        # single trigger.
+        recipients:,
         # Specifies a recipient in a request. This can either be a user identifier
         # (string), an inline user request (object), or an inline object request, which is
         # determined by the presence of a `collection` property.
@@ -72,9 +75,6 @@ module Knockapi
         cancellation_key: nil,
         # An optional map of data to pass into the workflow execution.
         data: nil,
-        # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-        # single trigger.
-        recipients: nil,
         # An request to set a tenant inline.
         tenant: nil,
         request_options: {}

@@ -39,7 +39,7 @@ class Knockapi::Test::Resources::Users::BulkTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.bulk.identify(users: [{}])
+    response = @knock.users.bulk.identify(users: [{id: "user_1"}])
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation

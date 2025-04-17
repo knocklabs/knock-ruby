@@ -42,7 +42,7 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
     response =
       @knock.objects.bulk.add_subscriptions(
         "collection",
-        subscriptions: [{id: "project-1", recipients: [{}]}]
+        subscriptions: [{id: "project-1", recipients: [{id: "user_1"}]}]
       )
 
     assert_pattern do
@@ -74,7 +74,7 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.objects.bulk.set("collection", objects: [{}])
+    response = @knock.objects.bulk.set("collection", objects: [{id: "project_1", collection: "projects"}])
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation

@@ -3,15 +3,17 @@
 module Knockapi
   module Models
     class InlineObjectRequest < Knockapi::Internal::Type::BaseModel
-      # @!attribute [r] id
+      # @!attribute id
       #   Unique identifier for the object.
       #
-      #   @return [String, nil]
-      optional :id, String
+      #   @return [String]
+      required :id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :id
+      # @!attribute collection
+      #   The collection this object belongs to.
+      #
+      #   @return [String]
+      required :collection, String
 
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
@@ -20,16 +22,6 @@ module Knockapi
       optional :channel_data,
                -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
                nil?: true
-
-      # @!attribute [r] collection
-      #   The collection this object belongs to.
-      #
-      #   @return [String, nil]
-      optional :collection, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :collection
 
       # @!attribute created_at
       #   Timestamp when the resource was created.
@@ -49,12 +41,12 @@ module Knockapi
       #   # A custom object entity which belongs to a collection.
       #   #
       #   # @param id [String]
-      #   # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       #   # @param collection [String]
+      #   # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       #   # @param created_at [Time, nil]
       #   # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       #   #
-      #   def initialize(id: nil, channel_data: nil, collection: nil, created_at: nil, preferences: nil, **) = super
+      #   def initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil, **) = super
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end

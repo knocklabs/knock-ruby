@@ -61,7 +61,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.objects.delete_subscriptions("collection", "object_id", recipients: [{}])
+    response = @knock.objects.delete_subscriptions("collection", "object_id", recipients: [{id: "user_1"}])
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription])

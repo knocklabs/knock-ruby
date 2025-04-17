@@ -15,12 +15,12 @@ class Knockapi::Test::Resources::WorkflowsTest < Knockapi::Test::ResourceTest
     end
   end
 
-  def test_trigger
+  def test_trigger_required_params
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.workflows.trigger("key")
+    response = @knock.workflows.trigger("key", recipients: ["jhammond"])
 
     assert_pattern do
       response => Knockapi::Models::WorkflowTriggerResponse
