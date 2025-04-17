@@ -4,7 +4,7 @@ module Knockapi
   module Models
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute id
-      #   The unique identifier for the user.
+      #   The ID for the user that you set when identifying them in Knock.
       #
       #   @return [String]
       required :id, String
@@ -34,7 +34,7 @@ module Knockapi
       # @!parse
       #   # A set of parameters to inline-identify a user with. Inline identifying the user
       #   # will ensure that the user is available before the request is executed in Knock.
-      #   # It will perform an upsert against the user you're supplying, replacing any
+      #   # It will perform an upsert for the user you're supplying, replacing any
       #   # properties specified.
       #   #
       #   # @param id [String]

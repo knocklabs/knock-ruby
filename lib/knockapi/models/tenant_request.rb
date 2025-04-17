@@ -36,7 +36,8 @@ module Knockapi
       #   attr_writer :settings
 
       # @!parse
-      #   # A request to get a tenant.
+      #   # A tenant to be set in the system. You can supply any additional properties on
+      #   # the tenant object.
       #   #
       #   # @param id [String]
       #   # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]

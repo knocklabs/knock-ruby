@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     class AudienceMember < Knockapi::Internal::Type::BaseModel
-      # The type name of the schema.
+      # The typename of the schema.
       sig { returns(String) }
       attr_accessor :_typename
 
@@ -11,14 +11,15 @@ module Knockapi
       sig { returns(Time) }
       attr_accessor :added_at
 
-      # A user object.
+      # A user who can receive notifications in Knock. They are always referenced by
+      # your internal identifier.
       sig { returns(Knockapi::Models::User) }
       attr_reader :user
 
       sig { params(user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash)).void }
       attr_writer :user
 
-      # The unique identifier for the user.
+      # The ID for the user that you set when identifying them in Knock.
       sig { returns(String) }
       attr_accessor :user_id
 

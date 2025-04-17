@@ -8,12 +8,12 @@ module Knockapi
         sig { returns(String) }
         attr_accessor :id
 
-        # The type name of the schema.
+        # The typename of the schema.
         sig { returns(String) }
         attr_accessor :_typename
 
-        # A setting for a preference set, where the key in the object is the category, and
-        # the values are the preference settings for that category.
+        # An object where the key is the category and the values are the preference
+        # settings for that category.
         sig do
           returns(
             T.nilable(
@@ -41,8 +41,8 @@ module Knockapi
         end
         attr_writer :channel_types
 
-        # A setting for a preference set, where the key in the object is the workflow key,
-        # and the values are the preference settings for that workflow.
+        # An object where the key is the workflow key and the values are the preference
+        # settings for that workflow.
         sig do
           returns(
             T.nilable(
@@ -58,7 +58,9 @@ module Knockapi
         end
         attr_accessor :workflows
 
-        # A preference set object.
+        # A preference set determines whether a recipient should receive a particular type
+        # of notification. By default all preferences are opted in unless a preference
+        # explicitly opts the recipient out of the notification
         sig do
           params(
             id: String,

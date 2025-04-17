@@ -29,7 +29,7 @@ module Knockapi
       #   attr_writer :before
 
       # @!attribute [r] include
-      #   Includes preferences of the recipient subscribers in the response.
+      #   Associated resources to include in the response.
       #
       #   @return [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>, nil]
       optional :include,
@@ -40,7 +40,7 @@ module Knockapi
       #   attr_writer :include
 
       # @!attribute [r] objects
-      #   Objects to filter by.
+      #   Only return subscriptions for the given recipients.
       #
       #   @return [Array<String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference>, nil]
       optional :objects,
@@ -89,7 +89,7 @@ module Knockapi
       module Object
         extend Knockapi::Internal::Type::Union
 
-        # An identifier for a user recipient.
+        # The id of the user.
         variant String
 
         # A reference to a recipient object.

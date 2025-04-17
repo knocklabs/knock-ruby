@@ -15,7 +15,7 @@ module Knockapi
       #   attr_writer :id
 
       # @!attribute [r] _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
@@ -25,7 +25,7 @@ module Knockapi
       #   attr_writer :_typename
 
       # @!attribute actor
-      #   A recipient, which is either a user or an object.
+      #   A recipient of a notification, which is either a user or an object.
       #
       #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :actor, union: -> { Knockapi::Models::Recipient }, nil?: true
@@ -47,7 +47,7 @@ module Knockapi
       #   attr_writer :inserted_at
 
       # @!attribute [r] recipient
-      #   A recipient, which is either a user or an object.
+      #   A recipient of a notification, which is either a user or an object.
       #
       #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :recipient, union: -> { Knockapi::Models::Recipient }

@@ -47,13 +47,13 @@ module Knockapi
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::User])
       end
       def list(
-        # The cursor to fetch entries after..
+        # The cursor to fetch entries after.
         after: nil,
-        # The cursor to fetch entries before..
+        # The cursor to fetch entries before.
         before: nil,
-        # Includes preferences of the users in the response.
+        # Associated resources to include in the response.
         include: nil,
-        # The number of items per page..
+        # The number of items per page.
         page_size: nil,
         request_options: {}
       ); end
@@ -111,7 +111,7 @@ module Knockapi
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
       def get_preferences(
-        # The unique identifier for the user.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
         # Unique identifier for the preference set.
         preference_set_id,
@@ -142,7 +142,7 @@ module Knockapi
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
       end
       def list_messages(
-        # The user ID.
+        # The user ID to list messages for.
         user_id,
         # The cursor to fetch entries after.
         after: nil,
@@ -150,8 +150,8 @@ module Knockapi
         before: nil,
         # Limits the results to items with the corresponding channel id.
         channel_id: nil,
-        # One or more of `read`, `seen`, `interacted`, `link_clicked`, `archived`. Limits
-        # results to messages with the given engagement status(es).
+        # One or more engagement statuses. Limits results to messages with the given
+        # engagement status(es).
         engagement_status: nil,
         # Limits the results to only the message ids given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
@@ -160,8 +160,7 @@ module Knockapi
         page_size: nil,
         # Limits the results to only items of the source workflow.
         source: nil,
-        # One or more of `queued`, `sent`, `delivered`, `delivery_attempted`,
-        # `undelivered`, `bounced`, `not_sent`. Limits results to messages with the given
+        # One or more delivery statuses. Limits results to messages with the given
         # delivery status(es).
         status: nil,
         # Limits the results to items with the corresponding tenant, or where the tenant
@@ -186,7 +185,7 @@ module Knockapi
           .returns(T::Array[Knockapi::Models::Recipients::PreferenceSet])
       end
       def list_preferences(
-        # The unique identifier for the user.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
         request_options: {}
       ); end
@@ -240,15 +239,15 @@ module Knockapi
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
       def list_subscriptions(
-        # User ID.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
         # The cursor to fetch entries after.
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # Includes preferences of the recipient subscribers in the response.
+        # Associated resources to include in the response.
         include: nil,
-        # Objects to filter by.
+        # Only return subscriptions for the given recipients.
         objects: nil,
         # The number of items per page.
         page_size: nil,
@@ -265,7 +264,7 @@ module Knockapi
           .returns(Knockapi::Models::User)
       end
       def merge(
-        # User ID.
+        # The id of the user to merge into.
         user_id,
         # The user ID to merge from.
         from_user_id:,
@@ -329,17 +328,17 @@ module Knockapi
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
       def set_preferences(
-        # The unique identifier for the user.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
         # Unique identifier for the preference set.
         preference_set_id,
-        # A setting for a preference set, where the key in the object is the category, and
-        # the values are the preference settings for that category.
+        # An object where the key is the category and the values are the preference
+        # settings for that category.
         categories: nil,
         # Channel type preferences.
         channel_types: nil,
-        # A setting for a preference set, where the key in the object is the workflow key,
-        # and the values are the preference settings for that workflow.
+        # An object where the key is the workflow key and the values are the preference
+        # settings for that workflow.
         workflows: nil,
         request_options: {}
       ); end

@@ -2,11 +2,11 @@
 
 module Knockapi
   module Models
-    # A recipient, which is either a user or an object.
+    # A recipient of a notification, which is either a user or an object.
     module Recipient
       extend Knockapi::Internal::Type::Union
 
-      # A user object.
+      # A user who can receive notifications in Knock. They are always referenced by your internal identifier.
       variant -> { Knockapi::Models::User }
 
       # A custom object entity which belongs to a collection.

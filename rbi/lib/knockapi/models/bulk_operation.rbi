@@ -7,7 +7,7 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :id
 
-      # The type name of the schema.
+      # The typename of the schema.
       sig { returns(String) }
       attr_accessor :_typename
 
@@ -27,7 +27,7 @@ module Knockapi
       sig { returns(Integer) }
       attr_accessor :processed_rows
 
-      # The status of the bulk operation. One of: queued, processing, completed, failed.
+      # The status of the bulk operation.
       sig { returns(Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
       attr_accessor :status
 
@@ -129,7 +129,7 @@ module Knockapi
       end
       def to_hash; end
 
-      # The status of the bulk operation. One of: queued, processing, completed, failed.
+      # The status of the bulk operation.
       module Status
         extend Knockapi::Internal::Type::Enum
 

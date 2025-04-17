@@ -20,7 +20,7 @@ module Knockapi
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Object])
       end
       def list(
-        # Collection name.
+        # The collection this object belongs to.
         collection,
         # The cursor to fetch entries after.
         after: nil,
@@ -43,9 +43,9 @@ module Knockapi
           .returns(String)
       end
       def delete(
-        # Collection name.
+        # The collection this object belongs to.
         collection,
-        # Object ID.
+        # Unique identifier for the object.
         object_id_,
         request_options: {}
       ); end
@@ -69,9 +69,9 @@ module Knockapi
           .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
       def add_subscriptions(
-        # Collection name.
+        # The collection this object belongs to.
         collection,
-        # Object ID.
+        # Unique identifier for the object.
         object_id_,
         # The recipients of the subscription.
         recipients:,
@@ -98,9 +98,9 @@ module Knockapi
           .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
       def delete_subscriptions(
-        # Collection name.
+        # The collection this object belongs to.
         collection,
-        # Object ID.
+        # Unique identifier for the object.
         object_id_,
         # The recipients of the subscription.
         recipients:,
@@ -117,9 +117,9 @@ module Knockapi
           .returns(Knockapi::Models::Object)
       end
       def get(
-        # Collection name.
+        # The collection this object belongs to.
         collection,
-        # Object ID.
+        # Unique identifier for the object.
         object_id_,
         request_options: {}
       ); end
@@ -189,9 +189,9 @@ module Knockapi
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
       end
       def list_messages(
-        # The collection name.
+        # The collection this object belongs to.
         collection,
-        # The object ID.
+        # Unique identifier for the object.
         object_id_,
         # The cursor to fetch entries after.
         after: nil,
@@ -199,8 +199,8 @@ module Knockapi
         before: nil,
         # Limits the results to items with the corresponding channel id.
         channel_id: nil,
-        # One or more of `read`, `seen`, `interacted`, `link_clicked`, `archived`. Limits
-        # results to messages with the given engagement status(es).
+        # One or more engagement statuses. Limits results to messages with the given
+        # engagement status(es).
         engagement_status: nil,
         # Limits the results to only the message ids given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
@@ -209,8 +209,7 @@ module Knockapi
         page_size: nil,
         # Limits the results to only items of the source workflow.
         source: nil,
-        # One or more of `queued`, `sent`, `delivered`, `delivery_attempted`,
-        # `undelivered`, `bounced`, `not_sent`. Limits results to messages with the given
+        # One or more delivery statuses. Limits results to messages with the given
         # delivery status(es).
         status: nil,
         # Limits the results to items with the corresponding tenant, or where the tenant
@@ -288,9 +287,9 @@ module Knockapi
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
       def list_subscriptions(
-        # Collection name.
+        # The collection this object belongs to.
         collection,
-        # Object ID.
+        # Unique identifier for the object.
         object_id_,
         # The cursor to fetch entries after.
         after: nil,
@@ -326,9 +325,9 @@ module Knockapi
           .returns(Knockapi::Models::Object)
       end
       def set(
-        # Collection name.
+        # The collection this object belongs to.
         collection,
-        # Object ID.
+        # Unique identifier for the object.
         object_id_,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
@@ -403,13 +402,13 @@ module Knockapi
         object_id_,
         # Unique identifier for the preference set.
         preference_set_id,
-        # A setting for a preference set, where the key in the object is the category, and
-        # the values are the preference settings for that category.
+        # An object where the key is the category and the values are the preference
+        # settings for that category.
         categories: nil,
         # Channel type preferences.
         channel_types: nil,
-        # A setting for a preference set, where the key in the object is the workflow key,
-        # and the values are the preference settings for that workflow.
+        # An object where the key is the workflow key and the values are the preference
+        # settings for that workflow.
         workflows: nil,
         request_options: {}
       ); end

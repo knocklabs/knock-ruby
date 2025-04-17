@@ -20,7 +20,7 @@ module Knockapi
         #   attr_writer :after
 
         # @!attribute [r] archived
-        #   The archived status of the feed items to return.
+        #   The archived status of the feed items.
         #
         #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived, nil]
         optional :archived, enum: -> { Knockapi::Models::Users::FeedListItemsParams::Archived }
@@ -60,7 +60,7 @@ module Knockapi
         #   attr_writer :page_size
 
         # @!attribute [r] source
-        #   The source of the feed items to return.
+        #   The source of the feed items.
         #
         #   @return [String, nil]
         optional :source, String
@@ -70,7 +70,7 @@ module Knockapi
         #   attr_writer :source
 
         # @!attribute [r] status
-        #   The status of the feed items to return.
+        #   The status of the feed items.
         #
         #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status, nil]
         optional :status, enum: -> { Knockapi::Models::Users::FeedListItemsParams::Status }
@@ -80,7 +80,7 @@ module Knockapi
         #   attr_writer :status
 
         # @!attribute [r] tenant
-        #   The tenant of the feed items to return.
+        #   The tenant associated with the feed items.
         #
         #   @return [String, nil]
         optional :tenant, String
@@ -90,7 +90,7 @@ module Knockapi
         #   attr_writer :tenant
 
         # @!attribute [r] trigger_data
-        #   The trigger data of the feed items to return (as a JSON string).
+        #   The trigger data of the feed items (as a JSON string).
         #
         #   @return [String, nil]
         optional :trigger_data, String
@@ -100,7 +100,7 @@ module Knockapi
         #   attr_writer :trigger_data
 
         # @!attribute [r] workflow_categories
-        #   The workflow categories of the feed items to return.
+        #   The workflow categories of the feed items.
         #
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
@@ -141,7 +141,7 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-        # The archived status of the feed items to return.
+        # The archived status of the feed items.
         module Archived
           extend Knockapi::Internal::Type::Enum
 
@@ -156,7 +156,7 @@ module Knockapi
           #   def self.values; end
         end
 
-        # The status of the feed items to return.
+        # The status of the feed items.
         module Status
           extend Knockapi::Internal::Type::Enum
 

@@ -5,7 +5,7 @@ module Knockapi
     module Recipients
       class Subscription < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
-        #   The type name of the schema.
+        #   The typename of the schema.
         #
         #   @return [String]
         required :_typename, String, api_name: :__typename
@@ -23,7 +23,7 @@ module Knockapi
         required :object, -> { Knockapi::Models::Object }
 
         # @!attribute recipient
-        #   A recipient, which is either a user or an object.
+        #   A recipient of a notification, which is either a user or an object.
         #
         #   @return [Knockapi::Models::User, Knockapi::Models::Object]
         required :recipient, union: -> { Knockapi::Models::Recipient }

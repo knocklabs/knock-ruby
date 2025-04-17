@@ -5,13 +5,13 @@ module Knockapi
     # @see Knockapi::Resources::Users#update
     class User < Knockapi::Internal::Type::BaseModel
       # @!attribute id
-      #   The unique identifier for the user.
+      #   The ID for the user that you set when identifying them in Knock.
       #
       #   @return [String]
       required :id, String
 
       # @!attribute _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename
@@ -29,7 +29,7 @@ module Knockapi
       optional :avatar, String, nil?: true
 
       # @!attribute created_at
-      #   Timestamp when the resource was created.
+      #   The creation date of the user from your system.
       #
       #   @return [Time, nil]
       optional :created_at, Time, nil?: true
@@ -59,7 +59,8 @@ module Knockapi
       optional :timezone, String, nil?: true
 
       # @!parse
-      #   # A user object.
+      #   # A user who can receive notifications in Knock. They are always referenced by
+      #   # your internal identifier.
       #   #
       #   # @param id [String]
       #   # @param _typename [String]

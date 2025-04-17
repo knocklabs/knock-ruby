@@ -41,7 +41,7 @@ module Knockapi
       def to_hash; end
 
       class PageInfo < Knockapi::Internal::Type::BaseModel
-        # The type name of the schema.
+        # The typename of the schema.
         sig { returns(String) }
         attr_accessor :_typename
 

@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Messages
       class BatchGetContentResponseItem < Knockapi::Internal::Type::BaseModel
-        # The type name of the schema.
+        # The typename of the schema.
         sig { returns(String) }
         attr_accessor :_typename
 
@@ -73,7 +73,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           class MessageEmailContent < Knockapi::Internal::Type::BaseModel
-            # The type name of the schema.
+            # The typename of the schema.
             sig { returns(String) }
             attr_accessor :_typename
 
@@ -157,7 +157,7 @@ module Knockapi
           end
 
           class MessageSMSContent < Knockapi::Internal::Type::BaseModel
-            # The type name of the schema.
+            # The typename of the schema.
             sig { returns(String) }
             attr_accessor :_typename
 
@@ -182,7 +182,7 @@ module Knockapi
             sig { returns(String) }
             attr_accessor :token
 
-            # The type name of the schema.
+            # The typename of the schema.
             sig { returns(String) }
             attr_accessor :_typename
 
@@ -227,7 +227,7 @@ module Knockapi
           end
 
           class MessageChatContent < Knockapi::Internal::Type::BaseModel
-            # The type name of the schema.
+            # The typename of the schema.
             sig { returns(String) }
             attr_accessor :_typename
 
@@ -416,7 +416,7 @@ module Knockapi
           end
 
           class MessageInAppFeedContent < Knockapi::Internal::Type::BaseModel
-            # The type name of the schema.
+            # The typename of the schema.
             sig { returns(String) }
             attr_accessor :_typename
 

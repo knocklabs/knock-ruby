@@ -11,7 +11,7 @@ module Knockapi
       required :id, String
 
       # @!attribute _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename
@@ -62,7 +62,7 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # An identifier for a user recipient.
+        # The id of the user.
         variant String
 
         # A reference to a recipient object.

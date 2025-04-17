@@ -4,7 +4,7 @@ module Knockapi
   module Models
     class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
       # @!attribute _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename

@@ -6,28 +6,28 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # The cursor to fetch entries after..
+      # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
 
       sig { params(after: String).void }
       attr_writer :after
 
-      # The cursor to fetch entries before..
+      # The cursor to fetch entries before.
       sig { returns(T.nilable(String)) }
       attr_reader :before
 
       sig { params(before: String).void }
       attr_writer :before
 
-      # Includes preferences of the users in the response.
+      # Associated resources to include in the response.
       sig { returns(T.nilable(T::Array[Knockapi::Models::UserListParams::Include::OrSymbol])) }
       attr_reader :include
 
       sig { params(include: T::Array[Knockapi::Models::UserListParams::Include::OrSymbol]).void }
       attr_writer :include
 
-      # The number of items per page..
+      # The number of items per page.
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 

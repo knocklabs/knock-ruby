@@ -33,8 +33,8 @@ module Knockapi
         before: nil,
         # Limits the results to items with the corresponding channel id.
         channel_id: nil,
-        # One or more of `read`, `seen`, `interacted`, `link_clicked`, `archived`. Limits
-        # results to messages with the given engagement status(es).
+        # One or more engagement statuses. Limits results to messages with the given
+        # engagement status(es).
         engagement_status: nil,
         # Limits the results to only the message ids given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
@@ -43,8 +43,7 @@ module Knockapi
         page_size: nil,
         # Limits the results to only items of the source workflow.
         source: nil,
-        # One or more of `queued`, `sent`, `delivered`, `delivery_attempted`,
-        # `undelivered`, `bounced`, `not_sent`. Limits results to messages with the given
+        # One or more delivery statuses. Limits results to messages with the given
         # delivery status(es).
         status: nil,
         # Limits the results to items with the corresponding tenant, or where the tenant

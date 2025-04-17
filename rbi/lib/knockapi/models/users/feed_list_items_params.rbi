@@ -14,7 +14,7 @@ module Knockapi
         sig { params(after: String).void }
         attr_writer :after
 
-        # The archived status of the feed items to return.
+        # The archived status of the feed items.
         sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)) }
         attr_reader :archived
 
@@ -42,35 +42,35 @@ module Knockapi
         sig { params(page_size: Integer).void }
         attr_writer :page_size
 
-        # The source of the feed items to return.
+        # The source of the feed items.
         sig { returns(T.nilable(String)) }
         attr_reader :source
 
         sig { params(source: String).void }
         attr_writer :source
 
-        # The status of the feed items to return.
+        # The status of the feed items.
         sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)) }
         attr_reader :status
 
         sig { params(status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol).void }
         attr_writer :status
 
-        # The tenant of the feed items to return.
+        # The tenant associated with the feed items.
         sig { returns(T.nilable(String)) }
         attr_reader :tenant
 
         sig { params(tenant: String).void }
         attr_writer :tenant
 
-        # The trigger data of the feed items to return (as a JSON string).
+        # The trigger data of the feed items (as a JSON string).
         sig { returns(T.nilable(String)) }
         attr_reader :trigger_data
 
         sig { params(trigger_data: String).void }
         attr_writer :trigger_data
 
-        # The workflow categories of the feed items to return.
+        # The workflow categories of the feed items.
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :workflow_categories
 
@@ -126,7 +126,7 @@ module Knockapi
         end
         def to_hash; end
 
-        # The archived status of the feed items to return.
+        # The archived status of the feed items.
         module Archived
           extend Knockapi::Internal::Type::Enum
 
@@ -142,7 +142,7 @@ module Knockapi
           def self.values; end
         end
 
-        # The status of the feed items to return.
+        # The status of the feed items.
         module Status
           extend Knockapi::Internal::Type::Enum
 

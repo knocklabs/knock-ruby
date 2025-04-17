@@ -29,7 +29,7 @@ module Knockapi
       # @see Knockapi::Models::AudienceListMembersResponse#page_info
       class PageInfo < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
-        #   The type name of the schema.
+        #   The typename of the schema.
         #
         #   @return [String]
         required :_typename, String, api_name: :__typename

@@ -17,7 +17,7 @@ module Knockapi
       required :inserted_at, Time
 
       # @!attribute recipient
-      #   A recipient, which is either a user or an object.
+      #   A recipient of a notification, which is either a user or an object.
       #
       #   @return [Knockapi::Models::User, Knockapi::Models::Object]
       required :recipient, union: -> { Knockapi::Models::Recipient }
@@ -41,7 +41,7 @@ module Knockapi
       required :workflow, String
 
       # @!attribute [r] _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
@@ -51,7 +51,7 @@ module Knockapi
       #   attr_writer :_typename
 
       # @!attribute actor
-      #   A recipient, which is either a user or an object.
+      #   A recipient of a notification, which is either a user or an object.
       #
       #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :actor, union: -> { Knockapi::Models::Recipient }, nil?: true
@@ -83,7 +83,7 @@ module Knockapi
       optional :tenant, String, nil?: true
 
       # @!parse
-      #   # A schedule that represents a recurring workflow execution.
+      #   # A schedule represents a recurring workflow execution.
       #   #
       #   # @param id [String]
       #   # @param inserted_at [Time]

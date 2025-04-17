@@ -11,7 +11,7 @@ module Knockapi
       required :id, String
 
       # @!attribute _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename
@@ -41,7 +41,7 @@ module Knockapi
       required :processed_rows, Integer
 
       # @!attribute status
-      #   The status of the bulk operation. One of: queued, processing, completed, failed.
+      #   The status of the bulk operation.
       #
       #   @return [Symbol, Knockapi::Models::BulkOperation::Status]
       required :status, enum: -> { Knockapi::Models::BulkOperation::Status }
@@ -137,7 +137,7 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-      # The status of the bulk operation. One of: queued, processing, completed, failed.
+      # The status of the bulk operation.
       #
       # @see Knockapi::Models::BulkOperation#status
       module Status

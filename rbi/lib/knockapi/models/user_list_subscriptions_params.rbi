@@ -20,14 +20,14 @@ module Knockapi
       sig { params(before: String).void }
       attr_writer :before
 
-      # Includes preferences of the recipient subscribers in the response.
+      # Associated resources to include in the response.
       sig { returns(T.nilable(T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol])) }
       attr_reader :include
 
       sig { params(include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol]).void }
       attr_writer :include
 
-      # Objects to filter by.
+      # Only return subscriptions for the given recipients.
       sig do
         returns(
           T.nilable(T::Array[T.any(String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference)])

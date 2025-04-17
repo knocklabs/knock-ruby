@@ -4,7 +4,7 @@ module Knockapi
   module Models
     class AudienceMember < Knockapi::Internal::Type::BaseModel
       # @!attribute _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename
@@ -16,13 +16,14 @@ module Knockapi
       required :added_at, Time
 
       # @!attribute user
-      #   A user object.
+      #   A user who can receive notifications in Knock. They are always referenced by
+      #   your internal identifier.
       #
       #   @return [Knockapi::Models::User]
       required :user, -> { Knockapi::Models::User }
 
       # @!attribute user_id
-      #   The unique identifier for the user.
+      #   The ID for the user that you set when identifying them in Knock.
       #
       #   @return [String]
       required :user_id, String

@@ -138,7 +138,7 @@ module Knockapi
       module Object
         extend Knockapi::Internal::Type::Union
 
-        # An identifier for a user recipient.
+        # The id of the user.
         variant String
 
         # A reference to a recipient object.
@@ -186,7 +186,7 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # An identifier for a user recipient.
+        # The id of the user.
         variant String
 
         # A reference to a recipient object.

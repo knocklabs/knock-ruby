@@ -39,8 +39,8 @@ module Knockapi
       #   attr_writer :channel_id
 
       # @!attribute [r] engagement_status
-      #   One or more of `read`, `seen`, `interacted`, `link_clicked`, `archived`. Limits
-      #   results to messages with the given engagement status(es).
+      #   One or more engagement statuses. Limits results to messages with the given
+      #   engagement status(es).
       #
       #   @return [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>, nil]
       optional :engagement_status,
@@ -82,8 +82,7 @@ module Knockapi
       #   attr_writer :source
 
       # @!attribute [r] status
-      #   One or more of `queued`, `sent`, `delivered`, `delivery_attempted`,
-      #   `undelivered`, `bounced`, `not_sent`. Limits results to messages with the given
+      #   One or more delivery statuses. Limits results to messages with the given
       #   delivery status(es).
       #
       #   @return [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>, nil]

@@ -22,7 +22,8 @@ module Knockapi
       sig { params(settings: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Internal::AnyHash)).void }
       attr_writer :settings
 
-      # A request to get a tenant.
+      # A tenant to be set in the system. You can supply any additional properties on
+      # the tenant object.
       sig do
         params(
           id: String,

@@ -27,8 +27,8 @@ module Knockapi
       sig { params(channel_id: String).void }
       attr_writer :channel_id
 
-      # One or more of `read`, `seen`, `interacted`, `link_clicked`, `archived`. Limits
-      # results to messages with the given engagement status(es).
+      # One or more engagement statuses. Limits results to messages with the given
+      # engagement status(es).
       sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol])) }
       attr_reader :engagement_status
 
@@ -62,8 +62,7 @@ module Knockapi
       sig { params(source: String).void }
       attr_writer :source
 
-      # One or more of `queued`, `sent`, `delivered`, `delivery_attempted`,
-      # `undelivered`, `bounced`, `not_sent`. Limits results to messages with the given
+      # One or more delivery statuses. Limits results to messages with the given
       # delivery status(es).
       sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol])) }
       attr_reader :status

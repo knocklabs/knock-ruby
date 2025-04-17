@@ -3,11 +3,11 @@
 module Knockapi
   module Models
     class User < Knockapi::Internal::Type::BaseModel
-      # The unique identifier for the user.
+      # The ID for the user that you set when identifying them in Knock.
       sig { returns(String) }
       attr_accessor :id
 
-      # The type name of the schema.
+      # The typename of the schema.
       sig { returns(String) }
       attr_accessor :_typename
 
@@ -19,7 +19,7 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :avatar
 
-      # Timestamp when the resource was created.
+      # The creation date of the user from your system.
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
@@ -39,7 +39,8 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :timezone
 
-      # A user object.
+      # A user who can receive notifications in Knock. They are always referenced by
+      # your internal identifier.
       sig do
         params(
           id: String,

@@ -11,14 +11,14 @@ module Knockapi
         required :id, String
 
         # @!attribute _typename
-        #   The type name of the schema.
+        #   The typename of the schema.
         #
         #   @return [String]
         required :_typename, String, api_name: :__typename
 
         # @!attribute categories
-        #   A setting for a preference set, where the key in the object is the category, and
-        #   the values are the preference settings for that category.
+        #   An object where the key is the category and the values are the preference
+        #   settings for that category.
         #
         #   @return [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
         optional :categories,
@@ -32,8 +32,8 @@ module Knockapi
         optional :channel_types, -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes }, nil?: true
 
         # @!attribute workflows
-        #   A setting for a preference set, where the key in the object is the workflow key,
-        #   and the values are the preference settings for that workflow.
+        #   An object where the key is the workflow key and the values are the preference
+        #   settings for that workflow.
         #
         #   @return [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
         optional :workflows,
@@ -41,7 +41,9 @@ module Knockapi
                  nil?: true
 
         # @!parse
-        #   # A preference set object.
+        #   # A preference set determines whether a recipient should receive a particular type
+        #   # of notification. By default all preferences are opted in unless a preference
+        #   # explicitly opts the recipient out of the notification
         #   #
         #   # @param id [String]
         #   # @param _typename [String]

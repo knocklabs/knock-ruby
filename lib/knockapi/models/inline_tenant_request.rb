@@ -9,7 +9,7 @@ module Knockapi
       # The unique identifier for the tenant.
       variant String
 
-      # A request to get a tenant.
+      # A tenant to be set in the system. You can supply any additional properties on the tenant object.
       variant -> { Knockapi::Models::TenantRequest }
 
       # @!parse

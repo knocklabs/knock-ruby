@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Recipients
       class Subscription < Knockapi::Internal::Type::BaseModel
-        # The type name of the schema.
+        # The typename of the schema.
         sig { returns(String) }
         attr_accessor :_typename
 
@@ -19,7 +19,7 @@ module Knockapi
         sig { params(object: T.any(Knockapi::Models::Object, Knockapi::Internal::AnyHash)).void }
         attr_writer :object
 
-        # A recipient, which is either a user or an object.
+        # A recipient of a notification, which is either a user or an object.
         sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
         attr_accessor :recipient
 

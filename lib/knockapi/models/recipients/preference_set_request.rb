@@ -5,8 +5,8 @@ module Knockapi
     module Recipients
       class PreferenceSetRequest < Knockapi::Internal::Type::BaseModel
         # @!attribute categories
-        #   A setting for a preference set, where the key in the object is the category, and
-        #   the values are the preference settings for that category.
+        #   An object where the key is the category and the values are the preference
+        #   settings for that category.
         #
         #   @return [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
         optional :categories,
@@ -20,8 +20,8 @@ module Knockapi
         optional :channel_types, -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes }, nil?: true
 
         # @!attribute workflows
-        #   A setting for a preference set, where the key in the object is the workflow key,
-        #   and the values are the preference settings for that workflow.
+        #   An object where the key is the workflow key and the values are the preference
+        #   settings for that workflow.
         #
         #   @return [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
         optional :workflows,

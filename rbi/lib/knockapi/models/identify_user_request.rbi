@@ -17,7 +17,7 @@ module Knockapi
 
       # A set of parameters to identify a user with. Does not include the user ID, as
       # that's specified elsewhere in the request. You can supply any additional
-      # properties you'd like to upsert against the user.
+      # properties you'd like to upsert for the user.
       sig do
         params(
           channel_data: T.nilable(

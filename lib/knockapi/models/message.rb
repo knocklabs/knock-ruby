@@ -15,7 +15,7 @@ module Knockapi
       #   attr_writer :id
 
       # @!attribute [r] _typename
-      #   The type name of the schema.
+      #   The typename of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
@@ -58,7 +58,7 @@ module Knockapi
       optional :clicked_at, Time, nil?: true
 
       # @!attribute data
-      #   The data associated with the message.
+      #   Data from the activities linked to the message
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
@@ -142,8 +142,7 @@ module Knockapi
       #   attr_writer :source
 
       # @!attribute [r] status
-      #   The message delivery status. Can be one of: queued, sent, delivered,
-      #   delivery_attempted, undelivered, not_sent, bounced.
+      #   The message delivery status.
       #
       #   @return [Symbol, Knockapi::Models::Message::Status, nil]
       optional :status, enum: -> { Knockapi::Models::Message::Status }
@@ -234,7 +233,7 @@ module Knockapi
       module Actor
         extend Knockapi::Internal::Type::Union
 
-        # An identifier for a user recipient.
+        # The id of the user.
         variant String
 
         # A reference to a recipient object.
@@ -302,7 +301,7 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # An identifier for a user recipient.
+        # The id of the user.
         variant String
 
         # A reference to a recipient object.
@@ -383,8 +382,7 @@ module Knockapi
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
 
-      # The message delivery status. Can be one of: queued, sent, delivered,
-      # delivery_attempted, undelivered, not_sent, bounced.
+      # The message delivery status.
       #
       # @see Knockapi::Models::Message#status
       module Status

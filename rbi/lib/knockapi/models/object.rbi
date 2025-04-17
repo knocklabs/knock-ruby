@@ -7,7 +7,7 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :id
 
-      # The type name of the schema.
+      # The typename of the schema.
       sig { returns(String) }
       attr_accessor :_typename
 

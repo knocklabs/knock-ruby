@@ -10,7 +10,7 @@ module Knockapi
       sig { params(id: String).void }
       attr_writer :id
 
-      # The type name of the schema.
+      # The typename of the schema.
       sig { returns(T.nilable(String)) }
       attr_reader :_typename
 
@@ -45,7 +45,7 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :clicked_at
 
-      # The data associated with the message.
+      # Data from the activities linked to the message
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
@@ -107,8 +107,7 @@ module Knockapi
       sig { params(source: T.any(Knockapi::Models::Message::Source, Knockapi::Internal::AnyHash)).void }
       attr_writer :source
 
-      # The message delivery status. Can be one of: queued, sent, delivered,
-      # delivery_attempted, undelivered, not_sent, bounced.
+      # The message delivery status.
       sig { returns(T.nilable(Knockapi::Models::Message::Status::TaggedSymbol)) }
       attr_reader :status
 
@@ -323,8 +322,7 @@ module Knockapi
         def to_hash; end
       end
 
-      # The message delivery status. Can be one of: queued, sent, delivered,
-      # delivery_attempted, undelivered, not_sent, bounced.
+      # The message delivery status.
       module Status
         extend Knockapi::Internal::Type::Enum
 

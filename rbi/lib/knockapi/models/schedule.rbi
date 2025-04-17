@@ -11,7 +11,7 @@ module Knockapi
       sig { returns(Time) }
       attr_accessor :inserted_at
 
-      # A recipient, which is either a user or an object.
+      # A recipient of a notification, which is either a user or an object.
       sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
       attr_accessor :recipient
 
@@ -27,14 +27,14 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :workflow
 
-      # The type name of the schema.
+      # The typename of the schema.
       sig { returns(T.nilable(String)) }
       attr_reader :_typename
 
       sig { params(_typename: String).void }
       attr_writer :_typename
 
-      # A recipient, which is either a user or an object.
+      # A recipient of a notification, which is either a user or an object.
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       attr_accessor :actor
 
@@ -56,7 +56,7 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :tenant
 
-      # A schedule that represents a recurring workflow execution.
+      # A schedule represents a recurring workflow execution.
       sig do
         params(
           id: String,

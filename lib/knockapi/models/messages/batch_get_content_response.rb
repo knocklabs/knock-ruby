@@ -5,7 +5,7 @@ module Knockapi
     module Messages
       class BatchGetContentResponseItem < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
-        #   The type name of the schema.
+        #   The typename of the schema.
         #
         #   @return [String]
         required :_typename, String, api_name: :__typename
@@ -63,7 +63,7 @@ module Knockapi
 
           class MessageEmailContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
-            #   The type name of the schema.
+            #   The typename of the schema.
             #
             #   @return [String]
             required :_typename, String, api_name: :__typename
@@ -136,7 +136,7 @@ module Knockapi
 
           class MessageSMSContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
-            #   The type name of the schema.
+            #   The typename of the schema.
             #
             #   @return [String]
             required :_typename, String, api_name: :__typename
@@ -173,7 +173,7 @@ module Knockapi
             required :token, String
 
             # @!attribute _typename
-            #   The type name of the schema.
+            #   The typename of the schema.
             #
             #   @return [String]
             required :_typename, String, api_name: :__typename
@@ -212,7 +212,7 @@ module Knockapi
 
           class MessageChatContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
-            #   The type name of the schema.
+            #   The typename of the schema.
             #
             #   @return [String]
             required :_typename, String, api_name: :__typename
@@ -337,7 +337,7 @@ module Knockapi
 
           class MessageInAppFeedContent < Knockapi::Internal::Type::BaseModel
             # @!attribute _typename
-            #   The type name of the schema.
+            #   The typename of the schema.
             #
             #   @return [String]
             required :_typename, String, api_name: :__typename

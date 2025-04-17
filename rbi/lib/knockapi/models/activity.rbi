@@ -10,14 +10,14 @@ module Knockapi
       sig { params(id: String).void }
       attr_writer :id
 
-      # The type name of the schema.
+      # The typename of the schema.
       sig { returns(T.nilable(String)) }
       attr_reader :_typename
 
       sig { params(_typename: String).void }
       attr_writer :_typename
 
-      # A recipient, which is either a user or an object.
+      # A recipient of a notification, which is either a user or an object.
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       attr_accessor :actor
 
@@ -32,7 +32,7 @@ module Knockapi
       sig { params(inserted_at: Time).void }
       attr_writer :inserted_at
 
-      # A recipient, which is either a user or an object.
+      # A recipient of a notification, which is either a user or an object.
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       attr_reader :recipient
 
