@@ -23,19 +23,12 @@ module Knockapi
       #   @return [Array<String>, nil]
       optional :recipients, Knockapi::Internal::Type::ArrayOf[String], nil?: true
 
-      # @!attribute tenant
-      #   The unique identifier for the tenant.
-      #
-      #   @return [String, nil]
-      optional :tenant, String, nil?: true
-
       # @!parse
       #   # @param cancellation_key [String]
       #   # @param recipients [Array<String>, nil]
-      #   # @param tenant [String, nil]
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(cancellation_key:, recipients: nil, tenant: nil, request_options: {}, **) = super
+      #   def initialize(cancellation_key:, recipients: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
     end

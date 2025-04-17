@@ -7,12 +7,11 @@ module Knockapi
       # will cancel any queued workflow runs associated with that key/cancellation key
       # pair. Can optionally be provided one or more recipients to scope the request to.
       #
-      # @overload cancel(key, cancellation_key:, recipients: nil, tenant: nil, request_options: {})
+      # @overload cancel(key, cancellation_key:, recipients: nil, request_options: {})
       #
       # @param key [String]
       # @param cancellation_key [String]
       # @param recipients [Array<String>, nil]
-      # @param tenant [String, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]

@@ -6,8 +6,8 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-      # single trigger.
+      # The recipients to trigger the workflow for. Can inline identify users, objects,
+      # or use a list of user ids. Cannot exceed 1000 recipients in a single trigger.
       sig do
         returns(
           T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]

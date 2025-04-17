@@ -17,20 +17,15 @@ module Knockapi
       sig { returns(T.nilable(T::Array[String])) }
       attr_accessor :recipients
 
-      # The unique identifier for the tenant.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :tenant
-
       sig do
         params(
           cancellation_key: String,
           recipients: T.nilable(T::Array[String]),
-          tenant: T.nilable(String),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(cancellation_key:, recipients: nil, tenant: nil, request_options: {}); end
+      def self.new(cancellation_key:, recipients: nil, request_options: {}); end
 
       sig do
         override
@@ -38,7 +33,6 @@ module Knockapi
             {
               cancellation_key: String,
               recipients: T.nilable(T::Array[String]),
-              tenant: T.nilable(String),
               request_options: Knockapi::RequestOptions
             }
           )

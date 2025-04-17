@@ -11,13 +11,12 @@ module Knockapi
           key: String,
           cancellation_key: String,
           recipients: T.nilable(T::Array[String]),
-          tenant: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(String)
       end
       def cancel(
-        # Workflow key.
+        # The key of the workflow to cancel.
         key,
         # The cancellation key provided during the initial notify call. If used in a
         # cancel request, will cancel the notification for the recipients specified in the
@@ -26,8 +25,6 @@ module Knockapi
         # A list of recipients to cancel the notification for. If omitted, cancels for all
         # recipients associated with the cancellation key.
         recipients: nil,
-        # The unique identifier for the tenant.
-        tenant: nil,
         request_options: {}
       ); end
       # Trigger a workflow specified by the key to run for the given recipients, using
@@ -62,8 +59,8 @@ module Knockapi
       def trigger(
         # Key of the workflow to trigger.
         key,
-        # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
-        # single trigger.
+        # The recipients to trigger the workflow for. Can inline identify users, objects,
+        # or use a list of user ids. Cannot exceed 1000 recipients in a single trigger.
         recipients:,
         # Specifies a recipient in a request. This can either be a user identifier
         # (string), an inline user request (object), or an inline object request, which is

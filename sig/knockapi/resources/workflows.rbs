@@ -5,7 +5,6 @@ module Knockapi
         String key,
         cancellation_key: String,
         ?recipients: ::Array[String]?,
-        ?tenant: String?,
         ?request_options: Knockapi::request_opts
       ) -> String
 
