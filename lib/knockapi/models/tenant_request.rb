@@ -4,12 +4,13 @@ module Knockapi
   module Models
     class TenantRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute id
+      #   The unique identifier for the tenant.
       #
       #   @return [String]
       required :id, String
 
       # @!attribute channel_data
-      #   Allows inline setting channel data for a recipient
+      #   A request to set channel data for a type of channel inline.
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
@@ -25,6 +26,7 @@ module Knockapi
                nil?: true
 
       # @!attribute [r] settings
+      #   The settings for the tenant. Includes branding and preference set.
       #
       #   @return [Knockapi::Models::TenantRequest::Settings, nil]
       optional :settings, -> { Knockapi::Models::TenantRequest::Settings }
@@ -34,7 +36,7 @@ module Knockapi
       #   attr_writer :settings
 
       # @!parse
-      #   # A tenant to be set in the system
+      #   # A request to get a tenant.
       #   #
       #   # @param id [String]
       #   # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
@@ -48,6 +50,7 @@ module Knockapi
       # @see Knockapi::Models::TenantRequest#settings
       class Settings < Knockapi::Internal::Type::BaseModel
         # @!attribute [r] branding
+        #   The branding for the tenant.
         #
         #   @return [Knockapi::Models::TenantRequest::Settings::Branding, nil]
         optional :branding, -> { Knockapi::Models::TenantRequest::Settings::Branding }
@@ -57,12 +60,14 @@ module Knockapi
         #   attr_writer :branding
 
         # @!attribute preference_set
-        #   Set preferences for a recipient
+        #   A request to set a preference set for a recipient.
         #
         #   @return [Knockapi::Models::Recipients::PreferenceSetRequest, nil]
         optional :preference_set, -> { Knockapi::Models::Recipients::PreferenceSetRequest }, nil?: true
 
         # @!parse
+        #   # The settings for the tenant. Includes branding and preference set.
+        #   #
         #   # @param branding [Knockapi::Models::TenantRequest::Settings::Branding]
         #   # @param preference_set [Knockapi::Models::Recipients::PreferenceSetRequest, nil]
         #   #
@@ -73,26 +78,32 @@ module Knockapi
         # @see Knockapi::Models::TenantRequest::Settings#branding
         class Branding < Knockapi::Internal::Type::BaseModel
           # @!attribute icon_url
+          #   The icon URL for the tenant.
           #
           #   @return [String, nil]
           optional :icon_url, String, nil?: true
 
           # @!attribute logo_url
+          #   The logo URL for the tenant.
           #
           #   @return [String, nil]
           optional :logo_url, String, nil?: true
 
           # @!attribute primary_color
+          #   The primary color for the tenant.
           #
           #   @return [String, nil]
           optional :primary_color, String, nil?: true
 
           # @!attribute primary_color_contrast
+          #   The primary color contrast for the tenant.
           #
           #   @return [String, nil]
           optional :primary_color_contrast, String, nil?: true
 
           # @!parse
+          #   # The branding for the tenant.
+          #   #
           #   # @param icon_url [String, nil]
           #   # @param logo_url [String, nil]
           #   # @param primary_color [String, nil]

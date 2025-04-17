@@ -5,18 +5,19 @@ module Knockapi
     # @see Knockapi::Resources::Audiences#list_members
     class AudienceListMembersResponse < Knockapi::Internal::Type::BaseModel
       # @!attribute entries
+      #   A list of audience members.
       #
       #   @return [Array<Knockapi::Models::AudienceMember>]
       required :entries, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::AudienceMember] }
 
       # @!attribute page_info
-      #   The information about a paginated result
+      #   Pagination information for a list of resources.
       #
       #   @return [Knockapi::Models::AudienceListMembersResponse::PageInfo]
       required :page_info, -> { Knockapi::Models::AudienceListMembersResponse::PageInfo }
 
       # @!parse
-      #   # A response containing a list of audience members
+      #   # A paginated list of audience members.
       #   #
       #   # @param entries [Array<Knockapi::Models::AudienceMember>]
       #   # @param page_info [Knockapi::Models::AudienceListMembersResponse::PageInfo]
@@ -28,27 +29,31 @@ module Knockapi
       # @see Knockapi::Models::AudienceListMembersResponse#page_info
       class PageInfo < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
+        #   The type name of the schema.
         #
         #   @return [String]
         required :_typename, String, api_name: :__typename
 
         # @!attribute page_size
+        #   The number of items per page.
         #
         #   @return [Integer]
         required :page_size, Integer
 
         # @!attribute after
+        #   The cursor to fetch entries after.
         #
         #   @return [String, nil]
         optional :after, String, nil?: true
 
         # @!attribute before
+        #   The cursor to fetch entries before.
         #
         #   @return [String, nil]
         optional :before, String, nil?: true
 
         # @!parse
-        #   # The information about a paginated result
+        #   # Pagination information for a list of resources.
         #   #
         #   # @param _typename [String]
         #   # @param page_size [Integer]

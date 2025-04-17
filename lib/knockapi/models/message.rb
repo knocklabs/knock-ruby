@@ -5,7 +5,7 @@ module Knockapi
     # @see Knockapi::Resources::Messages#list
     class Message < Knockapi::Internal::Type::BaseModel
       # @!attribute [r] id
-      #   The message ID
+      #   The unique identifier for the message.
       #
       #   @return [String, nil]
       optional :id, String
@@ -15,6 +15,7 @@ module Knockapi
       #   attr_writer :id
 
       # @!attribute [r] _typename
+      #   The type name of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
@@ -24,23 +25,23 @@ module Knockapi
       #   attr_writer :_typename
 
       # @!attribute [r] actors
-      #   A list of actor representations associated with the message (up to 10)
+      #   A list of messages.
       #
-      #   @return [Array<String, Knockapi::Models::Message::Actor::UnionMember1>, nil]
+      #   @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>, nil]
       optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor] }
 
       # @!parse
-      #   # @return [Array<String, Knockapi::Models::Message::Actor::UnionMember1>]
+      #   # @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
       #   attr_writer :actors
 
       # @!attribute archived_at
-      #   Timestamp when message was archived
+      #   Timestamp when the message was archived.
       #
       #   @return [Time, nil]
       optional :archived_at, Time, nil?: true
 
       # @!attribute [r] channel_id
-      #   Channel ID associated with the message
+      #   The id for the channel the message was sent through.
       #
       #   @return [String, nil]
       optional :channel_id, String
@@ -50,19 +51,19 @@ module Knockapi
       #   attr_writer :channel_id
 
       # @!attribute clicked_at
-      #   Timestamp when message was clicked
+      #   Timestamp when the message was clicked.
       #
       #   @return [Time, nil]
       optional :clicked_at, Time, nil?: true
 
       # @!attribute data
-      #   Additional message data
+      #   The data associated with the message.
       #
-      #   @return [Object, nil]
-      optional :data, Knockapi::Internal::Type::Unknown, nil?: true
+      #   @return [Hash{Symbol=>Object}, nil]
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute [r] engagement_statuses
-      #   List of engagement statuses
+      #   A list of engagement statuses.
       #
       #   @return [Array<Symbol, Knockapi::Models::Message::EngagementStatus>, nil]
       optional :engagement_statuses,
@@ -73,7 +74,7 @@ module Knockapi
       #   attr_writer :engagement_statuses
 
       # @!attribute [r] inserted_at
-      #   Timestamp of creation
+      #   Timestamp when the resource was created.
       #
       #   @return [Time, nil]
       optional :inserted_at, Time
@@ -83,25 +84,25 @@ module Knockapi
       #   attr_writer :inserted_at
 
       # @!attribute interacted_at
-      #   Timestamp when message was interacted with
+      #   Timestamp when the message was interacted with.
       #
       #   @return [Time, nil]
       optional :interacted_at, Time, nil?: true
 
       # @!attribute link_clicked_at
-      #   Timestamp when a link in the message was clicked
+      #   Timestamp when a link in the message was clicked.
       #
       #   @return [Time, nil]
       optional :link_clicked_at, Time, nil?: true
 
       # @!attribute metadata
-      #   Message metadata
+      #   The metadata associated with the message.
       #
-      #   @return [Object, nil]
-      optional :metadata, Knockapi::Internal::Type::Unknown, nil?: true
+      #   @return [Hash{Symbol=>Object}, nil]
+      optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute read_at
-      #   Timestamp when message was read
+      #   Timestamp when the message was read.
       #
       #   @return [Time, nil]
       optional :read_at, Time, nil?: true
@@ -110,27 +111,27 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       #
-      #   @return [String, Knockapi::Models::Message::Recipient::UnionMember1, nil]
+      #   @return [String, Knockapi::Models::Message::Recipient::ObjectReference, nil]
       optional :recipient, union: -> { Knockapi::Models::Message::Recipient }
 
       # @!parse
-      #   # @return [String, Knockapi::Models::Message::Recipient::UnionMember1]
+      #   # @return [String, Knockapi::Models::Message::Recipient::ObjectReference]
       #   attr_writer :recipient
 
       # @!attribute scheduled_at
-      #   Timestamp when message was scheduled for
+      #   Timestamp when the message was scheduled to be sent.
       #
       #   @return [Time, nil]
       optional :scheduled_at, Time, nil?: true
 
       # @!attribute seen_at
-      #   Timestamp when message was seen
+      #   Timestamp when the message was seen.
       #
       #   @return [Time, nil]
       optional :seen_at, Time, nil?: true
 
       # @!attribute [r] source
-      #   Source information
+      #   The source that triggered the message.
       #
       #   @return [Knockapi::Models::Message::Source, nil]
       optional :source, -> { Knockapi::Models::Message::Source }
@@ -140,7 +141,8 @@ module Knockapi
       #   attr_writer :source
 
       # @!attribute [r] status
-      #   Message delivery status
+      #   The message delivery status. Can be one of: queued, sent, delivered,
+      #   delivery_attempted, undelivered, not_sent, bounced.
       #
       #   @return [Symbol, Knockapi::Models::Message::Status, nil]
       optional :status, enum: -> { Knockapi::Models::Message::Status }
@@ -150,13 +152,13 @@ module Knockapi
       #   attr_writer :status
 
       # @!attribute tenant
-      #   Tenant ID that the message belongs to
+      #   The id for the tenant set for the message.
       #
       #   @return [String, nil]
       optional :tenant, String, nil?: true
 
       # @!attribute [r] updated_at
-      #   Timestamp of last update
+      #   The timestamp when the resource was last updated.
       #
       #   @return [Time, nil]
       optional :updated_at, Time
@@ -166,7 +168,7 @@ module Knockapi
       #   attr_writer :updated_at
 
       # @!attribute workflow
-      #   Workflow key used to create the message
+      #   The key of the worklfow that generated the message.
       #
       #   @return [String, nil]
       optional :workflow, String, nil?: true
@@ -177,18 +179,18 @@ module Knockapi
       #   #
       #   # @param id [String]
       #   # @param _typename [String]
-      #   # @param actors [Array<String, Knockapi::Models::Message::Actor::UnionMember1>]
+      #   # @param actors [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
       #   # @param archived_at [Time, nil]
       #   # @param channel_id [String]
       #   # @param clicked_at [Time, nil]
-      #   # @param data [Object, nil]
+      #   # @param data [Hash{Symbol=>Object}, nil]
       #   # @param engagement_statuses [Array<Symbol, Knockapi::Models::Message::EngagementStatus>]
       #   # @param inserted_at [Time]
       #   # @param interacted_at [Time, nil]
       #   # @param link_clicked_at [Time, nil]
-      #   # @param metadata [Object, nil]
+      #   # @param metadata [Hash{Symbol=>Object}, nil]
       #   # @param read_at [Time, nil]
-      #   # @param recipient [String, Knockapi::Models::Message::Recipient::UnionMember1]
+      #   # @param recipient [String, Knockapi::Models::Message::Recipient::ObjectReference]
       #   # @param scheduled_at [Time, nil]
       #   # @param seen_at [Time, nil]
       #   # @param source [Knockapi::Models::Message::Source]
@@ -231,27 +233,27 @@ module Knockapi
       module Actor
         extend Knockapi::Internal::Type::Union
 
-        # A user identifier
+        # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient
-        variant -> { Knockapi::Models::Message::Actor::UnionMember1 }
+        # An object reference to a recipient.
+        variant -> { Knockapi::Models::Message::Actor::ObjectReference }
 
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
-          #   An object identifier
+          #   An identifier for the recipient object.
           #
           #   @return [String]
           required :id, String
 
           # @!attribute collection
-          #   The collection the object belongs to
+          #   The collection the recipient object belongs to.
           #
           #   @return [String]
           required :collection, String
 
           # @!parse
-          #   # An object reference to a recipient
+          #   # An object reference to a recipient.
           #   #
           #   # @param id [String]
           #   # @param collection [String]
@@ -262,10 +264,12 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::Message::Actor::UnionMember1)]
+        #   # @return [Array(String, Knockapi::Models::Message::Actor::ObjectReference)]
         #   def self.variants; end
       end
 
+      # An engagement status for a message. Can be one of: read, seen, interacted,
+      # link_clicked, archived.
       module EngagementStatus
         extend Knockapi::Internal::Type::Enum
 
@@ -289,27 +293,27 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # A user identifier
+        # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient
-        variant -> { Knockapi::Models::Message::Recipient::UnionMember1 }
+        # An object reference to a recipient.
+        variant -> { Knockapi::Models::Message::Recipient::ObjectReference }
 
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
-          #   An object identifier
+          #   An identifier for the recipient object.
           #
           #   @return [String]
           required :id, String
 
           # @!attribute collection
-          #   The collection the object belongs to
+          #   The collection the recipient object belongs to.
           #
           #   @return [String]
           required :collection, String
 
           # @!parse
-          #   # An object reference to a recipient
+          #   # An object reference to a recipient.
           #   #
           #   # @param id [String]
           #   # @param collection [String]
@@ -320,7 +324,7 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::Message::Recipient::UnionMember1)]
+        #   # @return [Array(String, Knockapi::Models::Message::Recipient::ObjectReference)]
         #   def self.variants; end
       end
 
@@ -332,25 +336,25 @@ module Knockapi
         required :_typename, String, api_name: :__typename
 
         # @!attribute categories
-        #   The workflow categories
+        #   The categories associated with the message.
         #
         #   @return [Array<String>]
         required :categories, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute key
-        #   The workflow key
+        #   The key of the source that triggered the message.
         #
         #   @return [String]
         required :key, String
 
         # @!attribute version_id
-        #   The source version ID
+        #   The id of the version of the source that triggered the message.
         #
         #   @return [String]
         required :version_id, String
 
         # @!parse
-        #   # Source information
+        #   # The source that triggered the message.
         #   #
         #   # @param _typename [String]
         #   # @param categories [Array<String>]
@@ -362,7 +366,8 @@ module Knockapi
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end
 
-      # Message delivery status
+      # The message delivery status. Can be one of: queued, sent, delivered,
+      # delivery_attempted, undelivered, not_sent, bounced.
       #
       # @see Knockapi::Models::Message#status
       module Status

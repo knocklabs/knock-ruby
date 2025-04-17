@@ -4,18 +4,20 @@ module Knockapi
   module Models
     module Recipients
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
+        # List of Slack channel connections.
         sig do
           returns(
             T::Array[
               T.any(
-                Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection,
-                Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
               )
             ]
           )
         end
         attr_accessor :connections
 
+        # A Slack connection token.
         sig { returns(T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)) }
         attr_reader :token
 
@@ -32,9 +34,9 @@ module Knockapi
           params(
             connections: T::Array[
               T.any(
-                Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection,
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
                 Knockapi::Internal::AnyHash,
-                Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
               )
             ],
             token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
@@ -49,8 +51,8 @@ module Knockapi
               {
                 connections: T::Array[
                   T.any(
-                    Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection,
-                    Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection
+                    Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                    Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
                   )
                 ],
                 token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)
@@ -59,21 +61,24 @@ module Knockapi
         end
         def to_hash; end
 
-        # A Slack connection, which either includes a channel_id or a user_id
+        # A Slack connection, either an access token or an incoming webhook
         module Connection
           extend Knockapi::Internal::Type::Union
 
-          class TokenConnection < Knockapi::Internal::Type::BaseModel
+          class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
+            # A Slack access token.
             sig { returns(T.nilable(String)) }
             attr_accessor :access_token
 
+            # A Slack channel ID from the Slack provider.
             sig { returns(T.nilable(String)) }
             attr_accessor :channel_id
 
+            # A Slack user ID from the Slack provider.
             sig { returns(T.nilable(String)) }
             attr_accessor :user_id
 
-            # A Slack connection, which either includes a channel_id or a user_id
+            # A Slack connection token.
             sig do
               params(
                 access_token: T.nilable(String),
@@ -95,11 +100,12 @@ module Knockapi
             def to_hash; end
           end
 
-          class IncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+          class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+            # The URL of the incoming webhook for a Slack connection.
             sig { returns(String) }
             attr_accessor :url
 
-            # An incoming webhook Slack connection
+            # A Slack connection incoming webhook.
             sig { params(url: String).returns(T.attached_class) }
             def self.new(url:); end
 
@@ -110,16 +116,18 @@ module Knockapi
           sig do
             override
               .returns(
-                [Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection]
+                [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
               )
           end
           def self.variants; end
         end
 
         class Token < Knockapi::Internal::Type::BaseModel
+          # A Slack access token.
           sig { returns(T.nilable(String)) }
           attr_accessor :access_token
 
+          # A Slack connection token.
           sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
           def self.new(access_token:); end
 

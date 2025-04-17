@@ -3,16 +3,19 @@
 module Knockapi
   module Models
     class InlineObjectRequest < Knockapi::Internal::Type::BaseModel
+      # Unique identifier for the object.
       sig { returns(String) }
       attr_accessor :id
 
+      # The collection this object belongs to.
       sig { returns(String) }
       attr_accessor :collection
 
-      # Allows inline setting channel data for a recipient
+      # A request to set channel data for a type of channel inline.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_accessor :channel_data
 
+      # Timestamp when the resource was created.
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
@@ -20,7 +23,7 @@ module Knockapi
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_accessor :preferences
 
-      # Inline identifies a custom object belonging to a collection
+      # A custom object entity which belongs to a collection.
       sig do
         params(
           id: String,

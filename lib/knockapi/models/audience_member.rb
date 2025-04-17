@@ -4,36 +4,40 @@ module Knockapi
   module Models
     class AudienceMember < Knockapi::Internal::Type::BaseModel
       # @!attribute _typename
+      #   The type name of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename
 
       # @!attribute added_at
+      #   Timestamp when the resource was created.
       #
-      #   @return [String]
-      required :added_at, String
+      #   @return [Time]
+      required :added_at, Time
 
       # @!attribute user
-      #   A user object
+      #   A user object.
       #
       #   @return [Knockapi::Models::User]
       required :user, -> { Knockapi::Models::User }
 
       # @!attribute user_id
+      #   The unique identifier for the user.
       #
       #   @return [String]
       required :user_id, String
 
       # @!attribute tenant
+      #   The unique identifier for the tenant.
       #
       #   @return [String, nil]
       optional :tenant, String, nil?: true
 
       # @!parse
-      #   # A user belonging to an audience
+      #   # An audience member.
       #   #
       #   # @param _typename [String]
-      #   # @param added_at [String]
+      #   # @param added_at [Time]
       #   # @param user [Knockapi::Models::User]
       #   # @param user_id [String]
       #   # @param tenant [String, nil]

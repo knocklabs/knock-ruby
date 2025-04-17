@@ -3,43 +3,54 @@
 module Knockapi
   module Models
     class BulkOperation < Knockapi::Internal::Type::BaseModel
+      # Unique identifier for the bulk operation.
       sig { returns(String) }
       attr_accessor :id
 
+      # The type name of the schema.
       sig { returns(String) }
       attr_accessor :_typename
 
+      # The estimated total number of rows to process.
       sig { returns(Integer) }
       attr_accessor :estimated_total_rows
 
+      # Timestamp when the resource was created.
       sig { returns(Time) }
       attr_accessor :inserted_at
 
+      # The name of the bulk operation.
       sig { returns(String) }
       attr_accessor :name
 
+      # The number of rows processed so far.
       sig { returns(Integer) }
       attr_accessor :processed_rows
 
+      # The status of the bulk operation. One of: queued, processing, completed, failed.
       sig { returns(Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
       attr_accessor :status
 
+      # The number of successful operations.
       sig { returns(Integer) }
       attr_accessor :success_count
 
+      # The timestamp when the resource was last updated.
       sig { returns(Time) }
       attr_accessor :updated_at
 
+      # Timestamp when the bulk operation was completed.
       sig { returns(T.nilable(Time)) }
       attr_accessor :completed_at
 
+      # The number of failed operations.
       sig { returns(T.nilable(Integer)) }
       attr_reader :error_count
 
       sig { params(error_count: Integer).void }
       attr_writer :error_count
 
-      # A list of items that failed to be processed
+      # A list of items that failed to be processed.
       sig { returns(T.nilable(T::Array[Knockapi::Models::BulkOperation::ErrorItem])) }
       attr_reader :error_items
 
@@ -51,13 +62,15 @@ module Knockapi
       end
       attr_writer :error_items
 
+      # Timestamp when the bulk operation failed.
       sig { returns(T.nilable(Time)) }
       attr_accessor :failed_at
 
+      # Timestamp when the bulk operation was started.
       sig { returns(T.nilable(Time)) }
       attr_accessor :started_at
 
-      # A bulk operation entity
+      # A bulk operation entity.
       sig do
         params(
           id: String,
@@ -116,6 +129,7 @@ module Knockapi
       end
       def to_hash; end
 
+      # The status of the bulk operation. One of: queued, processing, completed, failed.
       module Status
         extend Knockapi::Internal::Type::Enum
 
@@ -132,9 +146,11 @@ module Knockapi
       end
 
       class ErrorItem < Knockapi::Internal::Type::BaseModel
+        # Unique identifier for the object.
         sig { returns(String) }
         attr_accessor :id
 
+        # The collection this object belongs to.
         sig { returns(T.nilable(String)) }
         attr_accessor :collection
 

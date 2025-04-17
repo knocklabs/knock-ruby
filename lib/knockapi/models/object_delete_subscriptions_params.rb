@@ -9,6 +9,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute recipients
+      #   The recipients of the subscription.
       #
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }

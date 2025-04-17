@@ -6,63 +6,63 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # The cursor to fetch entries after
+      # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
 
       sig { params(after: String).void }
       attr_writer :after
 
-      # The cursor to fetch entries before
+      # The cursor to fetch entries before.
       sig { returns(T.nilable(String)) }
       attr_reader :before
 
       sig { params(before: String).void }
       attr_writer :before
 
-      # The channel ID
+      # The unique identifier for the channel.
       sig { returns(T.nilable(String)) }
       attr_reader :channel_id
 
       sig { params(channel_id: String).void }
       attr_writer :channel_id
 
-      # The engagement status of the message
+      # The engagement status to filter messages by.
       sig { returns(T.nilable(T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol])) }
       attr_reader :engagement_status
 
       sig { params(engagement_status: T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol]).void }
       attr_writer :engagement_status
 
-      # The message IDs to filter messages by
+      # The message IDs to filter messages by.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :message_ids
 
       sig { params(message_ids: T::Array[String]).void }
       attr_writer :message_ids
 
-      # The page size to fetch
+      # The number of items per page.
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
-      # The source of the message (workflow key)
+      # The source of the message (workflow key).
       sig { returns(T.nilable(String)) }
       attr_reader :source
 
       sig { params(source: String).void }
       attr_writer :source
 
-      # The status of the message
+      # The delivery status to filter messages by.
       sig { returns(T.nilable(T::Array[Knockapi::Models::MessageListParams::Status::OrSymbol])) }
       attr_reader :status
 
       sig { params(status: T::Array[Knockapi::Models::MessageListParams::Status::OrSymbol]).void }
       attr_writer :status
 
-      # The tenant ID
+      # The unique identifier for the tenant.
       sig { returns(T.nilable(String)) }
       attr_reader :tenant
 
@@ -76,21 +76,21 @@ module Knockapi
       sig { params(trigger_data: String).void }
       attr_writer :trigger_data
 
-      # The workflow categories to filter messages by
+      # The workflow categories to filter messages by.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :workflow_categories
 
       sig { params(workflow_categories: T::Array[String]).void }
       attr_writer :workflow_categories
 
-      # The workflow recipient run ID to filter messages by
+      # The workflow recipient run ID to filter messages by.
       sig { returns(T.nilable(String)) }
       attr_reader :workflow_recipient_run_id
 
       sig { params(workflow_recipient_run_id: String).void }
       attr_writer :workflow_recipient_run_id
 
-      # The workflow run ID to filter messages by
+      # The workflow run ID to filter messages by.
       sig { returns(T.nilable(String)) }
       attr_reader :workflow_run_id
 

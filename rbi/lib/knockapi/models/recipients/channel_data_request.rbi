@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Recipients
       class ChannelDataRequest < Knockapi::Internal::Type::BaseModel
-        # Channel data for push providers
+        # Channel data for a given channel type.
         sig do
           returns(
             T.any(
@@ -18,7 +18,7 @@ module Knockapi
         end
         attr_accessor :data
 
-        # Set channel data for a type of channel
+        # A request to set channel data for a type of channel.
         sig do
           params(
             data: T.any(
@@ -50,7 +50,7 @@ module Knockapi
         end
         def to_hash; end
 
-        # Channel data for push providers
+        # Channel data for a given channel type.
         module Data
           extend Knockapi::Internal::Type::Union
 

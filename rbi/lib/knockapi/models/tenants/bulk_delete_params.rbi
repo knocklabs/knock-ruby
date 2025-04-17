@@ -7,7 +7,7 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # The IDs of the tenants to delete
+        # The IDs of the tenants to delete.
         sig { returns(T::Array[String]) }
         attr_accessor :tenant_ids
 

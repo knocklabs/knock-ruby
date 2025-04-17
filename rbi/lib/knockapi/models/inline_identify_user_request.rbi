@@ -3,11 +3,11 @@
 module Knockapi
   module Models
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
-      # The ID of the user to identify. This is an ID that you supply.
+      # The unique identifier for the user.
       sig { returns(String) }
       attr_accessor :id
 
-      # Allows inline setting channel data for a recipient
+      # A request to set channel data for a type of channel inline.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_accessor :channel_data
 

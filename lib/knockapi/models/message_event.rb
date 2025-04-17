@@ -5,16 +5,19 @@ module Knockapi
     # @see Knockapi::Resources::Messages#list_events
     class MessageEvent < Knockapi::Internal::Type::BaseModel
       # @!attribute id
+      #   The unique identifier for the message event.
       #
       #   @return [String]
       required :id, String
 
       # @!attribute _typename
+      #   The type name of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename
 
       # @!attribute inserted_at
+      #   Timestamp when the event was created.
       #
       #   @return [Time]
       required :inserted_at, Time
@@ -23,29 +26,30 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       #
-      #   @return [String, Knockapi::Models::MessageEvent::Recipient::UnionMember1]
+      #   @return [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
       required :recipient, union: -> { Knockapi::Models::MessageEvent::Recipient }
 
       # @!attribute type
+      #   The type of event that occurred.
       #
       #   @return [Symbol, Knockapi::Models::MessageEvent::Type]
       required :type, enum: -> { Knockapi::Models::MessageEvent::Type }
 
       # @!attribute data
-      #   The data associated with the event. Only present for some event types
+      #   The data associated with the message event. Only present for some event types.
       #
-      #   @return [Object, nil]
-      optional :data, Knockapi::Internal::Type::Unknown, nil?: true
+      #   @return [Hash{Symbol=>Object}, nil]
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!parse
-      #   # A single event that occurred for a message
+      #   # A message event.
       #   #
       #   # @param id [String]
       #   # @param _typename [String]
       #   # @param inserted_at [Time]
-      #   # @param recipient [String, Knockapi::Models::MessageEvent::Recipient::UnionMember1]
+      #   # @param recipient [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
       #   # @param type [Symbol, Knockapi::Models::MessageEvent::Type]
-      #   # @param data [Object, nil]
+      #   # @param data [Hash{Symbol=>Object}, nil]
       #   #
       #   def initialize(id:, _typename:, inserted_at:, recipient:, type:, data: nil, **) = super
 
@@ -58,27 +62,27 @@ module Knockapi
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # A user identifier
+        # An identifier for a user recipient.
         variant String
 
-        # An object reference to a recipient
-        variant -> { Knockapi::Models::MessageEvent::Recipient::UnionMember1 }
+        # An object reference to a recipient.
+        variant -> { Knockapi::Models::MessageEvent::Recipient::ObjectReference }
 
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           # @!attribute id
-          #   An object identifier
+          #   An identifier for the recipient object.
           #
           #   @return [String]
           required :id, String
 
           # @!attribute collection
-          #   The collection the object belongs to
+          #   The collection the recipient object belongs to.
           #
           #   @return [String]
           required :collection, String
 
           # @!parse
-          #   # An object reference to a recipient
+          #   # An object reference to a recipient.
           #   #
           #   # @param id [String]
           #   # @param collection [String]
@@ -89,27 +93,31 @@ module Knockapi
         end
 
         # @!parse
-        #   # @return [Array(String, Knockapi::Models::MessageEvent::Recipient::UnionMember1)]
+        #   # @return [Array(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)]
         #   def self.variants; end
       end
 
+      # The type of event that occurred.
+      #
       # @see Knockapi::Models::MessageEvent#type
       module Type
         extend Knockapi::Internal::Type::Enum
 
-        MESSAGE_QUEUED = :"message.queued"
-        MESSAGE_SENT = :"message.sent"
-        MESSAGE_DELIVERED = :"message.delivered"
-        MESSAGE_UNDELIVERED = :"message.undelivered"
-        MESSAGE_BOUNCED = :"message.bounced"
-        MESSAGE_READ = :"message.read"
-        MESSAGE_UNREAD = :"message.unread"
-        MESSAGE_LINK_CLICKED = :"message.link_clicked"
-        MESSAGE_INTERACTED = :"message.interacted"
-        MESSAGE_SEEN = :"message.seen"
-        MESSAGE_UNSEEN = :"message.unseen"
         MESSAGE_ARCHIVED = :"message.archived"
+        MESSAGE_BOUNCED = :"message.bounced"
+        MESSAGE_DELIVERED = :"message.delivered"
+        MESSAGE_DELIVERY_ATTEMPTED = :"message.delivery_attempted"
+        MESSAGE_INTERACTED = :"message.interacted"
+        MESSAGE_LINK_CLICKED = :"message.link_clicked"
+        MESSAGE_NOT_SENT = :"message.not_sent"
+        MESSAGE_QUEUED = :"message.queued"
+        MESSAGE_READ = :"message.read"
+        MESSAGE_SEEN = :"message.seen"
+        MESSAGE_SENT = :"message.sent"
         MESSAGE_UNARCHIVED = :"message.unarchived"
+        MESSAGE_UNDELIVERED = :"message.undelivered"
+        MESSAGE_UNREAD = :"message.unread"
+        MESSAGE_UNSEEN = :"message.unseen"
 
         finalize!
 

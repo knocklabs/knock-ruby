@@ -9,10 +9,17 @@ module Knockapi
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute tenants
+        #   The tenants to be upserted.
+        #
+        #   @return [Array<String, Knockapi::Models::TenantRequest>]
+        required :tenants, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::InlineTenantRequest] }
+
         # @!parse
+        #   # @param tenants [Array<String, Knockapi::Models::TenantRequest>]
         #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
         #   #
-        #   def initialize(request_options: {}, **) = super
+        #   def initialize(tenants:, request_options: {}, **) = super
 
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end

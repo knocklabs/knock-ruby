@@ -7,7 +7,7 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # A JSON encoded string containing the access token object reference
+        # A JSON encoded string containing the access token object reference.
         sig { returns(String) }
         attr_accessor :access_token_object
 

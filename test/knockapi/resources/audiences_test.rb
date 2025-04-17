@@ -3,12 +3,12 @@
 require_relative "../test_helper"
 
 class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
-  def test_add_members
+  def test_add_members_required_params
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.audiences.add_members("key")
+    response = @knock.audiences.add_members("key", members: [{user: {id: "user_1"}}])
 
     assert_pattern do
       response => String
@@ -34,12 +34,12 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
     end
   end
 
-  def test_remove_members
+  def test_remove_members_required_params
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.audiences.remove_members("key")
+    response = @knock.audiences.remove_members("key", members: [{user: {id: "user_1"}}])
 
     assert_pattern do
       response => String

@@ -6,46 +6,67 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # The cursor to fetch entries after
+      # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
 
       sig { params(after: String).void }
       attr_writer :after
 
-      # The cursor to fetch entries before
+      # The cursor to fetch entries before.
       sig { returns(T.nilable(String)) }
       attr_reader :before
 
       sig { params(before: String).void }
       attr_writer :before
 
-      # The page size to fetch
+      # Filter tenants by name.
+      sig { returns(T.nilable(String)) }
+      attr_reader :name
+
+      sig { params(name: String).void }
+      attr_writer :name
+
+      # The number of items per page.
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
+      # Filter tenants by ID.
+      sig { returns(T.nilable(String)) }
+      attr_reader :tenant_id
+
+      sig { params(tenant_id: String).void }
+      attr_writer :tenant_id
+
       sig do
         params(
           after: String,
           before: String,
+          name: String,
           page_size: Integer,
+          tenant_id: String,
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(after: nil, before: nil, page_size: nil, request_options: {}); end
+      def self.new(after: nil, before: nil, name: nil, page_size: nil, tenant_id: nil, request_options: {})
+      end
 
       sig do
         override
-          .returns({
-                     after: String,
-                     before: String,
-                     page_size: Integer,
-                     request_options: Knockapi::RequestOptions
-                   })
+          .returns(
+            {
+              after: String,
+              before: String,
+              name: String,
+              page_size: Integer,
+              tenant_id: String,
+              request_options: Knockapi::RequestOptions
+            }
+          )
       end
       def to_hash; end
     end

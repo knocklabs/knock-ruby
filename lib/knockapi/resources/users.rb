@@ -9,7 +9,7 @@ module Knockapi
       # @return [Knockapi::Resources::Users::Bulk]
       attr_reader :bulk
 
-      # Identify a user
+      # Create or update a user with the provided identification data.
       #
       # @overload update(user_id, channel_data: nil, created_at: nil, preferences: nil, request_options: {})
       #
@@ -33,12 +33,13 @@ module Knockapi
         )
       end
 
-      # Returns a list of users
+      # Retrieve a paginated list of users in the environment.
       #
-      # @overload list(after: nil, before: nil, page_size: nil, request_options: {})
+      # @overload list(after: nil, before: nil, include: nil, page_size: nil, request_options: {})
       #
       # @param after [String]
       # @param before [String]
+      # @param include [Array<Symbol, Knockapi::Models::UserListParams::Include>]
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -57,7 +58,7 @@ module Knockapi
         )
       end
 
-      # Deletes a user
+      # Permanently delete a user and all associated data.
       #
       # @overload delete(user_id, request_options: {})
       #
@@ -76,7 +77,7 @@ module Knockapi
         )
       end
 
-      # Returns a user
+      # Retrieve a specific user by their ID.
       #
       # @overload get(user_id, request_options: {})
       #
@@ -95,7 +96,7 @@ module Knockapi
         )
       end
 
-      # Get channel data for a user
+      # Retrieves the channel data for a specific user and channel ID.
       #
       # @overload get_channel_data(user_id, channel_id, request_options: {})
       #
@@ -115,7 +116,32 @@ module Knockapi
         )
       end
 
-      # Returns a paginated list of messages for a user
+      # Retrieves a specific preference set for a user identified by the preference set
+      # ID.
+      #
+      # @overload get_preferences(user_id, preference_set_id, tenant: nil, request_options: {})
+      #
+      # @param user_id [String]
+      # @param preference_set_id [String]
+      # @param tenant [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
+      #
+      # @see Knockapi::Models::UserGetPreferencesParams
+      def get_preferences(user_id, preference_set_id, params = {})
+        parsed, options = Knockapi::Models::UserGetPreferencesParams.dump_request(params)
+        @client.request(
+          method: :get,
+          path: ["v1/users/%1$s/preferences/%2$s", user_id, preference_set_id],
+          query: parsed,
+          model: Knockapi::Models::Recipients::PreferenceSet,
+          options: options
+        )
+      end
+
+      # Returns a paginated list of messages for a specific user. Allows filtering by
+      # message status and provides various sorting options.
       #
       # @overload list_messages(user_id, after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
@@ -150,7 +176,7 @@ module Knockapi
         )
       end
 
-      # List preference sets for a user
+      # Retrieves a list of all preference sets for a specific user.
       #
       # @overload list_preferences(user_id, request_options: {})
       #
@@ -169,7 +195,8 @@ module Knockapi
         )
       end
 
-      # List schedules for a user
+      # Returns a paginated list of schedules for a specific user. Can be filtered by
+      # workflow and tenant.
       #
       # @overload list_schedules(user_id, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       #
@@ -196,14 +223,16 @@ module Knockapi
         )
       end
 
-      # List subscriptions for a user
+      # Retrieves a paginated list of subscriptions for a specific user. Allows
+      # filtering by objects and includes optional preference data.
       #
-      # @overload list_subscriptions(user_id, after: nil, before: nil, objects: nil, page_size: nil, request_options: {})
+      # @overload list_subscriptions(user_id, after: nil, before: nil, include: nil, objects: nil, page_size: nil, request_options: {})
       #
       # @param user_id [String]
       # @param after [String]
       # @param before [String]
-      # @param objects [Array<String, Knockapi::Models::UserListSubscriptionsParams::Object::UnionMember1>]
+      # @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>]
+      # @param objects [Array<String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference>]
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -222,9 +251,10 @@ module Knockapi
         )
       end
 
-      # Merges two users together
+      # Merge two users together, where the user specified with the `from_user_id` param
+      # will be merged into the user specified by `user_id`.
       #
-      # @overload merge(user_id, from_user_id: nil, request_options: {})
+      # @overload merge(user_id, from_user_id:, request_options: {})
       #
       # @param user_id [String]
       # @param from_user_id [String]
@@ -233,7 +263,7 @@ module Knockapi
       # @return [Knockapi::Models::User]
       #
       # @see Knockapi::Models::UserMergeParams
-      def merge(user_id, params = {})
+      def merge(user_id, params)
         parsed, options = Knockapi::Models::UserMergeParams.dump_request(params)
         @client.request(
           method: :post,
@@ -244,27 +274,56 @@ module Knockapi
         )
       end
 
-      # Sets channel data for a user
+      # Updates or creates channel data for a specific user and channel ID.
       #
-      # @overload set_channel_data(user_id, channel_id, request_options: {})
+      # @overload set_channel_data(user_id, channel_id, data:, request_options: {})
       #
       # @param user_id [String]
       # @param channel_id [String]
+      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::UserSetChannelDataParams
-      def set_channel_data(user_id, channel_id, params = {})
+      def set_channel_data(user_id, channel_id, params)
+        parsed, options = Knockapi::Models::UserSetChannelDataParams.dump_request(params)
         @client.request(
           method: :put,
           path: ["v1/users/%1$s/channel_data/%2$s", user_id, channel_id],
+          body: parsed,
           model: Knockapi::Models::Recipients::RecipientsChannelData,
-          options: params[:request_options]
+          options: options
         )
       end
 
-      # Unsets channel data for a user
+      # Updates a complete preference set for a user. This is a destructive operation
+      # that will replace the existing preference set for the user.
+      #
+      # @overload set_preferences(user_id, preference_set_id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
+      #
+      # @param user_id [String]
+      # @param preference_set_id [String]
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
+      #
+      # @see Knockapi::Models::UserSetPreferencesParams
+      def set_preferences(user_id, preference_set_id, params = {})
+        parsed, options = Knockapi::Models::UserSetPreferencesParams.dump_request(params)
+        @client.request(
+          method: :put,
+          path: ["v1/users/%1$s/preferences/%2$s", user_id, preference_set_id],
+          body: parsed,
+          model: Knockapi::Models::Recipients::PreferenceSet,
+          options: options
+        )
+      end
+
+      # Deletes channel data for a specific user and channel ID.
       #
       # @overload unset_channel_data(user_id, channel_id, request_options: {})
       #

@@ -9,7 +9,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute [r] metadata
-      #   Metadata about the interaction
+      #   Metadata about the interaction.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]

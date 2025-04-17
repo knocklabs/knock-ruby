@@ -2,14 +2,14 @@
 
 module Knockapi
   module Models
-    # An inline tenant request
+    # An request to set a tenant inline.
     module InlineTenantRequest
       extend Knockapi::Internal::Type::Union
 
-      # A tenant identifier
+      # The unique identifier for the tenant.
       variant String
 
-      # A tenant to be set in the system
+      # A request to get a tenant.
       variant -> { Knockapi::Models::TenantRequest }
 
       # @!parse

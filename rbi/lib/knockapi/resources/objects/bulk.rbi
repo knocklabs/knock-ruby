@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Objects
       class Bulk
-        # Deletes objects in bulk for a given collection
+        # Bulk deletes objects from the specified collection.
         sig do
           params(
             collection: String,
@@ -14,36 +14,43 @@ module Knockapi
             .returns(Knockapi::Models::BulkOperation)
         end
         def delete(
-          # The collection to delete objects from
+          # The collection this object belongs to.
           collection,
-          # The IDs of the objects to delete
+          # A list of object IDs.
           object_ids:,
           request_options: {}
         ); end
-        # Bulk upserts subscriptions for a set of objects in a single collection
+        # Add subscriptions for a set of objects in a single collection. If a subscription
+        # already exists, it will be updated.
         sig do
           params(
             collection: String,
+            subscriptions: T::Array[T.any(Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription, Knockapi::Internal::AnyHash)],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
         def add_subscriptions(
-          # The collection to upsert subscriptions for
+          # The collection to add subscriptions for.
           collection,
+          # A list of subscriptions.
+          subscriptions:,
           request_options: {}
         ); end
-        # Sets objects in bulk for a given collection
+        # Bulk sets objects in the specified collection.
         sig do
           params(
             collection: String,
+            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::AnyHash)],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
         end
         def set(
-          # The collection to set objects in
+          # The collection this object belongs to.
           collection,
+          # A list of objects.
+          objects:,
           request_options: {}
         ); end
         # @api private

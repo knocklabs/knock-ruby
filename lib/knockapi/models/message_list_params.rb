@@ -9,7 +9,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute [r] after
-      #   The cursor to fetch entries after
+      #   The cursor to fetch entries after.
       #
       #   @return [String, nil]
       optional :after, String
@@ -19,7 +19,7 @@ module Knockapi
       #   attr_writer :after
 
       # @!attribute [r] before
-      #   The cursor to fetch entries before
+      #   The cursor to fetch entries before.
       #
       #   @return [String, nil]
       optional :before, String
@@ -29,7 +29,7 @@ module Knockapi
       #   attr_writer :before
 
       # @!attribute [r] channel_id
-      #   The channel ID
+      #   The unique identifier for the channel.
       #
       #   @return [String, nil]
       optional :channel_id, String
@@ -39,7 +39,7 @@ module Knockapi
       #   attr_writer :channel_id
 
       # @!attribute [r] engagement_status
-      #   The engagement status of the message
+      #   The engagement status to filter messages by.
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>, nil]
       optional :engagement_status,
@@ -50,7 +50,7 @@ module Knockapi
       #   attr_writer :engagement_status
 
       # @!attribute [r] message_ids
-      #   The message IDs to filter messages by
+      #   The message IDs to filter messages by.
       #
       #   @return [Array<String>, nil]
       optional :message_ids, Knockapi::Internal::Type::ArrayOf[String]
@@ -60,7 +60,7 @@ module Knockapi
       #   attr_writer :message_ids
 
       # @!attribute [r] page_size
-      #   The page size to fetch
+      #   The number of items per page.
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -70,7 +70,7 @@ module Knockapi
       #   attr_writer :page_size
 
       # @!attribute [r] source
-      #   The source of the message (workflow key)
+      #   The source of the message (workflow key).
       #
       #   @return [String, nil]
       optional :source, String
@@ -80,7 +80,7 @@ module Knockapi
       #   attr_writer :source
 
       # @!attribute [r] status
-      #   The status of the message
+      #   The delivery status to filter messages by.
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::Status>, nil]
       optional :status,
@@ -91,7 +91,7 @@ module Knockapi
       #   attr_writer :status
 
       # @!attribute [r] tenant
-      #   The tenant ID
+      #   The unique identifier for the tenant.
       #
       #   @return [String, nil]
       optional :tenant, String
@@ -111,7 +111,7 @@ module Knockapi
       #   attr_writer :trigger_data
 
       # @!attribute [r] workflow_categories
-      #   The workflow categories to filter messages by
+      #   The workflow categories to filter messages by.
       #
       #   @return [Array<String>, nil]
       optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
@@ -121,7 +121,7 @@ module Knockapi
       #   attr_writer :workflow_categories
 
       # @!attribute [r] workflow_recipient_run_id
-      #   The workflow recipient run ID to filter messages by
+      #   The workflow recipient run ID to filter messages by.
       #
       #   @return [String, nil]
       optional :workflow_recipient_run_id, String
@@ -131,7 +131,7 @@ module Knockapi
       #   attr_writer :workflow_recipient_run_id
 
       # @!attribute [r] workflow_run_id
-      #   The workflow run ID to filter messages by
+      #   The workflow run ID to filter messages by.
       #
       #   @return [String, nil]
       optional :workflow_run_id, String

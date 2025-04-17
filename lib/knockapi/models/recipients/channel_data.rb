@@ -5,23 +5,25 @@ module Knockapi
     module Recipients
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
+        #   The type name of the schema.
         #
         #   @return [String]
         required :_typename, String, api_name: :__typename
 
         # @!attribute channel_id
+        #   The unique identifier for the channel.
         #
         #   @return [String]
         required :channel_id, String
 
         # @!attribute data
-        #   Channel data for push providers
+        #   Channel data for a given channel type.
         #
         #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
         required :data, union: -> { Knockapi::Models::Recipients::RecipientsChannelData::Data }
 
         # @!parse
-        #   # Channel data for various channel types
+        #   # Channel data for a given channel type.
         #   #
         #   # @param _typename [String]
         #   # @param channel_id [String]
@@ -31,25 +33,25 @@ module Knockapi
 
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
-        # Channel data for push providers
+        # Channel data for a given channel type.
         #
         # @see Knockapi::Models::Recipients::RecipientsChannelData#data
         module Data
           extend Knockapi::Internal::Type::Union
 
-          # Channel data for push providers
+          # The content of a push notification.
           variant -> { Knockapi::Models::Recipients::PushChannelData }
 
           # Slack channel data
           variant -> { Knockapi::Models::Recipients::SlackChannelData }
 
-          # Microsoft Teams channel data
+          # Microsoft Teams channel connection.
           variant -> { Knockapi::Models::Recipients::MsTeamsChannelData }
 
-          # Discord channel data
+          # Discord channel data.
           variant -> { Knockapi::Models::Recipients::DiscordChannelData }
 
-          # OneSignal channel data
+          # OneSignal channel data.
           variant -> { Knockapi::Models::Recipients::OneSignalChannelData }
 
           # @!parse

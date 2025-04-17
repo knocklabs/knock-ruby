@@ -9,7 +9,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute [r] after
-      #   The cursor to fetch entries after
+      #   The cursor to fetch entries after.
       #
       #   @return [String, nil]
       optional :after, String
@@ -19,7 +19,7 @@ module Knockapi
       #   attr_writer :after
 
       # @!attribute [r] before
-      #   The cursor to fetch entries before
+      #   The cursor to fetch entries before.
       #
       #   @return [String, nil]
       optional :before, String
@@ -29,7 +29,7 @@ module Knockapi
       #   attr_writer :before
 
       # @!attribute [r] page_size
-      #   The page size to fetch
+      #   The number of items per page.
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -39,7 +39,7 @@ module Knockapi
       #   attr_writer :page_size
 
       # @!attribute [r] tenant
-      #   The ID of the tenant to list schedules for
+      #   The ID of the tenant to list schedules for.
       #
       #   @return [String, nil]
       optional :tenant, String
@@ -49,7 +49,7 @@ module Knockapi
       #   attr_writer :tenant
 
       # @!attribute [r] workflow
-      #   The ID of the workflow to list schedules for
+      #   The ID of the workflow to list schedules for.
       #
       #   @return [String, nil]
       optional :workflow, String

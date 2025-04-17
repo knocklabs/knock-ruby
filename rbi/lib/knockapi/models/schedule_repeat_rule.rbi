@@ -3,31 +3,38 @@
 module Knockapi
   module Models
     class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
+      # The type name of the schema.
       sig { returns(String) }
       attr_accessor :_typename
 
-      sig { returns(Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol) }
+      # The frequency of the schedule.
+      sig { returns(Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol) }
       attr_accessor :frequency
 
+      # The day of the month to repeat the schedule.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :day_of_month
 
-      sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol])) }
+      # The days of the week to repeat the schedule.
+      sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol])) }
       attr_accessor :days
 
+      # The hour of the day to repeat the schedule.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :hours
 
+      # The interval of the schedule.
       sig { returns(T.nilable(Integer)) }
       attr_reader :interval
 
       sig { params(interval: Integer).void }
       attr_writer :interval
 
+      # The minute of the hour to repeat the schedule.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :minutes
 
-      # A schedule repeat rule
+      # The repeat rule for the schedule.
       sig do
         params(
           _typename: String,
@@ -56,9 +63,9 @@ module Knockapi
           .returns(
             {
               _typename: String,
-              frequency: Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol,
+              frequency: Knockapi::Models::ScheduleRepeatRule::Frequency::OrSymbol,
               day_of_month: T.nilable(Integer),
-              days: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol]),
+              days: T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule::Day::OrSymbol]),
               hours: T.nilable(Integer),
               interval: Integer,
               minutes: T.nilable(Integer)
@@ -67,6 +74,7 @@ module Knockapi
       end
       def to_hash; end
 
+      # The frequency of the schedule.
       module Frequency
         extend Knockapi::Internal::Type::Enum
 
@@ -83,6 +91,7 @@ module Knockapi
         def self.values; end
       end
 
+      # An identifier for a day of the week.
       module Day
         extend Knockapi::Internal::Type::Enum
 

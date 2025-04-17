@@ -4,17 +4,19 @@ module Knockapi
   module Models
     class InlineObjectRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute id
+      #   Unique identifier for the object.
       #
       #   @return [String]
       required :id, String
 
       # @!attribute collection
+      #   The collection this object belongs to.
       #
       #   @return [String]
       required :collection, String
 
       # @!attribute channel_data
-      #   Allows inline setting channel data for a recipient
+      #   A request to set channel data for a type of channel inline.
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
@@ -22,6 +24,7 @@ module Knockapi
                nil?: true
 
       # @!attribute created_at
+      #   Timestamp when the resource was created.
       #
       #   @return [Time, nil]
       optional :created_at, Time, nil?: true
@@ -35,7 +38,7 @@ module Knockapi
                nil?: true
 
       # @!parse
-      #   # Inline identifies a custom object belonging to a collection
+      #   # A custom object entity which belongs to a collection.
       #   #
       #   # @param id [String]
       #   # @param collection [String]

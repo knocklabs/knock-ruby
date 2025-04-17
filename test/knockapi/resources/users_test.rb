@@ -120,6 +120,28 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     end
   end
 
+  def test_get_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.users.get_preferences("user_id", "default")
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::PreferenceSet
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
+      }
+    end
+  end
+
   def test_list_messages
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
@@ -146,12 +168,12 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
-        data: Knockapi::Internal::Type::Unknown | nil,
+        data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
-        metadata: Knockapi::Internal::Type::Unknown | nil,
+        metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
         recipient: Knockapi::Models::Message::Recipient | nil,
         scheduled_at: Time | nil,
@@ -205,7 +227,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         workflow: String,
         _typename: String | nil,
         actor: Knockapi::Models::Recipient | nil,
-        data: Knockapi::Internal::Type::Unknown | nil,
+        data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         last_occurrence_at: Time | nil,
         next_occurrence_at: Time | nil,
         tenant: String | nil
@@ -243,12 +265,12 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     end
   end
 
-  def test_merge
+  def test_merge_required_params
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.merge("user_id")
+    response = @knock.users.merge("user_id", from_user_id: "user_1")
 
     assert_pattern do
       response => Knockapi::Models::User
@@ -269,12 +291,17 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     end
   end
 
-  def test_set_channel_data
+  def test_set_channel_data_required_params
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.users.set_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
+    response =
+      @knock.users.set_channel_data(
+        "user_id",
+        "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        data: {tokens: ["push_token_1"]}
+      )
 
     assert_pattern do
       response => Knockapi::Models::Recipients::RecipientsChannelData
@@ -285,6 +312,28 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         _typename: String,
         channel_id: String,
         data: Knockapi::Models::Recipients::RecipientsChannelData::Data
+      }
+    end
+  end
+
+  def test_set_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.users.set_preferences("user_id", "default")
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::PreferenceSet
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
   end

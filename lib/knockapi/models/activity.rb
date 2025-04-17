@@ -5,6 +5,7 @@ module Knockapi
     # @see Knockapi::Resources::Messages#list_activities
     class Activity < Knockapi::Internal::Type::BaseModel
       # @!attribute [r] id
+      #   Unique identifier for the activity.
       #
       #   @return [String, nil]
       optional :id, String
@@ -14,6 +15,7 @@ module Knockapi
       #   attr_writer :id
 
       # @!attribute [r] _typename
+      #   The type name of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
@@ -23,18 +25,19 @@ module Knockapi
       #   attr_writer :_typename
 
       # @!attribute actor
-      #   A recipient, which is either a user or an object
+      #   A recipient, which is either a user or an object.
       #
       #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :actor, union: -> { Knockapi::Models::Recipient }, nil?: true
 
       # @!attribute data
-      #   The data associated with the activity
+      #   The data associated with the activity.
       #
-      #   @return [Object, nil]
-      optional :data, Knockapi::Internal::Type::Unknown, nil?: true
+      #   @return [Hash{Symbol=>Object}, nil]
+      optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute [r] inserted_at
+      #   Timestamp when the resource was created.
       #
       #   @return [Time, nil]
       optional :inserted_at, Time
@@ -44,7 +47,7 @@ module Knockapi
       #   attr_writer :inserted_at
 
       # @!attribute [r] recipient
-      #   A recipient, which is either a user or an object
+      #   A recipient, which is either a user or an object.
       #
       #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :recipient, union: -> { Knockapi::Models::Recipient }
@@ -54,6 +57,7 @@ module Knockapi
       #   attr_writer :recipient
 
       # @!attribute [r] updated_at
+      #   The timestamp when the resource was last updated.
       #
       #   @return [Time, nil]
       optional :updated_at, Time
@@ -63,12 +67,12 @@ module Knockapi
       #   attr_writer :updated_at
 
       # @!parse
-      #   # An activity associated with a workflow run
+      #   # An activity associated with a workflow run.
       #   #
       #   # @param id [String]
       #   # @param _typename [String]
       #   # @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      #   # @param data [Object, nil]
+      #   # @param data [Hash{Symbol=>Object}, nil]
       #   # @param inserted_at [Time]
       #   # @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
       #   # @param updated_at [Time]

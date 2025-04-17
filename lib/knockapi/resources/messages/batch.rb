@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Messages
       class Batch
-        # Marks one or more messages as archived
+        # Marks the given messages as archived.
         #
         # @overload archive(message_ids:, request_options: {})
         #
@@ -25,11 +25,11 @@ module Knockapi
           )
         end
 
-        # Get the contents of multiple messages
+        # Get the contents of multiple messages in a single request.
         #
         # @overload get_content(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<Object>]
+        # @param message_ids [Array<String>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Messages::BatchGetContentResponseItem>]
@@ -46,25 +46,29 @@ module Knockapi
           )
         end
 
-        # Marks one or more messages as interacted
+        # Marks the given messages as interacted with.
         #
-        # @overload mark_as_interacted(request_options: {})
+        # @overload mark_as_interacted(message_ids:, metadata: nil, request_options: {})
         #
+        # @param message_ids [Array<String>]
+        # @param metadata [Hash{Symbol=>Object}, nil]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsInteractedParams
-        def mark_as_interacted(params = {})
+        def mark_as_interacted(params)
+          parsed, options = Knockapi::Models::Messages::BatchMarkAsInteractedParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/interacted",
+            body: parsed,
             model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
-            options: params[:request_options]
+            options: options
           )
         end
 
-        # Marks one or more messages as read
+        # Marks the given messages as read.
         #
         # @overload mark_as_read(message_ids:, request_options: {})
         #
@@ -85,7 +89,7 @@ module Knockapi
           )
         end
 
-        # Marks one or more messages as seen
+        # Marks the given messages as seen.
         #
         # @overload mark_as_seen(message_ids:, request_options: {})
         #
@@ -106,7 +110,7 @@ module Knockapi
           )
         end
 
-        # Marks one or more messages as unread
+        # Marks the given messages as unread.
         #
         # @overload mark_as_unread(message_ids:, request_options: {})
         #
@@ -127,7 +131,7 @@ module Knockapi
           )
         end
 
-        # Marks one or more messages as unseen
+        # Marks the given messages as unseen.
         #
         # @overload mark_as_unseen(message_ids:, request_options: {})
         #
@@ -148,7 +152,7 @@ module Knockapi
           )
         end
 
-        # Marks one or more messages as unarchived
+        # Marks the given messages as unarchived.
         #
         # @overload unarchive(message_ids:, request_options: {})
         #

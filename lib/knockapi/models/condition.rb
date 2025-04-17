@@ -4,22 +4,25 @@ module Knockapi
   module Models
     class Condition < Knockapi::Internal::Type::BaseModel
       # @!attribute argument
+      #   The argument value to compare against in the condition.
       #
       #   @return [String, nil]
       required :argument, String, nil?: true
 
       # @!attribute operator
+      #   The operator to use in the condition evaluation.
       #
       #   @return [Symbol, Knockapi::Models::Condition::Operator]
       required :operator, enum: -> { Knockapi::Models::Condition::Operator }
 
       # @!attribute variable
+      #   The variable to be evaluated in the condition.
       #
       #   @return [String]
       required :variable, String
 
       # @!parse
-      #   # A condition to be evaluated
+      #   # A condition to be evaluated.
       #   #
       #   # @param argument [String, nil]
       #   # @param operator [Symbol, Knockapi::Models::Condition::Operator]
@@ -29,6 +32,8 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
+      # The operator to use in the condition evaluation.
+      #
       # @see Knockapi::Models::Condition#operator
       module Operator
         extend Knockapi::Internal::Type::Enum
@@ -50,6 +55,7 @@ module Knockapi
         IS_TIMESTAMP_BEFORE = :is_timestamp_before
         IS_TIMESTAMP_BETWEEN = :is_timestamp_between
         IS_AUDIENCE_MEMBER = :is_audience_member
+        IS_NOT_AUDIENCE_MEMBER = :is_not_audience_member
 
         finalize!
 

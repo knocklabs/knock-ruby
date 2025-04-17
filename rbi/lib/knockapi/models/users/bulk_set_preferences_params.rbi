@@ -7,13 +7,42 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # A request to set a preference set for a recipient.
+        sig { returns(Knockapi::Models::Recipients::PreferenceSetRequest) }
+        attr_reader :preferences
+
         sig do
-          params(request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          params(
+            preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)
+          )
+            .void
+        end
+        attr_writer :preferences
+
+        # A list of user IDs.
+        sig { returns(T::Array[String]) }
+        attr_accessor :user_ids
+
+        sig do
+          params(
+            preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash),
+            user_ids: T::Array[String],
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
+          )
             .returns(T.attached_class)
         end
-        def self.new(request_options: {}); end
+        def self.new(preferences:, user_ids:, request_options: {}); end
 
-        sig { override.returns({request_options: Knockapi::RequestOptions}) }
+        sig do
+          override
+            .returns(
+              {
+                preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
+                user_ids: T::Array[String],
+                request_options: Knockapi::RequestOptions
+              }
+            )
+        end
         def to_hash; end
       end
     end

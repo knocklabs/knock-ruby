@@ -7,11 +7,11 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # A JSON encoded string containing the Microsoft Teams tenant object reference
+        # A JSON encoded string containing the Microsoft Teams tenant object reference.
         sig { returns(String) }
         attr_accessor :ms_teams_tenant_object
 
-        # The ID of the Microsoft Teams team to list channels from
+        # Microsoft Teams team ID.
         sig { returns(String) }
         attr_accessor :team_id
 
@@ -52,7 +52,7 @@ module Knockapi
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          # to the Microsoft Graph API to filter channels
+          # to the Microsoft Graph API to filter channels.
           sig { returns(T.nilable(String)) }
           attr_reader :filter
 
@@ -60,7 +60,7 @@ module Knockapi
           attr_writer :filter
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-          # to the Microsoft Graph API to select fields on a channel
+          # to the Microsoft Graph API to select specific properties.
           sig { returns(T.nilable(String)) }
           attr_reader :select_
 

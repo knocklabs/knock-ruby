@@ -9,20 +9,22 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute cancellation_key
-      #   The cancellation key supplied to the workflow trigger endpoint to use for
-      #   cancelling one or more workflow runs.
+      #   The cancellation key provided during the initial notify call. If used in a
+      #   cancel request, will cancel the notification for the recipients specified in the
+      #   cancel request.
       #
       #   @return [String]
       required :cancellation_key, String
 
       # @!attribute recipients
-      #   An optional list of recipients to cancel the workflow for using the cancellation
-      #   key.
+      #   A list of recipients to cancel the notification for. If omitted, cancels for all
+      #   recipients associated with the cancellation key.
       #
       #   @return [Array<String>, nil]
       optional :recipients, Knockapi::Internal::Type::ArrayOf[String], nil?: true
 
       # @!attribute tenant
+      #   The unique identifier for the tenant.
       #
       #   @return [String, nil]
       optional :tenant, String, nil?: true

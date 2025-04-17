@@ -4,10 +4,12 @@ module Knockapi
   module Models
     module Providers
       class MsTeamListChannelsResponse < Knockapi::Internal::Type::BaseModel
+        # List of Microsoft Teams channels.
         sig { returns(T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]) }
         attr_accessor :ms_teams_channels
 
-        # The response from a channels for Microsoft Teams provider request
+        # The response from a Microsoft Teams provider request, containing a list of
+        # channels.
         sig do
           params(
             ms_teams_channels: T::Array[
@@ -30,27 +32,33 @@ module Knockapi
         def to_hash; end
 
         class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
+          # Microsoft Teams channel ID.
           sig { returns(String) }
           attr_accessor :id
 
+          # Microsoft Teams channel name.
           sig { returns(String) }
           attr_accessor :display_name
 
+          # Microsoft Teams channel created date and time.
           sig { returns(T.nilable(String)) }
           attr_reader :created_date_time
 
           sig { params(created_date_time: String).void }
           attr_writer :created_date_time
 
+          # Microsoft Teams channel description.
           sig { returns(T.nilable(String)) }
           attr_accessor :description
 
+          # Whether the Microsoft Teams channel is archived.
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :is_archived
 
           sig { params(is_archived: T::Boolean).void }
           attr_writer :is_archived
 
+          # Microsoft Teams channel membership type.
           sig { returns(T.nilable(String)) }
           attr_reader :membership_type
 

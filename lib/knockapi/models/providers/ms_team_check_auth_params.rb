@@ -10,7 +10,7 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute ms_teams_tenant_object
-        #   A JSON encoded string containing the Microsoft Teams tenant object reference
+        #   A JSON encoded string containing the Microsoft Teams tenant object reference.
         #
         #   @return [String]
         required :ms_teams_tenant_object, String

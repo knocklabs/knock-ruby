@@ -40,6 +40,7 @@ module Knockapi
         | :is_timestamp_before
         | :is_timestamp_between
         | :is_audience_member
+        | :is_not_audience_member
 
       module Operator
         extend Knockapi::Internal::Type::Enum
@@ -61,6 +62,7 @@ module Knockapi
         IS_TIMESTAMP_BEFORE: :is_timestamp_before
         IS_TIMESTAMP_BETWEEN: :is_timestamp_between
         IS_AUDIENCE_MEMBER: :is_audience_member
+        IS_NOT_AUDIENCE_MEMBER: :is_not_audience_member
 
         def self?.values: -> ::Array[Knockapi::Models::Condition::operator]
       end

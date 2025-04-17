@@ -6,44 +6,39 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # Filter by workflow
+      # Filter by workflow key.
       sig { returns(String) }
       attr_accessor :workflow
 
-      # The cursor to fetch entries after
+      # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
 
       sig { params(after: String).void }
       attr_writer :after
 
-      # The cursor to fetch entries before
+      # The cursor to fetch entries before.
       sig { returns(T.nilable(String)) }
       attr_reader :before
 
       sig { params(before: String).void }
       attr_writer :before
 
-      # The page size to fetch
+      # The number of items per page.
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
-      # Filter by recipient
-      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1)])) }
+      # Filter by recipient IDs.
+      sig { returns(T.nilable(T::Array[String])) }
       attr_reader :recipients
 
-      sig do
-        params(
-          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1, Knockapi::Internal::AnyHash)]
-        )
-          .void
-      end
+      sig { params(recipients: T::Array[String]).void }
       attr_writer :recipients
 
-      # Filter by tenant
+      # Filter by tenant ID.
       sig { returns(T.nilable(String)) }
       attr_reader :tenant
 
@@ -56,7 +51,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1, Knockapi::Internal::AnyHash)],
+          recipients: T::Array[String],
           tenant: String,
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -81,39 +76,13 @@ module Knockapi
               after: String,
               before: String,
               page_size: Integer,
-              recipients: T::Array[T.any(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1)],
+              recipients: T::Array[String],
               tenant: String,
               request_options: Knockapi::RequestOptions
             }
           )
       end
       def to_hash; end
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
-          # An object identifier
-          sig { returns(String) }
-          attr_accessor :id
-
-          # The collection the object belongs to
-          sig { returns(String) }
-          attr_accessor :collection
-
-          # An object reference to a recipient
-          sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id:, collection:); end
-
-          sig { override.returns({id: String, collection: String}) }
-          def to_hash; end
-        end
-
-        sig { override.returns([String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1]) }
-        def self.variants; end
-      end
     end
   end
 end

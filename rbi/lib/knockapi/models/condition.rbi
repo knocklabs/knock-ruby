@@ -3,16 +3,19 @@
 module Knockapi
   module Models
     class Condition < Knockapi::Internal::Type::BaseModel
+      # The argument value to compare against in the condition.
       sig { returns(T.nilable(String)) }
       attr_accessor :argument
 
+      # The operator to use in the condition evaluation.
       sig { returns(Knockapi::Models::Condition::Operator::OrSymbol) }
       attr_accessor :operator
 
+      # The variable to be evaluated in the condition.
       sig { returns(String) }
       attr_accessor :variable
 
-      # A condition to be evaluated
+      # A condition to be evaluated.
       sig do
         params(
           argument: T.nilable(String),
@@ -31,6 +34,7 @@ module Knockapi
       end
       def to_hash; end
 
+      # The operator to use in the condition evaluation.
       module Operator
         extend Knockapi::Internal::Type::Enum
 
@@ -56,6 +60,8 @@ module Knockapi
         IS_TIMESTAMP_BEFORE = T.let(:is_timestamp_before, Knockapi::Models::Condition::Operator::TaggedSymbol)
         IS_TIMESTAMP_BETWEEN = T.let(:is_timestamp_between, Knockapi::Models::Condition::Operator::TaggedSymbol)
         IS_AUDIENCE_MEMBER = T.let(:is_audience_member, Knockapi::Models::Condition::Operator::TaggedSymbol)
+        IS_NOT_AUDIENCE_MEMBER =
+          T.let(:is_not_audience_member, Knockapi::Models::Condition::Operator::TaggedSymbol)
 
         sig { override.returns(T::Array[Knockapi::Models::Condition::Operator::TaggedSymbol]) }
         def self.values; end

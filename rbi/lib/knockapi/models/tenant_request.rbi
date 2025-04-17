@@ -3,10 +3,11 @@
 module Knockapi
   module Models
     class TenantRequest < Knockapi::Internal::Type::BaseModel
+      # The unique identifier for the tenant.
       sig { returns(String) }
       attr_accessor :id
 
-      # Allows inline setting channel data for a recipient
+      # A request to set channel data for a type of channel inline.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_accessor :channel_data
 
@@ -14,13 +15,14 @@ module Knockapi
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_accessor :preferences
 
+      # The settings for the tenant. Includes branding and preference set.
       sig { returns(T.nilable(Knockapi::Models::TenantRequest::Settings)) }
       attr_reader :settings
 
       sig { params(settings: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Internal::AnyHash)).void }
       attr_writer :settings
 
-      # A tenant to be set in the system
+      # A request to get a tenant.
       sig do
         params(
           id: String,
@@ -50,6 +52,7 @@ module Knockapi
       def to_hash; end
 
       class Settings < Knockapi::Internal::Type::BaseModel
+        # The branding for the tenant.
         sig { returns(T.nilable(Knockapi::Models::TenantRequest::Settings::Branding)) }
         attr_reader :branding
 
@@ -59,7 +62,7 @@ module Knockapi
         end
         attr_writer :branding
 
-        # Set preferences for a recipient
+        # A request to set a preference set for a recipient.
         sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSetRequest)) }
         attr_reader :preference_set
 
@@ -71,6 +74,7 @@ module Knockapi
         end
         attr_writer :preference_set
 
+        # The settings for the tenant. Includes branding and preference set.
         sig do
           params(
             branding: T.any(Knockapi::Models::TenantRequest::Settings::Branding, Knockapi::Internal::AnyHash),
@@ -92,18 +96,23 @@ module Knockapi
         def to_hash; end
 
         class Branding < Knockapi::Internal::Type::BaseModel
+          # The icon URL for the tenant.
           sig { returns(T.nilable(String)) }
           attr_accessor :icon_url
 
+          # The logo URL for the tenant.
           sig { returns(T.nilable(String)) }
           attr_accessor :logo_url
 
+          # The primary color for the tenant.
           sig { returns(T.nilable(String)) }
           attr_accessor :primary_color
 
+          # The primary color contrast for the tenant.
           sig { returns(T.nilable(String)) }
           attr_accessor :primary_color_contrast
 
+          # The branding for the tenant.
           sig do
             params(
               icon_url: T.nilable(String),

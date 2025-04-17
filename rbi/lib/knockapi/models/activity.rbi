@@ -3,33 +3,36 @@
 module Knockapi
   module Models
     class Activity < Knockapi::Internal::Type::BaseModel
+      # Unique identifier for the activity.
       sig { returns(T.nilable(String)) }
       attr_reader :id
 
       sig { params(id: String).void }
       attr_writer :id
 
+      # The type name of the schema.
       sig { returns(T.nilable(String)) }
       attr_reader :_typename
 
       sig { params(_typename: String).void }
       attr_writer :_typename
 
-      # A recipient, which is either a user or an object
+      # A recipient, which is either a user or an object.
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       attr_accessor :actor
 
-      # The data associated with the activity
-      sig { returns(T.nilable(T.anything)) }
+      # The data associated with the activity.
+      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
+      # Timestamp when the resource was created.
       sig { returns(T.nilable(Time)) }
       attr_reader :inserted_at
 
       sig { params(inserted_at: Time).void }
       attr_writer :inserted_at
 
-      # A recipient, which is either a user or an object
+      # A recipient, which is either a user or an object.
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       attr_reader :recipient
 
@@ -39,19 +42,20 @@ module Knockapi
       end
       attr_writer :recipient
 
+      # The timestamp when the resource was last updated.
       sig { returns(T.nilable(Time)) }
       attr_reader :updated_at
 
       sig { params(updated_at: Time).void }
       attr_writer :updated_at
 
-      # An activity associated with a workflow run
+      # An activity associated with a workflow run.
       sig do
         params(
           id: String,
           _typename: String,
           actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)),
-          data: T.nilable(T.anything),
+          data: T.nilable(T::Hash[Symbol, T.anything]),
           inserted_at: Time,
           recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object),
           updated_at: Time
@@ -76,7 +80,7 @@ module Knockapi
               id: String,
               _typename: String,
               actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)),
-              data: T.nilable(T.anything),
+              data: T.nilable(T::Hash[Symbol, T.anything]),
               inserted_at: Time,
               recipient: T.any(Knockapi::Models::User, Knockapi::Models::Object),
               updated_at: Time

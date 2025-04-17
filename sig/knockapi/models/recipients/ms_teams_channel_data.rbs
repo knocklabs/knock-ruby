@@ -20,42 +20,65 @@ module Knockapi
         def to_hash: -> Knockapi::Models::Recipients::ms_teams_channel_data
 
         type connection =
-          Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection
-          | Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection
+          Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection
+          | Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
 
         module Connection
           extend Knockapi::Internal::Type::Union
 
-          type token_connection =
-            { access_token: String?, channel_id: String?, user_id: String? }
+          type ms_teams_token_connection =
+            {
+              ms_teams_channel_id: String?,
+              ms_teams_team_id: String?,
+              ms_teams_tenant_id: String?,
+              ms_teams_user_id: String?
+            }
 
-          class TokenConnection < Knockapi::Internal::Type::BaseModel
-            attr_accessor access_token: String?
+          class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
+            attr_accessor ms_teams_channel_id: String?
 
-            attr_accessor channel_id: String?
+            attr_accessor ms_teams_team_id: String?
 
-            attr_accessor user_id: String?
+            attr_accessor ms_teams_tenant_id: String?
+
+            attr_accessor ms_teams_user_id: String?
 
             def initialize: (
-              ?access_token: String?,
-              ?channel_id: String?,
-              ?user_id: String?
+              ?ms_teams_channel_id: String?,
+              ?ms_teams_team_id: String?,
+              ?ms_teams_tenant_id: String?,
+              ?ms_teams_user_id: String?
             ) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::token_connection
+            def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::ms_teams_token_connection
           end
 
-          type incoming_webhook_connection = { url: String }
+          type ms_teams_incoming_webhook_connection =
+            {
+              incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+            }
 
-          class IncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
-            attr_accessor url: String
+          class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+            attr_accessor incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
 
-            def initialize: (url: String) -> void
+            def initialize: (
+              incoming_webhook: Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+            ) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::incoming_webhook_connection
+            def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::ms_teams_incoming_webhook_connection
+
+            type incoming_webhook = { url: String }
+
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
+              attr_accessor url: String
+
+              def initialize: (url: String) -> void
+
+              def to_hash: -> Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::incoming_webhook
+            end
           end
 
-          def self?.variants: -> [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::IncomingWebhookConnection]
+          def self?.variants: -> [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
         end
       end
     end

@@ -7,7 +7,7 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # A JSON encoded string containing the access token object reference
+        # A JSON encoded string containing the access token object reference.
         sig { returns(String) }
         attr_accessor :access_token_object
 
@@ -45,35 +45,38 @@ module Knockapi
         def to_hash; end
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
-          # A cursor to paginate through the channels
+          # Paginate through collections of data by setting the cursor parameter to a
+          # next_cursor attribute returned by a previous request's response_metadata.
+          # Default value fetches the first "page" of the collection.
           sig { returns(T.nilable(String)) }
           attr_reader :cursor
 
           sig { params(cursor: String).void }
           attr_writer :cursor
 
-          # Whether to exclude archived channels
-          sig { returns(T.nilable(String)) }
+          # Set to true to exclude archived channels from the list.
+          sig { returns(T.nilable(T::Boolean)) }
           attr_reader :exclude_archived
 
-          sig { params(exclude_archived: String).void }
+          sig { params(exclude_archived: T::Boolean).void }
           attr_writer :exclude_archived
 
-          # The number of channels to return
-          sig { returns(T.nilable(String)) }
+          # The maximum number of channels to return.
+          sig { returns(T.nilable(Integer)) }
           attr_reader :limit
 
-          sig { params(limit: String).void }
+          sig { params(limit: Integer).void }
           attr_writer :limit
 
-          # The ID of the Slack team to get channels for
+          # Encoded team ID (T1234) to list channels in, required if org token is used.
           sig { returns(T.nilable(String)) }
           attr_reader :team_id
 
           sig { params(team_id: String).void }
           attr_writer :team_id
 
-          # The types of channels to return
+          # Mix and match channel types by providing a comma-separated list of any
+          # combination of public_channel, private_channel, mpim, im.
           sig { returns(T.nilable(String)) }
           attr_reader :types
 
@@ -81,21 +84,26 @@ module Knockapi
           attr_writer :types
 
           sig do
-            params(cursor: String, exclude_archived: String, limit: String, team_id: String, types: String)
+            params(
+              cursor: String,
+              exclude_archived: T::Boolean,
+              limit: Integer,
+              team_id: String,
+              types: String
+            )
               .returns(T.attached_class)
           end
           def self.new(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil); end
 
           sig do
-            override.returns(
-              {
-                cursor: String,
-                exclude_archived: String,
-                limit: String,
-                team_id: String,
-                types: String
-              }
-            )
+            override
+              .returns({
+                         cursor: String,
+                         exclude_archived: T::Boolean,
+                         limit: Integer,
+                         team_id: String,
+                         types: String
+                       })
           end
           def to_hash; end
         end

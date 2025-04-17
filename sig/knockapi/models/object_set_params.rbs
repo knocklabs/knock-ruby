@@ -1,0 +1,27 @@
+module Knockapi
+  module Models
+    type object_set_params =
+      {
+        channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+      }
+      & Knockapi::Internal::Type::request_parameters
+
+    class ObjectSetParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
+
+      attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+
+      def initialize: (
+        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::object_set_params
+    end
+  end
+end

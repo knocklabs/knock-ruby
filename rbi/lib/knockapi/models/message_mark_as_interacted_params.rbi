@@ -6,7 +6,7 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # Metadata about the interaction
+      # Metadata about the interaction.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_reader :metadata
 

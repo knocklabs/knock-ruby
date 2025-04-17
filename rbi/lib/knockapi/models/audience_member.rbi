@@ -3,30 +3,34 @@
 module Knockapi
   module Models
     class AudienceMember < Knockapi::Internal::Type::BaseModel
+      # The type name of the schema.
       sig { returns(String) }
       attr_accessor :_typename
 
-      sig { returns(String) }
+      # Timestamp when the resource was created.
+      sig { returns(Time) }
       attr_accessor :added_at
 
-      # A user object
+      # A user object.
       sig { returns(Knockapi::Models::User) }
       attr_reader :user
 
       sig { params(user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash)).void }
       attr_writer :user
 
+      # The unique identifier for the user.
       sig { returns(String) }
       attr_accessor :user_id
 
+      # The unique identifier for the tenant.
       sig { returns(T.nilable(String)) }
       attr_accessor :tenant
 
-      # A user belonging to an audience
+      # An audience member.
       sig do
         params(
           _typename: String,
-          added_at: String,
+          added_at: Time,
           user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash),
           user_id: String,
           tenant: T.nilable(String)
@@ -38,7 +42,7 @@ module Knockapi
       sig do
         override
           .returns(
-            {_typename: String, added_at: String, user: Knockapi::Models::User, user_id: String, tenant: T.nilable(String)}
+            {_typename: String, added_at: Time, user: Knockapi::Models::User, user_id: String, tenant: T.nilable(String)}
           )
       end
       def to_hash; end

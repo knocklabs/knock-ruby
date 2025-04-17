@@ -20,19 +20,19 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.get_content(message_ids: [{}])
+    response = @knock.messages.batch.get_content(message_ids: ["string"])
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem])
     end
   end
 
-  def test_mark_as_interacted
+  def test_mark_as_interacted_required_params
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.mark_as_interacted
+    response = @knock.messages.batch.mark_as_interacted(message_ids: ["1jNaXzB2RZX3LY8wVQnfCKyPnv7"])
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])

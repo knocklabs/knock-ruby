@@ -8,11 +8,13 @@ module Knockapi
         ) -> Knockapi::Models::Messages::batch_archive_response
 
         def get_content: (
-          message_ids: ::Array[top],
+          message_ids: ::Array[String],
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Messages::batch_get_content_response
 
         def mark_as_interacted: (
+          message_ids: ::Array[String],
+          ?metadata: ::Hash[Symbol, top]?,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Messages::batch_mark_as_interacted_response
 

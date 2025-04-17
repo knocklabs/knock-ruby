@@ -5,56 +5,67 @@ module Knockapi
     # @see Knockapi::Resources::BulkOperations#get
     class BulkOperation < Knockapi::Internal::Type::BaseModel
       # @!attribute id
+      #   Unique identifier for the bulk operation.
       #
       #   @return [String]
       required :id, String
 
       # @!attribute _typename
+      #   The type name of the schema.
       #
       #   @return [String]
       required :_typename, String, api_name: :__typename
 
       # @!attribute estimated_total_rows
+      #   The estimated total number of rows to process.
       #
       #   @return [Integer]
       required :estimated_total_rows, Integer
 
       # @!attribute inserted_at
+      #   Timestamp when the resource was created.
       #
       #   @return [Time]
       required :inserted_at, Time
 
       # @!attribute name
+      #   The name of the bulk operation.
       #
       #   @return [String]
       required :name, String
 
       # @!attribute processed_rows
+      #   The number of rows processed so far.
       #
       #   @return [Integer]
       required :processed_rows, Integer
 
       # @!attribute status
+      #   The status of the bulk operation. One of: queued, processing, completed, failed.
       #
       #   @return [Symbol, Knockapi::Models::BulkOperation::Status]
       required :status, enum: -> { Knockapi::Models::BulkOperation::Status }
 
       # @!attribute success_count
+      #   The number of successful operations.
       #
       #   @return [Integer]
       required :success_count, Integer
 
       # @!attribute updated_at
+      #   The timestamp when the resource was last updated.
       #
       #   @return [Time]
       required :updated_at, Time
 
       # @!attribute completed_at
+      #   Timestamp when the bulk operation was completed.
       #
       #   @return [Time, nil]
       optional :completed_at, Time, nil?: true
 
       # @!attribute [r] error_count
+      #   The number of failed operations.
       #
       #   @return [Integer, nil]
       optional :error_count, Integer
@@ -64,7 +75,7 @@ module Knockapi
       #   attr_writer :error_count
 
       # @!attribute [r] error_items
-      #   A list of items that failed to be processed
+      #   A list of items that failed to be processed.
       #
       #   @return [Array<Knockapi::Models::BulkOperation::ErrorItem>, nil]
       optional :error_items,
@@ -75,17 +86,19 @@ module Knockapi
       #   attr_writer :error_items
 
       # @!attribute failed_at
+      #   Timestamp when the bulk operation failed.
       #
       #   @return [Time, nil]
       optional :failed_at, Time, nil?: true
 
       # @!attribute started_at
+      #   Timestamp when the bulk operation was started.
       #
       #   @return [Time, nil]
       optional :started_at, Time, nil?: true
 
       # @!parse
-      #   # A bulk operation entity
+      #   # A bulk operation entity.
       #   #
       #   # @param id [String]
       #   # @param _typename [String]
@@ -124,6 +137,8 @@ module Knockapi
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
+      # The status of the bulk operation. One of: queued, processing, completed, failed.
+      #
       # @see Knockapi::Models::BulkOperation#status
       module Status
         extend Knockapi::Internal::Type::Enum
@@ -142,11 +157,13 @@ module Knockapi
 
       class ErrorItem < Knockapi::Internal::Type::BaseModel
         # @!attribute id
+        #   Unique identifier for the object.
         #
         #   @return [String]
         required :id, String
 
         # @!attribute collection
+        #   The collection this object belongs to.
         #
         #   @return [String, nil]
         optional :collection, String, nil?: true

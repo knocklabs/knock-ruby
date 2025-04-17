@@ -4,13 +4,15 @@ module Knockapi
   module Models
     module Recipients
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
+        # The type name of the schema.
         sig { returns(String) }
         attr_accessor :_typename
 
+        # The unique identifier for the channel.
         sig { returns(String) }
         attr_accessor :channel_id
 
-        # Channel data for push providers
+        # Channel data for a given channel type.
         sig do
           returns(
             T.any(
@@ -24,7 +26,7 @@ module Knockapi
         end
         attr_accessor :data
 
-        # Channel data for various channel types
+        # Channel data for a given channel type.
         sig do
           params(
             _typename: String,
@@ -60,7 +62,7 @@ module Knockapi
         end
         def to_hash; end
 
-        # Channel data for push providers
+        # Channel data for a given channel type.
         module Data
           extend Knockapi::Internal::Type::Union
 

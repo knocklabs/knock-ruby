@@ -2,14 +2,14 @@
 
 module Knockapi
   module Models
-    # A recipient, which is either a user or an object
+    # A recipient, which is either a user or an object.
     module Recipient
       extend Knockapi::Internal::Type::Union
 
-      # A user object
+      # A user object.
       variant -> { Knockapi::Models::User }
 
-      # A custom-object entity which belongs to a collection.
+      # A custom object entity which belongs to a collection.
       variant -> { Knockapi::Models::Object }
 
       # @!parse

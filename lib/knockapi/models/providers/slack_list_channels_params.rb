@@ -10,7 +10,7 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute access_token_object
-        #   A JSON encoded string containing the access token object reference
+        #   A JSON encoded string containing the access token object reference.
         #
         #   @return [String]
         required :access_token_object, String
@@ -35,7 +35,9 @@ module Knockapi
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] cursor
-          #   A cursor to paginate through the channels
+          #   Paginate through collections of data by setting the cursor parameter to a
+          #   next_cursor attribute returned by a previous request's response_metadata.
+          #   Default value fetches the first "page" of the collection.
           #
           #   @return [String, nil]
           optional :cursor, String
@@ -45,27 +47,27 @@ module Knockapi
           #   attr_writer :cursor
 
           # @!attribute [r] exclude_archived
-          #   Whether to exclude archived channels
+          #   Set to true to exclude archived channels from the list.
           #
-          #   @return [String, nil]
-          optional :exclude_archived, String
+          #   @return [Boolean, nil]
+          optional :exclude_archived, Knockapi::Internal::Type::Boolean
 
           # @!parse
-          #   # @return [String]
+          #   # @return [Boolean]
           #   attr_writer :exclude_archived
 
           # @!attribute [r] limit
-          #   The number of channels to return
+          #   The maximum number of channels to return.
           #
-          #   @return [String, nil]
-          optional :limit, String
+          #   @return [Integer, nil]
+          optional :limit, Integer
 
           # @!parse
-          #   # @return [String]
+          #   # @return [Integer]
           #   attr_writer :limit
 
           # @!attribute [r] team_id
-          #   The ID of the Slack team to get channels for
+          #   Encoded team ID (T1234) to list channels in, required if org token is used.
           #
           #   @return [String, nil]
           optional :team_id, String
@@ -75,7 +77,8 @@ module Knockapi
           #   attr_writer :team_id
 
           # @!attribute [r] types
-          #   The types of channels to return
+          #   Mix and match channel types by providing a comma-separated list of any
+          #   combination of public_channel, private_channel, mpim, im.
           #
           #   @return [String, nil]
           optional :types, String
@@ -86,8 +89,8 @@ module Knockapi
 
           # @!parse
           #   # @param cursor [String]
-          #   # @param exclude_archived [String]
-          #   # @param limit [String]
+          #   # @param exclude_archived [Boolean]
+          #   # @param limit [Integer]
           #   # @param team_id [String]
           #   # @param types [String]
           #   #

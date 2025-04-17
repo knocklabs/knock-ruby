@@ -4,7 +4,7 @@ module Knockapi
   module Resources
     class Objects
       class Bulk
-        # Deletes objects in bulk for a given collection
+        # Bulk deletes objects from the specified collection.
         #
         # @overload delete(collection, object_ids:, request_options: {})
         #
@@ -26,41 +26,48 @@ module Knockapi
           )
         end
 
-        # Bulk upserts subscriptions for a set of objects in a single collection
+        # Add subscriptions for a set of objects in a single collection. If a subscription
+        # already exists, it will be updated.
         #
-        # @overload add_subscriptions(collection, request_options: {})
+        # @overload add_subscriptions(collection, subscriptions:, request_options: {})
         #
         # @param collection [String]
+        # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Objects::BulkAddSubscriptionsParams
-        def add_subscriptions(collection, params = {})
+        def add_subscriptions(collection, params)
+          parsed, options = Knockapi::Models::Objects::BulkAddSubscriptionsParams.dump_request(params)
           @client.request(
             method: :post,
             path: ["v1/objects/%1$s/bulk/subscriptions/add", collection],
+            body: parsed,
             model: Knockapi::Models::BulkOperation,
-            options: params[:request_options]
+            options: options
           )
         end
 
-        # Sets objects in bulk for a given collection
+        # Bulk sets objects in the specified collection.
         #
-        # @overload set(collection, request_options: {})
+        # @overload set(collection, objects:, request_options: {})
         #
         # @param collection [String]
+        # @param objects [Array<Knockapi::Models::InlineObjectRequest>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Objects::BulkSetParams
-        def set(collection, params = {})
+        def set(collection, params)
+          parsed, options = Knockapi::Models::Objects::BulkSetParams.dump_request(params)
           @client.request(
             method: :post,
             path: ["v1/objects/%1$s/bulk/set", collection],
+            body: parsed,
             model: Knockapi::Models::BulkOperation,
-            options: params[:request_options]
+            options: options
           )
         end
 

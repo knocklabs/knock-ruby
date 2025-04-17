@@ -5,40 +5,43 @@ module Knockapi
     module Recipients
       class Subscription < Knockapi::Internal::Type::BaseModel
         # @!attribute _typename
+        #   The type name of the schema.
         #
         #   @return [String]
         required :_typename, String, api_name: :__typename
 
         # @!attribute inserted_at
+        #   Timestamp when the resource was created.
         #
         #   @return [Time]
         required :inserted_at, Time
 
         # @!attribute object
-        #   A custom-object entity which belongs to a collection.
+        #   A custom object entity which belongs to a collection.
         #
         #   @return [Knockapi::Models::Object]
         required :object, -> { Knockapi::Models::Object }
 
         # @!attribute recipient
-        #   A recipient, which is either a user or an object
+        #   A recipient, which is either a user or an object.
         #
         #   @return [Knockapi::Models::User, Knockapi::Models::Object]
         required :recipient, union: -> { Knockapi::Models::Recipient }
 
         # @!attribute updated_at
+        #   The timestamp when the resource was last updated.
         #
         #   @return [Time]
         required :updated_at, Time
 
         # @!attribute properties
-        #   The custom properties associated with the subscription
+        #   The custom properties associated with the recipients of the subscription.
         #
         #   @return [Hash{Symbol=>Object}, nil]
         optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
         # @!parse
-        #   # A subscription object
+        #   # A subscription object.
         #   #
         #   # @param _typename [String]
         #   # @param inserted_at [Time]

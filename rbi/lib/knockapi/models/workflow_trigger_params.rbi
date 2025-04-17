@@ -18,17 +18,18 @@ module Knockapi
       end
       attr_accessor :actor
 
-      # An optional key that is used in the workflow cancellation endpoint to target a
-      # cancellation of any workflow runs associated with this trigger.
+      # The cancellation key provided during the initial notify call. If used in a
+      # cancel request, will cancel the notification for the recipients specified in the
+      # cancel request.
       sig { returns(T.nilable(String)) }
       attr_accessor :cancellation_key
 
-      # An optional map of data to be used in the workflow. This data will be available
-      # to the workflow as a map in the `data` field.
-      sig { returns(T.nilable(T::Hash[Symbol, String])) }
+      # An optional map of data to pass into the workflow execution.
+      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
-      # The recipients to trigger the workflow for.
+      # The recipients to trigger the workflow for. Cannot exceed 1000 recipients in a
+      # single trigger.
       sig do
         returns(
           T.nilable(
@@ -53,7 +54,7 @@ module Knockapi
       end
       attr_writer :recipients
 
-      # An inline tenant request
+      # An request to set a tenant inline.
       sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
       attr_accessor :tenant
 
@@ -68,7 +69,7 @@ module Knockapi
             )
           ),
           cancellation_key: T.nilable(String),
-          data: T.nilable(T::Hash[Symbol, String]),
+          data: T.nilable(T::Hash[Symbol, T.anything]),
           recipients: T::Array[
             T.any(
               String,
@@ -100,7 +101,7 @@ module Knockapi
                 T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
               ),
               cancellation_key: T.nilable(String),
-              data: T.nilable(T::Hash[Symbol, String]),
+              data: T.nilable(T::Hash[Symbol, T.anything]),
               recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
               tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest)),
               request_options: Knockapi::RequestOptions

@@ -6,7 +6,7 @@ module Knockapi
         after: String,
         before: String,
         page_size: Integer,
-        recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
+        recipients: ::Array[String],
         tenant: String
       }
       & Knockapi::Internal::Type::request_parameters
@@ -29,11 +29,9 @@ module Knockapi
 
       def page_size=: (Integer) -> Integer
 
-      attr_reader recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient]?
+      attr_reader recipients: ::Array[String]?
 
-      def recipients=: (
-        ::Array[Knockapi::Models::ScheduleListParams::recipient]
-      ) -> ::Array[Knockapi::Models::ScheduleListParams::recipient]
+      def recipients=: (::Array[String]) -> ::Array[String]
 
       attr_reader tenant: String?
 
@@ -44,33 +42,12 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?page_size: Integer,
-        ?recipients: ::Array[Knockapi::Models::ScheduleListParams::recipient],
+        ?recipients: ::Array[String],
         ?tenant: String,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> Knockapi::Models::schedule_list_params
-
-      type recipient =
-        String | Knockapi::Models::ScheduleListParams::Recipient::UnionMember1
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        type union_member1 = { id: String, collection: String }
-
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
-          attr_accessor id: String
-
-          attr_accessor collection: String
-
-          def initialize: (id: String, collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::ScheduleListParams::Recipient::union_member1
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1]
-      end
     end
   end
 end

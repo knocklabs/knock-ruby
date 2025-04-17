@@ -10,7 +10,7 @@ module Knockapi
         workflow: String,
         _typename: String,
         actor: Knockapi::Models::recipient?,
-        data: top?,
+        data: ::Hash[Symbol, top]?,
         last_occurrence_at: Time?,
         next_occurrence_at: Time?,
         tenant: String?
@@ -35,7 +35,7 @@ module Knockapi
 
       attr_accessor actor: Knockapi::Models::recipient?
 
-      attr_accessor data: top?
+      attr_accessor data: ::Hash[Symbol, top]?
 
       attr_accessor last_occurrence_at: Time?
 
@@ -52,7 +52,7 @@ module Knockapi
         workflow: String,
         ?_typename: String,
         ?actor: Knockapi::Models::recipient?,
-        ?data: top?,
+        ?data: ::Hash[Symbol, top]?,
         ?last_occurrence_at: Time?,
         ?next_occurrence_at: Time?,
         ?tenant: String?

@@ -8,13 +8,13 @@ module Knockapi
     module RecipientRequest
       extend Knockapi::Internal::Type::Union
 
-      # A user identifier
+      # An identifier for a user recipient.
       variant String
 
       # A set of parameters to inline-identify a user with. Inline identifying the user will ensure that the user is available before the request is executed in Knock. It will perform an upsert against the user you're supplying, replacing any properties specified.
       variant -> { Knockapi::Models::InlineIdentifyUserRequest }
 
-      # Inline identifies a custom object belonging to a collection
+      # A custom object entity which belongs to a collection.
       variant -> { Knockapi::Models::InlineObjectRequest }
 
       # @!parse

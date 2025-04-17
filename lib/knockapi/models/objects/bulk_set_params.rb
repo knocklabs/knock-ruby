@@ -9,10 +9,17 @@ module Knockapi
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute objects
+        #   A list of objects.
+        #
+        #   @return [Array<Knockapi::Models::InlineObjectRequest>]
+        required :objects, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::InlineObjectRequest] }
+
         # @!parse
+        #   # @param objects [Array<Knockapi::Models::InlineObjectRequest>]
         #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
         #   #
-        #   def initialize(request_options: {}, **) = super
+        #   def initialize(objects:, request_options: {}, **) = super
 
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end

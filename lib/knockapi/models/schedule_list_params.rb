@@ -9,13 +9,13 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute workflow
-      #   Filter by workflow
+      #   Filter by workflow key.
       #
       #   @return [String]
       required :workflow, String
 
       # @!attribute [r] after
-      #   The cursor to fetch entries after
+      #   The cursor to fetch entries after.
       #
       #   @return [String, nil]
       optional :after, String
@@ -25,7 +25,7 @@ module Knockapi
       #   attr_writer :after
 
       # @!attribute [r] before
-      #   The cursor to fetch entries before
+      #   The cursor to fetch entries before.
       #
       #   @return [String, nil]
       optional :before, String
@@ -35,7 +35,7 @@ module Knockapi
       #   attr_writer :before
 
       # @!attribute [r] page_size
-      #   The page size to fetch
+      #   The number of items per page.
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -45,18 +45,17 @@ module Knockapi
       #   attr_writer :page_size
 
       # @!attribute [r] recipients
-      #   Filter by recipient
+      #   Filter by recipient IDs.
       #
-      #   @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1>, nil]
-      optional :recipients,
-               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ScheduleListParams::Recipient] }
+      #   @return [Array<String>, nil]
+      optional :recipients, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!parse
-      #   # @return [Array<String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1>]
+      #   # @return [Array<String>]
       #   attr_writer :recipients
 
       # @!attribute [r] tenant
-      #   Filter by tenant
+      #   Filter by tenant ID.
       #
       #   @return [String, nil]
       optional :tenant, String
@@ -70,53 +69,13 @@ module Knockapi
       #   # @param after [String]
       #   # @param before [String]
       #   # @param page_size [Integer]
-      #   # @param recipients [Array<String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1>]
+      #   # @param recipients [Array<String>]
       #   # @param tenant [String]
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        # A user identifier
-        variant String
-
-        # An object reference to a recipient
-        variant -> { Knockapi::Models::ScheduleListParams::Recipient::UnionMember1 }
-
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   An object identifier
-          #
-          #   @return [String]
-          required :id, String
-
-          # @!attribute collection
-          #   The collection the object belongs to
-          #
-          #   @return [String]
-          required :collection, String
-
-          # @!parse
-          #   # An object reference to a recipient
-          #   #
-          #   # @param id [String]
-          #   # @param collection [String]
-          #   #
-          #   def initialize(id:, collection:, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
-        end
-
-        # @!parse
-        #   # @return [Array(String, Knockapi::Models::ScheduleListParams::Recipient::UnionMember1)]
-        #   def self.variants; end
-      end
     end
   end
 end

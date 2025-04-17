@@ -10,8 +10,8 @@ module Knockapi
     #   end
     #
     # @example
-    #   slack_channels_cursor.auto_paging_each do |item|
-    #     puts(item)
+    #   slack_channels_cursor.auto_paging_each do |slack|
+    #     puts(slack)
     #   end
     class SlackChannelsCursor
       include Knockapi::Internal::Type::BasePage

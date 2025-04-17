@@ -12,7 +12,7 @@ module Knockapi
           .returns(Knockapi::Models::BulkOperation)
       end
       def get(
-        # The ID of the bulk operation to retrieve
+        # The ID of the bulk operation to retrieve.
         id,
         request_options: {}
       ); end

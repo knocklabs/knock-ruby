@@ -4,31 +4,34 @@ module Knockapi
   module Models
     module Recipients
       class Subscription < Knockapi::Internal::Type::BaseModel
+        # The type name of the schema.
         sig { returns(String) }
         attr_accessor :_typename
 
+        # Timestamp when the resource was created.
         sig { returns(Time) }
         attr_accessor :inserted_at
 
-        # A custom-object entity which belongs to a collection.
+        # A custom object entity which belongs to a collection.
         sig { returns(Knockapi::Models::Object) }
         attr_reader :object
 
         sig { params(object: T.any(Knockapi::Models::Object, Knockapi::Internal::AnyHash)).void }
         attr_writer :object
 
-        # A recipient, which is either a user or an object
+        # A recipient, which is either a user or an object.
         sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
         attr_accessor :recipient
 
+        # The timestamp when the resource was last updated.
         sig { returns(Time) }
         attr_accessor :updated_at
 
-        # The custom properties associated with the subscription
+        # The custom properties associated with the recipients of the subscription.
         sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         attr_accessor :properties
 
-        # A subscription object
+        # A subscription object.
         sig do
           params(
             _typename: String,

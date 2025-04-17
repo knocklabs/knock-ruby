@@ -7,13 +7,25 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # A list of users.
+        sig { returns(T::Array[Knockapi::Models::InlineIdentifyUserRequest]) }
+        attr_accessor :users
+
         sig do
-          params(request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          params(
+            users: T::Array[T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::AnyHash)],
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
+          )
             .returns(T.attached_class)
         end
-        def self.new(request_options: {}); end
+        def self.new(users:, request_options: {}); end
 
-        sig { override.returns({request_options: Knockapi::RequestOptions}) }
+        sig do
+          override
+            .returns(
+              {users: T::Array[Knockapi::Models::InlineIdentifyUserRequest], request_options: Knockapi::RequestOptions}
+            )
+        end
         def to_hash; end
       end
     end

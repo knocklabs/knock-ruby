@@ -9,7 +9,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute [r] after
-      #   The cursor to fetch entries after
+      #   The cursor to fetch entries after.
       #
       #   @return [String, nil]
       optional :after, String
@@ -19,7 +19,7 @@ module Knockapi
       #   attr_writer :after
 
       # @!attribute [r] before
-      #   The cursor to fetch entries before
+      #   The cursor to fetch entries before.
       #
       #   @return [String, nil]
       optional :before, String
@@ -29,7 +29,7 @@ module Knockapi
       #   attr_writer :before
 
       # @!attribute [r] page_size
-      #   The page size to fetch
+      #   The number of items per page.
       #
       #   @return [Integer, nil]
       optional :page_size, Integer

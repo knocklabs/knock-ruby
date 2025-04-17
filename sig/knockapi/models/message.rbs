@@ -8,12 +8,12 @@ module Knockapi
         archived_at: Time?,
         channel_id: String,
         clicked_at: Time?,
-        data: top?,
+        data: ::Hash[Symbol, top]?,
         engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
         inserted_at: Time,
         interacted_at: Time?,
         link_clicked_at: Time?,
-        metadata: top?,
+        metadata: ::Hash[Symbol, top]?,
         read_at: Time?,
         recipient: Knockapi::Models::Message::recipient,
         scheduled_at: Time?,
@@ -48,7 +48,7 @@ module Knockapi
 
       attr_accessor clicked_at: Time?
 
-      attr_accessor data: top?
+      attr_accessor data: ::Hash[Symbol, top]?
 
       attr_reader engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status]?
 
@@ -64,7 +64,7 @@ module Knockapi
 
       attr_accessor link_clicked_at: Time?
 
-      attr_accessor metadata: top?
+      attr_accessor metadata: ::Hash[Symbol, top]?
 
       attr_accessor read_at: Time?
 
@@ -105,12 +105,12 @@ module Knockapi
         ?archived_at: Time?,
         ?channel_id: String,
         ?clicked_at: Time?,
-        ?data: top?,
+        ?data: ::Hash[Symbol, top]?,
         ?engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
         ?inserted_at: Time,
         ?interacted_at: Time?,
         ?link_clicked_at: Time?,
-        ?metadata: top?,
+        ?metadata: ::Hash[Symbol, top]?,
         ?read_at: Time?,
         ?recipient: Knockapi::Models::Message::recipient,
         ?scheduled_at: Time?,
@@ -124,24 +124,24 @@ module Knockapi
 
       def to_hash: -> Knockapi::Models::message
 
-      type actor = String | Knockapi::Models::Message::Actor::UnionMember1
+      type actor = String | Knockapi::Models::Message::Actor::ObjectReference
 
       module Actor
         extend Knockapi::Internal::Type::Union
 
-        type union_member1 = { id: String, collection: String }
+        type object_reference = { id: String, collection: String }
 
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::Message::Actor::union_member1
+          def to_hash: -> Knockapi::Models::Message::Actor::object_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::Message::Actor::UnionMember1]
+        def self?.variants: -> [String, Knockapi::Models::Message::Actor::ObjectReference]
       end
 
       type engagement_status =
@@ -160,24 +160,24 @@ module Knockapi
       end
 
       type recipient =
-        String | Knockapi::Models::Message::Recipient::UnionMember1
+        String | Knockapi::Models::Message::Recipient::ObjectReference
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type union_member1 = { id: String, collection: String }
+        type object_reference = { id: String, collection: String }
 
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::Message::Recipient::union_member1
+          def to_hash: -> Knockapi::Models::Message::Recipient::object_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::Message::Recipient::UnionMember1]
+        def self?.variants: -> [String, Knockapi::Models::Message::Recipient::ObjectReference]
       end
 
       type source =

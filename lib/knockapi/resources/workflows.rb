@@ -3,7 +3,9 @@
 module Knockapi
   module Resources
     class Workflows
-      # Issues a cancellation request to inflight workflow runs
+      # When invoked for a workflow using a specific workflow key and cancellation key,
+      # will cancel any queued workflow runs associated with that key/cancellation key
+      # pair. Can optionally be provided one or more recipients to scope the request to.
       #
       # @overload cancel(key, cancellation_key:, recipients: nil, tenant: nil, request_options: {})
       #
@@ -27,14 +29,16 @@ module Knockapi
         )
       end
 
-      # Triggers a workflow
+      # Trigger a workflow specified by the key to run for the given recipients, using
+      # the parameters provided. Returns an identifier for the workflow run request. All
+      # workflow runs are executed asynchronously.
       #
       # @overload trigger(key, actor: nil, cancellation_key: nil, data: nil, recipients: nil, tenant: nil, request_options: {})
       #
       # @param key [String]
       # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
       # @param cancellation_key [String, nil]
-      # @param data [Hash{Symbol=>String}, nil]
+      # @param data [Hash{Symbol=>Object}, nil]
       # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       # @param tenant [String, Knockapi::Models::TenantRequest, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]

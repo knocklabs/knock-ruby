@@ -4,6 +4,7 @@ module Knockapi
       {
         after: String,
         before: String,
+        include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
         objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object],
         page_size: Integer
       }
@@ -21,6 +22,12 @@ module Knockapi
 
       def before=: (String) -> String
 
+      attr_reader include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]?
+
+      def include=: (
+        ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
+      ) -> ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
+
       attr_reader objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object]?
 
       def objects=: (
@@ -34,6 +41,7 @@ module Knockapi
       def initialize: (
         ?after: String,
         ?before: String,
+        ?include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
         ?objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
@@ -41,26 +49,36 @@ module Knockapi
 
       def to_hash: -> Knockapi::Models::user_list_subscriptions_params
 
+      type include_ = :preferences
+
+      module Include
+        extend Knockapi::Internal::Type::Enum
+
+        PREFERENCES: :preferences
+
+        def self?.values: -> ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
+      end
+
       type object =
         String
-        | Knockapi::Models::UserListSubscriptionsParams::Object::UnionMember1
+        | Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference
 
       module Object
         extend Knockapi::Internal::Type::Union
 
-        type union_member1 = { id: String, collection: String }
+        type object_reference = { id: String, collection: String }
 
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::UserListSubscriptionsParams::Object::union_member1
+          def to_hash: -> Knockapi::Models::UserListSubscriptionsParams::Object::object_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::UserListSubscriptionsParams::Object::UnionMember1]
+        def self?.variants: -> [String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference]
       end
     end
   end

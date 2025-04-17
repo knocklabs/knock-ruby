@@ -6,18 +6,22 @@ module Knockapi
       # @see Knockapi::Resources::Providers::MsTeams#list_teams
       class MsTeamListTeamsResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute ms_teams_teams
+        #   List of Microsoft Teams teams.
         #
         #   @return [Array<Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam>]
         required :ms_teams_teams,
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam] }
 
         # @!attribute skip_token
+        #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+        #   to the Microsoft Graph API to retrieve the next page of results.
         #
         #   @return [String, nil]
         required :skip_token, String, nil?: true
 
         # @!parse
-        #   # The response from a teams for Microsoft Teams provider request
+        #   # The response from a Microsoft Teams provider request, containing a list of
+        #   # teams.
         #   #
         #   # @param ms_teams_teams [Array<Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam>]
         #   # @param skip_token [String, nil]
@@ -28,16 +32,19 @@ module Knockapi
 
         class MsTeamsTeam < Knockapi::Internal::Type::BaseModel
           # @!attribute id
+          #   Microsoft Teams team ID.
           #
           #   @return [String]
           required :id, String
 
           # @!attribute display_name
+          #   Microsoft Teams team display name.
           #
           #   @return [String]
           required :display_name, String, api_name: :displayName
 
           # @!attribute description
+          #   Microsoft Teams team description.
           #
           #   @return [String, nil]
           optional :description, String, nil?: true

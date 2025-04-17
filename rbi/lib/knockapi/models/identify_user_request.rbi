@@ -3,10 +3,11 @@
 module Knockapi
   module Models
     class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
-      # Allows inline setting channel data for a recipient
+      # A request to set channel data for a type of channel inline.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_accessor :channel_data
 
+      # The creation date of the user from your system.
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 

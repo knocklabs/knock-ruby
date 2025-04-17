@@ -9,13 +9,13 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute recipients
-      #   The recipients to subscribe to the object
+      #   The recipients of the subscription.
       #
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
 
       # @!attribute properties
-      #   The custom properties associated with the subscription
+      #   The custom properties associated with the recipients of the subscription.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true

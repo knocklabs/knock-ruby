@@ -5,13 +5,13 @@ module Knockapi
     module Recipients
       class OneSignalChannelData < Knockapi::Internal::Type::BaseModel
         # @!attribute player_ids
-        #   The OneSignal player IDs
+        #   A list of OneSignal player IDs.
         #
         #   @return [Array<String>]
         required :player_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!parse
-        #   # OneSignal channel data
+        #   # OneSignal channel data.
         #   #
         #   # @param player_ids [Array<String>]
         #   #

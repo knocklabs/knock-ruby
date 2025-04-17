@@ -3,6 +3,7 @@ module Knockapi
     class Audiences
       def add_members: (
         String key,
+        members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member],
         ?request_options: Knockapi::request_opts
       ) -> String
 
@@ -13,6 +14,7 @@ module Knockapi
 
       def remove_members: (
         String key,
+        members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
         ?request_options: Knockapi::request_opts
       ) -> String
 

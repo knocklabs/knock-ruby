@@ -4,13 +4,17 @@ module Knockapi
   module Models
     module Providers
       class MsTeamListTeamsResponse < Knockapi::Internal::Type::BaseModel
+        # List of Microsoft Teams teams.
         sig { returns(T::Array[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam]) }
         attr_accessor :ms_teams_teams
 
+        # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+        # to the Microsoft Graph API to retrieve the next page of results.
         sig { returns(T.nilable(String)) }
         attr_accessor :skip_token
 
-        # The response from a teams for Microsoft Teams provider request
+        # The response from a Microsoft Teams provider request, containing a list of
+        # teams.
         sig do
           params(
             ms_teams_teams: T::Array[T.any(Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam, Knockapi::Internal::AnyHash)],
@@ -32,12 +36,15 @@ module Knockapi
         def to_hash; end
 
         class MsTeamsTeam < Knockapi::Internal::Type::BaseModel
+          # Microsoft Teams team ID.
           sig { returns(String) }
           attr_accessor :id
 
+          # Microsoft Teams team display name.
           sig { returns(String) }
           attr_accessor :display_name
 
+          # Microsoft Teams team description.
           sig { returns(T.nilable(String)) }
           attr_accessor :description
 

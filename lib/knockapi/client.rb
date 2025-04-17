@@ -51,6 +51,15 @@ module Knockapi
     # @return [Knockapi::Resources::Audiences]
     attr_reader :audiences
 
+    # @api private
+    #
+    # @return [Hash{String=>String}]
+    private def auth_headers
+      return {} if @bearer_token.nil?
+
+      {"authorization" => "Bearer #{@bearer_token}"}
+    end
+
     # Creates and returns a new client for interacting with the API.
     #
     # @param bearer_token [String, nil] Defaults to `ENV["KNOCK_API_KEY"]`

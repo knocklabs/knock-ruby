@@ -7,7 +7,7 @@ module Knockapi
         inserted_at: Time,
         recipient: Knockapi::Models::MessageEvent::recipient,
         type: Knockapi::Models::MessageEvent::type_,
-        data: top?
+        data: ::Hash[Symbol, top]?
       }
 
     class MessageEvent < Knockapi::Internal::Type::BaseModel
@@ -21,7 +21,7 @@ module Knockapi
 
       attr_accessor type: Knockapi::Models::MessageEvent::type_
 
-      attr_accessor data: top?
+      attr_accessor data: ::Hash[Symbol, top]?
 
       def initialize: (
         id: String,
@@ -29,63 +29,67 @@ module Knockapi
         inserted_at: Time,
         recipient: Knockapi::Models::MessageEvent::recipient,
         type: Knockapi::Models::MessageEvent::type_,
-        ?data: top?
+        ?data: ::Hash[Symbol, top]?
       ) -> void
 
       def to_hash: -> Knockapi::Models::message_event
 
       type recipient =
-        String | Knockapi::Models::MessageEvent::Recipient::UnionMember1
+        String | Knockapi::Models::MessageEvent::Recipient::ObjectReference
 
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        type union_member1 = { id: String, collection: String }
+        type object_reference = { id: String, collection: String }
 
-        class UnionMember1 < Knockapi::Internal::Type::BaseModel
+        class ObjectReference < Knockapi::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor collection: String
 
           def initialize: (id: String, collection: String) -> void
 
-          def to_hash: -> Knockapi::Models::MessageEvent::Recipient::union_member1
+          def to_hash: -> Knockapi::Models::MessageEvent::Recipient::object_reference
         end
 
-        def self?.variants: -> [String, Knockapi::Models::MessageEvent::Recipient::UnionMember1]
+        def self?.variants: -> [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
       end
 
       type type_ =
-        :"message.queued"
-        | :"message.sent"
-        | :"message.delivered"
-        | :"message.undelivered"
+        :"message.archived"
         | :"message.bounced"
-        | :"message.read"
-        | :"message.unread"
-        | :"message.link_clicked"
+        | :"message.delivered"
+        | :"message.delivery_attempted"
         | :"message.interacted"
+        | :"message.link_clicked"
+        | :"message.not_sent"
+        | :"message.queued"
+        | :"message.read"
         | :"message.seen"
-        | :"message.unseen"
-        | :"message.archived"
+        | :"message.sent"
         | :"message.unarchived"
+        | :"message.undelivered"
+        | :"message.unread"
+        | :"message.unseen"
 
       module Type
         extend Knockapi::Internal::Type::Enum
 
-        MESSAGE_QUEUED: :"message.queued"
-        MESSAGE_SENT: :"message.sent"
-        MESSAGE_DELIVERED: :"message.delivered"
-        MESSAGE_UNDELIVERED: :"message.undelivered"
-        MESSAGE_BOUNCED: :"message.bounced"
-        MESSAGE_READ: :"message.read"
-        MESSAGE_UNREAD: :"message.unread"
-        MESSAGE_LINK_CLICKED: :"message.link_clicked"
-        MESSAGE_INTERACTED: :"message.interacted"
-        MESSAGE_SEEN: :"message.seen"
-        MESSAGE_UNSEEN: :"message.unseen"
         MESSAGE_ARCHIVED: :"message.archived"
+        MESSAGE_BOUNCED: :"message.bounced"
+        MESSAGE_DELIVERED: :"message.delivered"
+        MESSAGE_DELIVERY_ATTEMPTED: :"message.delivery_attempted"
+        MESSAGE_INTERACTED: :"message.interacted"
+        MESSAGE_LINK_CLICKED: :"message.link_clicked"
+        MESSAGE_NOT_SENT: :"message.not_sent"
+        MESSAGE_QUEUED: :"message.queued"
+        MESSAGE_READ: :"message.read"
+        MESSAGE_SEEN: :"message.seen"
+        MESSAGE_SENT: :"message.sent"
         MESSAGE_UNARCHIVED: :"message.unarchived"
+        MESSAGE_UNDELIVERED: :"message.undelivered"
+        MESSAGE_UNREAD: :"message.unread"
+        MESSAGE_UNSEEN: :"message.unseen"
 
         def self?.values: -> ::Array[Knockapi::Models::MessageEvent::type_]
       end

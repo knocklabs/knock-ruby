@@ -9,10 +9,24 @@ module Knockapi
         #   extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute preferences
+        #   A request to set a preference set for a recipient.
+        #
+        #   @return [Knockapi::Models::Recipients::PreferenceSetRequest]
+        required :preferences, -> { Knockapi::Models::Recipients::PreferenceSetRequest }
+
+        # @!attribute user_ids
+        #   A list of user IDs.
+        #
+        #   @return [Array<String>]
+        required :user_ids, Knockapi::Internal::Type::ArrayOf[String]
+
         # @!parse
+        #   # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
+        #   # @param user_ids [Array<String>]
         #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
         #   #
-        #   def initialize(request_options: {}, **) = super
+        #   def initialize(preferences:, user_ids:, request_options: {}, **) = super
 
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
       end

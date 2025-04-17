@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    # A recipient, which is either a user or an object
+    # A recipient, which is either a user or an object.
     module Recipient
       extend Knockapi::Internal::Type::Union
 

@@ -10,7 +10,7 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute access_token_object
-        #   A JSON encoded string containing the access token object reference
+        #   A JSON encoded string containing the access token object reference.
         #
         #   @return [String]
         required :access_token_object, String

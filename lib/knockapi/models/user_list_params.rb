@@ -9,7 +9,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute [r] after
-      #   The cursor to fetch entries after
+      #   The cursor to fetch entries after..
       #
       #   @return [String, nil]
       optional :after, String
@@ -19,7 +19,7 @@ module Knockapi
       #   attr_writer :after
 
       # @!attribute [r] before
-      #   The cursor to fetch entries before
+      #   The cursor to fetch entries before..
       #
       #   @return [String, nil]
       optional :before, String
@@ -28,8 +28,19 @@ module Knockapi
       #   # @return [String]
       #   attr_writer :before
 
+      # @!attribute [r] include
+      #   Includes preferences of the users in the response.
+      #
+      #   @return [Array<Symbol, Knockapi::Models::UserListParams::Include>, nil]
+      optional :include,
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::UserListParams::Include] }
+
+      # @!parse
+      #   # @return [Array<Symbol, Knockapi::Models::UserListParams::Include>]
+      #   attr_writer :include
+
       # @!attribute [r] page_size
-      #   The page size to fetch
+      #   The number of items per page..
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -41,12 +52,25 @@ module Knockapi
       # @!parse
       #   # @param after [String]
       #   # @param before [String]
+      #   # @param include [Array<Symbol, Knockapi::Models::UserListParams::Include>]
       #   # @param page_size [Integer]
       #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(after: nil, before: nil, page_size: nil, request_options: {}, **) = super
+      #   def initialize(after: nil, before: nil, include: nil, page_size: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+
+      module Include
+        extend Knockapi::Internal::Type::Enum
+
+        PREFERENCES = :preferences
+
+        finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
+      end
     end
   end
 end

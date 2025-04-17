@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    # An inline tenant request
+    # An request to set a tenant inline.
     module InlineTenantRequest
       extend Knockapi::Internal::Type::Union
 

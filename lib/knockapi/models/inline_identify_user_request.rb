@@ -4,13 +4,13 @@ module Knockapi
   module Models
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute id
-      #   The ID of the user to identify. This is an ID that you supply.
+      #   The unique identifier for the user.
       #
       #   @return [String]
       required :id, String
 
       # @!attribute channel_data
-      #   Allows inline setting channel data for a recipient
+      #   A request to set channel data for a type of channel inline.
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,

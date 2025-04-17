@@ -20,16 +20,16 @@ module Knockapi
         def to_hash: -> Knockapi::Models::Recipients::slack_channel_data
 
         type connection =
-          Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection
-          | Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection
+          Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection
+          | Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
 
         module Connection
           extend Knockapi::Internal::Type::Union
 
-          type token_connection =
+          type slack_token_connection =
             { access_token: String?, channel_id: String?, user_id: String? }
 
-          class TokenConnection < Knockapi::Internal::Type::BaseModel
+          class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor access_token: String?
 
             attr_accessor channel_id: String?
@@ -42,20 +42,20 @@ module Knockapi
               ?user_id: String?
             ) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::SlackChannelData::Connection::token_connection
+            def to_hash: -> Knockapi::Models::Recipients::SlackChannelData::Connection::slack_token_connection
           end
 
-          type incoming_webhook_connection = { url: String }
+          type slack_incoming_webhook_connection = { url: String }
 
-          class IncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
+          class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor url: String
 
             def initialize: (url: String) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::SlackChannelData::Connection::incoming_webhook_connection
+            def to_hash: -> Knockapi::Models::Recipients::SlackChannelData::Connection::slack_incoming_webhook_connection
           end
 
-          def self?.variants: -> [Knockapi::Models::Recipients::SlackChannelData::Connection::TokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::IncomingWebhookConnection]
+          def self?.variants: -> [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
         end
 
         type token = { access_token: String? }

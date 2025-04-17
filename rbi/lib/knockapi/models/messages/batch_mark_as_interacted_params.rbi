@@ -7,13 +7,34 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # The message IDs to batch mark as interacted with.
+        sig { returns(T::Array[String]) }
+        attr_accessor :message_ids
+
+        # Metadata about the interaction.
+        sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+        attr_accessor :metadata
+
         sig do
-          params(request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          params(
+            message_ids: T::Array[String],
+            metadata: T.nilable(T::Hash[Symbol, T.anything]),
+            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
+          )
             .returns(T.attached_class)
         end
-        def self.new(request_options: {}); end
+        def self.new(message_ids:, metadata: nil, request_options: {}); end
 
-        sig { override.returns({request_options: Knockapi::RequestOptions}) }
+        sig do
+          override
+            .returns(
+              {
+                message_ids: T::Array[String],
+                metadata: T.nilable(T::Hash[Symbol, T.anything]),
+                request_options: Knockapi::RequestOptions
+              }
+            )
+        end
         def to_hash; end
       end
     end

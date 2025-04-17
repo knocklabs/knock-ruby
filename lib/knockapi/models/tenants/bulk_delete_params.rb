@@ -10,7 +10,7 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute tenant_ids
-        #   The IDs of the tenants to delete
+        #   The IDs of the tenants to delete.
         #
         #   @return [Array<String>]
         required :tenant_ids, Knockapi::Internal::Type::ArrayOf[String]
