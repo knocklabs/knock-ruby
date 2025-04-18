@@ -8,7 +8,10 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.archive(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
+    response =
+      @knock.messages.batch.archive(
+        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+      )
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
@@ -44,7 +47,10 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.mark_as_read(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
+    response =
+      @knock.messages.batch.mark_as_read(
+        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+      )
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
@@ -56,7 +62,10 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.mark_as_seen(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
+    response =
+      @knock.messages.batch.mark_as_seen(
+        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+      )
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
@@ -68,7 +77,10 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.mark_as_unread(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
+    response =
+      @knock.messages.batch.mark_as_unread(
+        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+      )
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
@@ -80,7 +92,10 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.mark_as_unseen(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
+    response =
+      @knock.messages.batch.mark_as_unseen(
+        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+      )
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
@@ -92,7 +107,10 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.messages.batch.unarchive(message_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"])
+    response =
+      @knock.messages.batch.unarchive(
+        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+      )
 
     assert_pattern do
       response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])

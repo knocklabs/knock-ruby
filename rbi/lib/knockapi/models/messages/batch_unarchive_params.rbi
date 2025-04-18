@@ -7,6 +7,7 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # The message IDs to update the status of.
         sig { returns(T::Array[String]) }
         attr_accessor :message_ids
 

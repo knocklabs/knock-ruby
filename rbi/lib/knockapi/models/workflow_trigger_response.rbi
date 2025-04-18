@@ -8,7 +8,7 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :workflow_run_id
 
-      # The response from triggering a workflow
+      # The response from triggering a workflow.
       sig { params(workflow_run_id: String).returns(T.attached_class) }
       def self.new(workflow_run_id:); end
 

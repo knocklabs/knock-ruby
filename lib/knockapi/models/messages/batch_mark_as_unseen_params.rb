@@ -10,6 +10,7 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute message_ids
+        #   The message IDs to update the status of.
         #
         #   @return [Array<String>]
         required :message_ids, Knockapi::Internal::Type::ArrayOf[String]

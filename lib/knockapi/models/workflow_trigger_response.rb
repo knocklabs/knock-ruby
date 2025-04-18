@@ -12,7 +12,7 @@ module Knockapi
       required :workflow_run_id, String
 
       # @!parse
-      #   # The response from triggering a workflow
+      #   # The response from triggering a workflow.
       #   #
       #   # @param workflow_run_id [String]
       #   #
