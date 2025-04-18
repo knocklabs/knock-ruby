@@ -204,6 +204,26 @@ module Knockapi
         )
       end
 
+      # Returns a paginated list of preference sets for the specified object.
+      #
+      # @overload list_preferences(collection, object_id_, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Array<Knockapi::Models::Recipients::PreferenceSet>]
+      #
+      # @see Knockapi::Models::ObjectListPreferencesParams
+      def list_preferences(collection, object_id_, params = {})
+        @client.request(
+          method: :get,
+          path: ["v1/objects/%1$s/%2$s/preferences", collection, object_id_],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::PreferenceSet],
+          options: params[:request_options]
+        )
+      end
+
       # Returns a paginated list of schedules for an object.
       #
       # @overload list_schedules(collection, object_id_, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})

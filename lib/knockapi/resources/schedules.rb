@@ -3,6 +3,9 @@
 module Knockapi
   module Resources
     class Schedules
+      # @return [Knockapi::Resources::Schedules::Bulk]
+      attr_reader :bulk
+
       # Creates one or more schedules for a workflow with the specified recipients,
       # timing, and data. Schedules can be one-time or recurring.
       #
@@ -114,6 +117,7 @@ module Knockapi
       # @param client [Knockapi::Client]
       def initialize(client:)
         @client = client
+        @bulk = Knockapi::Resources::Schedules::Bulk.new(client: client)
       end
     end
   end

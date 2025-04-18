@@ -72,6 +72,12 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Message]
 
+      def list_preferences: (
+        String collection,
+        String object_id_,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::object_list_preferences_response
+
       def list_schedules: (
         String collection,
         String object_id_,

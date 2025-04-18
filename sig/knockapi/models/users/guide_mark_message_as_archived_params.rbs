@@ -1,0 +1,65 @@
+module Knockapi
+  module Models
+    module Users
+      type guide_mark_message_as_archived_params =
+        {
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          content: top,
+          data: top,
+          is_final: bool,
+          metadata: top,
+          tenant: String?
+        }
+        & Knockapi::Internal::Type::request_parameters
+
+      class GuideMarkMessageAsArchivedParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor channel_id: String
+
+        attr_accessor guide_id: String
+
+        attr_accessor guide_key: String
+
+        attr_accessor guide_step_ref: String
+
+        attr_reader content: top?
+
+        def content=: (top) -> top
+
+        attr_reader data: top?
+
+        def data=: (top) -> top
+
+        attr_reader is_final: bool?
+
+        def is_final=: (bool) -> bool
+
+        attr_reader metadata: top?
+
+        def metadata=: (top) -> top
+
+        attr_accessor tenant: String?
+
+        def initialize: (
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          ?content: top,
+          ?data: top,
+          ?is_final: bool,
+          ?metadata: top,
+          ?tenant: String?,
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Users::guide_mark_message_as_archived_params
+      end
+    end
+  end
+end

@@ -24,6 +24,8 @@ module Knockapi
 
     attr_reader providers: Knockapi::Resources::Providers
 
+    attr_reader integrations: Knockapi::Resources::Integrations
+
     attr_reader workflows: Knockapi::Resources::Workflows
 
     attr_reader schedules: Knockapi::Resources::Schedules

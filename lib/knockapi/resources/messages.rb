@@ -252,7 +252,7 @@ module Knockapi
       def mark_as_unread(message_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/messages/%1$s/unread", message_id],
+          path: ["v1/messages/%1$s/read", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -271,7 +271,7 @@ module Knockapi
       def mark_as_unseen(message_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/messages/%1$s/unseen", message_id],
+          path: ["v1/messages/%1$s/seen", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )
@@ -291,7 +291,7 @@ module Knockapi
       def unarchive(message_id, params = {})
         @client.request(
           method: :delete,
-          path: ["v1/messages/%1$s/unarchived", message_id],
+          path: ["v1/messages/%1$s/archived", message_id],
           model: Knockapi::Models::Message,
           options: params[:request_options]
         )

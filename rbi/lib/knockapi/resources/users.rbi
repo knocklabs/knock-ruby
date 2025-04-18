@@ -6,6 +6,9 @@ module Knockapi
       sig { returns(Knockapi::Resources::Users::Feeds) }
       attr_reader :feeds
 
+      sig { returns(Knockapi::Resources::Users::Guides) }
+      attr_reader :guides
+
       sig { returns(Knockapi::Resources::Users::Bulk) }
       attr_reader :bulk
 

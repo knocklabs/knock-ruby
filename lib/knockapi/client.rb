@@ -39,6 +39,9 @@ module Knockapi
     # @return [Knockapi::Resources::Providers]
     attr_reader :providers
 
+    # @return [Knockapi::Resources::Integrations]
+    attr_reader :integrations
+
     # @return [Knockapi::Resources::Workflows]
     attr_reader :workflows
 
@@ -105,6 +108,7 @@ module Knockapi
       @bulk_operations = Knockapi::Resources::BulkOperations.new(client: self)
       @messages = Knockapi::Resources::Messages.new(client: self)
       @providers = Knockapi::Resources::Providers.new(client: self)
+      @integrations = Knockapi::Resources::Integrations.new(client: self)
       @workflows = Knockapi::Resources::Workflows.new(client: self)
       @schedules = Knockapi::Resources::Schedules.new(client: self)
       @channels = Knockapi::Resources::Channels.new(client: self)

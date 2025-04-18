@@ -1,0 +1,17 @@
+module Knockapi
+  module Resources
+    class Integrations
+      class Hightouch
+        def embedded_destination: (
+          id: String,
+          jsonrpc: String,
+          method_: String,
+          ?params: top,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Integrations::HightouchEmbeddedDestinationResponse
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

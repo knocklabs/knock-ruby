@@ -34,6 +34,9 @@ module Knockapi
     sig { returns(Knockapi::Resources::Providers) }
     attr_reader :providers
 
+    sig { returns(Knockapi::Resources::Integrations) }
+    attr_reader :integrations
+
     sig { returns(Knockapi::Resources::Workflows) }
     attr_reader :workflows
 

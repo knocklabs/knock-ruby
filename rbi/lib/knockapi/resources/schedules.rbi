@@ -3,6 +3,9 @@
 module Knockapi
   module Resources
     class Schedules
+      sig { returns(Knockapi::Resources::Schedules::Bulk) }
+      attr_reader :bulk
+
       # Creates one or more schedules for a workflow with the specified recipients,
       # timing, and data. Schedules can be one-time or recurring.
       sig do

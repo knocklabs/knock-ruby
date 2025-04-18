@@ -6,6 +6,9 @@ module Knockapi
       # @return [Knockapi::Resources::Users::Feeds]
       attr_reader :feeds
 
+      # @return [Knockapi::Resources::Users::Guides]
+      attr_reader :guides
+
       # @return [Knockapi::Resources::Users::Bulk]
       attr_reader :bulk
 
@@ -349,6 +352,7 @@ module Knockapi
       def initialize(client:)
         @client = client
         @feeds = Knockapi::Resources::Users::Feeds.new(client: client)
+        @guides = Knockapi::Resources::Users::Guides.new(client: client)
         @bulk = Knockapi::Resources::Users::Bulk.new(client: client)
       end
     end

@@ -1,6 +1,8 @@
 module Knockapi
   module Resources
     class Schedules
+      attr_reader bulk: Knockapi::Resources::Schedules::Bulk
+
       def create: (
         recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],

@@ -3,6 +3,8 @@ module Knockapi
     class Users
       attr_reader feeds: Knockapi::Resources::Users::Feeds
 
+      attr_reader guides: Knockapi::Resources::Users::Guides
+
       attr_reader bulk: Knockapi::Resources::Users::Bulk
 
       def update: (

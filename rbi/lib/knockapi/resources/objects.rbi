@@ -222,6 +222,22 @@ module Knockapi
         workflow_run_id: nil,
         request_options: {}
       ); end
+      # Returns a paginated list of preference sets for the specified object.
+      sig do
+        params(
+          collection: String,
+          object_id_: String,
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+        )
+          .returns(T::Array[Knockapi::Models::Recipients::PreferenceSet])
+      end
+      def list_preferences(
+        # The collection this object belongs to.
+        collection,
+        # Unique identifier for the object.
+        object_id_,
+        request_options: {}
+      ); end
       # Returns a paginated list of schedules for an object.
       sig do
         params(

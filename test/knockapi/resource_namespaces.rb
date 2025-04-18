@@ -6,6 +6,9 @@ module Knockapi
       module Channels
       end
 
+      module Integrations
+      end
+
       module Messages
       end
 
@@ -16,6 +19,9 @@ module Knockapi
       end
 
       module Recipients
+      end
+
+      module Schedules
       end
 
       module Tenants

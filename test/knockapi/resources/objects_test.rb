@@ -178,6 +178,18 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     end
   end
 
+  def test_list_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.objects.list_preferences("collection", "object_id")
+
+    assert_pattern do
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::PreferenceSet])
+    end
+  end
+
   def test_list_schedules
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"

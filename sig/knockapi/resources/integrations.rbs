@@ -1,0 +1,11 @@
+module Knockapi
+  module Resources
+    class Integrations
+      attr_reader census: Knockapi::Resources::Integrations::Census
+
+      attr_reader hightouch: Knockapi::Resources::Integrations::Hightouch
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end
