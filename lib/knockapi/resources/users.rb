@@ -17,9 +17,9 @@ module Knockapi
       # @overload update(user_id, channel_data: nil, created_at: nil, preferences: nil, request_options: {})
       #
       # @param user_id [String]
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
       # @param created_at [Time, nil]
-      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::User]

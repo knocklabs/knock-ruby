@@ -3,9 +3,76 @@
 module Knockapi
   module Models
     module Recipients
+      class InlineChannelDataRequestItem < Knockapi::Internal::Type::BaseModel
+        # The ID of the channel to associate data with
+        sig { returns(String) }
+        attr_accessor :channel_id
+
+        # Channel data for a given channel type.
+        sig do
+          returns(
+            T.any(
+              Knockapi::Models::Recipients::PushChannelData,
+              Knockapi::Models::Recipients::OneSignalChannelData,
+              Knockapi::Models::Recipients::SlackChannelData,
+              Knockapi::Models::Recipients::MsTeamsChannelData,
+              Knockapi::Models::Recipients::DiscordChannelData
+            )
+          )
+        end
+        attr_accessor :data
+
+        # A request to set channel data for a type of channel inline.
+        sig do
+          params(
+            channel_id: String,
+            data: T.any(
+              Knockapi::Models::Recipients::PushChannelData,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::Recipients::OneSignalChannelData,
+              Knockapi::Models::Recipients::SlackChannelData,
+              Knockapi::Models::Recipients::MsTeamsChannelData,
+              Knockapi::Models::Recipients::DiscordChannelData
+            )
+          )
+            .returns(T.attached_class)
+        end
+        def self.new(channel_id:, data:); end
+
+        sig do
+          override
+            .returns(
+              {
+                channel_id: String,
+                data: T.any(
+                  Knockapi::Models::Recipients::PushChannelData,
+                  Knockapi::Models::Recipients::OneSignalChannelData,
+                  Knockapi::Models::Recipients::SlackChannelData,
+                  Knockapi::Models::Recipients::MsTeamsChannelData,
+                  Knockapi::Models::Recipients::DiscordChannelData
+                )
+              }
+            )
+        end
+        def to_hash; end
+
+        # Channel data for a given channel type.
+        module Data
+          extend Knockapi::Internal::Type::Union
+
+          sig do
+            override
+              .returns(
+                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+              )
+          end
+          def self.variants; end
+        end
+      end
+
       InlineChannelDataRequest =
         T.let(
-          Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest],
+          Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlineChannelDataRequestItem],
           Knockapi::Internal::Type::Converter
         )
     end

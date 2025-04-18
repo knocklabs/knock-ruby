@@ -328,10 +328,10 @@ module Knockapi
           collection: String,
           object_id_: String,
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

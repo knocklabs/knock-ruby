@@ -292,8 +292,8 @@ module Knockapi
       #
       # @param collection [String]
       # @param object_id_ [String]
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
-      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Object]

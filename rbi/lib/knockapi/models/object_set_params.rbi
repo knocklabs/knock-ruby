@@ -7,20 +7,20 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
       attr_accessor :channel_data
 
       # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
       attr_accessor :preferences
 
       sig do
         params(
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
           ),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -32,8 +32,8 @@ module Knockapi
         override
           .returns(
             {
-              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
-              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
+              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
+              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
               request_options: Knockapi::RequestOptions
             }
           )

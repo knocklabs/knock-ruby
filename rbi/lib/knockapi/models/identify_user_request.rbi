@@ -4,7 +4,7 @@ module Knockapi
   module Models
     class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
       attr_accessor :channel_data
 
       # The creation date of the user from your system.
@@ -12,7 +12,7 @@ module Knockapi
       attr_accessor :created_at
 
       # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
       attr_accessor :preferences
 
       # A set of parameters to identify a user with. Does not include the user ID, as
@@ -21,11 +21,11 @@ module Knockapi
       sig do
         params(
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
           created_at: T.nilable(Time),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
           )
         )
           .returns(T.attached_class)
@@ -36,9 +36,9 @@ module Knockapi
         override
           .returns(
             {
-              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
+              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
               created_at: T.nilable(Time),
-              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])
+              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])
             }
           )
       end

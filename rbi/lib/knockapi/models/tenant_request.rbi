@@ -8,11 +8,11 @@ module Knockapi
       attr_accessor :id
 
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
       attr_accessor :channel_data
 
       # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
       attr_accessor :preferences
 
       # The settings for the tenant. Includes branding and preference set.
@@ -28,10 +28,10 @@ module Knockapi
         params(
           id: String,
           channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
           preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
           ),
           settings: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Internal::AnyHash)
         )
@@ -44,8 +44,8 @@ module Knockapi
           .returns(
             {
               id: String,
-              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
-              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
+              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
+              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
               settings: Knockapi::Models::TenantRequest::Settings
             }
           )

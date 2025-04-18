@@ -1,8 +1,40 @@
 module Knockapi
   module Models
     module Recipients
+      type inline_channel_data_request_item =
+        {
+          channel_id: String,
+          data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data
+        }
+
+      class InlineChannelDataRequestItem < Knockapi::Internal::Type::BaseModel
+        attr_accessor channel_id: String
+
+        attr_accessor data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data
+
+        def initialize: (
+          channel_id: String,
+          data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Recipients::inline_channel_data_request_item
+
+        type data =
+          Knockapi::Models::Recipients::PushChannelData
+          | Knockapi::Models::Recipients::OneSignalChannelData
+          | Knockapi::Models::Recipients::SlackChannelData
+          | Knockapi::Models::Recipients::MsTeamsChannelData
+          | Knockapi::Models::Recipients::DiscordChannelData
+
+        module Data
+          extend Knockapi::Internal::Type::Union
+
+          def self?.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+        end
+      end
+
       type inline_channel_data_request =
-        ::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]
+        ::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]
 
       InlineChannelDataRequest: inline_channel_data_request
     end

@@ -18,9 +18,9 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      #   @return [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlineChannelDataRequestItem] },
                nil?: true
 
       # @!attribute created_at
@@ -32,9 +32,9 @@ module Knockapi
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set name
       #
-      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
                nil?: true
 
       # @!parse
@@ -42,9 +42,9 @@ module Knockapi
       #   #
       #   # @param id [String]
       #   # @param collection [String]
-      #   # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      #   # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
       #   # @param created_at [Time, nil]
-      #   # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      #   # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       #   #
       #   def initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil, **) = super
 
