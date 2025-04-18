@@ -179,6 +179,11 @@ module Knockapi
         sig { params(keys: T.nilable(T::Array[Symbol])).returns(Knockapi::Internal::AnyHash) }
         def deconstruct_keys(keys); end
 
+        class << self
+          sig { params(model: Knockapi::Internal::Type::BaseModel).returns(Knockapi::Internal::AnyHash) }
+          def walk(model); end
+        end
+
         sig { params(a: T.anything).returns(String) }
         def to_json(*a); end
 
@@ -194,6 +199,10 @@ module Knockapi
           sig { params(depth: Integer).returns(String) }
           def inspect(depth: 0); end
         end
+
+        # @api private
+        sig { returns(String) }
+        def to_s; end
 
         # @api private
         sig { returns(String) }
