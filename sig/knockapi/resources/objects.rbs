@@ -50,7 +50,6 @@ module Knockapi
         String collection,
         String object_id_,
         String preference_set_id,
-        ?tenant: String,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Recipients::PreferenceSet
 

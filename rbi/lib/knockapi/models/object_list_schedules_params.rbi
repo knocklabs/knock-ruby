@@ -27,14 +27,14 @@ module Knockapi
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
-      # The ID of the tenant to list schedules for.
+      # Filter schedules by tenant id.
       sig { returns(T.nilable(String)) }
       attr_reader :tenant
 
       sig { params(tenant: String).void }
       attr_writer :tenant
 
-      # The ID of the workflow to list schedules for.
+      # Filter schedules by workflow id.
       sig { returns(T.nilable(String)) }
       attr_reader :workflow
 

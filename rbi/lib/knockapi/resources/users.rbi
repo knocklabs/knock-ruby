@@ -93,9 +93,9 @@ module Knockapi
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
       def get_channel_data(
-        # The user ID.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
-        # The channel ID.
+        # The unique identifier for the channel.
         channel_id,
         request_options: {}
       ); end
@@ -158,7 +158,7 @@ module Knockapi
         message_ids: nil,
         # The number of items per page.
         page_size: nil,
-        # Limits the results to only items of the source workflow.
+        # Key of the source that triggered the message to limit results to.
         source: nil,
         # One or more delivery statuses. Limits results to messages with the given
         # delivery status(es).
@@ -288,9 +288,9 @@ module Knockapi
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
       def set_channel_data(
-        # The user ID.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
-        # The channel ID.
+        # The unique identifier for the channel.
         channel_id,
         # Channel data for a given channel type.
         data:,
@@ -352,9 +352,9 @@ module Knockapi
           .returns(String)
       end
       def unset_channel_data(
-        # The user ID.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
-        # The channel ID.
+        # The unique identifier for the channel.
         channel_id,
         request_options: {}
       ); end

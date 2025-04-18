@@ -73,6 +73,16 @@ module Knockapi
         #   # @return [Time]
         #   attr_writer :older_than
 
+        # @!attribute [r] recipient_gids
+        #   The recipient GIDs to filter messages by.
+        #
+        #   @return [Array<String>, nil]
+        optional :recipient_gids, Knockapi::Internal::Type::ArrayOf[String]
+
+        # @!parse
+        #   # @return [Array<String>]
+        #   attr_writer :recipient_gids
+
         # @!attribute [r] recipient_ids
         #   The recipient IDs to filter messages by.
         #
@@ -120,6 +130,7 @@ module Knockapi
         #   # @param has_tenant [Boolean]
         #   # @param newer_than [Time]
         #   # @param older_than [Time]
+        #   # @param recipient_gids [Array<String>]
         #   # @param recipient_ids [Array<String>]
         #   # @param tenants [Array<String>]
         #   # @param trigger_data [String]
@@ -133,6 +144,7 @@ module Knockapi
         #     has_tenant: nil,
         #     newer_than: nil,
         #     older_than: nil,
+        #     recipient_gids: nil,
         #     recipient_ids: nil,
         #     tenants: nil,
         #     trigger_data: nil,

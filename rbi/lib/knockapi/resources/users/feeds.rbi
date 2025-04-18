@@ -14,9 +14,9 @@ module Knockapi
             .returns(Knockapi::Models::Users::FeedGetSettingsResponse)
         end
         def get_settings(
-          # The user ID.
+          # The ID for the user that you set when identifying them in Knock.
           user_id,
-          # The channel ID.
+          # The unique identifier for the channel.
           channel_id,
           request_options: {}
         ); end
@@ -41,9 +41,9 @@ module Knockapi
             .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse])
         end
         def list_items(
-          # The user ID.
+          # The ID for the user that you set when identifying them in Knock.
           user_id,
-          # The channel ID.
+          # The unique identifier for the channel.
           channel_id,
           # The cursor to fetch entries after.
           after: nil,

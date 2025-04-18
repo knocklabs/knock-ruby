@@ -300,7 +300,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
       @knock.users.set_channel_data(
         "user_id",
         "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        data: {tokens: ["push_token_1"]}
+        data: {__typename: :PushChannelData, tokens: ["push_token_1"]}
       )
 
     assert_pattern do

@@ -147,25 +147,22 @@ module Knockapi
 
       # Returns the preference set for the specified object.
       #
-      # @overload get_preferences(collection, object_id_, preference_set_id, tenant: nil, request_options: {})
+      # @overload get_preferences(collection, object_id_, preference_set_id, request_options: {})
       #
       # @param collection [String]
       # @param object_id_ [String]
       # @param preference_set_id [String]
-      # @param tenant [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
       #
       # @see Knockapi::Models::ObjectGetPreferencesParams
       def get_preferences(collection, object_id_, preference_set_id, params = {})
-        parsed, options = Knockapi::Models::ObjectGetPreferencesParams.dump_request(params)
         @client.request(
           method: :get,
           path: ["v1/objects/%1$s/%2$s/preferences/%3$s", collection, object_id_, preference_set_id],
-          query: parsed,
           model: Knockapi::Models::Recipients::PreferenceSet,
-          options: options
+          options: params[:request_options]
         )
       end
 

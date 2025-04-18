@@ -58,7 +58,7 @@ module Knockapi
       optional :clicked_at, Time, nil?: true
 
       # @!attribute data
-      #   Data from the activities linked to the message
+      #   Data from the activities linked to the message.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
@@ -168,7 +168,7 @@ module Knockapi
       #   attr_writer :updated_at
 
       # @!attribute workflow
-      #   The key of the worklfow that generated the message.
+      #   The key of the workflow that generated the message.
       #
       #   @return [String, nil]
       optional :workflow, String, nil?: true

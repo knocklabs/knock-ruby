@@ -18,6 +18,7 @@ module Knockapi
             has_tenant: T::Boolean,
             newer_than: Time,
             older_than: Time,
+            recipient_gids: T::Array[String],
             recipient_ids: T::Array[String],
             tenants: T::Array[String],
             trigger_data: String,
@@ -45,6 +46,8 @@ module Knockapi
           # The timestamp to filter messages by. Only include messages created before this
           # timestamp.
           older_than: nil,
+          # The recipient GIDs to filter messages by.
+          recipient_gids: nil,
           # The recipient IDs to filter messages by.
           recipient_ids: nil,
           # The tenant IDs to filter messages by.

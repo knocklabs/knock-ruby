@@ -6,20 +6,13 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # The unique identifier for the tenant.
-      sig { returns(T.nilable(String)) }
-      attr_reader :tenant
-
-      sig { params(tenant: String).void }
-      attr_writer :tenant
-
       sig do
-        params(tenant: String, request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+        params(request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(tenant: nil, request_options: {}); end
+      def self.new(request_options: {}); end
 
-      sig { override.returns({tenant: String, request_options: Knockapi::RequestOptions}) }
+      sig { override.returns({request_options: Knockapi::RequestOptions}) }
       def to_hash; end
     end
   end

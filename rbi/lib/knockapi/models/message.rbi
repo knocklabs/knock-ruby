@@ -45,7 +45,7 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :clicked_at
 
-      # Data from the activities linked to the message
+      # Data from the activities linked to the message.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
@@ -125,7 +125,7 @@ module Knockapi
       sig { params(updated_at: Time).void }
       attr_writer :updated_at
 
-      # The key of the worklfow that generated the message.
+      # The key of the workflow that generated the message.
       sig { returns(T.nilable(String)) }
       attr_accessor :workflow
 

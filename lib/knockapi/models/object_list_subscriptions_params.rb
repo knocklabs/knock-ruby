@@ -29,7 +29,7 @@ module Knockapi
       #   attr_writer :before
 
       # @!attribute [r] include
-      #   Includes preferences of the recipient subscribers in the response.
+      #   Additional fields to include in the response.
       #
       #   @return [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>, nil]
       optional :include,

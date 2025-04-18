@@ -72,7 +72,7 @@ module Knockapi
       #   attr_writer :page_size
 
       # @!attribute [r] source
-      #   Limits the results to only items of the source workflow.
+      #   Key of the source that triggered the message to limit results to.
       #
       #   @return [String, nil]
       optional :source, String

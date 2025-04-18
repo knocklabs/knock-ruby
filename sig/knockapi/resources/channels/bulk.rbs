@@ -11,6 +11,7 @@ module Knockapi
           ?has_tenant: bool,
           ?newer_than: Time,
           ?older_than: Time,
+          ?recipient_gids: ::Array[String],
           ?recipient_ids: ::Array[String],
           ?tenants: ::Array[String],
           ?trigger_data: String,

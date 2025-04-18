@@ -4,19 +4,6 @@ module Knockapi
   module Models
     module Recipients
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
-        # List of Slack channel connections.
-        sig do
-          returns(
-            T::Array[
-              T.any(
-                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-              )
-            ]
-          )
-        end
-        attr_accessor :connections
-
         # A Slack connection token.
         sig { returns(T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)) }
         attr_reader :token
@@ -29,7 +16,21 @@ module Knockapi
         end
         attr_writer :token
 
-        # Slack channel data
+        # List of Slack channel connections.
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                T.any(
+                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+                )
+              ]
+            )
+          )
+        end
+        attr_reader :connections
+
         sig do
           params(
             connections: T::Array[
@@ -38,28 +39,56 @@ module Knockapi
                 Knockapi::Internal::AnyHash,
                 Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
               )
-            ],
-            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
+            ]
+          )
+            .void
+        end
+        attr_writer :connections
+
+        # Slack channel data
+        sig do
+          params(
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash)),
+            connections: T::Array[
+              T.any(
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                Knockapi::Internal::AnyHash,
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+              )
+            ]
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:, token: nil); end
+        def self.new(token: nil, connections: nil); end
 
         sig do
           override
             .returns(
               {
+                token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token),
                 connections: T::Array[
                   T.any(
                     Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
                     Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
                   )
-                ],
-                token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)
+                ]
               }
             )
         end
         def to_hash; end
+
+        class Token < Knockapi::Internal::Type::BaseModel
+          # A Slack access token.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :access_token
+
+          # A Slack connection token.
+          sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
+          def self.new(access_token:); end
+
+          sig { override.returns({access_token: T.nilable(String)}) }
+          def to_hash; end
+        end
 
         # A Slack connection, either an access token or an incoming webhook
         module Connection
@@ -120,19 +149,6 @@ module Knockapi
               )
           end
           def self.variants; end
-        end
-
-        class Token < Knockapi::Internal::Type::BaseModel
-          # A Slack access token.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :access_token
-
-          # A Slack connection token.
-          sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
-          def self.new(access_token:); end
-
-          sig { override.returns({access_token: T.nilable(String)}) }
-          def to_hash; end
         end
       end
     end

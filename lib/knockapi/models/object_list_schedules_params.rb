@@ -39,7 +39,7 @@ module Knockapi
       #   attr_writer :page_size
 
       # @!attribute [r] tenant
-      #   The ID of the tenant to list schedules for.
+      #   Filter schedules by tenant id.
       #
       #   @return [String, nil]
       optional :tenant, String
@@ -49,7 +49,7 @@ module Knockapi
       #   attr_writer :tenant
 
       # @!attribute [r] workflow
-      #   The ID of the workflow to list schedules for.
+      #   Filter schedules by workflow id.
       #
       #   @return [String, nil]
       optional :workflow, String

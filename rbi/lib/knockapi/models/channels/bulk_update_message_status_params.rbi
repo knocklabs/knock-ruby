@@ -61,6 +61,13 @@ module Knockapi
         sig { params(older_than: Time).void }
         attr_writer :older_than
 
+        # The recipient GIDs to filter messages by.
+        sig { returns(T.nilable(T::Array[String])) }
+        attr_reader :recipient_gids
+
+        sig { params(recipient_gids: T::Array[String]).void }
+        attr_writer :recipient_gids
+
         # The recipient IDs to filter messages by.
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :recipient_ids
@@ -97,6 +104,7 @@ module Knockapi
             has_tenant: T::Boolean,
             newer_than: Time,
             older_than: Time,
+            recipient_gids: T::Array[String],
             recipient_ids: T::Array[String],
             tenants: T::Array[String],
             trigger_data: String,
@@ -112,6 +120,7 @@ module Knockapi
           has_tenant: nil,
           newer_than: nil,
           older_than: nil,
+          recipient_gids: nil,
           recipient_ids: nil,
           tenants: nil,
           trigger_data: nil,
@@ -128,6 +137,7 @@ module Knockapi
                 has_tenant: T::Boolean,
                 newer_than: Time,
                 older_than: Time,
+                recipient_gids: T::Array[String],
                 recipient_ids: T::Array[String],
                 tenants: T::Array[String],
                 trigger_data: String,

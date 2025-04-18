@@ -20,7 +20,7 @@ module Knockapi
       sig { params(before: String).void }
       attr_writer :before
 
-      # Includes preferences of the recipient subscribers in the response.
+      # Additional fields to include in the response.
       sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol])) }
       attr_reader :include
 

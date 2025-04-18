@@ -41,7 +41,7 @@ module Knockapi
         message_ids: nil,
         # The number of items per page.
         page_size: nil,
-        # Limits the results to only items of the source workflow.
+        # Key of the source that triggered the message to limit results to.
         source: nil,
         # One or more delivery statuses. Limits results to messages with the given
         # delivery status(es).

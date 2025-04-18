@@ -148,7 +148,6 @@ module Knockapi
           collection: String,
           object_id_: String,
           preference_set_id: String,
-          tenant: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::Recipients::PreferenceSet)
@@ -160,8 +159,6 @@ module Knockapi
         object_id_,
         # Unique identifier for the preference set.
         preference_set_id,
-        # The unique identifier for the tenant.
-        tenant: nil,
         request_options: {}
       ); end
       # Returns a paginated list of messages for a specific object in the given
@@ -207,7 +204,7 @@ module Knockapi
         message_ids: nil,
         # The number of items per page.
         page_size: nil,
-        # Limits the results to only items of the source workflow.
+        # Key of the source that triggered the message to limit results to.
         source: nil,
         # One or more delivery statuses. Limits results to messages with the given
         # delivery status(es).
@@ -250,9 +247,9 @@ module Knockapi
         before: nil,
         # The number of items per page.
         page_size: nil,
-        # The ID of the tenant to list schedules for.
+        # Filter schedules by tenant id.
         tenant: nil,
-        # The ID of the workflow to list schedules for.
+        # Filter schedules by workflow id.
         workflow: nil,
         request_options: {}
       ); end
@@ -295,7 +292,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # Includes preferences of the recipient subscribers in the response.
+        # Additional fields to include in the response.
         include: nil,
         # Mode of the request.
         mode: nil,

@@ -9,7 +9,7 @@ module Knockapi
         # parameter, where the action is a status change action (e.g. `archive`,
         # `unarchive`).
         #
-        # @overload update_message_status(channel_id, action, archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
+        # @overload update_message_status(channel_id, action, archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_gids: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
         #
         # @param channel_id [String]
         # @param action [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action]
@@ -19,6 +19,7 @@ module Knockapi
         # @param has_tenant [Boolean]
         # @param newer_than [Time]
         # @param older_than [Time]
+        # @param recipient_gids [Array<String>]
         # @param recipient_ids [Array<String>]
         # @param tenants [Array<String>]
         # @param trigger_data [String]

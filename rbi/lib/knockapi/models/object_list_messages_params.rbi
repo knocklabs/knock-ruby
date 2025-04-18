@@ -55,7 +55,7 @@ module Knockapi
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
-      # Limits the results to only items of the source workflow.
+      # Key of the source that triggered the message to limit results to.
       sig { returns(T.nilable(String)) }
       attr_reader :source
 

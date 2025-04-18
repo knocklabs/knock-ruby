@@ -13,7 +13,7 @@ module Knockapi
             .returns(T::Array[Knockapi::Models::Message])
         end
         def archive(
-          # The message IDs to update.
+          # The message IDs to update the status of.
           message_ids:,
           request_options: {}
         ); end
@@ -55,7 +55,7 @@ module Knockapi
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_read(
-          # The message IDs to update.
+          # The message IDs to update the status of.
           message_ids:,
           request_options: {}
         ); end
@@ -68,7 +68,7 @@ module Knockapi
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_seen(
-          # The message IDs to update.
+          # The message IDs to update the status of.
           message_ids:,
           request_options: {}
         ); end
@@ -81,7 +81,7 @@ module Knockapi
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unread(
-          # The message IDs to update.
+          # The message IDs to update the status of.
           message_ids:,
           request_options: {}
         ); end
@@ -94,7 +94,7 @@ module Knockapi
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unseen(
-          # The message IDs to update.
+          # The message IDs to update the status of.
           message_ids:,
           request_options: {}
         ); end
@@ -107,7 +107,7 @@ module Knockapi
             .returns(T::Array[Knockapi::Models::Message])
         end
         def unarchive(
-          # The message IDs to update.
+          # The message IDs to update the status of.
           message_ids:,
           request_options: {}
         ); end

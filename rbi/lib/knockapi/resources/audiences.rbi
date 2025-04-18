@@ -13,7 +13,7 @@ module Knockapi
           .returns(String)
       end
       def add_members(
-        # The key of the audience to add members to.
+        # The key of the audience.
         key,
         # A list of audience members to add.
         members:,
@@ -28,7 +28,7 @@ module Knockapi
           .returns(Knockapi::Models::AudienceListMembersResponse)
       end
       def list_members(
-        # The key of the audience to list members for.
+        # The key of the audience.
         key,
         request_options: {}
       ); end
@@ -42,7 +42,7 @@ module Knockapi
           .returns(String)
       end
       def remove_members(
-        # The key of the audience to remove members from.
+        # The key of the audience.
         key,
         # A list of audience members to remove.
         members:,
