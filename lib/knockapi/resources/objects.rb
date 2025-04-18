@@ -252,9 +252,9 @@ module Knockapi
         )
       end
 
-      # List subscriptions for an object. Either list all subscriptions that belong to
-      # the object, or all subscriptions that this object has. Determined by the `mode`
-      # query parameter.
+      # List subscriptions for an object. Eitherlist the recipients that subscribe to
+      # the provided object, or list the objects that the provided object is subscribed
+      # to. Determined by the `mode` query parameter.
       #
       # @overload list_subscriptions(collection, object_id_, after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
       #
