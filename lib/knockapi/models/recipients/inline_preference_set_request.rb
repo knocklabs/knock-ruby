@@ -10,14 +10,16 @@ module Knockapi
         #   @return [String]
         required :id, String
 
-        # @!attribute categories
-        #   An object where the key is the category and the values are the preference
-        #   settings for that category.
+        # @!attribute [r] categories
+        #   Workflow or category preferences within a preference set
         #
-        #   @return [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
+        #   @return [Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::PreferenceSetWorkflowCategorySettingObject, nil]
         optional :categories,
-                 -> { Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category] },
-                 nil?: true
+                 union: -> { Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories }
+
+        # @!parse
+        #   # @return [Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::PreferenceSetWorkflowCategorySettingObject]
+        #   attr_writer :categories
 
         # @!attribute channel_types
         #   Channel type preferences.
@@ -38,7 +40,7 @@ module Knockapi
         #   # Inline set preferences for a recipient, where the key is the preference set name
         #   #
         #   # @param id [String]
-        #   # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
+        #   # @param categories [Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::PreferenceSetWorkflowCategorySettingObject]
         #   # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
         #   # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
         #   #
@@ -47,13 +49,15 @@ module Knockapi
         # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
 
         # Workflow or category preferences within a preference set
-        module Category
+        #
+        # @see Knockapi::Models::Recipients::InlinePreferenceSetRequestItem#categories
+        module Categories
           extend Knockapi::Internal::Type::Union
 
           variant Knockapi::Internal::Type::Boolean
 
           # The settings object for a workflow or category, where you can specify channel types or conditions.
-          variant -> { Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject }
+          variant -> { Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::PreferenceSetWorkflowCategorySettingObject }
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_types
@@ -81,7 +85,7 @@ module Knockapi
           end
 
           # @!parse
-          #   # @return [Array(Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject)]
+          #   # @return [Array(Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::PreferenceSetWorkflowCategorySettingObject)]
           #   def self.variants; end
         end
 

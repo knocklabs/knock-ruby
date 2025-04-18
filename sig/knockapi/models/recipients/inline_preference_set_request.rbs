@@ -4,7 +4,7 @@ module Knockapi
       type inline_preference_set_request_item =
         {
           id: String,
-          categories: ::Hash[Symbol, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::category]?,
+          categories: Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::categories,
           channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::workflow]?
         }
@@ -12,7 +12,11 @@ module Knockapi
       class InlinePreferenceSetRequestItem < Knockapi::Internal::Type::BaseModel
         attr_accessor id: String
 
-        attr_accessor categories: ::Hash[Symbol, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::category]?
+        attr_reader categories: Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::categories?
+
+        def categories=: (
+          Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::categories
+        ) -> Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::categories
 
         attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
 
@@ -20,18 +24,18 @@ module Knockapi
 
         def initialize: (
           id: String,
-          ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::category]?,
+          ?categories: Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::categories,
           ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
           ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::workflow]?
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::inline_preference_set_request_item
 
-        type category =
+        type categories =
           bool
-          | Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject
+          | Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::PreferenceSetWorkflowCategorySettingObject
 
-        module Category
+        module Categories
           extend Knockapi::Internal::Type::Union
 
           type preference_set_workflow_category_setting_object =
@@ -50,10 +54,10 @@ module Knockapi
               ?conditions: ::Array[Knockapi::Models::Condition]?
             ) -> void
 
-            def to_hash: -> Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::preference_set_workflow_category_setting_object
+            def to_hash: -> Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::preference_set_workflow_category_setting_object
           end
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject]
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Categories::PreferenceSetWorkflowCategorySettingObject]
         end
 
         type workflow =
