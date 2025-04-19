@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#delete_subscriptions
     class ObjectDeleteSubscriptionsParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute recipients

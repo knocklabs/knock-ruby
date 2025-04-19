@@ -5,8 +5,7 @@ module Knockapi
     module Users
       # @see Knockapi::Resources::Users::Bulk#set_preferences
       class BulkSetPreferencesParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute preferences

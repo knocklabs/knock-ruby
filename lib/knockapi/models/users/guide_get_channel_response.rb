@@ -25,45 +25,29 @@ module Knockapi
         #   @param recipient [Knockapi::Models::Users::GuideGetChannelResponse::Recipient, nil]
 
         class Guide < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] id
+          # @!attribute id
           #   The unique identifier for the guide.
           #
           #   @return [String, nil]
           optional :id, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :id
-
-          # @!attribute [r] content
+          # @!attribute content
           #   The content of the guide.
           #
           #   @return [String, nil]
           optional :content, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :content
-
-          # @!attribute [r] metadata
+          # @!attribute metadata
           #   The metadata of the guide.
           #
           #   @return [Hash{Symbol=>Object}, nil]
           optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
-          # @!parse
-          #   # @return [Hash{Symbol=>Object}]
-          #   attr_writer :metadata
-
-          # @!attribute [r] title
+          # @!attribute title
           #   The title of the guide.
           #
           #   @return [String, nil]
           optional :title, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :title
 
           # @!method initialize(id: nil, content: nil, metadata: nil, title: nil)
           #   @param id [String]
@@ -74,15 +58,11 @@ module Knockapi
 
         # @see Knockapi::Models::Users::GuideGetChannelResponse#recipient
         class Recipient < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] id
+          # @!attribute id
           #   Unique identifier for the recipient.
           #
           #   @return [String, nil]
           optional :id, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :id
 
           # @!method initialize(id: nil)
           #   The recipient of the guide.

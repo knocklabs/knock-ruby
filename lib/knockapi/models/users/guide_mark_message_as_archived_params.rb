@@ -5,8 +5,7 @@ module Knockapi
     module Users
       # @see Knockapi::Resources::Users::Guides#mark_message_as_archived
       class GuideMarkMessageAsArchivedParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute channel_id
@@ -33,45 +32,29 @@ module Knockapi
         #   @return [String]
         required :guide_step_ref, String
 
-        # @!attribute [r] content
+        # @!attribute content
         #   The content of the guide.
         #
         #   @return [Object, nil]
         optional :content, Knockapi::Internal::Type::Unknown
 
-        # @!parse
-        #   # @return [Object]
-        #   attr_writer :content
-
-        # @!attribute [r] data
+        # @!attribute data
         #   The data of the guide.
         #
         #   @return [Object, nil]
         optional :data, Knockapi::Internal::Type::Unknown
 
-        # @!parse
-        #   # @return [Object]
-        #   attr_writer :data
-
-        # @!attribute [r] is_final
+        # @!attribute is_final
         #   Whether the guide is final.
         #
         #   @return [Boolean, nil]
         optional :is_final, Knockapi::Internal::Type::Boolean
 
-        # @!parse
-        #   # @return [Boolean]
-        #   attr_writer :is_final
-
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   The metadata of the guide.
         #
         #   @return [Object, nil]
         optional :metadata, Knockapi::Internal::Type::Unknown
-
-        # @!parse
-        #   # @return [Object]
-        #   attr_writer :metadata
 
         # @!attribute tenant
         #   The tenant id of the guide.

@@ -5,8 +5,7 @@ module Knockapi
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#list_channels
       class MsTeamListChannelsParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute ms_teams_tenant_object
@@ -21,14 +20,10 @@ module Knockapi
         #   @return [String]
         required :team_id, String
 
-        # @!attribute [r] query_options
+        # @!attribute query_options
         #
         #   @return [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, nil]
         optional :query_options, -> { Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions }
-
-        # @!parse
-        #   # @return [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
-        #   attr_writer :query_options
 
         # @!method initialize(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
         #   @param ms_teams_tenant_object [String]
@@ -37,27 +32,19 @@ module Knockapi
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] filter
+          # @!attribute filter
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to filter channels.
           #
           #   @return [String, nil]
           optional :filter, String, api_name: :$filter
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :filter
-
-          # @!attribute [r] select_
+          # @!attribute select_
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to select specific properties.
           #
           #   @return [String, nil]
           optional :select_, String, api_name: :$select
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :select_
 
           # @!method initialize(filter: nil, select_: nil)
           #   @param filter [String]

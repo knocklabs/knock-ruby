@@ -4,49 +4,32 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list_activities
     class MessageListActivitiesParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # @!attribute [r] after
+      # @!attribute after
       #   The cursor to fetch entries after.
       #
       #   @return [String, nil]
       optional :after, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :after
-
-      # @!attribute [r] before
+      # @!attribute before
       #   The cursor to fetch entries before.
       #
       #   @return [String, nil]
       optional :before, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :before
-
-      # @!attribute [r] page_size
+      # @!attribute page_size
       #   The number of items per page.
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :page_size
-
-      # @!attribute [r] trigger_data
+      # @!attribute trigger_data
       #   The trigger data to filter activities by.
       #
       #   @return [String, nil]
       optional :trigger_data, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :trigger_data
 
       # @!method initialize(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
       #   @param after [String]

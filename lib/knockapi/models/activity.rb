@@ -4,25 +4,17 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list_activities
     class Activity < Knockapi::Internal::Type::BaseModel
-      # @!attribute [r] id
+      # @!attribute id
       #   Unique identifier for the activity.
       #
       #   @return [String, nil]
       optional :id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :id
-
-      # @!attribute [r] _typename
+      # @!attribute _typename
       #   The typename of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :_typename
 
       # @!attribute actor
       #   A recipient of a notification, which is either a user or an object.
@@ -36,35 +28,23 @@ module Knockapi
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
-      # @!attribute [r] inserted_at
+      # @!attribute inserted_at
       #   Timestamp when the resource was created.
       #
       #   @return [Time, nil]
       optional :inserted_at, Time
 
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :inserted_at
-
-      # @!attribute [r] recipient
+      # @!attribute recipient
       #   A recipient of a notification, which is either a user or an object.
       #
       #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :recipient, union: -> { Knockapi::Models::Recipient }
 
-      # @!parse
-      #   # @return [Knockapi::Models::User, Knockapi::Models::Object]
-      #   attr_writer :recipient
-
-      # @!attribute [r] updated_at
+      # @!attribute updated_at
       #   The timestamp when the resource was last updated.
       #
       #   @return [Time, nil]
       optional :updated_at, Time
-
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :updated_at
 
       # @!method initialize(id: nil, _typename: nil, actor: nil, data: nil, inserted_at: nil, recipient: nil, updated_at: nil)
       #   An activity associated with a workflow run.

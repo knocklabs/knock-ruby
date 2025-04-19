@@ -65,25 +65,17 @@ module Knockapi
         variant -> { Knockapi::Models::MessageEvent::Recipient::ObjectReference }
 
         class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] id
+          # @!attribute id
           #   An identifier for the recipient object.
           #
           #   @return [String, nil]
           optional :id, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :id
-
-          # @!attribute [r] collection
+          # @!attribute collection
           #   The collection the recipient object belongs to.
           #
           #   @return [String, nil]
           optional :collection, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :collection
 
           # @!method initialize(id: nil, collection: nil)
           #   A reference to a recipient object.

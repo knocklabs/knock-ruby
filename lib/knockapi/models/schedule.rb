@@ -40,15 +40,11 @@ module Knockapi
       #   @return [String]
       required :workflow, String
 
-      # @!attribute [r] _typename
+      # @!attribute _typename
       #   The typename of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :_typename
 
       # @!attribute actor
       #   A recipient of a notification, which is either a user or an object.

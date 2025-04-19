@@ -4,65 +4,41 @@ module Knockapi
   module Models
     module Recipients
       class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
-        # @!attribute [r] chat
+        # @!attribute chat
         #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :chat, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat }
 
-        # @!parse
-        #   # @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   attr_writer :chat
-
-        # @!attribute [r] email
+        # @!attribute email
         #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :email, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email }
 
-        # @!parse
-        #   # @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   attr_writer :email
-
-        # @!attribute [r] http
+        # @!attribute http
         #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :http, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP }
 
-        # @!parse
-        #   # @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   attr_writer :http
-
-        # @!attribute [r] in_app_feed
+        # @!attribute in_app_feed
         #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :in_app_feed, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed }
 
-        # @!parse
-        #   # @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   attr_writer :in_app_feed
-
-        # @!attribute [r] push
+        # @!attribute push
         #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :push, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push }
 
-        # @!parse
-        #   # @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   attr_writer :push
-
-        # @!attribute [r] sms
+        # @!attribute sms
         #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :sms, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS }
-
-        # @!parse
-        #   # @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   attr_writer :sms
 
         # @!method initialize(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil)
         #   Channel type preferences.

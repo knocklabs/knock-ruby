@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#set_preferences
     class ObjectSetPreferencesParams < Knockapi::Models::Recipients::PreferenceSetRequest
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!method initialize(request_options: {})

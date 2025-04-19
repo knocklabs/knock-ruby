@@ -5,25 +5,17 @@ module Knockapi
     module Integrations
       # @see Knockapi::Resources::Integrations::Census#custom_destination
       class CensusCustomDestinationResponse < Knockapi::Internal::Type::BaseModel
-        # @!attribute [r] id
+        # @!attribute id
         #   The request ID.
         #
         #   @return [String, nil]
         optional :id, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :id
-
-        # @!attribute [r] result
+        # @!attribute result
         #   The result of the RPC call.
         #
         #   @return [Object, nil]
         optional :result, Knockapi::Internal::Type::Unknown
-
-        # @!parse
-        #   # @return [Object]
-        #   attr_writer :result
 
         # @!method initialize(id: nil, result: nil)
         #   @param id [String]

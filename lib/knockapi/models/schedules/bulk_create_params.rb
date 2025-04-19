@@ -5,8 +5,7 @@ module Knockapi
     module Schedules
       # @see Knockapi::Resources::Schedules::Bulk#create
       class BulkCreateParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!method initialize(request_options: {})

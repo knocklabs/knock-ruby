@@ -5,8 +5,7 @@ module Knockapi
     module Objects
       # @see Knockapi::Resources::Objects::Bulk#add_subscriptions
       class BulkAddSubscriptionsParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute subscriptions

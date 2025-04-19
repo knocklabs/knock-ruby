@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Tenants#set
     class TenantSetParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute channel_data
@@ -24,15 +23,11 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
                nil?: true
 
-      # @!attribute [r] settings
+      # @!attribute settings
       #   The settings for the tenant. Includes branding and preference set.
       #
       #   @return [Knockapi::Models::TenantSetParams::Settings, nil]
       optional :settings, -> { Knockapi::Models::TenantSetParams::Settings }
-
-      # @!parse
-      #   # @return [Knockapi::Models::TenantSetParams::Settings]
-      #   attr_writer :settings
 
       # @!method initialize(channel_data: nil, preferences: nil, settings: nil, request_options: {})
       #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
@@ -41,15 +36,11 @@ module Knockapi
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       class Settings < Knockapi::Internal::Type::BaseModel
-        # @!attribute [r] branding
+        # @!attribute branding
         #   The branding for the tenant.
         #
         #   @return [Knockapi::Models::TenantSetParams::Settings::Branding, nil]
         optional :branding, -> { Knockapi::Models::TenantSetParams::Settings::Branding }
-
-        # @!parse
-        #   # @return [Knockapi::Models::TenantSetParams::Settings::Branding]
-        #   attr_writer :branding
 
         # @!attribute preference_set
         #   A request to set a preference set for a recipient.

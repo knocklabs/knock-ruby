@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Schedules#update
     class ScheduleUpdateParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute schedule_ids
@@ -34,15 +33,11 @@ module Knockapi
       #   @return [Time, nil]
       optional :ending_at, Time, nil?: true
 
-      # @!attribute [r] repeats
+      # @!attribute repeats
       #   The repeat rule for the schedule.
       #
       #   @return [Array<Knockapi::Models::ScheduleRepeatRule>, nil]
       optional :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
-
-      # @!parse
-      #   # @return [Array<Knockapi::Models::ScheduleRepeatRule>]
-      #   attr_writer :repeats
 
       # @!attribute scheduled_at
       #   The starting date and time for the schedule.

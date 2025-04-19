@@ -4,36 +4,24 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#list
     class Message < Knockapi::Internal::Type::BaseModel
-      # @!attribute [r] id
+      # @!attribute id
       #   The unique identifier for the message.
       #
       #   @return [String, nil]
       optional :id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :id
-
-      # @!attribute [r] _typename
+      # @!attribute _typename
       #   The typename of the schema.
       #
       #   @return [String, nil]
       optional :_typename, String, api_name: :__typename
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :_typename
-
-      # @!attribute [r] actors
+      # @!attribute actors
       #   One or more actors that are associated with this message. Note: this is a list
       #   that can contain up to 10 actors if the message is produced from a batch.
       #
       #   @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>, nil]
       optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor] }
-
-      # @!parse
-      #   # @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
-      #   attr_writer :actors
 
       # @!attribute archived_at
       #   Timestamp when the message was archived.
@@ -41,15 +29,11 @@ module Knockapi
       #   @return [Time, nil]
       optional :archived_at, Time, nil?: true
 
-      # @!attribute [r] channel_id
+      # @!attribute channel_id
       #   The id for the channel the message was sent through.
       #
       #   @return [String, nil]
       optional :channel_id, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :channel_id
 
       # @!attribute clicked_at
       #   Timestamp when the message was clicked.
@@ -63,26 +47,18 @@ module Knockapi
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
-      # @!attribute [r] engagement_statuses
+      # @!attribute engagement_statuses
       #   A list of engagement statuses.
       #
       #   @return [Array<Symbol, Knockapi::Models::Message::EngagementStatus>, nil]
       optional :engagement_statuses,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus] }
 
-      # @!parse
-      #   # @return [Array<Symbol, Knockapi::Models::Message::EngagementStatus>]
-      #   attr_writer :engagement_statuses
-
-      # @!attribute [r] inserted_at
+      # @!attribute inserted_at
       #   Timestamp when the resource was created.
       #
       #   @return [Time, nil]
       optional :inserted_at, Time
-
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :inserted_at
 
       # @!attribute interacted_at
       #   Timestamp when the message was interacted with.
@@ -108,16 +84,12 @@ module Knockapi
       #   @return [Time, nil]
       optional :read_at, Time, nil?: true
 
-      # @!attribute [r] recipient
+      # @!attribute recipient
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (id, collection).
       #
       #   @return [String, Knockapi::Models::Message::Recipient::ObjectReference, nil]
       optional :recipient, union: -> { Knockapi::Models::Message::Recipient }
-
-      # @!parse
-      #   # @return [String, Knockapi::Models::Message::Recipient::ObjectReference]
-      #   attr_writer :recipient
 
       # @!attribute scheduled_at
       #   Timestamp when the message was scheduled to be sent.
@@ -131,25 +103,17 @@ module Knockapi
       #   @return [Time, nil]
       optional :seen_at, Time, nil?: true
 
-      # @!attribute [r] source
+      # @!attribute source
       #   The source that triggered the message.
       #
       #   @return [Knockapi::Models::Message::Source, nil]
       optional :source, -> { Knockapi::Models::Message::Source }
 
-      # @!parse
-      #   # @return [Knockapi::Models::Message::Source]
-      #   attr_writer :source
-
-      # @!attribute [r] status
+      # @!attribute status
       #   The message delivery status.
       #
       #   @return [Symbol, Knockapi::Models::Message::Status, nil]
       optional :status, enum: -> { Knockapi::Models::Message::Status }
-
-      # @!parse
-      #   # @return [Symbol, Knockapi::Models::Message::Status]
-      #   attr_writer :status
 
       # @!attribute tenant
       #   The id for the tenant set for the message.
@@ -157,15 +121,11 @@ module Knockapi
       #   @return [String, nil]
       optional :tenant, String, nil?: true
 
-      # @!attribute [r] updated_at
+      # @!attribute updated_at
       #   The timestamp when the resource was last updated.
       #
       #   @return [Time, nil]
       optional :updated_at, Time
-
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :updated_at
 
       # @!attribute workflow
       #   The key of the workflow that generated the message.
@@ -211,25 +171,17 @@ module Knockapi
         variant -> { Knockapi::Models::Message::Actor::ObjectReference }
 
         class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] id
+          # @!attribute id
           #   An identifier for the recipient object.
           #
           #   @return [String, nil]
           optional :id, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :id
-
-          # @!attribute [r] collection
+          # @!attribute collection
           #   The collection the recipient object belongs to.
           #
           #   @return [String, nil]
           optional :collection, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :collection
 
           # @!method initialize(id: nil, collection: nil)
           #   A reference to a recipient object.
@@ -271,25 +223,17 @@ module Knockapi
         variant -> { Knockapi::Models::Message::Recipient::ObjectReference }
 
         class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] id
+          # @!attribute id
           #   An identifier for the recipient object.
           #
           #   @return [String, nil]
           optional :id, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :id
-
-          # @!attribute [r] collection
+          # @!attribute collection
           #   The collection the recipient object belongs to.
           #
           #   @return [String, nil]
           optional :collection, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :collection
 
           # @!method initialize(id: nil, collection: nil)
           #   A reference to a recipient object.

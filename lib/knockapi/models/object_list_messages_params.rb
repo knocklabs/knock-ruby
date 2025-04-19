@@ -4,41 +4,28 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#list_messages
     class ObjectListMessagesParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # @!attribute [r] after
+      # @!attribute after
       #   The cursor to fetch entries after.
       #
       #   @return [String, nil]
       optional :after, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :after
-
-      # @!attribute [r] before
+      # @!attribute before
       #   The cursor to fetch entries before.
       #
       #   @return [String, nil]
       optional :before, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :before
-
-      # @!attribute [r] channel_id
+      # @!attribute channel_id
       #   Limits the results to items with the corresponding channel id.
       #
       #   @return [String, nil]
       optional :channel_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :channel_id
-
-      # @!attribute [r] engagement_status
+      # @!attribute engagement_status
       #   One or more engagement statuses. Limits results to messages with the given
       #   engagement status(es).
       #
@@ -46,42 +33,26 @@ module Knockapi
       optional :engagement_status,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::ObjectListMessagesParams::EngagementStatus] }
 
-      # @!parse
-      #   # @return [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>]
-      #   attr_writer :engagement_status
-
-      # @!attribute [r] message_ids
+      # @!attribute message_ids
       #   Limits the results to only the message ids given (max 50). Note: when using this
       #   option, the results will be subject to any other filters applied to the query.
       #
       #   @return [Array<String>, nil]
       optional :message_ids, Knockapi::Internal::Type::ArrayOf[String]
 
-      # @!parse
-      #   # @return [Array<String>]
-      #   attr_writer :message_ids
-
-      # @!attribute [r] page_size
+      # @!attribute page_size
       #   The number of items per page.
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :page_size
-
-      # @!attribute [r] source
+      # @!attribute source
       #   Key of the source that triggered the message to limit results to.
       #
       #   @return [String, nil]
       optional :source, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :source
-
-      # @!attribute [r] status
+      # @!attribute status
       #   One or more delivery statuses. Limits results to messages with the given
       #   delivery status(es).
       #
@@ -89,60 +60,36 @@ module Knockapi
       optional :status,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::ObjectListMessagesParams::Status] }
 
-      # @!parse
-      #   # @return [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>]
-      #   attr_writer :status
-
-      # @!attribute [r] tenant
+      # @!attribute tenant
       #   Limits the results to items with the corresponding tenant, or where the tenant
       #   is empty.
       #
       #   @return [String, nil]
       optional :tenant, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :tenant
-
-      # @!attribute [r] trigger_data
+      # @!attribute trigger_data
       #   Limits the results to only items that were generated with the given data.
       #
       #   @return [String, nil]
       optional :trigger_data, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :trigger_data
-
-      # @!attribute [r] workflow_categories
+      # @!attribute workflow_categories
       #   Limits the results to only items related to any of the provided categories.
       #
       #   @return [Array<String>, nil]
       optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
-      # @!parse
-      #   # @return [Array<String>]
-      #   attr_writer :workflow_categories
-
-      # @!attribute [r] workflow_recipient_run_id
+      # @!attribute workflow_recipient_run_id
       #   Limits the results to messages for a specific recipient's workflow run.
       #
       #   @return [String, nil]
       optional :workflow_recipient_run_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :workflow_recipient_run_id
-
-      # @!attribute [r] workflow_run_id
+      # @!attribute workflow_run_id
       #   Limits the results to messages triggered by the top-level workflow run ID.
       #
       #   @return [String, nil]
       optional :workflow_run_id, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :workflow_run_id
 
       # @!method initialize(after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #   @param after [String]

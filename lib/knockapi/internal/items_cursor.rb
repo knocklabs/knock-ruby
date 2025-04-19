@@ -88,14 +88,10 @@ module Knockapi
       end
 
       class PageInfo < Knockapi::Internal::Type::BaseModel
-        # @!attribute [r] after
+        # @!attribute after
         #
         #   @return [String, nil]
         optional :after, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :after
 
         # @!method initialize(after: nil)
         #   @param after [String]

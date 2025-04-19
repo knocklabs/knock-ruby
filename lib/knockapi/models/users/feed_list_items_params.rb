@@ -5,109 +5,68 @@ module Knockapi
     module Users
       # @see Knockapi::Resources::Users::Feeds#list_items
       class FeedListItemsParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # @!attribute [r] after
+        # @!attribute after
         #   The cursor to fetch entries after.
         #
         #   @return [String, nil]
         optional :after, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :after
-
-        # @!attribute [r] archived
+        # @!attribute archived
         #   The archived status of the feed items.
         #
         #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived, nil]
         optional :archived, enum: -> { Knockapi::Models::Users::FeedListItemsParams::Archived }
 
-        # @!parse
-        #   # @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived]
-        #   attr_writer :archived
-
-        # @!attribute [r] before
+        # @!attribute before
         #   The cursor to fetch entries before.
         #
         #   @return [String, nil]
         optional :before, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :before
-
-        # @!attribute [r] has_tenant
+        # @!attribute has_tenant
         #   Whether the feed items have a tenant.
         #
         #   @return [Boolean, nil]
         optional :has_tenant, Knockapi::Internal::Type::Boolean
 
-        # @!parse
-        #   # @return [Boolean]
-        #   attr_writer :has_tenant
-
-        # @!attribute [r] page_size
+        # @!attribute page_size
         #   The number of items per page.
         #
         #   @return [Integer, nil]
         optional :page_size, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :page_size
-
-        # @!attribute [r] source
+        # @!attribute source
         #   The source of the feed items.
         #
         #   @return [String, nil]
         optional :source, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :source
-
-        # @!attribute [r] status
+        # @!attribute status
         #   The status of the feed items.
         #
         #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status, nil]
         optional :status, enum: -> { Knockapi::Models::Users::FeedListItemsParams::Status }
 
-        # @!parse
-        #   # @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status]
-        #   attr_writer :status
-
-        # @!attribute [r] tenant
+        # @!attribute tenant
         #   The tenant associated with the feed items.
         #
         #   @return [String, nil]
         optional :tenant, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :tenant
-
-        # @!attribute [r] trigger_data
+        # @!attribute trigger_data
         #   The trigger data of the feed items (as a JSON string).
         #
         #   @return [String, nil]
         optional :trigger_data, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :trigger_data
-
-        # @!attribute [r] workflow_categories
+        # @!attribute workflow_categories
         #   The workflow categories of the feed items.
         #
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
-
-        # @!parse
-        #   # @return [Array<String>]
-        #   attr_writer :workflow_categories
 
         # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #   @param after [String]

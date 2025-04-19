@@ -5,8 +5,7 @@ module Knockapi
     module Tenants
       # @see Knockapi::Resources::Tenants::Bulk#set
       class BulkSetParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute tenants

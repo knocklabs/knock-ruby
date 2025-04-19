@@ -5,8 +5,7 @@ module Knockapi
     module Users
       # @see Knockapi::Resources::Users::Bulk#identify
       class BulkIdentifyParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute users

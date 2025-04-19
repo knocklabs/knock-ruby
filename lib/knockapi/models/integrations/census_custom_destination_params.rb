@@ -5,8 +5,7 @@ module Knockapi
     module Integrations
       # @see Knockapi::Resources::Integrations::Census#custom_destination
       class CensusCustomDestinationParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute id
@@ -27,15 +26,11 @@ module Knockapi
         #   @return [String]
         required :method_, String, api_name: :method
 
-        # @!attribute [r] params
+        # @!attribute params
         #   The parameters for the method.
         #
         #   @return [Object, nil]
         optional :params, Knockapi::Internal::Type::Unknown
-
-        # @!parse
-        #   # @return [Object]
-        #   attr_writer :params
 
         # @!method initialize(id:, jsonrpc:, method_:, params: nil, request_options: {})
         #   @param id [String]

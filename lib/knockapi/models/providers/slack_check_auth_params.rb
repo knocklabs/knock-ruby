@@ -5,8 +5,7 @@ module Knockapi
     module Providers
       # @see Knockapi::Resources::Providers::Slack#check_auth
       class SlackCheckAuthParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute access_token_object

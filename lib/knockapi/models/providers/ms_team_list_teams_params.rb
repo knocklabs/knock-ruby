@@ -5,8 +5,7 @@ module Knockapi
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#list_teams
       class MsTeamListTeamsParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute ms_teams_tenant_object
@@ -15,14 +14,10 @@ module Knockapi
         #   @return [String]
         required :ms_teams_tenant_object, String
 
-        # @!attribute [r] query_options
+        # @!attribute query_options
         #
         #   @return [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, nil]
         optional :query_options, -> { Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions }
-
-        # @!parse
-        #   # @return [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
-        #   attr_writer :query_options
 
         # @!method initialize(ms_teams_tenant_object:, query_options: nil, request_options: {})
         #   @param ms_teams_tenant_object [String]
@@ -30,49 +25,33 @@ module Knockapi
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] filter
+          # @!attribute filter
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to filter teams.
           #
           #   @return [String, nil]
           optional :filter, String, api_name: :$filter
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :filter
-
-          # @!attribute [r] select_
+          # @!attribute select_
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to select fields on a team.
           #
           #   @return [String, nil]
           optional :select_, String, api_name: :$select
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :select_
-
-          # @!attribute [r] skiptoken
+          # @!attribute skiptoken
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to retrieve the next page of results.
           #
           #   @return [String, nil]
           optional :skiptoken, String, api_name: :$skiptoken
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :skiptoken
-
-          # @!attribute [r] top
+          # @!attribute top
           #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           #   to the Microsoft Graph API to limit the number of teams returned.
           #
           #   @return [Integer, nil]
           optional :top, Integer, api_name: :$top
-
-          # @!parse
-          #   # @return [Integer]
-          #   attr_writer :top
 
           # @!method initialize(filter: nil, select_: nil, skiptoken: nil, top: nil)
           #   @param filter [String]

@@ -4,19 +4,14 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Users#get_preferences
     class UserGetPreferencesParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # @!attribute [r] tenant
+      # @!attribute tenant
       #   The unique identifier for the tenant.
       #
       #   @return [String, nil]
       optional :tenant, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :tenant
 
       # @!method initialize(tenant: nil, request_options: {})
       #   @param tenant [String]

@@ -25,15 +25,11 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
                nil?: true
 
-      # @!attribute [r] settings
+      # @!attribute settings
       #   The settings for the tenant. Includes branding and preference set.
       #
       #   @return [Knockapi::Models::TenantRequest::Settings, nil]
       optional :settings, -> { Knockapi::Models::TenantRequest::Settings }
-
-      # @!parse
-      #   # @return [Knockapi::Models::TenantRequest::Settings]
-      #   attr_writer :settings
 
       # @!method initialize(id:, channel_data: nil, preferences: nil, settings: nil)
       #   A tenant to be set in the system. You can supply any additional properties on
@@ -46,15 +42,11 @@ module Knockapi
 
       # @see Knockapi::Models::TenantRequest#settings
       class Settings < Knockapi::Internal::Type::BaseModel
-        # @!attribute [r] branding
+        # @!attribute branding
         #   The branding for the tenant.
         #
         #   @return [Knockapi::Models::TenantRequest::Settings::Branding, nil]
         optional :branding, -> { Knockapi::Models::TenantRequest::Settings::Branding }
-
-        # @!parse
-        #   # @return [Knockapi::Models::TenantRequest::Settings::Branding]
-        #   attr_writer :branding
 
         # @!attribute preference_set
         #   A request to set a preference set for a recipient.

@@ -5,8 +5,7 @@ module Knockapi
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#revoke_access
       class MsTeamRevokeAccessParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute ms_teams_tenant_object

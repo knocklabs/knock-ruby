@@ -12,9 +12,8 @@ module Knockapi
 
         # @param mod [Module]
         def self.included(mod)
-          return unless mod <= Knockapi::Internal::Type::BaseModel
+          raise ArgumentError.new(mod) unless mod <= Knockapi::Internal::Type::BaseModel
 
-          mod.extend(Knockapi::Internal::Type::RequestParameters::Converter)
           mod.optional(:request_options, Knockapi::RequestOptions)
         end
 

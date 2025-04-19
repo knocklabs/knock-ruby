@@ -31,15 +31,11 @@ module Knockapi
           #   @return [String]
           required :display_name, String, api_name: :displayName
 
-          # @!attribute [r] created_date_time
+          # @!attribute created_date_time
           #   Microsoft Teams channel created date and time.
           #
           #   @return [String, nil]
           optional :created_date_time, String, api_name: :createdDateTime
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :created_date_time
 
           # @!attribute description
           #   Microsoft Teams channel description.
@@ -47,25 +43,17 @@ module Knockapi
           #   @return [String, nil]
           optional :description, String, nil?: true
 
-          # @!attribute [r] is_archived
+          # @!attribute is_archived
           #   Whether the Microsoft Teams channel is archived.
           #
           #   @return [Boolean, nil]
           optional :is_archived, Knockapi::Internal::Type::Boolean, api_name: :isArchived
 
-          # @!parse
-          #   # @return [Boolean]
-          #   attr_writer :is_archived
-
-          # @!attribute [r] membership_type
+          # @!attribute membership_type
           #   Microsoft Teams channel membership type.
           #
           #   @return [String, nil]
           optional :membership_type, String, api_name: :membershipType
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :membership_type
 
           # @!method initialize(id:, display_name:, created_date_time: nil, description: nil, is_archived: nil, membership_type: nil)
           #   @param id [String]

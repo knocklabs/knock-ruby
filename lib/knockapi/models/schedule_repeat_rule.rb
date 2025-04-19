@@ -35,15 +35,11 @@ module Knockapi
       #   @return [Integer, nil]
       optional :hours, Integer, nil?: true
 
-      # @!attribute [r] interval
+      # @!attribute interval
       #   The interval of the schedule.
       #
       #   @return [Integer, nil]
       optional :interval, Integer
-
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :interval
 
       # @!attribute minutes
       #   The minute of the hour to repeat the schedule.

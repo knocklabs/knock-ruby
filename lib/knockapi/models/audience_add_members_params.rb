@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Audiences#add_members
     class AudienceAddMembersParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute members

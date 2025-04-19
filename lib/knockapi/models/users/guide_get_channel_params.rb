@@ -5,39 +5,26 @@ module Knockapi
     module Users
       # @see Knockapi::Resources::Users::Guides#get_channel
       class GuideGetChannelParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # @!attribute [r] data
+        # @!attribute data
         #   The data to filter guides by.
         #
         #   @return [String, nil]
         optional :data, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :data
-
-        # @!attribute [r] tenant
+        # @!attribute tenant
         #   The tenant ID to filter guides by.
         #
         #   @return [String, nil]
         optional :tenant, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :tenant
-
-        # @!attribute [r] type
+        # @!attribute type
         #   The type of guides to filter by.
         #
         #   @return [String, nil]
         optional :type, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :type
 
         # @!method initialize(data: nil, tenant: nil, type: nil, request_options: {})
         #   @param data [String]

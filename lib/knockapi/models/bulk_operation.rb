@@ -64,26 +64,18 @@ module Knockapi
       #   @return [Time, nil]
       optional :completed_at, Time, nil?: true
 
-      # @!attribute [r] error_count
+      # @!attribute error_count
       #   The number of failed operations.
       #
       #   @return [Integer, nil]
       optional :error_count, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :error_count
-
-      # @!attribute [r] error_items
+      # @!attribute error_items
       #   A list of items that failed to be processed.
       #
       #   @return [Array<Knockapi::Models::BulkOperation::ErrorItem>, nil]
       optional :error_items,
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem] }
-
-      # @!parse
-      #   # @return [Array<Knockapi::Models::BulkOperation::ErrorItem>]
-      #   attr_writer :error_items
 
       # @!attribute failed_at
       #   Timestamp when the bulk operation failed.

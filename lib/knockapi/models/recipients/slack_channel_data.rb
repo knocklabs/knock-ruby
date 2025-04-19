@@ -10,16 +10,12 @@ module Knockapi
         #   @return [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
         optional :token, -> { Knockapi::Models::Recipients::SlackChannelData::Token }, nil?: true
 
-        # @!attribute [r] connections
+        # @!attribute connections
         #   List of Slack channel connections.
         #
         #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>, nil]
         optional :connections,
                  -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
-
-        # @!parse
-        #   # @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
-        #   attr_writer :connections
 
         # @!method initialize(token: nil, connections: nil)
         #   Slack channel data

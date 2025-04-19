@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Workflows#cancel
     class WorkflowCancelParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute cancellation_key

@@ -5,8 +5,7 @@ module Knockapi
     module Messages
       # @see Knockapi::Resources::Messages::Batch#mark_as_seen
       class BatchMarkAsSeenParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute message_ids

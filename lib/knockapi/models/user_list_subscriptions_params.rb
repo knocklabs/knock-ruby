@@ -4,61 +4,40 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Users#list_subscriptions
     class UserListSubscriptionsParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # @!attribute [r] after
+      # @!attribute after
       #   The cursor to fetch entries after.
       #
       #   @return [String, nil]
       optional :after, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :after
-
-      # @!attribute [r] before
+      # @!attribute before
       #   The cursor to fetch entries before.
       #
       #   @return [String, nil]
       optional :before, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :before
-
-      # @!attribute [r] include
+      # @!attribute include
       #   Associated resources to include in the response.
       #
       #   @return [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>, nil]
       optional :include,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::UserListSubscriptionsParams::Include] }
 
-      # @!parse
-      #   # @return [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>]
-      #   attr_writer :include
-
-      # @!attribute [r] objects
+      # @!attribute objects
       #   Only return subscriptions for the given recipients.
       #
       #   @return [Array<String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference>, nil]
       optional :objects,
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::UserListSubscriptionsParams::Object] }
 
-      # @!parse
-      #   # @return [Array<String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference>]
-      #   attr_writer :objects
-
-      # @!attribute [r] page_size
+      # @!attribute page_size
       #   The number of items per page.
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
-
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :page_size
 
       # @!method initialize(after: nil, before: nil, include: nil, objects: nil, page_size: nil, request_options: {})
       #   @param after [String]
@@ -89,25 +68,17 @@ module Knockapi
         variant -> { Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference }
 
         class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute [r] id
+          # @!attribute id
           #   An identifier for the recipient object.
           #
           #   @return [String, nil]
           optional :id, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :id
-
-          # @!attribute [r] collection
+          # @!attribute collection
           #   The collection the recipient object belongs to.
           #
           #   @return [String, nil]
           optional :collection, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :collection
 
           # @!method initialize(id: nil, collection: nil)
           #   A reference to a recipient object.

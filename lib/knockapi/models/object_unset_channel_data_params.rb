@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Objects#unset_channel_data
     class ObjectUnsetChannelDataParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!method initialize(request_options: {})

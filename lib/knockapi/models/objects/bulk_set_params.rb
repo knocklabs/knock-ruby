@@ -5,8 +5,7 @@ module Knockapi
     module Objects
       # @see Knockapi::Resources::Objects::Bulk#set
       class BulkSetParams < Knockapi::Internal::Type::BaseModel
-        # @!parse
-        #   extend Knockapi::Internal::Type::RequestParameters::Converter
+        extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute objects

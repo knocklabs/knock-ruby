@@ -4,8 +4,7 @@ module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#mark_as_read
     class MessageMarkAsReadParams < Knockapi::Internal::Type::BaseModel
-      # @!parse
-      #   extend Knockapi::Internal::Type::RequestParameters::Converter
+      extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
       # @!method initialize(request_options: {})
