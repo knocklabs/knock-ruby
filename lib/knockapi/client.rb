@@ -80,10 +80,10 @@ module Knockapi
     def initialize(
       bearer_token: ENV["KNOCK_API_KEY"],
       base_url: ENV["KNOCK_BASE_URL"],
-      max_retries: DEFAULT_MAX_RETRIES,
-      timeout: DEFAULT_TIMEOUT_IN_SECONDS,
-      initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
-      max_retry_delay: DEFAULT_MAX_RETRY_DELAY
+      max_retries: Knockapi::Client::DEFAULT_MAX_RETRIES,
+      timeout: Knockapi::Client::DEFAULT_TIMEOUT_IN_SECONDS,
+      initial_retry_delay: Knockapi::Client::DEFAULT_INITIAL_RETRY_DELAY,
+      max_retry_delay: Knockapi::Client::DEFAULT_MAX_RETRY_DELAY
     )
       base_url ||= "https://api.knock.app"
 

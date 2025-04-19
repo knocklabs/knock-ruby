@@ -166,6 +166,8 @@ module Knockapi
             @mode = nil
           end
 
+          # @api public
+          #
           # @param other [Object]
           #
           # @return [Boolean]
@@ -173,15 +175,21 @@ module Knockapi
             other.is_a?(Class) && other <= Knockapi::Internal::Type::BaseModel && other.fields == fields
           end
 
+          # @api public
+          #
           # @return [Integer]
           def hash = fields.hash
         end
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]
         def ==(other) = self.class == other.class && @data == other.to_h
 
+        # @api public
+        #
         # @return [Integer]
         def hash = [self.class, @data].hash
 
@@ -298,6 +306,8 @@ module Knockapi
           end
         end
 
+        # @api public
+        #
         # Returns the raw value associated with the given key, if found. Otherwise, nil is
         # returned.
         #
@@ -316,6 +326,8 @@ module Knockapi
           @data[key]
         end
 
+        # @api public
+        #
         # Returns a Hash of the data underlying this object. O(1)
         #
         # Keys are Symbols and values are the raw values from the response. The return
@@ -368,11 +380,15 @@ module Knockapi
           end
         end
 
+        # @api public
+        #
         # @param a [Object]
         #
         # @return [String]
         def to_json(*a) = Knockapi::Internal::Type::Converter.dump(self.class, self).to_json(*a)
 
+        # @api public
+        #
         # @param a [Object]
         #
         # @return [String]
@@ -414,7 +430,7 @@ module Knockapi
           end
         end
 
-        # @api private
+        # @api public
         #
         # @return [String]
         def to_s = self.class.walk(@data).to_s

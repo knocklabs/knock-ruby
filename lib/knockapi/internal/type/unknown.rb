@@ -15,11 +15,15 @@ module Knockapi
 
         private_class_method :new
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]
         def self.===(other) = true
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]

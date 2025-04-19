@@ -128,6 +128,8 @@ module Knockapi
       optional :updated_at, Time
 
       # @!attribute workflow
+      #   @deprecated
+      #
       #   The key of the workflow that generated the message.
       #
       #   @return [String, nil]
