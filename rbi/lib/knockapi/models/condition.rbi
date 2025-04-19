@@ -39,7 +39,7 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Condition::Operator) }
-        OrSymbol = T.type_alias { T.any(Symbol, String, Knockapi::Models::Condition::Operator::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EQUAL_TO = T.let(:equal_to, Knockapi::Models::Condition::Operator::TaggedSymbol)
         NOT_EQUAL_TO = T.let(:not_equal_to, Knockapi::Models::Condition::Operator::TaggedSymbol)

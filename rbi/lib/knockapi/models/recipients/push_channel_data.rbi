@@ -35,8 +35,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::PushChannelData::Typename) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, Knockapi::Models::Recipients::PushChannelData::Typename::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           PUSH_CHANNEL_DATA =
             T.let(:PushChannelData, Knockapi::Models::Recipients::PushChannelData::Typename::TaggedSymbol)

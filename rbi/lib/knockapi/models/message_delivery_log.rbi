@@ -153,8 +153,7 @@ module Knockapi
           extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           GET = T.let(:GET, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)
           POST = T.let(:POST, Knockapi::Models::MessageDeliveryLog::Request::Method::TaggedSymbol)

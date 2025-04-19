@@ -145,8 +145,7 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, Knockapi::Models::ObjectListSubscriptionsParams::Include::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PREFERENCES = T.let(:preferences, Knockapi::Models::ObjectListSubscriptionsParams::Include::TaggedSymbol)
 
@@ -159,8 +158,7 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         RECIPIENT = T.let(:recipient, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)
         OBJECT = T.let(:object, Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol)

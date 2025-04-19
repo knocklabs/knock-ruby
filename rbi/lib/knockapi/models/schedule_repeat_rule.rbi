@@ -79,8 +79,7 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         DAILY = T.let(:daily, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
         WEEKLY = T.let(:weekly, Knockapi::Models::ScheduleRepeatRule::Frequency::TaggedSymbol)
@@ -96,8 +95,7 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ScheduleRepeatRule::Day) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         MON = T.let(:mon, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)
         TUE = T.let(:tue, Knockapi::Models::ScheduleRepeatRule::Day::TaggedSymbol)

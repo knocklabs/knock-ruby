@@ -153,8 +153,7 @@ module Knockapi
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           SEEN = T.let(:seen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
           UNSEEN = T.let(:unseen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
@@ -184,8 +183,7 @@ module Knockapi
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           EXCLUDE =
             T.let(:exclude, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::TaggedSymbol)
@@ -206,14 +204,7 @@ module Knockapi
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus) }
-          OrSymbol =
-            T.type_alias do
-              T.any(
-                Symbol,
-                String,
-                Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::TaggedSymbol
-              )
-            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           QUEUED =
             T.let(:queued, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::TaggedSymbol)
@@ -249,14 +240,7 @@ module Knockapi
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus) }
-          OrSymbol =
-            T.type_alias do
-              T.any(
-                Symbol,
-                String,
-                Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::TaggedSymbol
-              )
-            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           SEEN =
             T.let(:seen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::TaggedSymbol)

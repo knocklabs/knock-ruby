@@ -64,8 +64,7 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::ObjectListParams::Include) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, Knockapi::Models::ObjectListParams::Include::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PREFERENCES = T.let(:preferences, Knockapi::Models::ObjectListParams::Include::TaggedSymbol)
 

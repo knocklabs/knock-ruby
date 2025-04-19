@@ -134,7 +134,7 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::BulkOperation::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, String, Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         QUEUED = T.let(:queued, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
         PROCESSING = T.let(:processing, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
