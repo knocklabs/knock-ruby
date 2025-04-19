@@ -17,15 +17,11 @@ module Knockapi
         #   @return [String, nil]
         optional :ms_teams_tenant_id, String, nil?: true
 
-        # @!parse
-        #   # Microsoft Teams channel connection.
-        #   #
-        #   # @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
-        #   # @param ms_teams_tenant_id [String, nil]
-        #   #
-        #   def initialize(connections:, ms_teams_tenant_id: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(connections:, ms_teams_tenant_id: nil)
+        #   Microsoft Teams channel connection.
+        #
+        #   @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
+        #   @param ms_teams_tenant_id [String, nil]
 
         # Microsoft Teams token connection.
         module Connection
@@ -62,17 +58,13 @@ module Knockapi
             #   @return [String, nil]
             optional :ms_teams_user_id, String, nil?: true
 
-            # @!parse
-            #   # Microsoft Teams token connection.
-            #   #
-            #   # @param ms_teams_channel_id [String, nil]
-            #   # @param ms_teams_team_id [String, nil]
-            #   # @param ms_teams_tenant_id [String, nil]
-            #   # @param ms_teams_user_id [String, nil]
-            #   #
-            #   def initialize(ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil, **) = super
-
-            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+            # @!method initialize(ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil)
+            #   Microsoft Teams token connection.
+            #
+            #   @param ms_teams_channel_id [String, nil]
+            #   @param ms_teams_team_id [String, nil]
+            #   @param ms_teams_tenant_id [String, nil]
+            #   @param ms_teams_user_id [String, nil]
           end
 
           class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -83,14 +75,10 @@ module Knockapi
             required :incoming_webhook,
                      -> { Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook }
 
-            # @!parse
-            #   # Microsoft Teams incoming webhook connection.
-            #   #
-            #   # @param incoming_webhook [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook]
-            #   #
-            #   def initialize(incoming_webhook:, **) = super
-
-            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+            # @!method initialize(incoming_webhook:)
+            #   Microsoft Teams incoming webhook connection.
+            #
+            #   @param incoming_webhook [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook]
 
             # @see Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
@@ -100,20 +88,15 @@ module Knockapi
               #   @return [String]
               required :url, String
 
-              # @!parse
-              #   # Microsoft Teams incoming webhook.
-              #   #
-              #   # @param url [String]
-              #   #
-              #   def initialize(url:, **) = super
-
-              # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+              # @!method initialize(url:)
+              #   Microsoft Teams incoming webhook.
+              #
+              #   @param url [String]
             end
           end
 
-          # @!parse
-          #   # @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
         end
       end
     end

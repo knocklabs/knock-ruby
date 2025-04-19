@@ -66,20 +66,16 @@ module Knockapi
       #   # @return [Time]
       #   attr_writer :updated_at
 
-      # @!parse
-      #   # An activity associated with a workflow run.
-      #   #
-      #   # @param id [String]
-      #   # @param _typename [String]
-      #   # @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
-      #   # @param inserted_at [Time]
-      #   # @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(id: nil, _typename: nil, actor: nil, data: nil, inserted_at: nil, recipient: nil, updated_at: nil, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id: nil, _typename: nil, actor: nil, data: nil, inserted_at: nil, recipient: nil, updated_at: nil)
+      #   An activity associated with a workflow run.
+      #
+      #   @param id [String]
+      #   @param _typename [String]
+      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
+      #   @param data [Hash{Symbol=>Object}, nil]
+      #   @param inserted_at [Time]
+      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
+      #   @param updated_at [Time]
     end
   end
 end

@@ -21,15 +21,11 @@ module Knockapi
         #   # @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
         #   attr_writer :connections
 
-        # @!parse
-        #   # Slack channel data
-        #   #
-        #   # @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
-        #   # @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
-        #   #
-        #   def initialize(token: nil, connections: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(token: nil, connections: nil)
+        #   Slack channel data
+        #
+        #   @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
+        #   @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
 
         # @see Knockapi::Models::Recipients::SlackChannelData#token
         class Token < Knockapi::Internal::Type::BaseModel
@@ -39,14 +35,10 @@ module Knockapi
           #   @return [String, nil]
           required :access_token, String, nil?: true
 
-          # @!parse
-          #   # A Slack connection token.
-          #   #
-          #   # @param access_token [String, nil]
-          #   #
-          #   def initialize(access_token:, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(access_token:)
+          #   A Slack connection token.
+          #
+          #   @param access_token [String, nil]
         end
 
         # A Slack connection, either an access token or an incoming webhook
@@ -78,16 +70,12 @@ module Knockapi
             #   @return [String, nil]
             optional :user_id, String, nil?: true
 
-            # @!parse
-            #   # A Slack connection token.
-            #   #
-            #   # @param access_token [String, nil]
-            #   # @param channel_id [String, nil]
-            #   # @param user_id [String, nil]
-            #   #
-            #   def initialize(access_token: nil, channel_id: nil, user_id: nil, **) = super
-
-            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+            # @!method initialize(access_token: nil, channel_id: nil, user_id: nil)
+            #   A Slack connection token.
+            #
+            #   @param access_token [String, nil]
+            #   @param channel_id [String, nil]
+            #   @param user_id [String, nil]
           end
 
           class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -97,19 +85,14 @@ module Knockapi
             #   @return [String]
             required :url, String
 
-            # @!parse
-            #   # A Slack connection incoming webhook.
-            #   #
-            #   # @param url [String]
-            #   #
-            #   def initialize(url:, **) = super
-
-            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+            # @!method initialize(url:)
+            #   A Slack connection incoming webhook.
+            #
+            #   @param url [String]
           end
 
-          # @!parse
-          #   # @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
         end
       end
     end

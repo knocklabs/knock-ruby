@@ -8,12 +8,8 @@ module Knockapi
       #   extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # @!parse
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(request_options: {})
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

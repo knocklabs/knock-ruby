@@ -64,19 +64,15 @@ module Knockapi
         #   # @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         #   attr_writer :sms
 
-        # @!parse
-        #   # Channel type preferences.
-        #   #
-        #   # @param chat [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   # @param email [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   # @param http [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   # @param in_app_feed [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   # @param push [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   # @param sms [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   #
-        #   def initialize(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil)
+        #   Channel type preferences.
+        #
+        #   @param chat [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        #   @param email [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        #   @param http [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        #   @param in_app_feed [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        #   @param push [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        #   @param sms [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
 
         # Whether the channel type is enabled for the preference set.
         #
@@ -89,9 +85,8 @@ module Knockapi
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
-          # @!parse
-          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -105,9 +100,8 @@ module Knockapi
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
-          # @!parse
-          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -121,9 +115,8 @@ module Knockapi
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
-          # @!parse
-          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -137,9 +130,8 @@ module Knockapi
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
-          # @!parse
-          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -153,9 +145,8 @@ module Knockapi
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
-          # @!parse
-          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -169,9 +160,8 @@ module Knockapi
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
           variant -> { Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting }
 
-          # @!parse
-          #   # @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
       end
     end

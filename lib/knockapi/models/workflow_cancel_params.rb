@@ -23,14 +23,10 @@ module Knockapi
       #   @return [Array<String>, nil]
       optional :recipients, Knockapi::Internal::Type::ArrayOf[String], nil?: true
 
-      # @!parse
-      #   # @param cancellation_key [String]
-      #   # @param recipients [Array<String>, nil]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(cancellation_key:, recipients: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(cancellation_key:, recipients: nil, request_options: {})
+      #   @param cancellation_key [String]
+      #   @param recipients [Array<String>, nil]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

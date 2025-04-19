@@ -11,14 +11,10 @@ module Knockapi
       #   @return [String]
       required :workflow_run_id, String
 
-      # @!parse
-      #   # The response from triggering a workflow.
-      #   #
-      #   # @param workflow_run_id [String]
-      #   #
-      #   def initialize(workflow_run_id:, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(workflow_run_id:)
+      #   The response from triggering a workflow.
+      #
+      #   @param workflow_run_id [String]
     end
   end
 end

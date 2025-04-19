@@ -16,13 +16,9 @@ module Knockapi
         required :subscriptions,
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription] }
 
-        # @!parse
-        #   # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(subscriptions:, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(subscriptions:, request_options: {})
+        #   @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class Subscription < Knockapi::Internal::Type::BaseModel
           # @!attribute id
@@ -45,14 +41,10 @@ module Knockapi
                    Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
                    nil?: true
 
-          # @!parse
-          #   # @param id [String]
-          #   # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-          #   # @param properties [Hash{Symbol=>Object}, nil]
-          #   #
-          #   def initialize(id:, recipients:, properties: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id:, recipients:, properties: nil)
+          #   @param id [String]
+          #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+          #   @param properties [Hash{Symbol=>Object}, nil]
         end
       end
     end

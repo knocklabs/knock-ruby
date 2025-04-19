@@ -16,15 +16,11 @@ module Knockapi
       #   @return [Knockapi::Models::AudienceListMembersResponse::PageInfo]
       required :page_info, -> { Knockapi::Models::AudienceListMembersResponse::PageInfo }
 
-      # @!parse
-      #   # A paginated list of audience members.
-      #   #
-      #   # @param entries [Array<Knockapi::Models::AudienceMember>]
-      #   # @param page_info [Knockapi::Models::AudienceListMembersResponse::PageInfo]
-      #   #
-      #   def initialize(entries:, page_info:, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(entries:, page_info:)
+      #   A paginated list of audience members.
+      #
+      #   @param entries [Array<Knockapi::Models::AudienceMember>]
+      #   @param page_info [Knockapi::Models::AudienceListMembersResponse::PageInfo]
 
       # @see Knockapi::Models::AudienceListMembersResponse#page_info
       class PageInfo < Knockapi::Internal::Type::BaseModel
@@ -52,17 +48,13 @@ module Knockapi
         #   @return [String, nil]
         optional :before, String, nil?: true
 
-        # @!parse
-        #   # Pagination information for a list of resources.
-        #   #
-        #   # @param _typename [String]
-        #   # @param page_size [Integer]
-        #   # @param after [String, nil]
-        #   # @param before [String, nil]
-        #   #
-        #   def initialize(_typename:, page_size:, after: nil, before: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(_typename:, page_size:, after: nil, before: nil)
+        #   Pagination information for a list of resources.
+        #
+        #   @param _typename [String]
+        #   @param page_size [Integer]
+        #   @param after [String, nil]
+        #   @param before [String, nil]
       end
     end
   end

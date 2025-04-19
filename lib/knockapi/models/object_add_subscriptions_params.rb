@@ -20,14 +20,10 @@ module Knockapi
       #   @return [Hash{Symbol=>Object}, nil]
       optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
-      # @!parse
-      #   # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      #   # @param properties [Hash{Symbol=>Object}, nil]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(recipients:, properties: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(recipients:, properties: nil, request_options: {})
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      #   @param properties [Hash{Symbol=>Object}, nil]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

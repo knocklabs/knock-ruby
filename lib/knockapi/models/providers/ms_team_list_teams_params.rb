@@ -24,14 +24,10 @@ module Knockapi
         #   # @return [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
         #   attr_writer :query_options
 
-        # @!parse
-        #   # @param ms_teams_tenant_object [String]
-        #   # @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(ms_teams_tenant_object:, query_options: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(ms_teams_tenant_object:, query_options: nil, request_options: {})
+        #   @param ms_teams_tenant_object [String]
+        #   @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] filter
@@ -78,15 +74,11 @@ module Knockapi
           #   # @return [Integer]
           #   attr_writer :top
 
-          # @!parse
-          #   # @param filter [String]
-          #   # @param select_ [String]
-          #   # @param skiptoken [String]
-          #   # @param top [Integer]
-          #   #
-          #   def initialize(filter: nil, select_: nil, skiptoken: nil, top: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(filter: nil, select_: nil, skiptoken: nil, top: nil)
+          #   @param filter [String]
+          #   @param select_ [String]
+          #   @param skiptoken [String]
+          #   @param top [Integer]
         end
       end
     end

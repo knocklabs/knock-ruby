@@ -79,35 +79,17 @@ module Knockapi
         #   @return [String, nil]
         optional :tenant, String, nil?: true
 
-        # @!parse
-        #   # @param channel_id [String]
-        #   # @param guide_id [String]
-        #   # @param guide_key [String]
-        #   # @param guide_step_ref [String]
-        #   # @param content [Object]
-        #   # @param data [Object]
-        #   # @param is_final [Boolean]
-        #   # @param metadata [Object]
-        #   # @param tenant [String, nil]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(
-        #     channel_id:,
-        #     guide_id:,
-        #     guide_key:,
-        #     guide_step_ref:,
-        #     content: nil,
-        #     data: nil,
-        #     is_final: nil,
-        #     metadata: nil,
-        #     tenant: nil,
-        #     request_options: {},
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
+        #   @param channel_id [String]
+        #   @param guide_id [String]
+        #   @param guide_key [String]
+        #   @param guide_step_ref [String]
+        #   @param content [Object]
+        #   @param data [Object]
+        #   @param is_final [Boolean]
+        #   @param metadata [Object]
+        #   @param tenant [String, nil]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

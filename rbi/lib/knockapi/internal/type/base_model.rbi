@@ -180,6 +180,7 @@ module Knockapi
         def deconstruct_keys(keys); end
 
         class << self
+          # @api private
           sig { params(model: Knockapi::Internal::Type::BaseModel).returns(Knockapi::Internal::AnyHash) }
           def walk(model); end
         end

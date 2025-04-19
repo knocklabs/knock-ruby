@@ -64,18 +64,14 @@ module Knockapi
       #   # @return [String]
       #   attr_writer :tenant
 
-      # @!parse
-      #   # @param workflow [String]
-      #   # @param after [String]
-      #   # @param before [String]
-      #   # @param page_size [Integer]
-      #   # @param recipients [Array<String>]
-      #   # @param tenant [String]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {})
+      #   @param workflow [String]
+      #   @param after [String]
+      #   @param before [String]
+      #   @param page_size [Integer]
+      #   @param recipients [Array<String>]
+      #   @param tenant [String]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

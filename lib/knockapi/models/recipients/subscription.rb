@@ -40,19 +40,15 @@ module Knockapi
         #   @return [Hash{Symbol=>Object}, nil]
         optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
-        # @!parse
-        #   # A subscription object.
-        #   #
-        #   # @param _typename [String]
-        #   # @param inserted_at [Time]
-        #   # @param object [Knockapi::Models::Object]
-        #   # @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
-        #   # @param updated_at [Time]
-        #   # @param properties [Hash{Symbol=>Object}, nil]
-        #   #
-        #   def initialize(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil)
+        #   A subscription object.
+        #
+        #   @param _typename [String]
+        #   @param inserted_at [Time]
+        #   @param object [Knockapi::Models::Object]
+        #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
+        #   @param updated_at [Time]
+        #   @param properties [Hash{Symbol=>Object}, nil]
       end
     end
   end

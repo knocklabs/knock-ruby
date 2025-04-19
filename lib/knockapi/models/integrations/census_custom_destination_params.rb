@@ -37,16 +37,12 @@ module Knockapi
         #   # @return [Object]
         #   attr_writer :params
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param jsonrpc [String]
-        #   # @param method_ [String]
-        #   # @param params [Object]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(id:, jsonrpc:, method_:, params: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, jsonrpc:, method_:, params: nil, request_options: {})
+        #   @param id [String]
+        #   @param jsonrpc [String]
+        #   @param method_ [String]
+        #   @param params [Object]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

@@ -114,53 +114,27 @@ module Knockapi
         #   @return [String, nil]
         optional :seen_at, String, nil?: true
 
-        # @!parse
-        #   # An in-app feed message in a user's feed.
-        #   #
-        #   # @param id [String]
-        #   # @param _typename [String]
-        #   # @param activities [Array<Knockapi::Models::Activity>]
-        #   # @param actors [Array<Knockapi::Models::User, Knockapi::Models::Object>]
-        #   # @param blocks [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>]
-        #   # @param data [Hash{Symbol=>Object}, nil]
-        #   # @param inserted_at [String]
-        #   # @param source [Knockapi::Models::Users::FeedListItemsResponse::Source]
-        #   # @param tenant [String, nil]
-        #   # @param total_activities [Integer]
-        #   # @param total_actors [Integer]
-        #   # @param updated_at [String]
-        #   # @param archived_at [String, nil]
-        #   # @param clicked_at [String, nil]
-        #   # @param interacted_at [String, nil]
-        #   # @param link_clicked_at [String, nil]
-        #   # @param read_at [String, nil]
-        #   # @param seen_at [String, nil]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     _typename:,
-        #     activities:,
-        #     actors:,
-        #     blocks:,
-        #     data:,
-        #     inserted_at:,
-        #     source:,
-        #     tenant:,
-        #     total_activities:,
-        #     total_actors:,
-        #     updated_at:,
-        #     archived_at: nil,
-        #     clicked_at: nil,
-        #     interacted_at: nil,
-        #     link_clicked_at: nil,
-        #     read_at: nil,
-        #     seen_at: nil,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, _typename:, activities:, actors:, blocks:, data:, inserted_at:, source:, tenant:, total_activities:, total_actors:, updated_at:, archived_at: nil, clicked_at: nil, interacted_at: nil, link_clicked_at: nil, read_at: nil, seen_at: nil)
+        #   An in-app feed message in a user's feed.
+        #
+        #   @param id [String]
+        #   @param _typename [String]
+        #   @param activities [Array<Knockapi::Models::Activity>]
+        #   @param actors [Array<Knockapi::Models::User, Knockapi::Models::Object>]
+        #   @param blocks [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>]
+        #   @param data [Hash{Symbol=>Object}, nil]
+        #   @param inserted_at [String]
+        #   @param source [Knockapi::Models::Users::FeedListItemsResponse::Source]
+        #   @param tenant [String, nil]
+        #   @param total_activities [Integer]
+        #   @param total_actors [Integer]
+        #   @param updated_at [String]
+        #   @param archived_at [String, nil]
+        #   @param clicked_at [String, nil]
+        #   @param interacted_at [String, nil]
+        #   @param link_clicked_at [String, nil]
+        #   @param read_at [String, nil]
+        #   @param seen_at [String, nil]
 
         # A content block for the feed, can be content or a button set.
         module Block
@@ -198,17 +172,13 @@ module Knockapi
             required :type,
                      enum: -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type }
 
-            # @!parse
-            #   # A block in a message in an app feed.
-            #   #
-            #   # @param content [String]
-            #   # @param name [String]
-            #   # @param rendered [String]
-            #   # @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type]
-            #   #
-            #   def initialize(content:, name:, rendered:, type:, **) = super
-
-            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+            # @!method initialize(content:, name:, rendered:, type:)
+            #   A block in a message in an app feed.
+            #
+            #   @param content [String]
+            #   @param name [String]
+            #   @param rendered [String]
+            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type]
 
             # The type of block in a message in an app feed.
             #
@@ -219,11 +189,8 @@ module Knockapi
               MARKDOWN = :markdown
               TEXT = :text
 
-              finalize!
-
-              # @!parse
-              #   # @return [Array<Symbol>]
-              #   def self.values; end
+              # @!method self.values
+              #   @return [Array<Symbol>]
             end
           end
 
@@ -248,16 +215,12 @@ module Knockapi
             required :type,
                      enum: -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type }
 
-            # @!parse
-            #   # A button set block in a message in an app feed.
-            #   #
-            #   # @param buttons [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button>]
-            #   # @param name [String]
-            #   # @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type]
-            #   #
-            #   def initialize(buttons:, name:, type:, **) = super
-
-            # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+            # @!method initialize(buttons:, name:, type:)
+            #   A button set block in a message in an app feed.
+            #
+            #   @param buttons [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button>]
+            #   @param name [String]
+            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type]
 
             class Button < Knockapi::Internal::Type::BaseModel
               # @!attribute action
@@ -278,16 +241,12 @@ module Knockapi
               #   @return [String]
               required :name, String
 
-              # @!parse
-              #   # A button in an in app feed message.
-              #   #
-              #   # @param action [String]
-              #   # @param label [String]
-              #   # @param name [String]
-              #   #
-              #   def initialize(action:, label:, name:, **) = super
-
-              # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+              # @!method initialize(action:, label:, name:)
+              #   A button in an in app feed message.
+              #
+              #   @param action [String]
+              #   @param label [String]
+              #   @param name [String]
             end
 
             # The type of block in a message in an app feed.
@@ -298,17 +257,13 @@ module Knockapi
 
               BUTTON_SET = :button_set
 
-              finalize!
-
-              # @!parse
-              #   # @return [Array<Symbol>]
-              #   def self.values; end
+              # @!method self.values
+              #   @return [Array<Symbol>]
             end
           end
 
-          # @!parse
-          #   # @return [Array(Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock)]
         end
 
         # @see Knockapi::Models::Users::FeedListItemsResponse#source
@@ -337,17 +292,13 @@ module Knockapi
           #   @return [String]
           required :version_id, String
 
-          # @!parse
-          #   # Source information for the feed item.
-          #   #
-          #   # @param _typename [String]
-          #   # @param categories [Array<String>]
-          #   # @param key [String]
-          #   # @param version_id [String]
-          #   #
-          #   def initialize(_typename:, categories:, key:, version_id:, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(_typename:, categories:, key:, version_id:)
+          #   Source information for the feed item.
+          #
+          #   @param _typename [String]
+          #   @param categories [Array<String>]
+          #   @param key [String]
+          #   @param version_id [String]
         end
       end
     end

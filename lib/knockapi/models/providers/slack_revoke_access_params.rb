@@ -15,13 +15,9 @@ module Knockapi
         #   @return [String]
         required :access_token_object, String
 
-        # @!parse
-        #   # @param access_token_object [String]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(access_token_object:, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(access_token_object:, request_options: {})
+        #   @param access_token_object [String]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

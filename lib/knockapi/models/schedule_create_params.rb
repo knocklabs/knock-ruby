@@ -52,31 +52,15 @@ module Knockapi
       #   @return [String, Knockapi::Models::TenantRequest, nil]
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
-      # @!parse
-      #   # @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
-      #   # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-      #   # @param workflow [String]
-      #   # @param data [Hash{Symbol=>Object}, nil]
-      #   # @param ending_at [Time, nil]
-      #   # @param scheduled_at [Time, nil]
-      #   # @param tenant [String, Knockapi::Models::TenantRequest, nil]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     recipients:,
-      #     repeats:,
-      #     workflow:,
-      #     data: nil,
-      #     ending_at: nil,
-      #     scheduled_at: nil,
-      #     tenant: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
+      #   @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
+      #   @param workflow [String]
+      #   @param data [Hash{Symbol=>Object}, nil]
+      #   @param ending_at [Time, nil]
+      #   @param scheduled_at [Time, nil]
+      #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (id, collection).
@@ -110,20 +94,15 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :collection
 
-          # @!parse
-          #   # A reference to a recipient object.
-          #   #
-          #   # @param id [String]
-          #   # @param collection [String]
-          #   #
-          #   def initialize(id: nil, collection: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id: nil, collection: nil)
+          #   A reference to a recipient object.
+          #
+          #   @param id [String]
+          #   @param collection [String]
         end
 
-        # @!parse
-        #   # @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
-        #   def self.variants; end
+        # @!method self.variants
+        #   @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
       end
     end
   end

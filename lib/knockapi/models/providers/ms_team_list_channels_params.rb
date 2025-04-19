@@ -30,15 +30,11 @@ module Knockapi
         #   # @return [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
         #   attr_writer :query_options
 
-        # @!parse
-        #   # @param ms_teams_tenant_object [String]
-        #   # @param team_id [String]
-        #   # @param query_options [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
+        #   @param ms_teams_tenant_object [String]
+        #   @param team_id [String]
+        #   @param query_options [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] filter
@@ -63,13 +59,9 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :select_
 
-          # @!parse
-          #   # @param filter [String]
-          #   # @param select_ [String]
-          #   #
-          #   def initialize(filter: nil, select_: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(filter: nil, select_: nil)
+          #   @param filter [String]
+          #   @param select_ [String]
         end
       end
     end

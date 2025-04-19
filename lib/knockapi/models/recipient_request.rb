@@ -17,9 +17,8 @@ module Knockapi
       # A custom object entity which belongs to a collection.
       variant -> { Knockapi::Models::InlineObjectRequest }
 
-      # @!parse
-      #   # @return [Array(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-      #   def self.variants; end
+      # @!method self.variants
+      #   @return [Array(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
     end
   end
 end

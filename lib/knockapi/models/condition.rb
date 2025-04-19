@@ -21,16 +21,12 @@ module Knockapi
       #   @return [String]
       required :variable, String
 
-      # @!parse
-      #   # A condition to be evaluated.
-      #   #
-      #   # @param argument [String, nil]
-      #   # @param operator [Symbol, Knockapi::Models::Condition::Operator]
-      #   # @param variable [String]
-      #   #
-      #   def initialize(argument:, operator:, variable:, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(argument:, operator:, variable:)
+      #   A condition to be evaluated.
+      #
+      #   @param argument [String, nil]
+      #   @param operator [Symbol, Knockapi::Models::Condition::Operator]
+      #   @param variable [String]
 
       # The operator to use in the condition evaluation.
       #
@@ -57,11 +53,8 @@ module Knockapi
         IS_AUDIENCE_MEMBER = :is_audience_member
         IS_NOT_AUDIENCE_MEMBER = :is_not_audience_member
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

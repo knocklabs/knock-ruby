@@ -46,20 +46,16 @@ module Knockapi
       #   @return [String]
       required :service_name, String
 
-      # @!parse
-      #   # A message delivery log.
-      #   #
-      #   # @param id [String]
-      #   # @param _typename [String]
-      #   # @param environment_id [String]
-      #   # @param inserted_at [String]
-      #   # @param request [Knockapi::Models::MessageDeliveryLog::Request]
-      #   # @param response [Knockapi::Models::MessageDeliveryLog::Response]
-      #   # @param service_name [String]
-      #   #
-      #   def initialize(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:)
+      #   A message delivery log.
+      #
+      #   @param id [String]
+      #   @param _typename [String]
+      #   @param environment_id [String]
+      #   @param inserted_at [String]
+      #   @param request [Knockapi::Models::MessageDeliveryLog::Request]
+      #   @param response [Knockapi::Models::MessageDeliveryLog::Response]
+      #   @param service_name [String]
 
       # @see Knockapi::Models::MessageDeliveryLog#request
       class Request < Knockapi::Internal::Type::BaseModel
@@ -115,19 +111,15 @@ module Knockapi
         #   @return [String, nil]
         optional :query, String, nil?: true
 
-        # @!parse
-        #   # A message delivery log request.
-        #   #
-        #   # @param body [String, Hash{Symbol=>Object}]
-        #   # @param headers [Hash{Symbol=>Object}, nil]
-        #   # @param host [String]
-        #   # @param method_ [Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method]
-        #   # @param path [String]
-        #   # @param query [String, nil]
-        #   #
-        #   def initialize(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil)
+        #   A message delivery log request.
+        #
+        #   @param body [String, Hash{Symbol=>Object}]
+        #   @param headers [Hash{Symbol=>Object}, nil]
+        #   @param host [String]
+        #   @param method_ [Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method]
+        #   @param path [String]
+        #   @param query [String, nil]
 
         # The body content that was sent with the request.
         #
@@ -139,9 +131,8 @@ module Knockapi
 
           variant -> { Knockapi::Models::MessageDeliveryLog::Request::Body::UnionMember1Map }
 
-          # @!parse
-          #   # @return [Array(String, Hash{Symbol=>Object})]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(String, Hash{Symbol=>Object})]
 
           UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
@@ -158,11 +149,8 @@ module Knockapi
           DELETE = :DELETE
           PATCH = :PATCH
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -194,16 +182,12 @@ module Knockapi
         #   # @return [Integer]
         #   attr_writer :status
 
-        # @!parse
-        #   # A message delivery log response.
-        #   #
-        #   # @param body [String, Hash{Symbol=>Object}]
-        #   # @param headers [Hash{Symbol=>Object}, nil]
-        #   # @param status [Integer]
-        #   #
-        #   def initialize(body: nil, headers: nil, status: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(body: nil, headers: nil, status: nil)
+        #   A message delivery log response.
+        #
+        #   @param body [String, Hash{Symbol=>Object}]
+        #   @param headers [Hash{Symbol=>Object}, nil]
+        #   @param status [Integer]
 
         # The body content that was received with the response.
         #
@@ -215,9 +199,8 @@ module Knockapi
 
           variant -> { Knockapi::Models::MessageDeliveryLog::Response::Body::UnionMember1Map }
 
-          # @!parse
-          #   # @return [Array(String, Hash{Symbol=>Object})]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(String, Hash{Symbol=>Object})]
 
           UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end

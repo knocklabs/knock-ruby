@@ -15,13 +15,9 @@ module Knockapi
         #   @return [Array<String>]
         required :tenant_ids, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!parse
-        #   # @param tenant_ids [Array<String>]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(tenant_ids:, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(tenant_ids:, request_options: {})
+        #   @param tenant_ids [Array<String>]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

@@ -18,15 +18,11 @@ module Knockapi
         #   @return [Knockapi::Models::Users::GuideGetChannelResponse::Recipient, nil]
         optional :recipient, -> { Knockapi::Models::Users::GuideGetChannelResponse::Recipient }, nil?: true
 
-        # @!parse
-        #   # A response for a list of guides.
-        #   #
-        #   # @param guides [Array<Knockapi::Models::Users::GuideGetChannelResponse::Guide>]
-        #   # @param recipient [Knockapi::Models::Users::GuideGetChannelResponse::Recipient, nil]
-        #   #
-        #   def initialize(guides:, recipient: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(guides:, recipient: nil)
+        #   A response for a list of guides.
+        #
+        #   @param guides [Array<Knockapi::Models::Users::GuideGetChannelResponse::Guide>]
+        #   @param recipient [Knockapi::Models::Users::GuideGetChannelResponse::Recipient, nil]
 
         class Guide < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] id
@@ -69,15 +65,11 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :title
 
-          # @!parse
-          #   # @param id [String]
-          #   # @param content [String]
-          #   # @param metadata [Hash{Symbol=>Object}]
-          #   # @param title [String]
-          #   #
-          #   def initialize(id: nil, content: nil, metadata: nil, title: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id: nil, content: nil, metadata: nil, title: nil)
+          #   @param id [String]
+          #   @param content [String]
+          #   @param metadata [Hash{Symbol=>Object}]
+          #   @param title [String]
         end
 
         # @see Knockapi::Models::Users::GuideGetChannelResponse#recipient
@@ -92,14 +84,10 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :id
 
-          # @!parse
-          #   # The recipient of the guide.
-          #   #
-          #   # @param id [String]
-          #   #
-          #   def initialize(id: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id: nil)
+          #   The recipient of the guide.
+          #
+          #   @param id [String]
         end
       end
     end

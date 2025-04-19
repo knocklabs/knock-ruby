@@ -25,13 +25,9 @@ module Knockapi
         #   # @return [Object]
         #   attr_writer :result
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param result [Object]
-        #   #
-        #   def initialize(id: nil, result: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(id: nil, result: nil)
+        #   @param id [String]
+        #   @param result [Object]
       end
     end
   end

@@ -56,31 +56,15 @@ module Knockapi
       #   @return [String, Knockapi::Models::TenantRequest, nil]
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
-      # @!parse
-      #   # @param schedule_ids [Array<String>]
-      #   # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
-      #   # @param ending_at [Time, nil]
-      #   # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-      #   # @param scheduled_at [Time, nil]
-      #   # @param tenant [String, Knockapi::Models::TenantRequest, nil]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     schedule_ids:,
-      #     actor: nil,
-      #     data: nil,
-      #     ending_at: nil,
-      #     repeats: nil,
-      #     scheduled_at: nil,
-      #     tenant: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(schedule_ids:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
+      #   @param schedule_ids [Array<String>]
+      #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
+      #   @param data [Hash{Symbol=>Object}, nil]
+      #   @param ending_at [Time, nil]
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
+      #   @param scheduled_at [Time, nil]
+      #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

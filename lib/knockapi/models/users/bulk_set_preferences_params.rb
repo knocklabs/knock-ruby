@@ -21,14 +21,10 @@ module Knockapi
         #   @return [Array<String>]
         required :user_ids, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!parse
-        #   # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
-        #   # @param user_ids [Array<String>]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(preferences:, user_ids:, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(preferences:, user_ids:, request_options: {})
+        #   @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
+        #   @param user_ids [Array<String>]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

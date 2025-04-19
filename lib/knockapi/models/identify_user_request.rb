@@ -25,18 +25,14 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
                nil?: true
 
-      # @!parse
-      #   # A set of parameters to identify a user with. Does not include the user ID, as
-      #   # that's specified elsewhere in the request. You can supply any additional
-      #   # properties you'd like to upsert for the user.
-      #   #
-      #   # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
-      #   # @param created_at [Time, nil]
-      #   # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
-      #   #
-      #   def initialize(channel_data: nil, created_at: nil, preferences: nil, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(channel_data: nil, created_at: nil, preferences: nil)
+      #   A set of parameters to identify a user with. Does not include the user ID, as
+      #   that's specified elsewhere in the request. You can supply any additional
+      #   properties you'd like to upsert for the user.
+      #
+      #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @param created_at [Time, nil]
+      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
     end
   end
 end

@@ -10,14 +10,10 @@ module Knockapi
         #   @return [Array<String>]
         required :player_ids, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!parse
-        #   # OneSignal channel data.
-        #   #
-        #   # @param player_ids [Array<String>]
-        #   #
-        #   def initialize(player_ids:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(player_ids:)
+        #   OneSignal channel data.
+        #
+        #   @param player_ids [Array<String>]
       end
     end
   end

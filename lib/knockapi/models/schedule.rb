@@ -82,41 +82,21 @@ module Knockapi
       #   @return [String, nil]
       optional :tenant, String, nil?: true
 
-      # @!parse
-      #   # A schedule represents a recurring workflow execution.
-      #   #
-      #   # @param id [String]
-      #   # @param inserted_at [Time]
-      #   # @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
-      #   # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-      #   # @param updated_at [Time]
-      #   # @param workflow [String]
-      #   # @param _typename [String]
-      #   # @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
-      #   # @param last_occurrence_at [Time, nil]
-      #   # @param next_occurrence_at [Time, nil]
-      #   # @param tenant [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     inserted_at:,
-      #     recipient:,
-      #     repeats:,
-      #     updated_at:,
-      #     workflow:,
-      #     _typename: nil,
-      #     actor: nil,
-      #     data: nil,
-      #     last_occurrence_at: nil,
-      #     next_occurrence_at: nil,
-      #     tenant: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, inserted_at:, recipient:, repeats:, updated_at:, workflow:, _typename: nil, actor: nil, data: nil, last_occurrence_at: nil, next_occurrence_at: nil, tenant: nil)
+      #   A schedule represents a recurring workflow execution.
+      #
+      #   @param id [String]
+      #   @param inserted_at [Time]
+      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
+      #   @param updated_at [Time]
+      #   @param workflow [String]
+      #   @param _typename [String]
+      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
+      #   @param data [Hash{Symbol=>Object}, nil]
+      #   @param last_occurrence_at [Time, nil]
+      #   @param next_occurrence_at [Time, nil]
+      #   @param tenant [String, nil]
     end
   end
 end

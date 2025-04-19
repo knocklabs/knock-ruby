@@ -15,13 +15,9 @@ module Knockapi
         #   @return [Array<String, Knockapi::Models::TenantRequest>]
         required :tenants, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::InlineTenantRequest] }
 
-        # @!parse
-        #   # @param tenants [Array<String, Knockapi::Models::TenantRequest>]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(tenants:, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(tenants:, request_options: {})
+        #   @param tenants [Array<String, Knockapi::Models::TenantRequest>]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

@@ -34,18 +34,14 @@ module Knockapi
       #   @return [String, nil]
       optional :tenant, String, nil?: true
 
-      # @!parse
-      #   # An audience member.
-      #   #
-      #   # @param _typename [String]
-      #   # @param added_at [Time]
-      #   # @param user [Knockapi::Models::User]
-      #   # @param user_id [String]
-      #   # @param tenant [String, nil]
-      #   #
-      #   def initialize(_typename:, added_at:, user:, user_id:, tenant: nil, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(_typename:, added_at:, user:, user_id:, tenant: nil)
+      #   An audience member.
+      #
+      #   @param _typename [String]
+      #   @param added_at [Time]
+      #   @param user [Knockapi::Models::User]
+      #   @param user_id [String]
+      #   @param tenant [String, nil]
     end
   end
 end

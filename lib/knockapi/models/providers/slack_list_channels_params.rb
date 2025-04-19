@@ -24,14 +24,10 @@ module Knockapi
         #   # @return [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
         #   attr_writer :query_options
 
-        # @!parse
-        #   # @param access_token_object [String]
-        #   # @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(access_token_object:, query_options: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(access_token_object:, query_options: nil, request_options: {})
+        #   @param access_token_object [String]
+        #   @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           # @!attribute [r] cursor
@@ -87,16 +83,12 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :types
 
-          # @!parse
-          #   # @param cursor [String]
-          #   # @param exclude_archived [Boolean]
-          #   # @param limit [Integer]
-          #   # @param team_id [String]
-          #   # @param types [String]
-          #   #
-          #   def initialize(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil)
+          #   @param cursor [String]
+          #   @param exclude_archived [Boolean]
+          #   @param limit [Integer]
+          #   @param team_id [String]
+          #   @param types [String]
         end
       end
     end

@@ -14,13 +14,9 @@ module Knockapi
       #   @return [String]
       required :from_user_id, String
 
-      # @!parse
-      #   # @param from_user_id [String]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(from_user_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(from_user_id:, request_options: {})
+      #   @param from_user_id [String]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

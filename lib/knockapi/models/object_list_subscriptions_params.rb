@@ -81,42 +81,23 @@ module Knockapi
       #   # @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
       #   attr_writer :recipients
 
-      # @!parse
-      #   # @param after [String]
-      #   # @param before [String]
-      #   # @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
-      #   # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
-      #   # @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
-      #   # @param page_size [Integer]
-      #   # @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after: nil,
-      #     before: nil,
-      #     include: nil,
-      #     mode: nil,
-      #     objects: nil,
-      #     page_size: nil,
-      #     recipients: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
+      #   @param after [String]
+      #   @param before [String]
+      #   @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
+      #   @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
+      #   @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
+      #   @param page_size [Integer]
+      #   @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       module Include
         extend Knockapi::Internal::Type::Enum
 
         PREFERENCES = :preferences
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # Mode of the request.
@@ -126,11 +107,8 @@ module Knockapi
         RECIPIENT = :recipient
         OBJECT = :object
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -165,20 +143,15 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :collection
 
-          # @!parse
-          #   # A reference to a recipient object.
-          #   #
-          #   # @param id [String]
-          #   # @param collection [String]
-          #   #
-          #   def initialize(id: nil, collection: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id: nil, collection: nil)
+          #   A reference to a recipient object.
+          #
+          #   @param id [String]
+          #   @param collection [String]
         end
 
-        # @!parse
-        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
-        #   def self.variants; end
+        # @!method self.variants
+        #   @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
@@ -213,20 +186,15 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :collection
 
-          # @!parse
-          #   # A reference to a recipient object.
-          #   #
-          #   # @param id [String]
-          #   # @param collection [String]
-          #   #
-          #   def initialize(id: nil, collection: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id: nil, collection: nil)
+          #   A reference to a recipient object.
+          #
+          #   @param id [String]
+          #   @param collection [String]
         end
 
-        # @!parse
-        #   # @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
-        #   def self.variants; end
+        # @!method self.variants
+        #   @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
       end
     end
   end

@@ -58,17 +58,13 @@ module Knockapi
       #   # @return [String]
       #   attr_writer :tenant_id
 
-      # @!parse
-      #   # @param after [String]
-      #   # @param before [String]
-      #   # @param name [String]
-      #   # @param page_size [Integer]
-      #   # @param tenant_id [String]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(after: nil, before: nil, name: nil, page_size: nil, tenant_id: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(after: nil, before: nil, name: nil, page_size: nil, tenant_id: nil, request_options: {})
+      #   @param after [String]
+      #   @param before [String]
+      #   @param name [String]
+      #   @param page_size [Integer]
+      #   @param tenant_id [String]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

@@ -37,18 +37,14 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
                nil?: true
 
-      # @!parse
-      #   # A custom object entity which belongs to a collection.
-      #   #
-      #   # @param id [String]
-      #   # @param collection [String]
-      #   # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
-      #   # @param created_at [Time, nil]
-      #   # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
-      #   #
-      #   def initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil)
+      #   A custom object entity which belongs to a collection.
+      #
+      #   @param id [String]
+      #   @param collection [String]
+      #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @param created_at [Time, nil]
+      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
     end
   end
 end

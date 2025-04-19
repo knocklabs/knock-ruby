@@ -49,27 +49,20 @@ module Knockapi
       #   # @return [Integer]
       #   attr_writer :page_size
 
-      # @!parse
-      #   # @param after [String]
-      #   # @param before [String]
-      #   # @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>]
-      #   # @param page_size [Integer]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(after: nil, before: nil, include: nil, page_size: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(after: nil, before: nil, include: nil, page_size: nil, request_options: {})
+      #   @param after [String]
+      #   @param before [String]
+      #   @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>]
+      #   @param page_size [Integer]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       module Include
         extend Knockapi::Internal::Type::Enum
 
         PREFERENCES = :preferences
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

@@ -58,36 +58,19 @@ module Knockapi
       #   @return [String, nil]
       optional :timezone, String, nil?: true
 
-      # @!parse
-      #   # A user who can receive notifications in Knock. They are always referenced by
-      #   # your internal identifier.
-      #   #
-      #   # @param id [String]
-      #   # @param _typename [String]
-      #   # @param updated_at [Time]
-      #   # @param avatar [String, nil]
-      #   # @param created_at [Time, nil]
-      #   # @param email [String, nil]
-      #   # @param name [String, nil]
-      #   # @param phone_number [String, nil]
-      #   # @param timezone [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     _typename:,
-      #     updated_at:,
-      #     avatar: nil,
-      #     created_at: nil,
-      #     email: nil,
-      #     name: nil,
-      #     phone_number: nil,
-      #     timezone: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, _typename:, updated_at:, avatar: nil, created_at: nil, email: nil, name: nil, phone_number: nil, timezone: nil)
+      #   A user who can receive notifications in Knock. They are always referenced by
+      #   your internal identifier.
+      #
+      #   @param id [String]
+      #   @param _typename [String]
+      #   @param updated_at [Time]
+      #   @param avatar [String, nil]
+      #   @param created_at [Time, nil]
+      #   @param email [String, nil]
+      #   @param name [String, nil]
+      #   @param phone_number [String, nil]
+      #   @param timezone [String, nil]
     end
   end
 end

@@ -346,6 +346,8 @@ module Knockapi
         end
 
         class << self
+          # @api private
+          #
           # @param model [Knockapi::Internal::Type::BaseModel]
           #
           # @return [Hash{Symbol=>Object}]

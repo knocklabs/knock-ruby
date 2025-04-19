@@ -123,39 +123,19 @@ module Knockapi
         #   # @return [Array<String>]
         #   attr_writer :workflows
 
-        # @!parse
-        #   # @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived]
-        #   # @param delivery_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus]
-        #   # @param engagement_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus]
-        #   # @param has_tenant [Boolean]
-        #   # @param newer_than [Time]
-        #   # @param older_than [Time]
-        #   # @param recipient_gids [Array<String>]
-        #   # @param recipient_ids [Array<String>]
-        #   # @param tenants [Array<String>]
-        #   # @param trigger_data [String]
-        #   # @param workflows [Array<String>]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(
-        #     archived: nil,
-        #     delivery_status: nil,
-        #     engagement_status: nil,
-        #     has_tenant: nil,
-        #     newer_than: nil,
-        #     older_than: nil,
-        #     recipient_gids: nil,
-        #     recipient_ids: nil,
-        #     tenants: nil,
-        #     trigger_data: nil,
-        #     workflows: nil,
-        #     request_options: {},
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_gids: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
+        #   @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived]
+        #   @param delivery_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus]
+        #   @param engagement_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus]
+        #   @param has_tenant [Boolean]
+        #   @param newer_than [Time]
+        #   @param older_than [Time]
+        #   @param recipient_gids [Array<String>]
+        #   @param recipient_ids [Array<String>]
+        #   @param tenants [Array<String>]
+        #   @param trigger_data [String]
+        #   @param workflows [Array<String>]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         module Action
           extend Knockapi::Internal::Type::Enum
@@ -171,11 +151,8 @@ module Knockapi
           UNARCHIVE = :unarchive
           DELETE = :delete
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # The archived status to filter messages by.
@@ -186,11 +163,8 @@ module Knockapi
           INCLUDE = :include
           ONLY = :only
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # The delivery status to filter messages by.
@@ -205,11 +179,8 @@ module Knockapi
           NOT_SENT = :not_sent
           BOUNCED = :bounced
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # The engagement status to filter messages by.
@@ -225,11 +196,8 @@ module Knockapi
           LINK_CLICKED = :link_clicked
           INTERACTED = :interacted
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

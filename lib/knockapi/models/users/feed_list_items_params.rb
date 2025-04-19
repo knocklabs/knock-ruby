@@ -109,37 +109,18 @@ module Knockapi
         #   # @return [Array<String>]
         #   attr_writer :workflow_categories
 
-        # @!parse
-        #   # @param after [String]
-        #   # @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived]
-        #   # @param before [String]
-        #   # @param has_tenant [Boolean]
-        #   # @param page_size [Integer]
-        #   # @param source [String]
-        #   # @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status]
-        #   # @param tenant [String]
-        #   # @param trigger_data [String]
-        #   # @param workflow_categories [Array<String>]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(
-        #     after: nil,
-        #     archived: nil,
-        #     before: nil,
-        #     has_tenant: nil,
-        #     page_size: nil,
-        #     source: nil,
-        #     status: nil,
-        #     tenant: nil,
-        #     trigger_data: nil,
-        #     workflow_categories: nil,
-        #     request_options: {},
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        #   @param after [String]
+        #   @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived]
+        #   @param before [String]
+        #   @param has_tenant [Boolean]
+        #   @param page_size [Integer]
+        #   @param source [String]
+        #   @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status]
+        #   @param tenant [String]
+        #   @param trigger_data [String]
+        #   @param workflow_categories [Array<String>]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         # The archived status of the feed items.
         module Archived
@@ -149,11 +130,8 @@ module Knockapi
           INCLUDE = :include
           ONLY = :only
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # The status of the feed items.
@@ -166,11 +144,8 @@ module Knockapi
           SEEN = :seen
           ALL = :all
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

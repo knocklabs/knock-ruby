@@ -97,12 +97,8 @@ module Knockapi
         #   # @return [String]
         #   attr_writer :after
 
-        # @!parse
-        #   # @param after [String]
-        #   #
-        #   def initialize(after: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(after: nil)
+        #   @param after [String]
       end
     end
   end

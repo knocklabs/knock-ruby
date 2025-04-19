@@ -35,18 +35,14 @@ module Knockapi
         #   @return [String]
         required :name, String
 
-        # @!parse
-        #   # A Slack channel.
-        #   #
-        #   # @param id [String]
-        #   # @param context_team_id [String]
-        #   # @param is_im [Boolean]
-        #   # @param is_private [Boolean]
-        #   # @param name [String]
-        #   #
-        #   def initialize(id:, context_team_id:, is_im:, is_private:, name:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, context_team_id:, is_im:, is_private:, name:)
+        #   A Slack channel.
+        #
+        #   @param id [String]
+        #   @param context_team_id [String]
+        #   @param is_im [Boolean]
+        #   @param is_private [Boolean]
+        #   @param name [String]
       end
     end
   end

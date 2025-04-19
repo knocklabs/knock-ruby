@@ -43,17 +43,13 @@ module Knockapi
       #   @return [String, Knockapi::Models::TenantRequest, nil]
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
-      # @!parse
-      #   # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      #   # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
-      #   # @param cancellation_key [String, nil]
-      #   # @param data [Hash{Symbol=>Object}, nil]
-      #   # @param tenant [String, Knockapi::Models::TenantRequest, nil]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {})
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
+      #   @param cancellation_key [String, nil]
+      #   @param data [Hash{Symbol=>Object}, nil]
+      #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

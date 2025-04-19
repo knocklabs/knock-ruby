@@ -97,45 +97,23 @@ module Knockapi
       #   @return [Time, nil]
       optional :started_at, Time, nil?: true
 
-      # @!parse
-      #   # A bulk operation entity.
-      #   #
-      #   # @param id [String]
-      #   # @param _typename [String]
-      #   # @param estimated_total_rows [Integer]
-      #   # @param inserted_at [Time]
-      #   # @param name [String]
-      #   # @param processed_rows [Integer]
-      #   # @param status [Symbol, Knockapi::Models::BulkOperation::Status]
-      #   # @param success_count [Integer]
-      #   # @param updated_at [Time]
-      #   # @param completed_at [Time, nil]
-      #   # @param error_count [Integer]
-      #   # @param error_items [Array<Knockapi::Models::BulkOperation::ErrorItem>]
-      #   # @param failed_at [Time, nil]
-      #   # @param started_at [Time, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     _typename:,
-      #     estimated_total_rows:,
-      #     inserted_at:,
-      #     name:,
-      #     processed_rows:,
-      #     status:,
-      #     success_count:,
-      #     updated_at:,
-      #     completed_at: nil,
-      #     error_count: nil,
-      #     error_items: nil,
-      #     failed_at: nil,
-      #     started_at: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, _typename:, estimated_total_rows:, inserted_at:, name:, processed_rows:, status:, success_count:, updated_at:, completed_at: nil, error_count: nil, error_items: nil, failed_at: nil, started_at: nil)
+      #   A bulk operation entity.
+      #
+      #   @param id [String]
+      #   @param _typename [String]
+      #   @param estimated_total_rows [Integer]
+      #   @param inserted_at [Time]
+      #   @param name [String]
+      #   @param processed_rows [Integer]
+      #   @param status [Symbol, Knockapi::Models::BulkOperation::Status]
+      #   @param success_count [Integer]
+      #   @param updated_at [Time]
+      #   @param completed_at [Time, nil]
+      #   @param error_count [Integer]
+      #   @param error_items [Array<Knockapi::Models::BulkOperation::ErrorItem>]
+      #   @param failed_at [Time, nil]
+      #   @param started_at [Time, nil]
 
       # The status of the bulk operation.
       #
@@ -148,11 +126,8 @@ module Knockapi
         COMPLETED = :completed
         FAILED = :failed
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class ErrorItem < Knockapi::Internal::Type::BaseModel
@@ -168,13 +143,9 @@ module Knockapi
         #   @return [String, nil]
         optional :collection, String, nil?: true
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param collection [String, nil]
-        #   #
-        #   def initialize(id:, collection: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, collection: nil)
+        #   @param id [String]
+        #   @param collection [String, nil]
       end
     end
   end

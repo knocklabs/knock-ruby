@@ -144,43 +144,21 @@ module Knockapi
       #   # @return [String]
       #   attr_writer :workflow_run_id
 
-      # @!parse
-      #   # @param after [String]
-      #   # @param before [String]
-      #   # @param channel_id [String]
-      #   # @param engagement_status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>]
-      #   # @param message_ids [Array<String>]
-      #   # @param page_size [Integer]
-      #   # @param source [String]
-      #   # @param status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>]
-      #   # @param tenant [String]
-      #   # @param trigger_data [String]
-      #   # @param workflow_categories [Array<String>]
-      #   # @param workflow_recipient_run_id [String]
-      #   # @param workflow_run_id [String]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after: nil,
-      #     before: nil,
-      #     channel_id: nil,
-      #     engagement_status: nil,
-      #     message_ids: nil,
-      #     page_size: nil,
-      #     source: nil,
-      #     status: nil,
-      #     tenant: nil,
-      #     trigger_data: nil,
-      #     workflow_categories: nil,
-      #     workflow_recipient_run_id: nil,
-      #     workflow_run_id: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
+      #   @param after [String]
+      #   @param before [String]
+      #   @param channel_id [String]
+      #   @param engagement_status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>]
+      #   @param message_ids [Array<String>]
+      #   @param page_size [Integer]
+      #   @param source [String]
+      #   @param status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>]
+      #   @param tenant [String]
+      #   @param trigger_data [String]
+      #   @param workflow_categories [Array<String>]
+      #   @param workflow_recipient_run_id [String]
+      #   @param workflow_run_id [String]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       module EngagementStatus
         extend Knockapi::Internal::Type::Enum
@@ -191,11 +169,8 @@ module Knockapi
         LINK_CLICKED = :link_clicked
         ARCHIVED = :archived
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       module Status
@@ -209,11 +184,8 @@ module Knockapi
         NOT_SENT = :not_sent
         BOUNCED = :bounced
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

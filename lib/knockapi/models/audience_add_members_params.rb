@@ -15,13 +15,9 @@ module Knockapi
       required :members,
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::AudienceAddMembersParams::Member] }
 
-      # @!parse
-      #   # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
-      #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(members:, request_options: {}, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(members:, request_options: {})
+      #   @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
+      #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       class Member < Knockapi::Internal::Type::BaseModel
         # @!attribute user
@@ -39,15 +35,11 @@ module Knockapi
         #   @return [String, nil]
         optional :tenant, String, nil?: true
 
-        # @!parse
-        #   # An audience member.
-        #   #
-        #   # @param user [Knockapi::Models::InlineIdentifyUserRequest]
-        #   # @param tenant [String, nil]
-        #   #
-        #   def initialize(user:, tenant: nil, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(user:, tenant: nil)
+        #   An audience member.
+        #
+        #   @param user [Knockapi::Models::InlineIdentifyUserRequest]
+        #   @param tenant [String, nil]
       end
     end
   end

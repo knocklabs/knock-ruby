@@ -51,20 +51,16 @@ module Knockapi
       #   @return [Integer, nil]
       optional :minutes, Integer, nil?: true
 
-      # @!parse
-      #   # The repeat rule for the schedule.
-      #   #
-      #   # @param _typename [String]
-      #   # @param frequency [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency]
-      #   # @param day_of_month [Integer, nil]
-      #   # @param days [Array<Symbol, Knockapi::Models::ScheduleRepeatRule::Day>, nil]
-      #   # @param hours [Integer, nil]
-      #   # @param interval [Integer]
-      #   # @param minutes [Integer, nil]
-      #   #
-      #   def initialize(_typename:, frequency:, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(_typename:, frequency:, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil)
+      #   The repeat rule for the schedule.
+      #
+      #   @param _typename [String]
+      #   @param frequency [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency]
+      #   @param day_of_month [Integer, nil]
+      #   @param days [Array<Symbol, Knockapi::Models::ScheduleRepeatRule::Day>, nil]
+      #   @param hours [Integer, nil]
+      #   @param interval [Integer]
+      #   @param minutes [Integer, nil]
 
       # The frequency of the schedule.
       #
@@ -77,11 +73,8 @@ module Knockapi
         MONTHLY = :monthly
         HOURLY = :hourly
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # An identifier for a day of the week.
@@ -96,11 +89,8 @@ module Knockapi
         SAT = :sat
         SUN = :sun
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

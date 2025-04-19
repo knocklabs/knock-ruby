@@ -22,16 +22,12 @@ module Knockapi
         #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
         required :data, union: -> { Knockapi::Models::Recipients::RecipientsChannelData::Data }
 
-        # @!parse
-        #   # Channel data for a given channel type.
-        #   #
-        #   # @param _typename [String]
-        #   # @param channel_id [String]
-        #   # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
-        #   #
-        #   def initialize(_typename:, channel_id:, data:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(_typename:, channel_id:, data:)
+        #   Channel data for a given channel type.
+        #
+        #   @param _typename [String]
+        #   @param channel_id [String]
+        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
 
         # Channel data for a given channel type.
         #
@@ -54,9 +50,8 @@ module Knockapi
           # OneSignal channel data.
           variant -> { Knockapi::Models::Recipients::OneSignalChannelData }
 
-          # @!parse
-          #   # @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData)]
-          #   def self.variants; end
+          # @!method self.variants
+          #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData)]
         end
       end
     end

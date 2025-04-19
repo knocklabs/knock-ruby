@@ -19,16 +19,12 @@ module Knockapi
         #   @return [String, nil]
         required :skip_token, String, nil?: true
 
-        # @!parse
-        #   # The response from a Microsoft Teams provider request, containing a list of
-        #   # teams.
-        #   #
-        #   # @param ms_teams_teams [Array<Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam>]
-        #   # @param skip_token [String, nil]
-        #   #
-        #   def initialize(ms_teams_teams:, skip_token:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(ms_teams_teams:, skip_token:)
+        #   The response from a Microsoft Teams provider request, containing a list of
+        #   teams.
+        #
+        #   @param ms_teams_teams [Array<Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam>]
+        #   @param skip_token [String, nil]
 
         class MsTeamsTeam < Knockapi::Internal::Type::BaseModel
           # @!attribute id
@@ -49,14 +45,10 @@ module Knockapi
           #   @return [String, nil]
           optional :description, String, nil?: true
 
-          # @!parse
-          #   # @param id [String]
-          #   # @param display_name [String]
-          #   # @param description [String, nil]
-          #   #
-          #   def initialize(id:, display_name:, description: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id:, display_name:, description: nil)
+          #   @param id [String]
+          #   @param display_name [String]
+          #   @param description [String, nil]
         end
       end
     end

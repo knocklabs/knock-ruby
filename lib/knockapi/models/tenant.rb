@@ -16,15 +16,11 @@ module Knockapi
       #   @return [String]
       required :_typename, String, api_name: :__typename
 
-      # @!parse
-      #   # A tenant entity.
-      #   #
-      #   # @param id [String]
-      #   # @param _typename [String]
-      #   #
-      #   def initialize(id:, _typename:, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, _typename:)
+      #   A tenant entity.
+      #
+      #   @param id [String]
+      #   @param _typename [String]
     end
   end
 end

@@ -15,13 +15,9 @@ module Knockapi
         #   @return [String]
         required :ms_teams_tenant_object, String
 
-        # @!parse
-        #   # @param ms_teams_tenant_object [String]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(ms_teams_tenant_object:, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(ms_teams_tenant_object:, request_options: {})
+        #   @param ms_teams_tenant_object [String]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

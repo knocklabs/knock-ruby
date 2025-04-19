@@ -11,14 +11,10 @@ module Knockapi
         #   @return [Knockapi::Models::Users::FeedGetSettingsResponse::Features]
         required :features, -> { Knockapi::Models::Users::FeedGetSettingsResponse::Features }
 
-        # @!parse
-        #   # The response for the user's feed settings.
-        #   #
-        #   # @param features [Knockapi::Models::Users::FeedGetSettingsResponse::Features]
-        #   #
-        #   def initialize(features:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(features:)
+        #   The response for the user's feed settings.
+        #
+        #   @param features [Knockapi::Models::Users::FeedGetSettingsResponse::Features]
 
         # @see Knockapi::Models::Users::FeedGetSettingsResponse#features
         class Features < Knockapi::Internal::Type::BaseModel
@@ -28,14 +24,10 @@ module Knockapi
           #   @return [Boolean]
           required :branding_required, Knockapi::Internal::Type::Boolean
 
-          # @!parse
-          #   # Features configuration for the user's feed.
-          #   #
-          #   # @param branding_required [Boolean]
-          #   #
-          #   def initialize(branding_required:, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(branding_required:)
+          #   Features configuration for the user's feed.
+          #
+          #   @param branding_required [Boolean]
         end
       end
     end

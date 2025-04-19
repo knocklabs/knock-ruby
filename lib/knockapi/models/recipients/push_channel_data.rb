@@ -18,15 +18,11 @@ module Knockapi
         #   @return [Array<String>]
         required :tokens, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!parse
-        #   # The content of a push notification.
-        #   #
-        #   # @param _typename [Symbol, Knockapi::Models::Recipients::PushChannelData::Typename]
-        #   # @param tokens [Array<String>]
-        #   #
-        #   def initialize(_typename:, tokens:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(_typename:, tokens:)
+        #   The content of a push notification.
+        #
+        #   @param _typename [Symbol, Knockapi::Models::Recipients::PushChannelData::Typename]
+        #   @param tokens [Array<String>]
 
         # The typename of the schema.
         #
@@ -36,11 +32,8 @@ module Knockapi
 
           PUSH_CHANNEL_DATA = :PushChannelData
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

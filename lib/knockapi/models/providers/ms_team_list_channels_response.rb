@@ -12,15 +12,11 @@ module Knockapi
         required :ms_teams_channels,
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel] }
 
-        # @!parse
-        #   # The response from a Microsoft Teams provider request, containing a list of
-        #   # channels.
-        #   #
-        #   # @param ms_teams_channels [Array<Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel>]
-        #   #
-        #   def initialize(ms_teams_channels:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(ms_teams_channels:)
+        #   The response from a Microsoft Teams provider request, containing a list of
+        #   channels.
+        #
+        #   @param ms_teams_channels [Array<Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel>]
 
         class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
           # @!attribute id
@@ -71,17 +67,13 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :membership_type
 
-          # @!parse
-          #   # @param id [String]
-          #   # @param display_name [String]
-          #   # @param created_date_time [String]
-          #   # @param description [String, nil]
-          #   # @param is_archived [Boolean]
-          #   # @param membership_type [String]
-          #   #
-          #   def initialize(id:, display_name:, created_date_time: nil, description: nil, is_archived: nil, membership_type: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id:, display_name:, created_date_time: nil, description: nil, is_archived: nil, membership_type: nil)
+          #   @param id [String]
+          #   @param display_name [String]
+          #   @param created_date_time [String]
+          #   @param description [String, nil]
+          #   @param is_archived [Boolean]
+          #   @param membership_type [String]
         end
       end
     end

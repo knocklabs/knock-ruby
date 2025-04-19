@@ -41,19 +41,15 @@ module Knockapi
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
-      # @!parse
-      #   # A message event.
-      #   #
-      #   # @param id [String]
-      #   # @param _typename [String]
-      #   # @param inserted_at [Time]
-      #   # @param recipient [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
-      #   # @param type [Symbol, Knockapi::Models::MessageEvent::Type]
-      #   # @param data [Hash{Symbol=>Object}, nil]
-      #   #
-      #   def initialize(id:, _typename:, inserted_at:, recipient:, type:, data: nil, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, _typename:, inserted_at:, recipient:, type:, data: nil)
+      #   A message event.
+      #
+      #   @param id [String]
+      #   @param _typename [String]
+      #   @param inserted_at [Time]
+      #   @param recipient [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
+      #   @param type [Symbol, Knockapi::Models::MessageEvent::Type]
+      #   @param data [Hash{Symbol=>Object}, nil]
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (id, collection).
@@ -89,20 +85,15 @@ module Knockapi
           #   # @return [String]
           #   attr_writer :collection
 
-          # @!parse
-          #   # A reference to a recipient object.
-          #   #
-          #   # @param id [String]
-          #   # @param collection [String]
-          #   #
-          #   def initialize(id: nil, collection: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(id: nil, collection: nil)
+          #   A reference to a recipient object.
+          #
+          #   @param id [String]
+          #   @param collection [String]
         end
 
-        # @!parse
-        #   # @return [Array(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)]
-        #   def self.variants; end
+        # @!method self.variants
+        #   @return [Array(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)]
       end
 
       # The type of event that occurred.
@@ -127,11 +118,8 @@ module Knockapi
         MESSAGE_UNREAD = :"message.unread"
         MESSAGE_UNSEEN = :"message.unseen"
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

@@ -11,14 +11,10 @@ module Knockapi
         #   @return [Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection]
         required :connection, -> { Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection }
 
-        # @!parse
-        #   # The response from a Microsoft Teams auth check request.
-        #   #
-        #   # @param connection [Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection]
-        #   #
-        #   def initialize(connection:, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(connection:)
+        #   The response from a Microsoft Teams auth check request.
+        #
+        #   @param connection [Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection]
 
         # @see Knockapi::Models::Providers::MsTeamCheckAuthResponse#connection
         class Connection < Knockapi::Internal::Type::BaseModel
@@ -34,15 +30,11 @@ module Knockapi
           #   @return [String, nil]
           optional :reason, String, nil?: true
 
-          # @!parse
-          #   # A Microsoft Teams connection object.
-          #   #
-          #   # @param ok [Boolean]
-          #   # @param reason [String, nil]
-          #   #
-          #   def initialize(ok:, reason: nil, **) = super
-
-          # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+          # @!method initialize(ok:, reason: nil)
+          #   A Microsoft Teams connection object.
+          #
+          #   @param ok [Boolean]
+          #   @param reason [String, nil]
         end
       end
     end

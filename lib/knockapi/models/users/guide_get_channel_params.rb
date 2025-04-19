@@ -39,15 +39,11 @@ module Knockapi
         #   # @return [String]
         #   attr_writer :type
 
-        # @!parse
-        #   # @param data [String]
-        #   # @param tenant [String]
-        #   # @param type [String]
-        #   # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(data: nil, tenant: nil, type: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+        # @!method initialize(data: nil, tenant: nil, type: nil, request_options: {})
+        #   @param data [String]
+        #   @param tenant [String]
+        #   @param type [String]
+        #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

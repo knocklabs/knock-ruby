@@ -34,18 +34,14 @@ module Knockapi
       #   @return [Time, nil]
       optional :created_at, Time, nil?: true
 
-      # @!parse
-      #   # A custom object entity which belongs to a collection.
-      #   #
-      #   # @param id [String]
-      #   # @param _typename [String]
-      #   # @param collection [String]
-      #   # @param updated_at [Time]
-      #   # @param created_at [Time, nil]
-      #   #
-      #   def initialize(id:, _typename:, collection:, updated_at:, created_at: nil, **) = super
-
-      # def initialize: (Hash | Knockapi::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, _typename:, collection:, updated_at:, created_at: nil)
+      #   A custom object entity which belongs to a collection.
+      #
+      #   @param id [String]
+      #   @param _typename [String]
+      #   @param collection [String]
+      #   @param updated_at [Time]
+      #   @param created_at [Time, nil]
     end
   end
 end
