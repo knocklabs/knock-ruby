@@ -15,6 +15,8 @@ module Knockapi
 
         def ==: (top other) -> bool
 
+        def hash: -> Integer
+
         def coerce: (
           ::Hash[top, top] | top value,
           state: Knockapi::Internal::Type::Converter::coerce_state
