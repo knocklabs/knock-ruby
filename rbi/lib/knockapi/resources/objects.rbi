@@ -50,7 +50,7 @@ module Knockapi
         request_options: {}
       ); end
       # Add subscriptions for an object. If a subscription already exists, it will be
-      # updated.
+      # updated. Can accept inline-identifications for recipients.
       sig do
         params(
           collection: String,
@@ -85,14 +85,7 @@ module Knockapi
         params(
           collection: String,
           object_id_: String,
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ],
+          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(T::Array[Knockapi::Models::Recipients::Subscription])
@@ -269,7 +262,7 @@ module Knockapi
         workflow: nil,
         request_options: {}
       ); end
-      # List subscriptions for an object. Eitherlist the recipients that subscribe to
+      # List subscriptions for an object. Either list the recipients that subscribe to
       # the provided object, or list the objects that the provided object is subscribed
       # to. Determined by the `mode` query parameter.
       sig do

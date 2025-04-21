@@ -10,11 +10,12 @@ module Knockapi
       # @!attribute recipients
       #   The recipients of the subscription.
       #
-      #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      required :recipients,
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
 
       # @!method initialize(recipients:, request_options: {})
-      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

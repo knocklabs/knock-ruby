@@ -16,27 +16,14 @@ module Knockapi
 
       # A list of recipients to cancel the notification for. If omitted, cancels for all
       # recipients associated with the cancellation key.
-      sig do
-        returns(
-          T.nilable(
-            T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-          )
-        )
-      end
+      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)])) }
       attr_accessor :recipients
 
       sig do
         params(
           cancellation_key: String,
           recipients: T.nilable(
-            T::Array[
-              T.any(
-                String,
-                Knockapi::Models::InlineIdentifyUserRequest,
-                Knockapi::Internal::AnyHash,
-                Knockapi::Models::InlineObjectRequest
-              )
-            ]
+            T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)]
           ),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -49,9 +36,7 @@ module Knockapi
           .returns(
             {
               cancellation_key: String,
-              recipients: T.nilable(
-                T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
-              ),
+              recipients: T.nilable(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)]),
               request_options: Knockapi::RequestOptions
             }
           )

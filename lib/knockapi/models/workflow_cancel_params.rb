@@ -21,14 +21,14 @@ module Knockapi
       #   A list of recipients to cancel the notification for. If omitted, cancels for all
       #   recipients associated with the cancellation key.
       #
-      #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>, nil]
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
       optional :recipients,
-               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] },
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] },
                nil?: true
 
       # @!method initialize(cancellation_key:, recipients: nil, request_options: {})
       #   @param cancellation_key [String]
-      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>, nil]
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

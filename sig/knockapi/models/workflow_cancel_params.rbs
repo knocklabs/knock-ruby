@@ -3,7 +3,7 @@ module Knockapi
     type workflow_cancel_params =
       {
         cancellation_key: String,
-        recipients: ::Array[Knockapi::Models::recipient_request]?
+        recipients: ::Array[Knockapi::Models::recipient_reference]?
       }
       & Knockapi::Internal::Type::request_parameters
 
@@ -13,11 +13,11 @@ module Knockapi
 
       attr_accessor cancellation_key: String
 
-      attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]?
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_reference]?
 
       def initialize: (
         cancellation_key: String,
-        ?recipients: ::Array[Knockapi::Models::recipient_request]?,
+        ?recipients: ::Array[Knockapi::Models::recipient_reference]?,
         ?request_options: Knockapi::request_opts
       ) -> void
 

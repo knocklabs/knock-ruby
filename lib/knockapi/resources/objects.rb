@@ -55,7 +55,7 @@ module Knockapi
       end
 
       # Add subscriptions for an object. If a subscription already exists, it will be
-      # updated.
+      # updated. Can accept inline-identifications for recipients.
       #
       # @overload add_subscriptions(collection, object_id_, recipients:, properties: nil, request_options: {})
       #
@@ -86,7 +86,7 @@ module Knockapi
       #
       # @param collection [String]
       # @param object_id_ [String]
-      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::Subscription>]
@@ -252,7 +252,7 @@ module Knockapi
         )
       end
 
-      # List subscriptions for an object. Eitherlist the recipients that subscribe to
+      # List subscriptions for an object. Either list the recipients that subscribe to
       # the provided object, or list the objects that the provided object is subscribed
       # to. Determined by the `mode` query parameter.
       #

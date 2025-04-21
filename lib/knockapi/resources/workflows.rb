@@ -11,7 +11,7 @@ module Knockapi
       #
       # @param key [String]
       # @param cancellation_key [String]
-      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>, nil]
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]

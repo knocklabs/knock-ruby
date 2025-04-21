@@ -11,14 +11,7 @@ module Knockapi
           key: String,
           cancellation_key: String,
           recipients: T.nilable(
-            T::Array[
-              T.any(
-                String,
-                Knockapi::Models::InlineIdentifyUserRequest,
-                Knockapi::Internal::AnyHash,
-                Knockapi::Models::InlineObjectRequest
-              )
-            ]
+            T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)]
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

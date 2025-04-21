@@ -29,7 +29,7 @@ module Knockapi
       def delete_subscriptions: (
         String collection,
         String object_id_,
-        recipients: ::Array[Knockapi::Models::recipient_request],
+        recipients: ::Array[Knockapi::Models::recipient_reference],
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::object_delete_subscriptions_response
 

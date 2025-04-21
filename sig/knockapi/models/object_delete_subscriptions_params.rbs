@@ -1,17 +1,17 @@
 module Knockapi
   module Models
     type object_delete_subscriptions_params =
-      { recipients: ::Array[Knockapi::Models::recipient_request] }
+      { recipients: ::Array[Knockapi::Models::recipient_reference] }
       & Knockapi::Internal::Type::request_parameters
 
     class ObjectDeleteSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_reference]
 
       def initialize: (
-        recipients: ::Array[Knockapi::Models::recipient_request],
+        recipients: ::Array[Knockapi::Models::recipient_reference],
         ?request_options: Knockapi::request_opts
       ) -> void
 
