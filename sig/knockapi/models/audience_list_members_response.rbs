@@ -3,47 +3,20 @@ module Knockapi
     type audience_list_members_response =
       {
         entries: ::Array[Knockapi::Models::AudienceMember],
-        page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+        page_info: Knockapi::Models::PageInfo
       }
 
     class AudienceListMembersResponse < Knockapi::Internal::Type::BaseModel
       attr_accessor entries: ::Array[Knockapi::Models::AudienceMember]
 
-      attr_accessor page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+      attr_accessor page_info: Knockapi::Models::PageInfo
 
       def initialize: (
         entries: ::Array[Knockapi::Models::AudienceMember],
-        page_info: Knockapi::Models::AudienceListMembersResponse::PageInfo
+        page_info: Knockapi::Models::PageInfo
       ) -> void
 
       def to_hash: -> Knockapi::Models::audience_list_members_response
-
-      type page_info =
-        {
-          _typename: String,
-          page_size: Integer,
-          after: String?,
-          before: String?
-        }
-
-      class PageInfo < Knockapi::Internal::Type::BaseModel
-        attr_accessor _typename: String
-
-        attr_accessor page_size: Integer
-
-        attr_accessor after: String?
-
-        attr_accessor before: String?
-
-        def initialize: (
-          _typename: String,
-          page_size: Integer,
-          ?after: String?,
-          ?before: String?
-        ) -> void
-
-        def to_hash: -> Knockapi::Models::AudienceListMembersResponse::page_info
-      end
     end
   end
 end
