@@ -280,21 +280,9 @@ module Knockapi
           before: String,
           include: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol],
           mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
-          objects: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
+          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           page_size: Integer,
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
+          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])

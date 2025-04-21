@@ -5,7 +5,7 @@ module Knockapi
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
-        objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object],
+        objects: ::Array[Knockapi::Models::recipient_reference],
         page_size: Integer
       }
       & Knockapi::Internal::Type::request_parameters
@@ -28,11 +28,11 @@ module Knockapi
         ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
       ) -> ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
 
-      attr_reader objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object]?
+      attr_reader objects: ::Array[Knockapi::Models::recipient_reference]?
 
       def objects=: (
-        ::Array[Knockapi::Models::UserListSubscriptionsParams::object]
-      ) -> ::Array[Knockapi::Models::UserListSubscriptionsParams::object]
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
 
       attr_reader page_size: Integer?
 
@@ -42,7 +42,7 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
-        ?objects: ::Array[Knockapi::Models::UserListSubscriptionsParams::object],
+        ?objects: ::Array[Knockapi::Models::recipient_reference],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> void
@@ -57,32 +57,6 @@ module Knockapi
         PREFERENCES: :preferences
 
         def self?.values: -> ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
-      end
-
-      type object =
-        String
-        | Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference
-
-      module Object
-        extend Knockapi::Internal::Type::Union
-
-        type object_reference = { id: String, collection: String }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_reader id: String?
-
-          def id=: (String) -> String
-
-          attr_reader collection: String?
-
-          def collection=: (String) -> String
-
-          def initialize: (?id: String, ?collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::UserListSubscriptionsParams::Object::object_reference
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference]
       end
     end
   end

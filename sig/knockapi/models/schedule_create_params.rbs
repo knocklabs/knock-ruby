@@ -2,7 +2,7 @@ module Knockapi
   module Models
     type schedule_create_params =
       {
-        recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
+        recipients: ::Array[Knockapi::Models::recipient_reference],
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
         workflow: String,
         data: ::Hash[Symbol, top]?,
@@ -16,7 +16,7 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient]
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_reference]
 
       attr_accessor repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]
 
@@ -31,7 +31,7 @@ module Knockapi
       attr_accessor tenant: Knockapi::Models::inline_tenant_request?
 
       def initialize: (
-        recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
+        recipients: ::Array[Knockapi::Models::recipient_reference],
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
         workflow: String,
         ?data: ::Hash[Symbol, top]?,
@@ -42,32 +42,6 @@ module Knockapi
       ) -> void
 
       def to_hash: -> Knockapi::Models::schedule_create_params
-
-      type recipient =
-        String
-        | Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        type object_reference = { id: String, collection: String }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_reader id: String?
-
-          def id=: (String) -> String
-
-          attr_reader collection: String?
-
-          def collection=: (String) -> String
-
-          def initialize: (?id: String, ?collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::ScheduleCreateParams::Recipient::object_reference
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]
-      end
     end
   end
 end

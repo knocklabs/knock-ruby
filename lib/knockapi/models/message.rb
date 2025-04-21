@@ -20,8 +20,8 @@ module Knockapi
       #   One or more actors that are associated with this message. Note: this is a list
       #   that can contain up to 10 actors if the message is produced from a batch.
       #
-      #   @return [Array<String, Knockapi::Models::Message::Actor::ObjectReference>, nil]
-      optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor] }
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
+      optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
 
       # @!attribute archived_at
       #   Timestamp when the message was archived.
@@ -88,8 +88,8 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (ID, collection).
       #
-      #   @return [String, Knockapi::Models::Message::Recipient::ObjectReference, nil]
-      optional :recipient, union: -> { Knockapi::Models::Message::Recipient }
+      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
+      optional :recipient, union: -> { Knockapi::Models::RecipientReference }
 
       # @!attribute scheduled_at
       #   Timestamp when the message was scheduled to be sent.
@@ -141,7 +141,7 @@ module Knockapi
       #
       #   @param id [String]
       #   @param _typename [String]
-      #   @param actors [Array<String, Knockapi::Models::Message::Actor::ObjectReference>]
+      #   @param actors [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       #   @param archived_at [Time, nil]
       #   @param channel_id [String]
       #   @param clicked_at [Time, nil]
@@ -152,7 +152,7 @@ module Knockapi
       #   @param link_clicked_at [Time, nil]
       #   @param metadata [Hash{Symbol=>Object}, nil]
       #   @param read_at [Time, nil]
-      #   @param recipient [String, Knockapi::Models::Message::Recipient::ObjectReference]
+      #   @param recipient [String, Knockapi::Models::RecipientReference::ObjectReference]
       #   @param scheduled_at [Time, nil]
       #   @param seen_at [Time, nil]
       #   @param source [Knockapi::Models::Message::Source]
@@ -160,41 +160,6 @@ module Knockapi
       #   @param tenant [String, nil]
       #   @param updated_at [Time]
       #   @param workflow [String, nil]
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      module Actor
-        extend Knockapi::Internal::Type::Union
-
-        # The ID of the user.
-        variant String
-
-        # A reference to a recipient object.
-        variant -> { Knockapi::Models::Message::Actor::ObjectReference }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   An identifier for the recipient object.
-          #
-          #   @return [String, nil]
-          optional :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String, nil]
-          optional :collection, String
-
-          # @!method initialize(id: nil, collection: nil)
-          #   A reference to a recipient object.
-          #
-          #   @param id [String]
-          #   @param collection [String]
-        end
-
-        # @!method self.variants
-        #   @return [Array(String, Knockapi::Models::Message::Actor::ObjectReference)]
-      end
 
       # An engagement status for a message. Can be one of: read, seen, interacted,
       # link_clicked, archived.
@@ -209,43 +174,6 @@ module Knockapi
 
         # @!method self.values
         #   @return [Array<Symbol>]
-      end
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      #
-      # @see Knockapi::Models::Message#recipient
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        # The ID of the user.
-        variant String
-
-        # A reference to a recipient object.
-        variant -> { Knockapi::Models::Message::Recipient::ObjectReference }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   An identifier for the recipient object.
-          #
-          #   @return [String, nil]
-          optional :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String, nil]
-          optional :collection, String
-
-          # @!method initialize(id: nil, collection: nil)
-          #   A reference to a recipient object.
-          #
-          #   @param id [String]
-          #   @param collection [String]
-        end
-
-        # @!method self.variants
-        #   @return [Array(String, Knockapi::Models::Message::Recipient::ObjectReference)]
       end
 
       # @see Knockapi::Models::Message#source

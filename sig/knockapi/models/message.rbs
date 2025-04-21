@@ -4,7 +4,7 @@ module Knockapi
       {
         id: String,
         _typename: String,
-        actors: ::Array[Knockapi::Models::Message::actor],
+        actors: ::Array[Knockapi::Models::recipient_reference],
         archived_at: Time?,
         channel_id: String,
         clicked_at: Time?,
@@ -15,7 +15,7 @@ module Knockapi
         link_clicked_at: Time?,
         metadata: ::Hash[Symbol, top]?,
         read_at: Time?,
-        recipient: Knockapi::Models::Message::recipient,
+        recipient: Knockapi::Models::recipient_reference,
         scheduled_at: Time?,
         seen_at: Time?,
         source: Knockapi::Models::Message::Source,
@@ -34,11 +34,11 @@ module Knockapi
 
       def _typename=: (String) -> String
 
-      attr_reader actors: ::Array[Knockapi::Models::Message::actor]?
+      attr_reader actors: ::Array[Knockapi::Models::recipient_reference]?
 
       def actors=: (
-        ::Array[Knockapi::Models::Message::actor]
-      ) -> ::Array[Knockapi::Models::Message::actor]
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
 
       attr_accessor archived_at: Time?
 
@@ -68,11 +68,11 @@ module Knockapi
 
       attr_accessor read_at: Time?
 
-      attr_reader recipient: Knockapi::Models::Message::recipient?
+      attr_reader recipient: Knockapi::Models::recipient_reference?
 
       def recipient=: (
-        Knockapi::Models::Message::recipient
-      ) -> Knockapi::Models::Message::recipient
+        Knockapi::Models::recipient_reference
+      ) -> Knockapi::Models::recipient_reference
 
       attr_accessor scheduled_at: Time?
 
@@ -101,7 +101,7 @@ module Knockapi
       def initialize: (
         ?id: String,
         ?_typename: String,
-        ?actors: ::Array[Knockapi::Models::Message::actor],
+        ?actors: ::Array[Knockapi::Models::recipient_reference],
         ?archived_at: Time?,
         ?channel_id: String,
         ?clicked_at: Time?,
@@ -112,7 +112,7 @@ module Knockapi
         ?link_clicked_at: Time?,
         ?metadata: ::Hash[Symbol, top]?,
         ?read_at: Time?,
-        ?recipient: Knockapi::Models::Message::recipient,
+        ?recipient: Knockapi::Models::recipient_reference,
         ?scheduled_at: Time?,
         ?seen_at: Time?,
         ?source: Knockapi::Models::Message::Source,
@@ -123,30 +123,6 @@ module Knockapi
       ) -> void
 
       def to_hash: -> Knockapi::Models::message
-
-      type actor = String | Knockapi::Models::Message::Actor::ObjectReference
-
-      module Actor
-        extend Knockapi::Internal::Type::Union
-
-        type object_reference = { id: String, collection: String }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_reader id: String?
-
-          def id=: (String) -> String
-
-          attr_reader collection: String?
-
-          def collection=: (String) -> String
-
-          def initialize: (?id: String, ?collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::Message::Actor::object_reference
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::Message::Actor::ObjectReference]
-      end
 
       type engagement_status =
         :seen | :read | :interacted | :link_clicked | :archived
@@ -161,31 +137,6 @@ module Knockapi
         ARCHIVED: :archived
 
         def self?.values: -> ::Array[Knockapi::Models::Message::engagement_status]
-      end
-
-      type recipient =
-        String | Knockapi::Models::Message::Recipient::ObjectReference
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        type object_reference = { id: String, collection: String }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_reader id: String?
-
-          def id=: (String) -> String
-
-          attr_reader collection: String?
-
-          def collection=: (String) -> String
-
-          def initialize: (?id: String, ?collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::Message::Recipient::object_reference
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::Message::Recipient::ObjectReference]
       end
 
       type source =

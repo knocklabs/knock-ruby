@@ -8,7 +8,7 @@ module Knockapi
 
       # The recipients to trigger the workflow for. Can inline identify users, objects,
       # or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
-      sig { returns(T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]) }
+      sig { returns(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)]) }
       attr_accessor :recipients
 
       # The repeat rule for the schedule.
@@ -37,13 +37,7 @@ module Knockapi
 
       sig do
         params(
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
+          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),
@@ -68,7 +62,7 @@ module Knockapi
         override
           .returns(
             {
-              recipients: T::Array[T.any(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)],
+              recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)],
               repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],
               workflow: String,
               data: T.nilable(T::Hash[Symbol, T.anything]),
@@ -80,38 +74,6 @@ module Knockapi
           )
       end
       def to_hash; end
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # An identifier for the recipient object.
-          sig { returns(T.nilable(String)) }
-          attr_reader :id
-
-          sig { params(id: String).void }
-          attr_writer :id
-
-          # The collection the recipient object belongs to.
-          sig { returns(T.nilable(String)) }
-          attr_reader :collection
-
-          sig { params(collection: String).void }
-          attr_writer :collection
-
-          # A reference to a recipient object.
-          sig { params(id: String, collection: String).returns(T.attached_class) }
-          def self.new(id: nil, collection: nil); end
-
-          sig { override.returns({id: String, collection: String}) }
-          def to_hash; end
-        end
-
-        sig { override.returns([String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference]) }
-        def self.variants; end
-      end
     end
   end
 end

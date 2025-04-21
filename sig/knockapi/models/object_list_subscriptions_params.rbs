@@ -6,9 +6,9 @@ module Knockapi
         before: String,
         include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
         mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
-        objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+        objects: ::Array[Knockapi::Models::recipient_reference],
         page_size: Integer,
-        recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
+        recipients: ::Array[Knockapi::Models::recipient_reference]
       }
       & Knockapi::Internal::Type::request_parameters
 
@@ -36,30 +36,30 @@ module Knockapi
         Knockapi::Models::ObjectListSubscriptionsParams::mode
       ) -> Knockapi::Models::ObjectListSubscriptionsParams::mode
 
-      attr_reader objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object]?
+      attr_reader objects: ::Array[Knockapi::Models::recipient_reference]?
 
       def objects=: (
-        ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object]
-      ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object]
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
 
       attr_reader page_size: Integer?
 
       def page_size=: (Integer) -> Integer
 
-      attr_reader recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]?
+      attr_reader recipients: ::Array[Knockapi::Models::recipient_reference]?
 
       def recipients=: (
-        ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
-      ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient]
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
 
       def initialize: (
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
         ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
-        ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+        ?objects: ::Array[Knockapi::Models::recipient_reference],
         ?page_size: Integer,
-        ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
+        ?recipients: ::Array[Knockapi::Models::recipient_reference],
         ?request_options: Knockapi::request_opts
       ) -> void
 
@@ -84,58 +84,6 @@ module Knockapi
         OBJECT: :object
 
         def self?.values: -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::mode]
-      end
-
-      type object =
-        String
-        | Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference
-
-      module Object
-        extend Knockapi::Internal::Type::Union
-
-        type object_reference = { id: String, collection: String }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_reader id: String?
-
-          def id=: (String) -> String
-
-          attr_reader collection: String?
-
-          def collection=: (String) -> String
-
-          def initialize: (?id: String, ?collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Object::object_reference
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference]
-      end
-
-      type recipient =
-        String
-        | Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        type object_reference = { id: String, collection: String }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          attr_reader id: String?
-
-          def id=: (String) -> String
-
-          attr_reader collection: String?
-
-          def collection=: (String) -> String
-
-          def initialize: (?id: String, ?collection: String) -> void
-
-          def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::Recipient::object_reference
-        end
-
-        def self?.variants: -> [String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference]
       end
     end
   end

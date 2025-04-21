@@ -26,8 +26,8 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (ID, collection).
       #
-      #   @return [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
-      required :recipient, union: -> { Knockapi::Models::MessageEvent::Recipient }
+      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference]
+      required :recipient, union: -> { Knockapi::Models::RecipientReference }
 
       # @!attribute type
       #   The type of event that occurred.
@@ -47,46 +47,9 @@ module Knockapi
       #   @param id [String]
       #   @param _typename [String]
       #   @param inserted_at [Time]
-      #   @param recipient [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
+      #   @param recipient [String, Knockapi::Models::RecipientReference::ObjectReference]
       #   @param type [Symbol, Knockapi::Models::MessageEvent::Type]
       #   @param data [Hash{Symbol=>Object}, nil]
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      #
-      # @see Knockapi::Models::MessageEvent#recipient
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        # The ID of the user.
-        variant String
-
-        # A reference to a recipient object.
-        variant -> { Knockapi::Models::MessageEvent::Recipient::ObjectReference }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   An identifier for the recipient object.
-          #
-          #   @return [String, nil]
-          optional :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String, nil]
-          optional :collection, String
-
-          # @!method initialize(id: nil, collection: nil)
-          #   A reference to a recipient object.
-          #
-          #   @param id [String]
-          #   @param collection [String]
-        end
-
-        # @!method self.variants
-        #   @return [Array(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)]
-      end
 
       # The type of event that occurred.
       #

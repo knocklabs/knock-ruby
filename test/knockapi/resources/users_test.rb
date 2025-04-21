@@ -164,7 +164,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
       row => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Message::Actor]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
@@ -175,7 +175,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::Message::Recipient | nil,
+        recipient: Knockapi::Models::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
         source: Knockapi::Models::Message::Source | nil,

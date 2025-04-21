@@ -96,9 +96,9 @@ module Knockapi
         ?before: String,
         ?include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
         ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
-        ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::object],
+        ?objects: ::Array[Knockapi::Models::recipient_reference],
         ?page_size: Integer,
-        ?recipients: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::recipient],
+        ?recipients: ::Array[Knockapi::Models::recipient_reference],
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription]
 

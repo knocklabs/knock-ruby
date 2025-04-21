@@ -4,7 +4,7 @@ module Knockapi
       attr_reader bulk: Knockapi::Resources::Schedules::Bulk
 
       def create: (
-        recipients: ::Array[Knockapi::Models::ScheduleCreateParams::recipient],
+        recipients: ::Array[Knockapi::Models::recipient_reference],
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
         workflow: String,
         ?data: ::Hash[Symbol, top]?,

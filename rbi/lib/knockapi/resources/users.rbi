@@ -229,13 +229,7 @@ module Knockapi
           after: String,
           before: String,
           include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
-          objects: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::UserListSubscriptionsParams::Object::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
+          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           page_size: Integer,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

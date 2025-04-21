@@ -11,9 +11,9 @@ module Knockapi
       #   The recipients to trigger the workflow for. Can inline identify users, objects,
       #   or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
       #
-      #   @return [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       required :recipients,
-               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ScheduleCreateParams::Recipient] }
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
 
       # @!attribute repeats
       #   The repeat rule for the schedule.
@@ -52,7 +52,7 @@ module Knockapi
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
       # @!method initialize(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
-      #   @param recipients [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
       #   @param workflow [String]
       #   @param data [Hash{Symbol=>Object}, nil]
@@ -60,41 +60,6 @@ module Knockapi
       #   @param scheduled_at [Time, nil]
       #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        # The ID of the user.
-        variant String
-
-        # A reference to a recipient object.
-        variant -> { Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   An identifier for the recipient object.
-          #
-          #   @return [String, nil]
-          optional :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String, nil]
-          optional :collection, String
-
-          # @!method initialize(id: nil, collection: nil)
-          #   A reference to a recipient object.
-          #
-          #   @param id [String]
-          #   @param collection [String]
-        end
-
-        # @!method self.variants
-        #   @return [Array(String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference)]
-      end
     end
   end
 end

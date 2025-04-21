@@ -10,13 +10,7 @@ module Knockapi
       # timing, and data. Schedules can be one-time or recurring.
       sig do
         params(
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference,
-              Knockapi::Internal::AnyHash
-            )
-          ],
+          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),

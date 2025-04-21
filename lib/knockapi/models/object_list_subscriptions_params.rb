@@ -35,9 +35,8 @@ module Knockapi
       # @!attribute objects
       #   Objects to filter by (only used if mode is `recipient`).
       #
-      #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>, nil]
-      optional :objects,
-               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Object] }
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
+      optional :objects, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
 
       # @!attribute page_size
       #   The number of items per page.
@@ -48,18 +47,18 @@ module Knockapi
       # @!attribute recipients
       #   Recipients to filter by (only used if mode is `object`).
       #
-      #   @return [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>, nil]
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
       optional :recipients,
-               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::ObjectListSubscriptionsParams::Recipient] }
+               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
 
       # @!method initialize(after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
       #   @param after [String]
       #   @param before [String]
       #   @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
       #   @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
-      #   @param objects [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference>]
+      #   @param objects [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       #   @param page_size [Integer]
-      #   @param recipients [Array<String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference>]
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       module Include
@@ -80,76 +79,6 @@ module Knockapi
 
         # @!method self.values
         #   @return [Array<Symbol>]
-      end
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      module Object
-        extend Knockapi::Internal::Type::Union
-
-        # The ID of the user.
-        variant String
-
-        # A reference to a recipient object.
-        variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   An identifier for the recipient object.
-          #
-          #   @return [String, nil]
-          optional :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String, nil]
-          optional :collection, String
-
-          # @!method initialize(id: nil, collection: nil)
-          #   A reference to a recipient object.
-          #
-          #   @param id [String]
-          #   @param collection [String]
-        end
-
-        # @!method self.variants
-        #   @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Object::ObjectReference)]
-      end
-
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        # The ID of the user.
-        variant String
-
-        # A reference to a recipient object.
-        variant -> { Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference }
-
-        class ObjectReference < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   An identifier for the recipient object.
-          #
-          #   @return [String, nil]
-          optional :id, String
-
-          # @!attribute collection
-          #   The collection the recipient object belongs to.
-          #
-          #   @return [String, nil]
-          optional :collection, String
-
-          # @!method initialize(id: nil, collection: nil)
-          #   A reference to a recipient object.
-          #
-          #   @param id [String]
-          #   @param collection [String]
-        end
-
-        # @!method self.variants
-        #   @return [Array(String, Knockapi::Models::ObjectListSubscriptionsParams::Recipient::ObjectReference)]
       end
     end
   end
