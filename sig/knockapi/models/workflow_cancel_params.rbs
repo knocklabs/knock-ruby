@@ -3,7 +3,7 @@ module Knockapi
     type workflow_cancel_params =
       {
         cancellation_key: String,
-        recipients: ::Array[Knockapi::Models::WorkflowCancelParams::recipient]?
+        recipients: ::Array[Knockapi::Models::recipient_request]?
       }
       & Knockapi::Internal::Type::request_parameters
 
@@ -13,26 +13,15 @@ module Knockapi
 
       attr_accessor cancellation_key: String
 
-      attr_accessor recipients: ::Array[Knockapi::Models::WorkflowCancelParams::recipient]?
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]?
 
       def initialize: (
         cancellation_key: String,
-        ?recipients: ::Array[Knockapi::Models::WorkflowCancelParams::recipient]?,
+        ?recipients: ::Array[Knockapi::Models::recipient_request]?,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> Knockapi::Models::workflow_cancel_params
-
-      type recipient =
-        String
-        | Knockapi::Models::InlineIdentifyUserRequest
-        | Knockapi::Models::InlineObjectRequest
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        def self?.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
-      end
     end
   end
 end

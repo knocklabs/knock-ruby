@@ -2,7 +2,7 @@ module Knockapi
   module Models
     type object_add_subscriptions_params =
       {
-        recipients: ::Array[Knockapi::Models::ObjectAddSubscriptionsParams::recipient],
+        recipients: ::Array[Knockapi::Models::recipient_request],
         properties: ::Hash[Symbol, top]?
       }
       & Knockapi::Internal::Type::request_parameters
@@ -11,28 +11,17 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor recipients: ::Array[Knockapi::Models::ObjectAddSubscriptionsParams::recipient]
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
 
       attr_accessor properties: ::Hash[Symbol, top]?
 
       def initialize: (
-        recipients: ::Array[Knockapi::Models::ObjectAddSubscriptionsParams::recipient],
+        recipients: ::Array[Knockapi::Models::recipient_request],
         ?properties: ::Hash[Symbol, top]?,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> Knockapi::Models::object_add_subscriptions_params
-
-      type recipient =
-        String
-        | Knockapi::Models::InlineIdentifyUserRequest
-        | Knockapi::Models::InlineObjectRequest
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        def self?.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
-      end
     end
   end
 end

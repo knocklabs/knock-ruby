@@ -3,7 +3,7 @@ module Knockapi
     type schedule_update_params =
       {
         schedule_ids: ::Array[String],
-        actor: Knockapi::Models::ScheduleUpdateParams::actor?,
+        actor: Knockapi::Models::recipient_request?,
         data: ::Hash[Symbol, top]?,
         ending_at: Time?,
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
@@ -18,7 +18,7 @@ module Knockapi
 
       attr_accessor schedule_ids: ::Array[String]
 
-      attr_accessor actor: Knockapi::Models::ScheduleUpdateParams::actor?
+      attr_accessor actor: Knockapi::Models::recipient_request?
 
       attr_accessor data: ::Hash[Symbol, top]?
 
@@ -36,7 +36,7 @@ module Knockapi
 
       def initialize: (
         schedule_ids: ::Array[String],
-        ?actor: Knockapi::Models::ScheduleUpdateParams::actor?,
+        ?actor: Knockapi::Models::recipient_request?,
         ?data: ::Hash[Symbol, top]?,
         ?ending_at: Time?,
         ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
@@ -46,17 +46,6 @@ module Knockapi
       ) -> void
 
       def to_hash: -> Knockapi::Models::schedule_update_params
-
-      type actor =
-        String
-        | Knockapi::Models::InlineIdentifyUserRequest
-        | Knockapi::Models::InlineObjectRequest
-
-      module Actor
-        extend Knockapi::Internal::Type::Union
-
-        def self?.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
-      end
     end
   end
 end

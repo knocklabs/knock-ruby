@@ -4,14 +4,14 @@ module Knockapi
       def cancel: (
         String key,
         cancellation_key: String,
-        ?recipients: ::Array[Knockapi::Models::WorkflowCancelParams::recipient]?,
+        ?recipients: ::Array[Knockapi::Models::recipient_request]?,
         ?request_options: Knockapi::request_opts
       ) -> String
 
       def trigger: (
         String key,
-        recipients: ::Array[Knockapi::Models::WorkflowTriggerParams::recipient],
-        ?actor: Knockapi::Models::WorkflowTriggerParams::actor?,
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        ?actor: Knockapi::Models::recipient_request?,
         ?cancellation_key: String?,
         ?data: ::Hash[Symbol, top]?,
         ?tenant: Knockapi::Models::inline_tenant_request?,

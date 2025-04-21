@@ -1,34 +1,21 @@
 module Knockapi
   module Models
     type object_delete_subscriptions_params =
-      {
-        recipients: ::Array[Knockapi::Models::ObjectDeleteSubscriptionsParams::recipient]
-      }
+      { recipients: ::Array[Knockapi::Models::recipient_request] }
       & Knockapi::Internal::Type::request_parameters
 
     class ObjectDeleteSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor recipients: ::Array[Knockapi::Models::ObjectDeleteSubscriptionsParams::recipient]
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
 
       def initialize: (
-        recipients: ::Array[Knockapi::Models::ObjectDeleteSubscriptionsParams::recipient],
+        recipients: ::Array[Knockapi::Models::recipient_request],
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> Knockapi::Models::object_delete_subscriptions_params
-
-      type recipient =
-        String
-        | Knockapi::Models::InlineIdentifyUserRequest
-        | Knockapi::Models::InlineObjectRequest
-
-      module Recipient
-        extend Knockapi::Internal::Type::Union
-
-        def self?.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
-      end
     end
   end
 end
