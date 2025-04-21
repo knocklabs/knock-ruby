@@ -4,10 +4,10 @@ module Knockapi
   module Resources
     class Channels
       class Bulk
-        # Bulk update messages for a specific channel. The channel is specified by the
-        # `channel_id` parameter. The action to perform is specified by the `action`
-        # parameter, where the action is a status change action (e.g. `archive`,
-        # `unarchive`).
+        # Bulk update the status of messages for a specific channel. The channel is
+        # specified by the `channel_id` parameter. The action to perform is specified by
+        # the `action` parameter, where the action is a status change action (e.g.
+        # `archive`, `unarchive`).
         #
         # @overload update_message_status(channel_id, action, archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_gids: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
         #
