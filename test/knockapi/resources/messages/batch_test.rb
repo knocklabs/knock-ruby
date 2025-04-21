@@ -10,7 +10,10 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
 
     response =
       @knock.messages.batch.archive(
-        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+        message_ids: %w[
+          2w3YUpTTOxuDvZFji8OMsKrG176
+          2w3YVRbPXMIh8Zq6oBFcVDA5xes
+        ]
       )
 
     assert_pattern do
@@ -49,7 +52,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
 
     response =
       @knock.messages.batch.mark_as_read(
-        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+        message_ids: %w[2w3YUpTTOxuDvZFji8OMsKrG176 2w3YVRbPXMIh8Zq6oBFcVDA5xes]
       )
 
     assert_pattern do
@@ -64,7 +67,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
 
     response =
       @knock.messages.batch.mark_as_seen(
-        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+        message_ids: %w[2w3YUpTTOxuDvZFji8OMsKrG176 2w3YVRbPXMIh8Zq6oBFcVDA5xes]
       )
 
     assert_pattern do
@@ -79,7 +82,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
 
     response =
       @knock.messages.batch.mark_as_unread(
-        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+        message_ids: %w[2w3YUpTTOxuDvZFji8OMsKrG176 2w3YVRbPXMIh8Zq6oBFcVDA5xes]
       )
 
     assert_pattern do
@@ -94,7 +97,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
 
     response =
       @knock.messages.batch.mark_as_unseen(
-        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+        message_ids: %w[2w3YUpTTOxuDvZFji8OMsKrG176 2w3YVRbPXMIh8Zq6oBFcVDA5xes]
       )
 
     assert_pattern do
@@ -109,7 +112,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
 
     response =
       @knock.messages.batch.unarchive(
-        message_ids: %w[11111111-1111-1111-1111-111111111111 22222222-2222-2222-2222-222222222222]
+        message_ids: %w[2w3YUpTTOxuDvZFji8OMsKrG176 2w3YVRbPXMIh8Zq6oBFcVDA5xes]
       )
 
     assert_pattern do
