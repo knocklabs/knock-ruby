@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     class WorkflowTriggerResponse < Knockapi::Internal::Type::BaseModel
-      # The ID of the workflow trigger. This value allows you to track individual
-      # workflow runs associated with this trigger request.
+      # This value allows you to track individual messages associated with this trigger
+      # request.
       sig { returns(String) }
       attr_accessor :workflow_run_id
 

@@ -29,7 +29,7 @@ module Knockapi
       end
       def create(
         # The recipients to trigger the workflow for. Can inline identify users, objects,
-        # or use a list of user ids. Cannot exceed 1000 recipients in a single trigger.
+        # or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
         recipients:,
         # The repeat rule for the schedule.
         repeats:,

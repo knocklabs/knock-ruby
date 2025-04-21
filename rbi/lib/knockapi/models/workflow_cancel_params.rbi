@@ -6,21 +6,38 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # The cancellation key provided during the initial notify call. If used in a
-      # cancel request, will cancel the notification for the recipients specified in the
-      # cancel request.
+      # An optional key that is used to reference a specific workflow trigger request
+      # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
+      # request. Must be provided while triggering a workflow in order to enable
+      # subsequent cancellation. Should be unique across trigger requests to avoid
+      # unintentional cancellations.
       sig { returns(String) }
       attr_accessor :cancellation_key
 
       # A list of recipients to cancel the notification for. If omitted, cancels for all
       # recipients associated with the cancellation key.
-      sig { returns(T.nilable(T::Array[String])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+          )
+        )
+      end
       attr_accessor :recipients
 
       sig do
         params(
           cancellation_key: String,
-          recipients: T.nilable(T::Array[String]),
+          recipients: T.nilable(
+            T::Array[
+              T.any(
+                String,
+                Knockapi::Models::InlineIdentifyUserRequest,
+                Knockapi::Internal::AnyHash,
+                Knockapi::Models::InlineObjectRequest
+              )
+            ]
+          ),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
@@ -32,12 +49,27 @@ module Knockapi
           .returns(
             {
               cancellation_key: String,
-              recipients: T.nilable(T::Array[String]),
+              recipients: T.nilable(
+                T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+              ),
               request_options: Knockapi::RequestOptions
             }
           )
       end
       def to_hash; end
+
+      # Specifies a recipient in a request. This can either be a user identifier
+      # (string), an inline user request (object), or an inline object request, which is
+      # determined by the presence of a `collection` property.
+      module Recipient
+        extend Knockapi::Internal::Type::Union
+
+        sig do
+          override
+            .returns([String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest])
+        end
+        def self.variants; end
+      end
     end
   end
 end

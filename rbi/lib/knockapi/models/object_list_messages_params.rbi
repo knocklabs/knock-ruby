@@ -20,7 +20,7 @@ module Knockapi
       sig { params(before: String).void }
       attr_writer :before
 
-      # Limits the results to items with the corresponding channel id.
+      # Limits the results to items with the corresponding channel ID.
       sig { returns(T.nilable(String)) }
       attr_reader :channel_id
 

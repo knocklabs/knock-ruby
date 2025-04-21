@@ -21,7 +21,7 @@ module Knockapi
       def add_subscriptions: (
         String collection,
         String object_id_,
-        recipients: ::Array[Knockapi::Models::recipient_request],
+        recipients: ::Array[Knockapi::Models::ObjectAddSubscriptionsParams::recipient],
         ?properties: ::Hash[Symbol, top]?,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::object_add_subscriptions_response
@@ -29,7 +29,7 @@ module Knockapi
       def delete_subscriptions: (
         String collection,
         String object_id_,
-        recipients: ::Array[Knockapi::Models::recipient_request],
+        recipients: ::Array[Knockapi::Models::ObjectDeleteSubscriptionsParams::recipient],
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::object_delete_subscriptions_response
 

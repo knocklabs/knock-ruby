@@ -7,7 +7,7 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # The recipients to trigger the workflow for. Can inline identify users, objects,
-      # or use a list of user ids. Cannot exceed 1000 recipients in a single trigger.
+      # or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
       sig do
         returns(
           T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
@@ -27,9 +27,11 @@ module Knockapi
       end
       attr_accessor :actor
 
-      # The cancellation key provided during the initial notify call. If used in a
-      # cancel request, will cancel the notification for the recipients specified in the
-      # cancel request.
+      # An optional key that is used to reference a specific workflow trigger request
+      # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
+      # request. Must be provided while triggering a workflow in order to enable
+      # subsequent cancellation. Should be unique across trigger requests to avoid
+      # unintentional cancellations.
       sig { returns(T.nilable(String)) }
       attr_accessor :cancellation_key
 
@@ -92,6 +94,32 @@ module Knockapi
           )
       end
       def to_hash; end
+
+      # Specifies a recipient in a request. This can either be a user identifier
+      # (string), an inline user request (object), or an inline object request, which is
+      # determined by the presence of a `collection` property.
+      module Recipient
+        extend Knockapi::Internal::Type::Union
+
+        sig do
+          override
+            .returns([String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest])
+        end
+        def self.variants; end
+      end
+
+      # Specifies a recipient in a request. This can either be a user identifier
+      # (string), an inline user request (object), or an inline object request, which is
+      # determined by the presence of a `collection` property.
+      module Actor
+        extend Knockapi::Internal::Type::Union
+
+        sig do
+          override
+            .returns([String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest])
+        end
+        def self.variants; end
+      end
     end
   end
 end

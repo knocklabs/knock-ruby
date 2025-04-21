@@ -57,7 +57,7 @@ module Knockapi
         optional :metadata, Knockapi::Internal::Type::Unknown
 
         # @!attribute tenant
-        #   The tenant id of the guide.
+        #   The tenant ID of the guide.
         #
         #   @return [String, nil]
         optional :tenant, String, nil?: true

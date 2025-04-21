@@ -24,7 +24,7 @@ module Knockapi
 
       # @!attribute recipient
       #   A reference to a recipient, either a user identifier (string) or an object
-      #   reference (id, collection).
+      #   reference (ID, collection).
       #
       #   @return [String, Knockapi::Models::MessageEvent::Recipient::ObjectReference]
       required :recipient, union: -> { Knockapi::Models::MessageEvent::Recipient }
@@ -52,13 +52,13 @@ module Knockapi
       #   @param data [Hash{Symbol=>Object}, nil]
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       #
       # @see Knockapi::Models::MessageEvent#recipient
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # The id of the user.
+        # The ID of the user.
         variant String
 
         # A reference to a recipient object.

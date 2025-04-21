@@ -104,7 +104,7 @@ module Knockapi
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       module Object
         extend Knockapi::Internal::Type::Union
 

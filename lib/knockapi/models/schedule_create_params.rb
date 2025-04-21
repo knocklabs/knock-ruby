@@ -9,7 +9,7 @@ module Knockapi
 
       # @!attribute recipients
       #   The recipients to trigger the workflow for. Can inline identify users, objects,
-      #   or use a list of user ids. Cannot exceed 1000 recipients in a single trigger.
+      #   or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
       #
       #   @return [Array<String, Knockapi::Models::ScheduleCreateParams::Recipient::ObjectReference>]
       required :recipients,
@@ -62,11 +62,11 @@ module Knockapi
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # The id of the user.
+        # The ID of the user.
         variant String
 
         # A reference to a recipient object.

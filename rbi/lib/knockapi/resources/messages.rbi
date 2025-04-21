@@ -31,7 +31,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # Limits the results to items with the corresponding channel id.
+        # Limits the results to items with the corresponding channel ID.
         channel_id: nil,
         # One or more engagement statuses. Limits results to messages with the given
         # engagement status(es).

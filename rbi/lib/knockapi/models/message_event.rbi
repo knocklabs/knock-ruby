@@ -16,7 +16,7 @@ module Knockapi
       attr_accessor :inserted_at
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       sig { returns(T.any(String, Knockapi::Models::MessageEvent::Recipient::ObjectReference)) }
       attr_accessor :recipient
 
@@ -58,7 +58,7 @@ module Knockapi
       def to_hash; end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       module Recipient
         extend Knockapi::Internal::Type::Union
 

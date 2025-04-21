@@ -20,7 +20,7 @@ module Knockapi
       optional :before, String
 
       # @!attribute channel_id
-      #   Limits the results to items with the corresponding channel id.
+      #   Limits the results to items with the corresponding channel ID.
       #
       #   @return [String, nil]
       optional :channel_id, String

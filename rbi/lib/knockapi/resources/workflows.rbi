@@ -10,7 +10,16 @@ module Knockapi
         params(
           key: String,
           cancellation_key: String,
-          recipients: T.nilable(T::Array[String]),
+          recipients: T.nilable(
+            T::Array[
+              T.any(
+                String,
+                Knockapi::Models::InlineIdentifyUserRequest,
+                Knockapi::Internal::AnyHash,
+                Knockapi::Models::InlineObjectRequest
+              )
+            ]
+          ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(String)
@@ -18,16 +27,18 @@ module Knockapi
       def cancel(
         # The key of the workflow to cancel.
         key,
-        # The cancellation key provided during the initial notify call. If used in a
-        # cancel request, will cancel the notification for the recipients specified in the
-        # cancel request.
+        # An optional key that is used to reference a specific workflow trigger request
+        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
+        # request. Must be provided while triggering a workflow in order to enable
+        # subsequent cancellation. Should be unique across trigger requests to avoid
+        # unintentional cancellations.
         cancellation_key:,
         # A list of recipients to cancel the notification for. If omitted, cancels for all
         # recipients associated with the cancellation key.
         recipients: nil,
         request_options: {}
       ); end
-      # Trigger a workflow specified by the key to run for the given recipients, using
+      # Trigger a workflow (specified by the key) to run for the given recipients, using
       # the parameters provided. Returns an identifier for the workflow run request. All
       # workflow runs are executed asynchronously.
       sig do
@@ -60,15 +71,17 @@ module Knockapi
         # Key of the workflow to trigger.
         key,
         # The recipients to trigger the workflow for. Can inline identify users, objects,
-        # or use a list of user ids. Cannot exceed 1000 recipients in a single trigger.
+        # or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
         recipients:,
         # Specifies a recipient in a request. This can either be a user identifier
         # (string), an inline user request (object), or an inline object request, which is
         # determined by the presence of a `collection` property.
         actor: nil,
-        # The cancellation key provided during the initial notify call. If used in a
-        # cancel request, will cancel the notification for the recipients specified in the
-        # cancel request.
+        # An optional key that is used to reference a specific workflow trigger request
+        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
+        # request. Must be provided while triggering a workflow in order to enable
+        # subsequent cancellation. Should be unique across trigger requests to avoid
+        # unintentional cancellations.
         cancellation_key: nil,
         # An optional map of data to pass into the workflow execution.
         data: nil,

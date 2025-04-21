@@ -86,7 +86,7 @@ module Knockapi
 
       # @!attribute recipient
       #   A reference to a recipient, either a user identifier (string) or an object
-      #   reference (id, collection).
+      #   reference (ID, collection).
       #
       #   @return [String, Knockapi::Models::Message::Recipient::ObjectReference, nil]
       optional :recipient, union: -> { Knockapi::Models::Message::Recipient }
@@ -162,11 +162,11 @@ module Knockapi
       #   @param workflow [String, nil]
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       module Actor
         extend Knockapi::Internal::Type::Union
 
-        # The id of the user.
+        # The ID of the user.
         variant String
 
         # A reference to a recipient object.
@@ -212,13 +212,13 @@ module Knockapi
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       #
       # @see Knockapi::Models::Message#recipient
       module Recipient
         extend Knockapi::Internal::Type::Union
 
-        # The id of the user.
+        # The ID of the user.
         variant String
 
         # A reference to a recipient object.
@@ -268,7 +268,7 @@ module Knockapi
         required :key, String
 
         # @!attribute version_id
-        #   The id of the version of the source that triggered the message.
+        #   The ID of the version of the source that triggered the message.
         #
         #   @return [String]
         required :version_id, String

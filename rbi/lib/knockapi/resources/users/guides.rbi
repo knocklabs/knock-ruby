@@ -69,7 +69,7 @@ module Knockapi
           is_final: nil,
           # The metadata of the guide.
           metadata: nil,
-          # The tenant id of the guide.
+          # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
         ); end
@@ -113,7 +113,7 @@ module Knockapi
           is_final: nil,
           # The metadata of the guide.
           metadata: nil,
-          # The tenant id of the guide.
+          # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
         ); end
@@ -157,7 +157,7 @@ module Knockapi
           is_final: nil,
           # The metadata of the guide.
           metadata: nil,
-          # The tenant id of the guide.
+          # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
         ); end

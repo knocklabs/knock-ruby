@@ -51,7 +51,7 @@ module Knockapi
         sig { params(metadata: T.anything).void }
         attr_writer :metadata
 
-        # The tenant id of the guide.
+        # The tenant ID of the guide.
         sig { returns(T.nilable(String)) }
         attr_accessor :tenant
 

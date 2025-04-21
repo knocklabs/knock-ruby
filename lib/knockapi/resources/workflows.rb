@@ -11,7 +11,7 @@ module Knockapi
       #
       # @param key [String]
       # @param cancellation_key [String]
-      # @param recipients [Array<String>, nil]
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
@@ -28,7 +28,7 @@ module Knockapi
         )
       end
 
-      # Trigger a workflow specified by the key to run for the given recipients, using
+      # Trigger a workflow (specified by the key) to run for the given recipients, using
       # the parameters provided. Returns an identifier for the workflow run request. All
       # workflow runs are executed asynchronously.
       #

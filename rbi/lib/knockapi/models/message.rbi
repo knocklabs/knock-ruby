@@ -80,7 +80,7 @@ module Knockapi
       attr_accessor :read_at
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       sig { returns(T.nilable(T.any(String, Knockapi::Models::Message::Recipient::ObjectReference))) }
       attr_reader :recipient
 
@@ -211,7 +211,7 @@ module Knockapi
       def to_hash; end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       module Actor
         extend Knockapi::Internal::Type::Union
 
@@ -261,7 +261,7 @@ module Knockapi
       end
 
       # A reference to a recipient, either a user identifier (string) or an object
-      # reference (id, collection).
+      # reference (ID, collection).
       module Recipient
         extend Knockapi::Internal::Type::Union
 
@@ -304,7 +304,7 @@ module Knockapi
         sig { returns(String) }
         attr_accessor :key
 
-        # The id of the version of the source that triggered the message.
+        # The ID of the version of the source that triggered the message.
         sig { returns(String) }
         attr_accessor :version_id
 
