@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Providers
-      class SlackRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
+      class MsTeamRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
         # OK response.
         sig { returns(T.nilable(String)) }
         attr_reader :ok

@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     module Providers
-      # @see Knockapi::Resources::Providers::Slack#revoke_access
-      class SlackRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
+      # @see Knockapi::Resources::Providers::MsTeams#revoke_access
+      class MsTeamRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute ok
         #   OK response.
         #

@@ -27,7 +27,7 @@ module Knockapi
           String channel_id,
           ms_teams_tenant_object: String,
           ?request_options: Knockapi::request_opts
-        ) -> String
+        ) -> Knockapi::Models::Providers::MsTeamRevokeAccessResponse
 
         def initialize: (client: Knockapi::Client) -> void
       end

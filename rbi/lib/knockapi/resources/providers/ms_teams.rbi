@@ -69,7 +69,7 @@ module Knockapi
             ms_teams_tenant_object: String,
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
-            .returns(String)
+            .returns(Knockapi::Models::Providers::MsTeamRevokeAccessResponse)
         end
         def revoke_access(
           # The ID of the Knock Microsoft Teams channel to revoke access for.

@@ -74,7 +74,13 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
       @knock.providers.ms_teams.revoke_access("channel_id", ms_teams_tenant_object: "ms_teams_tenant_object")
 
     assert_pattern do
-      response => String
+      response => Knockapi::Models::Providers::MsTeamRevokeAccessResponse
+    end
+
+    assert_pattern do
+      response => {
+        ok: String | nil
+      }
     end
   end
 end

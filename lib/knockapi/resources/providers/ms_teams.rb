@@ -84,7 +84,7 @@ module Knockapi
         # @param ms_teams_tenant_object [String]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [String]
+        # @return [Knockapi::Models::Providers::MsTeamRevokeAccessResponse]
         #
         # @see Knockapi::Models::Providers::MsTeamRevokeAccessParams
         def revoke_access(channel_id, params)
@@ -93,7 +93,7 @@ module Knockapi
             method: :put,
             path: ["v1/providers/ms-teams/%1$s/revoke_access", channel_id],
             query: parsed,
-            model: String,
+            model: Knockapi::Models::Providers::MsTeamRevokeAccessResponse,
             options: options
           )
         end
