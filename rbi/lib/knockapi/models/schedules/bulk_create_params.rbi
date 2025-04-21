@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Schedules
-      class BulkCreateParams < Knockapi::Internal::Type::BaseModel
+      class BulkCreateParams < Knockapi::Models::Schedules::BulkCreateSchedulesRequest
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 

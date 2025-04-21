@@ -3,12 +3,13 @@
 require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Schedules::BulkTest < Knockapi::Test::ResourceTest
-  def test_create
+  def test_create_required_params
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.schedules.bulk.create
+    response =
+      @knock.schedules.bulk.create(schedules: [{workflow: "comment-created"}, {workflow: "comment-created"}])
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation

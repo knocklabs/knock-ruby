@@ -8,19 +8,22 @@ module Knockapi
         # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
         # for the `actor`, `recipient`, and `tenant` fields.
         #
-        # @overload create(request_options: {})
+        # @overload create(schedules:, request_options: {})
         #
+        # @param schedules [Array<Knockapi::Models::Schedules::BulkCreateSchedulesRequest::Schedule>]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Schedules::BulkCreateParams
-        def create(params = {})
+        def create(params)
+          parsed, options = Knockapi::Models::Schedules::BulkCreateParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/schedules/bulk/create",
+            body: parsed,
             model: Knockapi::Models::BulkOperation,
-            options: params[:request_options]
+            options: options
           )
         end
 

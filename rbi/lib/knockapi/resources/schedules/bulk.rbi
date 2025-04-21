@@ -8,11 +8,17 @@ module Knockapi
         # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
         # for the `actor`, `recipient`, and `tenant` fields.
         sig do
-          params(request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)))
+          params(
+            schedules: T::Array[T.any(Knockapi::Models::Schedules::BulkCreateSchedulesRequest::Schedule, Knockapi::Internal::AnyHash)],
+            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          )
             .returns(Knockapi::Models::BulkOperation)
         end
-        def create(request_options: {}); end
-
+        def create(
+          # A list of schedules.
+          schedules:,
+          request_options: {}
+        ); end
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
         def self.new(client:); end
