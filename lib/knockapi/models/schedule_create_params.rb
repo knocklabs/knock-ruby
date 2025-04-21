@@ -9,7 +9,7 @@ module Knockapi
 
       # @!attribute recipients
       #   The recipients to trigger the workflow for. Can inline identify users, objects,
-      #   or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
+      #   or use a list of user IDs. Limited to 1,000 recipients.
       #
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
