@@ -18,7 +18,8 @@ module Knockapi
 
       # @!attribute actors
       #   One or more actors that are associated with this message. Note: this is a list
-      #   that can contain up to 10 actors if the message is produced from a batch.
+      #   that can contain up to 10 actors if the message is produced from a
+      #   [batch](/designing-workflows/batch-function).
       #
       #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
       optional :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
@@ -30,7 +31,7 @@ module Knockapi
       optional :archived_at, Time, nil?: true
 
       # @!attribute channel_id
-      #   The id for the channel the message was sent through.
+      #   The ID for the channel the message was sent through.
       #
       #   @return [String, nil]
       optional :channel_id, String
@@ -120,7 +121,8 @@ module Knockapi
       optional :status, enum: -> { Knockapi::Models::Message::Status }
 
       # @!attribute tenant
-      #   The id for the tenant set for the message.
+      #   The ID of the `tenant` associated with the message. Only present when a `tenant`
+      #   is provided on a workflow trigger request.
       #
       #   @return [String, nil]
       optional :tenant, String, nil?: true

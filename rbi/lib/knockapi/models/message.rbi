@@ -18,7 +18,8 @@ module Knockapi
       attr_writer :_typename
 
       # One or more actors that are associated with this message. Note: this is a list
-      # that can contain up to 10 actors if the message is produced from a batch.
+      # that can contain up to 10 actors if the message is produced from a
+      # [batch](/designing-workflows/batch-function).
       sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)])) }
       attr_reader :actors
 
@@ -34,7 +35,7 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :archived_at
 
-      # The id for the channel the message was sent through.
+      # The ID for the channel the message was sent through.
       sig { returns(T.nilable(String)) }
       attr_reader :channel_id
 
@@ -118,7 +119,8 @@ module Knockapi
       sig { params(status: Knockapi::Models::Message::Status::OrSymbol).void }
       attr_writer :status
 
-      # The id for the tenant set for the message.
+      # The ID of the `tenant` associated with the message. Only present when a `tenant`
+      # is provided on a workflow trigger request.
       sig { returns(T.nilable(String)) }
       attr_accessor :tenant
 
