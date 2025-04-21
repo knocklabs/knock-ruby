@@ -7,10 +7,20 @@ module Knockapi
       attr_reader :bulk
 
       # Creates one or more schedules for a workflow with the specified recipients,
-      # timing, and data. Schedules can be one-time or recurring.
+      # timing, and data. Schedules can be one-time or recurring. This endpoint also
+      # handles
+      # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
+      # for the `actor`, `recipient`, and `tenant` fields.
       sig do
         params(
-          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
+          recipients: T::Array[
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
+          ],
           repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),
@@ -41,6 +51,9 @@ module Knockapi
       ); end
       # Updates one or more existing schedules with new timing, data, or other
       # properties. All specified schedule IDs will be updated with the same values.
+      # This endpoint also handles
+      # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
+      # for the `actor`, `recipient`, and `tenant` fields.
       sig do
         params(
           schedule_ids: T::Array[String],

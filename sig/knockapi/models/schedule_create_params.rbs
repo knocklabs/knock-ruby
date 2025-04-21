@@ -2,7 +2,7 @@ module Knockapi
   module Models
     type schedule_create_params =
       {
-        recipients: ::Array[Knockapi::Models::recipient_reference],
+        recipients: ::Array[Knockapi::Models::recipient_request],
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
         workflow: String,
         data: ::Hash[Symbol, top]?,
@@ -16,7 +16,7 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor recipients: ::Array[Knockapi::Models::recipient_reference]
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
 
       attr_accessor repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]
 
@@ -31,7 +31,7 @@ module Knockapi
       attr_accessor tenant: Knockapi::Models::inline_tenant_request?
 
       def initialize: (
-        recipients: ::Array[Knockapi::Models::recipient_reference],
+        recipients: ::Array[Knockapi::Models::recipient_request],
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
         workflow: String,
         ?data: ::Hash[Symbol, top]?,

@@ -11,9 +11,8 @@ module Knockapi
       #   The recipients to trigger the workflow for. Can inline identify users, objects,
       #   or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
       #
-      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
-      required :recipients,
-               -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
+      #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
 
       # @!attribute repeats
       #   The repeat rule for the schedule.
@@ -52,7 +51,7 @@ module Knockapi
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
       # @!method initialize(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
-      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
       #   @param workflow [String]
       #   @param data [Hash{Symbol=>Object}, nil]

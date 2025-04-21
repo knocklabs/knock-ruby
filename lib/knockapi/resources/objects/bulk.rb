@@ -27,7 +27,10 @@ module Knockapi
         end
 
         # Add subscriptions for all objects in a single collection. If a subscription for
-        # an object in the collection already exists, it will be updated.
+        # an object in the collection already exists, it will be updated. This endpoint
+        # also handles
+        # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
+        # for the `recipient` field.
         #
         # @overload add_subscriptions(collection, subscriptions:, request_options: {})
         #

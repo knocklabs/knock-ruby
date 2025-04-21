@@ -50,7 +50,9 @@ module Knockapi
         request_options: {}
       ); end
       # Add subscriptions for an object. If a subscription already exists, it will be
-      # updated. Can accept inline-identifications for recipients.
+      # updated. This endpoint also handles
+      # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
+      # for the `recipient`
       sig do
         params(
           collection: String,

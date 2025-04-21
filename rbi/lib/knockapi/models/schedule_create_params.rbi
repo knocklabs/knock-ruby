@@ -8,7 +8,11 @@ module Knockapi
 
       # The recipients to trigger the workflow for. Can inline identify users, objects,
       # or use a list of user IDs. Limited to 1,000 recipients in a single trigger.
-      sig { returns(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)]) }
+      sig do
+        returns(
+          T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+        )
+      end
       attr_accessor :recipients
 
       # The repeat rule for the schedule.
@@ -37,7 +41,14 @@ module Knockapi
 
       sig do
         params(
-          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
+          recipients: T::Array[
+            T.any(
+              String,
+              Knockapi::Models::InlineIdentifyUserRequest,
+              Knockapi::Internal::AnyHash,
+              Knockapi::Models::InlineObjectRequest
+            )
+          ],
           repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),
@@ -62,7 +73,7 @@ module Knockapi
         override
           .returns(
             {
-              recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)],
+              recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
               repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],
               workflow: String,
               data: T.nilable(T::Hash[Symbol, T.anything]),
