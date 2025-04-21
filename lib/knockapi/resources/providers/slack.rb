@@ -58,7 +58,7 @@ module Knockapi
         # @param access_token_object [String]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [String]
+        # @return [Knockapi::Models::Providers::SlackRevokeAccessResponse]
         #
         # @see Knockapi::Models::Providers::SlackRevokeAccessParams
         def revoke_access(channel_id, params)
@@ -67,7 +67,7 @@ module Knockapi
             method: :put,
             path: ["v1/providers/slack/%1$s/revoke_access", channel_id],
             query: parsed,
-            model: String,
+            model: Knockapi::Models::Providers::SlackRevokeAccessResponse,
             options: options
           )
         end

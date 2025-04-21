@@ -45,7 +45,7 @@ module Knockapi
             access_token_object: String,
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
-            .returns(String)
+            .returns(Knockapi::Models::Providers::SlackRevokeAccessResponse)
         end
         def revoke_access(
           # The ID of the Knock Slack channel to revoke access for.

@@ -58,7 +58,13 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
     response = @knock.providers.slack.revoke_access("channel_id", access_token_object: "access_token_object")
 
     assert_pattern do
-      response => String
+      response => Knockapi::Models::Providers::SlackRevokeAccessResponse
+    end
+
+    assert_pattern do
+      response => {
+        ok: String | nil
+      }
     end
   end
 end
