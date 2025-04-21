@@ -10,16 +10,9 @@ module Knockapi
       sig { returns(T::Array[String]) }
       attr_accessor :schedule_ids
 
-      # Specifies a recipient in a request. This can either be a user identifier
-      # (string), an inline user request (object), or an inline object request, which is
-      # determined by the presence of a `collection` property.
-      sig do
-        returns(
-          T.nilable(
-            T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
-          )
-        )
-      end
+      # A reference to a recipient, either a user identifier (string) or an object
+      # reference (ID, collection).
+      sig { returns(T.nilable(T.any(String, Knockapi::Models::RecipientReference::ObjectReference))) }
       attr_accessor :actor
 
       # An optional map of data to pass into the workflow execution.
@@ -49,12 +42,7 @@ module Knockapi
         params(
           schedule_ids: T::Array[String],
           actor: T.nilable(
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
+            T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)
           ),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
@@ -80,9 +68,7 @@ module Knockapi
           .returns(
             {
               schedule_ids: T::Array[String],
-              actor: T.nilable(
-                T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
-              ),
+              actor: T.nilable(T.any(String, Knockapi::Models::RecipientReference::ObjectReference)),
               data: T.nilable(T::Hash[Symbol, T.anything]),
               ending_at: T.nilable(Time),
               repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],

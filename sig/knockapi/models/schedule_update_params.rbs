@@ -3,7 +3,7 @@ module Knockapi
     type schedule_update_params =
       {
         schedule_ids: ::Array[String],
-        actor: Knockapi::Models::recipient_request?,
+        actor: Knockapi::Models::recipient_reference?,
         data: ::Hash[Symbol, top]?,
         ending_at: Time?,
         repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
@@ -18,7 +18,7 @@ module Knockapi
 
       attr_accessor schedule_ids: ::Array[String]
 
-      attr_accessor actor: Knockapi::Models::recipient_request?
+      attr_accessor actor: Knockapi::Models::recipient_reference?
 
       attr_accessor data: ::Hash[Symbol, top]?
 
@@ -36,7 +36,7 @@ module Knockapi
 
       def initialize: (
         schedule_ids: ::Array[String],
-        ?actor: Knockapi::Models::recipient_request?,
+        ?actor: Knockapi::Models::recipient_reference?,
         ?data: ::Hash[Symbol, top]?,
         ?ending_at: Time?,
         ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],

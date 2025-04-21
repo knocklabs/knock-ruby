@@ -45,12 +45,7 @@ module Knockapi
         params(
           schedule_ids: T::Array[String],
           actor: T.nilable(
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
+            T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)
           ),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
@@ -64,9 +59,8 @@ module Knockapi
       def update(
         # A list of schedule IDs.
         schedule_ids:,
-        # Specifies a recipient in a request. This can either be a user identifier
-        # (string), an inline user request (object), or an inline object request, which is
-        # determined by the presence of a `collection` property.
+        # A reference to a recipient, either a user identifier (string) or an object
+        # reference (ID, collection).
         actor: nil,
         # An optional map of data to pass into the workflow execution.
         data: nil,

@@ -40,7 +40,7 @@ module Knockapi
       # @overload update(schedule_ids:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
       # @param schedule_ids [Array<String>]
-      # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
+      # @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
       # @param data [Hash{Symbol=>Object}, nil]
       # @param ending_at [Time, nil]
       # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]

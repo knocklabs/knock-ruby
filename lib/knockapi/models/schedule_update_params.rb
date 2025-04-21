@@ -14,12 +14,11 @@ module Knockapi
       required :schedule_ids, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!attribute actor
-      #   Specifies a recipient in a request. This can either be a user identifier
-      #   (string), an inline user request (object), or an inline object request, which is
-      #   determined by the presence of a `collection` property.
+      #   A reference to a recipient, either a user identifier (string) or an object
+      #   reference (ID, collection).
       #
-      #   @return [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
-      optional :actor, union: -> { Knockapi::Models::RecipientRequest }, nil?: true
+      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
+      optional :actor, union: -> { Knockapi::Models::RecipientReference }, nil?: true
 
       # @!attribute data
       #   An optional map of data to pass into the workflow execution.
@@ -53,7 +52,7 @@ module Knockapi
 
       # @!method initialize(schedule_ids:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #   @param schedule_ids [Array<String>]
-      #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
+      #   @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
       #   @param data [Hash{Symbol=>Object}, nil]
       #   @param ending_at [Time, nil]
       #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
