@@ -7,14 +7,14 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # The archived status to filter messages by.
+        # Limits the results to messages with the given archived status.
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol)) }
         attr_reader :archived
 
         sig { params(archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol).void }
         attr_writer :archived
 
-        # The delivery status to filter messages by.
+        # Limits the results to messages with the given delivery status.
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol)) }
         attr_reader :delivery_status
 
@@ -26,7 +26,7 @@ module Knockapi
         end
         attr_writer :delivery_status
 
-        # The engagement status to filter messages by.
+        # Limits the results to messages with the given engagement status.
         sig { returns(T.nilable(Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol)) }
         attr_reader :engagement_status
 
@@ -38,58 +38,56 @@ module Knockapi
         end
         attr_writer :engagement_status
 
-        # Whether to include only messages that have a tenant or not.
+        # Limits the results to messages that have a tenant or not.
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :has_tenant
 
         sig { params(has_tenant: T::Boolean).void }
         attr_writer :has_tenant
 
-        # The timestamp to filter messages by. Only include messages created after this
-        # timestamp.
         sig { returns(T.nilable(Time)) }
         attr_reader :newer_than
 
         sig { params(newer_than: Time).void }
         attr_writer :newer_than
 
-        # The timestamp to filter messages by. Only include messages created before this
-        # timestamp.
         sig { returns(T.nilable(Time)) }
         attr_reader :older_than
 
         sig { params(older_than: Time).void }
         attr_writer :older_than
 
-        # The recipient GIDs to filter messages by.
+        # Limits the results to messages with the given recipient GIDs.
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :recipient_gids
 
         sig { params(recipient_gids: T::Array[String]).void }
         attr_writer :recipient_gids
 
-        # The recipient IDs to filter messages by.
+        # Limits the results to messages with the given recipient IDs.
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :recipient_ids
 
         sig { params(recipient_ids: T::Array[String]).void }
         attr_writer :recipient_ids
 
-        # The tenant IDs to filter messages by.
+        # Limits the results to messages with the given tenant IDs.
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :tenants
 
         sig { params(tenants: T::Array[String]).void }
         attr_writer :tenants
 
-        # The trigger data to filter messages by. Must be a valid JSON object.
+        # Limits the results to only messages that were generated with the given data. See
+        # [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+        # more information.
         sig { returns(T.nilable(String)) }
         attr_reader :trigger_data
 
         sig { params(trigger_data: String).void }
         attr_writer :trigger_data
 
-        # The workflow keys to filter messages by.
+        # Limits the results to messages with the given workflow keys.
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :workflows
 
@@ -177,7 +175,7 @@ module Knockapi
           def self.values; end
         end
 
-        # The archived status to filter messages by.
+        # Limits the results to messages with the given archived status.
         module Archived
           extend Knockapi::Internal::Type::Enum
 
@@ -198,7 +196,7 @@ module Knockapi
           def self.values; end
         end
 
-        # The delivery status to filter messages by.
+        # Limits the results to messages with the given delivery status.
         module DeliveryStatus
           extend Knockapi::Internal::Type::Enum
 
@@ -234,7 +232,7 @@ module Knockapi
           def self.values; end
         end
 
-        # The engagement status to filter messages by.
+        # Limits the results to messages with the given engagement status.
         module EngagementStatus
           extend Knockapi::Internal::Type::Enum
 

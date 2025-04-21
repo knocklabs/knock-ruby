@@ -42,7 +42,11 @@ module Knockapi
       optional :clicked_at, Time, nil?: true
 
       # @!attribute data
-      #   Data from the activities linked to the message.
+      #   Data associated with the message’s workflow run. Includes the workflow trigger
+      #   request’s `data` payload merged with any additional data returned by a
+      #   [fetch function](/designing-workflows/fetch-function). For messages produced
+      #   after a [batch step](/designing-workflows/batch-function), includes the payload
+      #   `data` from the most-recent trigger request (the final `activity` in the batch).
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
@@ -104,7 +108,7 @@ module Knockapi
       optional :seen_at, Time, nil?: true
 
       # @!attribute source
-      #   The source that triggered the message.
+      #   The workflow that triggered the message.
       #
       #   @return [Knockapi::Models::Message::Source, nil]
       optional :source, -> { Knockapi::Models::Message::Source }
@@ -190,19 +194,19 @@ module Knockapi
         required :categories, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute key
-        #   The key of the source that triggered the message.
+        #   The key of the workflow that triggered the message.
         #
         #   @return [String]
         required :key, String
 
         # @!attribute version_id
-        #   The ID of the version of the source that triggered the message.
+        #   The ID of the version of the workflow that triggered the message.
         #
         #   @return [String]
         required :version_id, String
 
         # @!method initialize(_typename:, categories:, key:, version_id:)
-        #   The source that triggered the message.
+        #   The workflow that triggered the message.
         #
         #   @param _typename [String]
         #   @param categories [Array<String>]

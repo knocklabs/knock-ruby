@@ -4,7 +4,8 @@ module Knockapi
   module Resources
     class Messages
       class Batch
-        # Marks the given messages as archived.
+        # Marks the given messages as archived. Archived messages are hidden from the
+        # default message list in the feed but can still be accessed and unarchived later.
         sig do
           params(
             message_ids: T::Array[String],
@@ -30,7 +31,11 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Marks the given messages as interacted with.
+        # Marks the given messages as interacted with by the user. This can include any
+        # user action on the message, with optional metadata about the specific
+        # interaction. Cannot include more than 5 key-value pairs, must not contain nested
+        # data. Read more about message engagement statuses
+        # [here](/send-notifications/message-statuses#engagement-status).
         sig do
           params(
             message_ids: T::Array[String],
@@ -46,7 +51,8 @@ module Knockapi
           metadata: nil,
           request_options: {}
         ); end
-        # Marks the given messages as read.
+        # Marks the given messages as `read`. Read more about message engagement statuses
+        # [here](/send-notifications/message-statuses#engagement-status).
         sig do
           params(
             message_ids: T::Array[String],
@@ -59,7 +65,9 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Marks the given messages as seen.
+        # Marks the given messages as `seen`. This indicates that the user has viewed the
+        # message in their feed or inbox. Read more about message engagement statuses
+        # [here](/send-notifications/message-statuses#engagement-status).
         sig do
           params(
             message_ids: T::Array[String],
@@ -72,7 +80,9 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Marks the given messages as unread.
+        # Marks the given messages as `unread`. This reverses the `read` state. Read more
+        # about message engagement statuses
+        # [here](/send-notifications/message-statuses#engagement-status).
         sig do
           params(
             message_ids: T::Array[String],
@@ -85,7 +95,9 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Marks the given messages as unseen.
+        # Marks the given messages as `unseen`. This reverses the `seen` state. Read more
+        # about message engagement statuses
+        # [here](/send-notifications/message-statuses#engagement-status).
         sig do
           params(
             message_ids: T::Array[String],
@@ -98,7 +110,9 @@ module Knockapi
           message_ids:,
           request_options: {}
         ); end
-        # Marks the given messages as unarchived.
+        # Marks the given messages as unarchived. This reverses the `archived` state.
+        # Archived messages are hidden from the default message list in the feed but can
+        # still be accessed and unarchived later.
         sig do
           params(
             message_ids: T::Array[String],

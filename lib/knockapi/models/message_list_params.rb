@@ -26,8 +26,7 @@ module Knockapi
       optional :channel_id, String
 
       # @!attribute engagement_status
-      #   One or more engagement statuses. Limits results to messages with the given
-      #   engagement status(es).
+      #   Limits the results to messages with the given engagement status.
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>, nil]
       optional :engagement_status,
@@ -47,34 +46,34 @@ module Knockapi
       optional :page_size, Integer
 
       # @!attribute source
-      #   Key of the source that triggered the message to limit results to.
+      #   Limits the results to messages triggered by the given workflow key.
       #
       #   @return [String, nil]
       optional :source, String
 
       # @!attribute status
-      #   One or more delivery statuses. Limits results to messages with the given
-      #   delivery status(es).
+      #   Limits the results to messages with the given delivery status.
       #
       #   @return [Array<Symbol, Knockapi::Models::MessageListParams::Status>, nil]
       optional :status,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::MessageListParams::Status] }
 
       # @!attribute tenant
-      #   Limits the results to items with the corresponding tenant, or where the tenant
-      #   is empty.
+      #   Limits the results to items with the corresponding tenant.
       #
       #   @return [String, nil]
       optional :tenant, String
 
       # @!attribute trigger_data
-      #   Limits the results to only items that were generated with the given data.
+      #   Limits the results to only messages that were generated with the given data. See
+      #   [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+      #   more information.
       #
       #   @return [String, nil]
       optional :trigger_data, String
 
       # @!attribute workflow_categories
-      #   Limits the results to only items related to any of the provided categories.
+      #   Limits the results to messages related to any of the provided categories.
       #
       #   @return [Array<String>, nil]
       optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
@@ -86,7 +85,8 @@ module Knockapi
       optional :workflow_recipient_run_id, String
 
       # @!attribute workflow_run_id
-      #   Limits the results to messages triggered by the top-level workflow run ID.
+      #   Limits the results to messages associated with the top-level workflow run ID
+      #   returned by the workflow trigger request.
       #
       #   @return [String, nil]
       optional :workflow_run_id, String

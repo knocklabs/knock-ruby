@@ -45,7 +45,11 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :clicked_at
 
-      # Data from the activities linked to the message.
+      # Data associated with the message’s workflow run. Includes the workflow trigger
+      # request’s `data` payload merged with any additional data returned by a
+      # [fetch function](/designing-workflows/fetch-function). For messages produced
+      # after a [batch step](/designing-workflows/batch-function), includes the payload
+      # `data` from the most-recent trigger request (the final `activity` in the batch).
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
@@ -100,7 +104,7 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :seen_at
 
-      # The source that triggered the message.
+      # The workflow that triggered the message.
       sig { returns(T.nilable(Knockapi::Models::Message::Source)) }
       attr_reader :source
 
@@ -236,15 +240,15 @@ module Knockapi
         sig { returns(T::Array[String]) }
         attr_accessor :categories
 
-        # The key of the source that triggered the message.
+        # The key of the workflow that triggered the message.
         sig { returns(String) }
         attr_accessor :key
 
-        # The ID of the version of the source that triggered the message.
+        # The ID of the version of the workflow that triggered the message.
         sig { returns(String) }
         attr_accessor :version_id
 
-        # The source that triggered the message.
+        # The workflow that triggered the message.
         sig do
           params(_typename: String, categories: T::Array[String], key: String, version_id: String)
             .returns(T.attached_class)

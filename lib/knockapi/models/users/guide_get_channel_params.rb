@@ -9,13 +9,13 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute data
-        #   The data to filter guides by.
+        #   The data (JSON encoded object) to use for targeting and rendering guides.
         #
         #   @return [String, nil]
         optional :data, String
 
         # @!attribute tenant
-        #   The tenant ID to filter guides by.
+        #   The tenant ID to use for targeting and rendering guides.
         #
         #   @return [String, nil]
         optional :tenant, String

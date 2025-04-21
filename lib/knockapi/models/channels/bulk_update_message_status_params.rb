@@ -9,71 +9,69 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute archived
-        #   The archived status to filter messages by.
+        #   Limits the results to messages with the given archived status.
         #
         #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived, nil]
         optional :archived, enum: -> { Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived }
 
         # @!attribute delivery_status
-        #   The delivery status to filter messages by.
+        #   Limits the results to messages with the given delivery status.
         #
         #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus, nil]
         optional :delivery_status,
                  enum: -> { Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus }
 
         # @!attribute engagement_status
-        #   The engagement status to filter messages by.
+        #   Limits the results to messages with the given engagement status.
         #
         #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus, nil]
         optional :engagement_status,
                  enum: -> { Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus }
 
         # @!attribute has_tenant
-        #   Whether to include only messages that have a tenant or not.
+        #   Limits the results to messages that have a tenant or not.
         #
         #   @return [Boolean, nil]
         optional :has_tenant, Knockapi::Internal::Type::Boolean
 
         # @!attribute newer_than
-        #   The timestamp to filter messages by. Only include messages created after this
-        #   timestamp.
         #
         #   @return [Time, nil]
         optional :newer_than, Time
 
         # @!attribute older_than
-        #   The timestamp to filter messages by. Only include messages created before this
-        #   timestamp.
         #
         #   @return [Time, nil]
         optional :older_than, Time
 
         # @!attribute recipient_gids
-        #   The recipient GIDs to filter messages by.
+        #   Limits the results to messages with the given recipient GIDs.
         #
         #   @return [Array<String>, nil]
         optional :recipient_gids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute recipient_ids
-        #   The recipient IDs to filter messages by.
+        #   Limits the results to messages with the given recipient IDs.
         #
         #   @return [Array<String>, nil]
         optional :recipient_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute tenants
-        #   The tenant IDs to filter messages by.
+        #   Limits the results to messages with the given tenant IDs.
         #
         #   @return [Array<String>, nil]
         optional :tenants, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute trigger_data
-        #   The trigger data to filter messages by. Must be a valid JSON object.
+        #   Limits the results to only messages that were generated with the given data. See
+        #   [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+        #   more information.
         #
         #   @return [String, nil]
         optional :trigger_data, String
 
         # @!attribute workflows
-        #   The workflow keys to filter messages by.
+        #   Limits the results to messages with the given workflow keys.
         #
         #   @return [Array<String>, nil]
         optional :workflows, Knockapi::Internal::Type::ArrayOf[String]
@@ -110,7 +108,7 @@ module Knockapi
           #   @return [Array<Symbol>]
         end
 
-        # The archived status to filter messages by.
+        # Limits the results to messages with the given archived status.
         module Archived
           extend Knockapi::Internal::Type::Enum
 
@@ -122,7 +120,7 @@ module Knockapi
           #   @return [Array<Symbol>]
         end
 
-        # The delivery status to filter messages by.
+        # Limits the results to messages with the given delivery status.
         module DeliveryStatus
           extend Knockapi::Internal::Type::Enum
 
@@ -138,7 +136,7 @@ module Knockapi
           #   @return [Array<Symbol>]
         end
 
-        # The engagement status to filter messages by.
+        # Limits the results to messages with the given engagement status.
         module EngagementStatus
           extend Knockapi::Internal::Type::Enum
 

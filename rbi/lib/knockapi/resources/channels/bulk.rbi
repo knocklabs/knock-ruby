@@ -32,29 +32,27 @@ module Knockapi
           channel_id,
           # The action to perform on the messages.
           action,
-          # The archived status to filter messages by.
+          # Limits the results to messages with the given archived status.
           archived: nil,
-          # The delivery status to filter messages by.
+          # Limits the results to messages with the given delivery status.
           delivery_status: nil,
-          # The engagement status to filter messages by.
+          # Limits the results to messages with the given engagement status.
           engagement_status: nil,
-          # Whether to include only messages that have a tenant or not.
+          # Limits the results to messages that have a tenant or not.
           has_tenant: nil,
-          # The timestamp to filter messages by. Only include messages created after this
-          # timestamp.
           newer_than: nil,
-          # The timestamp to filter messages by. Only include messages created before this
-          # timestamp.
           older_than: nil,
-          # The recipient GIDs to filter messages by.
+          # Limits the results to messages with the given recipient GIDs.
           recipient_gids: nil,
-          # The recipient IDs to filter messages by.
+          # Limits the results to messages with the given recipient IDs.
           recipient_ids: nil,
-          # The tenant IDs to filter messages by.
+          # Limits the results to messages with the given tenant IDs.
           tenants: nil,
-          # The trigger data to filter messages by. Must be a valid JSON object.
+          # Limits the results to only messages that were generated with the given data. See
+          # [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+          # more information.
           trigger_data: nil,
-          # The workflow keys to filter messages by.
+          # Limits the results to messages with the given workflow keys.
           workflows: nil,
           request_options: {}
         ); end

@@ -27,8 +27,7 @@ module Knockapi
       sig { params(channel_id: String).void }
       attr_writer :channel_id
 
-      # One or more engagement statuses. Limits results to messages with the given
-      # engagement status(es).
+      # Limits the results to messages with the given engagement status.
       sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol])) }
       attr_reader :engagement_status
 
@@ -55,37 +54,37 @@ module Knockapi
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
-      # Key of the source that triggered the message to limit results to.
+      # Limits the results to messages triggered by the given workflow key.
       sig { returns(T.nilable(String)) }
       attr_reader :source
 
       sig { params(source: String).void }
       attr_writer :source
 
-      # One or more delivery statuses. Limits results to messages with the given
-      # delivery status(es).
+      # Limits the results to messages with the given delivery status.
       sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol])) }
       attr_reader :status
 
       sig { params(status: T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol]).void }
       attr_writer :status
 
-      # Limits the results to items with the corresponding tenant, or where the tenant
-      # is empty.
+      # Limits the results to items with the corresponding tenant.
       sig { returns(T.nilable(String)) }
       attr_reader :tenant
 
       sig { params(tenant: String).void }
       attr_writer :tenant
 
-      # Limits the results to only items that were generated with the given data.
+      # Limits the results to only messages that were generated with the given data. See
+      # [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+      # more information.
       sig { returns(T.nilable(String)) }
       attr_reader :trigger_data
 
       sig { params(trigger_data: String).void }
       attr_writer :trigger_data
 
-      # Limits the results to only items related to any of the provided categories.
+      # Limits the results to messages related to any of the provided categories.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :workflow_categories
 
@@ -99,7 +98,8 @@ module Knockapi
       sig { params(workflow_recipient_run_id: String).void }
       attr_writer :workflow_recipient_run_id
 
-      # Limits the results to messages triggered by the top-level workflow run ID.
+      # Limits the results to messages associated with the top-level workflow run ID
+      # returned by the workflow trigger request.
       sig { returns(T.nilable(String)) }
       attr_reader :workflow_run_id
 

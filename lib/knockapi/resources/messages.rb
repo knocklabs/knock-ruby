@@ -40,8 +40,8 @@ module Knockapi
         )
       end
 
-      # Archives a message for the current user. Archived messages are hidden from the
-      # default message list but can still be accessed and unarchived later.
+      # Archives a message for the user. Archived messages are hidden from the default
+      # message list in the feed but can still be accessed and unarchived later.
       #
       # @overload archive(message_id, request_options: {})
       #
@@ -175,9 +175,11 @@ module Knockapi
         )
       end
 
-      # Marks a message as interacted with by the current user. This can include any
-      # user action on the message, with optional metadata about the specific
-      # interaction.
+      # Marks a message as `interacted` with by the user. This can include any user
+      # action on the message, with optional metadata about the specific interaction.
+      # Cannot include more than 5 key-value pairs, must not contain nested data. Read
+      # more about message engagement statuses
+      # [here](/send-notifications/message-statuses#engagement-status).
       #
       # @overload mark_as_interacted(message_id, metadata: nil, request_options: {})
       #
@@ -199,8 +201,9 @@ module Knockapi
         )
       end
 
-      # Marks a message as read for the current user. This indicates that the user has
-      # read the message content.
+      # Marks a message as `read`. This indicates that the user has read the message
+      # content. Read more about message engagement statuses
+      # [here](/send-notifications/message-statuses#engagement-status).
       #
       # @overload mark_as_read(message_id, request_options: {})
       #
@@ -219,8 +222,9 @@ module Knockapi
         )
       end
 
-      # Marks a message as seen for the current user. This indicates that the user has
-      # viewed the message in their feed or inbox.
+      # Marks a message as `seen`. This indicates that the user has viewed the message
+      # in their feed or inbox. Read more about message engagement statuses
+      # [here](/send-notifications/message-statuses#engagement-status).
       #
       # @overload mark_as_seen(message_id, request_options: {})
       #
@@ -239,7 +243,9 @@ module Knockapi
         )
       end
 
-      # Marks a message as unread for the current user, reversing the read state.
+      # Marks a message as `unread`. This reverses the `read` state. Read more about
+      # message engagement statuses
+      # [here](/send-notifications/message-statuses#engagement-status).
       #
       # @overload mark_as_unread(message_id, request_options: {})
       #
@@ -258,7 +264,9 @@ module Knockapi
         )
       end
 
-      # Marks a message as unseen for the current user, reversing the seen state.
+      # Marks a message as `unseen`. This reverses the `seen` state. Read more about
+      # message engagement statuses
+      # [here](/send-notifications/message-statuses#engagement-status).
       #
       # @overload mark_as_unseen(message_id, request_options: {})
       #
@@ -278,7 +286,7 @@ module Knockapi
       end
 
       # Removes a message from the archived state, making it visible in the default
-      # message list again.
+      # message list in the feed again.
       #
       # @overload unarchive(message_id, request_options: {})
       #

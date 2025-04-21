@@ -153,29 +153,29 @@ module Knockapi
         before: nil,
         # Limits the results to items with the corresponding channel ID.
         channel_id: nil,
-        # One or more engagement statuses. Limits results to messages with the given
-        # engagement status(es).
+        # Limits the results to messages with the given engagement status.
         engagement_status: nil,
         # Limits the results to only the message ids given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
         # The number of items per page.
         page_size: nil,
-        # Key of the source that triggered the message to limit results to.
+        # Limits the results to messages triggered by the given workflow key.
         source: nil,
-        # One or more delivery statuses. Limits results to messages with the given
-        # delivery status(es).
+        # Limits the results to messages with the given delivery status.
         status: nil,
-        # Limits the results to items with the corresponding tenant, or where the tenant
-        # is empty.
+        # Limits the results to items with the corresponding tenant.
         tenant: nil,
-        # Limits the results to only items that were generated with the given data.
+        # Limits the results to only messages that were generated with the given data. See
+        # [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+        # more information.
         trigger_data: nil,
-        # Limits the results to only items related to any of the provided categories.
+        # Limits the results to messages related to any of the provided categories.
         workflow_categories: nil,
         # Limits the results to messages for a specific recipient's workflow run.
         workflow_recipient_run_id: nil,
-        # Limits the results to messages triggered by the top-level workflow run ID.
+        # Limits the results to messages associated with the top-level workflow run ID
+        # returned by the workflow trigger request.
         workflow_run_id: nil,
         request_options: {}
       ); end

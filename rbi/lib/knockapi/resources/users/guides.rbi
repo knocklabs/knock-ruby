@@ -21,9 +21,9 @@ module Knockapi
           user_id,
           # The unique identifier for the channel.
           channel_id,
-          # The data to filter guides by.
+          # The data (JSON encoded object) to use for targeting and rendering guides.
           data: nil,
-          # The tenant ID to filter guides by.
+          # The tenant ID to use for targeting and rendering guides.
           tenant: nil,
           # The type of guides to filter by.
           type: nil,

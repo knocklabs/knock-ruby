@@ -7,14 +7,14 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # The data to filter guides by.
+        # The data (JSON encoded object) to use for targeting and rendering guides.
         sig { returns(T.nilable(String)) }
         attr_reader :data
 
         sig { params(data: String).void }
         attr_writer :data
 
-        # The tenant ID to filter guides by.
+        # The tenant ID to use for targeting and rendering guides.
         sig { returns(T.nilable(String)) }
         attr_reader :tenant
 
