@@ -10,6 +10,8 @@ module Knockapi
 
     attr_reader bearer_token: String
 
+    attr_reader shared: Knockapi::Resources::Shared
+
     attr_reader recipients: Knockapi::Resources::Recipients
 
     attr_reader users: Knockapi::Resources::Users

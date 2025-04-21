@@ -3,7 +3,7 @@ module Knockapi
     class Schedules
       class Bulk
         def create: (
-          schedules: ::Array[Knockapi::Models::Schedules::BulkCreateSchedulesRequest::Schedule],
+          schedules: ::Array[Knockapi::Models::Schedules::BulkCreateParams::Schedule],
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::BulkOperation
 

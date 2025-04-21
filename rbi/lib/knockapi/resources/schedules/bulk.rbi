@@ -9,7 +9,7 @@ module Knockapi
         # for the `actor`, `recipient`, and `tenant` fields.
         sig do
           params(
-            schedules: T::Array[T.any(Knockapi::Models::Schedules::BulkCreateSchedulesRequest::Schedule, Knockapi::Internal::AnyHash)],
+            schedules: T::Array[T.any(Knockapi::Models::Schedules::BulkCreateParams::Schedule, Knockapi::Internal::AnyHash)],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::BulkOperation)
