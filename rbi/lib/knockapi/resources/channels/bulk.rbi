@@ -11,7 +11,7 @@ module Knockapi
         sig do
           params(
             channel_id: String,
-            status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::OrSymbol,
+            action: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol,
             archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol,
             delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus::OrSymbol,
             engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus::OrSymbol,
@@ -30,7 +30,7 @@ module Knockapi
           # The ID of the channel to update messages for.
           channel_id,
           # The target status to be applied to the messages.
-          status,
+          action,
           # Limits the results to messages with the given archived status.
           archived: nil,
           # Limits the results to messages with the given delivery status.

@@ -85,8 +85,7 @@ module Knockapi
         #   @param workflows [Array<String>]
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
-        # The target status to be applied to the messages.
-        module Status
+        module Action
           extend Knockapi::Internal::Type::Enum
 
           SEEN = :seen

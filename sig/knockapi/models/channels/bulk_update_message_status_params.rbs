@@ -82,7 +82,7 @@ module Knockapi
 
         def to_hash: -> Knockapi::Models::Channels::bulk_update_message_status_params
 
-        type status =
+        type action =
           :seen
           | :unseen
           | :read
@@ -94,7 +94,7 @@ module Knockapi
           | :unarchive
           | :delete
 
-        module Status
+        module Action
           extend Knockapi::Internal::Type::Enum
 
           SEEN: :seen
@@ -108,7 +108,7 @@ module Knockapi
           UNARCHIVE: :unarchive
           DELETE: :delete
 
-          def self?.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::status]
+          def self?.values: -> ::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action]
         end
 
         type archived = :exclude | :include | :only

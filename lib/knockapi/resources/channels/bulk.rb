@@ -9,10 +9,10 @@ module Knockapi
         # the `action` parameter, where the action is a status change action (e.g.
         # `archive`, `unarchive`).
         #
-        # @overload update_message_status(channel_id, status, archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
+        # @overload update_message_status(channel_id, action, archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
         #
         # @param channel_id [String]
-        # @param status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status]
+        # @param action [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action]
         # @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived]
         # @param delivery_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus]
         # @param engagement_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus]
@@ -28,11 +28,11 @@ module Knockapi
         # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Channels::BulkUpdateMessageStatusParams
-        def update_message_status(channel_id, status, params = {})
+        def update_message_status(channel_id, action, params = {})
           parsed, options = Knockapi::Models::Channels::BulkUpdateMessageStatusParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["v1/channels/%1$s/messages/bulk/%2$s", channel_id, status],
+            path: ["v1/channels/%1$s/messages/bulk/%2$s", channel_id, action],
             body: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options

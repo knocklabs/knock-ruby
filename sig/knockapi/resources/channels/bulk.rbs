@@ -4,7 +4,7 @@ module Knockapi
       class Bulk
         def update_message_status: (
           String channel_id,
-          Knockapi::Models::Channels::BulkUpdateMessageStatusParams::status status,
+          Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action action,
           ?archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
           ?delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
           ?engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,

@@ -138,32 +138,31 @@ module Knockapi
         end
         def to_hash; end
 
-        # The target status to be applied to the messages.
-        module Status
+        module Action
           extend Knockapi::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status) }
+            T.type_alias { T.all(Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action) }
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          SEEN = T.let(:seen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
-          UNSEEN = T.let(:unseen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
-          READ = T.let(:read, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
-          UNREAD = T.let(:unread, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
+          SEEN = T.let(:seen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
+          UNSEEN = T.let(:unseen, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
+          READ = T.let(:read, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
+          UNREAD = T.let(:unread, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
           ARCHIVED =
-            T.let(:archived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
+            T.let(:archived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
           UNARCHIVED =
-            T.let(:unarchived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
+            T.let(:unarchived, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
           INTERACTED =
-            T.let(:interacted, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
+            T.let(:interacted, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
           ARCHIVE =
-            T.let(:archive, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
+            T.let(:archive, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
           UNARCHIVE =
-            T.let(:unarchive, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
-          DELETE = T.let(:delete, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol)
+            T.let(:unarchive, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
+          DELETE = T.let(:delete, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol)
 
           sig do
-            override.returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Status::TaggedSymbol])
+            override.returns(T::Array[Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action::TaggedSymbol])
           end
           def self.values; end
         end
