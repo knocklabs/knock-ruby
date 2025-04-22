@@ -19,7 +19,7 @@ module Knockapi
         # @api public
         #
         # @raise [Knockapi::Errors::APIError]
-        # @return [Knockapi::Internal::Type::BasePage]
+        # @return [self]
         def next_page = (raise NotImplementedError)
 
         # @api public

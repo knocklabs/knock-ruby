@@ -396,7 +396,7 @@ module Knockapi
 
         # Create a new instance of a model.
         #
-        # @param data [Hash{Symbol=>Object}, Knockapi::Internal::Type::BaseModel]
+        # @param data [Hash{Symbol=>Object}, self]
         def initialize(data = {})
           case Knockapi::Internal::Util.coerce_hash(data)
           in Hash => coerced

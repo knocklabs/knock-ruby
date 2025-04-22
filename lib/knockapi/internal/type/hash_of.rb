@@ -28,6 +28,8 @@ module Knockapi
         #   @option spec [Proc] :union
         #
         #   @option spec [Boolean] :"nil?"
+        #
+        # @return [Knockapi::Internal::Type::HashOf]
         def self.[](...) = new(...)
 
         # @api public

@@ -28,7 +28,7 @@ module Knockapi
       end
 
       # @raise [Knockapi::HTTP::Error]
-      # @return [Knockapi::Internal::SlackChannelsCursor]
+      # @return [self]
       def next_page
         unless next_page?
           message = "No more pages available. Please check #next_page? before calling ##{__method__}"
