@@ -54,13 +54,21 @@ class Knockapi::Test::Resources::Providers::MsTeamsTest < Knockapi::Test::Resour
       @knock.providers.ms_teams.list_teams("channel_id", ms_teams_tenant_object: "ms_teams_tenant_object")
 
     assert_pattern do
-      response => Knockapi::Models::Providers::MsTeamListTeamsResponse
+      response => Knockapi::Internal::MsTeamsPagination
+    end
+
+    row = response.to_enum.first
+    return if row.nil?
+
+    assert_pattern do
+      row => Knockapi::Models::Providers::MsTeamListTeamsResponse
     end
 
     assert_pattern do
-      response => {
-        ms_teams_teams: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam]),
-        skip_token: String | nil
+      row => {
+        id: String,
+        display_name: String,
+        description: String | nil
       }
     end
   end

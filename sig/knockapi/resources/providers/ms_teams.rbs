@@ -21,7 +21,7 @@ module Knockapi
           ms_teams_tenant_object: String,
           ?query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Providers::MsTeamListTeamsResponse
+        ) -> Knockapi::Internal::MsTeamsPagination[Knockapi::Models::Providers::MsTeamListTeamsResponse]
 
         def revoke_access: (
           String channel_id,

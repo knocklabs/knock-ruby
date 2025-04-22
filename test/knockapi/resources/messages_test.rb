@@ -153,25 +153,13 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.list_activities("message_id")
 
     assert_pattern do
-      response => Knockapi::Internal::EntriesCursor
-    end
-
-    row = response.to_enum.first
-    return if row.nil?
-
-    assert_pattern do
-      row => Knockapi::Models::Activity
+      response => Knockapi::Models::MessageListActivitiesResponse
     end
 
     assert_pattern do
-      row => {
-        id: String | nil,
-        _typename: String | nil,
-        actor: Knockapi::Models::Recipient | nil,
-        data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        inserted_at: Time | nil,
-        recipient: Knockapi::Models::Recipient | nil,
-        updated_at: Time | nil
+      response => {
+        entries: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Activity]),
+        page_info: Knockapi::Models::PageInfo
       }
     end
   end

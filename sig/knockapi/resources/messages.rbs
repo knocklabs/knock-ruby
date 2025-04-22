@@ -3,6 +3,8 @@ module Knockapi
     class Messages
       attr_reader batch: Knockapi::Resources::Messages::Batch
 
+      attr_reader activities: Knockapi::Resources::Messages::Activities
+
       def list: (
         ?after: String,
         ?before: String,
@@ -42,7 +44,7 @@ module Knockapi
         ?page_size: Integer,
         ?trigger_data: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Activity]
+      ) -> Knockapi::Models::MessageListActivitiesResponse
 
       def list_delivery_logs: (
         String message_id,

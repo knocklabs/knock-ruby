@@ -52,7 +52,7 @@ module Knockapi
             query_options: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Internal::AnyHash),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
-            .returns(Knockapi::Models::Providers::MsTeamListTeamsResponse)
+            .returns(Knockapi::Internal::MsTeamsPagination[Knockapi::Models::Providers::MsTeamListTeamsResponse])
         end
         def list_teams(
           # The ID of the Knock Microsoft Teams channel to get teams for.

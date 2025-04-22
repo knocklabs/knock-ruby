@@ -6,6 +6,9 @@ module Knockapi
       sig { returns(Knockapi::Resources::Messages::Batch) }
       attr_reader :batch
 
+      sig { returns(Knockapi::Resources::Messages::Activities) }
+      attr_reader :activities
+
       # Returns a paginated list of messages for the current environment.
       sig do
         params(
@@ -110,7 +113,7 @@ module Knockapi
           trigger_data: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Activity])
+          .returns(Knockapi::Models::MessageListActivitiesResponse)
       end
       def list_activities(
         # The ID of the message to fetch activities for.

@@ -62,7 +62,7 @@ module Knockapi
         # @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::Providers::MsTeamListTeamsResponse]
+        # @return [Knockapi::Internal::MsTeamsPagination<Knockapi::Models::Providers::MsTeamListTeamsResponse>]
         #
         # @see Knockapi::Models::Providers::MsTeamListTeamsParams
         def list_teams(channel_id, params)
@@ -71,6 +71,7 @@ module Knockapi
             method: :get,
             path: ["v1/providers/ms-teams/%1$s/teams", channel_id],
             query: parsed,
+            page: Knockapi::Internal::MsTeamsPagination,
             model: Knockapi::Models::Providers::MsTeamListTeamsResponse,
             options: options
           )

@@ -2,7 +2,6 @@
 
 module Knockapi
   module Models
-    # @see Knockapi::Resources::Messages#list_activities
     class Activity < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #   Unique identifier for the activity.

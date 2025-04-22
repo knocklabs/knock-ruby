@@ -6,6 +6,9 @@ module Knockapi
       # @return [Knockapi::Resources::Messages::Batch]
       attr_reader :batch
 
+      # @return [Knockapi::Resources::Messages::Activities]
+      attr_reader :activities
+
       # Returns a paginated list of messages for the current environment.
       #
       # @overload list(after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
@@ -110,7 +113,7 @@ module Knockapi
       # @param trigger_data [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Activity>]
+      # @return [Knockapi::Models::MessageListActivitiesResponse]
       #
       # @see Knockapi::Models::MessageListActivitiesParams
       def list_activities(message_id, params = {})
@@ -119,8 +122,7 @@ module Knockapi
           method: :get,
           path: ["v1/messages/%1$s/activities", message_id],
           query: parsed,
-          page: Knockapi::Internal::EntriesCursor,
-          model: Knockapi::Models::Activity,
+          model: Knockapi::Models::MessageListActivitiesResponse,
           options: options
         )
       end
@@ -311,6 +313,7 @@ module Knockapi
       def initialize(client:)
         @client = client
         @batch = Knockapi::Resources::Messages::Batch.new(client: client)
+        @activities = Knockapi::Resources::Messages::Activities.new(client: client)
       end
     end
   end

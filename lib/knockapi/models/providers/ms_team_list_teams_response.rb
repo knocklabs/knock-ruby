@@ -5,51 +5,28 @@ module Knockapi
     module Providers
       # @see Knockapi::Resources::Providers::MsTeams#list_teams
       class MsTeamListTeamsResponse < Knockapi::Internal::Type::BaseModel
-        # @!attribute ms_teams_teams
-        #   List of Microsoft Teams teams.
+        # @!attribute id
+        #   Microsoft Teams team ID.
         #
-        #   @return [Array<Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam>]
-        required :ms_teams_teams,
-                 -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam] }
+        #   @return [String]
+        required :id, String
 
-        # @!attribute skip_token
-        #   [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
-        #   to the Microsoft Graph API to retrieve the next page of results.
+        # @!attribute display_name
+        #   Microsoft Teams team display name.
+        #
+        #   @return [String]
+        required :display_name, String, api_name: :displayName
+
+        # @!attribute description
+        #   Microsoft Teams team description.
         #
         #   @return [String, nil]
-        required :skip_token, String, nil?: true
+        optional :description, String, nil?: true
 
-        # @!method initialize(ms_teams_teams:, skip_token:)
-        #   The response from a Microsoft Teams provider request, containing a list of
-        #   teams.
-        #
-        #   @param ms_teams_teams [Array<Knockapi::Models::Providers::MsTeamListTeamsResponse::MsTeamsTeam>]
-        #   @param skip_token [String, nil]
-
-        class MsTeamsTeam < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   Microsoft Teams team ID.
-          #
-          #   @return [String]
-          required :id, String
-
-          # @!attribute display_name
-          #   Microsoft Teams team display name.
-          #
-          #   @return [String]
-          required :display_name, String, api_name: :displayName
-
-          # @!attribute description
-          #   Microsoft Teams team description.
-          #
-          #   @return [String, nil]
-          optional :description, String, nil?: true
-
-          # @!method initialize(id:, display_name:, description: nil)
-          #   @param id [String]
-          #   @param display_name [String]
-          #   @param description [String, nil]
-        end
+        # @!method initialize(id:, display_name:, description: nil)
+        #   @param id [String]
+        #   @param display_name [String]
+        #   @param description [String, nil]
       end
     end
   end
