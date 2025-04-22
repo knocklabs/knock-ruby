@@ -42,7 +42,8 @@ module Knockapi
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!method initialize(id:, _typename:, inserted_at:, recipient:, type:, data: nil)
-      #   A message event.
+      #   A message event. Occurs when a message
+      #   [delivery or engagement status](/send-notifications/message-statuses) changes.
       #
       #   @param id [String]
       #   @param _typename [String]

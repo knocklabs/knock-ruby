@@ -16,8 +16,9 @@ module Knockapi
       required :added_at, Time
 
       # @!attribute user
-      #   A user who can receive notifications in Knock. They are always referenced by
-      #   your internal identifier.
+      #   A [User](/concepts/users) represents an individual in your system who can
+      #   receive notifications through Knock. Users are the most common recipients of
+      #   notifications and are always referenced by your internal identifier.
       #
       #   @return [Knockapi::Models::User]
       required :user, -> { Knockapi::Models::User }

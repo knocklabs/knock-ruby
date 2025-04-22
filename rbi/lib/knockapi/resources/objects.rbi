@@ -167,6 +167,7 @@ module Knockapi
           before: String,
           channel_id: String,
           engagement_status: T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol],
+          inserted_at: T.any(Knockapi::Models::ObjectListMessagesParams::InsertedAt, Knockapi::Internal::AnyHash),
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
@@ -193,7 +194,8 @@ module Knockapi
         channel_id: nil,
         # Limits the results to messages with the given engagement status.
         engagement_status: nil,
-        # Limits the results to only the message ids given (max 50). Note: when using this
+        inserted_at: nil,
+        # Limits the results to only the message IDs given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
         # The number of items per page.
@@ -304,8 +306,8 @@ module Knockapi
         request_options: {}
       ); end
       # Creates a new object or updates an existing one in the specified collection.
-      # This operation is used to identify objects with their properties and channel
-      # data.
+      # This operation is used to identify objects with their properties, as well as
+      # optional preferences and channel data.
       sig do
         params(
           collection: String,

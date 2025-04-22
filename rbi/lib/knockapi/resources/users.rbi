@@ -12,33 +12,58 @@ module Knockapi
       sig { returns(Knockapi::Resources::Users::Bulk) }
       attr_reader :bulk
 
-      # Create or update a user with the provided identification data.
+      # Create or update a user with the provided identification data. When you identify
+      # an existing user, the system merges the properties you specific with what is
+      # currently set on the user, updating only the fields included in your requests.
       sig do
         params(
           user_id: String,
+          avatar: T.nilable(String),
           channel_data: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
           created_at: T.nilable(Time),
+          email: T.nilable(String),
+          locale: T.nilable(String),
+          name: T.nilable(String),
+          phone_number: T.nilable(String),
           preferences: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
           ),
+          timezone: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(Knockapi::Models::User)
+          .returns(Knockapi::Models::UserUpdateResponse)
       end
       def update(
-        # The ID of the user to identify.
+        # The ID for the user that you set when identifying them in Knock.
         user_id,
+        # URL to the user's avatar image.
+        avatar: nil,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
         # The creation date of the user from your system.
         created_at: nil,
+        # The primary email address for the user.
+        email: nil,
+        # The locale of the user. Used for [message localization](/concepts/translations)
+        locale: nil,
+        # Display name of the user.
+        name: nil,
+        # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+        # user (required for SMS channels).
+        phone_number: nil,
         # Inline set preferences for a recipient, where the key is the preference set name
         preferences: nil,
+        # The timezone of the user. Must be a valid
+        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used for
+        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients)
+        timezone: nil,
         request_options: {}
       ); end
-      # Retrieve a paginated list of users in the environment.
+      # Retrieve a paginated list of users in the environment. Defaults to 50 users per
+      # page.
       sig do
         params(
           after: String,
@@ -123,7 +148,8 @@ module Knockapi
         request_options: {}
       ); end
       # Returns a paginated list of messages for a specific user. Allows filtering by
-      # message status and provides various sorting options.
+      # message status and provides various sorting options. Messages outside the
+      # account's retention window will not be included in the results.
       sig do
         params(
           user_id: String,
@@ -131,6 +157,7 @@ module Knockapi
           before: String,
           channel_id: String,
           engagement_status: T::Array[Knockapi::Models::UserListMessagesParams::EngagementStatus::OrSymbol],
+          inserted_at: T.any(Knockapi::Models::UserListMessagesParams::InsertedAt, Knockapi::Internal::AnyHash),
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
@@ -155,7 +182,8 @@ module Knockapi
         channel_id: nil,
         # Limits the results to messages with the given engagement status.
         engagement_status: nil,
-        # Limits the results to only the message ids given (max 50). Note: when using this
+        inserted_at: nil,
+        # Limits the results to only the message IDs given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
         # The number of items per page.
@@ -192,8 +220,7 @@ module Knockapi
         user_id,
         request_options: {}
       ); end
-      # Returns a paginated list of schedules for a specific user. Can be filtered by
-      # workflow and tenant.
+      # Returns a paginated list of schedules for a specific user, in descending order.
       sig do
         params(
           user_id: String,
@@ -207,7 +234,7 @@ module Knockapi
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
       end
       def list_schedules(
-        # The ID of the user to list schedules for.
+        # The user ID to list schedules for.
         user_id,
         # The cursor to fetch entries after.
         after: nil,
@@ -215,28 +242,28 @@ module Knockapi
         before: nil,
         # The number of items per page.
         page_size: nil,
-        # The ID of the tenant to list schedules for.
+        # The tenant ID to filter schedules for.
         tenant: nil,
-        # The ID of the workflow to list schedules for.
+        # The workflow key to filter schedules for.
         workflow: nil,
         request_options: {}
       ); end
-      # Retrieves a paginated list of subscriptions for a specific user. Allows
-      # filtering by objects and includes optional preference data.
+      # Retrieves a paginated list of subscriptions for a specific user, in descending
+      # order.
       sig do
         params(
           user_id: String,
           after: String,
           before: String,
           include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
-          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
+          objects: T::Array[String],
           page_size: Integer,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
       def list_subscriptions(
-        # The ID for the user that you set when identifying them in Knock.
+        # The user ID to list subscriptions for.
         user_id,
         # The cursor to fetch entries after.
         after: nil,
@@ -244,7 +271,7 @@ module Knockapi
         before: nil,
         # Associated resources to include in the response.
         include: nil,
-        # Only return subscriptions for the given recipients.
+        # Only returns subscriptions for the specified object GIDs.
         objects: nil,
         # The number of items per page.
         page_size: nil,

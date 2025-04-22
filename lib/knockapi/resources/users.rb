@@ -12,17 +12,25 @@ module Knockapi
       # @return [Knockapi::Resources::Users::Bulk]
       attr_reader :bulk
 
-      # Create or update a user with the provided identification data.
+      # Create or update a user with the provided identification data. When you identify
+      # an existing user, the system merges the properties you specific with what is
+      # currently set on the user, updating only the fields included in your requests.
       #
-      # @overload update(user_id, channel_data: nil, created_at: nil, preferences: nil, request_options: {})
+      # @overload update(user_id, avatar: nil, channel_data: nil, created_at: nil, email: nil, locale: nil, name: nil, phone_number: nil, preferences: nil, timezone: nil, request_options: {})
       #
       # @param user_id [String]
+      # @param avatar [String, nil]
       # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
       # @param created_at [Time, nil]
+      # @param email [String, nil]
+      # @param locale [String, nil]
+      # @param name [String, nil]
+      # @param phone_number [String, nil]
       # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      # @param timezone [String, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::User]
+      # @return [Knockapi::Models::UserUpdateResponse]
       #
       # @see Knockapi::Models::UserUpdateParams
       def update(user_id, params = {})
@@ -31,12 +39,13 @@ module Knockapi
           method: :put,
           path: ["v1/users/%1$s", user_id],
           body: parsed,
-          model: Knockapi::Models::User,
+          model: Knockapi::Models::UserUpdateResponse,
           options: options
         )
       end
 
-      # Retrieve a paginated list of users in the environment.
+      # Retrieve a paginated list of users in the environment. Defaults to 50 users per
+      # page.
       #
       # @overload list(after: nil, before: nil, include: nil, page_size: nil, request_options: {})
       #
@@ -144,15 +153,17 @@ module Knockapi
       end
 
       # Returns a paginated list of messages for a specific user. Allows filtering by
-      # message status and provides various sorting options.
+      # message status and provides various sorting options. Messages outside the
+      # account's retention window will not be included in the results.
       #
-      # @overload list_messages(user_id, after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
+      # @overload list_messages(user_id, after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
       # @param user_id [String]
       # @param after [String]
       # @param before [String]
       # @param channel_id [String]
       # @param engagement_status [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>]
+      # @param inserted_at [Knockapi::Models::UserListMessagesParams::InsertedAt]
       # @param message_ids [Array<String>]
       # @param page_size [Integer]
       # @param source [String]
@@ -198,8 +209,7 @@ module Knockapi
         )
       end
 
-      # Returns a paginated list of schedules for a specific user. Can be filtered by
-      # workflow and tenant.
+      # Returns a paginated list of schedules for a specific user, in descending order.
       #
       # @overload list_schedules(user_id, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       #
@@ -226,8 +236,8 @@ module Knockapi
         )
       end
 
-      # Retrieves a paginated list of subscriptions for a specific user. Allows
-      # filtering by objects and includes optional preference data.
+      # Retrieves a paginated list of subscriptions for a specific user, in descending
+      # order.
       #
       # @overload list_subscriptions(user_id, after: nil, before: nil, include: nil, objects: nil, page_size: nil, request_options: {})
       #
@@ -235,7 +245,7 @@ module Knockapi
       # @param after [String]
       # @param before [String]
       # @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>]
-      # @param objects [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      # @param objects [Array<String>]
       # @param page_size [Integer]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

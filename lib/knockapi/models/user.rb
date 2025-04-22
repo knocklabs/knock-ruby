@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    # @see Knockapi::Resources::Users#update
+    # @see Knockapi::Resources::Users#list
     class User < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #   The ID for the user that you set when identifying them in Knock.
@@ -35,7 +35,7 @@ module Knockapi
       optional :created_at, Time, nil?: true
 
       # @!attribute email
-      #   The email address of the user.
+      #   The primary email address for the user.
       #
       #   @return [String, nil]
       optional :email, String, nil?: true
@@ -47,20 +47,25 @@ module Knockapi
       optional :name, String, nil?: true
 
       # @!attribute phone_number
-      #   Phone number of the user.
+      #   The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      #   user (required for SMS channels).
       #
       #   @return [String, nil]
       optional :phone_number, String, nil?: true
 
       # @!attribute timezone
-      #   Timezone of the user.
+      #   The timezone of the user. Must be a valid
+      #   [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      #   Used for
+      #   [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients)
       #
       #   @return [String, nil]
       optional :timezone, String, nil?: true
 
       # @!method initialize(id:, _typename:, updated_at:, avatar: nil, created_at: nil, email: nil, name: nil, phone_number: nil, timezone: nil)
-      #   A user who can receive notifications in Knock. They are always referenced by
-      #   your internal identifier.
+      #   A [User](/concepts/users) represents an individual in your system who can
+      #   receive notifications through Knock. Users are the most common recipients of
+      #   notifications and are always referenced by your internal identifier.
       #
       #   @param id [String]
       #   @param _typename [String]

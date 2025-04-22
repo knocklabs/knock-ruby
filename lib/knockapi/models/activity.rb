@@ -23,13 +23,13 @@ module Knockapi
       optional :actor, union: -> { Knockapi::Models::Recipient }, nil?: true
 
       # @!attribute data
-      #   The data associated with the activity.
+      #   The workflow trigger `data` payload associated with the activity.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!attribute inserted_at
-      #   Timestamp when the resource was created.
+      #   Timestamp when the activity was created.
       #
       #   @return [Time, nil]
       optional :inserted_at, Time
@@ -41,13 +41,16 @@ module Knockapi
       optional :recipient, union: -> { Knockapi::Models::Recipient }
 
       # @!attribute updated_at
-      #   The timestamp when the resource was last updated.
+      #   Timestamp when the activity was last updated.
       #
       #   @return [Time, nil]
       optional :updated_at, Time
 
       # @!method initialize(id: nil, _typename: nil, actor: nil, data: nil, inserted_at: nil, recipient: nil, updated_at: nil)
-      #   An activity associated with a workflow run.
+      #   An activity associated with a workflow trigger request. Messages produced after
+      #   a [batch step](/designing-workflows/batch-function) can be associated with one
+      #   or more activities. Non-batched messages will always be associated with a single
+      #   activity.
       #
       #   @param id [String]
       #   @param _typename [String]

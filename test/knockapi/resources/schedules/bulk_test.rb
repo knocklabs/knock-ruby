@@ -30,6 +30,7 @@ class Knockapi::Test::Resources::Schedules::BulkTest < Knockapi::Test::ResourceT
         error_count: Integer | nil,
         error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
+        progress_path: String | nil,
         started_at: Time | nil
       }
     end

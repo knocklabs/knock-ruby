@@ -11,12 +11,13 @@ module Knockapi
 
       # Returns a paginated list of messages for the current environment.
       #
-      # @overload list(after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
+      # @overload list(after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
       # @param after [String]
       # @param before [String]
       # @param channel_id [String]
       # @param engagement_status [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>]
+      # @param inserted_at [Knockapi::Models::MessageListParams::InsertedAt]
       # @param message_ids [Array<String>]
       # @param page_size [Integer]
       # @param source [String]

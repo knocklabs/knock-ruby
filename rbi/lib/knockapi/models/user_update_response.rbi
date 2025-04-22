@@ -2,18 +2,34 @@
 
 module Knockapi
   module Models
-    class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
+    class UserUpdateResponse < Knockapi::Internal::Type::BaseModel
+      # The ID for the user that you set when identifying them in Knock.
+      sig { returns(String) }
+      attr_accessor :id
+
+      # The creation date of the user from your system.
+      sig { returns(Time) }
+      attr_accessor :created_at
+
+      # The timestamp when the resource was last updated.
+      sig { returns(Time) }
+      attr_accessor :updated_at
+
+      # The typename of the schema.
+      sig { returns(T.nilable(String)) }
+      attr_reader :_typename
+
+      sig { params(_typename: String).void }
+      attr_writer :_typename
+
       # URL to the user's avatar image.
       sig { returns(T.nilable(String)) }
       attr_accessor :avatar
 
-      # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
+      # Channel-specific information that's needed to deliver a notification to an end
+      # provider.
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelData])) }
       attr_accessor :channel_data
-
-      # The creation date of the user from your system.
-      sig { returns(T.nilable(Time)) }
-      attr_accessor :created_at
 
       # The primary email address for the user.
       sig { returns(T.nilable(String)) }
@@ -32,9 +48,18 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :phone_number
 
-      # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
-      attr_accessor :preferences
+      # A preference set represents a specific set of notification preferences for a
+      # recipient. A recipient can have multiple preference sets.
+      sig { returns(T.nilable(Knockapi::Models::Recipients::PreferenceSet)) }
+      attr_reader :preferences
+
+      sig do
+        params(
+          preferences: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSet, Knockapi::Internal::AnyHash))
+        )
+          .void
+      end
+      attr_writer :preferences
 
       # The timezone of the user. Must be a valid
       # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -43,31 +68,33 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :timezone
 
-      # A set of parameters to identify a user with. Does not include the user ID, as
-      # that's specified elsewhere in the request. You can supply any additional
-      # properties you'd like to upsert for the user.
+      # The user that was created or updated.
       sig do
         params(
+          id: String,
+          created_at: Time,
+          updated_at: Time,
+          _typename: String,
           avatar: T.nilable(String),
           channel_data: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::RecipientsChannelData, Knockapi::Internal::AnyHash)]
           ),
-          created_at: T.nilable(Time),
           email: T.nilable(String),
           locale: T.nilable(String),
           name: T.nilable(String),
           phone_number: T.nilable(String),
-          preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
-          ),
+          preferences: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSet, Knockapi::Internal::AnyHash)),
           timezone: T.nilable(String)
         )
           .returns(T.attached_class)
       end
       def self.new(
+        id:,
+        created_at:,
+        updated_at:,
+        _typename: nil,
         avatar: nil,
         channel_data: nil,
-        created_at: nil,
         email: nil,
         locale: nil,
         name: nil,
@@ -79,14 +106,17 @@ module Knockapi
         override
           .returns(
             {
+              id: String,
+              created_at: Time,
+              updated_at: Time,
+              _typename: String,
               avatar: T.nilable(String),
-              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
-              created_at: T.nilable(Time),
+              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelData]),
               email: T.nilable(String),
               locale: T.nilable(String),
               name: T.nilable(String),
               phone_number: T.nilable(String),
-              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
+              preferences: T.nilable(Knockapi::Models::Recipients::PreferenceSet),
               timezone: T.nilable(String)
             }
           )

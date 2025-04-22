@@ -47,7 +47,8 @@ module Knockapi
       required :service_name, String
 
       # @!method initialize(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:)
-      #   A message delivery log.
+      #   A message delivery log contains a `request` from Knock to a downstream provider
+      #   and the `response` that was returned.
       #
       #   @param id [String]
       #   @param _typename [String]

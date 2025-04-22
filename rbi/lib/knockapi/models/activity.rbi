@@ -21,11 +21,11 @@ module Knockapi
       sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
       attr_accessor :actor
 
-      # The data associated with the activity.
+      # The workflow trigger `data` payload associated with the activity.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
-      # Timestamp when the resource was created.
+      # Timestamp when the activity was created.
       sig { returns(T.nilable(Time)) }
       attr_reader :inserted_at
 
@@ -42,14 +42,17 @@ module Knockapi
       end
       attr_writer :recipient
 
-      # The timestamp when the resource was last updated.
+      # Timestamp when the activity was last updated.
       sig { returns(T.nilable(Time)) }
       attr_reader :updated_at
 
       sig { params(updated_at: Time).void }
       attr_writer :updated_at
 
-      # An activity associated with a workflow run.
+      # An activity associated with a workflow trigger request. Messages produced after
+      # a [batch step](/designing-workflows/batch-function) can be associated with one
+      # or more activities. Non-batched messages will always be associated with a single
+      # activity.
       sig do
         params(
           id: String,

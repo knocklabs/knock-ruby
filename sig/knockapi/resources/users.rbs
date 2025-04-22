@@ -9,11 +9,17 @@ module Knockapi
 
       def update: (
         String user_id,
+        ?avatar: String?,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?created_at: Time?,
+        ?email: String?,
+        ?locale: String?,
+        ?name: String?,
+        ?phone_number: String?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        ?timezone: String?,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::User
+      ) -> Knockapi::Models::UserUpdateResponse
 
       def list: (
         ?after: String,
@@ -52,6 +58,7 @@ module Knockapi
         ?before: String,
         ?channel_id: String,
         ?engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
+        ?inserted_at: Knockapi::Models::UserListMessagesParams::InsertedAt,
         ?message_ids: ::Array[String],
         ?page_size: Integer,
         ?source: String,
@@ -84,7 +91,7 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
-        ?objects: ::Array[Knockapi::Models::recipient_reference],
+        ?objects: ::Array[String],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription]

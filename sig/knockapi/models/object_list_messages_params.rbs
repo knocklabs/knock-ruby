@@ -6,6 +6,7 @@ module Knockapi
         before: String,
         channel_id: String,
         engagement_status: ::Array[Knockapi::Models::ObjectListMessagesParams::engagement_status],
+        inserted_at: Knockapi::Models::ObjectListMessagesParams::InsertedAt,
         message_ids: ::Array[String],
         page_size: Integer,
         source: String,
@@ -39,6 +40,12 @@ module Knockapi
       def engagement_status=: (
         ::Array[Knockapi::Models::ObjectListMessagesParams::engagement_status]
       ) -> ::Array[Knockapi::Models::ObjectListMessagesParams::engagement_status]
+
+      attr_reader inserted_at: Knockapi::Models::ObjectListMessagesParams::InsertedAt?
+
+      def inserted_at=: (
+        Knockapi::Models::ObjectListMessagesParams::InsertedAt
+      ) -> Knockapi::Models::ObjectListMessagesParams::InsertedAt
 
       attr_reader message_ids: ::Array[String]?
 
@@ -83,6 +90,7 @@ module Knockapi
         ?before: String,
         ?channel_id: String,
         ?engagement_status: ::Array[Knockapi::Models::ObjectListMessagesParams::engagement_status],
+        ?inserted_at: Knockapi::Models::ObjectListMessagesParams::InsertedAt,
         ?message_ids: ::Array[String],
         ?page_size: Integer,
         ?source: String,
@@ -110,6 +118,35 @@ module Knockapi
         ARCHIVED: :archived
 
         def self?.values: -> ::Array[Knockapi::Models::ObjectListMessagesParams::engagement_status]
+      end
+
+      type inserted_at = { gt: String, gte: String, lt: String, lte: String }
+
+      class InsertedAt < Knockapi::Internal::Type::BaseModel
+        attr_reader gt: String?
+
+        def gt=: (String) -> String
+
+        attr_reader gte: String?
+
+        def gte=: (String) -> String
+
+        attr_reader lt: String?
+
+        def lt=: (String) -> String
+
+        attr_reader lte: String?
+
+        def lte=: (String) -> String
+
+        def initialize: (
+          ?gt: String,
+          ?gte: String,
+          ?lt: String,
+          ?lte: String
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::ObjectListMessagesParams::inserted_at
       end
 
       type status =

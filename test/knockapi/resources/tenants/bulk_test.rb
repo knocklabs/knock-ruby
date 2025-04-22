@@ -29,6 +29,7 @@ class Knockapi::Test::Resources::Tenants::BulkTest < Knockapi::Test::ResourceTes
         error_count: Integer | nil,
         error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
+        progress_path: String | nil,
         started_at: Time | nil
       }
     end
@@ -60,6 +61,7 @@ class Knockapi::Test::Resources::Tenants::BulkTest < Knockapi::Test::ResourceTes
         error_count: Integer | nil,
         error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
+        progress_path: String | nil,
         started_at: Time | nil
       }
     end

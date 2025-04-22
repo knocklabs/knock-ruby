@@ -16,6 +16,7 @@ module Knockapi
           before: String,
           channel_id: String,
           engagement_status: T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol],
+          inserted_at: T.any(Knockapi::Models::MessageListParams::InsertedAt, Knockapi::Internal::AnyHash),
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
@@ -38,7 +39,8 @@ module Knockapi
         channel_id: nil,
         # Limits the results to messages with the given engagement status.
         engagement_status: nil,
-        # Limits the results to only the message ids given (max 50). Note: when using this
+        inserted_at: nil,
+        # Limits the results to only the message IDs given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
         # The number of items per page.

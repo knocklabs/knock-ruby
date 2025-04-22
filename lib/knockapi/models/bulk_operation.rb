@@ -83,13 +83,19 @@ module Knockapi
       #   @return [Time, nil]
       optional :failed_at, Time, nil?: true
 
+      # @!attribute progress_path
+      #   The URI to the bulk operation's progress.
+      #
+      #   @return [String, nil]
+      optional :progress_path, String
+
       # @!attribute started_at
       #   Timestamp when the bulk operation was started.
       #
       #   @return [Time, nil]
       optional :started_at, Time, nil?: true
 
-      # @!method initialize(id:, _typename:, estimated_total_rows:, inserted_at:, name:, processed_rows:, status:, success_count:, updated_at:, completed_at: nil, error_count: nil, error_items: nil, failed_at: nil, started_at: nil)
+      # @!method initialize(id:, _typename:, estimated_total_rows:, inserted_at:, name:, processed_rows:, status:, success_count:, updated_at:, completed_at: nil, error_count: nil, error_items: nil, failed_at: nil, progress_path: nil, started_at: nil)
       #   A bulk operation entity.
       #
       #   @param id [String]
@@ -105,6 +111,7 @@ module Knockapi
       #   @param error_count [Integer]
       #   @param error_items [Array<Knockapi::Models::BulkOperation::ErrorItem>]
       #   @param failed_at [Time, nil]
+      #   @param progress_path [String]
       #   @param started_at [Time, nil]
 
       # The status of the bulk operation.

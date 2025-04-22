@@ -32,8 +32,13 @@ module Knockapi
       optional :engagement_status,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::ObjectListMessagesParams::EngagementStatus] }
 
+      # @!attribute inserted_at
+      #
+      #   @return [Knockapi::Models::ObjectListMessagesParams::InsertedAt, nil]
+      optional :inserted_at, -> { Knockapi::Models::ObjectListMessagesParams::InsertedAt }
+
       # @!attribute message_ids
-      #   Limits the results to only the message ids given (max 50). Note: when using this
+      #   Limits the results to only the message IDs given (max 50). Note: when using this
       #   option, the results will be subject to any other filters applied to the query.
       #
       #   @return [Array<String>, nil]
@@ -91,11 +96,12 @@ module Knockapi
       #   @return [String, nil]
       optional :workflow_run_id, String
 
-      # @!method initialize(after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
+      # @!method initialize(after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #   @param after [String]
       #   @param before [String]
       #   @param channel_id [String]
       #   @param engagement_status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>]
+      #   @param inserted_at [Knockapi::Models::ObjectListMessagesParams::InsertedAt]
       #   @param message_ids [Array<String>]
       #   @param page_size [Integer]
       #   @param source [String]
@@ -118,6 +124,38 @@ module Knockapi
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      class InsertedAt < Knockapi::Internal::Type::BaseModel
+        # @!attribute gt
+        #   Limits the results to messages inserted after the given date.
+        #
+        #   @return [String, nil]
+        optional :gt, String
+
+        # @!attribute gte
+        #   Limits the results to messages inserted after or on the given date.
+        #
+        #   @return [String, nil]
+        optional :gte, String
+
+        # @!attribute lt
+        #   Limits the results to messages inserted before the given date.
+        #
+        #   @return [String, nil]
+        optional :lt, String
+
+        # @!attribute lte
+        #   Limits the results to messages inserted before or on the given date.
+        #
+        #   @return [String, nil]
+        optional :lte, String
+
+        # @!method initialize(gt: nil, gte: nil, lt: nil, lte: nil)
+        #   @param gt [String]
+        #   @param gte [String]
+        #   @param lt [String]
+        #   @param lte [String]
       end
 
       module Status

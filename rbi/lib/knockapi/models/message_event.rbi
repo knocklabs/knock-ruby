@@ -28,7 +28,8 @@ module Knockapi
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
-      # A message event.
+      # A message event. Occurs when a message
+      # [delivery or engagement status](/send-notifications/message-statuses) changes.
       sig do
         params(
           id: String,

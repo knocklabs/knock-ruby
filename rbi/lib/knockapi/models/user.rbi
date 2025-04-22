@@ -23,7 +23,7 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
-      # The email address of the user.
+      # The primary email address for the user.
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
@@ -31,16 +31,21 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
-      # Phone number of the user.
+      # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      # user (required for SMS channels).
       sig { returns(T.nilable(String)) }
       attr_accessor :phone_number
 
-      # Timezone of the user.
+      # The timezone of the user. Must be a valid
+      # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      # Used for
+      # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients)
       sig { returns(T.nilable(String)) }
       attr_accessor :timezone
 
-      # A user who can receive notifications in Knock. They are always referenced by
-      # your internal identifier.
+      # A [User](/concepts/users) represents an individual in your system who can
+      # receive notifications through Knock. Users are the most common recipients of
+      # notifications and are always referenced by your internal identifier.
       sig do
         params(
           id: String,

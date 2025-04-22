@@ -37,7 +37,8 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :service_name
 
-      # A message delivery log.
+      # A message delivery log contains a `request` from Knock to a downstream provider
+      # and the `response` that was returned.
       sig do
         params(
           id: String,

@@ -34,7 +34,16 @@ module Knockapi
       sig { params(engagement_status: T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol]).void }
       attr_writer :engagement_status
 
-      # Limits the results to only the message ids given (max 50). Note: when using this
+      sig { returns(T.nilable(Knockapi::Models::MessageListParams::InsertedAt)) }
+      attr_reader :inserted_at
+
+      sig do
+        params(inserted_at: T.any(Knockapi::Models::MessageListParams::InsertedAt, Knockapi::Internal::AnyHash))
+          .void
+      end
+      attr_writer :inserted_at
+
+      # Limits the results to only the message IDs given (max 50). Note: when using this
       # option, the results will be subject to any other filters applied to the query.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :message_ids
@@ -107,6 +116,7 @@ module Knockapi
           before: String,
           channel_id: String,
           engagement_status: T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol],
+          inserted_at: T.any(Knockapi::Models::MessageListParams::InsertedAt, Knockapi::Internal::AnyHash),
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
@@ -125,6 +135,7 @@ module Knockapi
         before: nil,
         channel_id: nil,
         engagement_status: nil,
+        inserted_at: nil,
         message_ids: nil,
         page_size: nil,
         source: nil,
@@ -144,6 +155,7 @@ module Knockapi
               before: String,
               channel_id: String,
               engagement_status: T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol],
+              inserted_at: Knockapi::Models::MessageListParams::InsertedAt,
               message_ids: T::Array[String],
               page_size: Integer,
               source: String,
@@ -173,6 +185,42 @@ module Knockapi
 
         sig { override.returns(T::Array[Knockapi::Models::MessageListParams::EngagementStatus::TaggedSymbol]) }
         def self.values; end
+      end
+
+      class InsertedAt < Knockapi::Internal::Type::BaseModel
+        # Limits the results to messages inserted after the given date.
+        sig { returns(T.nilable(String)) }
+        attr_reader :gt
+
+        sig { params(gt: String).void }
+        attr_writer :gt
+
+        # Limits the results to messages inserted after or on the given date.
+        sig { returns(T.nilable(String)) }
+        attr_reader :gte
+
+        sig { params(gte: String).void }
+        attr_writer :gte
+
+        # Limits the results to messages inserted before the given date.
+        sig { returns(T.nilable(String)) }
+        attr_reader :lt
+
+        sig { params(lt: String).void }
+        attr_writer :lt
+
+        # Limits the results to messages inserted before or on the given date.
+        sig { returns(T.nilable(String)) }
+        attr_reader :lte
+
+        sig { params(lte: String).void }
+        attr_writer :lte
+
+        sig { params(gt: String, gte: String, lt: String, lte: String).returns(T.attached_class) }
+        def self.new(gt: nil, gte: nil, lt: nil, lte: nil); end
+
+        sig { override.returns({gt: String, gte: String, lt: String, lte: String}) }
+        def to_hash; end
       end
 
       module Status

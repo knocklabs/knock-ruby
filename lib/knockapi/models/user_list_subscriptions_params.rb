@@ -27,10 +27,10 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::UserListSubscriptionsParams::Include] }
 
       # @!attribute objects
-      #   Only return subscriptions for the given recipients.
+      #   Only returns subscriptions for the specified object GIDs.
       #
-      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
-      optional :objects, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
+      #   @return [Array<String>, nil]
+      optional :objects, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!attribute page_size
       #   The number of items per page.
@@ -42,7 +42,7 @@ module Knockapi
       #   @param after [String]
       #   @param before [String]
       #   @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>]
-      #   @param objects [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      #   @param objects [Array<String>]
       #   @param page_size [Integer]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 

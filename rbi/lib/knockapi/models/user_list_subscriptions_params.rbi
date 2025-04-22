@@ -27,16 +27,11 @@ module Knockapi
       sig { params(include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol]).void }
       attr_writer :include
 
-      # Only return subscriptions for the given recipients.
-      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)])) }
+      # Only returns subscriptions for the specified object GIDs.
+      sig { returns(T.nilable(T::Array[String])) }
       attr_reader :objects
 
-      sig do
-        params(
-          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)]
-        )
-          .void
-      end
+      sig { params(objects: T::Array[String]).void }
       attr_writer :objects
 
       # The number of items per page.
@@ -51,7 +46,7 @@ module Knockapi
           after: String,
           before: String,
           include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
-          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
+          objects: T::Array[String],
           page_size: Integer,
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -67,7 +62,7 @@ module Knockapi
               after: String,
               before: String,
               include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
-              objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)],
+              objects: T::Array[String],
               page_size: Integer,
               request_options: Knockapi::RequestOptions
             }

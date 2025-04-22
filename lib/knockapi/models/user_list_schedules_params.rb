@@ -26,13 +26,13 @@ module Knockapi
       optional :page_size, Integer
 
       # @!attribute tenant
-      #   The ID of the tenant to list schedules for.
+      #   The tenant ID to filter schedules for.
       #
       #   @return [String, nil]
       optional :tenant, String
 
       # @!attribute workflow
-      #   The ID of the workflow to list schedules for.
+      #   The workflow key to filter schedules for.
       #
       #   @return [String, nil]
       optional :workflow, String

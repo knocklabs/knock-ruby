@@ -10,6 +10,7 @@ module Knockapi
         ?before: String,
         ?channel_id: String,
         ?engagement_status: ::Array[Knockapi::Models::MessageListParams::engagement_status],
+        ?inserted_at: Knockapi::Models::MessageListParams::InsertedAt,
         ?message_ids: ::Array[String],
         ?page_size: Integer,
         ?source: String,

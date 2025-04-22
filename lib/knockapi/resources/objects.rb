@@ -172,7 +172,7 @@ module Knockapi
       # collection. Allows filtering by message status and provides various sorting
       # options.
       #
-      # @overload list_messages(collection, object_id_, after: nil, before: nil, channel_id: nil, engagement_status: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
+      # @overload list_messages(collection, object_id_, after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
       # @param collection [String]
       # @param object_id_ [String]
@@ -180,6 +180,7 @@ module Knockapi
       # @param before [String]
       # @param channel_id [String]
       # @param engagement_status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>]
+      # @param inserted_at [Knockapi::Models::ObjectListMessagesParams::InsertedAt]
       # @param message_ids [Array<String>]
       # @param page_size [Integer]
       # @param source [String]
@@ -287,8 +288,8 @@ module Knockapi
       end
 
       # Creates a new object or updates an existing one in the specified collection.
-      # This operation is used to identify objects with their properties and channel
-      # data.
+      # This operation is used to identify objects with their properties, as well as
+      # optional preferences and channel data.
       #
       # @overload set(collection, object_id_, channel_data: nil, preferences: nil, request_options: {})
       #

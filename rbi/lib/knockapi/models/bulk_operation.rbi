@@ -66,6 +66,13 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :failed_at
 
+      # The URI to the bulk operation's progress.
+      sig { returns(T.nilable(String)) }
+      attr_reader :progress_path
+
+      sig { params(progress_path: String).void }
+      attr_writer :progress_path
+
       # Timestamp when the bulk operation was started.
       sig { returns(T.nilable(Time)) }
       attr_accessor :started_at
@@ -86,6 +93,7 @@ module Knockapi
           error_count: Integer,
           error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::AnyHash)],
           failed_at: T.nilable(Time),
+          progress_path: String,
           started_at: T.nilable(Time)
         )
           .returns(T.attached_class)
@@ -104,6 +112,7 @@ module Knockapi
         error_count: nil,
         error_items: nil,
         failed_at: nil,
+        progress_path: nil,
         started_at: nil
       ); end
       sig do
@@ -123,6 +132,7 @@ module Knockapi
               error_count: Integer,
               error_items: T::Array[Knockapi::Models::BulkOperation::ErrorItem],
               failed_at: T.nilable(Time),
+              progress_path: String,
               started_at: T.nilable(Time)
             }
           )
