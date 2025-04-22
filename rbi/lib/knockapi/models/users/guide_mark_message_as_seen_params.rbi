@@ -45,10 +45,10 @@ module Knockapi
         attr_writer :is_final
 
         # The metadata of the guide.
-        sig { returns(T.nilable(T.anything)) }
+        sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         attr_reader :metadata
 
-        sig { params(metadata: T.anything).void }
+        sig { params(metadata: T::Hash[Symbol, T.anything]).void }
         attr_writer :metadata
 
         # The tenant ID of the guide.
@@ -64,7 +64,7 @@ module Knockapi
             content: T.anything,
             data: T.anything,
             is_final: T::Boolean,
-            metadata: T.anything,
+            metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
             request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
@@ -93,7 +93,7 @@ module Knockapi
                 content: T.anything,
                 data: T.anything,
                 is_final: T::Boolean,
-                metadata: T.anything,
+                metadata: T::Hash[Symbol, T.anything],
                 tenant: T.nilable(String),
                 request_options: Knockapi::RequestOptions
               }

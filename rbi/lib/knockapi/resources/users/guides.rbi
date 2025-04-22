@@ -42,7 +42,7 @@ module Knockapi
             content: T.anything,
             data: T.anything,
             is_final: T::Boolean,
-            metadata: T.anything,
+            metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
@@ -86,7 +86,7 @@ module Knockapi
             content: T.anything,
             data: T.anything,
             is_final: T::Boolean,
-            metadata: T.anything,
+            metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
@@ -130,7 +130,7 @@ module Knockapi
             content: T.anything,
             data: T.anything,
             is_final: T::Boolean,
-            metadata: T.anything,
+            metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )

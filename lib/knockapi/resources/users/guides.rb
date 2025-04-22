@@ -43,7 +43,7 @@ module Knockapi
         # @param content [Object]
         # @param data [Object]
         # @param is_final [Boolean]
-        # @param metadata [Object]
+        # @param metadata [Hash{Symbol=>Object}]
         # @param tenant [String, nil]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -75,7 +75,7 @@ module Knockapi
         # @param content [Object]
         # @param data [Object]
         # @param is_final [Boolean]
-        # @param metadata [Object]
+        # @param metadata [Hash{Symbol=>Object}]
         # @param tenant [String, nil]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -107,7 +107,7 @@ module Knockapi
         # @param content [Object]
         # @param data [Object]
         # @param is_final [Boolean]
-        # @param metadata [Object]
+        # @param metadata [Hash{Symbol=>Object}]
         # @param tenant [String, nil]
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

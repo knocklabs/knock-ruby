@@ -21,7 +21,7 @@ module Knockapi
           ?content: top,
           ?data: top,
           ?is_final: bool,
-          ?metadata: top,
+          ?metadata: ::Hash[Symbol, top],
           ?tenant: String?,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse
@@ -36,7 +36,7 @@ module Knockapi
           ?content: top,
           ?data: top,
           ?is_final: bool,
-          ?metadata: top,
+          ?metadata: ::Hash[Symbol, top],
           ?tenant: String?,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse
@@ -51,7 +51,7 @@ module Knockapi
           ?content: top,
           ?data: top,
           ?is_final: bool,
-          ?metadata: top,
+          ?metadata: ::Hash[Symbol, top],
           ?tenant: String?,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Users::GuideMarkMessageAsSeenResponse

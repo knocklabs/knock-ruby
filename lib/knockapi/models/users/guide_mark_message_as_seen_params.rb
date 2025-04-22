@@ -53,8 +53,8 @@ module Knockapi
         # @!attribute metadata
         #   The metadata of the guide.
         #
-        #   @return [Object, nil]
-        optional :metadata, Knockapi::Internal::Type::Unknown
+        #   @return [Hash{Symbol=>Object}, nil]
+        optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
         # @!attribute tenant
         #   The tenant ID of the guide.
@@ -70,7 +70,7 @@ module Knockapi
         #   @param content [Object]
         #   @param data [Object]
         #   @param is_final [Boolean]
-        #   @param metadata [Object]
+        #   @param metadata [Hash{Symbol=>Object}]
         #   @param tenant [String, nil]
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end

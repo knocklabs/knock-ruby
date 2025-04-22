@@ -10,7 +10,7 @@ module Knockapi
           content: top,
           data: top,
           is_final: bool,
-          metadata: top,
+          metadata: ::Hash[Symbol, top],
           tenant: String?
         }
         & Knockapi::Internal::Type::request_parameters
@@ -39,9 +39,9 @@ module Knockapi
 
         def is_final=: (bool) -> bool
 
-        attr_reader metadata: top?
+        attr_reader metadata: ::Hash[Symbol, top]?
 
-        def metadata=: (top) -> top
+        def metadata=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
         attr_accessor tenant: String?
 
@@ -53,7 +53,7 @@ module Knockapi
           ?content: top,
           ?data: top,
           ?is_final: bool,
-          ?metadata: top,
+          ?metadata: ::Hash[Symbol, top],
           ?tenant: String?,
           ?request_options: Knockapi::request_opts
         ) -> void
