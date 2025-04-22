@@ -14,7 +14,7 @@ module Knockapi
             trigger_data: String,
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
-            .returns(Knockapi::Models::Messages::ActivityListResponse)
+            .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Activity])
         end
         def list(
           # The ID of the message to fetch activities for.
