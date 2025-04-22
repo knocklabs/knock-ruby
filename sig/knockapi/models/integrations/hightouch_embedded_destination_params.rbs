@@ -2,7 +2,12 @@ module Knockapi
   module Models
     module Integrations
       type hightouch_embedded_destination_params =
-        { id: String, jsonrpc: String, method_: String, params: top }
+        {
+          id: String,
+          jsonrpc: String,
+          method_: String,
+          params: ::Hash[Symbol, top]
+        }
         & Knockapi::Internal::Type::request_parameters
 
       class HightouchEmbeddedDestinationParams < Knockapi::Internal::Type::BaseModel
@@ -15,15 +20,15 @@ module Knockapi
 
         attr_accessor method_: String
 
-        attr_reader params: top?
+        attr_reader params: ::Hash[Symbol, top]?
 
-        def params=: (top) -> top
+        def params=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
         def initialize: (
           id: String,
           jsonrpc: String,
           method_: String,
-          ?params: top,
+          ?params: ::Hash[Symbol, top],
           ?request_options: Knockapi::request_opts
         ) -> void
 

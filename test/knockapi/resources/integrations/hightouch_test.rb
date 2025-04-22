@@ -18,7 +18,7 @@ class Knockapi::Test::Resources::Integrations::HightouchTest < Knockapi::Test::R
     assert_pattern do
       response => {
         id: String | nil,
-        result: Knockapi::Internal::Type::Unknown | nil
+        result: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end

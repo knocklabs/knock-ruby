@@ -6,7 +6,7 @@ module Knockapi
           id: String,
           jsonrpc: String,
           method_: String,
-          ?params: top,
+          ?params: ::Hash[Symbol, top],
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Integrations::HightouchEmbeddedDestinationResponse
 

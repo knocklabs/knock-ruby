@@ -29,14 +29,14 @@ module Knockapi
         # @!attribute params
         #   The parameters for the method.
         #
-        #   @return [Object, nil]
-        optional :params, Knockapi::Internal::Type::Unknown
+        #   @return [Hash{Symbol=>Object}, nil]
+        optional :params, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
         # @!method initialize(id:, jsonrpc:, method_:, params: nil, request_options: {})
         #   @param id [String]
         #   @param jsonrpc [String]
         #   @param method_ [String]
-        #   @param params [Object]
+        #   @param params [Hash{Symbol=>Object}]
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

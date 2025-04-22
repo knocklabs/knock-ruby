@@ -24,17 +24,17 @@ module Knockapi
         attr_accessor :guide_step_ref
 
         # The content of the guide.
-        sig { returns(T.nilable(T.anything)) }
+        sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         attr_reader :content
 
-        sig { params(content: T.anything).void }
+        sig { params(content: T::Hash[Symbol, T.anything]).void }
         attr_writer :content
 
         # The data of the guide.
-        sig { returns(T.nilable(T.anything)) }
+        sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         attr_reader :data
 
-        sig { params(data: T.anything).void }
+        sig { params(data: T::Hash[Symbol, T.anything]).void }
         attr_writer :data
 
         # Whether the guide is final.
@@ -61,8 +61,8 @@ module Knockapi
             guide_id: String,
             guide_key: String,
             guide_step_ref: String,
-            content: T.anything,
-            data: T.anything,
+            content: T::Hash[Symbol, T.anything],
+            data: T::Hash[Symbol, T.anything],
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
@@ -90,8 +90,8 @@ module Knockapi
                 guide_id: String,
                 guide_key: String,
                 guide_step_ref: String,
-                content: T.anything,
-                data: T.anything,
+                content: T::Hash[Symbol, T.anything],
+                data: T::Hash[Symbol, T.anything],
                 is_final: T::Boolean,
                 metadata: T::Hash[Symbol, T.anything],
                 tenant: T.nilable(String),

@@ -10,7 +10,7 @@ module Knockapi
             id: String,
             jsonrpc: String,
             method_: String,
-            params: T.anything,
+            params: T::Hash[Symbol, T.anything],
             request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           )
             .returns(Knockapi::Models::Integrations::CensusCustomDestinationResponse)

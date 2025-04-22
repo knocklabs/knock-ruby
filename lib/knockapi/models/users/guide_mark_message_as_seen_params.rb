@@ -35,14 +35,14 @@ module Knockapi
         # @!attribute content
         #   The content of the guide.
         #
-        #   @return [Object, nil]
-        optional :content, Knockapi::Internal::Type::Unknown
+        #   @return [Hash{Symbol=>Object}, nil]
+        optional :content, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
         # @!attribute data
         #   The data of the guide.
         #
-        #   @return [Object, nil]
-        optional :data, Knockapi::Internal::Type::Unknown
+        #   @return [Hash{Symbol=>Object}, nil]
+        optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
         # @!attribute is_final
         #   Whether the guide is final.
@@ -67,8 +67,8 @@ module Knockapi
         #   @param guide_id [String]
         #   @param guide_key [String]
         #   @param guide_step_ref [String]
-        #   @param content [Object]
-        #   @param data [Object]
+        #   @param content [Hash{Symbol=>Object}]
+        #   @param data [Hash{Symbol=>Object}]
         #   @param is_final [Boolean]
         #   @param metadata [Hash{Symbol=>Object}]
         #   @param tenant [String, nil]

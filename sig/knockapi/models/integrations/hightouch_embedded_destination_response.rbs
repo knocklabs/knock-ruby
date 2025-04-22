@@ -1,18 +1,19 @@
 module Knockapi
   module Models
     module Integrations
-      type hightouch_embedded_destination_response = { id: String, result: top }
+      type hightouch_embedded_destination_response =
+        { id: String, result: ::Hash[Symbol, top] }
 
       class HightouchEmbeddedDestinationResponse < Knockapi::Internal::Type::BaseModel
         attr_reader id: String?
 
         def id=: (String) -> String
 
-        attr_reader result: top?
+        attr_reader result: ::Hash[Symbol, top]?
 
-        def result=: (top) -> top
+        def result=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
-        def initialize: (?id: String, ?result: top) -> void
+        def initialize: (?id: String, ?result: ::Hash[Symbol, top]) -> void
 
         def to_hash: -> Knockapi::Models::Integrations::hightouch_embedded_destination_response
       end

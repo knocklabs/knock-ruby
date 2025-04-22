@@ -14,12 +14,12 @@ module Knockapi
         # @!attribute result
         #   The result of the RPC call.
         #
-        #   @return [Object, nil]
-        optional :result, Knockapi::Internal::Type::Unknown
+        #   @return [Hash{Symbol=>Object}, nil]
+        optional :result, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
         # @!method initialize(id: nil, result: nil)
         #   @param id [String]
-        #   @param result [Object]
+        #   @param result [Hash{Symbol=>Object}]
       end
     end
   end

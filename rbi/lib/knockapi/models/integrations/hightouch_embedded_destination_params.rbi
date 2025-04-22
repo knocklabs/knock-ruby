@@ -20,10 +20,10 @@ module Knockapi
         attr_accessor :method_
 
         # The parameters for the method.
-        sig { returns(T.nilable(T.anything)) }
+        sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         attr_reader :params
 
-        sig { params(params: T.anything).void }
+        sig { params(params: T::Hash[Symbol, T.anything]).void }
         attr_writer :params
 
         sig do
@@ -31,7 +31,7 @@ module Knockapi
             id: String,
             jsonrpc: String,
             method_: String,
-            params: T.anything,
+            params: T::Hash[Symbol, T.anything],
             request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
           )
             .returns(T.attached_class)
@@ -45,7 +45,7 @@ module Knockapi
                 id: String,
                 jsonrpc: String,
                 method_: String,
-                params: T.anything,
+                params: T::Hash[Symbol, T.anything],
                 request_options: Knockapi::RequestOptions
               }
             )
