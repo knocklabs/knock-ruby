@@ -113,7 +113,7 @@ module Knockapi
       # @param trigger_data [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::MessageListActivitiesResponse]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Activity>]
       #
       # @see Knockapi::Models::MessageListActivitiesParams
       def list_activities(message_id, params = {})
@@ -122,7 +122,8 @@ module Knockapi
           method: :get,
           path: ["v1/messages/%1$s/activities", message_id],
           query: parsed,
-          model: Knockapi::Models::MessageListActivitiesResponse,
+          page: Knockapi::Internal::ItemsCursor,
+          model: Knockapi::Models::Activity,
           options: options
         )
       end

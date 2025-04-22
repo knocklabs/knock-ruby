@@ -11,7 +11,7 @@ class Knockapi::Test::Resources::Messages::ActivitiesTest < Knockapi::Test::Reso
     response = @knock.messages.activities.list("message_id")
 
     assert_pattern do
-      response => Knockapi::Internal::EntriesCursor
+      response => Knockapi::Internal::ItemsCursor
     end
 
     row = response.to_enum.first
