@@ -4,37 +4,44 @@ module Knockapi
   module Models
     module Recipients
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
+        # @!attribute _typename
+        #   The typename of the schema.
+        #
+        #   @return [Symbol, Knockapi::Models::Recipients::SlackChannelData::Typename]
+        required :_typename,
+                 enum: -> { Knockapi::Models::Recipients::SlackChannelData::Typename },
+                 api_name: :__typename
+
+        # @!attribute connections
+        #   List of Slack channel connections.
+        #
+        #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
+        required :connections,
+                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
+
         # @!attribute token
         #   A Slack connection token.
         #
         #   @return [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
         optional :token, -> { Knockapi::Models::Recipients::SlackChannelData::Token }, nil?: true
 
-        # @!attribute connections
-        #   List of Slack channel connections.
-        #
-        #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>, nil]
-        optional :connections,
-                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
-
-        # @!method initialize(token: nil, connections: nil)
+        # @!method initialize(_typename:, connections:, token: nil)
         #   Slack channel data
         #
-        #   @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
+        #   @param _typename [Symbol, Knockapi::Models::Recipients::SlackChannelData::Typename]
         #   @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
+        #   @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
 
-        # @see Knockapi::Models::Recipients::SlackChannelData#token
-        class Token < Knockapi::Internal::Type::BaseModel
-          # @!attribute access_token
-          #   A Slack access token.
-          #
-          #   @return [String, nil]
-          required :access_token, String, nil?: true
+        # The typename of the schema.
+        #
+        # @see Knockapi::Models::Recipients::SlackChannelData#_typename
+        module Typename
+          extend Knockapi::Internal::Type::Enum
 
-          # @!method initialize(access_token:)
-          #   A Slack connection token.
-          #
-          #   @param access_token [String, nil]
+          SLACK_CHANNEL_DATA = :SlackChannelData
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # A Slack connection, either an access token or an incoming webhook
@@ -89,6 +96,20 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
+        end
+
+        # @see Knockapi::Models::Recipients::SlackChannelData#token
+        class Token < Knockapi::Internal::Type::BaseModel
+          # @!attribute access_token
+          #   A Slack access token.
+          #
+          #   @return [String, nil]
+          required :access_token, String, nil?: true
+
+          # @!method initialize(access_token:)
+          #   A Slack connection token.
+          #
+          #   @param access_token [String, nil]
         end
       end
     end

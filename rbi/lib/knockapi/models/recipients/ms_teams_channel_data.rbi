@@ -4,6 +4,10 @@ module Knockapi
   module Models
     module Recipients
       class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
+        # The typename of the schema.
+        sig { returns(Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol) }
+        attr_accessor :_typename
+
         # List of Microsoft Teams connections.
         sig do
           returns(
@@ -24,6 +28,7 @@ module Knockapi
         # Microsoft Teams channel connection.
         sig do
           params(
+            _typename: Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol,
             connections: T::Array[
               T.any(
                 Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
@@ -35,12 +40,13 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:, ms_teams_tenant_id: nil); end
+        def self.new(_typename:, connections:, ms_teams_tenant_id: nil); end
 
         sig do
           override
             .returns(
               {
+                _typename: Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol,
                 connections: T::Array[
                   T.any(
                     Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
@@ -52,6 +58,20 @@ module Knockapi
             )
         end
         def to_hash; end
+
+        # The typename of the schema.
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Typename) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          MS_TEAMS_CHANNEL_DATA =
+            T.let(:MsTeamsChannelData, Knockapi::Models::Recipients::MsTeamsChannelData::Typename::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::MsTeamsChannelData::Typename::TaggedSymbol]) }
+          def self.values; end
+        end
 
         # Microsoft Teams token connection.
         module Connection

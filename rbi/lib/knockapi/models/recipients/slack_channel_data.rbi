@@ -4,6 +4,23 @@ module Knockapi
   module Models
     module Recipients
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
+        # The typename of the schema.
+        sig { returns(Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol) }
+        attr_accessor :_typename
+
+        # List of Slack channel connections.
+        sig do
+          returns(
+            T::Array[
+              T.any(
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+              )
+            ]
+          )
+        end
+        attr_accessor :connections
+
         # A Slack connection token.
         sig { returns(T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)) }
         attr_reader :token
@@ -16,78 +33,52 @@ module Knockapi
         end
         attr_writer :token
 
-        # List of Slack channel connections.
-        sig do
-          returns(
-            T.nilable(
-              T::Array[
-                T.any(
-                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-                  Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-                )
-              ]
-            )
-          )
-        end
-        attr_reader :connections
-
-        sig do
-          params(
-            connections: T::Array[
-              T.any(
-                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
-                Knockapi::Internal::AnyHash,
-                Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
-              )
-            ]
-          )
-            .void
-        end
-        attr_writer :connections
-
         # Slack channel data
         sig do
           params(
-            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash)),
+            _typename: Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol,
             connections: T::Array[
               T.any(
                 Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
                 Knockapi::Internal::AnyHash,
                 Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
               )
-            ]
+            ],
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
           )
             .returns(T.attached_class)
         end
-        def self.new(token: nil, connections: nil); end
+        def self.new(_typename:, connections:, token: nil); end
 
         sig do
           override
             .returns(
               {
-                token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token),
+                _typename: Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol,
                 connections: T::Array[
                   T.any(
                     Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
                     Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
                   )
-                ]
+                ],
+                token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)
               }
             )
         end
         def to_hash; end
 
-        class Token < Knockapi::Internal::Type::BaseModel
-          # A Slack access token.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :access_token
+        # The typename of the schema.
+        module Typename
+          extend Knockapi::Internal::Type::Enum
 
-          # A Slack connection token.
-          sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
-          def self.new(access_token:); end
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::SlackChannelData::Typename) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          sig { override.returns({access_token: T.nilable(String)}) }
-          def to_hash; end
+          SLACK_CHANNEL_DATA =
+            T.let(:SlackChannelData, Knockapi::Models::Recipients::SlackChannelData::Typename::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::SlackChannelData::Typename::TaggedSymbol]) }
+          def self.values; end
         end
 
         # A Slack connection, either an access token or an incoming webhook
@@ -149,6 +140,19 @@ module Knockapi
               )
           end
           def self.variants; end
+        end
+
+        class Token < Knockapi::Internal::Type::BaseModel
+          # A Slack access token.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :access_token
+
+          # A Slack connection token.
+          sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
+          def self.new(access_token:); end
+
+          sig { override.returns({access_token: T.nilable(String)}) }
+          def to_hash; end
         end
       end
     end

@@ -28,20 +28,22 @@ module Knockapi
         module Data
           extend Knockapi::Internal::Type::Union
 
+          discriminator :__typename
+
           # The content of a push notification.
-          variant -> { Knockapi::Models::Recipients::PushChannelData }
+          variant :PushChannelData, -> { Knockapi::Models::Recipients::PushChannelData }
 
           # OneSignal channel data.
-          variant -> { Knockapi::Models::Recipients::OneSignalChannelData }
+          variant :OneSignalChannelData, -> { Knockapi::Models::Recipients::OneSignalChannelData }
 
           # Slack channel data
-          variant -> { Knockapi::Models::Recipients::SlackChannelData }
+          variant :SlackChannelData, -> { Knockapi::Models::Recipients::SlackChannelData }
 
           # Microsoft Teams channel connection.
-          variant -> { Knockapi::Models::Recipients::MsTeamsChannelData }
+          variant :MsTeamsChannelData, -> { Knockapi::Models::Recipients::MsTeamsChannelData }
 
           # Discord channel data.
-          variant -> { Knockapi::Models::Recipients::DiscordChannelData }
+          variant :DiscordChannelData, -> { Knockapi::Models::Recipients::DiscordChannelData }
 
           # @!method self.variants
           #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]

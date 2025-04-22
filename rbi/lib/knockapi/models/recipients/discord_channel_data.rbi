@@ -4,6 +4,10 @@ module Knockapi
   module Models
     module Recipients
       class DiscordChannelData < Knockapi::Internal::Type::BaseModel
+        # The typename of the schema.
+        sig { returns(Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol) }
+        attr_accessor :_typename
+
         # List of Discord channel connections.
         sig do
           returns(
@@ -20,6 +24,7 @@ module Knockapi
         # Discord channel data.
         sig do
           params(
+            _typename: Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol,
             connections: T::Array[
               T.any(
                 Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
@@ -30,12 +35,13 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:); end
+        def self.new(_typename:, connections:); end
 
         sig do
           override
             .returns(
               {
+                _typename: Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol,
                 connections: T::Array[
                   T.any(
                     Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
@@ -46,6 +52,20 @@ module Knockapi
             )
         end
         def to_hash; end
+
+        # The typename of the schema.
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::DiscordChannelData::Typename) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          DISCORD_CHANNEL_DATA =
+            T.let(:DiscordChannelData, Knockapi::Models::Recipients::DiscordChannelData::Typename::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::DiscordChannelData::Typename::TaggedSymbol]) }
+          def self.values; end
+        end
 
         # Discord channel connection, either a channel connection or an incoming webhook
         # connection.

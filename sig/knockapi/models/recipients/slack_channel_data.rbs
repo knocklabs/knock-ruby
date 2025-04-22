@@ -3,34 +3,34 @@ module Knockapi
     module Recipients
       type slack_channel_data =
         {
-          token: Knockapi::Models::Recipients::SlackChannelData::Token?,
-          connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
+          _typename: Knockapi::Models::Recipients::SlackChannelData::typename,
+          connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection],
+          token: Knockapi::Models::Recipients::SlackChannelData::Token?
         }
 
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
+        attr_accessor _typename: Knockapi::Models::Recipients::SlackChannelData::typename
+
+        attr_accessor connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
+
         attr_accessor token: Knockapi::Models::Recipients::SlackChannelData::Token?
 
-        attr_reader connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]?
-
-        def connections=: (
-          ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
-        ) -> ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
-
         def initialize: (
-          ?token: Knockapi::Models::Recipients::SlackChannelData::Token?,
-          ?connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
+          _typename: Knockapi::Models::Recipients::SlackChannelData::typename,
+          connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection],
+          ?token: Knockapi::Models::Recipients::SlackChannelData::Token?
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::slack_channel_data
 
-        type token = { access_token: String? }
+        type typename = :SlackChannelData
 
-        class Token < Knockapi::Internal::Type::BaseModel
-          attr_accessor access_token: String?
+        module Typename
+          extend Knockapi::Internal::Type::Enum
 
-          def initialize: (access_token: String?) -> void
+          SLACK_CHANNEL_DATA: :SlackChannelData
 
-          def to_hash: -> Knockapi::Models::Recipients::SlackChannelData::token
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::SlackChannelData::typename]
         end
 
         type connection =
@@ -70,6 +70,16 @@ module Knockapi
           end
 
           def self?.variants: -> [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
+        end
+
+        type token = { access_token: String? }
+
+        class Token < Knockapi::Internal::Type::BaseModel
+          attr_accessor access_token: String?
+
+          def initialize: (access_token: String?) -> void
+
+          def to_hash: -> Knockapi::Models::Recipients::SlackChannelData::token
         end
       end
     end

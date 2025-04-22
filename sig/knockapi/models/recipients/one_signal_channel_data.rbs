@@ -1,14 +1,33 @@
 module Knockapi
   module Models
     module Recipients
-      type one_signal_channel_data = { player_ids: ::Array[String] }
+      type one_signal_channel_data =
+        {
+          _typename: Knockapi::Models::Recipients::OneSignalChannelData::typename,
+          player_ids: ::Array[String]
+        }
 
       class OneSignalChannelData < Knockapi::Internal::Type::BaseModel
+        attr_accessor _typename: Knockapi::Models::Recipients::OneSignalChannelData::typename
+
         attr_accessor player_ids: ::Array[String]
 
-        def initialize: (player_ids: ::Array[String]) -> void
+        def initialize: (
+          _typename: Knockapi::Models::Recipients::OneSignalChannelData::typename,
+          player_ids: ::Array[String]
+        ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::one_signal_channel_data
+
+        type typename = :OneSignalChannelData
+
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          ONE_SIGNAL_CHANNEL_DATA: :OneSignalChannelData
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::OneSignalChannelData::typename]
+        end
       end
     end
   end

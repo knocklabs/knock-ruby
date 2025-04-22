@@ -4,6 +4,14 @@ module Knockapi
   module Models
     module Recipients
       class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
+        # @!attribute _typename
+        #   The typename of the schema.
+        #
+        #   @return [Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Typename]
+        required :_typename,
+                 enum: -> { Knockapi::Models::Recipients::MsTeamsChannelData::Typename },
+                 api_name: :__typename
+
         # @!attribute connections
         #   List of Microsoft Teams connections.
         #
@@ -17,11 +25,24 @@ module Knockapi
         #   @return [String, nil]
         optional :ms_teams_tenant_id, String, nil?: true
 
-        # @!method initialize(connections:, ms_teams_tenant_id: nil)
+        # @!method initialize(_typename:, connections:, ms_teams_tenant_id: nil)
         #   Microsoft Teams channel connection.
         #
+        #   @param _typename [Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Typename]
         #   @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
         #   @param ms_teams_tenant_id [String, nil]
+
+        # The typename of the schema.
+        #
+        # @see Knockapi::Models::Recipients::MsTeamsChannelData#_typename
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          MS_TEAMS_CHANNEL_DATA = :MsTeamsChannelData
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
 
         # Microsoft Teams token connection.
         module Connection
