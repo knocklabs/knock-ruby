@@ -11,22 +11,19 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.update("user_id")
 
     assert_pattern do
-      response => Knockapi::Models::UserUpdateResponse
+      response => Knockapi::Models::User
     end
 
     assert_pattern do
       response => {
         id: String,
-        created_at: Time,
+        _typename: String,
         updated_at: Time,
-        _typename: String | nil,
         avatar: String | nil,
-        channel_data: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelData]) | nil,
+        created_at: Time | nil,
         email: String | nil,
-        locale: String | nil,
         name: String | nil,
         phone_number: String | nil,
-        preferences: Knockapi::Models::Recipients::PreferenceSet | nil,
         timezone: String | nil
       }
     end

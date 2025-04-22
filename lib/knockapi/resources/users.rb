@@ -30,7 +30,7 @@ module Knockapi
       # @param timezone [String, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::UserUpdateResponse]
+      # @return [Knockapi::Models::User]
       #
       # @see Knockapi::Models::UserUpdateParams
       def update(user_id, params = {})
@@ -39,7 +39,7 @@ module Knockapi
           method: :put,
           path: ["v1/users/%1$s", user_id],
           body: parsed,
-          model: Knockapi::Models::UserUpdateResponse,
+          model: Knockapi::Models::User,
           options: options
         )
       end

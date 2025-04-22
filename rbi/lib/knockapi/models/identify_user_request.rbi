@@ -19,7 +19,7 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
-      # The locale of the user. Used for [message localization](/concepts/translations)
+      # The locale of the user. Used for [message localization](/concepts/translations).
       sig { returns(T.nilable(String)) }
       attr_accessor :locale
 
@@ -39,7 +39,7 @@ module Knockapi
       # The timezone of the user. Must be a valid
       # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
       # Used for
-      # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients)
+      # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
       sig { returns(T.nilable(String)) }
       attr_accessor :timezone
 

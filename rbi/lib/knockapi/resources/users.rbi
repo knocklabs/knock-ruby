@@ -33,7 +33,7 @@ module Knockapi
           timezone: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(Knockapi::Models::UserUpdateResponse)
+          .returns(Knockapi::Models::User)
       end
       def update(
         # The ID for the user that you set when identifying them in Knock.
@@ -46,7 +46,7 @@ module Knockapi
         created_at: nil,
         # The primary email address for the user.
         email: nil,
-        # The locale of the user. Used for [message localization](/concepts/translations)
+        # The locale of the user. Used for [message localization](/concepts/translations).
         locale: nil,
         # Display name of the user.
         name: nil,
@@ -58,7 +58,7 @@ module Knockapi
         # The timezone of the user. Must be a valid
         # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
         # Used for
-        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients)
+        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil,
         request_options: {}
       ); end

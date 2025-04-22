@@ -2,7 +2,7 @@
 
 module Knockapi
   module Models
-    # @see Knockapi::Resources::Users#list
+    # @see Knockapi::Resources::Users#update
     class User < Knockapi::Internal::Type::BaseModel
       # @!attribute id
       #   The ID for the user that you set when identifying them in Knock.
@@ -57,7 +57,7 @@ module Knockapi
       #   The timezone of the user. Must be a valid
       #   [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
       #   Used for
-      #   [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients)
+      #   [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
       #
       #   @return [String, nil]
       optional :timezone, String, nil?: true

@@ -19,7 +19,7 @@ module Knockapi
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::UserUpdateResponse
+      ) -> Knockapi::Models::User
 
       def list: (
         ?after: String,
