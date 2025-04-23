@@ -135,14 +135,14 @@ module Knockapi
       # @param channel_id [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Models::Recipients::RecipientsChannelDataItem>, nil]
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::ObjectGetChannelDataParams
       def get_channel_data(collection, object_id_, channel_id, params = {})
         @client.request(
           method: :get,
           path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
-          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelDataItem],
+          model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: params[:request_options]
         )
       end
@@ -295,7 +295,7 @@ module Knockapi
       #
       # @param collection [String]
       # @param object_id_ [String]
-      # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      # @param channel_data [Array<Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>>, nil]
       # @param locale [String, nil]
       # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       # @param timezone [String, nil]
@@ -325,7 +325,7 @@ module Knockapi
       # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Models::Recipients::RecipientsChannelDataItem>, nil]
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::ObjectSetChannelDataParams
       def set_channel_data(collection, object_id_, channel_id, params)
@@ -334,7 +334,7 @@ module Knockapi
           method: :put,
           path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
           body: parsed,
-          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelDataItem],
+          model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: options
         )
       end

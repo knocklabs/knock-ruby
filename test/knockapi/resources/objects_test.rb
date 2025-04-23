@@ -99,7 +99,15 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       @knock.objects.get_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelDataItem])
+      response => Knockapi::Models::Recipients::RecipientsChannelData
+    end
+
+    assert_pattern do
+      response => {
+        _typename: String,
+        channel_id: String,
+        data: Knockapi::Models::Recipients::RecipientsChannelData::Data
+      }
     end
   end
 
@@ -284,7 +292,15 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       )
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelDataItem])
+      response => Knockapi::Models::Recipients::RecipientsChannelData
+    end
+
+    assert_pattern do
+      response => {
+        _typename: String,
+        channel_id: String,
+        data: Knockapi::Models::Recipients::RecipientsChannelData::Data
+      }
     end
   end
 

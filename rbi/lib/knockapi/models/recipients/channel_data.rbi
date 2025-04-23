@@ -3,8 +3,12 @@
 module Knockapi
   module Models
     module Recipients
-      class RecipientsChannelDataItem < Knockapi::Internal::Type::BaseModel
-        # The ID of the channel to associate data with.
+      class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
+        # The typename of the schema.
+        sig { returns(String) }
+        attr_accessor :_typename
+
+        # The unique identifier for the channel.
         sig { returns(String) }
         attr_accessor :channel_id
 
@@ -13,50 +17,46 @@ module Knockapi
           returns(
             T.any(
               Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Models::Recipients::OneSignalChannelData,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
+              Knockapi::Models::Recipients::DiscordChannelData,
+              Knockapi::Models::Recipients::OneSignalChannelData
             )
           )
         end
         attr_accessor :data
 
-        # The provider identifier (must match the data.type value)
-        sig { returns(String) }
-        attr_accessor :provider
-
-        # A request to set channel data for a type of channel inline.
+        # Channel data for a given channel type.
         sig do
           params(
+            _typename: String,
             channel_id: String,
             data: T.any(
               Knockapi::Models::Recipients::PushChannelData,
               Knockapi::Internal::AnyHash,
-              Knockapi::Models::Recipients::OneSignalChannelData,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
-            ),
-            provider: String
+              Knockapi::Models::Recipients::DiscordChannelData,
+              Knockapi::Models::Recipients::OneSignalChannelData
+            )
           )
             .returns(T.attached_class)
         end
-        def self.new(channel_id:, data:, provider:); end
+        def self.new(_typename:, channel_id:, data:); end
 
         sig do
           override
             .returns(
               {
+                _typename: String,
                 channel_id: String,
                 data: T.any(
                   Knockapi::Models::Recipients::PushChannelData,
-                  Knockapi::Models::Recipients::OneSignalChannelData,
                   Knockapi::Models::Recipients::SlackChannelData,
                   Knockapi::Models::Recipients::MsTeamsChannelData,
-                  Knockapi::Models::Recipients::DiscordChannelData
-                ),
-                provider: String
+                  Knockapi::Models::Recipients::DiscordChannelData,
+                  Knockapi::Models::Recipients::OneSignalChannelData
+                )
               }
             )
         end
@@ -69,18 +69,12 @@ module Knockapi
           sig do
             override
               .returns(
-                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
               )
           end
           def self.variants; end
         end
       end
-
-      RecipientsChannelData =
-        T.let(
-          Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelDataItem],
-          Knockapi::Internal::Type::Converter
-        )
     end
   end
 end

@@ -8,11 +8,12 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute channel_data
-      #   A request to set channel data for a type of channel inline.
+      #   An optional set of [channel data](/managing-recipients/setting-channel-data) for
+      #   the object. This is a list of `ChannelData` objects.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @return [Array<Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>>, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlineChannelDataRequestItem] },
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlineChannelDataRequestItem]] },
                nil?: true
 
       # @!attribute locale
@@ -40,7 +41,7 @@ module Knockapi
       optional :timezone, String, nil?: true
 
       # @!method initialize(channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {})
-      #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @param channel_data [Array<Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>>, nil]
       #   @param locale [String, nil]
       #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       #   @param timezone [String, nil]

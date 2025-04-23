@@ -6,8 +6,9 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
+      # An optional set of [channel data](/managing-recipients/setting-channel-data) for
+      # the object. This is a list of `ChannelData` objects.
+      sig { returns(T.nilable(T::Array[T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]])) }
       attr_accessor :channel_data
 
       # The locale of the object. Used for
@@ -29,7 +30,7 @@ module Knockapi
       sig do
         params(
           channel_data: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+            T::Array[T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]]
           ),
           locale: T.nilable(String),
           preferences: T.nilable(
@@ -46,7 +47,7 @@ module Knockapi
         override
           .returns(
             {
-              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
+              channel_data: T.nilable(T::Array[T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]]),
               locale: T.nilable(String),
               preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
               timezone: T.nilable(String),

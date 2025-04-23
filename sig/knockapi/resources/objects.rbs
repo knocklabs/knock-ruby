@@ -44,7 +44,7 @@ module Knockapi
         String object_id_,
         String channel_id,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Recipients::recipients_channel_data?
+      ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
       def get_preferences: (
         String collection,
@@ -106,7 +106,7 @@ module Knockapi
       def set: (
         String collection,
         String object_id_,
-        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?channel_data: ::Array[Knockapi::Models::Recipients::inline_channel_data_request]?,
         ?locale: String?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?,
@@ -119,7 +119,7 @@ module Knockapi
         String channel_id,
         data: Knockapi::Models::Recipients::ChannelDataRequest::data,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Recipients::recipients_channel_data?
+      ) -> Knockapi::Models::Recipients::RecipientsChannelData
 
       def set_preferences: (
         String collection,

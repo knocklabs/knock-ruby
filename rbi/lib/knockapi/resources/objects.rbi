@@ -126,7 +126,7 @@ module Knockapi
           channel_id: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelDataItem]))
+          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
       def get_channel_data(
         # The collection this object belongs to.
@@ -313,7 +313,7 @@ module Knockapi
           collection: String,
           object_id_: String,
           channel_data: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+            T::Array[T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]]
           ),
           locale: T.nilable(String),
           preferences: T.nilable(
@@ -329,7 +329,8 @@ module Knockapi
         collection,
         # Unique identifier for the object.
         object_id_,
-        # A request to set channel data for a type of channel inline.
+        # An optional set of [channel data](/managing-recipients/setting-channel-data) for
+        # the object. This is a list of `ChannelData` objects.
         channel_data: nil,
         # The locale of the object. Used for
         # [message localization](/concepts/translations).
@@ -359,7 +360,7 @@ module Knockapi
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelDataItem]))
+          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
       def set_channel_data(
         # The collection this object belongs to.

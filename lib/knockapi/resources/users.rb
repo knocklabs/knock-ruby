@@ -116,14 +116,14 @@ module Knockapi
       # @param channel_id [String]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Models::Recipients::RecipientsChannelDataItem>, nil]
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::UserGetChannelDataParams
       def get_channel_data(user_id, channel_id, params = {})
         @client.request(
           method: :get,
           path: ["v1/users/%1$s/channel_data/%2$s", user_id, channel_id],
-          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelDataItem],
+          model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: params[:request_options]
         )
       end
@@ -296,7 +296,7 @@ module Knockapi
       # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Models::Recipients::RecipientsChannelDataItem>, nil]
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::UserSetChannelDataParams
       def set_channel_data(user_id, channel_id, params)
@@ -305,7 +305,7 @@ module Knockapi
           method: :put,
           path: ["v1/users/%1$s/channel_data/%2$s", user_id, channel_id],
           body: parsed,
-          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::RecipientsChannelDataItem],
+          model: Knockapi::Models::Recipients::RecipientsChannelData,
           options: options
         )
       end
