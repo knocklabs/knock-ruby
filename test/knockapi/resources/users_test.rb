@@ -120,6 +120,28 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     end
   end
 
+  def test_get_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.users.get_preferences("user_id", "default")
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::PreferenceSet
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
+      }
+    end
+  end
+
   def test_list_messages
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
@@ -290,6 +312,28 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         _typename: String,
         channel_id: String,
         data: Knockapi::Models::Recipients::RecipientsChannelData::Data
+      }
+    end
+  end
+
+  def test_set_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.users.set_preferences("user_id", "default")
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::PreferenceSet
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
   end

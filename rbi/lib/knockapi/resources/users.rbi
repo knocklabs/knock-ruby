@@ -127,6 +127,26 @@ module Knockapi
         channel_id,
         request_options: {}
       ); end
+      # Retrieves a specific preference set for a user identified by the preference set
+      # ID.
+      sig do
+        params(
+          user_id: String,
+          id: String,
+          tenant: String,
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+        )
+          .returns(Knockapi::Models::Recipients::PreferenceSet)
+      end
+      def get_preferences(
+        # The ID for the user that you set when identifying them in Knock.
+        user_id,
+        # Unique identifier for the preference set.
+        id,
+        # The unique identifier for the tenant.
+        tenant: nil,
+        request_options: {}
+      ); end
       # Returns a paginated list of messages for a specific user. Allows filtering by
       # message status and provides various sorting options. Messages outside the
       # account's retention window will not be included in the results.
@@ -298,6 +318,52 @@ module Knockapi
         channel_id,
         # Channel data for a given channel type.
         data:,
+        request_options: {}
+      ); end
+      # Updates a complete preference set for a user. This is a destructive operation
+      # that will replace the existing preference set for the user.
+      sig do
+        params(
+          user_id: String,
+          id: String,
+          categories: T.nilable(
+            T::Hash[
+              Symbol,
+              T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Internal::AnyHash
+              )
+            ]
+          ),
+          channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
+          workflows: T.nilable(
+            T::Hash[
+              Symbol,
+              T.any(
+                T::Boolean,
+                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                Knockapi::Internal::AnyHash
+              )
+            ]
+          ),
+          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+        )
+          .returns(Knockapi::Models::Recipients::PreferenceSet)
+      end
+      def set_preferences(
+        # The ID for the user that you set when identifying them in Knock.
+        user_id,
+        # Unique identifier for the preference set.
+        id,
+        # An object where the key is the category and the values are the preference
+        # settings for that category.
+        categories: nil,
+        # Channel type preferences.
+        channel_types: nil,
+        # An object where the key is the workflow key and the values are the preference
+        # settings for that workflow.
+        workflows: nil,
         request_options: {}
       ); end
       # Deletes channel data for a specific user and channel ID.

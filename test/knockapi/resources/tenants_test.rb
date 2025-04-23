@@ -28,4 +28,54 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
       }
     end
   end
+
+  def test_delete
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.tenants.delete("id")
+
+    assert_pattern do
+      response => String
+    end
+  end
+
+  def test_get
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.tenants.get("id")
+
+    assert_pattern do
+      response => Knockapi::Models::Tenant
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String
+      }
+    end
+  end
+
+  def test_set
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.tenants.set("id")
+
+    assert_pattern do
+      response => Knockapi::Models::Tenant
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String
+      }
+    end
+  end
 end

@@ -1,8 +1,0 @@
-module Knockapi
-  module Models
-    type object_delete_subscriptions_response =
-      ::Array[Knockapi::Models::Recipients::Subscription]
-
-    ObjectDeleteSubscriptionsResponse: object_delete_subscriptions_response
-  end
-end

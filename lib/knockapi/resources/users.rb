@@ -128,6 +128,30 @@ module Knockapi
         )
       end
 
+      # Retrieves a specific preference set for a user identified by the preference set
+      # ID.
+      #
+      # @overload get_preferences(user_id, id, tenant: nil, request_options: {})
+      #
+      # @param user_id [String]
+      # @param id [String]
+      # @param tenant [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
+      #
+      # @see Knockapi::Models::UserGetPreferencesParams
+      def get_preferences(user_id, id, params = {})
+        parsed, options = Knockapi::Models::UserGetPreferencesParams.dump_request(params)
+        @client.request(
+          method: :get,
+          path: ["v1/users/%1$s/preferences/%2$s", user_id, id],
+          query: parsed,
+          model: Knockapi::Models::Recipients::PreferenceSet,
+          options: options
+        )
+      end
+
       # Returns a paginated list of messages for a specific user. Allows filtering by
       # message status and provides various sorting options. Messages outside the
       # account's retention window will not be included in the results.
@@ -282,6 +306,32 @@ module Knockapi
           path: ["v1/users/%1$s/channel_data/%2$s", user_id, channel_id],
           body: parsed,
           model: Knockapi::Models::Recipients::RecipientsChannelData,
+          options: options
+        )
+      end
+
+      # Updates a complete preference set for a user. This is a destructive operation
+      # that will replace the existing preference set for the user.
+      #
+      # @overload set_preferences(user_id, id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
+      #
+      # @param user_id [String]
+      # @param id [String]
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
+      #
+      # @see Knockapi::Models::UserSetPreferencesParams
+      def set_preferences(user_id, id, params = {})
+        parsed, options = Knockapi::Models::UserSetPreferencesParams.dump_request(params)
+        @client.request(
+          method: :put,
+          path: ["v1/users/%1$s/preferences/%2$s", user_id, id],
+          body: parsed,
+          model: Knockapi::Models::Recipients::PreferenceSet,
           options: options
         )
       end
