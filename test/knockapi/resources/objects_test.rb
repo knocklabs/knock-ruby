@@ -286,8 +286,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response =
       @knock.objects.set_channel_data(
         "collection",
+        "object_id",
         "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        object_id_: "object_id",
         data: {__typename: :PushChannelData, tokens: ["push_token_1"]}
       )
 

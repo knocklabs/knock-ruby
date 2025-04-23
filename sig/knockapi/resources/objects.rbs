@@ -115,8 +115,8 @@ module Knockapi
 
       def set_channel_data: (
         String collection,
+        String object_id_,
         String channel_id,
-        object_id_: String,
         data: Knockapi::Models::Recipients::ChannelDataRequest::data,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Recipients::RecipientsChannelData

@@ -317,23 +317,19 @@ module Knockapi
 
       # Sets the channel data for the specified object and channel.
       #
-      # @overload set_channel_data(collection, channel_id, object_id_:, data:, request_options: {})
+      # @overload set_channel_data(collection, object_id_, channel_id, data:, request_options: {})
       #
       # @param collection [String]
-      # @param channel_id [String]
       # @param object_id_ [String]
+      # @param channel_id [String]
       # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::ObjectSetChannelDataParams
-      def set_channel_data(collection, channel_id, params)
+      def set_channel_data(collection, object_id_, channel_id, params)
         parsed, options = Knockapi::Models::ObjectSetChannelDataParams.dump_request(params)
-        object_id_ =
-          parsed.delete(:object_id_) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
         @client.request(
           method: :put,
           path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],

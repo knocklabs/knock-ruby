@@ -343,8 +343,8 @@ module Knockapi
       sig do
         params(
           collection: String,
-          channel_id: String,
           object_id_: String,
+          channel_id: String,
           data: T.any(
             Knockapi::Models::Recipients::PushChannelData,
             Knockapi::Internal::AnyHash,
@@ -358,13 +358,13 @@ module Knockapi
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
       def set_channel_data(
-        # Path param: The collection this object belongs to.
+        # The collection this object belongs to.
         collection,
-        # Path param: The unique identifier for the channel.
+        # Unique identifier for the object.
+        object_id_,
+        # The unique identifier for the channel.
         channel_id,
-        # Path param: Unique identifier for the object.
-        object_id_:,
-        # Body param: Channel data for a given channel type.
+        # Channel data for a given channel type.
         data:,
         request_options: {}
       ); end
