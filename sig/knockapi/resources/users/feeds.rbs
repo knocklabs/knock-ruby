@@ -2,28 +2,6 @@ module Knockapi
   module Resources
     class Users
       class Feeds
-        def get_settings: (
-          String user_id,
-          String channel_id,
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Users::FeedGetSettingsResponse
-
-        def list_items: (
-          String user_id,
-          String channel_id,
-          ?after: String,
-          ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
-          ?before: String,
-          ?has_tenant: bool,
-          ?page_size: Integer,
-          ?source: String,
-          ?status: Knockapi::Models::Users::FeedListItemsParams::status,
-          ?tenant: String,
-          ?trigger_data: String,
-          ?workflow_categories: ::Array[String],
-          ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse]
-
         def initialize: (client: Knockapi::Client) -> void
       end
     end

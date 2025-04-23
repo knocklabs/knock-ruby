@@ -31,59 +31,6 @@ module Knockapi
         tenant_id: nil,
         request_options: {}
       ); end
-      # Delete a tenant and all associated data. This operation cannot be undone.
-      sig do
-        params(
-          tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(String)
-      end
-      def delete(
-        # The unique identifier for the tenant.
-        tenant_id,
-        request_options: {}
-      ); end
-      # Get a tenant by ID.
-      sig do
-        params(
-          tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Tenant)
-      end
-      def get(
-        # The unique identifier for the tenant.
-        tenant_id,
-        request_options: {}
-      ); end
-      # Set or update a tenant's properties and settings. This operation allows you to
-      # update tenant preferences, channel data, and branding settings.
-      sig do
-        params(
-          tenant_id: String,
-          channel_data: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
-          ),
-          preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
-          ),
-          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Tenant)
-      end
-      def set(
-        # The unique identifier for the tenant.
-        tenant_id,
-        # A request to set channel data for a type of channel inline.
-        channel_data: nil,
-        # Inline set preferences for a recipient, where the key is the preference set name
-        preferences: nil,
-        # The settings for the tenant. Includes branding and preference set.
-        settings: nil,
-        request_options: {}
-      ); end
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:); end
