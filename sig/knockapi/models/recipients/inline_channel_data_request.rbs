@@ -4,7 +4,8 @@ module Knockapi
       type inline_channel_data_request_item =
         {
           channel_id: String,
-          data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data
+          data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data,
+          provider: String
         }
 
       class InlineChannelDataRequestItem < Knockapi::Internal::Type::BaseModel
@@ -12,9 +13,12 @@ module Knockapi
 
         attr_accessor data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data
 
+        attr_accessor provider: String
+
         def initialize: (
           channel_id: String,
-          data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data
+          data: Knockapi::Models::Recipients::InlineChannelDataRequestItem::data,
+          provider: String
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::inline_channel_data_request_item

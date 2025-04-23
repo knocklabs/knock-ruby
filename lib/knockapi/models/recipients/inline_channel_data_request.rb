@@ -5,7 +5,7 @@ module Knockapi
     module Recipients
       class InlineChannelDataRequestItem < Knockapi::Internal::Type::BaseModel
         # @!attribute channel_id
-        #   The ID of the channel to associate data with
+        #   The ID of the channel to associate data with.
         #
         #   @return [String]
         required :channel_id, String
@@ -16,11 +16,18 @@ module Knockapi
         #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
         required :data, union: -> { Knockapi::Models::Recipients::InlineChannelDataRequestItem::Data }
 
-        # @!method initialize(channel_id:, data:)
+        # @!attribute provider
+        #   The provider identifier (must match the data.type value)
+        #
+        #   @return [String]
+        required :provider, String
+
+        # @!method initialize(channel_id:, data:, provider:)
         #   A request to set channel data for a type of channel inline.
         #
         #   @param channel_id [String]
         #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+        #   @param provider [String]
 
         # Channel data for a given channel type.
         #

@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Recipients
       class InlineChannelDataRequestItem < Knockapi::Internal::Type::BaseModel
-        # The ID of the channel to associate data with
+        # The ID of the channel to associate data with.
         sig { returns(String) }
         attr_accessor :channel_id
 
@@ -22,6 +22,10 @@ module Knockapi
         end
         attr_accessor :data
 
+        # The provider identifier (must match the data.type value)
+        sig { returns(String) }
+        attr_accessor :provider
+
         # A request to set channel data for a type of channel inline.
         sig do
           params(
@@ -33,11 +37,12 @@ module Knockapi
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
               Knockapi::Models::Recipients::DiscordChannelData
-            )
+            ),
+            provider: String
           )
             .returns(T.attached_class)
         end
-        def self.new(channel_id:, data:); end
+        def self.new(channel_id:, data:, provider:); end
 
         sig do
           override
@@ -50,7 +55,8 @@ module Knockapi
                   Knockapi::Models::Recipients::SlackChannelData,
                   Knockapi::Models::Recipients::MsTeamsChannelData,
                   Knockapi::Models::Recipients::DiscordChannelData
-                )
+                ),
+                provider: String
               }
             )
         end
