@@ -1,41 +1,46 @@
 module Knockapi
   module Models
     module Recipients
-      type recipients_channel_data =
+      type recipients_channel_data_item =
         {
-          _typename: String,
           channel_id: String,
-          data: Knockapi::Models::Recipients::RecipientsChannelData::data
+          data: Knockapi::Models::Recipients::RecipientsChannelDataItem::data,
+          provider: String
         }
 
-      class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
-        attr_accessor _typename: String
-
+      class RecipientsChannelDataItem < Knockapi::Internal::Type::BaseModel
         attr_accessor channel_id: String
 
-        attr_accessor data: Knockapi::Models::Recipients::RecipientsChannelData::data
+        attr_accessor data: Knockapi::Models::Recipients::RecipientsChannelDataItem::data
+
+        attr_accessor provider: String
 
         def initialize: (
-          _typename: String,
           channel_id: String,
-          data: Knockapi::Models::Recipients::RecipientsChannelData::data
+          data: Knockapi::Models::Recipients::RecipientsChannelDataItem::data,
+          provider: String
         ) -> void
 
-        def to_hash: -> Knockapi::Models::Recipients::recipients_channel_data
+        def to_hash: -> Knockapi::Models::Recipients::recipients_channel_data_item
 
         type data =
           Knockapi::Models::Recipients::PushChannelData
+          | Knockapi::Models::Recipients::OneSignalChannelData
           | Knockapi::Models::Recipients::SlackChannelData
           | Knockapi::Models::Recipients::MsTeamsChannelData
           | Knockapi::Models::Recipients::DiscordChannelData
-          | Knockapi::Models::Recipients::OneSignalChannelData
 
         module Data
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
+          def self?.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
         end
       end
+
+      type recipients_channel_data =
+        ::Array[Knockapi::Models::Recipients::RecipientsChannelDataItem]?
+
+      RecipientsChannelData: recipients_channel_data
     end
   end
 end

@@ -126,7 +126,7 @@ module Knockapi
           channel_id: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
+          .returns(T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelDataItem]))
       end
       def get_channel_data(
         # The collection this object belongs to.
@@ -359,7 +359,7 @@ module Knockapi
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
+          .returns(T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelDataItem]))
       end
       def set_channel_data(
         # The collection this object belongs to.

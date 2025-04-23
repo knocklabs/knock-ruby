@@ -3,15 +3,9 @@
 module Knockapi
   module Models
     module Recipients
-      class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
-        # @!attribute _typename
-        #   The typename of the schema.
-        #
-        #   @return [String]
-        required :_typename, String, api_name: :__typename
-
+      class RecipientsChannelDataItem < Knockapi::Internal::Type::BaseModel
         # @!attribute channel_id
-        #   The unique identifier for the channel.
+        #   The ID of the channel to associate data with.
         #
         #   @return [String]
         required :channel_id, String
@@ -19,43 +13,50 @@ module Knockapi
         # @!attribute data
         #   Channel data for a given channel type.
         #
-        #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
-        required :data, union: -> { Knockapi::Models::Recipients::RecipientsChannelData::Data }
+        #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+        required :data, union: -> { Knockapi::Models::Recipients::RecipientsChannelDataItem::Data }
 
-        # @!method initialize(_typename:, channel_id:, data:)
-        #   Channel data for a given channel type.
+        # @!attribute provider
+        #   The provider identifier (must match the data.type value)
         #
-        #   @param _typename [String]
+        #   @return [String]
+        required :provider, String
+
+        # @!method initialize(channel_id:, data:, provider:)
+        #   A request to set channel data for a type of channel inline.
+        #
         #   @param channel_id [String]
-        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
+        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+        #   @param provider [String]
 
         # Channel data for a given channel type.
         #
-        # @see Knockapi::Models::Recipients::RecipientsChannelData#data
+        # @see Knockapi::Models::Recipients::RecipientsChannelDataItem#data
         module Data
           extend Knockapi::Internal::Type::Union
 
-          discriminator :__typename
-
           # The content of a push notification.
-          variant :PushChannelData, -> { Knockapi::Models::Recipients::PushChannelData }
-
-          # Slack channel data
-          variant :SlackChannelData, -> { Knockapi::Models::Recipients::SlackChannelData }
-
-          # Microsoft Teams channel connection.
-          variant :MsTeamsChannelData, -> { Knockapi::Models::Recipients::MsTeamsChannelData }
-
-          # Discord channel data.
-          variant :DiscordChannelData, -> { Knockapi::Models::Recipients::DiscordChannelData }
+          variant -> { Knockapi::Models::Recipients::PushChannelData }
 
           # OneSignal channel data.
-          variant :OneSignalChannelData, -> { Knockapi::Models::Recipients::OneSignalChannelData }
+          variant -> { Knockapi::Models::Recipients::OneSignalChannelData }
+
+          # Slack channel data
+          variant -> { Knockapi::Models::Recipients::SlackChannelData }
+
+          # Microsoft Teams channel connection.
+          variant -> { Knockapi::Models::Recipients::MsTeamsChannelData }
+
+          # Discord channel data.
+          variant -> { Knockapi::Models::Recipients::DiscordChannelData }
 
           # @!method self.variants
-          #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData)]
+          #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]
         end
       end
+
+      RecipientsChannelData =
+        Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Recipients::RecipientsChannelDataItem }]
     end
   end
 end

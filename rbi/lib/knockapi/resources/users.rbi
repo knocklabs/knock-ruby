@@ -118,7 +118,7 @@ module Knockapi
           channel_id: String,
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
+          .returns(T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelDataItem]))
       end
       def get_channel_data(
         # The ID for the user that you set when identifying them in Knock.
@@ -309,7 +309,7 @@ module Knockapi
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
-          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
+          .returns(T.nilable(T::Array[Knockapi::Models::Recipients::RecipientsChannelDataItem]))
       end
       def set_channel_data(
         # The ID for the user that you set when identifying them in Knock.

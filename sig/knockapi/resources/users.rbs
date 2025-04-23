@@ -43,7 +43,7 @@ module Knockapi
         String user_id,
         String channel_id,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Recipients::RecipientsChannelData
+      ) -> Knockapi::Models::Recipients::recipients_channel_data?
 
       def get_preferences: (
         String user_id,
@@ -107,7 +107,7 @@ module Knockapi
         String channel_id,
         data: Knockapi::Models::Recipients::ChannelDataRequest::data,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Recipients::RecipientsChannelData
+      ) -> Knockapi::Models::Recipients::recipients_channel_data?
 
       def set_preferences: (
         String user_id,
