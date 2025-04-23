@@ -291,12 +291,14 @@ module Knockapi
       # This operation is used to identify objects with their properties, as well as
       # optional preferences and channel data.
       #
-      # @overload set(collection, object_id_, channel_data: nil, preferences: nil, request_options: {})
+      # @overload set(collection, object_id_, channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {})
       #
       # @param collection [String]
       # @param object_id_ [String]
       # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      # @param locale [String, nil]
       # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      # @param timezone [String, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Object]

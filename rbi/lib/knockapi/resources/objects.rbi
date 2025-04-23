@@ -315,9 +315,11 @@ module Knockapi
           channel_data: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
+          locale: T.nilable(String),
           preferences: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
           ),
+          timezone: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
           .returns(Knockapi::Models::Object)
@@ -329,8 +331,16 @@ module Knockapi
         object_id_,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
+        # The locale of the object. Used for
+        # [message localization](/concepts/translations).
+        locale: nil,
         # Inline set preferences for a recipient, where the key is the preference set name
         preferences: nil,
+        # The timezone of the object. Must be a valid
+        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used for
+        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+        timezone: nil,
         request_options: {}
       ); end
       # Sets the channel data for the specified object and channel.
