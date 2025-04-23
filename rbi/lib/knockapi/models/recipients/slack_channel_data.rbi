@@ -21,6 +21,10 @@ module Knockapi
         end
         attr_accessor :connections
 
+        # The channel type identifier
+        sig { returns(Knockapi::Models::Recipients::SlackChannelData::Type::OrSymbol) }
+        attr_accessor :type
+
         # A Slack connection token.
         sig { returns(T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)) }
         attr_reader :token
@@ -44,11 +48,12 @@ module Knockapi
                 Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
               )
             ],
+            type: Knockapi::Models::Recipients::SlackChannelData::Type::OrSymbol,
             token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, connections:, token: nil); end
+        def self.new(_typename:, connections:, type:, token: nil); end
 
         sig do
           override
@@ -61,6 +66,7 @@ module Knockapi
                     Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
                   )
                 ],
+                type: Knockapi::Models::Recipients::SlackChannelData::Type::OrSymbol,
                 token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)
               }
             )
@@ -140,6 +146,19 @@ module Knockapi
               )
           end
           def self.variants; end
+        end
+
+        # The channel type identifier
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::SlackChannelData::Type) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          CHAT_SLACK = T.let(:chat_slack, Knockapi::Models::Recipients::SlackChannelData::Type::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::SlackChannelData::Type::TaggedSymbol]) }
+          def self.values; end
         end
 
         class Token < Knockapi::Internal::Type::BaseModel

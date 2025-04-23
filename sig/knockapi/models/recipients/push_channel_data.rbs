@@ -4,7 +4,8 @@ module Knockapi
       type push_channel_data =
         {
           _typename: Knockapi::Models::Recipients::PushChannelData::typename,
-          tokens: ::Array[String]
+          tokens: ::Array[String],
+          type: Knockapi::Models::Recipients::PushChannelData::type_
         }
 
       class PushChannelData < Knockapi::Internal::Type::BaseModel
@@ -12,9 +13,12 @@ module Knockapi
 
         attr_accessor tokens: ::Array[String]
 
+        attr_accessor type: Knockapi::Models::Recipients::PushChannelData::type_
+
         def initialize: (
           _typename: Knockapi::Models::Recipients::PushChannelData::typename,
-          tokens: ::Array[String]
+          tokens: ::Array[String],
+          type: Knockapi::Models::Recipients::PushChannelData::type_
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::push_channel_data
@@ -27,6 +31,18 @@ module Knockapi
           PUSH_CHANNEL_DATA: :PushChannelData
 
           def self?.values: -> ::Array[Knockapi::Models::Recipients::PushChannelData::typename]
+        end
+
+        type type_ = :push_fcm | :push_apns | :push_expo
+
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          PUSH_FCM: :push_fcm
+          PUSH_APNS: :push_apns
+          PUSH_EXPO: :push_expo
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::PushChannelData::type_]
         end
       end
     end

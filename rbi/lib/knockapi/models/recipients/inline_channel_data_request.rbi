@@ -12,11 +12,11 @@ module Knockapi
         sig do
           returns(
             T.any(
-              Knockapi::Models::Recipients::PushChannelData,
               Knockapi::Models::Recipients::OneSignalChannelData,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
+              Knockapi::Models::Recipients::DiscordChannelData,
+              Knockapi::Models::Recipients::PushChannelData
             )
           )
         end
@@ -31,12 +31,12 @@ module Knockapi
           params(
             channel_id: String,
             data: T.any(
-              Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::OneSignalChannelData,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
+              Knockapi::Models::Recipients::DiscordChannelData,
+              Knockapi::Models::Recipients::PushChannelData
             ),
             provider: String
           )
@@ -50,11 +50,11 @@ module Knockapi
               {
                 channel_id: String,
                 data: T.any(
-                  Knockapi::Models::Recipients::PushChannelData,
                   Knockapi::Models::Recipients::OneSignalChannelData,
                   Knockapi::Models::Recipients::SlackChannelData,
                   Knockapi::Models::Recipients::MsTeamsChannelData,
-                  Knockapi::Models::Recipients::DiscordChannelData
+                  Knockapi::Models::Recipients::DiscordChannelData,
+                  Knockapi::Models::Recipients::PushChannelData
                 ),
                 provider: String
               }
@@ -69,7 +69,7 @@ module Knockapi
           sig do
             override
               .returns(
-                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+                [Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::PushChannelData]
               )
           end
           def self.variants; end

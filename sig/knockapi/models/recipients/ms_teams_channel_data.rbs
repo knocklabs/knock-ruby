@@ -5,6 +5,7 @@ module Knockapi
         {
           _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
+          type: Knockapi::Models::Recipients::MsTeamsChannelData::type_,
           ms_teams_tenant_id: String?
         }
 
@@ -13,11 +14,14 @@ module Knockapi
 
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection]
 
+        attr_accessor type: Knockapi::Models::Recipients::MsTeamsChannelData::type_
+
         attr_accessor ms_teams_tenant_id: String?
 
         def initialize: (
           _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
+          type: Knockapi::Models::Recipients::MsTeamsChannelData::type_,
           ?ms_teams_tenant_id: String?
         ) -> void
 
@@ -93,6 +97,16 @@ module Knockapi
           end
 
           def self?.variants: -> [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
+        end
+
+        type type_ = :chat_ms_teams
+
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          CHAT_MS_TEAMS: :chat_ms_teams
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::type_]
         end
       end
     end

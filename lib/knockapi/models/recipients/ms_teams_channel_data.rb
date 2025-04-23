@@ -19,17 +19,24 @@ module Knockapi
         required :connections,
                  -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::MsTeamsChannelData::Connection] }
 
+        # @!attribute type
+        #   The channel type identifier
+        #
+        #   @return [Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Type]
+        required :type, enum: -> { Knockapi::Models::Recipients::MsTeamsChannelData::Type }
+
         # @!attribute ms_teams_tenant_id
         #   Microsoft Teams tenant ID.
         #
         #   @return [String, nil]
         optional :ms_teams_tenant_id, String, nil?: true
 
-        # @!method initialize(_typename:, connections:, ms_teams_tenant_id: nil)
+        # @!method initialize(_typename:, connections:, type:, ms_teams_tenant_id: nil)
         #   Microsoft Teams channel connection.
         #
         #   @param _typename [Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Typename]
         #   @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
+        #   @param type [Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Type]
         #   @param ms_teams_tenant_id [String, nil]
 
         # The typename of the schema.
@@ -118,6 +125,18 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
+        end
+
+        # The channel type identifier
+        #
+        # @see Knockapi::Models::Recipients::MsTeamsChannelData#type
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          CHAT_MS_TEAMS = :chat_ms_teams
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

@@ -4,7 +4,8 @@ module Knockapi
       type discord_channel_data =
         {
           _typename: Knockapi::Models::Recipients::DiscordChannelData::typename,
-          connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection]
+          connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection],
+          type: Knockapi::Models::Recipients::DiscordChannelData::type_
         }
 
       class DiscordChannelData < Knockapi::Internal::Type::BaseModel
@@ -12,9 +13,12 @@ module Knockapi
 
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection]
 
+        attr_accessor type: Knockapi::Models::Recipients::DiscordChannelData::type_
+
         def initialize: (
           _typename: Knockapi::Models::Recipients::DiscordChannelData::typename,
-          connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection]
+          connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection],
+          type: Knockapi::Models::Recipients::DiscordChannelData::type_
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::discord_channel_data
@@ -72,6 +76,16 @@ module Knockapi
           end
 
           def self?.variants: -> [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection]
+        end
+
+        type type_ = :chat_discord
+
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          CHAT_DISCORD: :chat_discord
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::DiscordChannelData::type_]
         end
       end
     end

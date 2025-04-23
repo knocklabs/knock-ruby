@@ -288,7 +288,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         "collection",
         "object_id",
         "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        data: {__typename: :PushChannelData, tokens: ["push_token_1"]}
+        data: {__typename: :PushChannelData, tokens: ["push_token_1"], type: :push_fcm}
       )
 
     assert_pattern do

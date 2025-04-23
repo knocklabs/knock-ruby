@@ -19,17 +19,24 @@ module Knockapi
         required :connections,
                  -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
 
+        # @!attribute type
+        #   The channel type identifier
+        #
+        #   @return [Symbol, Knockapi::Models::Recipients::SlackChannelData::Type]
+        required :type, enum: -> { Knockapi::Models::Recipients::SlackChannelData::Type }
+
         # @!attribute token
         #   A Slack connection token.
         #
         #   @return [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
         optional :token, -> { Knockapi::Models::Recipients::SlackChannelData::Token }, nil?: true
 
-        # @!method initialize(_typename:, connections:, token: nil)
+        # @!method initialize(_typename:, connections:, type:, token: nil)
         #   Slack channel data
         #
         #   @param _typename [Symbol, Knockapi::Models::Recipients::SlackChannelData::Typename]
         #   @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
+        #   @param type [Symbol, Knockapi::Models::Recipients::SlackChannelData::Type]
         #   @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
 
         # The typename of the schema.
@@ -96,6 +103,18 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
+        end
+
+        # The channel type identifier
+        #
+        # @see Knockapi::Models::Recipients::SlackChannelData#type
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          CHAT_SLACK = :chat_slack
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # @see Knockapi::Models::Recipients::SlackChannelData#token

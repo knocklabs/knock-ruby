@@ -14,16 +14,16 @@ module Knockapi
         def to_hash: -> Knockapi::Models::Recipients::channel_data_request
 
         type data =
-          Knockapi::Models::Recipients::PushChannelData
-          | Knockapi::Models::Recipients::OneSignalChannelData
+          Knockapi::Models::Recipients::OneSignalChannelData
           | Knockapi::Models::Recipients::SlackChannelData
           | Knockapi::Models::Recipients::MsTeamsChannelData
           | Knockapi::Models::Recipients::DiscordChannelData
+          | Knockapi::Models::Recipients::PushChannelData
 
         module Data
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+          def self?.variants: -> [Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::PushChannelData]
         end
       end
     end

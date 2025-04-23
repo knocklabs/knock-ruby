@@ -21,6 +21,10 @@ module Knockapi
         end
         attr_accessor :connections
 
+        # The channel type identifier
+        sig { returns(Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol) }
+        attr_accessor :type
+
         # Discord channel data.
         sig do
           params(
@@ -31,11 +35,12 @@ module Knockapi
                 Knockapi::Internal::AnyHash,
                 Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
               )
-            ]
+            ],
+            type: Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, connections:); end
+        def self.new(_typename:, connections:, type:); end
 
         sig do
           override
@@ -47,7 +52,8 @@ module Knockapi
                     Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
                     Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
                   )
-                ]
+                ],
+                type: Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol
               }
             )
         end
@@ -148,6 +154,19 @@ module Knockapi
               )
           end
           def self.variants; end
+        end
+
+        # The channel type identifier
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::DiscordChannelData::Type) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          CHAT_DISCORD = T.let(:chat_discord, Knockapi::Models::Recipients::DiscordChannelData::Type::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::DiscordChannelData::Type::TaggedSymbol]) }
+          def self.values; end
         end
       end
     end

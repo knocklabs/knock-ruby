@@ -8,11 +8,11 @@ module Knockapi
         sig do
           returns(
             T.any(
-              Knockapi::Models::Recipients::PushChannelData,
               Knockapi::Models::Recipients::OneSignalChannelData,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
+              Knockapi::Models::Recipients::DiscordChannelData,
+              Knockapi::Models::Recipients::PushChannelData
             )
           )
         end
@@ -22,12 +22,12 @@ module Knockapi
         sig do
           params(
             data: T.any(
-              Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::OneSignalChannelData,
+              Knockapi::Internal::AnyHash,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
+              Knockapi::Models::Recipients::DiscordChannelData,
+              Knockapi::Models::Recipients::PushChannelData
             )
           )
             .returns(T.attached_class)
@@ -39,11 +39,11 @@ module Knockapi
             .returns(
               {
                 data: T.any(
-                  Knockapi::Models::Recipients::PushChannelData,
                   Knockapi::Models::Recipients::OneSignalChannelData,
                   Knockapi::Models::Recipients::SlackChannelData,
                   Knockapi::Models::Recipients::MsTeamsChannelData,
-                  Knockapi::Models::Recipients::DiscordChannelData
+                  Knockapi::Models::Recipients::DiscordChannelData,
+                  Knockapi::Models::Recipients::PushChannelData
                 )
               }
             )
@@ -57,7 +57,7 @@ module Knockapi
           sig do
             override
               .returns(
-                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+                [Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::PushChannelData]
               )
           end
           def self.variants; end

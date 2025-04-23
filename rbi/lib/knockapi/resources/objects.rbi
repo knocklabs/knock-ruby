@@ -346,12 +346,12 @@ module Knockapi
           object_id_: String,
           channel_id: String,
           data: T.any(
-            Knockapi::Models::Recipients::PushChannelData,
-            Knockapi::Internal::AnyHash,
             Knockapi::Models::Recipients::OneSignalChannelData,
+            Knockapi::Internal::AnyHash,
             Knockapi::Models::Recipients::SlackChannelData,
             Knockapi::Models::Recipients::MsTeamsChannelData,
-            Knockapi::Models::Recipients::DiscordChannelData
+            Knockapi::Models::Recipients::DiscordChannelData,
+            Knockapi::Models::Recipients::PushChannelData
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

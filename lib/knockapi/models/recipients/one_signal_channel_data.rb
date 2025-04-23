@@ -18,11 +18,18 @@ module Knockapi
         #   @return [Array<String>]
         required :player_ids, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(_typename:, player_ids:)
+        # @!attribute type
+        #   The channel type identifier
+        #
+        #   @return [Symbol, Knockapi::Models::Recipients::OneSignalChannelData::Type]
+        required :type, enum: -> { Knockapi::Models::Recipients::OneSignalChannelData::Type }
+
+        # @!method initialize(_typename:, player_ids:, type:)
         #   OneSignal channel data.
         #
         #   @param _typename [Symbol, Knockapi::Models::Recipients::OneSignalChannelData::Typename]
         #   @param player_ids [Array<String>]
+        #   @param type [Symbol, Knockapi::Models::Recipients::OneSignalChannelData::Type]
 
         # The typename of the schema.
         #
@@ -31,6 +38,18 @@ module Knockapi
           extend Knockapi::Internal::Type::Enum
 
           ONE_SIGNAL_CHANNEL_DATA = :OneSignalChannelData
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        # The channel type identifier
+        #
+        # @see Knockapi::Models::Recipients::OneSignalChannelData#type
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          PUSH_ONE_SIGNAL = :push_one_signal
 
           # @!method self.values
           #   @return [Array<Symbol>]

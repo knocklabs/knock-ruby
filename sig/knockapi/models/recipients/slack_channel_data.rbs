@@ -5,6 +5,7 @@ module Knockapi
         {
           _typename: Knockapi::Models::Recipients::SlackChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection],
+          type: Knockapi::Models::Recipients::SlackChannelData::type_,
           token: Knockapi::Models::Recipients::SlackChannelData::Token?
         }
 
@@ -13,11 +14,14 @@ module Knockapi
 
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
 
+        attr_accessor type: Knockapi::Models::Recipients::SlackChannelData::type_
+
         attr_accessor token: Knockapi::Models::Recipients::SlackChannelData::Token?
 
         def initialize: (
           _typename: Knockapi::Models::Recipients::SlackChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::SlackChannelData::connection],
+          type: Knockapi::Models::Recipients::SlackChannelData::type_,
           ?token: Knockapi::Models::Recipients::SlackChannelData::Token?
         ) -> void
 
@@ -70,6 +74,16 @@ module Knockapi
           end
 
           def self?.variants: -> [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection]
+        end
+
+        type type_ = :chat_slack
+
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          CHAT_SLACK: :chat_slack
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::SlackChannelData::type_]
         end
 
         type token = { access_token: String? }

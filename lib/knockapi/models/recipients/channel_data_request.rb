@@ -7,13 +7,13 @@ module Knockapi
         # @!attribute data
         #   Channel data for a given channel type.
         #
-        #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+        #   @return [Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::PushChannelData]
         required :data, union: -> { Knockapi::Models::Recipients::ChannelDataRequest::Data }
 
         # @!method initialize(data:)
         #   A request to set channel data for a type of channel.
         #
-        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+        #   @param data [Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::PushChannelData]
 
         # Channel data for a given channel type.
         #
@@ -21,23 +21,25 @@ module Knockapi
         module Data
           extend Knockapi::Internal::Type::Union
 
+          discriminator :type
+
+          # OneSignal channel data.
+          variant :push_one_signal, -> { Knockapi::Models::Recipients::OneSignalChannelData }
+
+          # Slack channel data
+          variant :chat_slack, -> { Knockapi::Models::Recipients::SlackChannelData }
+
+          # Microsoft Teams channel connection.
+          variant :chat_ms_teams, -> { Knockapi::Models::Recipients::MsTeamsChannelData }
+
+          # Discord channel data.
+          variant :chat_discord, -> { Knockapi::Models::Recipients::DiscordChannelData }
+
           # The content of a push notification.
           variant -> { Knockapi::Models::Recipients::PushChannelData }
 
-          # OneSignal channel data.
-          variant -> { Knockapi::Models::Recipients::OneSignalChannelData }
-
-          # Slack channel data
-          variant -> { Knockapi::Models::Recipients::SlackChannelData }
-
-          # Microsoft Teams channel connection.
-          variant -> { Knockapi::Models::Recipients::MsTeamsChannelData }
-
-          # Discord channel data.
-          variant -> { Knockapi::Models::Recipients::DiscordChannelData }
-
           # @!method self.variants
-          #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]
+          #   @return [Array(Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::PushChannelData)]
         end
       end
     end

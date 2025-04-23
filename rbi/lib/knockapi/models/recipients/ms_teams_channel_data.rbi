@@ -21,6 +21,10 @@ module Knockapi
         end
         attr_accessor :connections
 
+        # The channel type identifier
+        sig { returns(Knockapi::Models::Recipients::MsTeamsChannelData::Type::OrSymbol) }
+        attr_accessor :type
+
         # Microsoft Teams tenant ID.
         sig { returns(T.nilable(String)) }
         attr_accessor :ms_teams_tenant_id
@@ -36,11 +40,12 @@ module Knockapi
                 Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
               )
             ],
+            type: Knockapi::Models::Recipients::MsTeamsChannelData::Type::OrSymbol,
             ms_teams_tenant_id: T.nilable(String)
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, connections:, ms_teams_tenant_id: nil); end
+        def self.new(_typename:, connections:, type:, ms_teams_tenant_id: nil); end
 
         sig do
           override
@@ -53,6 +58,7 @@ module Knockapi
                     Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
                   )
                 ],
+                type: Knockapi::Models::Recipients::MsTeamsChannelData::Type::OrSymbol,
                 ms_teams_tenant_id: T.nilable(String)
               }
             )
@@ -189,6 +195,20 @@ module Knockapi
               )
           end
           def self.variants; end
+        end
+
+        # The channel type identifier
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Type) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          CHAT_MS_TEAMS =
+            T.let(:chat_ms_teams, Knockapi::Models::Recipients::MsTeamsChannelData::Type::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::MsTeamsChannelData::Type::TaggedSymbol]) }
+          def self.values; end
         end
       end
     end
