@@ -18,11 +18,40 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> String
 
+      def add_subscriptions: (
+        String collection,
+        String object_id_,
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        ?properties: ::Hash[Symbol, top]?,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::object_add_subscriptions_response
+
+      def delete_subscriptions: (
+        String collection,
+        String object_id_,
+        recipients: ::Array[Knockapi::Models::recipient_reference],
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::object_delete_subscriptions_response
+
       def get: (
         String collection,
         String id,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Object
+
+      def get_channel_data: (
+        String collection,
+        String object_id_,
+        String channel_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::RecipientsChannelData
+
+      def get_preferences: (
+        String collection,
+        String object_id_,
+        String id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::PreferenceSet
 
       def list_messages: (
         String collection,
@@ -44,6 +73,12 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Message]
 
+      def list_preferences: (
+        String collection,
+        String object_id_,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::object_list_preferences_response
+
       def list_schedules: (
         String collection,
         String id,
@@ -55,6 +90,19 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule]
 
+      def list_subscriptions: (
+        String collection,
+        String object_id_,
+        ?after: String,
+        ?before: String,
+        ?include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
+        ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+        ?objects: ::Array[Knockapi::Models::recipient_reference],
+        ?page_size: Integer,
+        ?recipients: ::Array[Knockapi::Models::recipient_reference],
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription]
+
       def set: (
         String collection,
         String id,
@@ -64,6 +112,31 @@ module Knockapi
         ?timezone: String?,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Object
+
+      def set_channel_data: (
+        String collection,
+        String channel_id,
+        object_id_: String,
+        data: Knockapi::Models::Recipients::ChannelDataRequest::data,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::RecipientsChannelData
+
+      def set_preferences: (
+        String collection,
+        String object_id_,
+        String id,
+        ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
+        ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
+        ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Recipients::PreferenceSet
+
+      def unset_channel_data: (
+        String collection,
+        String object_id_,
+        String channel_id,
+        ?request_options: Knockapi::request_opts
+      ) -> String
 
       def initialize: (client: Knockapi::Client) -> void
     end

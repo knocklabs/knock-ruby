@@ -44,6 +44,30 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     end
   end
 
+  def test_add_subscriptions_required_params
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.objects.add_subscriptions("collection", "object_id", recipients: %w[user_1 user_2])
+
+    assert_pattern do
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription])
+    end
+  end
+
+  def test_delete_subscriptions_required_params
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.objects.delete_subscriptions("collection", "object_id", recipients: ["user_123"])
+
+    assert_pattern do
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription])
+    end
+  end
+
   def test_get
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
@@ -62,6 +86,49 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         collection: String,
         updated_at: Time,
         created_at: Time | nil
+      }
+    end
+  end
+
+  def test_get_channel_data
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response =
+      @knock.objects.get_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::RecipientsChannelData
+    end
+
+    assert_pattern do
+      response => {
+        _typename: String,
+        channel_id: String,
+        data: Knockapi::Models::Recipients::RecipientsChannelData::Data
+      }
+    end
+  end
+
+  def test_get_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.objects.get_preferences("collection", "object_id", "default")
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::PreferenceSet
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
   end
@@ -111,6 +178,18 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     end
   end
 
+  def test_list_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.objects.list_preferences("collection", "object_id")
+
+    assert_pattern do
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::PreferenceSet])
+    end
+  end
+
   def test_list_schedules
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
@@ -147,6 +226,36 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     end
   end
 
+  def test_list_subscriptions
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.objects.list_subscriptions("collection", "object_id")
+
+    assert_pattern do
+      response => Knockapi::Internal::EntriesCursor
+    end
+
+    row = response.to_enum.first
+    return if row.nil?
+
+    assert_pattern do
+      row => Knockapi::Models::Recipients::Subscription
+    end
+
+    assert_pattern do
+      row => {
+        _typename: String,
+        inserted_at: Time,
+        object: Knockapi::Models::Object,
+        recipient: Knockapi::Models::Recipient,
+        updated_at: Time,
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
+      }
+    end
+  end
+
   def test_set
     skip(
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
@@ -166,6 +275,67 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         updated_at: Time,
         created_at: Time | nil
       }
+    end
+  end
+
+  def test_set_channel_data_required_params
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response =
+      @knock.objects.set_channel_data(
+        "collection",
+        "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        object_id_: "object_id",
+        data: {__typename: :PushChannelData, tokens: ["push_token_1"]}
+      )
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::RecipientsChannelData
+    end
+
+    assert_pattern do
+      response => {
+        _typename: String,
+        channel_id: String,
+        data: Knockapi::Models::Recipients::RecipientsChannelData::Data
+      }
+    end
+  end
+
+  def test_set_preferences
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response = @knock.objects.set_preferences("collection", "object_id", "default")
+
+    assert_pattern do
+      response => Knockapi::Models::Recipients::PreferenceSet
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        _typename: String,
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
+      }
+    end
+  end
+
+  def test_unset_channel_data
+    skip(
+      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
+    )
+
+    response =
+      @knock.objects.unset_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
+
+    assert_pattern do
+      response => String
     end
   end
 end

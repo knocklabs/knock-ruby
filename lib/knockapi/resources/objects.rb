@@ -54,6 +54,57 @@ module Knockapi
         )
       end
 
+      # Add subscriptions for an object. If a subscription already exists, it will be
+      # updated. This endpoint also handles
+      # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
+      # for the `recipient`.
+      #
+      # @overload add_subscriptions(collection, object_id_, recipients:, properties: nil, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
+      # @param properties [Hash{Symbol=>Object}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Array<Knockapi::Models::Recipients::Subscription>]
+      #
+      # @see Knockapi::Models::ObjectAddSubscriptionsParams
+      def add_subscriptions(collection, object_id_, params)
+        parsed, options = Knockapi::Models::ObjectAddSubscriptionsParams.dump_request(params)
+        @client.request(
+          method: :post,
+          path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
+          body: parsed,
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription],
+          options: options
+        )
+      end
+
+      # Delete subscriptions for the specified recipients from an object. Returns the
+      # list of deleted subscriptions.
+      #
+      # @overload delete_subscriptions(collection, object_id_, recipients:, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Array<Knockapi::Models::Recipients::Subscription>]
+      #
+      # @see Knockapi::Models::ObjectDeleteSubscriptionsParams
+      def delete_subscriptions(collection, object_id_, params)
+        parsed, options = Knockapi::Models::ObjectDeleteSubscriptionsParams.dump_request(params)
+        @client.request(
+          method: :delete,
+          path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
+          body: parsed,
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription],
+          options: options
+        )
+      end
+
       # Retrieves a specific object by its ID from the specified collection. Returns the
       # object with all its properties.
       #
@@ -71,6 +122,48 @@ module Knockapi
           method: :get,
           path: ["v1/objects/%1$s/%2$s", collection, id],
           model: Knockapi::Models::Object,
+          options: params[:request_options]
+        )
+      end
+
+      # Returns the channel data for the specified object and channel.
+      #
+      # @overload get_channel_data(collection, object_id_, channel_id, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param channel_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
+      #
+      # @see Knockapi::Models::ObjectGetChannelDataParams
+      def get_channel_data(collection, object_id_, channel_id, params = {})
+        @client.request(
+          method: :get,
+          path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
+          model: Knockapi::Models::Recipients::RecipientsChannelData,
+          options: params[:request_options]
+        )
+      end
+
+      # Returns the preference set for the specified object.
+      #
+      # @overload get_preferences(collection, object_id_, id, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
+      #
+      # @see Knockapi::Models::ObjectGetPreferencesParams
+      def get_preferences(collection, object_id_, id, params = {})
+        @client.request(
+          method: :get,
+          path: ["v1/objects/%1$s/%2$s/preferences/%3$s", collection, object_id_, id],
+          model: Knockapi::Models::Recipients::PreferenceSet,
           options: params[:request_options]
         )
       end
@@ -114,6 +207,26 @@ module Knockapi
         )
       end
 
+      # Returns a paginated list of preference sets for the specified object.
+      #
+      # @overload list_preferences(collection, object_id_, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Array<Knockapi::Models::Recipients::PreferenceSet>]
+      #
+      # @see Knockapi::Models::ObjectListPreferencesParams
+      def list_preferences(collection, object_id_, params = {})
+        @client.request(
+          method: :get,
+          path: ["v1/objects/%1$s/%2$s/preferences", collection, object_id_],
+          model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::PreferenceSet],
+          options: params[:request_options]
+        )
+      end
+
       # Returns a paginated list of schedules for an object.
       #
       # @overload list_schedules(collection, id, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
@@ -138,6 +251,38 @@ module Knockapi
           query: parsed,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Models::Schedule,
+          options: options
+        )
+      end
+
+      # List subscriptions for an object. Either list the recipients that subscribe to
+      # the provided object, or list the objects that the provided object is subscribed
+      # to. Determined by the `mode` query parameter.
+      #
+      # @overload list_subscriptions(collection, object_id_, after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param after [String]
+      # @param before [String]
+      # @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
+      # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
+      # @param objects [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      # @param page_size [Integer]
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
+      #
+      # @see Knockapi::Models::ObjectListSubscriptionsParams
+      def list_subscriptions(collection, object_id_, params = {})
+        parsed, options = Knockapi::Models::ObjectListSubscriptionsParams.dump_request(params)
+        @client.request(
+          method: :get,
+          path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
+          query: parsed,
+          page: Knockapi::Internal::EntriesCursor,
+          model: Knockapi::Models::Recipients::Subscription,
           options: options
         )
       end
@@ -167,6 +312,81 @@ module Knockapi
           body: parsed,
           model: Knockapi::Models::Object,
           options: options
+        )
+      end
+
+      # Sets the channel data for the specified object and channel.
+      #
+      # @overload set_channel_data(collection, channel_id, object_id_:, data:, request_options: {})
+      #
+      # @param collection [String]
+      # @param channel_id [String]
+      # @param object_id_ [String]
+      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
+      #
+      # @see Knockapi::Models::ObjectSetChannelDataParams
+      def set_channel_data(collection, channel_id, params)
+        parsed, options = Knockapi::Models::ObjectSetChannelDataParams.dump_request(params)
+        object_id_ =
+          parsed.delete(:object_id_) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :put,
+          path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
+          body: parsed,
+          model: Knockapi::Models::Recipients::RecipientsChannelData,
+          options: options
+        )
+      end
+
+      # Updates the preference set for the specified object.
+      #
+      # @overload set_preferences(collection, object_id_, id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param id [String]
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
+      #
+      # @see Knockapi::Models::ObjectSetPreferencesParams
+      def set_preferences(collection, object_id_, id, params = {})
+        parsed, options = Knockapi::Models::ObjectSetPreferencesParams.dump_request(params)
+        @client.request(
+          method: :put,
+          path: ["v1/objects/%1$s/%2$s/preferences/%3$s", collection, object_id_, id],
+          body: parsed,
+          model: Knockapi::Models::Recipients::PreferenceSet,
+          options: options
+        )
+      end
+
+      # Unsets the channel data for the specified object and channel.
+      #
+      # @overload unset_channel_data(collection, object_id_, channel_id, request_options: {})
+      #
+      # @param collection [String]
+      # @param object_id_ [String]
+      # @param channel_id [String]
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [String]
+      #
+      # @see Knockapi::Models::ObjectUnsetChannelDataParams
+      def unset_channel_data(collection, object_id_, channel_id, params = {})
+        @client.request(
+          method: :delete,
+          path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
+          model: String,
+          options: params[:request_options]
         )
       end
 
