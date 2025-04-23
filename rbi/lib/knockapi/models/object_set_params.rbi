@@ -6,10 +6,17 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # An optional set of [channel data](/managing-recipients/setting-channel-data) for
-      # the object. This is a list of `ChannelData` objects.
-      sig { returns(T.nilable(T::Array[T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]])) }
-      attr_accessor :channel_data
+      # A request to set channel data for a type of channel inline.
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
+      attr_reader :channel_data
+
+      sig do
+        params(
+          channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+        )
+          .void
+      end
+      attr_writer :channel_data
 
       # The locale of the object. Used for
       # [message localization](/concepts/translations).
@@ -29,9 +36,7 @@ module Knockapi
 
       sig do
         params(
-          channel_data: T.nilable(
-            T::Array[T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]]
-          ),
+          channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)],
           locale: T.nilable(String),
           preferences: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
@@ -47,7 +52,7 @@ module Knockapi
         override
           .returns(
             {
-              channel_data: T.nilable(T::Array[T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]]),
+              channel_data: T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem],
               locale: T.nilable(String),
               preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
               timezone: T.nilable(String),

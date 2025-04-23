@@ -2,7 +2,7 @@ module Knockapi
   module Models
     type object_set_params =
       {
-        channel_data: ::Array[Knockapi::Models::Recipients::inline_channel_data_request]?,
+        channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         locale: String?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         timezone: String?
@@ -13,7 +13,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      attr_accessor channel_data: ::Array[Knockapi::Models::Recipients::inline_channel_data_request]?
+      attr_reader channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
+
+      def channel_data=: (
+        Knockapi::Models::Recipients::inline_channel_data_request
+      ) -> Knockapi::Models::Recipients::inline_channel_data_request
 
       attr_accessor locale: String?
 
@@ -22,7 +26,7 @@ module Knockapi
       attr_accessor timezone: String?
 
       def initialize: (
-        ?channel_data: ::Array[Knockapi::Models::Recipients::inline_channel_data_request]?,
+        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         ?locale: String?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?,

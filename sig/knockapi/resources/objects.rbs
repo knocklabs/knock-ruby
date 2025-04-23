@@ -106,7 +106,7 @@ module Knockapi
       def set: (
         String collection,
         String object_id_,
-        ?channel_data: ::Array[Knockapi::Models::Recipients::inline_channel_data_request]?,
+        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         ?locale: String?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?,

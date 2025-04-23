@@ -312,9 +312,7 @@ module Knockapi
         params(
           collection: String,
           object_id_: String,
-          channel_data: T.nilable(
-            T::Array[T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]]
-          ),
+          channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)],
           locale: T.nilable(String),
           preferences: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
@@ -329,8 +327,7 @@ module Knockapi
         collection,
         # Unique identifier for the object.
         object_id_,
-        # An optional set of [channel data](/managing-recipients/setting-channel-data) for
-        # the object. This is a list of `ChannelData` objects.
+        # A request to set channel data for a type of channel inline.
         channel_data: nil,
         # The locale of the object. Used for
         # [message localization](/concepts/translations).
