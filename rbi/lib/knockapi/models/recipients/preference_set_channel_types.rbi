@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Recipients
       class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :chat
 
@@ -20,7 +20,7 @@ module Knockapi
         end
         attr_writer :chat
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :email
 
@@ -36,7 +36,7 @@ module Knockapi
         end
         attr_writer :email
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :http
 
@@ -52,7 +52,7 @@ module Knockapi
         end
         attr_writer :http
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :in_app_feed
 
@@ -68,7 +68,7 @@ module Knockapi
         end
         attr_writer :in_app_feed
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :push
 
@@ -84,7 +84,7 @@ module Knockapi
         end
         attr_writer :push
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         sig { returns(T.nilable(T.any(T::Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting))) }
         attr_reader :sms
 
@@ -153,7 +153,7 @@ module Knockapi
         end
         def to_hash; end
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         module Chat
           extend Knockapi::Internal::Type::Union
 
@@ -161,7 +161,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         module Email
           extend Knockapi::Internal::Type::Union
 
@@ -169,7 +169,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         module HTTP
           extend Knockapi::Internal::Type::Union
 
@@ -177,7 +177,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         module InAppFeed
           extend Knockapi::Internal::Type::Union
 
@@ -185,7 +185,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         module Push
           extend Knockapi::Internal::Type::Union
 
@@ -193,7 +193,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # Whether the channel type is enabled for the preference set.
+        # Either a boolean or a setting for the given channel type.
         module SMS
           extend Knockapi::Internal::Type::Union
 
