@@ -32,9 +32,9 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
         "user_id",
         "message_id",
         channel_id: "123e4567-e89b-12d3-a456-426614174000",
-        guide_id: "323e4567-e89b-12d3-a456-426614174000",
-        guide_key: "guide_12345",
-        guide_step_ref: "step_12345"
+        guide_id: "7e9dc78c-b3b1-4127-a54e-71f1899b831a",
+        guide_key: "tour_notification",
+        guide_step_ref: "lab_tours"
       )
 
     assert_pattern do
@@ -58,9 +58,9 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
         "user_id",
         "message_id",
         channel_id: "123e4567-e89b-12d3-a456-426614174000",
-        guide_id: "323e4567-e89b-12d3-a456-426614174000",
-        guide_key: "guide_12345",
-        guide_step_ref: "step_12345"
+        guide_id: "7e9dc78c-b3b1-4127-a54e-71f1899b831a",
+        guide_key: "tour_notification",
+        guide_step_ref: "lab_tours"
       )
 
     assert_pattern do
@@ -84,9 +84,9 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
         "user_id",
         "message_id",
         channel_id: "123e4567-e89b-12d3-a456-426614174000",
-        guide_id: "323e4567-e89b-12d3-a456-426614174000",
-        guide_key: "guide_12345",
-        guide_step_ref: "step_12345"
+        guide_id: "7e9dc78c-b3b1-4127-a54e-71f1899b831a",
+        guide_key: "tour_notification",
+        guide_step_ref: "lab_tours"
       )
 
     assert_pattern do

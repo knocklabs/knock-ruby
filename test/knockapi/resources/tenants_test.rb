@@ -26,7 +26,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
         id: String,
         _typename: String,
         name: String | nil,
-        settings: Knockapi::Internal::Type::Unknown | nil
+        settings: Knockapi::Models::Tenant::Settings | nil
       }
     end
   end
@@ -59,7 +59,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
         id: String,
         _typename: String,
         name: String | nil,
-        settings: Knockapi::Internal::Type::Unknown | nil
+        settings: Knockapi::Models::Tenant::Settings | nil
       }
     end
   end
@@ -80,7 +80,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
         id: String,
         _typename: String,
         name: String | nil,
-        settings: Knockapi::Internal::Type::Unknown | nil
+        settings: Knockapi::Models::Tenant::Settings | nil
       }
     end
   end
