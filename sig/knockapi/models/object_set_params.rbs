@@ -4,7 +4,7 @@ module Knockapi
       {
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         locale: String?,
-        preferences: top?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request,
         timezone: String?
       }
       & Knockapi::Internal::Type::request_parameters
@@ -21,14 +21,18 @@ module Knockapi
 
       attr_accessor locale: String?
 
-      attr_accessor preferences: top?
+      attr_reader preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+
+      def preferences=: (
+        Knockapi::Models::Recipients::inline_preference_set_request
+      ) -> Knockapi::Models::Recipients::inline_preference_set_request
 
       attr_accessor timezone: String?
 
       def initialize: (
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         ?locale: String?,
-        ?preferences: top?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request,
         ?timezone: String?,
         ?request_options: Knockapi::request_opts
       ) -> void

@@ -23,9 +23,17 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :locale
 
-      # A list of objects that specify the preferences for the user.
-      sig { returns(T.nilable(T.anything)) }
-      attr_accessor :preferences
+      # Inline set preferences for a recipient, where the key is the preference set name
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
+      attr_reader :preferences
+
+      sig do
+        params(
+          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+        )
+          .void
+      end
+      attr_writer :preferences
 
       # The timezone of the object. Must be a valid
       # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -38,7 +46,7 @@ module Knockapi
         params(
           channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)],
           locale: T.nilable(String),
-          preferences: T.nilable(T.anything),
+          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)],
           timezone: T.nilable(String),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -52,7 +60,7 @@ module Knockapi
             {
               channel_data: T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem],
               locale: T.nilable(String),
-              preferences: T.nilable(T.anything),
+              preferences: T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem],
               timezone: T.nilable(String),
               request_options: Knockapi::RequestOptions
             }

@@ -32,8 +32,8 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :phone_number
 
-      # A list of objects that specify the preferences for the user.
-      sig { returns(T.nilable(T.anything)) }
+      # Inline set preferences for a recipient, where the key is the preference set name
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
       attr_accessor :preferences
 
       # The timezone of the user. Must be a valid
@@ -57,7 +57,9 @@ module Knockapi
           locale: T.nilable(String),
           name: T.nilable(String),
           phone_number: T.nilable(String),
-          preferences: T.nilable(T.anything),
+          preferences: T.nilable(
+            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+          ),
           timezone: T.nilable(String)
         )
           .returns(T.attached_class)
@@ -84,7 +86,7 @@ module Knockapi
               locale: T.nilable(String),
               name: T.nilable(String),
               phone_number: T.nilable(String),
-              preferences: T.nilable(T.anything),
+              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
               timezone: T.nilable(String)
             }
           )
