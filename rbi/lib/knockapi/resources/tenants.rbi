@@ -65,9 +65,7 @@ module Knockapi
           channel_data: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
-          preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
-          ),
+          preferences: T.nilable(T::Array[T.anything]),
           settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
@@ -78,7 +76,7 @@ module Knockapi
         id,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
-        # Inline set preferences for a recipient, where the key is the preference set name
+        # A list of objects that specify the preferences for the user.
         preferences: nil,
         # The settings for the tenant. Includes branding and preference set.
         settings: nil,

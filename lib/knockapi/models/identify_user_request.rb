@@ -49,12 +49,11 @@ module Knockapi
       optional :phone_number, String, nil?: true
 
       # @!attribute preferences
-      #   Inline set preferences for a recipient, where the key is the preference set name
+      #   A list of objects that specify the preferences for the user.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @return [Array<Array<Knockapi::Models::Recipients::InlinePreferenceSetRequest>>, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
-               nil?: true
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequest]] }
 
       # @!attribute timezone
       #   The timezone of the user. Must be a valid
@@ -77,7 +76,7 @@ module Knockapi
       #   @param locale [String, nil]
       #   @param name [String, nil]
       #   @param phone_number [String, nil]
-      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @param preferences [Array<Array<Knockapi::Models::Recipients::InlinePreferenceSetRequest>>]
       #   @param timezone [String, nil]
     end
   end

@@ -30,11 +30,11 @@ module Knockapi
       optional :created_at, Time, nil?: true
 
       # @!attribute preferences
-      #   Inline set preferences for a recipient, where the key is the preference set name
+      #   A list of objects that specify the preferences for the user.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequest>, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequest] },
                nil?: true
 
       # @!method initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil)
@@ -44,7 +44,7 @@ module Knockapi
       #   @param collection [String]
       #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
       #   @param created_at [Time, nil]
-      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequest>, nil]
     end
   end
 end

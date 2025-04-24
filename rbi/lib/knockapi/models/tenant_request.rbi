@@ -11,8 +11,8 @@ module Knockapi
       sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
       attr_accessor :channel_data
 
-      # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
+      # A list of objects that specify the preferences for the user.
+      sig { returns(T.nilable(T::Array[T.anything])) }
       attr_accessor :preferences
 
       # The settings for the tenant. Includes branding and preference set.
@@ -30,9 +30,7 @@ module Knockapi
           channel_data: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
-          preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
-          ),
+          preferences: T.nilable(T::Array[T.anything]),
           settings: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
@@ -45,7 +43,7 @@ module Knockapi
             {
               id: String,
               channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
-              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
+              preferences: T.nilable(T::Array[T.anything]),
               settings: Knockapi::Models::TenantRequest::Settings
             }
           )
