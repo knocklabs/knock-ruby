@@ -20,8 +20,10 @@ module Knockapi
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set name
       #
-      #   @return [Knockapi::Models::Recipients::InlinePreferenceSetRequest, nil]
-      optional :preferences, -> { Knockapi::Models::Recipients::InlinePreferenceSetRequest }, nil?: true
+      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      optional :preferences,
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
+               nil?: true
 
       # @!attribute settings
       #   The settings for the tenant. Includes branding and preference set.
@@ -35,7 +37,7 @@ module Knockapi
       #
       #   @param id [String]
       #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
-      #   @param preferences [Knockapi::Models::Recipients::InlinePreferenceSetRequest, nil]
+      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       #   @param settings [Knockapi::Models::TenantRequest::Settings]
 
       # @see Knockapi::Models::TenantRequest#settings

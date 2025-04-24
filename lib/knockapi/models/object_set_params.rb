@@ -24,8 +24,9 @@ module Knockapi
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set name
       #
-      #   @return [Knockapi::Models::Recipients::InlinePreferenceSetRequest, nil]
-      optional :preferences, -> { Knockapi::Models::Recipients::InlinePreferenceSetRequest }
+      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      optional :preferences,
+               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] }
 
       # @!attribute timezone
       #   The timezone of the object. Must be a valid
@@ -39,7 +40,7 @@ module Knockapi
       # @!method initialize(channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {})
       #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>]
       #   @param locale [String, nil]
-      #   @param preferences [Knockapi::Models::Recipients::InlinePreferenceSetRequest]
+      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>]
       #   @param timezone [String, nil]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

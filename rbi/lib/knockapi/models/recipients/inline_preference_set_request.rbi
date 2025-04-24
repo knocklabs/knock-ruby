@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     module Recipients
-      class InlinePreferenceSetRequest < Knockapi::Internal::Type::BaseModel
+      class InlinePreferenceSetRequestItem < Knockapi::Internal::Type::BaseModel
         # Unique identifier for the preference set.
         sig { returns(String) }
         attr_accessor :id
@@ -17,7 +17,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Models::Recipients::InlinePreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+                  Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject
                 )
               ]
             )
@@ -46,7 +46,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Models::Recipients::InlinePreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+                  Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Workflow::PreferenceSetWorkflowCategorySettingObject
                 )
               ]
             )
@@ -62,7 +62,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Models::Recipients::InlinePreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject,
                   Knockapi::Internal::AnyHash
                 )
               ]
@@ -73,7 +73,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Models::Recipients::InlinePreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Workflow::PreferenceSetWorkflowCategorySettingObject,
                   Knockapi::Internal::AnyHash
                 )
               ]
@@ -93,7 +93,7 @@ module Knockapi
                     Symbol,
                     T.any(
                       T::Boolean,
-                      Knockapi::Models::Recipients::InlinePreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+                      Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject
                     )
                   ]
                 ),
@@ -103,7 +103,7 @@ module Knockapi
                     Symbol,
                     T.any(
                       T::Boolean,
-                      Knockapi::Models::Recipients::InlinePreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+                      Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Workflow::PreferenceSetWorkflowCategorySettingObject
                     )
                   ]
                 )
@@ -159,7 +159,7 @@ module Knockapi
           sig do
             override
               .returns(
-                [T::Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
+                [T::Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject]
               )
           end
           def self.variants; end
@@ -212,12 +212,18 @@ module Knockapi
           sig do
             override
               .returns(
-                [T::Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
+                [T::Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Workflow::PreferenceSetWorkflowCategorySettingObject]
               )
           end
           def self.variants; end
         end
       end
+
+      InlinePreferenceSetRequest =
+        T.let(
+          Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem],
+          Knockapi::Internal::Type::Converter
+        )
     end
   end
 end

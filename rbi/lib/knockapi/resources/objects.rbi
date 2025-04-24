@@ -318,7 +318,7 @@ module Knockapi
           id: String,
           channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)],
           locale: T.nilable(String),
-          preferences: T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequest, Knockapi::Internal::AnyHash),
+          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)],
           timezone: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

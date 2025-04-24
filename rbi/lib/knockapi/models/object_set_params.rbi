@@ -24,12 +24,12 @@ module Knockapi
       attr_accessor :locale
 
       # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
       attr_reader :preferences
 
       sig do
         params(
-          preferences: T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequest, Knockapi::Internal::AnyHash)
+          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -46,7 +46,7 @@ module Knockapi
         params(
           channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)],
           locale: T.nilable(String),
-          preferences: T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequest, Knockapi::Internal::AnyHash),
+          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)],
           timezone: T.nilable(String),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -60,7 +60,7 @@ module Knockapi
             {
               channel_data: T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem],
               locale: T.nilable(String),
-              preferences: Knockapi::Models::Recipients::InlinePreferenceSetRequest,
+              preferences: T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem],
               timezone: T.nilable(String),
               request_options: Knockapi::RequestOptions
             }

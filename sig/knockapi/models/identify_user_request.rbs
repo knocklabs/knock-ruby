@@ -9,7 +9,7 @@ module Knockapi
         locale: String?,
         name: String?,
         phone_number: String?,
-        preferences: Knockapi::Models::Recipients::InlinePreferenceSetRequest?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         timezone: String?
       }
 
@@ -28,7 +28,7 @@ module Knockapi
 
       attr_accessor phone_number: String?
 
-      attr_accessor preferences: Knockapi::Models::Recipients::InlinePreferenceSetRequest?
+      attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
 
       attr_accessor timezone: String?
 
@@ -40,7 +40,7 @@ module Knockapi
         ?locale: String?,
         ?name: String?,
         ?phone_number: String?,
-        ?preferences: Knockapi::Models::Recipients::InlinePreferenceSetRequest?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?
       ) -> void
 

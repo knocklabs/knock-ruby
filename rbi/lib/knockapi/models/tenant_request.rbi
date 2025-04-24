@@ -12,16 +12,8 @@ module Knockapi
       attr_accessor :channel_data
 
       # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest)) }
-      attr_reader :preferences
-
-      sig do
-        params(
-          preferences: T.nilable(T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequest, Knockapi::Internal::AnyHash))
-        )
-          .void
-      end
-      attr_writer :preferences
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
+      attr_accessor :preferences
 
       # The settings for the tenant. Includes branding and preference set.
       sig { returns(T.nilable(Knockapi::Models::TenantRequest::Settings)) }
@@ -38,7 +30,9 @@ module Knockapi
           channel_data: T.nilable(
             T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
           ),
-          preferences: T.nilable(T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequest, Knockapi::Internal::AnyHash)),
+          preferences: T.nilable(
+            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+          ),
           settings: T.any(Knockapi::Models::TenantRequest::Settings, Knockapi::Internal::AnyHash)
         )
           .returns(T.attached_class)
@@ -51,7 +45,7 @@ module Knockapi
             {
               id: String,
               channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
-              preferences: T.nilable(Knockapi::Models::Recipients::InlinePreferenceSetRequest),
+              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
               settings: Knockapi::Models::TenantRequest::Settings
             }
           )
