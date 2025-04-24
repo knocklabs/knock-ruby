@@ -297,7 +297,7 @@ module Knockapi
       # @param id [String]
       # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>]
       # @param locale [String, nil]
-      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>]
+      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
       # @param timezone [String, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

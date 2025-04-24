@@ -108,7 +108,7 @@ module Knockapi
         String id,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         ?locale: String?,
-        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Models::Object
