@@ -63,25 +63,27 @@ module Knockapi
         # @see Knockapi::Models::TenantRequest::Settings#branding
         class Branding < Knockapi::Internal::Type::BaseModel
           # @!attribute icon_url
-          #   The icon URL for the tenant.
+          #   The icon URL for the tenant. Must point to a valid image with an image MIME
+          #   type.
           #
           #   @return [String, nil]
           optional :icon_url, String, nil?: true
 
           # @!attribute logo_url
-          #   The logo URL for the tenant.
+          #   The logo URL for the tenant. Must point to a valid image with an image MIME
+          #   type.
           #
           #   @return [String, nil]
           optional :logo_url, String, nil?: true
 
           # @!attribute primary_color
-          #   The primary color for the tenant.
+          #   The primary color for the tenant, provided as a hex value.
           #
           #   @return [String, nil]
           optional :primary_color, String, nil?: true
 
           # @!attribute primary_color_contrast
-          #   The primary color contrast for the tenant.
+          #   The primary color contrast for the tenant, provided as a hex value.
           #
           #   @return [String, nil]
           optional :primary_color_contrast, String, nil?: true

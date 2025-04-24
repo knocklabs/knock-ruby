@@ -3,35 +3,29 @@ module Knockapi
     module Recipients
       type push_channel_data =
         {
-          _typename: Knockapi::Models::Recipients::PushChannelData::typename,
           tokens: ::Array[String],
-          type: Knockapi::Models::Recipients::PushChannelData::type_
+          type: Knockapi::Models::Recipients::PushChannelData::type_,
+          _typename: Knockapi::Models::Recipients::PushChannelData::typename
         }
 
       class PushChannelData < Knockapi::Internal::Type::BaseModel
-        attr_accessor _typename: Knockapi::Models::Recipients::PushChannelData::typename
-
         attr_accessor tokens: ::Array[String]
 
         attr_accessor type: Knockapi::Models::Recipients::PushChannelData::type_
 
+        attr_reader _typename: Knockapi::Models::Recipients::PushChannelData::typename?
+
+        def _typename=: (
+          Knockapi::Models::Recipients::PushChannelData::typename
+        ) -> Knockapi::Models::Recipients::PushChannelData::typename
+
         def initialize: (
-          _typename: Knockapi::Models::Recipients::PushChannelData::typename,
           tokens: ::Array[String],
-          type: Knockapi::Models::Recipients::PushChannelData::type_
+          type: Knockapi::Models::Recipients::PushChannelData::type_,
+          ?_typename: Knockapi::Models::Recipients::PushChannelData::typename
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::push_channel_data
-
-        type typename = :PushChannelData
-
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          PUSH_CHANNEL_DATA: :PushChannelData
-
-          def self?.values: -> ::Array[Knockapi::Models::Recipients::PushChannelData::typename]
-        end
 
         type type_ = :push_fcm | :push_apns | :push_expo
 
@@ -43,6 +37,16 @@ module Knockapi
           PUSH_EXPO: :push_expo
 
           def self?.values: -> ::Array[Knockapi::Models::Recipients::PushChannelData::type_]
+        end
+
+        type typename = :PushChannelData
+
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          PUSH_CHANNEL_DATA: :PushChannelData
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::PushChannelData::typename]
         end
       end
     end

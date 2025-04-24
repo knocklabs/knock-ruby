@@ -35,7 +35,7 @@ module Knockapi
       optional :created_at, Time, nil?: true
 
       # @!method initialize(id:, _typename:, collection:, updated_at:, created_at: nil)
-      #   A custom object entity which belongs to a collection.
+      #   A custom [Object](/concepts/objects) entity which belongs to a collection.
       #
       #   @param id [String]
       #   @param _typename [String]

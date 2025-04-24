@@ -20,7 +20,7 @@ module Knockapi
           @client.request(
             method: :post,
             path: ["v1/objects/%1$s/bulk/delete", collection],
-            query: parsed,
+            body: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options
           )
@@ -52,7 +52,7 @@ module Knockapi
           )
         end
 
-        # Bulk sets objects in the specified collection.
+        # Bulk sets up to 1,000 objects at a time in the specified collection.
         #
         # @overload set(collection, objects:, request_options: {})
         #

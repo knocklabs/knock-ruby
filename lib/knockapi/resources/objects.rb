@@ -147,7 +147,7 @@ module Knockapi
         )
       end
 
-      # Returns the preference set for the specified object.
+      # Returns the preference set for the specified object and preference set `id`.
       #
       # @overload get_preferences(collection, object_id_, id, request_options: {})
       #
@@ -267,7 +267,7 @@ module Knockapi
       # @param before [String]
       # @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
       # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
-      # @param objects [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      # @param objects [Array<Knockapi::Models::ObjectListSubscriptionsParams::Object>]
       # @param page_size [Integer]
       # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
@@ -315,7 +315,9 @@ module Knockapi
         )
       end
 
-      # Sets the channel data for the specified object and channel.
+      # Sets the channel data for the specified object and channel. If no object exists
+      # in the current environment for the given `collection` and `object_id`, Knock
+      # will create the object as part of this request.
       #
       # @overload set_channel_data(collection, object_id_, channel_id, data:, request_options: {})
       #
@@ -339,7 +341,12 @@ module Knockapi
         )
       end
 
-      # Updates the preference set for the specified object.
+      # Sets preferences within the given preference set. This is a destructive
+      # operation and will replace any existing preferences with the preferences given.
+      # If no object exists in the current environment for the given `:collection` and
+      # `:object_id`, Knock will create the object as part of this request. The
+      # preference set `:id` can be either `default` or a `tenant.id`. Learn more about
+      # [per-tenant preferences](/preferences/tenant-preferences).
       #
       # @overload set_preferences(collection, object_id_, id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #

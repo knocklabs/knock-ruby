@@ -4,10 +4,6 @@ module Knockapi
   module Models
     module Recipients
       class DiscordChannelData < Knockapi::Internal::Type::BaseModel
-        # The typename of the schema.
-        sig { returns(Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol) }
-        attr_accessor :_typename
-
         # List of Discord channel connections.
         sig do
           returns(
@@ -21,14 +17,20 @@ module Knockapi
         end
         attr_accessor :connections
 
-        # The channel type identifier
+        # The type of provider.
         sig { returns(Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol) }
         attr_accessor :type
+
+        # The typename of the schema.
+        sig { returns(T.nilable(Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol)) }
+        attr_reader :_typename
+
+        sig { params(_typename: Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol).void }
+        attr_writer :_typename
 
         # Discord channel data.
         sig do
           params(
-            _typename: Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol,
             connections: T::Array[
               T.any(
                 Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
@@ -36,42 +38,29 @@ module Knockapi
                 Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
               )
             ],
-            type: Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol
+            type: Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol,
+            _typename: Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, connections:, type:); end
+        def self.new(connections:, type:, _typename: nil); end
 
         sig do
           override
             .returns(
               {
-                _typename: Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol,
                 connections: T::Array[
                   T.any(
                     Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
                     Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
                   )
                 ],
-                type: Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol
+                type: Knockapi::Models::Recipients::DiscordChannelData::Type::OrSymbol,
+                _typename: Knockapi::Models::Recipients::DiscordChannelData::Typename::OrSymbol
               }
             )
         end
         def to_hash; end
-
-        # The typename of the schema.
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::DiscordChannelData::Typename) }
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          DISCORD_CHANNEL_DATA =
-            T.let(:DiscordChannelData, Knockapi::Models::Recipients::DiscordChannelData::Typename::TaggedSymbol)
-
-          sig { override.returns(T::Array[Knockapi::Models::Recipients::DiscordChannelData::Typename::TaggedSymbol]) }
-          def self.values; end
-        end
 
         # Discord channel connection, either a channel connection or an incoming webhook
         # connection.
@@ -156,7 +145,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # The channel type identifier
+        # The type of provider.
         module Type
           extend Knockapi::Internal::Type::Enum
 
@@ -166,6 +155,20 @@ module Knockapi
           CHAT_DISCORD = T.let(:chat_discord, Knockapi::Models::Recipients::DiscordChannelData::Type::TaggedSymbol)
 
           sig { override.returns(T::Array[Knockapi::Models::Recipients::DiscordChannelData::Type::TaggedSymbol]) }
+          def self.values; end
+        end
+
+        # The typename of the schema.
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::DiscordChannelData::Typename) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          DISCORD_CHANNEL_DATA =
+            T.let(:DiscordChannelData, Knockapi::Models::Recipients::DiscordChannelData::Typename::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::DiscordChannelData::Typename::TaggedSymbol]) }
           def self.values; end
         end
       end

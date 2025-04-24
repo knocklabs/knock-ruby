@@ -1,13 +1,23 @@
 module Knockapi
   module Models
-    type tenant = { id: String, _typename: String }
+    type tenant =
+      { id: String, _typename: String, name: String?, settings: top? }
 
     class Tenant < Knockapi::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor _typename: String
 
-      def initialize: (id: String, _typename: String) -> void
+      attr_accessor name: String?
+
+      attr_accessor settings: top?
+
+      def initialize: (
+        id: String,
+        _typename: String,
+        ?name: String?,
+        ?settings: top?
+      ) -> void
 
       def to_hash: -> Knockapi::Models::tenant
     end

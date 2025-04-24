@@ -6,7 +6,8 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # The recipients of the subscription.
+      # The recipients of the subscription. You can subscribe up to 100 recipients to an
+      # object at a time.
       sig { returns(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)]) }
       attr_accessor :recipients
 

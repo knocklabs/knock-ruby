@@ -29,7 +29,7 @@ module Knockapi
             recipient: Knockapi::Models::recipient_request,
             repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
             scheduled_at: Time?,
-            tenant: Knockapi::Models::Schedules::BulkCreateParams::Schedule::tenant?
+            tenant: Knockapi::Models::inline_tenant_request?
           }
 
         class Schedule < Knockapi::Internal::Type::BaseModel
@@ -55,7 +55,7 @@ module Knockapi
 
           attr_accessor scheduled_at: Time?
 
-          attr_accessor tenant: Knockapi::Models::Schedules::BulkCreateParams::Schedule::tenant?
+          attr_accessor tenant: Knockapi::Models::inline_tenant_request?
 
           def initialize: (
             workflow: String,
@@ -65,18 +65,10 @@ module Knockapi
             ?recipient: Knockapi::Models::recipient_request,
             ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
             ?scheduled_at: Time?,
-            ?tenant: Knockapi::Models::Schedules::BulkCreateParams::Schedule::tenant?
+            ?tenant: Knockapi::Models::inline_tenant_request?
           ) -> void
 
           def to_hash: -> Knockapi::Models::Schedules::BulkCreateParams::schedule
-
-          type tenant = String | Knockapi::Models::TenantRequest
-
-          module Tenant
-            extend Knockapi::Internal::Type::Union
-
-            def self?.variants: -> [String, Knockapi::Models::TenantRequest]
-          end
         end
       end
     end

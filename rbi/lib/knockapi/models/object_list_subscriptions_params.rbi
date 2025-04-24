@@ -27,7 +27,9 @@ module Knockapi
       sig { params(include: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol]).void }
       attr_writer :include
 
-      # Mode of the request.
+      # Mode of the request. `recipient` to list the objects that the provided object is
+      # subscribed to, `object` to list the recipients that subscribe to the provided
+      # object.
       sig { returns(T.nilable(Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol)) }
       attr_reader :mode
 
@@ -35,12 +37,12 @@ module Knockapi
       attr_writer :mode
 
       # Objects to filter by (only used if mode is `recipient`).
-      sig { returns(T.nilable(T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)])) }
+      sig { returns(T.nilable(T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Object])) }
       attr_reader :objects
 
       sig do
         params(
-          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)]
+          objects: T::Array[T.any(Knockapi::Models::ObjectListSubscriptionsParams::Object, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -71,7 +73,7 @@ module Knockapi
           before: String,
           include: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol],
           mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
-          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
+          objects: T::Array[T.any(Knockapi::Models::ObjectListSubscriptionsParams::Object, Knockapi::Internal::AnyHash)],
           page_size: Integer,
           recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
@@ -96,7 +98,7 @@ module Knockapi
               before: String,
               include: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol],
               mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
-              objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)],
+              objects: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Object],
               page_size: Integer,
               recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference)],
               request_options: Knockapi::RequestOptions
@@ -117,7 +119,9 @@ module Knockapi
         def self.values; end
       end
 
-      # Mode of the request.
+      # Mode of the request. `recipient` to list the objects that the provided object is
+      # subscribed to, `object` to list the recipients that subscribe to the provided
+      # object.
       module Mode
         extend Knockapi::Internal::Type::Enum
 
@@ -129,6 +133,29 @@ module Knockapi
 
         sig { override.returns(T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Mode::TaggedSymbol]) }
         def self.values; end
+      end
+
+      class Object < Knockapi::Internal::Type::BaseModel
+        # An identifier for the recipient object.
+        sig { returns(T.nilable(String)) }
+        attr_reader :id
+
+        sig { params(id: String).void }
+        attr_writer :id
+
+        # The collection the recipient object belongs to.
+        sig { returns(T.nilable(String)) }
+        attr_reader :collection
+
+        sig { params(collection: String).void }
+        attr_writer :collection
+
+        # A reference to a recipient object.
+        sig { params(id: String, collection: String).returns(T.attached_class) }
+        def self.new(id: nil, collection: nil); end
+
+        sig { override.returns({id: String, collection: String}) }
+        def to_hash; end
       end
     end
   end

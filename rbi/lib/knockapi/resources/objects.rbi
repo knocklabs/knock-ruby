@@ -75,9 +75,10 @@ module Knockapi
         collection,
         # Unique identifier for the object.
         object_id_,
-        # The recipients of the subscription.
+        # The recipients of the subscription. You can subscribe up to 100 recipients to an
+        # object at a time.
         recipients:,
-        # The custom properties associated with the recipients of the subscription.
+        # The custom properties associated with the subscription relationship.
         properties: nil,
         request_options: {}
       ); end
@@ -97,7 +98,8 @@ module Knockapi
         collection,
         # Unique identifier for the object.
         object_id_,
-        # The recipients of the subscription.
+        # The recipients of the subscription. You can subscribe up to 100 recipients to an
+        # object at a time.
         recipients:,
         request_options: {}
       ); end
@@ -137,7 +139,7 @@ module Knockapi
         channel_id,
         request_options: {}
       ); end
-      # Returns the preference set for the specified object.
+      # Returns the preference set for the specified object and preference set `id`.
       sig do
         params(
           collection: String,
@@ -277,7 +279,7 @@ module Knockapi
           before: String,
           include: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol],
           mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
-          objects: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
+          objects: T::Array[T.any(Knockapi::Models::ObjectListSubscriptionsParams::Object, Knockapi::Internal::AnyHash)],
           page_size: Integer,
           recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
@@ -295,7 +297,9 @@ module Knockapi
         before: nil,
         # Additional fields to include in the response.
         include: nil,
-        # Mode of the request.
+        # Mode of the request. `recipient` to list the objects that the provided object is
+        # subscribed to, `object` to list the recipients that subscribe to the provided
+        # object.
         mode: nil,
         # Objects to filter by (only used if mode is `recipient`).
         objects: nil,
@@ -339,7 +343,9 @@ module Knockapi
         timezone: nil,
         request_options: {}
       ); end
-      # Sets the channel data for the specified object and channel.
+      # Sets the channel data for the specified object and channel. If no object exists
+      # in the current environment for the given `collection` and `object_id`, Knock
+      # will create the object as part of this request.
       sig do
         params(
           collection: String,
@@ -368,7 +374,12 @@ module Knockapi
         data:,
         request_options: {}
       ); end
-      # Updates the preference set for the specified object.
+      # Sets preferences within the given preference set. This is a destructive
+      # operation and will replace any existing preferences with the preferences given.
+      # If no object exists in the current environment for the given `:collection` and
+      # `:object_id`, Knock will create the object as part of this request. The
+      # preference set `:id` can be either `default` or a `tenant.id`. Learn more about
+      # [per-tenant preferences](/preferences/tenant-preferences).
       sig do
         params(
           collection: String,

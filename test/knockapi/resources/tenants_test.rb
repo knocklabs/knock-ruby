@@ -24,7 +24,9 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     assert_pattern do
       row => {
         id: String,
-        _typename: String
+        _typename: String,
+        name: String | nil,
+        settings: Knockapi::Internal::Type::Unknown | nil
       }
     end
   end
@@ -55,7 +57,9 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     assert_pattern do
       response => {
         id: String,
-        _typename: String
+        _typename: String,
+        name: String | nil,
+        settings: Knockapi::Internal::Type::Unknown | nil
       }
     end
   end
@@ -74,7 +78,9 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     assert_pattern do
       response => {
         id: String,
-        _typename: String
+        _typename: String,
+        name: String | nil,
+        settings: Knockapi::Internal::Type::Unknown | nil
       }
     end
   end

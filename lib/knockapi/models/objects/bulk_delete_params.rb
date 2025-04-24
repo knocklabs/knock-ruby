@@ -9,7 +9,7 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         # @!attribute object_ids
-        #   A list of object IDs.
+        #   List of object IDs to delete.
         #
         #   @return [Array<String>]
         required :object_ids, Knockapi::Internal::Type::ArrayOf[String]

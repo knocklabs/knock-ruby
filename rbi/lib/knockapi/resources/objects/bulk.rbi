@@ -16,7 +16,7 @@ module Knockapi
         def delete(
           # The collection this object belongs to.
           collection,
-          # A list of object IDs.
+          # List of object IDs to delete.
           object_ids:,
           request_options: {}
         ); end
@@ -40,7 +40,7 @@ module Knockapi
           subscriptions:,
           request_options: {}
         ); end
-        # Bulk sets objects in the specified collection.
+        # Bulk sets up to 1,000 objects at a time in the specified collection.
         sig do
           params(
             collection: String,

@@ -17,7 +17,7 @@ module Knockapi
         required :inserted_at, Time
 
         # @!attribute object
-        #   A custom object entity which belongs to a collection.
+        #   A custom [Object](/concepts/objects) entity which belongs to a collection.
         #
         #   @return [Knockapi::Models::Object]
         required :object, -> { Knockapi::Models::Object }
@@ -35,7 +35,7 @@ module Knockapi
         required :updated_at, Time
 
         # @!attribute properties
-        #   The custom properties associated with the recipients of the subscription.
+        #   The custom properties associated with the subscription relationship.
         #
         #   @return [Hash{Symbol=>Object}, nil]
         optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true

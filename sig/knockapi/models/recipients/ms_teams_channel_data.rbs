@@ -3,39 +3,33 @@ module Knockapi
     module Recipients
       type ms_teams_channel_data =
         {
-          _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
           type: Knockapi::Models::Recipients::MsTeamsChannelData::type_,
+          _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           ms_teams_tenant_id: String?
         }
 
       class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
-        attr_accessor _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename
-
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection]
 
         attr_accessor type: Knockapi::Models::Recipients::MsTeamsChannelData::type_
 
+        attr_reader _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename?
+
+        def _typename=: (
+          Knockapi::Models::Recipients::MsTeamsChannelData::typename
+        ) -> Knockapi::Models::Recipients::MsTeamsChannelData::typename
+
         attr_accessor ms_teams_tenant_id: String?
 
         def initialize: (
-          _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
           type: Knockapi::Models::Recipients::MsTeamsChannelData::type_,
+          ?_typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           ?ms_teams_tenant_id: String?
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::ms_teams_channel_data
-
-        type typename = :MsTeamsChannelData
-
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          MS_TEAMS_CHANNEL_DATA: :MsTeamsChannelData
-
-          def self?.values: -> ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::typename]
-        end
 
         type connection =
           Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection
@@ -107,6 +101,16 @@ module Knockapi
           CHAT_MS_TEAMS: :chat_ms_teams
 
           def self?.values: -> ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::type_]
+        end
+
+        type typename = :MsTeamsChannelData
+
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          MS_TEAMS_CHANNEL_DATA: :MsTeamsChannelData
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::typename]
         end
       end
     end

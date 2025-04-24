@@ -4,10 +4,6 @@ module Knockapi
   module Models
     module Recipients
       class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
-        # The typename of the schema.
-        sig { returns(Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol) }
-        attr_accessor :_typename
-
         # List of Microsoft Teams connections.
         sig do
           returns(
@@ -21,9 +17,16 @@ module Knockapi
         end
         attr_accessor :connections
 
-        # The channel type identifier
+        # The type of provider.
         sig { returns(Knockapi::Models::Recipients::MsTeamsChannelData::Type::OrSymbol) }
         attr_accessor :type
+
+        # The typename of the schema.
+        sig { returns(T.nilable(Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol)) }
+        attr_reader :_typename
+
+        sig { params(_typename: Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol).void }
+        attr_writer :_typename
 
         # Microsoft Teams tenant ID.
         sig { returns(T.nilable(String)) }
@@ -32,7 +35,6 @@ module Knockapi
         # Microsoft Teams channel connection.
         sig do
           params(
-            _typename: Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol,
             connections: T::Array[
               T.any(
                 Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
@@ -41,17 +43,17 @@ module Knockapi
               )
             ],
             type: Knockapi::Models::Recipients::MsTeamsChannelData::Type::OrSymbol,
+            _typename: Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol,
             ms_teams_tenant_id: T.nilable(String)
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, connections:, type:, ms_teams_tenant_id: nil); end
+        def self.new(connections:, type:, _typename: nil, ms_teams_tenant_id: nil); end
 
         sig do
           override
             .returns(
               {
-                _typename: Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol,
                 connections: T::Array[
                   T.any(
                     Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
@@ -59,25 +61,12 @@ module Knockapi
                   )
                 ],
                 type: Knockapi::Models::Recipients::MsTeamsChannelData::Type::OrSymbol,
+                _typename: Knockapi::Models::Recipients::MsTeamsChannelData::Typename::OrSymbol,
                 ms_teams_tenant_id: T.nilable(String)
               }
             )
         end
         def to_hash; end
-
-        # The typename of the schema.
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Typename) }
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          MS_TEAMS_CHANNEL_DATA =
-            T.let(:MsTeamsChannelData, Knockapi::Models::Recipients::MsTeamsChannelData::Typename::TaggedSymbol)
-
-          sig { override.returns(T::Array[Knockapi::Models::Recipients::MsTeamsChannelData::Typename::TaggedSymbol]) }
-          def self.values; end
-        end
 
         # Microsoft Teams token connection.
         module Connection
@@ -197,7 +186,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # The channel type identifier
+        # The type of provider.
         module Type
           extend Knockapi::Internal::Type::Enum
 
@@ -208,6 +197,20 @@ module Knockapi
             T.let(:chat_ms_teams, Knockapi::Models::Recipients::MsTeamsChannelData::Type::TaggedSymbol)
 
           sig { override.returns(T::Array[Knockapi::Models::Recipients::MsTeamsChannelData::Type::TaggedSymbol]) }
+          def self.values; end
+        end
+
+        # The typename of the schema.
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::MsTeamsChannelData::Typename) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          MS_TEAMS_CHANNEL_DATA =
+            T.let(:MsTeamsChannelData, Knockapi::Models::Recipients::MsTeamsChannelData::Typename::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::MsTeamsChannelData::Typename::TaggedSymbol]) }
           def self.values; end
         end
       end

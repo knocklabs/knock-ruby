@@ -7,7 +7,7 @@ module Knockapi
     module RecipientReference
       extend Knockapi::Internal::Type::Union
 
-      # The ID of the user.
+      # The ID of the user which is used as the reference for the recipient.
       variant String
 
       # A reference to a recipient object.

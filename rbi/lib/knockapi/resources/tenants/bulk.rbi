@@ -17,8 +17,7 @@ module Knockapi
           tenant_ids:,
           request_options: {}
         ); end
-        # Set or update multiple tenants in a single operation. This operation allows you
-        # to create or update multiple tenants with their properties and settings.
+        # Set or update up to 1,000 tenants in a single operation.
         sig do
           params(
             tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)],

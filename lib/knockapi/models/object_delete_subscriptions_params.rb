@@ -8,7 +8,8 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute recipients
-      #   The recipients of the subscription.
+      #   The recipients of the subscription. You can subscribe up to 100 recipients to an
+      #   object at a time.
       #
       #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       required :recipients,

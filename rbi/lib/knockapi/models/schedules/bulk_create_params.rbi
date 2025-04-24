@@ -92,9 +92,7 @@ module Knockapi
           sig { returns(T.nilable(Time)) }
           attr_accessor :scheduled_at
 
-          # The tenant to trigger the workflow for. Triggering with a tenant will use any
-          # tenant-level overrides associated with the tenant object, and all messages
-          # produced from workflow runs will be tagged with the tenant.
+          # An request to set a tenant inline.
           sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
           attr_accessor :tenant
 
@@ -152,16 +150,6 @@ module Knockapi
               )
           end
           def to_hash; end
-
-          # The tenant to trigger the workflow for. Triggering with a tenant will use any
-          # tenant-level overrides associated with the tenant object, and all messages
-          # produced from workflow runs will be tagged with the tenant.
-          module Tenant
-            extend Knockapi::Internal::Type::Union
-
-            sig { override.returns([String, Knockapi::Models::TenantRequest]) }
-            def self.variants; end
-          end
         end
       end
     end

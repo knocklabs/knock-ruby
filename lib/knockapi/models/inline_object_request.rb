@@ -38,7 +38,7 @@ module Knockapi
                nil?: true
 
       # @!method initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil)
-      #   A custom object entity which belongs to a collection.
+      #   A custom [Object](/concepts/objects) entity which belongs to a collection.
       #
       #   @param id [String]
       #   @param collection [String]

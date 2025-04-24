@@ -22,20 +22,16 @@ module Knockapi
 
         type subscription =
           {
-            id: String,
             recipients: ::Array[Knockapi::Models::recipient_request],
             properties: ::Hash[Symbol, top]?
           }
 
         class Subscription < Knockapi::Internal::Type::BaseModel
-          attr_accessor id: String
-
           attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
 
           attr_accessor properties: ::Hash[Symbol, top]?
 
           def initialize: (
-            id: String,
             recipients: ::Array[Knockapi::Models::recipient_request],
             ?properties: ::Hash[Symbol, top]?
           ) -> void

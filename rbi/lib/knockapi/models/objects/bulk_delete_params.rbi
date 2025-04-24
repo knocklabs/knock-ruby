@@ -7,7 +7,7 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # A list of object IDs.
+        # List of object IDs to delete.
         sig { returns(T::Array[String]) }
         attr_accessor :object_ids
 

@@ -4,10 +4,6 @@ module Knockapi
   module Models
     module Recipients
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
-        # The typename of the schema.
-        sig { returns(Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol) }
-        attr_accessor :_typename
-
         # List of Slack channel connections.
         sig do
           returns(
@@ -21,7 +17,7 @@ module Knockapi
         end
         attr_accessor :connections
 
-        # The channel type identifier
+        # The type of provider.
         sig { returns(Knockapi::Models::Recipients::SlackChannelData::Type::OrSymbol) }
         attr_accessor :type
 
@@ -37,10 +33,16 @@ module Knockapi
         end
         attr_writer :token
 
+        # The typename of the schema.
+        sig { returns(T.nilable(Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol)) }
+        attr_reader :_typename
+
+        sig { params(_typename: Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol).void }
+        attr_writer :_typename
+
         # Slack channel data
         sig do
           params(
-            _typename: Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol,
             connections: T::Array[
               T.any(
                 Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
@@ -49,17 +51,17 @@ module Knockapi
               )
             ],
             type: Knockapi::Models::Recipients::SlackChannelData::Type::OrSymbol,
-            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash))
+            token: T.nilable(T.any(Knockapi::Models::Recipients::SlackChannelData::Token, Knockapi::Internal::AnyHash)),
+            _typename: Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, connections:, type:, token: nil); end
+        def self.new(connections:, type:, token: nil, _typename: nil); end
 
         sig do
           override
             .returns(
               {
-                _typename: Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol,
                 connections: T::Array[
                   T.any(
                     Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection,
@@ -67,25 +69,12 @@ module Knockapi
                   )
                 ],
                 type: Knockapi::Models::Recipients::SlackChannelData::Type::OrSymbol,
-                token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token)
+                token: T.nilable(Knockapi::Models::Recipients::SlackChannelData::Token),
+                _typename: Knockapi::Models::Recipients::SlackChannelData::Typename::OrSymbol
               }
             )
         end
         def to_hash; end
-
-        # The typename of the schema.
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::SlackChannelData::Typename) }
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          SLACK_CHANNEL_DATA =
-            T.let(:SlackChannelData, Knockapi::Models::Recipients::SlackChannelData::Typename::TaggedSymbol)
-
-          sig { override.returns(T::Array[Knockapi::Models::Recipients::SlackChannelData::Typename::TaggedSymbol]) }
-          def self.values; end
-        end
 
         # A Slack connection, either an access token or an incoming webhook
         module Connection
@@ -148,7 +137,7 @@ module Knockapi
           def self.variants; end
         end
 
-        # The channel type identifier
+        # The type of provider.
         module Type
           extend Knockapi::Internal::Type::Enum
 
@@ -172,6 +161,20 @@ module Knockapi
 
           sig { override.returns({access_token: T.nilable(String)}) }
           def to_hash; end
+        end
+
+        # The typename of the schema.
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Recipients::SlackChannelData::Typename) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          SLACK_CHANNEL_DATA =
+            T.let(:SlackChannelData, Knockapi::Models::Recipients::SlackChannelData::Typename::TaggedSymbol)
+
+          sig { override.returns(T::Array[Knockapi::Models::Recipients::SlackChannelData::Typename::TaggedSymbol]) }
+          def self.values; end
         end
       end
     end

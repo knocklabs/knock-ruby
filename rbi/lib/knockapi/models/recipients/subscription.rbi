@@ -12,7 +12,7 @@ module Knockapi
         sig { returns(Time) }
         attr_accessor :inserted_at
 
-        # A custom object entity which belongs to a collection.
+        # A custom [Object](/concepts/objects) entity which belongs to a collection.
         sig { returns(Knockapi::Models::Object) }
         attr_reader :object
 
@@ -27,7 +27,7 @@ module Knockapi
         sig { returns(Time) }
         attr_accessor :updated_at
 
-        # The custom properties associated with the recipients of the subscription.
+        # The custom properties associated with the subscription relationship.
         sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
         attr_accessor :properties
 

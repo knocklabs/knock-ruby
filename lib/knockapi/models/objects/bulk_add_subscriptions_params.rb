@@ -20,28 +20,22 @@ module Knockapi
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class Subscription < Knockapi::Internal::Type::BaseModel
-          # @!attribute id
-          #   Unique identifier for the subscription.
-          #
-          #   @return [String]
-          required :id, String
-
           # @!attribute recipients
-          #   The recipients of the subscription.
+          #   The recipients of the subscription. You can subscribe up to 100 recipients to an
+          #   object at a time.
           #
           #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
           required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
 
           # @!attribute properties
-          #   The custom properties associated with the recipients of the subscription.
+          #   The custom properties associated with the subscription relationship.
           #
           #   @return [Hash{Symbol=>Object}, nil]
           optional :properties,
                    Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown],
                    nil?: true
 
-          # @!method initialize(id:, recipients:, properties: nil)
-          #   @param id [String]
+          # @!method initialize(recipients:, properties: nil)
           #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
           #   @param properties [Hash{Symbol=>Object}, nil]
         end

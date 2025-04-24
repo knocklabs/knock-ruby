@@ -3,35 +3,29 @@ module Knockapi
     module Recipients
       type discord_channel_data =
         {
-          _typename: Knockapi::Models::Recipients::DiscordChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection],
-          type: Knockapi::Models::Recipients::DiscordChannelData::type_
+          type: Knockapi::Models::Recipients::DiscordChannelData::type_,
+          _typename: Knockapi::Models::Recipients::DiscordChannelData::typename
         }
 
       class DiscordChannelData < Knockapi::Internal::Type::BaseModel
-        attr_accessor _typename: Knockapi::Models::Recipients::DiscordChannelData::typename
-
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection]
 
         attr_accessor type: Knockapi::Models::Recipients::DiscordChannelData::type_
 
+        attr_reader _typename: Knockapi::Models::Recipients::DiscordChannelData::typename?
+
+        def _typename=: (
+          Knockapi::Models::Recipients::DiscordChannelData::typename
+        ) -> Knockapi::Models::Recipients::DiscordChannelData::typename
+
         def initialize: (
-          _typename: Knockapi::Models::Recipients::DiscordChannelData::typename,
           connections: ::Array[Knockapi::Models::Recipients::DiscordChannelData::connection],
-          type: Knockapi::Models::Recipients::DiscordChannelData::type_
+          type: Knockapi::Models::Recipients::DiscordChannelData::type_,
+          ?_typename: Knockapi::Models::Recipients::DiscordChannelData::typename
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::discord_channel_data
-
-        type typename = :DiscordChannelData
-
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          DISCORD_CHANNEL_DATA: :DiscordChannelData
-
-          def self?.values: -> ::Array[Knockapi::Models::Recipients::DiscordChannelData::typename]
-        end
 
         type connection =
           Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection
@@ -86,6 +80,16 @@ module Knockapi
           CHAT_DISCORD: :chat_discord
 
           def self?.values: -> ::Array[Knockapi::Models::Recipients::DiscordChannelData::type_]
+        end
+
+        type typename = :DiscordChannelData
+
+        module Typename
+          extend Knockapi::Internal::Type::Enum
+
+          DISCORD_CHANNEL_DATA: :DiscordChannelData
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::DiscordChannelData::typename]
         end
       end
     end

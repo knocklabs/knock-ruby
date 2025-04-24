@@ -32,11 +32,8 @@ module Knockapi
         def to_hash; end
 
         class Subscription < Knockapi::Internal::Type::BaseModel
-          # Unique identifier for the subscription.
-          sig { returns(String) }
-          attr_accessor :id
-
-          # The recipients of the subscription.
+          # The recipients of the subscription. You can subscribe up to 100 recipients to an
+          # object at a time.
           sig do
             returns(
               T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
@@ -44,13 +41,12 @@ module Knockapi
           end
           attr_accessor :recipients
 
-          # The custom properties associated with the recipients of the subscription.
+          # The custom properties associated with the subscription relationship.
           sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
           attr_accessor :properties
 
           sig do
             params(
-              id: String,
               recipients: T::Array[
                 T.any(
                   String,
@@ -63,13 +59,12 @@ module Knockapi
             )
               .returns(T.attached_class)
           end
-          def self.new(id:, recipients:, properties: nil); end
+          def self.new(recipients:, properties: nil); end
 
           sig do
             override
               .returns(
                 {
-                  id: String,
                   recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
                   properties: T.nilable(T::Hash[Symbol, T.anything])
                 }

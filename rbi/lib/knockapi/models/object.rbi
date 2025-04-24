@@ -23,7 +23,7 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
-      # A custom object entity which belongs to a collection.
+      # A custom [Object](/concepts/objects) entity which belongs to a collection.
       sig do
         params(
           id: String,

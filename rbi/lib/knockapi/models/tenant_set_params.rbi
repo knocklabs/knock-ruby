@@ -96,19 +96,21 @@ module Knockapi
         def to_hash; end
 
         class Branding < Knockapi::Internal::Type::BaseModel
-          # The icon URL for the tenant.
+          # The icon URL for the tenant. Must point to a valid image with an image MIME
+          # type.
           sig { returns(T.nilable(String)) }
           attr_accessor :icon_url
 
-          # The logo URL for the tenant.
+          # The logo URL for the tenant. Must point to a valid image with an image MIME
+          # type.
           sig { returns(T.nilable(String)) }
           attr_accessor :logo_url
 
-          # The primary color for the tenant.
+          # The primary color for the tenant, provided as a hex value.
           sig { returns(T.nilable(String)) }
           attr_accessor :primary_color
 
-          # The primary color contrast for the tenant.
+          # The primary color contrast for the tenant, provided as a hex value.
           sig { returns(T.nilable(String)) }
           attr_accessor :primary_color_contrast
 

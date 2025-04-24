@@ -67,14 +67,10 @@ module Knockapi
           optional :scheduled_at, Time, nil?: true
 
           # @!attribute tenant
-          #   The tenant to trigger the workflow for. Triggering with a tenant will use any
-          #   tenant-level overrides associated with the tenant object, and all messages
-          #   produced from workflow runs will be tagged with the tenant.
+          #   An request to set a tenant inline.
           #
           #   @return [String, Knockapi::Models::TenantRequest, nil]
-          optional :tenant,
-                   union: -> { Knockapi::Models::Schedules::BulkCreateParams::Schedule::Tenant },
-                   nil?: true
+          optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
           # @!method initialize(workflow:, actor: nil, data: nil, ending_at: nil, recipient: nil, repeats: nil, scheduled_at: nil, tenant: nil)
           #   A schedule represents a recurring workflow execution.
@@ -87,24 +83,6 @@ module Knockapi
           #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
           #   @param scheduled_at [Time, nil]
           #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
-
-          # The tenant to trigger the workflow for. Triggering with a tenant will use any
-          # tenant-level overrides associated with the tenant object, and all messages
-          # produced from workflow runs will be tagged with the tenant.
-          #
-          # @see Knockapi::Models::Schedules::BulkCreateParams::Schedule#tenant
-          module Tenant
-            extend Knockapi::Internal::Type::Union
-
-            # The unique identifier for the tenant.
-            variant String
-
-            # A tenant to be set in the system. You can supply any additional properties on the tenant object.
-            variant -> { Knockapi::Models::TenantRequest }
-
-            # @!method self.variants
-            #   @return [Array(String, Knockapi::Models::TenantRequest)]
-          end
         end
       end
     end

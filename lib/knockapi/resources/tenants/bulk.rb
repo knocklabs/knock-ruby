@@ -25,8 +25,7 @@ module Knockapi
           )
         end
 
-        # Set or update multiple tenants in a single operation. This operation allows you
-        # to create or update multiple tenants with their properties and settings.
+        # Set or update up to 1,000 tenants in a single operation.
         #
         # @overload set(tenants:, request_options: {})
         #
