@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Recipients
       class InlinePreferenceSetRequestItem < Knockapi::Internal::Type::BaseModel
-        # The ID of the preference set
+        # Unique identifier for the preference set.
         sig { returns(String) }
         attr_accessor :id
 
@@ -54,7 +54,6 @@ module Knockapi
         end
         attr_accessor :workflows
 
-        # Inline set preferences for a recipient, where the key is the preference set name
         sig do
           params(
             id: String,

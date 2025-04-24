@@ -5,7 +5,7 @@ module Knockapi
     module Recipients
       class InlinePreferenceSetRequestItem < Knockapi::Internal::Type::BaseModel
         # @!attribute id
-        #   The ID of the preference set
+        #   Unique identifier for the preference set.
         #
         #   @return [String]
         required :id, String
@@ -35,8 +35,6 @@ module Knockapi
                  nil?: true
 
         # @!method initialize(id:, categories: nil, channel_types: nil, workflows: nil)
-        #   Inline set preferences for a recipient, where the key is the preference set name
-        #
         #   @param id [String]
         #   @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::InlinePreferenceSetRequestItem::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
         #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
