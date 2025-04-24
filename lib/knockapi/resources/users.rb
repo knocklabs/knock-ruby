@@ -26,7 +26,7 @@ module Knockapi
       # @param locale [String, nil]
       # @param name [String, nil]
       # @param phone_number [String, nil]
-      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      # @param preferences [Knockapi::Models::Recipients::InlinePreferenceSetRequest, nil]
       # @param timezone [String, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

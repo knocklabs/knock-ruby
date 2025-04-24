@@ -27,9 +27,7 @@ module Knockapi
           locale: T.nilable(String),
           name: T.nilable(String),
           phone_number: T.nilable(String),
-          preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
-          ),
+          preferences: T.nilable(T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequest, Knockapi::Internal::AnyHash)),
           timezone: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

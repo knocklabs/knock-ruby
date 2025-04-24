@@ -26,10 +26,8 @@ module Knockapi
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set name
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
-      optional :preferences,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
-               nil?: true
+      #   @return [Knockapi::Models::Recipients::InlinePreferenceSetRequest, nil]
+      optional :preferences, -> { Knockapi::Models::Recipients::InlinePreferenceSetRequest }, nil?: true
 
       # @!method initialize(id:, channel_data: nil, created_at: nil, preferences: nil)
       #   A set of parameters to inline-identify a user with. Inline identifying the user
@@ -40,7 +38,7 @@ module Knockapi
       #   @param id [String]
       #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
       #   @param created_at [Time, nil]
-      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @param preferences [Knockapi::Models::Recipients::InlinePreferenceSetRequest, nil]
     end
   end
 end

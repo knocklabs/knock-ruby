@@ -77,7 +77,7 @@ module Knockapi
       #
       # @param id [String]
       # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
-      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      # @param preferences [Knockapi::Models::Recipients::InlinePreferenceSetRequest, nil]
       # @param settings [Knockapi::Models::TenantSetParams::Settings]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

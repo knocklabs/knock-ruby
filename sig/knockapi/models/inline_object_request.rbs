@@ -6,7 +6,7 @@ module Knockapi
         collection: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         created_at: Time?,
-        preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+        preferences: ::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequest]?
       }
 
     class InlineObjectRequest < Knockapi::Internal::Type::BaseModel
@@ -18,14 +18,14 @@ module Knockapi
 
       attr_accessor created_at: Time?
 
-      attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+      attr_accessor preferences: ::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequest]?
 
       def initialize: (
         id: String,
         collection: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?created_at: Time?,
-        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+        ?preferences: ::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequest]?
       ) -> void
 
       def to_hash: -> Knockapi::Models::inline_object_request

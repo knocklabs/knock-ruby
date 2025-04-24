@@ -19,8 +19,8 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
-      # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
+      # An optional set of [preferences](/concepts/preferences) for the object.
+      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequest])) }
       attr_accessor :preferences
 
       # A custom [Object](/concepts/objects) entity which belongs to a collection.
@@ -33,7 +33,7 @@ module Knockapi
           ),
           created_at: T.nilable(Time),
           preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequest, Knockapi::Internal::AnyHash)]
           )
         )
           .returns(T.attached_class)
@@ -48,7 +48,7 @@ module Knockapi
               collection: String,
               channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
               created_at: T.nilable(Time),
-              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])
+              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequest])
             }
           )
       end

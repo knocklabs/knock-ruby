@@ -4,7 +4,7 @@ module Knockapi
       {
         id: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-        preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        preferences: Knockapi::Models::Recipients::InlinePreferenceSetRequest?,
         settings: Knockapi::Models::TenantRequest::Settings
       }
 
@@ -13,7 +13,7 @@ module Knockapi
 
       attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
 
-      attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+      attr_accessor preferences: Knockapi::Models::Recipients::InlinePreferenceSetRequest?
 
       attr_reader settings: Knockapi::Models::TenantRequest::Settings?
 
@@ -24,7 +24,7 @@ module Knockapi
       def initialize: (
         id: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        ?preferences: Knockapi::Models::Recipients::InlinePreferenceSetRequest?,
         ?settings: Knockapi::Models::TenantRequest::Settings
       ) -> void
 
