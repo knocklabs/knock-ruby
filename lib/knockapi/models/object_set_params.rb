@@ -22,7 +22,7 @@ module Knockapi
       optional :locale, String, nil?: true
 
       # @!attribute preferences
-      #   Inline set preferences for a recipient.
+      #   Inline set preferences for a recipient, where the key is the preference set id.
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,

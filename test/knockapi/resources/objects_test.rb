@@ -106,8 +106,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       response => {
         channel_id: String,
         data: Knockapi::Models::Recipients::RecipientsChannelData::Data,
-        provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider,
-        _typename: String | nil
+        provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider | nil
       }
     end
   end
@@ -126,7 +125,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     assert_pattern do
       response => {
         id: String,
-        _typename: String,
         categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
         workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
@@ -289,7 +287,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         "collection",
         "object_id",
         "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        data: {tokens: ["push_token_1"], type: :push_fcm}
+        data: {tokens: ["push_token_1"]}
       )
 
     assert_pattern do
@@ -300,8 +298,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       response => {
         channel_id: String,
         data: Knockapi::Models::Recipients::RecipientsChannelData::Data,
-        provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider,
-        _typename: String | nil
+        provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider | nil
       }
     end
   end
@@ -320,7 +317,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     assert_pattern do
       response => {
         id: String,
-        _typename: String,
         categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
         workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil

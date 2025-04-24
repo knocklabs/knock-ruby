@@ -10,12 +10,6 @@ module Knockapi
         #   @return [String]
         required :id, String
 
-        # @!attribute _typename
-        #   The typename of the schema.
-        #
-        #   @return [String]
-        required :_typename, String, api_name: :__typename
-
         # @!attribute categories
         #   An object where the key is the category and the values are the preference
         #   settings for that category.
@@ -40,12 +34,11 @@ module Knockapi
                  -> { Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow] },
                  nil?: true
 
-        # @!method initialize(id:, _typename:, categories: nil, channel_types: nil, workflows: nil)
+        # @!method initialize(id:, categories: nil, channel_types: nil, workflows: nil)
         #   A preference set represents a specific set of notification preferences for a
         #   recipient. A recipient can have multiple preference sets.
         #
         #   @param id [String]
-        #   @param _typename [String]
         #   @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
         #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
         #   @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]

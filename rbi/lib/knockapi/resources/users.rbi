@@ -53,7 +53,7 @@ module Knockapi
         # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
         # user (required for SMS channels).
         phone_number: nil,
-        # Inline set preferences for a recipient.
+        # Inline set preferences for a recipient, where the key is the preference set id.
         preferences: nil,
         # The timezone of the user. Must be a valid
         # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -300,12 +300,12 @@ module Knockapi
           user_id: String,
           channel_id: String,
           data: T.any(
-            Knockapi::Models::Recipients::OneSignalChannelData,
+            Knockapi::Models::Recipients::PushChannelData,
             Knockapi::Internal::AnyHash,
+            Knockapi::Models::Recipients::OneSignalChannelData,
             Knockapi::Models::Recipients::SlackChannelData,
             Knockapi::Models::Recipients::MsTeamsChannelData,
-            Knockapi::Models::Recipients::DiscordChannelData,
-            Knockapi::Models::Recipients::PushChannelData
+            Knockapi::Models::Recipients::DiscordChannelData
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

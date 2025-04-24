@@ -32,7 +32,7 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :phone_number
 
-      # Inline set preferences for a recipient.
+      # Inline set preferences for a recipient, where the key is the preference set id.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_accessor :preferences
 

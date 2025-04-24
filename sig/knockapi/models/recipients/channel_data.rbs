@@ -5,8 +5,7 @@ module Knockapi
         {
           channel_id: String,
           data: Knockapi::Models::Recipients::RecipientsChannelData::data,
-          provider: Knockapi::Models::Recipients::RecipientsChannelData::provider,
-          _typename: String
+          provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
         }
 
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
@@ -14,32 +13,31 @@ module Knockapi
 
         attr_accessor data: Knockapi::Models::Recipients::RecipientsChannelData::data
 
-        attr_accessor provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
+        attr_reader provider: Knockapi::Models::Recipients::RecipientsChannelData::provider?
 
-        attr_reader _typename: String?
-
-        def _typename=: (String) -> String
+        def provider=: (
+          Knockapi::Models::Recipients::RecipientsChannelData::provider
+        ) -> Knockapi::Models::Recipients::RecipientsChannelData::provider
 
         def initialize: (
           channel_id: String,
           data: Knockapi::Models::Recipients::RecipientsChannelData::data,
-          provider: Knockapi::Models::Recipients::RecipientsChannelData::provider,
-          ?_typename: String
+          ?provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
         ) -> void
 
         def to_hash: -> Knockapi::Models::Recipients::recipients_channel_data
 
         type data =
-          Knockapi::Models::Recipients::SlackChannelData
+          Knockapi::Models::Recipients::PushChannelData
+          | Knockapi::Models::Recipients::SlackChannelData
           | Knockapi::Models::Recipients::MsTeamsChannelData
           | Knockapi::Models::Recipients::DiscordChannelData
           | Knockapi::Models::Recipients::OneSignalChannelData
-          | Knockapi::Models::Recipients::PushChannelData
 
         module Data
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::PushChannelData]
+          def self?.variants: -> [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
         end
 
         type provider =

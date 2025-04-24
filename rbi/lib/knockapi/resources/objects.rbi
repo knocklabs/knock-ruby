@@ -334,7 +334,7 @@ module Knockapi
         # The locale of the object. Used for
         # [message localization](/concepts/translations).
         locale: nil,
-        # Inline set preferences for a recipient.
+        # Inline set preferences for a recipient, where the key is the preference set id.
         preferences: nil,
         # The timezone of the object. Must be a valid
         # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -352,12 +352,12 @@ module Knockapi
           object_id_: String,
           channel_id: String,
           data: T.any(
-            Knockapi::Models::Recipients::OneSignalChannelData,
+            Knockapi::Models::Recipients::PushChannelData,
             Knockapi::Internal::AnyHash,
+            Knockapi::Models::Recipients::OneSignalChannelData,
             Knockapi::Models::Recipients::SlackChannelData,
             Knockapi::Models::Recipients::MsTeamsChannelData,
-            Knockapi::Models::Recipients::DiscordChannelData,
-            Knockapi::Models::Recipients::PushChannelData
+            Knockapi::Models::Recipients::DiscordChannelData
           ),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )

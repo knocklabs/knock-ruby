@@ -4,28 +4,16 @@ module Knockapi
       type ms_teams_channel_data =
         {
           connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
-          type: Knockapi::Models::Recipients::MsTeamsChannelData::type_,
-          _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           ms_teams_tenant_id: String?
         }
 
       class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
         attr_accessor connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection]
 
-        attr_accessor type: Knockapi::Models::Recipients::MsTeamsChannelData::type_
-
-        attr_reader _typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename?
-
-        def _typename=: (
-          Knockapi::Models::Recipients::MsTeamsChannelData::typename
-        ) -> Knockapi::Models::Recipients::MsTeamsChannelData::typename
-
         attr_accessor ms_teams_tenant_id: String?
 
         def initialize: (
           connections: ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::connection],
-          type: Knockapi::Models::Recipients::MsTeamsChannelData::type_,
-          ?_typename: Knockapi::Models::Recipients::MsTeamsChannelData::typename,
           ?ms_teams_tenant_id: String?
         ) -> void
 
@@ -91,26 +79,6 @@ module Knockapi
           end
 
           def self?.variants: -> [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection]
-        end
-
-        type type_ = :chat_ms_teams
-
-        module Type
-          extend Knockapi::Internal::Type::Enum
-
-          CHAT_MS_TEAMS: :chat_ms_teams
-
-          def self?.values: -> ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::type_]
-        end
-
-        type typename = :MsTeamsChannelData
-
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          MS_TEAMS_CHANNEL_DATA: :MsTeamsChannelData
-
-          def self?.values: -> ::Array[Knockapi::Models::Recipients::MsTeamsChannelData::typename]
         end
       end
     end

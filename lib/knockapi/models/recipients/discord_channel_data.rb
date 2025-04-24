@@ -11,26 +11,10 @@ module Knockapi
         required :connections,
                  -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::DiscordChannelData::Connection] }
 
-        # @!attribute type
-        #   The type of provider.
-        #
-        #   @return [Symbol, Knockapi::Models::Recipients::DiscordChannelData::Type]
-        required :type, enum: -> { Knockapi::Models::Recipients::DiscordChannelData::Type }
-
-        # @!attribute _typename
-        #   The typename of the schema.
-        #
-        #   @return [Symbol, Knockapi::Models::Recipients::DiscordChannelData::Typename, nil]
-        optional :_typename,
-                 enum: -> { Knockapi::Models::Recipients::DiscordChannelData::Typename },
-                 api_name: :__typename
-
-        # @!method initialize(connections:, type:, _typename: nil)
+        # @!method initialize(connections:)
         #   Discord channel data.
         #
         #   @param connections [Array<Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>]
-        #   @param type [Symbol, Knockapi::Models::Recipients::DiscordChannelData::Type]
-        #   @param _typename [Symbol, Knockapi::Models::Recipients::DiscordChannelData::Typename]
 
         # Discord channel connection, either a channel connection or an incoming webhook
         # connection.
@@ -86,30 +70,6 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection)]
-        end
-
-        # The type of provider.
-        #
-        # @see Knockapi::Models::Recipients::DiscordChannelData#type
-        module Type
-          extend Knockapi::Internal::Type::Enum
-
-          CHAT_DISCORD = :chat_discord
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-
-        # The typename of the schema.
-        #
-        # @see Knockapi::Models::Recipients::DiscordChannelData#_typename
-        module Typename
-          extend Knockapi::Internal::Type::Enum
-
-          DISCORD_CHANNEL_DATA = :DiscordChannelData
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
         end
       end
     end

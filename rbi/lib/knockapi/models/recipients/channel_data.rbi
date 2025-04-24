@@ -12,45 +12,40 @@ module Knockapi
         sig do
           returns(
             T.any(
+              Knockapi::Models::Recipients::PushChannelData,
               Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
               Knockapi::Models::Recipients::DiscordChannelData,
-              Knockapi::Models::Recipients::OneSignalChannelData,
-              Knockapi::Models::Recipients::PushChannelData
+              Knockapi::Models::Recipients::OneSignalChannelData
             )
           )
         end
         attr_accessor :data
 
         # The type of provider.
-        sig { returns(Knockapi::Models::Recipients::RecipientsChannelData::Provider::TaggedSymbol) }
-        attr_accessor :provider
+        sig { returns(T.nilable(Knockapi::Models::Recipients::RecipientsChannelData::Provider::TaggedSymbol)) }
+        attr_reader :provider
 
-        # The typename of the schema.
-        sig { returns(T.nilable(String)) }
-        attr_reader :_typename
-
-        sig { params(_typename: String).void }
-        attr_writer :_typename
+        sig { params(provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider::OrSymbol).void }
+        attr_writer :provider
 
         # Channel data for a given channel type.
         sig do
           params(
             channel_id: String,
             data: T.any(
-              Knockapi::Models::Recipients::SlackChannelData,
+              Knockapi::Models::Recipients::PushChannelData,
               Knockapi::Internal::AnyHash,
+              Knockapi::Models::Recipients::SlackChannelData,
               Knockapi::Models::Recipients::MsTeamsChannelData,
               Knockapi::Models::Recipients::DiscordChannelData,
-              Knockapi::Models::Recipients::OneSignalChannelData,
-              Knockapi::Models::Recipients::PushChannelData
+              Knockapi::Models::Recipients::OneSignalChannelData
             ),
-            provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider::OrSymbol,
-            _typename: String
+            provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider::OrSymbol
           )
             .returns(T.attached_class)
         end
-        def self.new(channel_id:, data:, provider:, _typename: nil); end
+        def self.new(channel_id:, data:, provider: nil); end
 
         sig do
           override
@@ -58,14 +53,13 @@ module Knockapi
               {
                 channel_id: String,
                 data: T.any(
+                  Knockapi::Models::Recipients::PushChannelData,
                   Knockapi::Models::Recipients::SlackChannelData,
                   Knockapi::Models::Recipients::MsTeamsChannelData,
                   Knockapi::Models::Recipients::DiscordChannelData,
-                  Knockapi::Models::Recipients::OneSignalChannelData,
-                  Knockapi::Models::Recipients::PushChannelData
+                  Knockapi::Models::Recipients::OneSignalChannelData
                 ),
-                provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider::TaggedSymbol,
-                _typename: String
+                provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider::TaggedSymbol
               }
             )
         end
@@ -78,7 +72,7 @@ module Knockapi
           sig do
             override
               .returns(
-                [Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::PushChannelData]
+                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
               )
           end
           def self.variants; end

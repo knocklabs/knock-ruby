@@ -19,7 +19,7 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
-      # Inline set preferences for a recipient.
+      # Inline set preferences for a recipient, where the key is the preference set id.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_accessor :preferences
 

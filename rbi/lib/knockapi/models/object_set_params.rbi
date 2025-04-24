@@ -23,7 +23,7 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :locale
 
-      # Inline set preferences for a recipient.
+      # Inline set preferences for a recipient, where the key is the preference set id.
       sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_reader :preferences
 

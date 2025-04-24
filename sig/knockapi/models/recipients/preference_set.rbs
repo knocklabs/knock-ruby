@@ -4,7 +4,6 @@ module Knockapi
       type preference_set =
         {
           id: String,
-          _typename: String,
           categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
           channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
@@ -12,8 +11,6 @@ module Knockapi
 
       class PreferenceSet < Knockapi::Internal::Type::BaseModel
         attr_accessor id: String
-
-        attr_accessor _typename: String
 
         attr_accessor categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?
 
@@ -23,7 +20,6 @@ module Knockapi
 
         def initialize: (
           id: String,
-          _typename: String,
           ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
           ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
           ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
