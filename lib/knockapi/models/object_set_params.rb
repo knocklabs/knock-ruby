@@ -10,9 +10,9 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlineChannelDataRequestItem] }
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] }
 
       # @!attribute locale
       #   The locale of the object. Used for
@@ -22,11 +22,11 @@ module Knockapi
       optional :locale, String, nil?: true
 
       # @!attribute preferences
-      #   Inline set preferences for a recipient, where the key is the preference set name
+      #   Inline set preferences for a recipient.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] }
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] }
 
       # @!attribute timezone
       #   The timezone of the object. Must be a valid
@@ -38,9 +38,9 @@ module Knockapi
       optional :timezone, String, nil?: true
 
       # @!method initialize(channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {})
-      #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>]
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}]
       #   @param locale [String, nil]
-      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>]
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}]
       #   @param timezone [String, nil]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

@@ -20,13 +20,13 @@ module Knockapi
       #
       # @param user_id [String]
       # @param avatar [String, nil]
-      # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       # @param created_at [Time, nil]
       # @param email [String, nil]
       # @param locale [String, nil]
       # @param name [String, nil]
       # @param phone_number [String, nil]
-      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       # @param timezone [String, nil]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

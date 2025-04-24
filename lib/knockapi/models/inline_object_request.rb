@@ -18,9 +18,9 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlineChannelDataRequestItem] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
                nil?: true
 
       # @!attribute created_at
@@ -30,11 +30,11 @@ module Knockapi
       optional :created_at, Time, nil?: true
 
       # @!attribute preferences
-      #   Inline set preferences for a recipient, where the key is the preference set name
+      #   Inline set preferences for a recipient.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
                nil?: true
 
       # @!method initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil)
@@ -42,9 +42,9 @@ module Knockapi
       #
       #   @param id [String]
       #   @param collection [String]
-      #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       #   @param created_at [Time, nil]
-      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
     end
   end
 end

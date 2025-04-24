@@ -7,12 +7,12 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_reader :channel_data
 
       sig do
         params(
-          channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+          channel_data: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -23,13 +23,13 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :locale
 
-      # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
+      # Inline set preferences for a recipient.
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_reader :preferences
 
       sig do
         params(
-          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+          preferences: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
         )
           .void
       end
@@ -44,9 +44,9 @@ module Knockapi
 
       sig do
         params(
-          channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)],
+          channel_data: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)],
           locale: T.nilable(String),
-          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)],
+          preferences: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)],
           timezone: T.nilable(String),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
         )
@@ -58,9 +58,9 @@ module Knockapi
         override
           .returns(
             {
-              channel_data: T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem],
+              channel_data: T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest],
               locale: T.nilable(String),
-              preferences: T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem],
+              preferences: T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest],
               timezone: T.nilable(String),
               request_options: Knockapi::RequestOptions
             }

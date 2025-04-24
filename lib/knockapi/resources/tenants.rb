@@ -76,8 +76,8 @@ module Knockapi
       # @overload set(id, channel_data: nil, preferences: nil, settings: nil, request_options: {})
       #
       # @param id [String]
-      # @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
-      # @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       # @param settings [Knockapi::Models::TenantSetParams::Settings]
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

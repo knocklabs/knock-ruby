@@ -316,9 +316,9 @@ module Knockapi
         params(
           collection: String,
           id: String,
-          channel_data: T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)],
+          channel_data: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)],
           locale: T.nilable(String),
-          preferences: T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)],
+          preferences: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)],
           timezone: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
         )
@@ -334,7 +334,7 @@ module Knockapi
         # The locale of the object. Used for
         # [message localization](/concepts/translations).
         locale: nil,
-        # Inline set preferences for a recipient, where the key is the preference set name
+        # Inline set preferences for a recipient.
         preferences: nil,
         # The timezone of the object. Must be a valid
         # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).

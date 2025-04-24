@@ -8,7 +8,7 @@ module Knockapi
       attr_accessor :avatar
 
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_accessor :channel_data
 
       # The creation date of the user from your system.
@@ -32,8 +32,8 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :phone_number
 
-      # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
+      # Inline set preferences for a recipient.
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_accessor :preferences
 
       # The timezone of the user. Must be a valid
@@ -50,7 +50,7 @@ module Knockapi
         params(
           avatar: T.nilable(String),
           channel_data: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
           ),
           created_at: T.nilable(Time),
           email: T.nilable(String),
@@ -58,7 +58,7 @@ module Knockapi
           name: T.nilable(String),
           phone_number: T.nilable(String),
           preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           ),
           timezone: T.nilable(String)
         )
@@ -80,13 +80,13 @@ module Knockapi
           .returns(
             {
               avatar: T.nilable(String),
-              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
+              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
               created_at: T.nilable(Time),
               email: T.nilable(String),
               locale: T.nilable(String),
               name: T.nilable(String),
               phone_number: T.nilable(String),
-              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
+              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
               timezone: T.nilable(String)
             }
           )

@@ -7,11 +7,11 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem])) }
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
       attr_accessor :channel_data
 
-      # Inline set preferences for a recipient, where the key is the preference set name
-      sig { returns(T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem])) }
+      # Inline set preferences for a recipient.
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
       attr_accessor :preferences
 
       # The settings for the tenant. Includes branding and preference set.
@@ -24,10 +24,10 @@ module Knockapi
       sig do
         params(
           channel_data: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
           ),
           preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           ),
           settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash),
           request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
@@ -40,8 +40,8 @@ module Knockapi
         override
           .returns(
             {
-              channel_data: T.nilable(T::Array[Knockapi::Models::Recipients::InlineChannelDataRequestItem]),
-              preferences: T.nilable(T::Array[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem]),
+              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
+              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
               settings: Knockapi::Models::TenantSetParams::Settings,
               request_options: Knockapi::RequestOptions
             }

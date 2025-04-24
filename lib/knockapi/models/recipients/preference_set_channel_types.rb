@@ -5,37 +5,37 @@ module Knockapi
     module Recipients
       class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
         # @!attribute chat
-        #   Either a boolean or a setting for the given channel type.
+        #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :chat, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Chat }
 
         # @!attribute email
-        #   Either a boolean or a setting for the given channel type.
+        #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :email, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Email }
 
         # @!attribute http
-        #   Either a boolean or a setting for the given channel type.
+        #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :http, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::HTTP }
 
         # @!attribute in_app_feed
-        #   Either a boolean or a setting for the given channel type.
+        #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :in_app_feed, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::InAppFeed }
 
         # @!attribute push
-        #   Either a boolean or a setting for the given channel type.
+        #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :push, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::Push }
 
         # @!attribute sms
-        #   Either a boolean or a setting for the given channel type.
+        #   Whether the channel type is enabled for the preference set.
         #
         #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting, nil]
         optional :sms, union: -> { Knockapi::Models::Recipients::PreferenceSetChannelTypes::SMS }
@@ -50,13 +50,12 @@ module Knockapi
         #   @param push [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
         #   @param sms [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
 
-        # Either a boolean or a setting for the given channel type.
+        # Whether the channel type is enabled for the preference set.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#chat
         module Chat
           extend Knockapi::Internal::Type::Union
 
-          # Whether the channel type is enabled for the preference set.
           variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -66,13 +65,12 @@ module Knockapi
           #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
-        # Either a boolean or a setting for the given channel type.
+        # Whether the channel type is enabled for the preference set.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#email
         module Email
           extend Knockapi::Internal::Type::Union
 
-          # Whether the channel type is enabled for the preference set.
           variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -82,13 +80,12 @@ module Knockapi
           #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
-        # Either a boolean or a setting for the given channel type.
+        # Whether the channel type is enabled for the preference set.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#http
         module HTTP
           extend Knockapi::Internal::Type::Union
 
-          # Whether the channel type is enabled for the preference set.
           variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -98,13 +95,12 @@ module Knockapi
           #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
-        # Either a boolean or a setting for the given channel type.
+        # Whether the channel type is enabled for the preference set.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#in_app_feed
         module InAppFeed
           extend Knockapi::Internal::Type::Union
 
-          # Whether the channel type is enabled for the preference set.
           variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -114,13 +110,12 @@ module Knockapi
           #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
-        # Either a boolean or a setting for the given channel type.
+        # Whether the channel type is enabled for the preference set.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#push
         module Push
           extend Knockapi::Internal::Type::Union
 
-          # Whether the channel type is enabled for the preference set.
           variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.
@@ -130,13 +125,12 @@ module Knockapi
           #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting)]
         end
 
-        # Either a boolean or a setting for the given channel type.
+        # Whether the channel type is enabled for the preference set.
         #
         # @see Knockapi::Models::Recipients::PreferenceSetChannelTypes#sms
         module SMS
           extend Knockapi::Internal::Type::Union
 
-          # Whether the channel type is enabled for the preference set.
           variant Knockapi::Internal::Type::Boolean
 
           # A set of settings for a channel type. Currently, this can only be a list of conditions to apply.

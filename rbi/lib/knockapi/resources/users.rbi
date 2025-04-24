@@ -20,7 +20,7 @@ module Knockapi
           user_id: String,
           avatar: T.nilable(String),
           channel_data: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlineChannelDataRequestItem, Knockapi::Internal::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
           ),
           created_at: T.nilable(Time),
           email: T.nilable(String),
@@ -28,7 +28,7 @@ module Knockapi
           name: T.nilable(String),
           phone_number: T.nilable(String),
           preferences: T.nilable(
-            T::Array[T.any(Knockapi::Models::Recipients::InlinePreferenceSetRequestItem, Knockapi::Internal::AnyHash)]
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           ),
           timezone: T.nilable(String),
           request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
@@ -53,7 +53,7 @@ module Knockapi
         # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
         # user (required for SMS channels).
         phone_number: nil,
-        # Inline set preferences for a recipient, where the key is the preference set name
+        # Inline set preferences for a recipient.
         preferences: nil,
         # The timezone of the user. Must be a valid
         # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).

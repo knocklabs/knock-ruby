@@ -10,17 +10,17 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlineChannelDataRequestItem] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
                nil?: true
 
       # @!attribute preferences
-      #   Inline set preferences for a recipient, where the key is the preference set name
+      #   Inline set preferences for a recipient.
       #
-      #   @return [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::InlinePreferenceSetRequestItem] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
                nil?: true
 
       # @!attribute settings
@@ -30,8 +30,8 @@ module Knockapi
       optional :settings, -> { Knockapi::Models::TenantSetParams::Settings }
 
       # @!method initialize(channel_data: nil, preferences: nil, settings: nil, request_options: {})
-      #   @param channel_data [Array<Knockapi::Models::Recipients::InlineChannelDataRequestItem>, nil]
-      #   @param preferences [Array<Knockapi::Models::Recipients::InlinePreferenceSetRequestItem>, nil]
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       #   @param settings [Knockapi::Models::TenantSetParams::Settings]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
