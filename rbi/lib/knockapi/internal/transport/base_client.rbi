@@ -90,7 +90,7 @@ module Knockapi
 
         # @api private
         sig { returns(Knockapi::Internal::Transport::PooledNetRequester) }
-        attr_accessor :requester
+        attr_reader :requester
 
         # @api private
         sig do

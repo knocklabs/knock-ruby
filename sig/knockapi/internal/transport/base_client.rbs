@@ -53,7 +53,7 @@ module Knockapi
         ) -> void
 
         # @api private
-        attr_accessor requester: Knockapi::Internal::Transport::PooledNetRequester
+        attr_reader requester: Knockapi::Internal::Transport::PooledNetRequester
 
         def initialize: (
           base_url: String,

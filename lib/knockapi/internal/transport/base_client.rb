@@ -153,7 +153,7 @@ module Knockapi
 
         # @api private
         # @return [Knockapi::Internal::Transport::PooledNetRequester]
-        attr_accessor :requester
+        attr_reader :requester
 
         # @api private
         #
