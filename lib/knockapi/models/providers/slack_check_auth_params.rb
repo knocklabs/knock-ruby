@@ -15,7 +15,8 @@ module Knockapi
         required :access_token_object, String
 
         # @!method initialize(access_token_object:, request_options: {})
-        #   @param access_token_object [String]
+        #   @param access_token_object [String] A JSON encoded string containing the access token object reference.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

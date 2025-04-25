@@ -29,8 +29,18 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(cancellation_key:, recipients: nil, request_options: {}); end
-
+      def self.new(
+        # An optional key that is used to reference a specific workflow trigger request
+        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
+        # request. Must be provided while triggering a workflow in order to enable
+        # subsequent cancellation. Should be unique across trigger requests to avoid
+        # unintentional cancellations.
+        cancellation_key:,
+        # A list of recipients to cancel the notification for. If omitted, cancels for all
+        # recipients associated with the cancellation key.
+        recipients: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

@@ -18,8 +18,11 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(object_ids:, request_options: {}); end
-
+        def self.new(
+          # List of object IDs to delete.
+          object_ids:,
+          request_options: {}
+        ); end
         sig { override.returns({object_ids: T::Array[String], request_options: Knockapi::RequestOptions}) }
         def to_hash; end
       end

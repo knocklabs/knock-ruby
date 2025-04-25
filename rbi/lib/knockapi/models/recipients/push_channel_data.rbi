@@ -10,8 +10,10 @@ module Knockapi
 
         # The content of a push notification.
         sig { params(tokens: T::Array[String]).returns(T.attached_class) }
-        def self.new(tokens:); end
-
+        def self.new(
+          # A list of push channel tokens.
+          tokens:
+        ); end
         sig { override.returns({tokens: T::Array[String]}) }
         def to_hash; end
       end

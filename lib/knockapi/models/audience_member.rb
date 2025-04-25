@@ -36,13 +36,21 @@ module Knockapi
       optional :tenant, String, nil?: true
 
       # @!method initialize(_typename:, added_at:, user:, user_id:, tenant: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::AudienceMember} for more details.
+      #
       #   An audience member.
       #
-      #   @param _typename [String]
-      #   @param added_at [Time]
-      #   @param user [Knockapi::Models::User]
-      #   @param user_id [String]
-      #   @param tenant [String, nil]
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param added_at [Time] Timestamp when the resource was created.
+      #
+      #   @param user [Knockapi::Models::User] A [User](/concepts/users) represents an individual in your system who can receiv
+      #   ...
+      #
+      #   @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      #   @param tenant [String, nil] The unique identifier for the tenant.
     end
   end
 end

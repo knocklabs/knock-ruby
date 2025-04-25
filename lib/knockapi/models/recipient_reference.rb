@@ -29,8 +29,9 @@ module Knockapi
         # @!method initialize(id: nil, collection: nil)
         #   A reference to a recipient object.
         #
-        #   @param id [String]
-        #   @param collection [String]
+        #   @param id [String] An identifier for the recipient object.
+        #
+        #   @param collection [String] The collection the recipient object belongs to.
       end
 
       # @!method self.variants

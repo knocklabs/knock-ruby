@@ -50,13 +50,19 @@ module Knockapi
       # @!method initialize(_typename:, frequency:, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil)
       #   The repeat rule for the schedule.
       #
-      #   @param _typename [String]
-      #   @param frequency [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency]
-      #   @param day_of_month [Integer, nil]
-      #   @param days [Array<Symbol, Knockapi::Models::ScheduleRepeatRule::Day>, nil]
-      #   @param hours [Integer, nil]
-      #   @param interval [Integer]
-      #   @param minutes [Integer, nil]
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param frequency [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency] The frequency of the schedule.
+      #
+      #   @param day_of_month [Integer, nil] The day of the month to repeat the schedule.
+      #
+      #   @param days [Array<Symbol, Knockapi::Models::ScheduleRepeatRule::Day>, nil] The days of the week to repeat the schedule.
+      #
+      #   @param hours [Integer, nil] The hour of the day to repeat the schedule.
+      #
+      #   @param interval [Integer] The interval of the schedule.
+      #
+      #   @param minutes [Integer, nil] The minute of the hour to repeat the schedule.
 
       # The frequency of the schedule.
       #

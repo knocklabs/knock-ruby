@@ -14,7 +14,7 @@ module Knockapi
         # @!method initialize(ok: nil)
         #   A response indicating the operation was successful.
         #
-        #   @param ok [String]
+        #   @param ok [String] OK response.
       end
     end
   end

@@ -14,7 +14,7 @@ module Knockapi
         # @!method initialize(connection:)
         #   The response from a Microsoft Teams auth check request.
         #
-        #   @param connection [Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection]
+        #   @param connection [Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection] A Microsoft Teams connection object.
 
         # @see Knockapi::Models::Providers::MsTeamCheckAuthResponse#connection
         class Connection < Knockapi::Internal::Type::BaseModel
@@ -33,8 +33,9 @@ module Knockapi
           # @!method initialize(ok:, reason: nil)
           #   A Microsoft Teams connection object.
           #
-          #   @param ok [Boolean]
-          #   @param reason [String, nil]
+          #   @param ok [Boolean] Whether the Microsoft Teams connection is valid.
+          #
+          #   @param reason [String, nil] The reason for the Microsoft Teams connection if it is not valid.
         end
       end
     end

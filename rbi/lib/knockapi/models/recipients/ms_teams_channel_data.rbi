@@ -35,8 +35,12 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:, ms_teams_tenant_id: nil); end
-
+        def self.new(
+          # List of Microsoft Teams connections.
+          connections:,
+          # Microsoft Teams tenant ID.
+          ms_teams_tenant_id: nil
+        ); end
         sig do
           override
             .returns(
@@ -85,13 +89,15 @@ module Knockapi
                 .returns(T.attached_class)
             end
             def self.new(
+              # Microsoft Teams channel ID.
               ms_teams_channel_id: nil,
+              # Microsoft Teams team ID.
               ms_teams_team_id: nil,
+              # Microsoft Teams tenant ID.
               ms_teams_tenant_id: nil,
+              # Microsoft Teams user ID.
               ms_teams_user_id: nil
-            )
-            end
-
+            ); end
             sig do
               override
                 .returns(
@@ -136,8 +142,10 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(incoming_webhook:); end
-
+            def self.new(
+              # Microsoft Teams incoming webhook.
+              incoming_webhook:
+            ); end
             sig do
               override
                 .returns(
@@ -155,8 +163,10 @@ module Knockapi
 
               # Microsoft Teams incoming webhook.
               sig { params(url: String).returns(T.attached_class) }
-              def self.new(url:); end
-
+              def self.new(
+                # Microsoft Teams incoming webhook URL.
+                url:
+              ); end
               sig { override.returns({url: String}) }
               def to_hash; end
             end

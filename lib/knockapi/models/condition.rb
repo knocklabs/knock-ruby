@@ -24,9 +24,11 @@ module Knockapi
       # @!method initialize(argument:, operator:, variable:)
       #   A condition to be evaluated.
       #
-      #   @param argument [String, nil]
-      #   @param operator [Symbol, Knockapi::Models::Condition::Operator]
-      #   @param variable [String]
+      #   @param argument [String, nil] The argument value to compare against in the condition.
+      #
+      #   @param operator [Symbol, Knockapi::Models::Condition::Operator] The operator to use in the condition evaluation.
+      #
+      #   @param variable [String] The variable to be evaluated in the condition.
 
       # The operator to use in the condition evaluation.
       #

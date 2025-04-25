@@ -7,7 +7,8 @@ module Knockapi
       #
       # @overload get(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The ID of the bulk operation to retrieve.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::BulkOperation]

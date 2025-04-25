@@ -27,9 +27,12 @@ module Knockapi
         optional :type, String
 
         # @!method initialize(data: nil, tenant: nil, type: nil, request_options: {})
-        #   @param data [String]
-        #   @param tenant [String]
-        #   @param type [String]
+        #   @param data [String] The data (JSON encoded object) to use for targeting and rendering guides.
+        #
+        #   @param tenant [String] The tenant ID to use for targeting and rendering guides.
+        #
+        #   @param type [String] The type of guides to filter by.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

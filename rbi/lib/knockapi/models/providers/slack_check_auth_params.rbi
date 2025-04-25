@@ -18,8 +18,11 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(access_token_object:, request_options: {}); end
-
+        def self.new(
+          # A JSON encoded string containing the access token object reference.
+          access_token_object:,
+          request_options: {}
+        ); end
         sig { override.returns({access_token_object: String, request_options: Knockapi::RequestOptions}) }
         def to_hash; end
       end

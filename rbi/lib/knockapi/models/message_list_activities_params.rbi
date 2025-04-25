@@ -44,8 +44,17 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {}); end
-
+      def self.new(
+        # The cursor to fetch entries after.
+        after: nil,
+        # The cursor to fetch entries before.
+        before: nil,
+        # The number of items per page.
+        page_size: nil,
+        # The trigger data to filter activities by.
+        trigger_data: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

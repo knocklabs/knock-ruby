@@ -8,11 +8,16 @@ module Knockapi
         #
         # @overload list(message_id, after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
         #
-        # @param message_id [String]
-        # @param after [String]
-        # @param before [String]
-        # @param page_size [Integer]
-        # @param trigger_data [String]
+        # @param message_id [String] The ID of the message to fetch activities for.
+        #
+        # @param after [String] The cursor to fetch entries after.
+        #
+        # @param before [String] The cursor to fetch entries before.
+        #
+        # @param page_size [Integer] The number of items per page.
+        #
+        # @param trigger_data [String] The trigger data to filter activities by.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Activity>]

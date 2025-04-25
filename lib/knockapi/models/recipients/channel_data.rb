@@ -25,9 +25,11 @@ module Knockapi
         # @!method initialize(channel_id:, data:, provider: nil)
         #   Channel data for a given channel type.
         #
-        #   @param channel_id [String]
-        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
-        #   @param provider [Symbol, Knockapi::Models::Recipients::RecipientsChannelData::Provider]
+        #   @param channel_id [String] The unique identifier for the channel.
+        #
+        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData] Channel data for a given channel type.
+        #
+        #   @param provider [Symbol, Knockapi::Models::Recipients::RecipientsChannelData::Provider] The type of provider.
 
         # Channel data for a given channel type.
         #

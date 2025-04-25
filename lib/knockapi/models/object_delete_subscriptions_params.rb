@@ -16,7 +16,12 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
 
       # @!method initialize(recipients:, request_options: {})
-      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::ObjectDeleteSubscriptionsParams} for more details.
+      #
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] The recipients of the subscription. You can subscribe up to 100 recipients to an
+      #   ...
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

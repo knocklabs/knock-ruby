@@ -10,7 +10,8 @@ module Knockapi
         #
         # @overload create(schedules:, request_options: {})
         #
-        # @param schedules [Array<Knockapi::Models::Schedules::BulkCreateParams::Schedule>]
+        # @param schedules [Array<Knockapi::Models::Schedules::BulkCreateParams::Schedule>] A list of schedules.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]

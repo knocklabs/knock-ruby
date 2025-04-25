@@ -98,21 +98,35 @@ module Knockapi
       # @!method initialize(id:, _typename:, estimated_total_rows:, inserted_at:, name:, processed_rows:, status:, success_count:, updated_at:, completed_at: nil, error_count: nil, error_items: nil, failed_at: nil, progress_path: nil, started_at: nil)
       #   A bulk operation entity.
       #
-      #   @param id [String]
-      #   @param _typename [String]
-      #   @param estimated_total_rows [Integer]
-      #   @param inserted_at [Time]
-      #   @param name [String]
-      #   @param processed_rows [Integer]
-      #   @param status [Symbol, Knockapi::Models::BulkOperation::Status]
-      #   @param success_count [Integer]
-      #   @param updated_at [Time]
-      #   @param completed_at [Time, nil]
-      #   @param error_count [Integer]
-      #   @param error_items [Array<Knockapi::Models::BulkOperation::ErrorItem>]
-      #   @param failed_at [Time, nil]
-      #   @param progress_path [String]
-      #   @param started_at [Time, nil]
+      #   @param id [String] Unique identifier for the bulk operation.
+      #
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param estimated_total_rows [Integer] The estimated total number of rows to process.
+      #
+      #   @param inserted_at [Time] Timestamp when the resource was created.
+      #
+      #   @param name [String] The name of the bulk operation.
+      #
+      #   @param processed_rows [Integer] The number of rows processed so far.
+      #
+      #   @param status [Symbol, Knockapi::Models::BulkOperation::Status] The status of the bulk operation.
+      #
+      #   @param success_count [Integer] The number of successful operations.
+      #
+      #   @param updated_at [Time] The timestamp when the resource was last updated.
+      #
+      #   @param completed_at [Time, nil] Timestamp when the bulk operation was completed.
+      #
+      #   @param error_count [Integer] The number of failed operations.
+      #
+      #   @param error_items [Array<Knockapi::Models::BulkOperation::ErrorItem>] A list of items that failed to be processed.
+      #
+      #   @param failed_at [Time, nil] Timestamp when the bulk operation failed.
+      #
+      #   @param progress_path [String] The URI to the bulk operation's progress.
+      #
+      #   @param started_at [Time, nil] Timestamp when the bulk operation was started.
 
       # The status of the bulk operation.
       #
@@ -143,8 +157,9 @@ module Knockapi
         optional :collection, String, nil?: true
 
         # @!method initialize(id:, collection: nil)
-        #   @param id [String]
-        #   @param collection [String, nil]
+        #   @param id [String] Unique identifier for the object.
+        #
+        #   @param collection [String, nil] The collection this object belongs to.
       end
     end
   end

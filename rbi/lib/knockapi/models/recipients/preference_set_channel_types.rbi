@@ -136,8 +136,20 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil); end
-
+        def self.new(
+          # Whether the channel type is enabled for the preference set.
+          chat: nil,
+          # Whether the channel type is enabled for the preference set.
+          email: nil,
+          # Whether the channel type is enabled for the preference set.
+          http: nil,
+          # Whether the channel type is enabled for the preference set.
+          in_app_feed: nil,
+          # Whether the channel type is enabled for the preference set.
+          push: nil,
+          # Whether the channel type is enabled for the preference set.
+          sms: nil
+        ); end
         sig do
           override
             .returns(

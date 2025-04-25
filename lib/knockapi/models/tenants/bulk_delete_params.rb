@@ -15,7 +15,8 @@ module Knockapi
         required :tenant_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(tenant_ids:, request_options: {})
-        #   @param tenant_ids [Array<String>]
+        #   @param tenant_ids [Array<String>] The IDs of the tenants to delete.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

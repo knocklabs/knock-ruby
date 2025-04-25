@@ -38,10 +38,19 @@ module Knockapi
       optional :timezone, String, nil?: true
 
       # @!method initialize(channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {})
-      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}]
-      #   @param locale [String, nil]
-      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}]
-      #   @param timezone [String, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::ObjectSetParams} for more details.
+      #
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}] A request to set channel data for a type of channel inline.
+      #
+      #   @param locale [String, nil] The locale of the object. Used for [message localization](/concepts/translations
+      #   ...
+      #
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}] Inline set preferences for a recipient, where the key is the preference set id.
+      #
+      #   @param timezone [String, nil] The timezone of the object. Must be a valid [tz database time zone string](https
+      #   ...
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

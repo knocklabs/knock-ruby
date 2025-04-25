@@ -15,7 +15,8 @@ module Knockapi
         required :message_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(message_ids:, request_options: {})
-        #   @param message_ids [Array<String>]
+        #   @param message_ids [Array<String>] The IDs of the messages to fetch contents of.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

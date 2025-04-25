@@ -20,8 +20,9 @@ module Knockapi
         # @!method initialize(connections:, token: nil)
         #   Slack channel data
         #
-        #   @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
-        #   @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
+        #   @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>] List of Slack channel connections.
+        #
+        #   @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil] A Slack connection token.
 
         # A Slack connection, either an access token or an incoming webhook
         module Connection
@@ -55,9 +56,11 @@ module Knockapi
             # @!method initialize(access_token: nil, channel_id: nil, user_id: nil)
             #   A Slack connection token.
             #
-            #   @param access_token [String, nil]
-            #   @param channel_id [String, nil]
-            #   @param user_id [String, nil]
+            #   @param access_token [String, nil] A Slack access token.
+            #
+            #   @param channel_id [String, nil] A Slack channel ID from the Slack provider.
+            #
+            #   @param user_id [String, nil] A Slack user ID from the Slack provider.
           end
 
           class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -70,7 +73,7 @@ module Knockapi
             # @!method initialize(url:)
             #   A Slack connection incoming webhook.
             #
-            #   @param url [String]
+            #   @param url [String] The URL of the incoming webhook for a Slack connection.
           end
 
           # @!method self.variants
@@ -88,7 +91,7 @@ module Knockapi
           # @!method initialize(access_token:)
           #   A Slack connection token.
           #
-          #   @param access_token [String, nil]
+          #   @param access_token [String, nil] A Slack access token.
         end
       end
     end

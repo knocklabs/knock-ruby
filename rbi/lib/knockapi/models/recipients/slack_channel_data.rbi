@@ -43,8 +43,12 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:, token: nil); end
-
+        def self.new(
+          # List of Slack channel connections.
+          connections:,
+          # A Slack connection token.
+          token: nil
+        ); end
         sig do
           override
             .returns(
@@ -87,8 +91,14 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(access_token: nil, channel_id: nil, user_id: nil); end
-
+            def self.new(
+              # A Slack access token.
+              access_token: nil,
+              # A Slack channel ID from the Slack provider.
+              channel_id: nil,
+              # A Slack user ID from the Slack provider.
+              user_id: nil
+            ); end
             sig do
               override
                 .returns({
@@ -107,8 +117,10 @@ module Knockapi
 
             # A Slack connection incoming webhook.
             sig { params(url: String).returns(T.attached_class) }
-            def self.new(url:); end
-
+            def self.new(
+              # The URL of the incoming webhook for a Slack connection.
+              url:
+            ); end
             sig { override.returns({url: String}) }
             def to_hash; end
           end
@@ -129,8 +141,10 @@ module Knockapi
 
           # A Slack connection token.
           sig { params(access_token: T.nilable(String)).returns(T.attached_class) }
-          def self.new(access_token:); end
-
+          def self.new(
+            # A Slack access token.
+            access_token:
+          ); end
           sig { override.returns({access_token: T.nilable(String)}) }
           def to_hash; end
         end

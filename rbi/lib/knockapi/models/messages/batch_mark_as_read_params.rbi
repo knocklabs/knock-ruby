@@ -18,8 +18,11 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(message_ids:, request_options: {}); end
-
+        def self.new(
+          # The message IDs to update the status of.
+          message_ids:,
+          request_options: {}
+        ); end
         sig { override.returns({message_ids: T::Array[String], request_options: Knockapi::RequestOptions}) }
         def to_hash; end
       end

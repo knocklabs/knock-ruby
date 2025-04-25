@@ -15,7 +15,8 @@ module Knockapi
         required :object_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(object_ids:, request_options: {})
-        #   @param object_ids [Array<String>]
+        #   @param object_ids [Array<String>] List of object IDs to delete.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

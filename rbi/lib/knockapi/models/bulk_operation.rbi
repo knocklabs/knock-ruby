@@ -99,20 +99,35 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # Unique identifier for the bulk operation.
         id:,
+        # The typename of the schema.
         _typename:,
+        # The estimated total number of rows to process.
         estimated_total_rows:,
+        # Timestamp when the resource was created.
         inserted_at:,
+        # The name of the bulk operation.
         name:,
+        # The number of rows processed so far.
         processed_rows:,
+        # The status of the bulk operation.
         status:,
+        # The number of successful operations.
         success_count:,
+        # The timestamp when the resource was last updated.
         updated_at:,
+        # Timestamp when the bulk operation was completed.
         completed_at: nil,
+        # The number of failed operations.
         error_count: nil,
+        # A list of items that failed to be processed.
         error_items: nil,
+        # Timestamp when the bulk operation failed.
         failed_at: nil,
+        # The URI to the bulk operation's progress.
         progress_path: nil,
+        # Timestamp when the bulk operation was started.
         started_at: nil
       ); end
       sig do
@@ -165,8 +180,12 @@ module Knockapi
         attr_accessor :collection
 
         sig { params(id: String, collection: T.nilable(String)).returns(T.attached_class) }
-        def self.new(id:, collection: nil); end
-
+        def self.new(
+          # Unique identifier for the object.
+          id:,
+          # The collection this object belongs to.
+          collection: nil
+        ); end
         sig { override.returns({id: String, collection: T.nilable(String)}) }
         def to_hash; end
       end

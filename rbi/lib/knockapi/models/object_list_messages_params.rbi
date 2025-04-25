@@ -138,19 +138,36 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # The cursor to fetch entries after.
         after: nil,
+        # The cursor to fetch entries before.
         before: nil,
+        # Limits the results to items with the corresponding channel ID.
         channel_id: nil,
+        # Limits the results to messages with the given engagement status.
         engagement_status: nil,
         inserted_at: nil,
+        # Limits the results to only the message IDs given (max 50). Note: when using this
+        # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
+        # The number of items per page.
         page_size: nil,
+        # Limits the results to messages triggered by the given workflow key.
         source: nil,
+        # Limits the results to messages with the given delivery status.
         status: nil,
+        # Limits the results to items with the corresponding tenant.
         tenant: nil,
+        # Limits the results to only messages that were generated with the given data. See
+        # [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+        # more information.
         trigger_data: nil,
+        # Limits the results to messages related to any of the provided categories.
         workflow_categories: nil,
+        # Limits the results to messages for a specific recipient's workflow run.
         workflow_recipient_run_id: nil,
+        # Limits the results to messages associated with the top-level workflow run ID
+        # returned by the workflow trigger request.
         workflow_run_id: nil,
         request_options: {}
       ); end
@@ -227,8 +244,16 @@ module Knockapi
         attr_writer :lte
 
         sig { params(gt: String, gte: String, lt: String, lte: String).returns(T.attached_class) }
-        def self.new(gt: nil, gte: nil, lt: nil, lte: nil); end
-
+        def self.new(
+          # Limits the results to messages inserted after the given date.
+          gt: nil,
+          # Limits the results to messages inserted after or on the given date.
+          gte: nil,
+          # Limits the results to messages inserted before the given date.
+          lt: nil,
+          # Limits the results to messages inserted before or on the given date.
+          lte: nil
+        ); end
         sig { override.returns({gt: String, gte: String, lt: String, lte: String}) }
         def to_hash; end
       end

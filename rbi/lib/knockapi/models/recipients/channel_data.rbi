@@ -45,8 +45,14 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(channel_id:, data:, provider: nil); end
-
+        def self.new(
+          # The unique identifier for the channel.
+          channel_id:,
+          # Channel data for a given channel type.
+          data:,
+          # The type of provider.
+          provider: nil
+        ); end
         sig do
           override
             .returns(

@@ -10,8 +10,11 @@ module Knockapi
 
       # The response from triggering a workflow.
       sig { params(workflow_run_id: String).returns(T.attached_class) }
-      def self.new(workflow_run_id:); end
-
+      def self.new(
+        # This value allows you to track individual messages associated with this trigger
+        # request.
+        workflow_run_id:
+      ); end
       sig { override.returns({workflow_run_id: String}) }
       def to_hash; end
     end

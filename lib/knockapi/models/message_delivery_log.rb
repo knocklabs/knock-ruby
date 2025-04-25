@@ -50,13 +50,19 @@ module Knockapi
       #   A message delivery log contains a `request` from Knock to a downstream provider
       #   and the `response` that was returned.
       #
-      #   @param id [String]
-      #   @param _typename [String]
-      #   @param environment_id [String]
-      #   @param inserted_at [String]
-      #   @param request [Knockapi::Models::MessageDeliveryLog::Request]
-      #   @param response [Knockapi::Models::MessageDeliveryLog::Response]
-      #   @param service_name [String]
+      #   @param id [String] The unique identifier for the message delivery log.
+      #
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param environment_id [String] The ID of the environment in which the message delivery occurred.
+      #
+      #   @param inserted_at [String] Timestamp when the message delivery log was created.
+      #
+      #   @param request [Knockapi::Models::MessageDeliveryLog::Request] A message delivery log request.
+      #
+      #   @param response [Knockapi::Models::MessageDeliveryLog::Response] A message delivery log response.
+      #
+      #   @param service_name [String] The name of the service that processed the delivery.
 
       # @see Knockapi::Models::MessageDeliveryLog#request
       class Request < Knockapi::Internal::Type::BaseModel
@@ -99,12 +105,17 @@ module Knockapi
         # @!method initialize(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil)
         #   A message delivery log request.
         #
-        #   @param body [String, Hash{Symbol=>Object}]
-        #   @param headers [Hash{Symbol=>Object}, nil]
-        #   @param host [String]
-        #   @param method_ [Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method]
-        #   @param path [String]
-        #   @param query [String, nil]
+        #   @param body [String, Hash{Symbol=>Object}] The body content that was sent with the request.
+        #
+        #   @param headers [Hash{Symbol=>Object}, nil] The headers that were sent with the request.
+        #
+        #   @param host [String] The host to which the request was sent.
+        #
+        #   @param method_ [Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method] The HTTP method used for the request.
+        #
+        #   @param path [String] The path of the URL that was requested.
+        #
+        #   @param query [String, nil] The query string of the URL that was requested.
 
         # The body content that was sent with the request.
         #
@@ -162,9 +173,11 @@ module Knockapi
         # @!method initialize(body: nil, headers: nil, status: nil)
         #   A message delivery log response.
         #
-        #   @param body [String, Hash{Symbol=>Object}]
-        #   @param headers [Hash{Symbol=>Object}, nil]
-        #   @param status [Integer]
+        #   @param body [String, Hash{Symbol=>Object}] The body content that was received with the response.
+        #
+        #   @param headers [Hash{Symbol=>Object}, nil] The headers that were received with the response.
+        #
+        #   @param status [Integer] The HTTP status code of the response.
 
         # The body content that was received with the response.
         #

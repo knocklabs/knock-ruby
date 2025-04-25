@@ -43,12 +43,17 @@ module Knockapi
         # @!method initialize(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil)
         #   A subscription object.
         #
-        #   @param _typename [String]
-        #   @param inserted_at [Time]
-        #   @param object [Knockapi::Models::Object]
-        #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
-        #   @param updated_at [Time]
-        #   @param properties [Hash{Symbol=>Object}, nil]
+        #   @param _typename [String] The typename of the schema.
+        #
+        #   @param inserted_at [Time] Timestamp when the resource was created.
+        #
+        #   @param object [Knockapi::Models::Object] A custom [Object](/concepts/objects) entity which belongs to a collection.
+        #
+        #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object] A recipient of a notification, which is either a user or an object.
+        #
+        #   @param updated_at [Time] The timestamp when the resource was last updated.
+        #
+        #   @param properties [Hash{Symbol=>Object}, nil] The custom properties associated with the subscription relationship.
       end
     end
   end

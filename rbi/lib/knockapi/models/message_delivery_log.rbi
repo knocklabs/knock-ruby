@@ -51,8 +51,22 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, _typename:, environment_id:, inserted_at:, request:, response:, service_name:); end
-
+      def self.new(
+        # The unique identifier for the message delivery log.
+        id:,
+        # The typename of the schema.
+        _typename:,
+        # The ID of the environment in which the message delivery occurred.
+        environment_id:,
+        # Timestamp when the message delivery log was created.
+        inserted_at:,
+        # A message delivery log request.
+        request:,
+        # A message delivery log response.
+        response:,
+        # The name of the service that processed the delivery.
+        service_name:
+      ); end
       sig do
         override
           .returns(
@@ -118,8 +132,20 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(body: nil, headers: nil, host: nil, method_: nil, path: nil, query: nil); end
-
+        def self.new(
+          # The body content that was sent with the request.
+          body: nil,
+          # The headers that were sent with the request.
+          headers: nil,
+          # The host to which the request was sent.
+          host: nil,
+          # The HTTP method used for the request.
+          method_: nil,
+          # The path of the URL that was requested.
+          path: nil,
+          # The query string of the URL that was requested.
+          query: nil
+        ); end
         sig do
           override
             .returns(
@@ -195,8 +221,14 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(body: nil, headers: nil, status: nil); end
-
+        def self.new(
+          # The body content that was received with the response.
+          body: nil,
+          # The headers that were received with the response.
+          headers: nil,
+          # The HTTP status code of the response.
+          status: nil
+        ); end
         sig do
           override
             .returns(

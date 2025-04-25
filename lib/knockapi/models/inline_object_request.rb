@@ -40,11 +40,15 @@ module Knockapi
       # @!method initialize(id:, collection:, channel_data: nil, created_at: nil, preferences: nil)
       #   A custom [Object](/concepts/objects) entity which belongs to a collection.
       #
-      #   @param id [String]
-      #   @param collection [String]
-      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
-      #   @param created_at [Time, nil]
-      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      #   @param id [String] Unique identifier for the object.
+      #
+      #   @param collection [String] The collection this object belongs to.
+      #
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #
+      #   @param created_at [Time, nil] Timestamp when the resource was created.
+      #
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
     end
   end
 end

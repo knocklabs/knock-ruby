@@ -12,22 +12,38 @@ module Knockapi
       # @return [Knockapi::Resources::Users::Bulk]
       attr_reader :bulk
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::UserUpdateParams} for more details.
+      #
       # Create or update a user with the provided identification data. When you identify
       # an existing user, the system merges the properties you specific with what is
       # currently set on the user, updating only the fields included in your requests.
       #
       # @overload update(user_id, avatar: nil, channel_data: nil, created_at: nil, email: nil, locale: nil, name: nil, phone_number: nil, preferences: nil, timezone: nil, request_options: {})
       #
-      # @param user_id [String]
-      # @param avatar [String, nil]
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
-      # @param created_at [Time, nil]
-      # @param email [String, nil]
-      # @param locale [String, nil]
-      # @param name [String, nil]
-      # @param phone_number [String, nil]
-      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
-      # @param timezone [String, nil]
+      # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      # @param avatar [String, nil] URL to the user's avatar image.
+      #
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #
+      # @param created_at [Time, nil] The creation date of the user from your system.
+      #
+      # @param email [String, nil] The primary email address for the user.
+      #
+      # @param locale [String, nil] The locale of the user. Used for [message localization](/concepts/translations).
+      # ...
+      #
+      # @param name [String, nil] Display name of the user.
+      #
+      # @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      # ...
+      #
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      #
+      # @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::User]
@@ -49,10 +65,14 @@ module Knockapi
       #
       # @overload list(after: nil, before: nil, include: nil, page_size: nil, request_options: {})
       #
-      # @param after [String]
-      # @param before [String]
-      # @param include [Array<Symbol, Knockapi::Models::UserListParams::Include>]
-      # @param page_size [Integer]
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param include [Array<Symbol, Knockapi::Models::UserListParams::Include>] Associated resources to include in the response.
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::User>]
@@ -74,7 +94,8 @@ module Knockapi
       #
       # @overload delete(user_id, request_options: {})
       #
-      # @param user_id [String]
+      # @param user_id [String] The ID of the user to delete.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
@@ -93,7 +114,8 @@ module Knockapi
       #
       # @overload get(user_id, request_options: {})
       #
-      # @param user_id [String]
+      # @param user_id [String] The ID of the user to retrieve.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::User]
@@ -112,8 +134,10 @@ module Knockapi
       #
       # @overload get_channel_data(user_id, channel_id, request_options: {})
       #
-      # @param user_id [String]
-      # @param channel_id [String]
+      # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      # @param channel_id [String] The unique identifier for the channel.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
@@ -133,9 +157,12 @@ module Knockapi
       #
       # @overload get_preferences(user_id, id, tenant: nil, request_options: {})
       #
-      # @param user_id [String]
-      # @param id [String]
-      # @param tenant [String]
+      # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      # @param id [String] Unique identifier for the preference set.
+      #
+      # @param tenant [String] The unique identifier for the tenant.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
@@ -152,27 +179,48 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::UserListMessagesParams} for more details.
+      #
       # Returns a paginated list of messages for a specific user. Allows filtering by
       # message status and provides various sorting options. Messages outside the
       # account's retention window will not be included in the results.
       #
       # @overload list_messages(user_id, after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
-      # @param user_id [String]
-      # @param after [String]
-      # @param before [String]
-      # @param channel_id [String]
-      # @param engagement_status [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>]
+      # @param user_id [String] The user ID to list messages for.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param channel_id [String] Limits the results to items with the corresponding channel ID.
+      #
+      # @param engagement_status [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>] Limits the results to messages with the given engagement status.
+      #
       # @param inserted_at [Knockapi::Models::UserListMessagesParams::InsertedAt]
-      # @param message_ids [Array<String>]
-      # @param page_size [Integer]
-      # @param source [String]
-      # @param status [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>]
-      # @param tenant [String]
-      # @param trigger_data [String]
-      # @param workflow_categories [Array<String>]
-      # @param workflow_recipient_run_id [String]
-      # @param workflow_run_id [String]
+      #
+      # @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
+      # ...
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
+      # @param source [String] Limits the results to messages triggered by the given workflow key.
+      #
+      # @param status [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>] Limits the results to messages with the given delivery status.
+      #
+      # @param tenant [String] Limits the results to items with the corresponding tenant.
+      #
+      # @param trigger_data [String] Limits the results to only messages that were generated with the given data. See
+      # ...
+      #
+      # @param workflow_categories [Array<String>] Limits the results to messages related to any of the provided categories.
+      #
+      # @param workflow_recipient_run_id [String] Limits the results to messages for a specific recipient's workflow run.
+      #
+      # @param workflow_run_id [String] Limits the results to messages associated with the top-level workflow run ID ret
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
@@ -194,7 +242,8 @@ module Knockapi
       #
       # @overload list_preferences(user_id, request_options: {})
       #
-      # @param user_id [String]
+      # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::PreferenceSet>]
@@ -213,12 +262,18 @@ module Knockapi
       #
       # @overload list_schedules(user_id, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       #
-      # @param user_id [String]
-      # @param after [String]
-      # @param before [String]
-      # @param page_size [Integer]
-      # @param tenant [String]
-      # @param workflow [String]
+      # @param user_id [String] The user ID to list schedules for.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
+      # @param tenant [String] The tenant ID to filter schedules for.
+      #
+      # @param workflow [String] The workflow key to filter schedules for.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Schedule>]
@@ -241,12 +296,18 @@ module Knockapi
       #
       # @overload list_subscriptions(user_id, after: nil, before: nil, include: nil, objects: nil, page_size: nil, request_options: {})
       #
-      # @param user_id [String]
-      # @param after [String]
-      # @param before [String]
-      # @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>]
-      # @param objects [Array<String>]
-      # @param page_size [Integer]
+      # @param user_id [String] The user ID to list subscriptions for.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>] Associated resources to include in the response.
+      #
+      # @param objects [Array<String>] Only returns subscriptions for the specified object GIDs.
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
@@ -269,8 +330,10 @@ module Knockapi
       #
       # @overload merge(user_id, from_user_id:, request_options: {})
       #
-      # @param user_id [String]
-      # @param from_user_id [String]
+      # @param user_id [String] The id of the user to merge into.
+      #
+      # @param from_user_id [String] The user ID to merge from.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::User]
@@ -291,9 +354,12 @@ module Knockapi
       #
       # @overload set_channel_data(user_id, channel_id, data:, request_options: {})
       #
-      # @param user_id [String]
-      # @param channel_id [String]
-      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+      # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      # @param channel_id [String] The unique identifier for the channel.
+      #
+      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
@@ -310,16 +376,26 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::UserSetPreferencesParams} for more details.
+      #
       # Updates a complete preference set for a user. This is a destructive operation
       # that will replace the existing preference set for the user.
       #
       # @overload set_preferences(user_id, id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #
-      # @param user_id [String]
-      # @param id [String]
-      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
-      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
-      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      # @param id [String] Unique identifier for the preference set.
+      #
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
+      # ...
+      #
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+      #
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
@@ -340,8 +416,10 @@ module Knockapi
       #
       # @overload unset_channel_data(user_id, channel_id, request_options: {})
       #
-      # @param user_id [String]
-      # @param channel_id [String]
+      # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      # @param channel_id [String] The unique identifier for the channel.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]

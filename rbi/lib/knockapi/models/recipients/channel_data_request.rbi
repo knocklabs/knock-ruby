@@ -32,8 +32,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(data:); end
-
+        def self.new(
+          # Channel data for a given channel type.
+          data:
+        ); end
         sig do
           override
             .returns(

@@ -34,8 +34,18 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, _typename:, collection:, updated_at:, created_at: nil); end
-
+      def self.new(
+        # Unique identifier for the object.
+        id:,
+        # The typename of the schema.
+        _typename:,
+        # The collection this object belongs to.
+        collection:,
+        # The timestamp when the resource was last updated.
+        updated_at:,
+        # Timestamp when the resource was created.
+        created_at: nil
+      ); end
       sig do
         override
           .returns(

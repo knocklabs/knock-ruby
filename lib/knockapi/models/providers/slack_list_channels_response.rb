@@ -38,11 +38,15 @@ module Knockapi
         # @!method initialize(id:, context_team_id:, is_im:, is_private:, name:)
         #   A Slack channel.
         #
-        #   @param id [String]
-        #   @param context_team_id [String]
-        #   @param is_im [Boolean]
-        #   @param is_private [Boolean]
-        #   @param name [String]
+        #   @param id [String] A Slack channel ID from the Slack provider.
+        #
+        #   @param context_team_id [String] The team ID that the Slack channel belongs to.
+        #
+        #   @param is_im [Boolean] Whether the Slack channel is an IM channel.
+        #
+        #   @param is_private [Boolean] Whether the Slack channel is private.
+        #
+        #   @param name [String] Slack channel name.
       end
     end
   end

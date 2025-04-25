@@ -58,16 +58,20 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # Filter by workflow key.
         workflow:,
+        # The cursor to fetch entries after.
         after: nil,
+        # The cursor to fetch entries before.
         before: nil,
+        # The number of items per page.
         page_size: nil,
+        # Filter by recipient IDs.
         recipients: nil,
+        # Filter by tenant ID.
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

@@ -66,16 +66,21 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # Unique identifier for the activity.
         id: nil,
+        # The typename of the schema.
         _typename: nil,
+        # A recipient of a notification, which is either a user or an object.
         actor: nil,
+        # The workflow trigger `data` payload associated with the activity.
         data: nil,
+        # Timestamp when the activity was created.
         inserted_at: nil,
+        # A recipient of a notification, which is either a user or an object.
         recipient: nil,
+        # Timestamp when the activity was last updated.
         updated_at: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

@@ -44,12 +44,18 @@ module Knockapi
       optional :tenant, String
 
       # @!method initialize(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {})
-      #   @param workflow [String]
-      #   @param after [String]
-      #   @param before [String]
-      #   @param page_size [Integer]
-      #   @param recipients [Array<String>]
-      #   @param tenant [String]
+      #   @param workflow [String] Filter by workflow key.
+      #
+      #   @param after [String] The cursor to fetch entries after.
+      #
+      #   @param before [String] The cursor to fetch entries before.
+      #
+      #   @param page_size [Integer] The number of items per page.
+      #
+      #   @param recipients [Array<String>] Filter by recipient IDs.
+      #
+      #   @param tenant [String] Filter by tenant ID.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

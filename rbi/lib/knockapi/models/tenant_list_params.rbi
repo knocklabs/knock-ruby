@@ -52,9 +52,19 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(after: nil, before: nil, name: nil, page_size: nil, tenant_id: nil, request_options: {})
-      end
-
+      def self.new(
+        # The cursor to fetch entries after.
+        after: nil,
+        # The cursor to fetch entries before.
+        before: nil,
+        # Filter tenants by name.
+        name: nil,
+        # The number of items per page.
+        page_size: nil,
+        # Filter tenants by ID.
+        tenant_id: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

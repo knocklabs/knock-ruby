@@ -21,8 +21,14 @@ module Knockapi
       optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!method initialize(recipients:, properties: nil, request_options: {})
-      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      #   @param properties [Hash{Symbol=>Object}, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::ObjectAddSubscriptionsParams} for more details.
+      #
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients of the subscription. You can subscribe up to 100 recipients to an
+      #   ...
+      #
+      #   @param properties [Hash{Symbol=>Object}, nil] The custom properties associated with the subscription relationship.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

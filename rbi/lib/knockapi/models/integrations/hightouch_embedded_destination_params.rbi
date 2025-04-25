@@ -36,8 +36,17 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, jsonrpc:, method_:, params: nil, request_options: {}); end
-
+        def self.new(
+          # The unique identifier for the RPC request.
+          id:,
+          # The JSON-RPC version.
+          jsonrpc:,
+          # The method name to execute.
+          method_:,
+          # The parameters for the method.
+          params: nil,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(

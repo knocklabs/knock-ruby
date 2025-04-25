@@ -106,15 +106,27 @@ module Knockapi
             .returns(T.attached_class)
         end
         def self.new(
+          # Limits the results to messages with the given archived status.
           archived: nil,
+          # Limits the results to messages with the given delivery status.
           delivery_status: nil,
+          # Limits the results to messages with the given engagement status.
           engagement_status: nil,
+          # Limits the results to messages that have a tenant or not.
           has_tenant: nil,
+          # Limits the results to messages inserted after the given date.
           newer_than: nil,
+          # Limits the results to messages inserted before the given date.
           older_than: nil,
+          # Limits the results to messages with the given recipient IDs.
           recipient_ids: nil,
+          # Limits the results to messages with the given tenant IDs.
           tenants: nil,
+          # Limits the results to only messages that were generated with the given data. See
+          # [trigger data filtering](/api-reference/overview/trigger-data-filtering) for
+          # more information.
           trigger_data: nil,
+          # Limits the results to messages with the given workflow keys.
           workflows: nil,
           request_options: {}
         ); end

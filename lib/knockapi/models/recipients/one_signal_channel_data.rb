@@ -13,7 +13,7 @@ module Knockapi
         # @!method initialize(player_ids:)
         #   OneSignal channel data.
         #
-        #   @param player_ids [Array<String>]
+        #   @param player_ids [Array<String>] A list of OneSignal player IDs.
       end
     end
   end

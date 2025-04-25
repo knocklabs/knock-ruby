@@ -18,8 +18,11 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(tenants:, request_options: {}); end
-
+        def self.new(
+          # The tenants to be upserted.
+          tenants:,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(

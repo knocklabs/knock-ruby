@@ -14,7 +14,7 @@ module Knockapi
         # @!method initialize(connection:)
         #   The response from a Slack auth check request.
         #
-        #   @param connection [Knockapi::Models::Providers::SlackCheckAuthResponse::Connection]
+        #   @param connection [Knockapi::Models::Providers::SlackCheckAuthResponse::Connection] A Slack connection object.
 
         # @see Knockapi::Models::Providers::SlackCheckAuthResponse#connection
         class Connection < Knockapi::Internal::Type::BaseModel
@@ -33,8 +33,9 @@ module Knockapi
           # @!method initialize(ok:, reason: nil)
           #   A Slack connection object.
           #
-          #   @param ok [Boolean]
-          #   @param reason [String, nil]
+          #   @param ok [Boolean] Whether the Slack connection is valid.
+          #
+          #   @param reason [String, nil] The reason for the Slack connection if it is not valid.
         end
       end
     end

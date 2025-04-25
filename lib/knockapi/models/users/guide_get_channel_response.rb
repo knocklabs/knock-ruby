@@ -21,8 +21,9 @@ module Knockapi
         # @!method initialize(guides:, recipient: nil)
         #   A response for a list of guides.
         #
-        #   @param guides [Array<Knockapi::Models::Users::GuideGetChannelResponse::Guide>]
-        #   @param recipient [Knockapi::Models::Users::GuideGetChannelResponse::Recipient, nil]
+        #   @param guides [Array<Knockapi::Models::Users::GuideGetChannelResponse::Guide>] A list of guides.
+        #
+        #   @param recipient [Knockapi::Models::Users::GuideGetChannelResponse::Recipient, nil] The recipient of the guide.
 
         class Guide < Knockapi::Internal::Type::BaseModel
           # @!attribute id
@@ -50,10 +51,13 @@ module Knockapi
           optional :title, String
 
           # @!method initialize(id: nil, content: nil, metadata: nil, title: nil)
-          #   @param id [String]
-          #   @param content [String]
-          #   @param metadata [Hash{Symbol=>Object}]
-          #   @param title [String]
+          #   @param id [String] The unique identifier for the guide.
+          #
+          #   @param content [String] The content of the guide.
+          #
+          #   @param metadata [Hash{Symbol=>Object}] The metadata of the guide.
+          #
+          #   @param title [String] The title of the guide.
         end
 
         # @see Knockapi::Models::Users::GuideGetChannelResponse#recipient
@@ -67,7 +71,7 @@ module Knockapi
           # @!method initialize(id: nil)
           #   The recipient of the guide.
           #
-          #   @param id [String]
+          #   @param id [String] Unique identifier for the recipient.
         end
       end
     end

@@ -33,10 +33,14 @@ module Knockapi
         optional :trigger_data, String
 
         # @!method initialize(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
-        #   @param after [String]
-        #   @param before [String]
-        #   @param page_size [Integer]
-        #   @param trigger_data [String]
+        #   @param after [String] The cursor to fetch entries after.
+        #
+        #   @param before [String] The cursor to fetch entries before.
+        #
+        #   @param page_size [Integer] The number of items per page.
+        #
+        #   @param trigger_data [String] The trigger data to filter activities by.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

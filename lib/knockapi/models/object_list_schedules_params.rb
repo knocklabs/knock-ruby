@@ -38,11 +38,16 @@ module Knockapi
       optional :workflow, String
 
       # @!method initialize(after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
-      #   @param after [String]
-      #   @param before [String]
-      #   @param page_size [Integer]
-      #   @param tenant [String]
-      #   @param workflow [String]
+      #   @param after [String] The cursor to fetch entries after.
+      #
+      #   @param before [String] The cursor to fetch entries before.
+      #
+      #   @param page_size [Integer] The number of items per page.
+      #
+      #   @param tenant [String] Filter schedules by tenant id.
+      #
+      #   @param workflow [String] Filter schedules by workflow id.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

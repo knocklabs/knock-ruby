@@ -69,16 +69,26 @@ module Knockapi
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
-        #   @param after [String]
-        #   @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived]
-        #   @param before [String]
-        #   @param has_tenant [Boolean]
-        #   @param page_size [Integer]
-        #   @param source [String]
-        #   @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status]
-        #   @param tenant [String]
-        #   @param trigger_data [String]
-        #   @param workflow_categories [Array<String>]
+        #   @param after [String] The cursor to fetch entries after.
+        #
+        #   @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived] The archived status of the feed items.
+        #
+        #   @param before [String] The cursor to fetch entries before.
+        #
+        #   @param has_tenant [Boolean] Whether the feed items have a tenant.
+        #
+        #   @param page_size [Integer] The number of items per page.
+        #
+        #   @param source [String] The source of the feed items.
+        #
+        #   @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status] The status of the feed items.
+        #
+        #   @param tenant [String] The tenant associated with the feed items.
+        #
+        #   @param trigger_data [String] The trigger data of the feed items (as a JSON string).
+        #
+        #   @param workflow_categories [Array<String>] The workflow categories of the feed items.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         # The archived status of the feed items.

@@ -45,11 +45,22 @@ module Knockapi
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
       # @!method initialize(recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {})
-      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
-      #   @param cancellation_key [String, nil]
-      #   @param data [Hash{Symbol=>Object}, nil]
-      #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::WorkflowTriggerParams} for more details.
+      #
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
+      #   ...
+      #
+      #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
+      #   ...
+      #
+      #   @param cancellation_key [String, nil] An optional key that is used to reference a specific workflow trigger request wh
+      #   ...
+      #
+      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #
+      #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

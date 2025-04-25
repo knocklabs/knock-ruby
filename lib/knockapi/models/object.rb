@@ -37,11 +37,15 @@ module Knockapi
       # @!method initialize(id:, _typename:, collection:, updated_at:, created_at: nil)
       #   A custom [Object](/concepts/objects) entity which belongs to a collection.
       #
-      #   @param id [String]
-      #   @param _typename [String]
-      #   @param collection [String]
-      #   @param updated_at [Time]
-      #   @param created_at [Time, nil]
+      #   @param id [String] Unique identifier for the object.
+      #
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param collection [String] The collection this object belongs to.
+      #
+      #   @param updated_at [Time] The timestamp when the resource was last updated.
+      #
+      #   @param created_at [Time, nil] Timestamp when the resource was created.
     end
   end
 end

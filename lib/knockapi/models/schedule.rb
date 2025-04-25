@@ -79,20 +79,35 @@ module Knockapi
       optional :tenant, String, nil?: true
 
       # @!method initialize(id:, inserted_at:, recipient:, repeats:, updated_at:, workflow:, _typename: nil, actor: nil, data: nil, last_occurrence_at: nil, next_occurrence_at: nil, tenant: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::Schedule} for more details.
+      #
       #   A schedule represents a recurring workflow execution.
       #
-      #   @param id [String]
-      #   @param inserted_at [Time]
-      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
-      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-      #   @param updated_at [Time]
-      #   @param workflow [String]
-      #   @param _typename [String]
-      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      #   @param data [Hash{Symbol=>Object}, nil]
-      #   @param last_occurrence_at [Time, nil]
-      #   @param next_occurrence_at [Time, nil]
-      #   @param tenant [String, nil]
+      #   @param id [String] Unique identifier for the schedule.
+      #
+      #   @param inserted_at [Time] Timestamp when the resource was created.
+      #
+      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object] A recipient of a notification, which is either a user or an object.
+      #
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #
+      #   @param updated_at [Time] The timestamp when the resource was last updated.
+      #
+      #   @param workflow [String] The workflow the schedule is applied to.
+      #
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil] A recipient of a notification, which is either a user or an object.
+      #
+      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #
+      #   @param last_occurrence_at [Time, nil] The last occurrence of the schedule.
+      #
+      #   @param next_occurrence_at [Time, nil] The next occurrence of the schedule.
+      #
+      #   @param tenant [String, nil] The tenant to trigger the workflow for. Triggering with a tenant will use any te
+      #   ...
     end
   end
 end

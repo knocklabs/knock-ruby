@@ -22,8 +22,12 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(entries:, page_info:); end
-
+      def self.new(
+        # A list of audience members.
+        entries:,
+        # Pagination information for a list of resources.
+        page_info:
+      ); end
       sig do
         override
           .returns({entries: T::Array[Knockapi::Models::AudienceMember], page_info: Knockapi::Models::PageInfo})

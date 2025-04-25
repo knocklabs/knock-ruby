@@ -20,8 +20,10 @@ module Knockapi
         optional :query_options, -> { Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions }
 
         # @!method initialize(access_token_object:, query_options: nil, request_options: {})
-        #   @param access_token_object [String]
+        #   @param access_token_object [String] A JSON encoded string containing the access token object reference.
+        #
         #   @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
@@ -59,11 +61,21 @@ module Knockapi
           optional :types, String
 
           # @!method initialize(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil)
-          #   @param cursor [String]
-          #   @param exclude_archived [Boolean]
-          #   @param limit [Integer]
-          #   @param team_id [String]
-          #   @param types [String]
+          #   Some parameter documentations has been truncated, see
+          #   {Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions} for more
+          #   details.
+          #
+          #   @param cursor [String] Paginate through collections of data by setting the cursor parameter to a next_c
+          #   ...
+          #
+          #   @param exclude_archived [Boolean] Set to true to exclude archived channels from the list.
+          #
+          #   @param limit [Integer] The maximum number of channels to return.
+          #
+          #   @param team_id [String] Encoded team ID (T1234) to list channels in, required if org token is used.
+          #
+          #   @param types [String] Mix and match channel types by providing a comma-separated list of any combinati
+          #   ...
         end
       end
     end

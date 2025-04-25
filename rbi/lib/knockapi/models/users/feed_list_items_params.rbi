@@ -94,15 +94,25 @@ module Knockapi
             .returns(T.attached_class)
         end
         def self.new(
+          # The cursor to fetch entries after.
           after: nil,
+          # The archived status of the feed items.
           archived: nil,
+          # The cursor to fetch entries before.
           before: nil,
+          # Whether the feed items have a tenant.
           has_tenant: nil,
+          # The number of items per page.
           page_size: nil,
+          # The source of the feed items.
           source: nil,
+          # The status of the feed items.
           status: nil,
+          # The tenant associated with the feed items.
           tenant: nil,
+          # The trigger data of the feed items (as a JSON string).
           trigger_data: nil,
+          # The workflow categories of the feed items.
           workflow_categories: nil,
           request_options: {}
         ); end

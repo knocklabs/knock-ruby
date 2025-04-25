@@ -8,7 +8,8 @@ module Knockapi
         #
         # @overload delete(tenant_ids:, request_options: {})
         #
-        # @param tenant_ids [Array<String>]
+        # @param tenant_ids [Array<String>] The IDs of the tenants to delete.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
@@ -29,7 +30,8 @@ module Knockapi
         #
         # @overload set(tenants:, request_options: {})
         #
-        # @param tenants [Array<String, Knockapi::Models::TenantRequest>]
+        # @param tenants [Array<String, Knockapi::Models::TenantRequest>] The tenants to be upserted.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]

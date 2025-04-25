@@ -18,8 +18,11 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(users:, request_options: {}); end
-
+        def self.new(
+          # A list of users.
+          users:,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(

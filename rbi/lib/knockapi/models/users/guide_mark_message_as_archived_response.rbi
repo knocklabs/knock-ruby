@@ -10,8 +10,10 @@ module Knockapi
 
         # A response for a guide action.
         sig { params(status: String).returns(T.attached_class) }
-        def self.new(status:); end
-
+        def self.new(
+          # The status of a guide's action.
+          status:
+        ); end
         sig { override.returns({status: String}) }
         def to_hash; end
       end

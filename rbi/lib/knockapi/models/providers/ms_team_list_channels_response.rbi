@@ -21,8 +21,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(ms_teams_channels:); end
-
+        def self.new(
+          # List of Microsoft Teams channels.
+          ms_teams_channels:
+        ); end
         sig do
           override
             .returns(
@@ -77,15 +79,19 @@ module Knockapi
               .returns(T.attached_class)
           end
           def self.new(
+            # Microsoft Teams channel ID.
             id:,
+            # Microsoft Teams channel name.
             display_name:,
+            # Microsoft Teams channel created date and time.
             created_date_time: nil,
+            # Microsoft Teams channel description.
             description: nil,
+            # Whether the Microsoft Teams channel is archived.
             is_archived: nil,
+            # Microsoft Teams channel membership type.
             membership_type: nil
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(

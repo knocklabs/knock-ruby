@@ -14,7 +14,7 @@ module Knockapi
         # @!method initialize(connections:)
         #   Discord channel data.
         #
-        #   @param connections [Array<Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>]
+        #   @param connections [Array<Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>] List of Discord channel connections.
 
         # Discord channel connection, either a channel connection or an incoming webhook
         # connection.
@@ -37,7 +37,7 @@ module Knockapi
             # @!method initialize(channel_id:)
             #   Discord channel connection.
             #
-            #   @param channel_id [String]
+            #   @param channel_id [String] Discord channel ID.
           end
 
           class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -51,7 +51,7 @@ module Knockapi
             # @!method initialize(incoming_webhook:)
             #   Discord incoming webhook connection.
             #
-            #   @param incoming_webhook [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook]
+            #   @param incoming_webhook [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook] Discord incoming webhook object.
 
             # @see Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
@@ -64,7 +64,7 @@ module Knockapi
               # @!method initialize(url:)
               #   Discord incoming webhook object.
               #
-              #   @param url [String]
+              #   @param url [String] Incoming webhook URL.
             end
           end
 

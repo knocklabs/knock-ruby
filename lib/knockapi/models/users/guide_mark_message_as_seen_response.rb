@@ -14,7 +14,7 @@ module Knockapi
         # @!method initialize(status:)
         #   A response for a guide action.
         #
-        #   @param status [String]
+        #   @param status [String] The status of a guide's action.
       end
     end
   end

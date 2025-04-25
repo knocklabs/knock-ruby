@@ -10,11 +10,16 @@ module Knockapi
       #
       # @overload list(after: nil, before: nil, name: nil, page_size: nil, tenant_id: nil, request_options: {})
       #
-      # @param after [String]
-      # @param before [String]
-      # @param name [String]
-      # @param page_size [Integer]
-      # @param tenant_id [String]
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param name [String] Filter tenants by name.
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
+      # @param tenant_id [String] Filter tenants by ID.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Tenant>]
@@ -36,7 +41,8 @@ module Knockapi
       #
       # @overload delete(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The unique identifier for the tenant.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
@@ -55,7 +61,8 @@ module Knockapi
       #
       # @overload get(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The unique identifier for the tenant.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Tenant]
@@ -75,10 +82,14 @@ module Knockapi
       #
       # @overload set(id, channel_data: nil, preferences: nil, settings: nil, request_options: {})
       #
-      # @param id [String]
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
-      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
-      # @param settings [Knockapi::Models::TenantSetParams::Settings]
+      # @param id [String] The unique identifier for the tenant.
+      #
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      #
+      # @param settings [Knockapi::Models::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Tenant]

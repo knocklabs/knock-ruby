@@ -21,8 +21,10 @@ module Knockapi
         required :user_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(preferences:, user_ids:, request_options: {})
-        #   @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
-        #   @param user_ids [Array<String>]
+        #   @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest] A request to set a preference set for a recipient.
+        #
+        #   @param user_ids [Array<String>] A list of user IDs.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

@@ -15,7 +15,8 @@ module Knockapi
         required :user_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(user_ids:, request_options: {})
-        #   @param user_ids [Array<String>]
+        #   @param user_ids [Array<String>] A list of user IDs.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

@@ -83,8 +83,18 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, categories: nil, channel_types: nil, workflows: nil); end
-
+        def self.new(
+          # Unique identifier for the preference set.
+          id:,
+          # An object where the key is the category and the values are the preference
+          # settings for that category.
+          categories: nil,
+          # Channel type preferences.
+          channel_types: nil,
+          # An object where the key is the workflow key and the values are the preference
+          # settings for that workflow.
+          workflows: nil
+        ); end
         sig do
           override
             .returns(
@@ -144,8 +154,12 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(channel_types: nil, conditions: nil); end
-
+            def self.new(
+              # Channel type preferences.
+              channel_types: nil,
+              # A list of conditions to apply to a channel type.
+              conditions: nil
+            ); end
             sig do
               override
                 .returns(
@@ -197,8 +211,12 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(channel_types: nil, conditions: nil); end
-
+            def self.new(
+              # Channel type preferences.
+              channel_types: nil,
+              # A list of conditions to apply to a channel type.
+              conditions: nil
+            ); end
             sig do
               override
                 .returns(

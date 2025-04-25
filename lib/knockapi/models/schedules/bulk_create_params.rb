@@ -16,7 +16,8 @@ module Knockapi
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Schedules::BulkCreateParams::Schedule] }
 
         # @!method initialize(schedules:, request_options: {})
-        #   @param schedules [Array<Knockapi::Models::Schedules::BulkCreateParams::Schedule>]
+        #   @param schedules [Array<Knockapi::Models::Schedules::BulkCreateParams::Schedule>] A list of schedules.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class Schedule < Knockapi::Internal::Type::BaseModel
@@ -73,16 +74,28 @@ module Knockapi
           optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
           # @!method initialize(workflow:, actor: nil, data: nil, ending_at: nil, recipient: nil, repeats: nil, scheduled_at: nil, tenant: nil)
+          #   Some parameter documentations has been truncated, see
+          #   {Knockapi::Models::Schedules::BulkCreateParams::Schedule} for more details.
+          #
           #   A schedule represents a recurring workflow execution.
           #
-          #   @param workflow [String]
-          #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
-          #   @param data [Hash{Symbol=>Object}, nil]
-          #   @param ending_at [Time, nil]
-          #   @param recipient [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
-          #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-          #   @param scheduled_at [Time, nil]
-          #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
+          #   @param workflow [String] The key of the workflow.
+          #
+          #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
+          #   ...
+          #
+          #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+          #
+          #   @param ending_at [Time, nil] The ending date and time for the schedule.
+          #
+          #   @param recipient [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest] Specifies a recipient in a request. This can either be a user identifier (string
+          #   ...
+          #
+          #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
+          #
+          #   @param scheduled_at [Time, nil] The starting date and time for the schedule.
+          #
+          #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
         end
       end
     end

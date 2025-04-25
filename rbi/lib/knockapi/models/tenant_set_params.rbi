@@ -34,8 +34,15 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(channel_data: nil, preferences: nil, settings: nil, request_options: {}); end
-
+      def self.new(
+        # A request to set channel data for a type of channel inline.
+        channel_data: nil,
+        # Inline set preferences for a recipient, where the key is the preference set id.
+        preferences: nil,
+        # The settings for the tenant. Includes branding and preference set.
+        settings: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(
@@ -82,8 +89,12 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(branding: nil, preference_set: nil); end
-
+        def self.new(
+          # The branding for the tenant.
+          branding: nil,
+          # A request to set a preference set for a recipient.
+          preference_set: nil
+        ); end
         sig do
           override
             .returns(
@@ -124,8 +135,18 @@ module Knockapi
             )
               .returns(T.attached_class)
           end
-          def self.new(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil); end
-
+          def self.new(
+            # The icon URL for the tenant. Must point to a valid image with an image MIME
+            # type.
+            icon_url: nil,
+            # The logo URL for the tenant. Must point to a valid image with an image MIME
+            # type.
+            logo_url: nil,
+            # The primary color for the tenant, provided as a hex value.
+            primary_color: nil,
+            # The primary color contrast for the tenant, provided as a hex value.
+            primary_color_contrast: nil
+          ); end
           sig do
             override
               .returns(

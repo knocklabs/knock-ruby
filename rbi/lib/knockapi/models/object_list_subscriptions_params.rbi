@@ -81,12 +81,21 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # The cursor to fetch entries after.
         after: nil,
+        # The cursor to fetch entries before.
         before: nil,
+        # Additional fields to include in the response.
         include: nil,
+        # Mode of the request. `recipient` to list the objects that the provided object is
+        # subscribed to, `object` to list the recipients that subscribe to the provided
+        # object.
         mode: nil,
+        # Objects to filter by (only used if mode is `recipient`).
         objects: nil,
+        # The number of items per page.
         page_size: nil,
+        # Recipients to filter by (only used if mode is `object`).
         recipients: nil,
         request_options: {}
       ); end
@@ -152,8 +161,12 @@ module Knockapi
 
         # A reference to a recipient object.
         sig { params(id: String, collection: String).returns(T.attached_class) }
-        def self.new(id: nil, collection: nil); end
-
+        def self.new(
+          # An identifier for the recipient object.
+          id: nil,
+          # The collection the recipient object belongs to.
+          collection: nil
+        ); end
         sig { override.returns({id: String, collection: String}) }
         def to_hash; end
       end

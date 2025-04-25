@@ -28,8 +28,12 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(guides:, recipient: nil); end
-
+        def self.new(
+          # A list of guides.
+          guides:,
+          # The recipient of the guide.
+          recipient: nil
+        ); end
         sig do
           override
             .returns(
@@ -74,8 +78,16 @@ module Knockapi
             params(id: String, content: String, metadata: T::Hash[Symbol, T.anything], title: String)
               .returns(T.attached_class)
           end
-          def self.new(id: nil, content: nil, metadata: nil, title: nil); end
-
+          def self.new(
+            # The unique identifier for the guide.
+            id: nil,
+            # The content of the guide.
+            content: nil,
+            # The metadata of the guide.
+            metadata: nil,
+            # The title of the guide.
+            title: nil
+          ); end
           sig do
             override.returns(
               {
@@ -99,8 +111,10 @@ module Knockapi
 
           # The recipient of the guide.
           sig { params(id: String).returns(T.attached_class) }
-          def self.new(id: nil); end
-
+          def self.new(
+            # Unique identifier for the recipient.
+            id: nil
+          ); end
           sig { override.returns({id: String}) }
           def to_hash; end
         end

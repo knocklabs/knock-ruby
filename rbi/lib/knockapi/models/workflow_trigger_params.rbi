@@ -69,15 +69,25 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # The recipients to trigger the workflow for. Can inline identify users, objects,
+        # or use a list of user IDs. Limited to 1,000 recipients.
         recipients:,
+        # Specifies a recipient in a request. This can either be a user identifier
+        # (string), an inline user request (object), or an inline object request, which is
+        # determined by the presence of a `collection` property.
         actor: nil,
+        # An optional key that is used to reference a specific workflow trigger request
+        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
+        # request. Must be provided while triggering a workflow in order to enable
+        # subsequent cancellation. Should be unique across trigger requests to avoid
+        # unintentional cancellations.
         cancellation_key: nil,
+        # An optional map of data to pass into the workflow execution.
         data: nil,
+        # An request to set a tenant inline.
         tenant: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

@@ -16,7 +16,8 @@ module Knockapi
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription] }
 
         # @!method initialize(subscriptions:, request_options: {})
-        #   @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>]
+        #   @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>] A list of subscriptions.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class Subscription < Knockapi::Internal::Type::BaseModel
@@ -36,8 +37,14 @@ module Knockapi
                    nil?: true
 
           # @!method initialize(recipients:, properties: nil)
-          #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-          #   @param properties [Hash{Symbol=>Object}, nil]
+          #   Some parameter documentations has been truncated, see
+          #   {Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription} for more
+          #   details.
+          #
+          #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients of the subscription. You can subscribe up to 100 recipients to an
+          #   ...
+          #
+          #   @param properties [Hash{Symbol=>Object}, nil] The custom properties associated with the subscription relationship.
         end
       end
     end

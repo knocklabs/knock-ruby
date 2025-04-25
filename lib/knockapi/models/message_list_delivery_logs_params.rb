@@ -26,9 +26,12 @@ module Knockapi
       optional :page_size, Integer
 
       # @!method initialize(after: nil, before: nil, page_size: nil, request_options: {})
-      #   @param after [String]
-      #   @param before [String]
-      #   @param page_size [Integer]
+      #   @param after [String] The cursor to fetch entries after.
+      #
+      #   @param before [String] The cursor to fetch entries before.
+      #
+      #   @param page_size [Integer] The number of items per page.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

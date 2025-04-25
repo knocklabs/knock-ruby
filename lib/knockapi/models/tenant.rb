@@ -31,10 +31,13 @@ module Knockapi
       # @!method initialize(id:, _typename:, name: nil, settings: nil)
       #   A tenant entity.
       #
-      #   @param id [String]
-      #   @param _typename [String]
-      #   @param name [String, nil]
-      #   @param settings [Knockapi::Models::Tenant::Settings, nil]
+      #   @param id [String] The unique identifier for the tenant.
+      #
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param name [String, nil] An optional name for the tenant.
+      #
+      #   @param settings [Knockapi::Models::Tenant::Settings, nil] The settings for the tenant. Includes branding and preference set.
 
       # @see Knockapi::Models::Tenant#settings
       class Settings < Knockapi::Internal::Type::BaseModel
@@ -52,10 +55,15 @@ module Knockapi
         optional :preference_set, -> { Knockapi::Models::Recipients::PreferenceSet }, nil?: true
 
         # @!method initialize(branding: nil, preference_set: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {Knockapi::Models::Tenant::Settings} for more details.
+        #
         #   The settings for the tenant. Includes branding and preference set.
         #
-        #   @param branding [Knockapi::Models::Tenant::Settings::Branding, nil]
-        #   @param preference_set [Knockapi::Models::Recipients::PreferenceSet, nil]
+        #   @param branding [Knockapi::Models::Tenant::Settings::Branding, nil] The branding for the tenant.
+        #
+        #   @param preference_set [Knockapi::Models::Recipients::PreferenceSet, nil] A preference set represents a specific set of notification preferences for a rec
+        #   ...
 
         # @see Knockapi::Models::Tenant::Settings#branding
         class Branding < Knockapi::Internal::Type::BaseModel
@@ -86,12 +94,20 @@ module Knockapi
           optional :primary_color_contrast, String, nil?: true
 
           # @!method initialize(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
+          #   Some parameter documentations has been truncated, see
+          #   {Knockapi::Models::Tenant::Settings::Branding} for more details.
+          #
           #   The branding for the tenant.
           #
-          #   @param icon_url [String, nil]
-          #   @param logo_url [String, nil]
-          #   @param primary_color [String, nil]
-          #   @param primary_color_contrast [String, nil]
+          #   @param icon_url [String, nil] The icon URL for the tenant. Must point to a valid image with an image MIME type
+          #   ...
+          #
+          #   @param logo_url [String, nil] The logo URL for the tenant. Must point to a valid image with an image MIME type
+          #   ...
+          #
+          #   @param primary_color [String, nil] The primary color for the tenant, provided as a hex value.
+          #
+          #   @param primary_color_contrast [String, nil] The primary color contrast for the tenant, provided as a hex value.
         end
       end
     end

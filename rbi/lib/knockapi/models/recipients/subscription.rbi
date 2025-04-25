@@ -43,8 +43,20 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, inserted_at:, object:, recipient:, updated_at:, properties: nil); end
-
+        def self.new(
+          # The typename of the schema.
+          _typename:,
+          # Timestamp when the resource was created.
+          inserted_at:,
+          # A custom [Object](/concepts/objects) entity which belongs to a collection.
+          object:,
+          # A recipient of a notification, which is either a user or an object.
+          recipient:,
+          # The timestamp when the resource was last updated.
+          updated_at:,
+          # The custom properties associated with the subscription relationship.
+          properties: nil
+        ); end
         sig do
           override
             .returns(

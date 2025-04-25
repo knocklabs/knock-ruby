@@ -33,10 +33,14 @@ module Knockapi
       optional :page_size, Integer
 
       # @!method initialize(after: nil, before: nil, include: nil, page_size: nil, request_options: {})
-      #   @param after [String]
-      #   @param before [String]
-      #   @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>]
-      #   @param page_size [Integer]
+      #   @param after [String] The cursor to fetch entries after.
+      #
+      #   @param before [String] The cursor to fetch entries before.
+      #
+      #   @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>] Includes preferences of the objects in the response.
+      #
+      #   @param page_size [Integer] The number of items per page.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       module Include

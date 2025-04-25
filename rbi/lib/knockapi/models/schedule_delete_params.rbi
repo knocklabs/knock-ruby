@@ -17,8 +17,11 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(schedule_ids:, request_options: {}); end
-
+      def self.new(
+        # A list of schedule IDs.
+        schedule_ids:,
+        request_options: {}
+      ); end
       sig { override.returns({schedule_ids: T::Array[String], request_options: Knockapi::RequestOptions}) }
       def to_hash; end
     end

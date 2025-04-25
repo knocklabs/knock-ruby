@@ -36,8 +36,16 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, channel_data: nil, created_at: nil, preferences: nil); end
-
+      def self.new(
+        # The ID for the user that you set when identifying them in Knock.
+        id:,
+        # A request to set channel data for a type of channel inline.
+        channel_data: nil,
+        # The creation date of the user from your system.
+        created_at: nil,
+        # Inline set preferences for a recipient, where the key is the preference set id.
+        preferences: nil
+      ); end
       sig do
         override
           .returns(

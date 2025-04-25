@@ -8,8 +8,10 @@ module Knockapi
         #
         # @overload delete(collection, object_ids:, request_options: {})
         #
-        # @param collection [String]
-        # @param object_ids [Array<String>]
+        # @param collection [String] The collection this object belongs to.
+        #
+        # @param object_ids [Array<String>] List of object IDs to delete.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
@@ -34,8 +36,10 @@ module Knockapi
         #
         # @overload add_subscriptions(collection, subscriptions:, request_options: {})
         #
-        # @param collection [String]
-        # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>]
+        # @param collection [String] The collection this object belongs to.
+        #
+        # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>] A list of subscriptions.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
@@ -56,8 +60,10 @@ module Knockapi
         #
         # @overload set(collection, objects:, request_options: {})
         #
-        # @param collection [String]
-        # @param objects [Array<Knockapi::Models::InlineObjectRequest>]
+        # @param collection [String] The collection this object belongs to.
+        #
+        # @param objects [Array<Knockapi::Models::InlineObjectRequest>] A list of objects.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]

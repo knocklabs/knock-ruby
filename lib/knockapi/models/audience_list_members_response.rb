@@ -19,8 +19,9 @@ module Knockapi
       # @!method initialize(entries:, page_info:)
       #   A paginated list of audience members.
       #
-      #   @param entries [Array<Knockapi::Models::AudienceMember>]
-      #   @param page_info [Knockapi::Models::PageInfo]
+      #   @param entries [Array<Knockapi::Models::AudienceMember>] A list of audience members.
+      #
+      #   @param page_info [Knockapi::Models::PageInfo] Pagination information for a list of resources.
     end
   end
 end

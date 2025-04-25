@@ -23,8 +23,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(features:); end
-
+        def self.new(
+          # Features configuration for the user's feed.
+          features:
+        ); end
         sig { override.returns({features: Knockapi::Models::Users::FeedGetSettingsResponse::Features}) }
         def to_hash; end
 
@@ -35,8 +37,10 @@ module Knockapi
 
           # Features configuration for the user's feed.
           sig { params(branding_required: T::Boolean).returns(T.attached_class) }
-          def self.new(branding_required:); end
-
+          def self.new(
+            # Whether branding is required for the user's feed.
+            branding_required:
+          ); end
           sig { override.returns({branding_required: T::Boolean}) }
           def to_hash; end
         end

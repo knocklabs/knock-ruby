@@ -14,7 +14,8 @@ module Knockapi
       optional :tenant, String
 
       # @!method initialize(tenant: nil, request_options: {})
-      #   @param tenant [String]
+      #   @param tenant [String] The unique identifier for the tenant.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

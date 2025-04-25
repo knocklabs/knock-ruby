@@ -30,8 +30,12 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(access_token_object:, query_options: nil, request_options: {}); end
-
+        def self.new(
+          # A JSON encoded string containing the access token object reference.
+          access_token_object:,
+          query_options: nil,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(
@@ -93,8 +97,21 @@ module Knockapi
             )
               .returns(T.attached_class)
           end
-          def self.new(cursor: nil, exclude_archived: nil, limit: nil, team_id: nil, types: nil); end
-
+          def self.new(
+            # Paginate through collections of data by setting the cursor parameter to a
+            # next_cursor attribute returned by a previous request's response_metadata.
+            # Default value fetches the first "page" of the collection.
+            cursor: nil,
+            # Set to true to exclude archived channels from the list.
+            exclude_archived: nil,
+            # The maximum number of channels to return.
+            limit: nil,
+            # Encoded team ID (T1234) to list channels in, required if org token is used.
+            team_id: nil,
+            # Mix and match channel types by providing a comma-separated list of any
+            # combination of public_channel, private_channel, mpim, im.
+            types: nil
+          ); end
           sig do
             override
               .returns({

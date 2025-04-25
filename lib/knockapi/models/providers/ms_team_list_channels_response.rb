@@ -16,7 +16,7 @@ module Knockapi
         #   The response from a Microsoft Teams provider request, containing a list of
         #   channels.
         #
-        #   @param ms_teams_channels [Array<Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel>]
+        #   @param ms_teams_channels [Array<Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel>] List of Microsoft Teams channels.
 
         class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
           # @!attribute id
@@ -56,12 +56,17 @@ module Knockapi
           optional :membership_type, String, api_name: :membershipType
 
           # @!method initialize(id:, display_name:, created_date_time: nil, description: nil, is_archived: nil, membership_type: nil)
-          #   @param id [String]
-          #   @param display_name [String]
-          #   @param created_date_time [String]
-          #   @param description [String, nil]
-          #   @param is_archived [Boolean]
-          #   @param membership_type [String]
+          #   @param id [String] Microsoft Teams channel ID.
+          #
+          #   @param display_name [String] Microsoft Teams channel name.
+          #
+          #   @param created_date_time [String] Microsoft Teams channel created date and time.
+          #
+          #   @param description [String, nil] Microsoft Teams channel description.
+          #
+          #   @param is_archived [Boolean] Whether the Microsoft Teams channel is archived.
+          #
+          #   @param membership_type [String] Microsoft Teams channel membership type.
         end
       end
     end

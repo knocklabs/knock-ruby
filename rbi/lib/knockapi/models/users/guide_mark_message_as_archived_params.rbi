@@ -71,14 +71,23 @@ module Knockapi
             .returns(T.attached_class)
         end
         def self.new(
+          # The unique identifier for the channel.
           channel_id:,
+          # The unique identifier for the guide.
           guide_id:,
+          # The key of the guide.
           guide_key:,
+          # The step reference of the guide.
           guide_step_ref:,
+          # The content of the guide.
           content: nil,
+          # The data of the guide.
           data: nil,
+          # Whether the guide is final.
           is_final: nil,
+          # The metadata of the guide.
           metadata: nil,
+          # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
         ); end

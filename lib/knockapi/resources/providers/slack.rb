@@ -8,8 +8,10 @@ module Knockapi
         #
         # @overload check_auth(channel_id, access_token_object:, request_options: {})
         #
-        # @param channel_id [String]
-        # @param access_token_object [String]
+        # @param channel_id [String] The ID of the Knock Slack channel to check.
+        #
+        # @param access_token_object [String] A JSON encoded string containing the access token object reference.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::SlackCheckAuthResponse]
@@ -30,9 +32,12 @@ module Knockapi
         #
         # @overload list_channels(channel_id, access_token_object:, query_options: nil, request_options: {})
         #
-        # @param channel_id [String]
-        # @param access_token_object [String]
+        # @param channel_id [String] The ID of the Knock Slack channel to get channels for.
+        #
+        # @param access_token_object [String] A JSON encoded string containing the access token object reference.
+        #
         # @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Internal::SlackChannelsCursor<Knockapi::Models::Providers::SlackListChannelsResponse>]
@@ -54,8 +59,10 @@ module Knockapi
         #
         # @overload revoke_access(channel_id, access_token_object:, request_options: {})
         #
-        # @param channel_id [String]
-        # @param access_token_object [String]
+        # @param channel_id [String] The ID of the Knock Slack channel to revoke access for.
+        #
+        # @param access_token_object [String] A JSON encoded string containing the access token object reference.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::SlackRevokeAccessResponse]

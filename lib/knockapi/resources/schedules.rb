@@ -6,6 +6,9 @@ module Knockapi
       # @return [Knockapi::Resources::Schedules::Bulk]
       attr_reader :bulk
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ScheduleCreateParams} for more details.
+      #
       # Creates one or more schedules for a workflow with the specified recipients,
       # timing, and data. Schedules can be one-time or recurring. This endpoint also
       # handles
@@ -14,13 +17,21 @@ module Knockapi
       #
       # @overload create(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
-      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-      # @param workflow [String]
-      # @param data [Hash{Symbol=>Object}, nil]
-      # @param ending_at [Time, nil]
-      # @param scheduled_at [Time, nil]
-      # @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
+      # ...
+      #
+      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #
+      # @param workflow [String] The key of the workflow.
+      #
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #
+      # @param ending_at [Time, nil] The ending date and time for the schedule.
+      #
+      # @param scheduled_at [Time, nil] The starting date and time for the schedule.
+      #
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Schedule>]
@@ -37,6 +48,9 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ScheduleUpdateParams} for more details.
+      #
       # Updates one or more existing schedules with new timing, data, or other
       # properties. All specified schedule IDs will be updated with the same values.
       # This endpoint also handles
@@ -45,13 +59,21 @@ module Knockapi
       #
       # @overload update(schedule_ids:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
-      # @param schedule_ids [Array<String>]
-      # @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
-      # @param data [Hash{Symbol=>Object}, nil]
-      # @param ending_at [Time, nil]
-      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-      # @param scheduled_at [Time, nil]
-      # @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      # @param schedule_ids [Array<String>] A list of schedule IDs.
+      #
+      # @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
+      # ...
+      #
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #
+      # @param ending_at [Time, nil] The ending date and time for the schedule.
+      #
+      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #
+      # @param scheduled_at [Time, nil] The starting date and time for the schedule.
+      #
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Schedule>]
@@ -73,12 +95,18 @@ module Knockapi
       #
       # @overload list(workflow:, after: nil, before: nil, page_size: nil, recipients: nil, tenant: nil, request_options: {})
       #
-      # @param workflow [String]
-      # @param after [String]
-      # @param before [String]
-      # @param page_size [Integer]
-      # @param recipients [Array<String>]
-      # @param tenant [String]
+      # @param workflow [String] Filter by workflow key.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
+      # @param recipients [Array<String>] Filter by recipient IDs.
+      #
+      # @param tenant [String] Filter by tenant ID.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Schedule>]
@@ -101,7 +129,8 @@ module Knockapi
       #
       # @overload delete(schedule_ids:, request_options: {})
       #
-      # @param schedule_ids [Array<String>]
+      # @param schedule_ids [Array<String>] A list of schedule IDs.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Schedule>]

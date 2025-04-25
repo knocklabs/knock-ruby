@@ -30,8 +30,12 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(ms_teams_tenant_object:, query_options: nil, request_options: {}); end
-
+        def self.new(
+          # A JSON encoded string containing the Microsoft Teams tenant object reference.
+          ms_teams_tenant_object:,
+          query_options: nil,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(
@@ -80,8 +84,20 @@ module Knockapi
           sig do
             params(filter: String, select_: String, skiptoken: String, top: Integer).returns(T.attached_class)
           end
-          def self.new(filter: nil, select_: nil, skiptoken: nil, top: nil); end
-
+          def self.new(
+            # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+            # to the Microsoft Graph API to filter teams.
+            filter: nil,
+            # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+            # to the Microsoft Graph API to select fields on a team.
+            select_: nil,
+            # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+            # to the Microsoft Graph API to retrieve the next page of results.
+            skiptoken: nil,
+            # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+            # to the Microsoft Graph API to limit the number of teams returned.
+            top: nil
+          ); end
           sig { override.returns({filter: String, select_: String, skiptoken: String, top: Integer}) }
           def to_hash; end
         end

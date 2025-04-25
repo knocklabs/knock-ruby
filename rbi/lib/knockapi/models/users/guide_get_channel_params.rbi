@@ -37,8 +37,15 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(data: nil, tenant: nil, type: nil, request_options: {}); end
-
+        def self.new(
+          # The data (JSON encoded object) to use for targeting and rendering guides.
+          data: nil,
+          # The tenant ID to use for targeting and rendering guides.
+          tenant: nil,
+          # The type of guides to filter by.
+          type: nil,
+          request_options: {}
+        ); end
         sig do
           override.returns(
             {

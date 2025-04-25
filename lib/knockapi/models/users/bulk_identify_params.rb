@@ -15,7 +15,8 @@ module Knockapi
         required :users, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::InlineIdentifyUserRequest] }
 
         # @!method initialize(users:, request_options: {})
-        #   @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>]
+        #   @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>] A list of users.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

@@ -63,15 +63,24 @@ module Knockapi
         optional :tenant, String, nil?: true
 
         # @!method initialize(channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
-        #   @param channel_id [String]
-        #   @param guide_id [String]
-        #   @param guide_key [String]
-        #   @param guide_step_ref [String]
-        #   @param content [Hash{Symbol=>Object}]
-        #   @param data [Hash{Symbol=>Object}]
-        #   @param is_final [Boolean]
-        #   @param metadata [Hash{Symbol=>Object}]
-        #   @param tenant [String, nil]
+        #   @param channel_id [String] The unique identifier for the channel.
+        #
+        #   @param guide_id [String] The unique identifier for the guide.
+        #
+        #   @param guide_key [String] The key of the guide.
+        #
+        #   @param guide_step_ref [String] The step reference of the guide.
+        #
+        #   @param content [Hash{Symbol=>Object}] The content of the guide.
+        #
+        #   @param data [Hash{Symbol=>Object}] The data of the guide.
+        #
+        #   @param is_final [Boolean] Whether the guide is final.
+        #
+        #   @param metadata [Hash{Symbol=>Object}] The metadata of the guide.
+        #
+        #   @param tenant [String, nil] The tenant ID of the guide.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

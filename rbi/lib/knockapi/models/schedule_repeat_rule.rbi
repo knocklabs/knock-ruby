@@ -48,16 +48,21 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # The typename of the schema.
         _typename:,
+        # The frequency of the schedule.
         frequency:,
+        # The day of the month to repeat the schedule.
         day_of_month: nil,
+        # The days of the week to repeat the schedule.
         days: nil,
+        # The hour of the day to repeat the schedule.
         hours: nil,
+        # The interval of the schedule.
         interval: nil,
+        # The minute of the hour to repeat the schedule.
         minutes: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

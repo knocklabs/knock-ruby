@@ -15,7 +15,8 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::AudienceRemoveMembersParams::Member] }
 
       # @!method initialize(members:, request_options: {})
-      #   @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
+      #   @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       class Member < Knockapi::Internal::Type::BaseModel
@@ -35,10 +36,15 @@ module Knockapi
         optional :tenant, String, nil?: true
 
         # @!method initialize(user:, tenant: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {Knockapi::Models::AudienceRemoveMembersParams::Member} for more details.
+        #
         #   An audience member.
         #
-        #   @param user [Knockapi::Models::InlineIdentifyUserRequest]
-        #   @param tenant [String, nil]
+        #   @param user [Knockapi::Models::InlineIdentifyUserRequest] A set of parameters to inline-identify a user with. Inline identifying the user
+        #   ...
+        #
+        #   @param tenant [String, nil] The unique identifier for the tenant.
       end
     end
   end

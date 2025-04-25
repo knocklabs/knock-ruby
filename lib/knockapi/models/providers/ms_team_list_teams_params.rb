@@ -20,8 +20,10 @@ module Knockapi
         optional :query_options, -> { Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions }
 
         # @!method initialize(ms_teams_tenant_object:, query_options: nil, request_options: {})
-        #   @param ms_teams_tenant_object [String]
+        #   @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
+        #
         #   @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
@@ -54,10 +56,21 @@ module Knockapi
           optional :top, Integer, api_name: :$top
 
           # @!method initialize(filter: nil, select_: nil, skiptoken: nil, top: nil)
-          #   @param filter [String]
-          #   @param select_ [String]
-          #   @param skiptoken [String]
-          #   @param top [Integer]
+          #   Some parameter documentations has been truncated, see
+          #   {Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions} for more
+          #   details.
+          #
+          #   @param filter [String] [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed t
+          #   ...
+          #
+          #   @param select_ [String] [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed t
+          #   ...
+          #
+          #   @param skiptoken [String] [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed t
+          #   ...
+          #
+          #   @param top [Integer] [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed t
+          #   ...
         end
       end
     end

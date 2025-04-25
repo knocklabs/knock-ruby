@@ -18,8 +18,9 @@ module Knockapi
         optional :result, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
         # @!method initialize(id: nil, result: nil)
-        #   @param id [String]
-        #   @param result [Hash{Symbol=>Object}]
+        #   @param id [String] The request ID.
+        #
+        #   @param result [Hash{Symbol=>Object}] The result of the RPC call.
       end
     end
   end

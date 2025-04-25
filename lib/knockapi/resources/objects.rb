@@ -11,11 +11,16 @@ module Knockapi
       #
       # @overload list(collection, after: nil, before: nil, include: nil, page_size: nil, request_options: {})
       #
-      # @param collection [String]
-      # @param after [String]
-      # @param before [String]
-      # @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>]
-      # @param page_size [Integer]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>] Includes preferences of the objects in the response.
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Object>]
@@ -38,8 +43,10 @@ module Knockapi
       #
       # @overload delete(collection, id, request_options: {})
       #
-      # @param collection [String]
-      # @param id [String]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param id [String] Unique identifier for the object.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
@@ -54,6 +61,9 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ObjectAddSubscriptionsParams} for more details.
+      #
       # Add subscriptions for an object. If a subscription already exists, it will be
       # updated. This endpoint also handles
       # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
@@ -61,10 +71,15 @@ module Knockapi
       #
       # @overload add_subscriptions(collection, object_id_, recipients:, properties: nil, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      # @param properties [Hash{Symbol=>Object}, nil]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients of the subscription. You can subscribe up to 100 recipients to an
+      # ...
+      #
+      # @param properties [Hash{Symbol=>Object}, nil] The custom properties associated with the subscription relationship.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::Subscription>]
@@ -81,14 +96,21 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ObjectDeleteSubscriptionsParams} for more details.
+      #
       # Delete subscriptions for the specified recipients from an object. Returns the
       # list of deleted subscriptions.
       #
       # @overload delete_subscriptions(collection, object_id_, recipients:, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] The recipients of the subscription. You can subscribe up to 100 recipients to an
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::Subscription>]
@@ -110,8 +132,10 @@ module Knockapi
       #
       # @overload get(collection, id, request_options: {})
       #
-      # @param collection [String]
-      # @param id [String]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param id [String] Unique identifier for the object.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Object]
@@ -130,9 +154,12 @@ module Knockapi
       #
       # @overload get_channel_data(collection, object_id_, channel_id, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param channel_id [String]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param channel_id [String] The unique identifier for the channel.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
@@ -151,9 +178,12 @@ module Knockapi
       #
       # @overload get_preferences(collection, object_id_, id, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param id [String]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param id [String] Unique identifier for the preference set.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
@@ -168,28 +198,50 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ObjectListMessagesParams} for more details.
+      #
       # Returns a paginated list of messages for a specific object in the given
       # collection. Allows filtering by message status and provides various sorting
       # options.
       #
       # @overload list_messages(collection, id, after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #
-      # @param collection [String]
-      # @param id [String]
-      # @param after [String]
-      # @param before [String]
-      # @param channel_id [String]
-      # @param engagement_status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param id [String] Unique identifier for the object.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param channel_id [String] Limits the results to items with the corresponding channel ID.
+      #
+      # @param engagement_status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>] Limits the results to messages with the given engagement status.
+      #
       # @param inserted_at [Knockapi::Models::ObjectListMessagesParams::InsertedAt]
-      # @param message_ids [Array<String>]
-      # @param page_size [Integer]
-      # @param source [String]
-      # @param status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>]
-      # @param tenant [String]
-      # @param trigger_data [String]
-      # @param workflow_categories [Array<String>]
-      # @param workflow_recipient_run_id [String]
-      # @param workflow_run_id [String]
+      #
+      # @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
+      # ...
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
+      # @param source [String] Limits the results to messages triggered by the given workflow key.
+      #
+      # @param status [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::Status>] Limits the results to messages with the given delivery status.
+      #
+      # @param tenant [String] Limits the results to items with the corresponding tenant.
+      #
+      # @param trigger_data [String] Limits the results to only messages that were generated with the given data. See
+      # ...
+      #
+      # @param workflow_categories [Array<String>] Limits the results to messages related to any of the provided categories.
+      #
+      # @param workflow_recipient_run_id [String] Limits the results to messages for a specific recipient's workflow run.
+      #
+      # @param workflow_run_id [String] Limits the results to messages associated with the top-level workflow run ID ret
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
@@ -211,8 +263,10 @@ module Knockapi
       #
       # @overload list_preferences(collection, object_id_, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Array<Knockapi::Models::Recipients::PreferenceSet>]
@@ -231,13 +285,20 @@ module Knockapi
       #
       # @overload list_schedules(collection, id, after: nil, before: nil, page_size: nil, tenant: nil, workflow: nil, request_options: {})
       #
-      # @param collection [String]
-      # @param id [String]
-      # @param after [String]
-      # @param before [String]
-      # @param page_size [Integer]
-      # @param tenant [String]
-      # @param workflow [String]
+      # @param collection [String] The collection of the object to list schedules for.
+      #
+      # @param id [String] The ID of the object to list schedules for.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
+      # @param tenant [String] Filter schedules by tenant id.
+      #
+      # @param workflow [String] Filter schedules by workflow id.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Schedule>]
@@ -255,21 +316,34 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ObjectListSubscriptionsParams} for more details.
+      #
       # List subscriptions for an object. Either list the recipients that subscribe to
       # the provided object, or list the objects that the provided object is subscribed
       # to. Determined by the `mode` query parameter.
       #
       # @overload list_subscriptions(collection, object_id_, after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param after [String]
-      # @param before [String]
-      # @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
-      # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
-      # @param objects [Array<Knockapi::Models::ObjectListSubscriptionsParams::Object>]
-      # @param page_size [Integer]
-      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param after [String] The cursor to fetch entries after.
+      #
+      # @param before [String] The cursor to fetch entries before.
+      #
+      # @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>] Additional fields to include in the response.
+      #
+      # @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode] Mode of the request. `recipient` to list the objects that the provided object is
+      # ...
+      #
+      # @param objects [Array<Knockapi::Models::ObjectListSubscriptionsParams::Object>] Objects to filter by (only used if mode is `recipient`).
+      #
+      # @param page_size [Integer] The number of items per page.
+      #
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Recipients to filter by (only used if mode is `object`).
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
@@ -287,18 +361,29 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ObjectSetParams} for more details.
+      #
       # Creates a new object or updates an existing one in the specified collection.
       # This operation is used to identify objects with their properties, as well as
       # optional preferences and channel data.
       #
       # @overload set(collection, id, channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {})
       #
-      # @param collection [String]
-      # @param id [String]
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}]
-      # @param locale [String, nil]
-      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}]
-      # @param timezone [String, nil]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param id [String] Unique identifier for the object.
+      #
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}] A request to set channel data for a type of channel inline.
+      #
+      # @param locale [String, nil] The locale of the object. Used for [message localization](/concepts/translations
+      # ...
+      #
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}] Inline set preferences for a recipient, where the key is the preference set id.
+      #
+      # @param timezone [String, nil] The timezone of the object. Must be a valid [tz database time zone string](https
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Object]
@@ -321,10 +406,14 @@ module Knockapi
       #
       # @overload set_channel_data(collection, object_id_, channel_id, data:, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param channel_id [String]
-      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param channel_id [String] The unique identifier for the channel.
+      #
+      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::RecipientsChannelData]
@@ -341,6 +430,9 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ObjectSetPreferencesParams} for more details.
+      #
       # Sets preferences within the given preference set. This is a destructive
       # operation and will replace any existing preferences with the preferences given.
       # If no object exists in the current environment for the given `:collection` and
@@ -350,12 +442,20 @@ module Knockapi
       #
       # @overload set_preferences(collection, object_id_, id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param id [String]
-      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
-      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
-      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param id [String] Unique identifier for the preference set.
+      #
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
+      # ...
+      #
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+      #
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::Recipients::PreferenceSet]
@@ -376,9 +476,12 @@ module Knockapi
       #
       # @overload unset_channel_data(collection, object_id_, channel_id, request_options: {})
       #
-      # @param collection [String]
-      # @param object_id_ [String]
-      # @param channel_id [String]
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param channel_id [String] The unique identifier for the channel.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]

@@ -17,8 +17,11 @@ module Knockapi
         params(tenant: String, request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
           .returns(T.attached_class)
       end
-      def self.new(tenant: nil, request_options: {}); end
-
+      def self.new(
+        # The unique identifier for the tenant.
+        tenant: nil,
+        request_options: {}
+      ); end
       sig { override.returns({tenant: String, request_options: Knockapi::RequestOptions}) }
       def to_hash; end
     end

@@ -23,8 +23,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(connection:); end
-
+        def self.new(
+          # A Slack connection object.
+          connection:
+        ); end
         sig { override.returns({connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection}) }
         def to_hash; end
 
@@ -39,8 +41,12 @@ module Knockapi
 
           # A Slack connection object.
           sig { params(ok: T::Boolean, reason: T.nilable(String)).returns(T.attached_class) }
-          def self.new(ok:, reason: nil); end
-
+          def self.new(
+            # Whether the Slack connection is valid.
+            ok:,
+            # The reason for the Slack connection if it is not valid.
+            reason: nil
+          ); end
           sig { override.returns({ok: T::Boolean, reason: T.nilable(String)}) }
           def to_hash; end
         end

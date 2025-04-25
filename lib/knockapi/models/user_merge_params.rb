@@ -14,7 +14,8 @@ module Knockapi
       required :from_user_id, String
 
       # @!method initialize(from_user_id:, request_options: {})
-      #   @param from_user_id [String]
+      #   @param from_user_id [String] The user ID to merge from.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

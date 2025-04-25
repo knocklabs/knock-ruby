@@ -24,9 +24,11 @@ module Knockapi
         optional :description, String, nil?: true
 
         # @!method initialize(id:, display_name:, description: nil)
-        #   @param id [String]
-        #   @param display_name [String]
-        #   @param description [String, nil]
+        #   @param id [String] Microsoft Teams team ID.
+        #
+        #   @param display_name [String] Microsoft Teams team display name.
+        #
+        #   @param description [String, nil] Microsoft Teams team description.
       end
     end
   end

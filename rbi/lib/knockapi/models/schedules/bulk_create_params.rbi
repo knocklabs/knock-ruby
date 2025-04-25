@@ -18,8 +18,11 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(schedules:, request_options: {}); end
-
+        def self.new(
+          # A list of schedules.
+          schedules:,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(
@@ -123,13 +126,25 @@ module Knockapi
               .returns(T.attached_class)
           end
           def self.new(
+            # The key of the workflow.
             workflow:,
+            # Specifies a recipient in a request. This can either be a user identifier
+            # (string), an inline user request (object), or an inline object request, which is
+            # determined by the presence of a `collection` property.
             actor: nil,
+            # An optional map of data to pass into the workflow execution.
             data: nil,
+            # The ending date and time for the schedule.
             ending_at: nil,
+            # Specifies a recipient in a request. This can either be a user identifier
+            # (string), an inline user request (object), or an inline object request, which is
+            # determined by the presence of a `collection` property.
             recipient: nil,
+            # The repeat rule for the schedule.
             repeats: nil,
+            # The starting date and time for the schedule.
             scheduled_at: nil,
+            # An request to set a tenant inline.
             tenant: nil
           ); end
           sig do

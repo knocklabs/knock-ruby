@@ -9,8 +9,10 @@ module Knockapi
         #
         # @overload check_auth(channel_id, ms_teams_tenant_object:, request_options: {})
         #
-        # @param channel_id [String]
-        # @param ms_teams_tenant_object [String]
+        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to check.
+        #
+        # @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::MsTeamCheckAuthResponse]
@@ -32,10 +34,14 @@ module Knockapi
         #
         # @overload list_channels(channel_id, ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {})
         #
-        # @param channel_id [String]
-        # @param ms_teams_tenant_object [String]
-        # @param team_id [String]
+        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to get channels for.
+        #
+        # @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
+        #
+        # @param team_id [String] Microsoft Teams team ID.
+        #
         # @param query_options [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::MsTeamListChannelsResponse]
@@ -57,9 +63,12 @@ module Knockapi
         #
         # @overload list_teams(channel_id, ms_teams_tenant_object:, query_options: nil, request_options: {})
         #
-        # @param channel_id [String]
-        # @param ms_teams_tenant_object [String]
+        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to get teams for.
+        #
+        # @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
+        #
         # @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Internal::MsTeamsPagination<Knockapi::Models::Providers::MsTeamListTeamsResponse>]
@@ -81,8 +90,10 @@ module Knockapi
         #
         # @overload revoke_access(channel_id, ms_teams_tenant_object:, request_options: {})
         #
-        # @param channel_id [String]
-        # @param ms_teams_tenant_object [String]
+        # @param channel_id [String] The ID of the Knock Microsoft Teams channel to revoke access for.
+        #
+        # @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::Providers::MsTeamRevokeAccessResponse]

@@ -15,7 +15,8 @@ module Knockapi
         required :objects, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::InlineObjectRequest] }
 
         # @!method initialize(objects:, request_options: {})
-        #   @param objects [Array<Knockapi::Models::InlineObjectRequest>]
+        #   @param objects [Array<Knockapi::Models::InlineObjectRequest>] A list of objects.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

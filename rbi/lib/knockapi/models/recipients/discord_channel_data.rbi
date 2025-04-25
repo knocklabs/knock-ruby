@@ -30,8 +30,10 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(connections:); end
-
+        def self.new(
+          # List of Discord channel connections.
+          connections:
+        ); end
         sig do
           override
             .returns(
@@ -59,8 +61,10 @@ module Knockapi
 
             # Discord channel connection.
             sig { params(channel_id: String).returns(T.attached_class) }
-            def self.new(channel_id:); end
-
+            def self.new(
+              # Discord channel ID.
+              channel_id:
+            ); end
             sig { override.returns({channel_id: String}) }
             def to_hash; end
           end
@@ -95,8 +99,10 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(incoming_webhook:); end
-
+            def self.new(
+              # Discord incoming webhook object.
+              incoming_webhook:
+            ); end
             sig do
               override
                 .returns(
@@ -114,8 +120,10 @@ module Knockapi
 
               # Discord incoming webhook object.
               sig { params(url: String).returns(T.attached_class) }
-              def self.new(url:); end
-
+              def self.new(
+                # Incoming webhook URL.
+                url:
+              ); end
               sig { override.returns({url: String}) }
               def to_hash; end
             end

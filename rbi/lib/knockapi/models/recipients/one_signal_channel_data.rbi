@@ -10,8 +10,10 @@ module Knockapi
 
         # OneSignal channel data.
         sig { params(player_ids: T::Array[String]).returns(T.attached_class) }
-        def self.new(player_ids:); end
-
+        def self.new(
+          # A list of OneSignal player IDs.
+          player_ids:
+        ); end
         sig { override.returns({player_ids: T::Array[String]}) }
         def to_hash; end
       end

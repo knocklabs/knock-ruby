@@ -54,12 +54,20 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # A list of schedule IDs.
         schedule_ids:,
+        # A reference to a recipient, either a user identifier (string) or an object
+        # reference (ID, collection).
         actor: nil,
+        # An optional map of data to pass into the workflow execution.
         data: nil,
+        # The ending date and time for the schedule.
         ending_at: nil,
+        # The repeat rule for the schedule.
         repeats: nil,
+        # The starting date and time for the schedule.
         scheduled_at: nil,
+        # An request to set a tenant inline.
         tenant: nil,
         request_options: {}
       ); end

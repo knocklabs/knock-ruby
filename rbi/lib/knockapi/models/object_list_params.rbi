@@ -44,8 +44,17 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(after: nil, before: nil, include: nil, page_size: nil, request_options: {}); end
-
+      def self.new(
+        # The cursor to fetch entries after.
+        after: nil,
+        # The cursor to fetch entries before.
+        before: nil,
+        # Includes preferences of the objects in the response.
+        include: nil,
+        # The number of items per page.
+        page_size: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

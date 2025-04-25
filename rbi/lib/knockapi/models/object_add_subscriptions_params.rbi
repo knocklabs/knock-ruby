@@ -34,8 +34,14 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(recipients:, properties: nil, request_options: {}); end
-
+      def self.new(
+        # The recipients of the subscription. You can subscribe up to 100 recipients to an
+        # object at a time.
+        recipients:,
+        # The custom properties associated with the subscription relationship.
+        properties: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

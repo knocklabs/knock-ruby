@@ -55,13 +55,24 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference] }
 
       # @!method initialize(after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
-      #   @param after [String]
-      #   @param before [String]
-      #   @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>]
-      #   @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode]
-      #   @param objects [Array<Knockapi::Models::ObjectListSubscriptionsParams::Object>]
-      #   @param page_size [Integer]
-      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::ObjectListSubscriptionsParams} for more details.
+      #
+      #   @param after [String] The cursor to fetch entries after.
+      #
+      #   @param before [String] The cursor to fetch entries before.
+      #
+      #   @param include [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>] Additional fields to include in the response.
+      #
+      #   @param mode [Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Mode] Mode of the request. `recipient` to list the objects that the provided object is
+      #   ...
+      #
+      #   @param objects [Array<Knockapi::Models::ObjectListSubscriptionsParams::Object>] Objects to filter by (only used if mode is `recipient`).
+      #
+      #   @param page_size [Integer] The number of items per page.
+      #
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Recipients to filter by (only used if mode is `object`).
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
       module Include
@@ -102,8 +113,9 @@ module Knockapi
         # @!method initialize(id: nil, collection: nil)
         #   A reference to a recipient object.
         #
-        #   @param id [String]
-        #   @param collection [String]
+        #   @param id [String] An identifier for the recipient object.
+        #
+        #   @param collection [String] The collection the recipient object belongs to.
       end
     end
   end

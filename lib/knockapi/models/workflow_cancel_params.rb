@@ -27,8 +27,15 @@ module Knockapi
                nil?: true
 
       # @!method initialize(cancellation_key:, recipients: nil, request_options: {})
-      #   @param cancellation_key [String]
-      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::WorkflowCancelParams} for more details.
+      #
+      #   @param cancellation_key [String] An optional key that is used to reference a specific workflow trigger request wh
+      #   ...
+      #
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
+      #   ...
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

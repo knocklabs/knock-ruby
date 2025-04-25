@@ -14,7 +14,8 @@ module Knockapi
       required :schedule_ids, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!method initialize(schedule_ids:, request_options: {})
-      #   @param schedule_ids [Array<String>]
+      #   @param schedule_ids [Array<String>] A list of schedule IDs.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

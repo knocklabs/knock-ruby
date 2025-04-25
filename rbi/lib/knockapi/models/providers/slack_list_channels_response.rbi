@@ -29,8 +29,18 @@ module Knockapi
           params(id: String, context_team_id: String, is_im: T::Boolean, is_private: T::Boolean, name: String)
             .returns(T.attached_class)
         end
-        def self.new(id:, context_team_id:, is_im:, is_private:, name:); end
-
+        def self.new(
+          # A Slack channel ID from the Slack provider.
+          id:,
+          # The team ID that the Slack channel belongs to.
+          context_team_id:,
+          # Whether the Slack channel is an IM channel.
+          is_im:,
+          # Whether the Slack channel is private.
+          is_private:,
+          # Slack channel name.
+          name:
+        ); end
         sig do
           override
             .returns({

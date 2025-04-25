@@ -24,8 +24,14 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(argument:, operator:, variable:); end
-
+      def self.new(
+        # The argument value to compare against in the condition.
+        argument:,
+        # The operator to use in the condition evaluation.
+        operator:,
+        # The variable to be evaluated in the condition.
+        variable:
+      ); end
       sig do
         override
           .returns(

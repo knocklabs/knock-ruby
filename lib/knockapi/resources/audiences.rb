@@ -7,8 +7,10 @@ module Knockapi
       #
       # @overload add_members(key, members:, request_options: {})
       #
-      # @param key [String]
-      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
+      # @param key [String] The key of the audience.
+      #
+      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
@@ -29,7 +31,8 @@ module Knockapi
       #
       # @overload list_members(key, request_options: {})
       #
-      # @param key [String]
+      # @param key [String] The key of the audience.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::AudienceListMembersResponse]
@@ -48,8 +51,10 @@ module Knockapi
       #
       # @overload remove_members(key, members:, request_options: {})
       #
-      # @param key [String]
-      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
+      # @param key [String] The key of the audience.
+      #
+      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]

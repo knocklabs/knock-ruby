@@ -61,14 +61,27 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # The ID for the user that you set when identifying them in Knock.
         id:,
+        # The typename of the schema.
         _typename:,
+        # The timestamp when the resource was last updated.
         updated_at:,
+        # URL to the user's avatar image.
         avatar: nil,
+        # The creation date of the user from your system.
         created_at: nil,
+        # The primary email address for the user.
         email: nil,
+        # Display name of the user.
         name: nil,
+        # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+        # user (required for SMS channels).
         phone_number: nil,
+        # The timezone of the user. Must be a valid
+        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used for
+        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil
       ); end
       sig do

@@ -29,11 +29,18 @@ module Knockapi
                  nil?: true
 
         # @!method initialize(categories: nil, channel_types: nil, workflows: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {Knockapi::Models::Recipients::PreferenceSetRequest} for more details.
+        #
         #   A request to set a preference set for a recipient.
         #
-        #   @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil]
-        #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
-        #   @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil]
+        #   @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
+        #   ...
+        #
+        #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+        #
+        #   @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
+        #   ...
 
         # Workflow or category preferences within a preference set
         module Category
@@ -61,8 +68,9 @@ module Knockapi
             #   The settings object for a workflow or category, where you can specify channel
             #   types or conditions.
             #
-            #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
-            #   @param conditions [Array<Knockapi::Models::Condition>, nil]
+            #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+            #
+            #   @param conditions [Array<Knockapi::Models::Condition>, nil] A list of conditions to apply to a channel type.
           end
 
           # @!method self.variants
@@ -95,8 +103,9 @@ module Knockapi
             #   The settings object for a workflow or category, where you can specify channel
             #   types or conditions.
             #
-            #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
-            #   @param conditions [Array<Knockapi::Models::Condition>, nil]
+            #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+            #
+            #   @param conditions [Array<Knockapi::Models::Condition>, nil] A list of conditions to apply to a channel type.
           end
 
           # @!method self.variants

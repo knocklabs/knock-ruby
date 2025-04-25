@@ -52,8 +52,21 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {}); end
-
+      def self.new(
+        # A request to set channel data for a type of channel inline.
+        channel_data: nil,
+        # The locale of the object. Used for
+        # [message localization](/concepts/translations).
+        locale: nil,
+        # Inline set preferences for a recipient, where the key is the preference set id.
+        preferences: nil,
+        # The timezone of the object. Must be a valid
+        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used for
+        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+        timezone: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

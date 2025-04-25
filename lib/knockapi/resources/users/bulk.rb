@@ -9,7 +9,8 @@ module Knockapi
         #
         # @overload delete(user_ids:, request_options: {})
         #
-        # @param user_ids [Array<String>]
+        # @param user_ids [Array<String>] A list of user IDs.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
@@ -32,7 +33,8 @@ module Knockapi
         #
         # @overload identify(users:, request_options: {})
         #
-        # @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>]
+        # @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>] A list of users.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]
@@ -55,8 +57,10 @@ module Knockapi
         #
         # @overload set_preferences(preferences:, user_ids:, request_options: {})
         #
-        # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest]
-        # @param user_ids [Array<String>]
+        # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest] A request to set a preference set for a recipient.
+        #
+        # @param user_ids [Array<String>] A list of user IDs.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Knockapi::Models::BulkOperation]

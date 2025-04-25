@@ -21,8 +21,10 @@ module Knockapi
         optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
         # @!method initialize(message_ids:, metadata: nil, request_options: {})
-        #   @param message_ids [Array<String>]
-        #   @param metadata [Hash{Symbol=>Object}, nil]
+        #   @param message_ids [Array<String>] The message IDs to batch mark as interacted with.
+        #
+        #   @param metadata [Hash{Symbol=>Object}, nil] Metadata about the interaction.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

@@ -38,11 +38,16 @@ module Knockapi
       optional :tenant_id, String
 
       # @!method initialize(after: nil, before: nil, name: nil, page_size: nil, tenant_id: nil, request_options: {})
-      #   @param after [String]
-      #   @param before [String]
-      #   @param name [String]
-      #   @param page_size [Integer]
-      #   @param tenant_id [String]
+      #   @param after [String] The cursor to fetch entries after.
+      #
+      #   @param before [String] The cursor to fetch entries before.
+      #
+      #   @param name [String] Filter tenants by name.
+      #
+      #   @param page_size [Integer] The number of items per page.
+      #
+      #   @param tenant_id [String] Filter tenants by ID.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

@@ -39,8 +39,20 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(_typename:, added_at:, user:, user_id:, tenant: nil); end
-
+      def self.new(
+        # The typename of the schema.
+        _typename:,
+        # Timestamp when the resource was created.
+        added_at:,
+        # A [User](/concepts/users) represents an individual in your system who can
+        # receive notifications through Knock. Users are the most common recipients of
+        # notifications and are always referenced by your internal identifier.
+        user:,
+        # The ID for the user that you set when identifying them in Knock.
+        user_id:,
+        # The unique identifier for the tenant.
+        tenant: nil
+      ); end
       sig do
         override
           .returns(

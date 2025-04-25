@@ -31,8 +31,13 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(preferences:, user_ids:, request_options: {}); end
-
+        def self.new(
+          # A request to set a preference set for a recipient.
+          preferences:,
+          # A list of user IDs.
+          user_ids:,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(

@@ -23,8 +23,13 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(message_ids:, metadata: nil, request_options: {}); end
-
+        def self.new(
+          # The message IDs to batch mark as interacted with.
+          message_ids:,
+          # Metadata about the interaction.
+          metadata: nil,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(

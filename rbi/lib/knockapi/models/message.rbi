@@ -164,26 +164,55 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # The unique identifier for the message.
         id: nil,
+        # The typename of the schema.
         _typename: nil,
+        # One or more actors that are associated with this message. Note: this is a list
+        # that can contain up to 10 actors if the message is produced from a
+        # [batch](/designing-workflows/batch-function).
         actors: nil,
+        # Timestamp when the message was archived.
         archived_at: nil,
+        # The ID for the channel the message was sent through.
         channel_id: nil,
+        # Timestamp when the message was clicked.
         clicked_at: nil,
+        # Data associated with the message’s workflow run. Includes the workflow trigger
+        # request’s `data` payload merged with any additional data returned by a
+        # [fetch function](/designing-workflows/fetch-function). For messages produced
+        # after a [batch step](/designing-workflows/batch-function), includes the payload
+        # `data` from the most-recent trigger request (the final `activity` in the batch).
         data: nil,
+        # A list of engagement statuses.
         engagement_statuses: nil,
+        # Timestamp when the resource was created.
         inserted_at: nil,
+        # Timestamp when the message was interacted with.
         interacted_at: nil,
+        # Timestamp when a link in the message was clicked.
         link_clicked_at: nil,
+        # The metadata associated with the message.
         metadata: nil,
+        # Timestamp when the message was read.
         read_at: nil,
+        # A reference to a recipient, either a user identifier (string) or an object
+        # reference (ID, collection).
         recipient: nil,
+        # Timestamp when the message was scheduled to be sent.
         scheduled_at: nil,
+        # Timestamp when the message was seen.
         seen_at: nil,
+        # The workflow that triggered the message.
         source: nil,
+        # The message delivery status.
         status: nil,
+        # The ID of the `tenant` associated with the message. Only present when a `tenant`
+        # is provided on a workflow trigger request.
         tenant: nil,
+        # The timestamp when the resource was last updated.
         updated_at: nil,
+        # The key of the workflow that generated the message.
         workflow: nil
       ); end
       sig do
@@ -255,8 +284,15 @@ module Knockapi
           params(_typename: String, categories: T::Array[String], key: String, version_id: String)
             .returns(T.attached_class)
         end
-        def self.new(_typename:, categories:, key:, version_id:); end
-
+        def self.new(
+          _typename:,
+          # The categories associated with the message.
+          categories:,
+          # The key of the workflow that triggered the message.
+          key:,
+          # The ID of the version of the workflow that triggered the message.
+          version_id:
+        ); end
         sig do
           override.returns({_typename: String, categories: T::Array[String], key: String, version_id: String})
         end

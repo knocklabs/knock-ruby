@@ -3,15 +3,23 @@
 module Knockapi
   module Resources
     class Workflows
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::WorkflowCancelParams} for more details.
+      #
       # When invoked for a workflow using a specific workflow key and cancellation key,
       # will cancel any queued workflow runs associated with that key/cancellation key
       # pair. Can optionally be provided one or more recipients to scope the request to.
       #
       # @overload cancel(key, cancellation_key:, recipients: nil, request_options: {})
       #
-      # @param key [String]
-      # @param cancellation_key [String]
-      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
+      # @param key [String] The key of the workflow to cancel.
+      #
+      # @param cancellation_key [String] An optional key that is used to reference a specific workflow trigger request wh
+      # ...
+      #
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
+      # ...
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [String]
@@ -28,6 +36,9 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::WorkflowTriggerParams} for more details.
+      #
       # Trigger a workflow (specified by the key) to run for the given recipients, using
       # the parameters provided. Returns an identifier for the workflow run request. All
       # workflow runs are executed asynchronously. This endpoint also handles
@@ -36,12 +47,21 @@ module Knockapi
       #
       # @overload trigger(key, recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {})
       #
-      # @param key [String]
-      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
-      # @param cancellation_key [String, nil]
-      # @param data [Hash{Symbol=>Object}, nil]
-      # @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      # @param key [String] Key of the workflow to trigger.
+      #
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
+      # ...
+      #
+      # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
+      # ...
+      #
+      # @param cancellation_key [String, nil] An optional key that is used to reference a specific workflow trigger request wh
+      # ...
+      #
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
+      #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Knockapi::Models::WorkflowTriggerResponse]

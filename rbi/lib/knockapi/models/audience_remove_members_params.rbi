@@ -17,8 +17,11 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(members:, request_options: {}); end
-
+      def self.new(
+        # A list of audience members to remove.
+        members:,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(
@@ -53,8 +56,15 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(user:, tenant: nil); end
-
+        def self.new(
+          # A set of parameters to inline-identify a user with. Inline identifying the user
+          # will ensure that the user is available before the request is executed in Knock.
+          # It will perform an upsert for the user you're supplying, replacing any
+          # properties specified.
+          user:,
+          # The unique identifier for the tenant.
+          tenant: nil
+        ); end
         sig { override.returns({user: Knockapi::Models::InlineIdentifyUserRequest, tenant: T.nilable(String)}) }
         def to_hash; end
       end

@@ -117,24 +117,41 @@ module Knockapi
         # @!method initialize(id:, _typename:, activities:, actors:, blocks:, data:, inserted_at:, source:, tenant:, total_activities:, total_actors:, updated_at:, archived_at: nil, clicked_at: nil, interacted_at: nil, link_clicked_at: nil, read_at: nil, seen_at: nil)
         #   An in-app feed message in a user's feed.
         #
-        #   @param id [String]
-        #   @param _typename [String]
-        #   @param activities [Array<Knockapi::Models::Activity>]
-        #   @param actors [Array<Knockapi::Models::User, Knockapi::Models::Object>]
-        #   @param blocks [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>]
-        #   @param data [Hash{Symbol=>Object}, nil]
-        #   @param inserted_at [String]
-        #   @param source [Knockapi::Models::Users::FeedListItemsResponse::Source]
-        #   @param tenant [String, nil]
-        #   @param total_activities [Integer]
-        #   @param total_actors [Integer]
-        #   @param updated_at [String]
-        #   @param archived_at [String, nil]
-        #   @param clicked_at [String, nil]
-        #   @param interacted_at [String, nil]
-        #   @param link_clicked_at [String, nil]
-        #   @param read_at [String, nil]
-        #   @param seen_at [String, nil]
+        #   @param id [String] Unique identifier for the feed.
+        #
+        #   @param _typename [String] The typename of the schema.
+        #
+        #   @param activities [Array<Knockapi::Models::Activity>] List of activities associated with this feed item.
+        #
+        #   @param actors [Array<Knockapi::Models::User, Knockapi::Models::Object>] List of actors associated with this feed item.
+        #
+        #   @param blocks [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>] Content blocks that make up the feed item.
+        #
+        #   @param data [Hash{Symbol=>Object}, nil] Additional data associated with the feed item.
+        #
+        #   @param inserted_at [String] Timestamp when the resource was created.
+        #
+        #   @param source [Knockapi::Models::Users::FeedListItemsResponse::Source] Source information for the feed item.
+        #
+        #   @param tenant [String, nil] Tenant ID that the feed item belongs to.
+        #
+        #   @param total_activities [Integer] Total number of activities related to this feed item.
+        #
+        #   @param total_actors [Integer] Total number of actors related to this feed item.
+        #
+        #   @param updated_at [String] The timestamp when the resource was last updated.
+        #
+        #   @param archived_at [String, nil] Timestamp when the feed item was archived.
+        #
+        #   @param clicked_at [String, nil] Timestamp when the feed item was clicked.
+        #
+        #   @param interacted_at [String, nil] Timestamp when the feed item was interacted with.
+        #
+        #   @param link_clicked_at [String, nil] Timestamp when a link within the feed item was clicked.
+        #
+        #   @param read_at [String, nil] Timestamp when the feed item was marked as read.
+        #
+        #   @param seen_at [String, nil] Timestamp when the feed item was marked as seen.
 
         # A content block for the feed, can be content or a button set.
         module Block
@@ -175,10 +192,13 @@ module Knockapi
             # @!method initialize(content:, name:, rendered:, type:)
             #   A block in a message in an app feed.
             #
-            #   @param content [String]
-            #   @param name [String]
-            #   @param rendered [String]
-            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type]
+            #   @param content [String] The content of the block in a message in an app feed.
+            #
+            #   @param name [String] The name of the block in a message in an app feed.
+            #
+            #   @param rendered [String] The rendered HTML version of the content.
+            #
+            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type] The type of block in a message in an app feed.
 
             # The type of block in a message in an app feed.
             #
@@ -218,9 +238,11 @@ module Knockapi
             # @!method initialize(buttons:, name:, type:)
             #   A button set block in a message in an app feed.
             #
-            #   @param buttons [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button>]
-            #   @param name [String]
-            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type]
+            #   @param buttons [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button>] A list of buttons in an in app feed message.
+            #
+            #   @param name [String] The name of the button set in a message in an app feed.
+            #
+            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type] The type of block in a message in an app feed.
 
             class Button < Knockapi::Internal::Type::BaseModel
               # @!attribute action
@@ -244,9 +266,11 @@ module Knockapi
               # @!method initialize(action:, label:, name:)
               #   A button in an in app feed message.
               #
-              #   @param action [String]
-              #   @param label [String]
-              #   @param name [String]
+              #   @param action [String] The action to take when the button is clicked.
+              #
+              #   @param label [String] The label of the button.
+              #
+              #   @param name [String] The name of the button.
             end
 
             # The type of block in a message in an app feed.
@@ -295,10 +319,13 @@ module Knockapi
           # @!method initialize(_typename:, categories:, key:, version_id:)
           #   Source information for the feed item.
           #
-          #   @param _typename [String]
-          #   @param categories [Array<String>]
-          #   @param key [String]
-          #   @param version_id [String]
+          #   @param _typename [String] The typename of the schema.
+          #
+          #   @param categories [Array<String>] Categories this workflow belongs to.
+          #
+          #   @param key [String] The key of the workflow.
+          #
+          #   @param version_id [String] The workflow version ID.
         end
       end
     end

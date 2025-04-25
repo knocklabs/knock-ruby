@@ -15,7 +15,8 @@ module Knockapi
         required :ms_teams_tenant_object, String
 
         # @!method initialize(ms_teams_tenant_object:, request_options: {})
-        #   @param ms_teams_tenant_object [String]
+        #   @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
+        #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

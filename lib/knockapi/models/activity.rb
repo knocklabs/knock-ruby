@@ -52,13 +52,19 @@ module Knockapi
       #   or more activities. Non-batched messages will always be associated with a single
       #   activity.
       #
-      #   @param id [String]
-      #   @param _typename [String]
-      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      #   @param data [Hash{Symbol=>Object}, nil]
-      #   @param inserted_at [Time]
-      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object]
-      #   @param updated_at [Time]
+      #   @param id [String] Unique identifier for the activity.
+      #
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil] A recipient of a notification, which is either a user or an object.
+      #
+      #   @param data [Hash{Symbol=>Object}, nil] The workflow trigger `data` payload associated with the activity.
+      #
+      #   @param inserted_at [Time] Timestamp when the activity was created.
+      #
+      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object] A recipient of a notification, which is either a user or an object.
+      #
+      #   @param updated_at [Time] Timestamp when the activity was last updated.
     end
   end
 end

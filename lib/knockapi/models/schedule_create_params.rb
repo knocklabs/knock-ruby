@@ -51,13 +51,24 @@ module Knockapi
       optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
 
       # @!method initialize(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
-      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>]
-      #   @param workflow [String]
-      #   @param data [Hash{Symbol=>Object}, nil]
-      #   @param ending_at [Time, nil]
-      #   @param scheduled_at [Time, nil]
-      #   @param tenant [String, Knockapi::Models::TenantRequest, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::ScheduleCreateParams} for more details.
+      #
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
+      #   ...
+      #
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #
+      #   @param workflow [String] The key of the workflow.
+      #
+      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #
+      #   @param ending_at [Time, nil] The ending date and time for the schedule.
+      #
+      #   @param scheduled_at [Time, nil] The starting date and time for the schedule.
+      #
+      #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

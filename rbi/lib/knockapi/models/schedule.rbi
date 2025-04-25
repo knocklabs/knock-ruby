@@ -75,17 +75,31 @@ module Knockapi
           .returns(T.attached_class)
       end
       def self.new(
+        # Unique identifier for the schedule.
         id:,
+        # Timestamp when the resource was created.
         inserted_at:,
+        # A recipient of a notification, which is either a user or an object.
         recipient:,
+        # The repeat rule for the schedule.
         repeats:,
+        # The timestamp when the resource was last updated.
         updated_at:,
+        # The workflow the schedule is applied to.
         workflow:,
+        # The typename of the schema.
         _typename: nil,
+        # A recipient of a notification, which is either a user or an object.
         actor: nil,
+        # An optional map of data to pass into the workflow execution.
         data: nil,
+        # The last occurrence of the schedule.
         last_occurrence_at: nil,
+        # The next occurrence of the schedule.
         next_occurrence_at: nil,
+        # The tenant to trigger the workflow for. Triggering with a tenant will use any
+        # tenant-level overrides associated with the tenant object, and all messages
+        # produced from workflow runs will be tagged with the tenant.
         tenant: nil
       ); end
       sig do

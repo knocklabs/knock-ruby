@@ -13,8 +13,10 @@ module Knockapi
 
         # A response indicating the operation was successful.
         sig { params(ok: String).returns(T.attached_class) }
-        def self.new(ok: nil); end
-
+        def self.new(
+          # OK response.
+          ok: nil
+        ); end
         sig { override.returns({ok: String}) }
         def to_hash; end
       end

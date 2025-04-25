@@ -14,8 +14,10 @@ module Knockapi
           params(conditions: T::Array[T.any(Knockapi::Models::Condition, Knockapi::Internal::AnyHash)])
             .returns(T.attached_class)
         end
-        def self.new(conditions:); end
-
+        def self.new(
+          # A list of conditions to apply to a channel type.
+          conditions:
+        ); end
         sig { override.returns({conditions: T::Array[Knockapi::Models::Condition]}) }
         def to_hash; end
       end

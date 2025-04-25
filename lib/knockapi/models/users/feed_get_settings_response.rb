@@ -14,7 +14,7 @@ module Knockapi
         # @!method initialize(features:)
         #   The response for the user's feed settings.
         #
-        #   @param features [Knockapi::Models::Users::FeedGetSettingsResponse::Features]
+        #   @param features [Knockapi::Models::Users::FeedGetSettingsResponse::Features] Features configuration for the user's feed.
 
         # @see Knockapi::Models::Users::FeedGetSettingsResponse#features
         class Features < Knockapi::Internal::Type::BaseModel
@@ -27,7 +27,7 @@ module Knockapi
           # @!method initialize(branding_required:)
           #   Features configuration for the user's feed.
           #
-          #   @param branding_required [Boolean]
+          #   @param branding_required [Boolean] Whether branding is required for the user's feed.
         end
       end
     end

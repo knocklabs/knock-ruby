@@ -13,7 +13,7 @@ module Knockapi
         # @!method initialize(tokens:)
         #   The content of a push notification.
         #
-        #   @param tokens [Array<String>]
+        #   @param tokens [Array<String>] A list of push channel tokens.
       end
     end
   end

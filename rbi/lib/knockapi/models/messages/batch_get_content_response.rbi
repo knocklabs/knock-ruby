@@ -47,8 +47,16 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(_typename:, data:, inserted_at:, message_id:); end
-
+        def self.new(
+          # The typename of the schema.
+          _typename:,
+          # Content data specific to the channel type.
+          data:,
+          # Timestamp when the message content was created.
+          inserted_at:,
+          # The unique identifier for the message content.
+          message_id:
+        ); end
         sig do
           override
             .returns(
@@ -125,18 +133,25 @@ module Knockapi
                 .returns(T.attached_class)
             end
             def self.new(
+              # The typename of the schema.
               _typename:,
+              # The sender's email address.
               from:,
+              # The HTML body of the email message.
               html_body:,
+              # The subject line of the email message.
               subject_line:,
+              # The text body of the email message.
               text_body:,
+              # The recipient's email address.
               to:,
+              # The BCC email addresses.
               bcc: nil,
+              # The CC email addresses.
               cc: nil,
+              # The reply-to email address.
               reply_to: nil
-            )
-            end
-
+            ); end
             sig do
               override
                 .returns(
@@ -171,8 +186,14 @@ module Knockapi
 
             # The content of an SMS message.
             sig { params(_typename: String, body: String, to: String).returns(T.attached_class) }
-            def self.new(_typename:, body:, to:); end
-
+            def self.new(
+              # The typename of the schema.
+              _typename:,
+              # The content body of the SMS message.
+              body:,
+              # The phone number the SMS was sent to.
+              to:
+            ); end
             sig { override.returns({_typename: String, body: String, to: String}) }
             def to_hash; end
           end
@@ -209,8 +230,18 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(token:, _typename:, body:, title:, data: nil); end
-
+            def self.new(
+              # The device token to send the push notification to.
+              token:,
+              # The typename of the schema.
+              _typename:,
+              # The content body of the push notification.
+              body:,
+              # The title of the push notification.
+              title:,
+              # Additional data payload for the push notification.
+              data: nil
+            ); end
             sig do
               override
                 .returns(
@@ -267,8 +298,16 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(_typename:, connection:, template:, metadata: nil); end
-
+            def self.new(
+              # The typename of the schema.
+              _typename:,
+              # The channel data connection from the recipient to the underlying provider.
+              connection:,
+              # The template structure for the chat message.
+              template:,
+              # Additional metadata associated with the chat message.
+              metadata: nil
+            ); end
             sig do
               override
                 .returns(
@@ -317,8 +356,14 @@ module Knockapi
                 )
                   .returns(T.attached_class)
               end
-              def self.new(blocks: nil, json_content: nil, summary: nil); end
-
+              def self.new(
+                # The blocks of the message in a chat.
+                blocks: nil,
+                # The JSON content of the message.
+                json_content: nil,
+                # The summary of the chat message.
+                summary: nil
+              ); end
               sig do
                 override
                   .returns(
@@ -359,8 +404,14 @@ module Knockapi
                   )
                     .returns(T.attached_class)
                 end
-                def self.new(content:, name:, type:); end
-
+                def self.new(
+                  # The actual content of the block.
+                  content:,
+                  # The name of the block for identification.
+                  name:,
+                  # The type of block in a message in a chat (text or markdown).
+                  type:
+                ); end
                 sig do
                   override
                     .returns(
@@ -440,8 +491,12 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(_typename:, blocks:); end
-
+            def self.new(
+              # The typename of the schema.
+              _typename:,
+              # The blocks of the message in an app feed.
+              blocks:
+            ); end
             sig do
               override
                 .returns(
@@ -493,8 +548,16 @@ module Knockapi
                   )
                     .returns(T.attached_class)
                 end
-                def self.new(content:, name:, rendered:, type:); end
-
+                def self.new(
+                  # The content of the block in a message in an app feed.
+                  content:,
+                  # The name of the block in a message in an app feed.
+                  name:,
+                  # The rendered HTML version of the content.
+                  rendered:,
+                  # The type of block in a message in an app feed.
+                  type:
+                ); end
                 sig do
                   override
                     .returns(
@@ -578,8 +641,14 @@ module Knockapi
                   )
                     .returns(T.attached_class)
                 end
-                def self.new(buttons:, name:, type:); end
-
+                def self.new(
+                  # A list of buttons in an in app feed message.
+                  buttons:,
+                  # The name of the button set in a message in an app feed.
+                  name:,
+                  # The type of block in a message in an app feed.
+                  type:
+                ); end
                 sig do
                   override
                     .returns(
@@ -609,8 +678,14 @@ module Knockapi
 
                   # A button in an in app feed message.
                   sig { params(action: String, label: String, name: String).returns(T.attached_class) }
-                  def self.new(action:, label:, name:); end
-
+                  def self.new(
+                    # The action to take when the button is clicked.
+                    action:,
+                    # The label of the button.
+                    label:,
+                    # The name of the button.
+                    name:
+                  ); end
                   sig { override.returns({action: String, label: String, name: String}) }
                   def to_hash; end
                 end

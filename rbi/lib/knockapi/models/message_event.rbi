@@ -41,8 +41,21 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, _typename:, inserted_at:, recipient:, type:, data: nil); end
-
+      def self.new(
+        # The unique identifier for the message event.
+        id:,
+        # The typename of the schema.
+        _typename:,
+        # Timestamp when the event was created.
+        inserted_at:,
+        # A reference to a recipient, either a user identifier (string) or an object
+        # reference (ID, collection).
+        recipient:,
+        # The type of event that occurred.
+        type:,
+        # The data associated with the message event. Only present for some event types.
+        data: nil
+      ); end
       sig do
         override
           .returns(

@@ -37,10 +37,13 @@ module Knockapi
       #   It will perform an upsert for the user you're supplying, replacing any
       #   properties specified.
       #
-      #   @param id [String]
-      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
-      #   @param created_at [Time, nil]
-      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      #   @param id [String] The ID for the user that you set when identifying them in Knock.
+      #
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #
+      #   @param created_at [Time, nil] The creation date of the user from your system.
+      #
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
     end
   end
 end

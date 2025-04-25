@@ -14,7 +14,8 @@ module Knockapi
       optional :metadata, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
 
       # @!method initialize(metadata: nil, request_options: {})
-      #   @param metadata [Hash{Symbol=>Object}]
+      #   @param metadata [Hash{Symbol=>Object}] Metadata about the interaction.
+      #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

@@ -43,12 +43,17 @@ module Knockapi
         # @!method initialize(chat: nil, email: nil, http: nil, in_app_feed: nil, push: nil, sms: nil)
         #   Channel type preferences.
         #
-        #   @param chat [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   @param email [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   @param http [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   @param in_app_feed [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   @param push [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
-        #   @param sms [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        #   @param chat [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting] Whether the channel type is enabled for the preference set.
+        #
+        #   @param email [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting] Whether the channel type is enabled for the preference set.
+        #
+        #   @param http [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting] Whether the channel type is enabled for the preference set.
+        #
+        #   @param in_app_feed [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting] Whether the channel type is enabled for the preference set.
+        #
+        #   @param push [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting] Whether the channel type is enabled for the preference set.
+        #
+        #   @param sms [Boolean, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting] Whether the channel type is enabled for the preference set.
 
         # Whether the channel type is enabled for the preference set.
         #

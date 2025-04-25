@@ -35,8 +35,14 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(ms_teams_tenant_object:, team_id:, query_options: nil, request_options: {}); end
-
+        def self.new(
+          # A JSON encoded string containing the Microsoft Teams tenant object reference.
+          ms_teams_tenant_object:,
+          # Microsoft Teams team ID.
+          team_id:,
+          query_options: nil,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(
@@ -68,8 +74,14 @@ module Knockapi
           attr_writer :select_
 
           sig { params(filter: String, select_: String).returns(T.attached_class) }
-          def self.new(filter: nil, select_: nil); end
-
+          def self.new(
+            # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+            # to the Microsoft Graph API to filter channels.
+            filter: nil,
+            # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
+            # to the Microsoft Graph API to select specific properties.
+            select_: nil
+          ); end
           sig { override.returns({filter: String, select_: String}) }
           def to_hash; end
         end

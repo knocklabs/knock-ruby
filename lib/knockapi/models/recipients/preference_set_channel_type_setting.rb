@@ -14,7 +14,7 @@ module Knockapi
         #   A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         #
-        #   @param conditions [Array<Knockapi::Models::Condition>]
+        #   @param conditions [Array<Knockapi::Models::Condition>] A list of conditions to apply to a channel type.
       end
     end
   end

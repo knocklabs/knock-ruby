@@ -122,23 +122,41 @@ module Knockapi
             .returns(T.attached_class)
         end
         def self.new(
+          # Unique identifier for the feed.
           id:,
+          # The typename of the schema.
           _typename:,
+          # List of activities associated with this feed item.
           activities:,
+          # List of actors associated with this feed item.
           actors:,
+          # Content blocks that make up the feed item.
           blocks:,
+          # Additional data associated with the feed item.
           data:,
+          # Timestamp when the resource was created.
           inserted_at:,
+          # Source information for the feed item.
           source:,
+          # Tenant ID that the feed item belongs to.
           tenant:,
+          # Total number of activities related to this feed item.
           total_activities:,
+          # Total number of actors related to this feed item.
           total_actors:,
+          # The timestamp when the resource was last updated.
           updated_at:,
+          # Timestamp when the feed item was archived.
           archived_at: nil,
+          # Timestamp when the feed item was clicked.
           clicked_at: nil,
+          # Timestamp when the feed item was interacted with.
           interacted_at: nil,
+          # Timestamp when a link within the feed item was clicked.
           link_clicked_at: nil,
+          # Timestamp when the feed item was marked as read.
           read_at: nil,
+          # Timestamp when the feed item was marked as seen.
           seen_at: nil
         ); end
         sig do
@@ -208,8 +226,16 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(content:, name:, rendered:, type:); end
-
+            def self.new(
+              # The content of the block in a message in an app feed.
+              content:,
+              # The name of the block in a message in an app feed.
+              name:,
+              # The rendered HTML version of the content.
+              rendered:,
+              # The type of block in a message in an app feed.
+              type:
+            ); end
             sig do
               override
                 .returns(
@@ -287,8 +313,14 @@ module Knockapi
               )
                 .returns(T.attached_class)
             end
-            def self.new(buttons:, name:, type:); end
-
+            def self.new(
+              # A list of buttons in an in app feed message.
+              buttons:,
+              # The name of the button set in a message in an app feed.
+              name:,
+              # The type of block in a message in an app feed.
+              type:
+            ); end
             sig do
               override
                 .returns(
@@ -316,8 +348,14 @@ module Knockapi
 
               # A button in an in app feed message.
               sig { params(action: String, label: String, name: String).returns(T.attached_class) }
-              def self.new(action:, label:, name:); end
-
+              def self.new(
+                # The action to take when the button is clicked.
+                action:,
+                # The label of the button.
+                label:,
+                # The name of the button.
+                name:
+              ); end
               sig { override.returns({action: String, label: String, name: String}) }
               def to_hash; end
             end
@@ -377,8 +415,16 @@ module Knockapi
             params(_typename: String, categories: T::Array[String], key: String, version_id: String)
               .returns(T.attached_class)
           end
-          def self.new(_typename:, categories:, key:, version_id:); end
-
+          def self.new(
+            # The typename of the schema.
+            _typename:,
+            # Categories this workflow belongs to.
+            categories:,
+            # The key of the workflow.
+            key:,
+            # The workflow version ID.
+            version_id:
+          ); end
           sig do
             override.returns(
               {

@@ -31,10 +31,13 @@ module Knockapi
       # @!method initialize(_typename:, data:, inserted_at:, message_id:)
       #   The content of a message.
       #
-      #   @param _typename [String]
-      #   @param data [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]
-      #   @param inserted_at [Time]
-      #   @param message_id [String]
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param data [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent] Content data specific to the channel type.
+      #
+      #   @param inserted_at [Time] Timestamp when the message content was created.
+      #
+      #   @param message_id [String] The unique identifier for the message content.
 
       # Content data specific to the channel type.
       #
@@ -115,15 +118,23 @@ module Knockapi
           # @!method initialize(_typename:, from:, html_body:, subject_line:, text_body:, to:, bcc: nil, cc: nil, reply_to: nil)
           #   The content of an email message.
           #
-          #   @param _typename [String]
-          #   @param from [String]
-          #   @param html_body [String]
-          #   @param subject_line [String]
-          #   @param text_body [String]
-          #   @param to [String]
-          #   @param bcc [String, nil]
-          #   @param cc [String, nil]
-          #   @param reply_to [String, nil]
+          #   @param _typename [String] The typename of the schema.
+          #
+          #   @param from [String] The sender's email address.
+          #
+          #   @param html_body [String] The HTML body of the email message.
+          #
+          #   @param subject_line [String] The subject line of the email message.
+          #
+          #   @param text_body [String] The text body of the email message.
+          #
+          #   @param to [String] The recipient's email address.
+          #
+          #   @param bcc [String, nil] The BCC email addresses.
+          #
+          #   @param cc [String, nil] The CC email addresses.
+          #
+          #   @param reply_to [String, nil] The reply-to email address.
         end
 
         class MessageSMSContent < Knockapi::Internal::Type::BaseModel
@@ -148,9 +159,11 @@ module Knockapi
           # @!method initialize(_typename:, body:, to:)
           #   The content of an SMS message.
           #
-          #   @param _typename [String]
-          #   @param body [String]
-          #   @param to [String]
+          #   @param _typename [String] The typename of the schema.
+          #
+          #   @param body [String] The content body of the SMS message.
+          #
+          #   @param to [String] The phone number the SMS was sent to.
         end
 
         class MessagePushContent < Knockapi::Internal::Type::BaseModel
@@ -187,11 +200,15 @@ module Knockapi
           # @!method initialize(token:, _typename:, body:, title:, data: nil)
           #   The content of a push notification.
           #
-          #   @param token [String]
-          #   @param _typename [String]
-          #   @param body [String]
-          #   @param title [String]
-          #   @param data [Hash{Symbol=>Object}, nil]
+          #   @param token [String] The device token to send the push notification to.
+          #
+          #   @param _typename [String] The typename of the schema.
+          #
+          #   @param body [String] The content body of the push notification.
+          #
+          #   @param title [String] The title of the push notification.
+          #
+          #   @param data [Hash{Symbol=>Object}, nil] Additional data payload for the push notification.
         end
 
         class MessageChatContent < Knockapi::Internal::Type::BaseModel
@@ -222,10 +239,13 @@ module Knockapi
           # @!method initialize(_typename:, connection:, template:, metadata: nil)
           #   The content of a chat message.
           #
-          #   @param _typename [String]
-          #   @param connection [Hash{Symbol=>Object}]
-          #   @param template [Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template]
-          #   @param metadata [Hash{Symbol=>Object}, nil]
+          #   @param _typename [String] The typename of the schema.
+          #
+          #   @param connection [Hash{Symbol=>Object}] The channel data connection from the recipient to the underlying provider.
+          #
+          #   @param template [Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template] The template structure for the chat message.
+          #
+          #   @param metadata [Hash{Symbol=>Object}, nil] Additional metadata associated with the chat message.
 
           # @see Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent#template
           class Template < Knockapi::Internal::Type::BaseModel
@@ -254,9 +274,11 @@ module Knockapi
             # @!method initialize(blocks: nil, json_content: nil, summary: nil)
             #   The template structure for the chat message.
             #
-            #   @param blocks [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block>, nil]
-            #   @param json_content [Hash{Symbol=>Object}, nil]
-            #   @param summary [String, nil]
+            #   @param blocks [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block>, nil] The blocks of the message in a chat.
+            #
+            #   @param json_content [Hash{Symbol=>Object}, nil] The JSON content of the message.
+            #
+            #   @param summary [String, nil] The summary of the chat message.
 
             class Block < Knockapi::Internal::Type::BaseModel
               # @!attribute content
@@ -281,9 +303,11 @@ module Knockapi
               # @!method initialize(content:, name:, type:)
               #   A block in a message in a chat.
               #
-              #   @param content [String]
-              #   @param name [String]
-              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type]
+              #   @param content [String] The actual content of the block.
+              #
+              #   @param name [String] The name of the block for identification.
+              #
+              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type] The type of block in a message in a chat (text or markdown).
 
               # The type of block in a message in a chat (text or markdown).
               #
@@ -318,8 +342,9 @@ module Knockapi
           # @!method initialize(_typename:, blocks:)
           #   The content of an in-app feed message.
           #
-          #   @param _typename [String]
-          #   @param blocks [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock>]
+          #   @param _typename [String] The typename of the schema.
+          #
+          #   @param blocks [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock>] The blocks of the message in an app feed.
 
           # A block in a message in an app feed.
           module Block
@@ -360,10 +385,13 @@ module Knockapi
               # @!method initialize(content:, name:, rendered:, type:)
               #   A block in a message in an app feed.
               #
-              #   @param content [String]
-              #   @param name [String]
-              #   @param rendered [String]
-              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type]
+              #   @param content [String] The content of the block in a message in an app feed.
+              #
+              #   @param name [String] The name of the block in a message in an app feed.
+              #
+              #   @param rendered [String] The rendered HTML version of the content.
+              #
+              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type] The type of block in a message in an app feed.
 
               # The type of block in a message in an app feed.
               #
@@ -407,9 +435,11 @@ module Knockapi
               # @!method initialize(buttons:, name:, type:)
               #   A button set block in a message in an app feed.
               #
-              #   @param buttons [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button>]
-              #   @param name [String]
-              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type]
+              #   @param buttons [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button>] A list of buttons in an in app feed message.
+              #
+              #   @param name [String] The name of the button set in a message in an app feed.
+              #
+              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type] The type of block in a message in an app feed.
 
               class Button < Knockapi::Internal::Type::BaseModel
                 # @!attribute action
@@ -433,9 +463,11 @@ module Knockapi
                 # @!method initialize(action:, label:, name:)
                 #   A button in an in app feed message.
                 #
-                #   @param action [String]
-                #   @param label [String]
-                #   @param name [String]
+                #   @param action [String] The action to take when the button is clicked.
+                #
+                #   @param label [String] The label of the button.
+                #
+                #   @param name [String] The name of the button.
               end
 
               # The type of block in a message in an app feed.

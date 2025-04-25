@@ -32,8 +32,16 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, _typename:, name: nil, settings: nil); end
-
+      def self.new(
+        # The unique identifier for the tenant.
+        id:,
+        # The typename of the schema.
+        _typename:,
+        # An optional name for the tenant.
+        name: nil,
+        # The settings for the tenant. Includes branding and preference set.
+        settings: nil
+      ); end
       sig do
         override
           .returns(
@@ -76,8 +84,13 @@ module Knockapi
           )
             .returns(T.attached_class)
         end
-        def self.new(branding: nil, preference_set: nil); end
-
+        def self.new(
+          # The branding for the tenant.
+          branding: nil,
+          # A preference set represents a specific set of notification preferences for a
+          # recipient. A recipient can have multiple preference sets.
+          preference_set: nil
+        ); end
         sig do
           override
             .returns(
@@ -118,8 +131,18 @@ module Knockapi
             )
               .returns(T.attached_class)
           end
-          def self.new(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil); end
-
+          def self.new(
+            # The icon URL for the tenant. Must point to a valid image with an image MIME
+            # type.
+            icon_url: nil,
+            # The logo URL for the tenant. Must point to a valid image with an image MIME
+            # type.
+            logo_url: nil,
+            # The primary color for the tenant, provided as a hex value.
+            primary_color: nil,
+            # The primary color contrast for the tenant, provided as a hex value.
+            primary_color_contrast: nil
+          ); end
           sig do
             override
               .returns(

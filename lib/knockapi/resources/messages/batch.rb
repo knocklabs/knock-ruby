@@ -9,7 +9,8 @@ module Knockapi
         #
         # @overload archive(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<String>]
+        # @param message_ids [Array<String>] The message IDs to update the status of.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
@@ -30,7 +31,8 @@ module Knockapi
         #
         # @overload get_content(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<String>]
+        # @param message_ids [Array<String>] The IDs of the messages to fetch contents of.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Messages::BatchGetContentResponseItem>]
@@ -55,8 +57,10 @@ module Knockapi
         #
         # @overload mark_as_interacted(message_ids:, metadata: nil, request_options: {})
         #
-        # @param message_ids [Array<String>]
-        # @param metadata [Hash{Symbol=>Object}, nil]
+        # @param message_ids [Array<String>] The message IDs to batch mark as interacted with.
+        #
+        # @param metadata [Hash{Symbol=>Object}, nil] Metadata about the interaction.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
@@ -78,7 +82,8 @@ module Knockapi
         #
         # @overload mark_as_read(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<String>]
+        # @param message_ids [Array<String>] The message IDs to update the status of.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
@@ -101,7 +106,8 @@ module Knockapi
         #
         # @overload mark_as_seen(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<String>]
+        # @param message_ids [Array<String>] The message IDs to update the status of.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
@@ -124,7 +130,8 @@ module Knockapi
         #
         # @overload mark_as_unread(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<String>]
+        # @param message_ids [Array<String>] The message IDs to update the status of.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
@@ -147,7 +154,8 @@ module Knockapi
         #
         # @overload mark_as_unseen(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<String>]
+        # @param message_ids [Array<String>] The message IDs to update the status of.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]
@@ -170,7 +178,8 @@ module Knockapi
         #
         # @overload unarchive(message_ids:, request_options: {})
         #
-        # @param message_ids [Array<String>]
+        # @param message_ids [Array<String>] The message IDs to update the status of.
+        #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Array<Knockapi::Models::Message>]

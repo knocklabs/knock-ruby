@@ -24,8 +24,16 @@ module Knockapi
         params(_typename: String, page_size: Integer, after: T.nilable(String), before: T.nilable(String))
           .returns(T.attached_class)
       end
-      def self.new(_typename:, page_size:, after: nil, before: nil); end
-
+      def self.new(
+        # The typename of the schema.
+        _typename:,
+        # The number of items per page.
+        page_size:,
+        # The cursor to fetch entries after.
+        after: nil,
+        # The cursor to fetch entries before.
+        before: nil
+      ); end
       sig do
         override
           .returns({

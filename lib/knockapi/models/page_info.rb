@@ -30,10 +30,13 @@ module Knockapi
       # @!method initialize(_typename:, page_size:, after: nil, before: nil)
       #   Pagination information for a list of resources.
       #
-      #   @param _typename [String]
-      #   @param page_size [Integer]
-      #   @param after [String, nil]
-      #   @param before [String, nil]
+      #   @param _typename [String] The typename of the schema.
+      #
+      #   @param page_size [Integer] The number of items per page.
+      #
+      #   @param after [String, nil] The cursor to fetch entries after.
+      #
+      #   @param before [String, nil] The cursor to fetch entries before.
     end
   end
 end

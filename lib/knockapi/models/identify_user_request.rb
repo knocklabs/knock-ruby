@@ -66,19 +66,33 @@ module Knockapi
       optional :timezone, String, nil?: true
 
       # @!method initialize(avatar: nil, channel_data: nil, created_at: nil, email: nil, locale: nil, name: nil, phone_number: nil, preferences: nil, timezone: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::IdentifyUserRequest} for more details.
+      #
       #   A set of parameters to identify a user with. Does not include the user ID, as
       #   that's specified elsewhere in the request. You can supply any additional
       #   properties you'd like to upsert for the user.
       #
-      #   @param avatar [String, nil]
-      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
-      #   @param created_at [Time, nil]
-      #   @param email [String, nil]
-      #   @param locale [String, nil]
-      #   @param name [String, nil]
-      #   @param phone_number [String, nil]
-      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
-      #   @param timezone [String, nil]
+      #   @param avatar [String, nil] URL to the user's avatar image.
+      #
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #
+      #   @param created_at [Time, nil] The creation date of the user from your system.
+      #
+      #   @param email [String, nil] The primary email address for the user.
+      #
+      #   @param locale [String, nil] The locale of the user. Used for [message localization](/concepts/translations).
+      #   ...
+      #
+      #   @param name [String, nil] Display name of the user.
+      #
+      #   @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      #   ...
+      #
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      #
+      #   @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
+      #   ...
     end
   end
 end

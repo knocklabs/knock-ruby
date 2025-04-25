@@ -19,8 +19,12 @@ module Knockapi
         attr_writer :result
 
         sig { params(id: String, result: T::Hash[Symbol, T.anything]).returns(T.attached_class) }
-        def self.new(id: nil, result: nil); end
-
+        def self.new(
+          # The request ID.
+          id: nil,
+          # The result of the RPC call.
+          result: nil
+        ); end
         sig { override.returns({id: String, result: T::Hash[Symbol, T.anything]}) }
         def to_hash; end
       end

@@ -38,8 +38,18 @@ module Knockapi
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, collection:, channel_data: nil, created_at: nil, preferences: nil); end
-
+      def self.new(
+        # Unique identifier for the object.
+        id:,
+        # The collection this object belongs to.
+        collection:,
+        # A request to set channel data for a type of channel inline.
+        channel_data: nil,
+        # Timestamp when the resource was created.
+        created_at: nil,
+        # Inline set preferences for a recipient, where the key is the preference set id.
+        preferences: nil
+      ); end
       sig do
         override
           .returns(
