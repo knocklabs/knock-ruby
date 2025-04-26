@@ -44,6 +44,9 @@ module Knockapi
           in Pathname | IO
             state[:can_retry] = false if value.is_a?(IO)
             Knockapi::FilePart.new(value)
+          in Knockapi::FilePart
+            state[:can_retry] = false if value.content.is_a?(IO)
+            value
           else
             value
           end
