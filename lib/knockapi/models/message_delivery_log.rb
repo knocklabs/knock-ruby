@@ -130,6 +130,7 @@ module Knockapi
           # @!method self.variants
           #   @return [Array(String, Hash{Symbol=>Object})]
 
+          # @type [Knockapi::Internal::Type::Converter]
           UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
 
@@ -192,6 +193,7 @@ module Knockapi
           # @!method self.variants
           #   @return [Array(String, Hash{Symbol=>Object})]
 
+          # @type [Knockapi::Internal::Type::Converter]
           UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
       end

@@ -91,9 +91,7 @@ module Knockapi
 
           def self?.variants: -> [String, ::Hash[Symbol, top]]
 
-          type union_member1_map = ::Hash[Symbol, top]
-
-          UnionMember1Map: union_member1_map
+          UnionMember1Map: Knockapi::Internal::Type::Converter
         end
 
         type method_ = :GET | :POST | :PUT | :DELETE | :PATCH
@@ -146,9 +144,7 @@ module Knockapi
 
           def self?.variants: -> [String, ::Hash[Symbol, top]]
 
-          type union_member1_map = ::Hash[Symbol, top]
-
-          UnionMember1Map: union_member1_map
+          UnionMember1Map: Knockapi::Internal::Type::Converter
         end
       end
     end
