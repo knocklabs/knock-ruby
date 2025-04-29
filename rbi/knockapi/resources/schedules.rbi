@@ -27,7 +27,7 @@ module Knockapi
           ending_at: T.nilable(Time),
           scheduled_at: T.nilable(Time),
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end
@@ -65,7 +65,7 @@ module Knockapi
           repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
           scheduled_at: T.nilable(Time),
           tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(T::Array[Knockapi::Models::Schedule])
       end
@@ -97,7 +97,7 @@ module Knockapi
           page_size: Integer,
           recipients: T::Array[String],
           tenant: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
       end
@@ -119,10 +119,7 @@ module Knockapi
       # Permanently deletes one or more schedules identified by the provided schedule
       # IDs. This operation cannot be undone.
       sig do
-        params(
-          schedule_ids: T::Array[String],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(schedule_ids: T::Array[String], request_options: Knockapi::RequestOpts)
           .returns(T::Array[Knockapi::Models::Schedule])
       end
       def delete(

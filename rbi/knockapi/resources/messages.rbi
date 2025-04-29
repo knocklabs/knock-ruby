@@ -26,7 +26,7 @@ module Knockapi
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
       end
@@ -66,26 +66,14 @@ module Knockapi
       ); end
       # Archives a message for the user. Archived messages are hidden from the default
       # message list in the feed but can still be accessed and unarchived later.
-      sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Message)
-      end
+      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
       def archive(
         # The unique identifier for the message.
         message_id,
         request_options: {}
       ); end
       # Retrieves a specific message by its ID.
-      sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Message)
-      end
+      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
       def get(
         # The unique identifier for the message.
         message_id,
@@ -94,10 +82,7 @@ module Knockapi
       # Returns the fully rendered contents of a message, where the response depends on
       # which channel the message was sent through.
       sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(message_id: String, request_options: Knockapi::RequestOpts)
           .returns(Knockapi::Models::MessageGetContentResponse)
       end
       def get_content(
@@ -113,7 +98,7 @@ module Knockapi
           before: String,
           page_size: Integer,
           trigger_data: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::ItemsCursor[Knockapi::Models::Activity])
       end
@@ -137,7 +122,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::MessageDeliveryLog])
       end
@@ -159,7 +144,7 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::MessageEvent])
       end
@@ -183,7 +168,7 @@ module Knockapi
         params(
           message_id: String,
           metadata: T::Hash[Symbol, T.anything],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Message)
       end
@@ -197,13 +182,7 @@ module Knockapi
       # Marks a message as `read`. This indicates that the user has read the message
       # content. Read more about message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Message)
-      end
+      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
       def mark_as_read(
         # The unique identifier for the message.
         message_id,
@@ -212,13 +191,7 @@ module Knockapi
       # Marks a message as `seen`. This indicates that the user has viewed the message
       # in their feed or inbox. Read more about message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Message)
-      end
+      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
       def mark_as_seen(
         # The unique identifier for the message.
         message_id,
@@ -227,13 +200,7 @@ module Knockapi
       # Marks a message as `unread`. This reverses the `read` state. Read more about
       # message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Message)
-      end
+      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
       def mark_as_unread(
         # The unique identifier for the message.
         message_id,
@@ -242,13 +209,7 @@ module Knockapi
       # Marks a message as `unseen`. This reverses the `seen` state. Read more about
       # message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Message)
-      end
+      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
       def mark_as_unseen(
         # The unique identifier for the message.
         message_id,
@@ -256,13 +217,7 @@ module Knockapi
       ); end
       # Removes a message from the archived state, making it visible in the default
       # message list in the feed again.
-      sig do
-        params(
-          message_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Message)
-      end
+      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
       def unarchive(
         # The unique identifier for the message.
         message_id,

@@ -7,10 +7,7 @@ module Knockapi
         # Marks the given messages as archived. Archived messages are hidden from the
         # default message list in the feed but can still be accessed and unarchived later.
         sig do
-          params(
-            message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(message_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(T::Array[Knockapi::Models::Message])
         end
         def archive(
@@ -20,10 +17,7 @@ module Knockapi
         ); end
         # Get the contents of multiple messages in a single request.
         sig do
-          params(
-            message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(message_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem])
         end
         def get_content(
@@ -40,7 +34,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(T::Array[Knockapi::Models::Message])
         end
@@ -54,10 +48,7 @@ module Knockapi
         # Marks the given messages as `read`. Read more about message engagement statuses
         # [here](/send-notifications/message-statuses#engagement-status).
         sig do
-          params(
-            message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(message_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_read(
@@ -69,10 +60,7 @@ module Knockapi
         # message in their feed or inbox. Read more about message engagement statuses
         # [here](/send-notifications/message-statuses#engagement-status).
         sig do
-          params(
-            message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(message_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_seen(
@@ -84,10 +72,7 @@ module Knockapi
         # about message engagement statuses
         # [here](/send-notifications/message-statuses#engagement-status).
         sig do
-          params(
-            message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(message_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unread(
@@ -99,10 +84,7 @@ module Knockapi
         # about message engagement statuses
         # [here](/send-notifications/message-statuses#engagement-status).
         sig do
-          params(
-            message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(message_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unseen(
@@ -114,10 +96,7 @@ module Knockapi
         # Archived messages are hidden from the default message list in the feed but can
         # still be accessed and unarchived later.
         sig do
-          params(
-            message_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(message_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(T::Array[Knockapi::Models::Message])
         end
         def unarchive(

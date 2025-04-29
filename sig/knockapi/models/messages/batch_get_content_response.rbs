@@ -343,7 +343,7 @@ module Knockapi
       type batch_get_content_response =
         ::Array[Knockapi::Models::Messages::BatchGetContentResponseItem]
 
-      BatchGetContentResponse: batch_get_content_response
+      BatchGetContentResponse: Knockapi::Internal::Type::Converter
     end
   end
 end

@@ -4,13 +4,7 @@ module Knockapi
   module Resources
     class BulkOperations
       # Retrieves a bulk operation (if it exists) and displays the current state of it.
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::BulkOperation)
-      end
+      sig { params(id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::BulkOperation) }
       def get(
         # The ID of the bulk operation to retrieve.
         id,

@@ -6,11 +6,7 @@ module Knockapi
       class Bulk
         # Bulk deletes objects from the specified collection.
         sig do
-          params(
-            collection: String,
-            object_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(collection: String, object_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::BulkOperation)
         end
         def delete(
@@ -29,7 +25,7 @@ module Knockapi
           params(
             collection: String,
             subscriptions: T::Array[T.any(Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription, Knockapi::Internal::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -45,7 +41,7 @@ module Knockapi
           params(
             collection: String,
             objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::BulkOperation)
         end

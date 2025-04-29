@@ -35,7 +35,7 @@ module Knockapi
               page: T.nilable(T::Class[Knockapi::Internal::Type::BasePage[Knockapi::Internal::Type::BaseModel]]),
               stream: T.nilable(T::Class[T.anything]),
               model: T.nilable(Knockapi::Internal::Type::Converter::Input),
-              options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+              options: T.nilable(Knockapi::RequestOpts)
             }
           end
 
@@ -188,7 +188,7 @@ module Knockapi
             page: T.nilable(T::Class[Knockapi::Internal::Type::BasePage[Knockapi::Internal::Type::BaseModel]]),
             stream: T.nilable(T::Class[T.anything]),
             model: T.nilable(Knockapi::Internal::Type::Converter::Input),
-            options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            options: T.nilable(Knockapi::RequestOpts)
           )
             .returns(T.anything)
         end

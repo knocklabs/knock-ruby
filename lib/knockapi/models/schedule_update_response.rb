@@ -2,6 +2,7 @@
 
 module Knockapi
   module Models
+    # @type [Knockapi::Internal::Type::Converter]
     ScheduleUpdateResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Schedule }]
   end
 end

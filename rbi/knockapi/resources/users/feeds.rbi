@@ -6,11 +6,7 @@ module Knockapi
       class Feeds
         # Returns the feed settings for a user.
         sig do
-          params(
-            user_id: String,
-            id: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(user_id: String, id: String, request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::Users::FeedGetSettingsResponse)
         end
         def get_settings(
@@ -36,7 +32,7 @@ module Knockapi
             tenant: String,
             trigger_data: String,
             workflow_categories: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse])
         end

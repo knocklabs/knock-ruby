@@ -496,6 +496,7 @@ module Knockapi
         end
       end
 
+      # @type [Knockapi::Internal::Type::Converter]
       BatchGetContentResponse =
         Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Messages::BatchGetContentResponseItem }]
     end

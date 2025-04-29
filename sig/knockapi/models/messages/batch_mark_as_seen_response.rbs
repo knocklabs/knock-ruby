@@ -3,7 +3,7 @@ module Knockapi
     module Messages
       type batch_mark_as_seen_response = ::Array[Knockapi::Models::Message]
 
-      BatchMarkAsSeenResponse: batch_mark_as_seen_response
+      BatchMarkAsSeenResponse: Knockapi::Internal::Type::Converter
     end
   end
 end

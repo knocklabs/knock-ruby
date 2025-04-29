@@ -11,7 +11,7 @@ module Knockapi
             jsonrpc: String,
             method_: String,
             params: T::Hash[Symbol, T.anything],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::Integrations::HightouchEmbeddedDestinationResponse)
         end

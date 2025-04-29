@@ -6,10 +6,7 @@ module Knockapi
       class Bulk
         # Delete multiple tenants in a single operation. This operation cannot be undone.
         sig do
-          params(
-            tenant_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(tenant_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::BulkOperation)
         end
         def delete(
@@ -21,7 +18,7 @@ module Knockapi
         sig do
           params(
             tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::BulkOperation)
         end

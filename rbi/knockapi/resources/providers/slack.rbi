@@ -6,11 +6,7 @@ module Knockapi
       class Slack
         # Check if a Slack channel is authenticated.
         sig do
-          params(
-            channel_id: String,
-            access_token_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(channel_id: String, access_token_object: String, request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::Providers::SlackCheckAuthResponse)
         end
         def check_auth(
@@ -26,7 +22,7 @@ module Knockapi
             channel_id: String,
             access_token_object: String,
             query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Internal::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])
         end
@@ -40,11 +36,7 @@ module Knockapi
         ); end
         # Revoke access for a Slack channel.
         sig do
-          params(
-            channel_id: String,
-            access_token_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(channel_id: String, access_token_object: String, request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::Providers::SlackRevokeAccessResponse)
         end
         def revoke_access(

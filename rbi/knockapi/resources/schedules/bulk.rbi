@@ -10,7 +10,7 @@ module Knockapi
         sig do
           params(
             schedules: T::Array[T.any(Knockapi::Models::Schedules::BulkCreateParams::Schedule, Knockapi::Internal::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::BulkOperation)
         end

@@ -1,6 +1,8 @@
 # typed: strong
 
 module Knockapi
+  RequestOpts = T.type_alias { T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash) }
+
   # Specify HTTP behaviour to use for a specific request. These options supplement
   # or override those provided at the client level.
   #

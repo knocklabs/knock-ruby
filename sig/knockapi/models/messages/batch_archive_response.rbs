@@ -3,7 +3,7 @@ module Knockapi
     module Messages
       type batch_archive_response = ::Array[Knockapi::Models::Message]
 
-      BatchArchiveResponse: batch_archive_response
+      BatchArchiveResponse: Knockapi::Internal::Type::Converter
     end
   end
 end

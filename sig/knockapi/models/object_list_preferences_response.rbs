@@ -3,6 +3,6 @@ module Knockapi
     type object_list_preferences_response =
       ::Array[Knockapi::Models::Recipients::PreferenceSet]
 
-    ObjectListPreferencesResponse: object_list_preferences_response
+    ObjectListPreferencesResponse: Knockapi::Internal::Type::Converter
   end
 end

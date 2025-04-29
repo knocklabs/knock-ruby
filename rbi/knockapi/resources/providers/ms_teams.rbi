@@ -7,11 +7,7 @@ module Knockapi
         # Check if a connection to Microsoft Teams has been authorized for a given
         # Microsoft Teams tenant object.
         sig do
-          params(
-            channel_id: String,
-            ms_teams_tenant_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(channel_id: String, ms_teams_tenant_object: String, request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::Providers::MsTeamCheckAuthResponse)
         end
         def check_auth(
@@ -29,7 +25,7 @@ module Knockapi
             ms_teams_tenant_object: String,
             team_id: String,
             query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::Providers::MsTeamListChannelsResponse)
         end
@@ -50,7 +46,7 @@ module Knockapi
             channel_id: String,
             ms_teams_tenant_object: String,
             query_options: T.any(Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, Knockapi::Internal::AnyHash),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Internal::MsTeamsPagination[Knockapi::Models::Providers::MsTeamListTeamsResponse])
         end
@@ -64,11 +60,7 @@ module Knockapi
         ); end
         # Remove a Microsoft Entra tenant ID from a Microsoft Teams tenant object.
         sig do
-          params(
-            channel_id: String,
-            ms_teams_tenant_object: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(channel_id: String, ms_teams_tenant_object: String, request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::Providers::MsTeamRevokeAccessResponse)
         end
         def revoke_access(

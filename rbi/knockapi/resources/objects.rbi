@@ -15,7 +15,7 @@ module Knockapi
           before: String,
           include: T::Array[Knockapi::Models::ObjectListParams::Include::OrSymbol],
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Object])
       end
@@ -34,14 +34,7 @@ module Knockapi
       ); end
       # Permanently removes an object from the specified collection. This operation
       # cannot be undone.
-      sig do
-        params(
-          collection: String,
-          id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(String)
-      end
+      sig { params(collection: String, id: String, request_options: Knockapi::RequestOpts).returns(String) }
       def delete(
         # The collection this object belongs to.
         collection,
@@ -66,7 +59,7 @@ module Knockapi
             )
           ],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
@@ -89,7 +82,7 @@ module Knockapi
           collection: String,
           object_id_: String,
           recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(T::Array[Knockapi::Models::Recipients::Subscription])
       end
@@ -106,11 +99,7 @@ module Knockapi
       # Retrieves a specific object by its ID from the specified collection. Returns the
       # object with all its properties.
       sig do
-        params(
-          collection: String,
-          id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(collection: String, id: String, request_options: Knockapi::RequestOpts)
           .returns(Knockapi::Models::Object)
       end
       def get(
@@ -126,7 +115,7 @@ module Knockapi
           collection: String,
           object_id_: String,
           channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
@@ -141,12 +130,7 @@ module Knockapi
       ); end
       # Returns the preference set for the specified object and preference set `id`.
       sig do
-        params(
-          collection: String,
-          object_id_: String,
-          id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(collection: String, object_id_: String, id: String, request_options: Knockapi::RequestOpts)
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
       def get_preferences(
@@ -179,7 +163,7 @@ module Knockapi
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
       end
@@ -223,11 +207,7 @@ module Knockapi
       ); end
       # Returns a paginated list of preference sets for the specified object.
       sig do
-        params(
-          collection: String,
-          object_id_: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(collection: String, object_id_: String, request_options: Knockapi::RequestOpts)
           .returns(T::Array[Knockapi::Models::Recipients::PreferenceSet])
       end
       def list_preferences(
@@ -247,7 +227,7 @@ module Knockapi
           page_size: Integer,
           tenant: String,
           workflow: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
       end
@@ -282,7 +262,7 @@ module Knockapi
           objects: T::Array[T.any(Knockapi::Models::ObjectListSubscriptionsParams::Object, Knockapi::Internal::AnyHash)],
           page_size: Integer,
           recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
@@ -320,7 +300,7 @@ module Knockapi
           locale: T.nilable(String),
           preferences: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)],
           timezone: T.nilable(String),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Object)
       end
@@ -359,7 +339,7 @@ module Knockapi
             Knockapi::Models::Recipients::MsTeamsChannelData,
             Knockapi::Models::Recipients::DiscordChannelData
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
@@ -406,7 +386,7 @@ module Knockapi
               )
             ]
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
@@ -433,7 +413,7 @@ module Knockapi
           collection: String,
           object_id_: String,
           channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(String)
       end

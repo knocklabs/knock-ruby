@@ -3,6 +3,6 @@ module Knockapi
     type object_delete_subscriptions_response =
       ::Array[Knockapi::Models::Recipients::Subscription]
 
-    ObjectDeleteSubscriptionsResponse: object_delete_subscriptions_response
+    ObjectDeleteSubscriptionsResponse: Knockapi::Internal::Type::Converter
   end
 end

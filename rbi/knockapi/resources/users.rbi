@@ -31,7 +31,7 @@ module Knockapi
             T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           ),
           timezone: T.nilable(String),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::User)
       end
@@ -70,7 +70,7 @@ module Knockapi
           before: String,
           include: T::Array[Knockapi::Models::UserListParams::Include::OrSymbol],
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::User])
       end
@@ -86,26 +86,14 @@ module Knockapi
         request_options: {}
       ); end
       # Permanently delete a user and all associated data.
-      sig do
-        params(
-          user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(String)
-      end
+      sig { params(user_id: String, request_options: Knockapi::RequestOpts).returns(String) }
       def delete(
         # The ID of the user to delete.
         user_id,
         request_options: {}
       ); end
       # Retrieve a specific user by their ID.
-      sig do
-        params(
-          user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::User)
-      end
+      sig { params(user_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::User) }
       def get(
         # The ID of the user to retrieve.
         user_id,
@@ -113,11 +101,7 @@ module Knockapi
       ); end
       # Retrieves the channel data for a specific user and channel ID.
       sig do
-        params(
-          user_id: String,
-          channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(user_id: String, channel_id: String, request_options: Knockapi::RequestOpts)
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
       def get_channel_data(
@@ -130,12 +114,7 @@ module Knockapi
       # Retrieves a specific preference set for a user identified by the preference set
       # ID.
       sig do
-        params(
-          user_id: String,
-          id: String,
-          tenant: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(user_id: String, id: String, tenant: String, request_options: Knockapi::RequestOpts)
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
       def get_preferences(
@@ -167,7 +146,7 @@ module Knockapi
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
       end
@@ -209,10 +188,7 @@ module Knockapi
       ); end
       # Retrieves a list of all preference sets for a specific user.
       sig do
-        params(
-          user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(user_id: String, request_options: Knockapi::RequestOpts)
           .returns(T::Array[Knockapi::Models::Recipients::PreferenceSet])
       end
       def list_preferences(
@@ -229,7 +205,7 @@ module Knockapi
           page_size: Integer,
           tenant: String,
           workflow: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
       end
@@ -258,7 +234,7 @@ module Knockapi
           include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
           objects: T::Array[String],
           page_size: Integer,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
@@ -280,11 +256,7 @@ module Knockapi
       # Merge two users together, where the user specified with the `from_user_id` param
       # will be merged into the user specified by `user_id`.
       sig do
-        params(
-          user_id: String,
-          from_user_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(user_id: String, from_user_id: String, request_options: Knockapi::RequestOpts)
           .returns(Knockapi::Models::User)
       end
       def merge(
@@ -307,7 +279,7 @@ module Knockapi
             Knockapi::Models::Recipients::MsTeamsChannelData,
             Knockapi::Models::Recipients::DiscordChannelData
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Recipients::RecipientsChannelData)
       end
@@ -347,7 +319,7 @@ module Knockapi
               )
             ]
           ),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Recipients::PreferenceSet)
       end
@@ -368,12 +340,7 @@ module Knockapi
       ); end
       # Deletes channel data for a specific user and channel ID.
       sig do
-        params(
-          user_id: String,
-          channel_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(String)
+        params(user_id: String, channel_id: String, request_options: Knockapi::RequestOpts).returns(String)
       end
       def unset_channel_data(
         # The ID for the user that you set when identifying them in Knock.

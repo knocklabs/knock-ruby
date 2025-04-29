@@ -7,10 +7,7 @@ module Knockapi
         # Deletes multiple users in a single operation. Accepts up to 100 user IDs to
         # delete and returns a bulk operation that can be queried for progress.
         sig do
-          params(
-            user_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          )
+          params(user_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::BulkOperation)
         end
         def delete(
@@ -24,7 +21,7 @@ module Knockapi
         sig do
           params(
             users: T::Array[T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::AnyHash)],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::BulkOperation)
         end
@@ -40,7 +37,7 @@ module Knockapi
           params(
             preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash),
             user_ids: T::Array[String],
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::BulkOperation)
         end

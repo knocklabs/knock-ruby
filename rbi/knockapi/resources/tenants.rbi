@@ -14,7 +14,7 @@ module Knockapi
           name: String,
           page_size: Integer,
           tenant_id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Tenant])
       end
@@ -32,26 +32,14 @@ module Knockapi
         request_options: {}
       ); end
       # Delete a tenant and all associated data. This operation cannot be undone.
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(String)
-      end
+      sig { params(id: String, request_options: Knockapi::RequestOpts).returns(String) }
       def delete(
         # The unique identifier for the tenant.
         id,
         request_options: {}
       ); end
       # Get a tenant by ID.
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
-          .returns(Knockapi::Models::Tenant)
-      end
+      sig { params(id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Tenant) }
       def get(
         # The unique identifier for the tenant.
         id,
@@ -69,7 +57,7 @@ module Knockapi
             T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
           ),
           settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash),
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(Knockapi::Models::Tenant)
       end

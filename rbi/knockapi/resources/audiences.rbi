@@ -8,7 +8,7 @@ module Knockapi
         params(
           key: String,
           members: T::Array[T.any(Knockapi::Models::AudienceAddMembersParams::Member, Knockapi::Internal::AnyHash)],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(String)
       end
@@ -21,10 +21,7 @@ module Knockapi
       ); end
       # Returns a paginated list of members for the specified audience.
       sig do
-        params(
-          key: String,
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-        )
+        params(key: String, request_options: Knockapi::RequestOpts)
           .returns(Knockapi::Models::AudienceListMembersResponse)
       end
       def list_members(
@@ -37,7 +34,7 @@ module Knockapi
         params(
           key: String,
           members: T::Array[T.any(Knockapi::Models::AudienceRemoveMembersParams::Member, Knockapi::Internal::AnyHash)],
-          request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+          request_options: Knockapi::RequestOpts
         )
           .returns(String)
       end

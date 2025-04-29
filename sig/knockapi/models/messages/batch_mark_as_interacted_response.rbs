@@ -4,7 +4,7 @@ module Knockapi
       type batch_mark_as_interacted_response =
         ::Array[Knockapi::Models::Message]
 
-      BatchMarkAsInteractedResponse: batch_mark_as_interacted_response
+      BatchMarkAsInteractedResponse: Knockapi::Internal::Type::Converter
     end
   end
 end

@@ -12,7 +12,7 @@ module Knockapi
             before: String,
             page_size: Integer,
             trigger_data: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Internal::ItemsCursor[Knockapi::Models::Activity])
         end

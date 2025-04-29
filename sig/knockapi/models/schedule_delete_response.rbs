@@ -2,6 +2,6 @@ module Knockapi
   module Models
     type schedule_delete_response = ::Array[Knockapi::Models::Schedule]
 
-    ScheduleDeleteResponse: schedule_delete_response
+    ScheduleDeleteResponse: Knockapi::Internal::Type::Converter
   end
 end

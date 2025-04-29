@@ -12,7 +12,7 @@ module Knockapi
             data: String,
             tenant: String,
             type: String,
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::Users::GuideGetChannelResponse)
         end
@@ -44,7 +44,7 @@ module Knockapi
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse)
         end
@@ -88,7 +88,7 @@ module Knockapi
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse)
         end
@@ -132,7 +132,7 @@ module Knockapi
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
-            request_options: T.nilable(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
+            request_options: Knockapi::RequestOpts
           )
             .returns(Knockapi::Models::Users::GuideMarkMessageAsSeenResponse)
         end

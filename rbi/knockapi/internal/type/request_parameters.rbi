@@ -6,7 +6,7 @@ module Knockapi
       # @api private
       module RequestParameters
         # Options to specify HTTP behaviour for this request.
-        sig { returns(T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)) }
+        sig { returns(Knockapi::RequestOpts) }
         attr_accessor :request_options
 
         # @api private
