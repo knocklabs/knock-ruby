@@ -14,9 +14,13 @@ The REST API documentation can be found on [docs.knock.app](https://docs.knock.a
 
 To use this gem, install via Bundler by adding the following to your application's `Gemfile`:
 
+<!-- x-release-please-start-version -->
+
 ```ruby
 gem "knockapi", "~> 0.0.1.pre.alpha.0"
 ```
+
+<!-- x-release-please-end -->
 
 ## Usage
 
@@ -204,4 +208,4 @@ Ruby 3.1.0 or higher.
 
 ## Contributing
 
-See [the contributing documentation](https://github.com/stainless-sdks/knock-ruby/tree/main/CONTRIBUTING.md).
+See [the contributing documentation](https://github.com/knocklabs/knock-ruby/tree/main/CONTRIBUTING.md).

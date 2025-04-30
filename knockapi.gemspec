@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = "support@knock.app"
   s.homepage = "https://gemdocs.org/gems/knockapi"
   s.metadata["homepage_uri"] = s.homepage
-  s.metadata["source_code_uri"] = "https://github.com/stainless-sdks/knock-ruby"
+  s.metadata["source_code_uri"] = "https://github.com/knocklabs/knock-ruby"
   s.metadata["rubygems_mfa_required"] = false.to_s
   s.required_ruby_version = ">= 3.0.0"
 
