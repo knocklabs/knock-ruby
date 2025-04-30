@@ -8,8 +8,7 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response =
-      @knock.objects.bulk.delete("collection", body: {object_ids: %w[obj_123 obj_456 obj_789]})
+    response = @knock.objects.bulk.delete("collection", object_ids: %w[obj_123 obj_456 obj_789])
 
     assert_pattern do
       response => Knockapi::Models::BulkOperation
