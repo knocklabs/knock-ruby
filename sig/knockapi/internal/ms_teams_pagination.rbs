@@ -1,0 +1,13 @@
+module Knockapi
+  module Internal
+    class MsTeamsPagination[Elem]
+      include Knockapi::Internal::Type::BasePage[Elem]
+
+      attr_accessor skip_token: String
+
+      attr_accessor ms_teams_teams: ::Array[Elem]?
+
+      def inspect: -> String
+    end
+  end
+end

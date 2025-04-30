@@ -1,0 +1,71 @@
+module Knockapi
+  module Models
+    module Users
+      type guide_get_channel_response =
+        {
+          guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide],
+          recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
+        }
+
+      class GuideGetChannelResponse < Knockapi::Internal::Type::BaseModel
+        attr_accessor guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide]
+
+        attr_accessor recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
+
+        def initialize: (
+          guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide],
+          ?recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Users::guide_get_channel_response
+
+        type guide =
+          {
+            id: String,
+            content: String,
+            metadata: ::Hash[Symbol, top],
+            title: String
+          }
+
+        class Guide < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          attr_reader content: String?
+
+          def content=: (String) -> String
+
+          attr_reader metadata: ::Hash[Symbol, top]?
+
+          def metadata=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+          attr_reader title: String?
+
+          def title=: (String) -> String
+
+          def initialize: (
+            ?id: String,
+            ?content: String,
+            ?metadata: ::Hash[Symbol, top],
+            ?title: String
+          ) -> void
+
+          def to_hash: -> Knockapi::Models::Users::GuideGetChannelResponse::guide
+        end
+
+        type recipient = { id: String }
+
+        class Recipient < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          def initialize: (?id: String) -> void
+
+          def to_hash: -> Knockapi::Models::Users::GuideGetChannelResponse::recipient
+        end
+      end
+    end
+  end
+end

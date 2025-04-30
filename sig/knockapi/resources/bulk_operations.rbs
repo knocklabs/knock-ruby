@@ -1,0 +1,12 @@
+module Knockapi
+  module Resources
+    class BulkOperations
+      def get: (
+        String id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::BulkOperation
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

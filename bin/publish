@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-bundle install
-bundle exec gem build knockapi --output=release.gem
-bundle exec gem push release.gem

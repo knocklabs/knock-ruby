@@ -1,0 +1,50 @@
+module Knockapi
+  class Client < Knockapi::Internal::Transport::BaseClient
+    DEFAULT_MAX_RETRIES: 2
+
+    DEFAULT_TIMEOUT_IN_SECONDS: Float
+
+    DEFAULT_INITIAL_RETRY_DELAY: Float
+
+    DEFAULT_MAX_RETRY_DELAY: Float
+
+    attr_reader bearer_token: String
+
+    attr_reader shared: Knockapi::Resources::Shared
+
+    attr_reader recipients: Knockapi::Resources::Recipients
+
+    attr_reader users: Knockapi::Resources::Users
+
+    attr_reader objects: Knockapi::Resources::Objects
+
+    attr_reader tenants: Knockapi::Resources::Tenants
+
+    attr_reader bulk_operations: Knockapi::Resources::BulkOperations
+
+    attr_reader messages: Knockapi::Resources::Messages
+
+    attr_reader providers: Knockapi::Resources::Providers
+
+    attr_reader integrations: Knockapi::Resources::Integrations
+
+    attr_reader workflows: Knockapi::Resources::Workflows
+
+    attr_reader schedules: Knockapi::Resources::Schedules
+
+    attr_reader channels: Knockapi::Resources::Channels
+
+    attr_reader audiences: Knockapi::Resources::Audiences
+
+    private def auth_headers: -> ::Hash[String, String]
+
+    def initialize: (
+      ?bearer_token: String?,
+      ?base_url: String?,
+      ?max_retries: Integer,
+      ?timeout: Float,
+      ?initial_retry_delay: Float,
+      ?max_retry_delay: Float
+    ) -> void
+  end
+end

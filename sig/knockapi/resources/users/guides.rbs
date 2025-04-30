@@ -1,0 +1,63 @@
+module Knockapi
+  module Resources
+    class Users
+      class Guides
+        def get_channel: (
+          String user_id,
+          String channel_id,
+          ?data: String,
+          ?tenant: String,
+          ?type: String,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Users::GuideGetChannelResponse
+
+        def mark_message_as_archived: (
+          String user_id,
+          String message_id,
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          ?content: ::Hash[Symbol, top],
+          ?data: ::Hash[Symbol, top],
+          ?is_final: bool,
+          ?metadata: ::Hash[Symbol, top],
+          ?tenant: String?,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse
+
+        def mark_message_as_interacted: (
+          String user_id,
+          String message_id,
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          ?content: ::Hash[Symbol, top],
+          ?data: ::Hash[Symbol, top],
+          ?is_final: bool,
+          ?metadata: ::Hash[Symbol, top],
+          ?tenant: String?,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse
+
+        def mark_message_as_seen: (
+          String user_id,
+          String message_id,
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          ?content: ::Hash[Symbol, top],
+          ?data: ::Hash[Symbol, top],
+          ?is_final: bool,
+          ?metadata: ::Hash[Symbol, top],
+          ?tenant: String?,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Users::GuideMarkMessageAsSeenResponse
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

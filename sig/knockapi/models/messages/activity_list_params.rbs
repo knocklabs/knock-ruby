@@ -1,0 +1,45 @@
+module Knockapi
+  module Models
+    module Messages
+      type activity_list_params =
+        {
+          after: String,
+          before: String,
+          page_size: Integer,
+          trigger_data: String
+        }
+        & Knockapi::Internal::Type::request_parameters
+
+      class ActivityListParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_reader after: String?
+
+        def after=: (String) -> String
+
+        attr_reader before: String?
+
+        def before=: (String) -> String
+
+        attr_reader page_size: Integer?
+
+        def page_size=: (Integer) -> Integer
+
+        attr_reader trigger_data: String?
+
+        def trigger_data=: (String) -> String
+
+        def initialize: (
+          ?after: String,
+          ?before: String,
+          ?page_size: Integer,
+          ?trigger_data: String,
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Messages::activity_list_params
+      end
+    end
+  end
+end

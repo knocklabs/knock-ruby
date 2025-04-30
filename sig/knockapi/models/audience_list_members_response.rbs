@@ -1,0 +1,22 @@
+module Knockapi
+  module Models
+    type audience_list_members_response =
+      {
+        entries: ::Array[Knockapi::Models::AudienceMember],
+        page_info: Knockapi::Models::PageInfo
+      }
+
+    class AudienceListMembersResponse < Knockapi::Internal::Type::BaseModel
+      attr_accessor entries: ::Array[Knockapi::Models::AudienceMember]
+
+      attr_accessor page_info: Knockapi::Models::PageInfo
+
+      def initialize: (
+        entries: ::Array[Knockapi::Models::AudienceMember],
+        page_info: Knockapi::Models::PageInfo
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::audience_list_members_response
+    end
+  end
+end

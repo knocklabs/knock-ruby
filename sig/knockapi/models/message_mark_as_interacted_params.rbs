@@ -1,0 +1,23 @@
+module Knockapi
+  module Models
+    type message_mark_as_interacted_params =
+      { metadata: ::Hash[Symbol, top] }
+      & Knockapi::Internal::Type::request_parameters
+
+    class MessageMarkAsInteractedParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_reader metadata: ::Hash[Symbol, top]?
+
+      def metadata=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+      def initialize: (
+        ?metadata: ::Hash[Symbol, top],
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::message_mark_as_interacted_params
+    end
+  end
+end

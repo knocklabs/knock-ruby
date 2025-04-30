@@ -1,0 +1,53 @@
+module Knockapi
+  module Models
+    type schedule_list_params =
+      {
+        workflow: String,
+        after: String,
+        before: String,
+        page_size: Integer,
+        recipients: ::Array[String],
+        tenant: String
+      }
+      & Knockapi::Internal::Type::request_parameters
+
+    class ScheduleListParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor workflow: String
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      attr_reader recipients: ::Array[String]?
+
+      def recipients=: (::Array[String]) -> ::Array[String]
+
+      attr_reader tenant: String?
+
+      def tenant=: (String) -> String
+
+      def initialize: (
+        workflow: String,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?recipients: ::Array[String],
+        ?tenant: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::schedule_list_params
+    end
+  end
+end

@@ -1,0 +1,63 @@
+# typed: strong
+
+module Knockapi
+  module Models
+    class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
+      # The ID for the user that you set when identifying them in Knock.
+      sig { returns(String) }
+      attr_accessor :id
+
+      # A request to set channel data for a type of channel inline.
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
+      attr_accessor :channel_data
+
+      # The creation date of the user from your system.
+      sig { returns(T.nilable(Time)) }
+      attr_accessor :created_at
+
+      # Inline set preferences for a recipient, where the key is the preference set id.
+      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
+      attr_accessor :preferences
+
+      # A set of parameters to inline-identify a user with. Inline identifying the user
+      # will ensure that the user is available before the request is executed in Knock.
+      # It will perform an upsert for the user you're supplying, replacing any
+      # properties specified.
+      sig do
+        params(
+          id: String,
+          channel_data: T.nilable(
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
+          ),
+          created_at: T.nilable(Time),
+          preferences: T.nilable(
+            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
+          )
+        )
+          .returns(T.attached_class)
+      end
+      def self.new(
+        # The ID for the user that you set when identifying them in Knock.
+        id:,
+        # A request to set channel data for a type of channel inline.
+        channel_data: nil,
+        # The creation date of the user from your system.
+        created_at: nil,
+        # Inline set preferences for a recipient, where the key is the preference set id.
+        preferences: nil
+      ); end
+      sig do
+        override
+          .returns(
+            {
+              id: String,
+              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
+              created_at: T.nilable(Time),
+              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])
+            }
+          )
+      end
+      def to_hash; end
+    end
+  end
+end

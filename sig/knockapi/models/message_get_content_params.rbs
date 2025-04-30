@@ -1,0 +1,15 @@
+module Knockapi
+  module Models
+    type message_get_content_params =
+      {  } & Knockapi::Internal::Type::request_parameters
+
+    class MessageGetContentParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: Knockapi::request_opts) -> void
+
+      def to_hash: -> Knockapi::Models::message_get_content_params
+    end
+  end
+end

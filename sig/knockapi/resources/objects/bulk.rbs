@@ -1,0 +1,27 @@
+module Knockapi
+  module Resources
+    class Objects
+      class Bulk
+        def delete: (
+          String collection,
+          body: top,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+        def add_subscriptions: (
+          String collection,
+          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+        def set: (
+          String collection,
+          objects: ::Array[Knockapi::Models::InlineObjectRequest],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

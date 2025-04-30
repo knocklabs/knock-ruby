@@ -1,0 +1,7 @@
+module Knockapi
+  module Resources
+    class Shared
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

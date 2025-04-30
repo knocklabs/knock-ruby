@@ -1,0 +1,17 @@
+module Knockapi
+  module Resources
+    class Integrations
+      class Census
+        def custom_destination: (
+          id: String,
+          jsonrpc: String,
+          method_: String,
+          ?params: ::Hash[Symbol, top],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Integrations::CensusCustomDestinationResponse
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

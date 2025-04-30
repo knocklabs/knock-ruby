@@ -1,0 +1,11 @@
+module Knockapi
+  module Resources
+    class Providers
+      attr_reader slack: Knockapi::Resources::Providers::Slack
+
+      attr_reader ms_teams: Knockapi::Resources::Providers::MsTeams
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

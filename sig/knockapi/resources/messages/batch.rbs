@@ -1,0 +1,50 @@
+module Knockapi
+  module Resources
+    class Messages
+      class Batch
+        def archive: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_archive_response
+
+        def get_content: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_get_content_response
+
+        def mark_as_interacted: (
+          message_ids: ::Array[String],
+          ?metadata: ::Hash[Symbol, top]?,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_interacted_response
+
+        def mark_as_read: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_read_response
+
+        def mark_as_seen: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_seen_response
+
+        def mark_as_unread: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_unread_response
+
+        def mark_as_unseen: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_mark_as_unseen_response
+
+        def unarchive: (
+          message_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Messages::batch_unarchive_response
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

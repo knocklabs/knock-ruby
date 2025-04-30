@@ -1,0 +1,65 @@
+module Knockapi
+  module Models
+    module Users
+      type guide_mark_message_as_interacted_params =
+        {
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          content: ::Hash[Symbol, top],
+          data: ::Hash[Symbol, top],
+          is_final: bool,
+          metadata: ::Hash[Symbol, top],
+          tenant: String?
+        }
+        & Knockapi::Internal::Type::request_parameters
+
+      class GuideMarkMessageAsInteractedParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor channel_id: String
+
+        attr_accessor guide_id: String
+
+        attr_accessor guide_key: String
+
+        attr_accessor guide_step_ref: String
+
+        attr_reader content: ::Hash[Symbol, top]?
+
+        def content=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+        attr_reader data: ::Hash[Symbol, top]?
+
+        def data=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+        attr_reader is_final: bool?
+
+        def is_final=: (bool) -> bool
+
+        attr_reader metadata: ::Hash[Symbol, top]?
+
+        def metadata=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+        attr_accessor tenant: String?
+
+        def initialize: (
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          ?content: ::Hash[Symbol, top],
+          ?data: ::Hash[Symbol, top],
+          ?is_final: bool,
+          ?metadata: ::Hash[Symbol, top],
+          ?tenant: String?,
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Users::guide_mark_message_as_interacted_params
+      end
+    end
+  end
+end

@@ -1,0 +1,13 @@
+module Knockapi
+  module Resources
+    class Recipients
+      attr_reader subscriptions: Knockapi::Resources::Recipients::Subscriptions
+
+      attr_reader preferences: Knockapi::Resources::Recipients::Preferences
+
+      attr_reader channel_data: Knockapi::Resources::Recipients::ChannelData
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

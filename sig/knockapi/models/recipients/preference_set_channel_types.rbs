@@ -1,0 +1,118 @@
+module Knockapi
+  module Models
+    module Recipients
+      type preference_set_channel_types =
+        {
+          chat: Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat,
+          email: Knockapi::Models::Recipients::PreferenceSetChannelTypes::email,
+          http: Knockapi::Models::Recipients::PreferenceSetChannelTypes::http,
+          in_app_feed: Knockapi::Models::Recipients::PreferenceSetChannelTypes::in_app_feed,
+          push: Knockapi::Models::Recipients::PreferenceSetChannelTypes::push,
+          sms: Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms
+        }
+
+      class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
+        attr_reader chat: Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat?
+
+        def chat=: (
+          Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat
+        ) -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat
+
+        attr_reader email: Knockapi::Models::Recipients::PreferenceSetChannelTypes::email?
+
+        def email=: (
+          Knockapi::Models::Recipients::PreferenceSetChannelTypes::email
+        ) -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::email
+
+        attr_reader http: Knockapi::Models::Recipients::PreferenceSetChannelTypes::http?
+
+        def http=: (
+          Knockapi::Models::Recipients::PreferenceSetChannelTypes::http
+        ) -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::http
+
+        attr_reader in_app_feed: Knockapi::Models::Recipients::PreferenceSetChannelTypes::in_app_feed?
+
+        def in_app_feed=: (
+          Knockapi::Models::Recipients::PreferenceSetChannelTypes::in_app_feed
+        ) -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::in_app_feed
+
+        attr_reader push: Knockapi::Models::Recipients::PreferenceSetChannelTypes::push?
+
+        def push=: (
+          Knockapi::Models::Recipients::PreferenceSetChannelTypes::push
+        ) -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::push
+
+        attr_reader sms: Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms?
+
+        def sms=: (
+          Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms
+        ) -> Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms
+
+        def initialize: (
+          ?chat: Knockapi::Models::Recipients::PreferenceSetChannelTypes::chat,
+          ?email: Knockapi::Models::Recipients::PreferenceSetChannelTypes::email,
+          ?http: Knockapi::Models::Recipients::PreferenceSetChannelTypes::http,
+          ?in_app_feed: Knockapi::Models::Recipients::PreferenceSetChannelTypes::in_app_feed,
+          ?push: Knockapi::Models::Recipients::PreferenceSetChannelTypes::push,
+          ?sms: Knockapi::Models::Recipients::PreferenceSetChannelTypes::sms
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Recipients::preference_set_channel_types
+
+        type chat =
+          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+
+        module Chat
+          extend Knockapi::Internal::Type::Union
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        end
+
+        type email =
+          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+
+        module Email
+          extend Knockapi::Internal::Type::Union
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        end
+
+        type http =
+          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+
+        module HTTP
+          extend Knockapi::Internal::Type::Union
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        end
+
+        type in_app_feed =
+          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+
+        module InAppFeed
+          extend Knockapi::Internal::Type::Union
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        end
+
+        type push =
+          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+
+        module Push
+          extend Knockapi::Internal::Type::Union
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        end
+
+        type sms =
+          bool | Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting
+
+        module SMS
+          extend Knockapi::Internal::Type::Union
+
+          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetChannelTypeSetting]
+        end
+      end
+    end
+  end
+end

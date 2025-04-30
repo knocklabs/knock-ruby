@@ -1,0 +1,44 @@
+module Knockapi
+  module Models
+    module Objects
+      type bulk_add_subscriptions_params =
+        {
+          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription]
+        }
+        & Knockapi::Internal::Type::request_parameters
+
+      class BulkAddSubscriptionsParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription]
+
+        def initialize: (
+          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Objects::bulk_add_subscriptions_params
+
+        type subscription =
+          {
+            recipients: ::Array[Knockapi::Models::recipient_request],
+            properties: ::Hash[Symbol, top]?
+          }
+
+        class Subscription < Knockapi::Internal::Type::BaseModel
+          attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
+
+          attr_accessor properties: ::Hash[Symbol, top]?
+
+          def initialize: (
+            recipients: ::Array[Knockapi::Models::recipient_request],
+            ?properties: ::Hash[Symbol, top]?
+          ) -> void
+
+          def to_hash: -> Knockapi::Models::Objects::BulkAddSubscriptionsParams::subscription
+        end
+      end
+    end
+  end
+end

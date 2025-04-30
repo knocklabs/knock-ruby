@@ -1,0 +1,17 @@
+module Knockapi
+  module Models
+    module Providers
+      type slack_revoke_access_response = { ok: String }
+
+      class SlackRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
+        attr_reader ok: String?
+
+        def ok=: (String) -> String
+
+        def initialize: (?ok: String) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::slack_revoke_access_response
+      end
+    end
+  end
+end

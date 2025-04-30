@@ -1,0 +1,24 @@
+module Knockapi
+  module Resources
+    class Audiences
+      def add_members: (
+        String key,
+        members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member],
+        ?request_options: Knockapi::request_opts
+      ) -> String
+
+      def list_members: (
+        String key,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::AudienceListMembersResponse
+
+      def remove_members: (
+        String key,
+        members: ::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
+        ?request_options: Knockapi::request_opts
+      ) -> String
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

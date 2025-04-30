@@ -1,0 +1,9 @@
+module Knockapi
+  module Resources
+    class Channels
+      attr_reader bulk: Knockapi::Resources::Channels::Bulk
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

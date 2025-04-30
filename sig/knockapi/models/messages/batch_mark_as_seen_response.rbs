@@ -1,0 +1,9 @@
+module Knockapi
+  module Models
+    module Messages
+      type batch_mark_as_seen_response = ::Array[Knockapi::Models::Message]
+
+      BatchMarkAsSeenResponse: Knockapi::Internal::Type::Converter
+    end
+  end
+end

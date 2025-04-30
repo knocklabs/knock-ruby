@@ -1,0 +1,50 @@
+module Knockapi
+  module Models
+    type identify_user_request =
+      {
+        avatar: String?,
+        channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        created_at: Time?,
+        email: String?,
+        locale: String?,
+        name: String?,
+        phone_number: String?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        timezone: String?
+      }
+
+    class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
+      attr_accessor avatar: String?
+
+      attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
+
+      attr_accessor created_at: Time?
+
+      attr_accessor email: String?
+
+      attr_accessor locale: String?
+
+      attr_accessor name: String?
+
+      attr_accessor phone_number: String?
+
+      attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+
+      attr_accessor timezone: String?
+
+      def initialize: (
+        ?avatar: String?,
+        ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?created_at: Time?,
+        ?email: String?,
+        ?locale: String?,
+        ?name: String?,
+        ?phone_number: String?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        ?timezone: String?
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::identify_user_request
+    end
+  end
+end

@@ -1,0 +1,25 @@
+module Knockapi
+  module Resources
+    class Users
+      class Bulk
+        def delete: (
+          user_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+        def identify: (
+          users: ::Array[Knockapi::Models::InlineIdentifyUserRequest],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+        def set_preferences: (
+          preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
+          user_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end
