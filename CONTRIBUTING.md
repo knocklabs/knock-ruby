@@ -43,13 +43,13 @@ If you’d like to use the repository from source, you can either install from g
 To install via git in your `Gemfile`:
 
 ```ruby
-gem "knockapi", git: "https://www.github.com/stainless-sdks/knock-ruby"
+gem "knockapi", git: "https://www.github.com/knocklabs/knock-ruby"
 ```
 
 Alternatively, reference local copy of the repo:
 
 ```bash
-$ git clone -- 'https://www.github.com/stainless-sdks/knock-ruby' '<path-to-repo>'
+$ git clone -- 'https://www.github.com/knocklabs/knock-ruby' '<path-to-repo>'
 ```
 
 ```ruby
