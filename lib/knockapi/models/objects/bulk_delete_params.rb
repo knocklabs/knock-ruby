@@ -8,15 +8,13 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        # @!attribute object_ids
-        #   List of object IDs to delete.
+        # @!attribute body
         #
-        #   @return [Array<String>]
-        required :object_ids, Knockapi::Internal::Type::ArrayOf[String]
+        #   @return [Object]
+        required :body, Knockapi::Internal::Type::Unknown
 
-        # @!method initialize(object_ids:, request_options: {})
-        #   @param object_ids [Array<String>] List of object IDs to delete.
-        #
+        # @!method initialize(body:, request_options: {})
+        #   @param body [Object]
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end
     end

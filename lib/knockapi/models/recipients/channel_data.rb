@@ -4,6 +4,12 @@ module Knockapi
   module Models
     module Recipients
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
+        # @!attribute _typename
+        #   The typename of the schema.
+        #
+        #   @return [String]
+        required :_typename, String, api_name: :__typename
+
         # @!attribute channel_id
         #   The unique identifier for the channel.
         #
@@ -22,8 +28,10 @@ module Knockapi
         #   @return [Symbol, Knockapi::Models::Recipients::RecipientsChannelData::Provider, nil]
         optional :provider, enum: -> { Knockapi::Models::Recipients::RecipientsChannelData::Provider }
 
-        # @!method initialize(channel_id:, data:, provider: nil)
+        # @!method initialize(_typename:, channel_id:, data:, provider: nil)
         #   Channel data for a given channel type.
+        #
+        #   @param _typename [String] The typename of the schema.
         #
         #   @param channel_id [String] The unique identifier for the channel.
         #

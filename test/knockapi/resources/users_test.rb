@@ -113,6 +113,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
 
     assert_pattern do
       response => {
+        _typename: String,
         channel_id: String,
         data: Knockapi::Models::Recipients::RecipientsChannelData::Data,
         provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider | nil
@@ -308,6 +309,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
 
     assert_pattern do
       response => {
+        _typename: String,
         channel_id: String,
         data: Knockapi::Models::Recipients::RecipientsChannelData::Data,
         provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider | nil

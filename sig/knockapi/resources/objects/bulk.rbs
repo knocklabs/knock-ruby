@@ -4,7 +4,7 @@ module Knockapi
       class Bulk
         def delete: (
           String collection,
-          object_ids: ::Array[String],
+          body: top,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::BulkOperation
 

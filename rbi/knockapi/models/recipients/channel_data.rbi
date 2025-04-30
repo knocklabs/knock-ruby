@@ -4,6 +4,10 @@ module Knockapi
   module Models
     module Recipients
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
+        # The typename of the schema.
+        sig { returns(String) }
+        attr_accessor :_typename
+
         # The unique identifier for the channel.
         sig { returns(String) }
         attr_accessor :channel_id
@@ -32,6 +36,7 @@ module Knockapi
         # Channel data for a given channel type.
         sig do
           params(
+            _typename: String,
             channel_id: String,
             data: T.any(
               Knockapi::Models::Recipients::PushChannelData,
@@ -46,6 +51,8 @@ module Knockapi
             .returns(T.attached_class)
         end
         def self.new(
+          # The typename of the schema.
+          _typename:,
           # The unique identifier for the channel.
           channel_id:,
           # Channel data for a given channel type.
@@ -57,6 +64,7 @@ module Knockapi
           override
             .returns(
               {
+                _typename: String,
                 channel_id: String,
                 data: T.any(
                   Knockapi::Models::Recipients::PushChannelData,

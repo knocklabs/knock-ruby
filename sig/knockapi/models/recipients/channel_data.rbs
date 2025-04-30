@@ -3,12 +3,15 @@ module Knockapi
     module Recipients
       type recipients_channel_data =
         {
+          _typename: String,
           channel_id: String,
           data: Knockapi::Models::Recipients::RecipientsChannelData::data,
           provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
         }
 
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
+        attr_accessor _typename: String
+
         attr_accessor channel_id: String
 
         attr_accessor data: Knockapi::Models::Recipients::RecipientsChannelData::data
@@ -20,6 +23,7 @@ module Knockapi
         ) -> Knockapi::Models::Recipients::RecipientsChannelData::provider
 
         def initialize: (
+          _typename: String,
           channel_id: String,
           data: Knockapi::Models::Recipients::RecipientsChannelData::data,
           ?provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
