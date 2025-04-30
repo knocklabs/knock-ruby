@@ -6,11 +6,11 @@ module Knockapi
       class Bulk
         # Bulk deletes objects from the specified collection.
         #
-        # @overload delete(collection, body:, request_options: {})
+        # @overload delete(collection, object_ids:, request_options: {})
         #
         # @param collection [String] The collection this object belongs to.
         #
-        # @param body [Object]
+        # @param object_ids [Array<String>] List of object IDs to delete.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -22,7 +22,7 @@ module Knockapi
           @client.request(
             method: :post,
             path: ["v1/objects/%1$s/bulk/delete", collection],
-            body: parsed[:body],
+            body: parsed,
             model: Knockapi::Models::BulkOperation,
             options: options
           )

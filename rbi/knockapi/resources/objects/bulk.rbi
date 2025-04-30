@@ -6,13 +6,14 @@ module Knockapi
       class Bulk
         # Bulk deletes objects from the specified collection.
         sig do
-          params(collection: String, body: T.anything, request_options: Knockapi::RequestOpts)
+          params(collection: String, object_ids: T::Array[String], request_options: Knockapi::RequestOpts)
             .returns(Knockapi::Models::BulkOperation)
         end
         def delete(
           # The collection this object belongs to.
           collection,
-          body:,
+          # List of object IDs to delete.
+          object_ids:,
           request_options: {}
         ); end
         # Add subscriptions for all objects in a single collection. If a subscription for
