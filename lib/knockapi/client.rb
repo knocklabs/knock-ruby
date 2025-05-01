@@ -16,7 +16,7 @@ module Knockapi
     DEFAULT_MAX_RETRY_DELAY = 8.0
 
     # @return [String]
-    attr_reader :bearer_token
+    attr_reader :api_key
 
     # @return [Knockapi::Resources::Shared]
     attr_reader :shared
@@ -61,14 +61,14 @@ module Knockapi
     #
     # @return [Hash{String=>String}]
     private def auth_headers
-      return {} if @bearer_token.nil?
+      return {} if @api_key.nil?
 
-      {"authorization" => "Bearer #{@bearer_token}"}
+      {"authorization" => "Bearer #{@api_key}"}
     end
 
     # Creates and returns a new client for interacting with the API.
     #
-    # @param bearer_token [String, nil] Defaults to `ENV["KNOCK_API_KEY"]`
+    # @param api_key [String, nil] Defaults to `ENV["KNOCK_API_KEY"]`
     #
     # @param base_url [String, nil] Override the default base URL for the API, e.g.,
     # `"https://api.example.com/v2/"`. Defaults to `ENV["KNOCK_BASE_URL"]`
@@ -81,7 +81,7 @@ module Knockapi
     #
     # @param max_retry_delay [Float]
     def initialize(
-      bearer_token: ENV["KNOCK_API_KEY"],
+      api_key: ENV["KNOCK_API_KEY"],
       base_url: ENV["KNOCK_BASE_URL"],
       max_retries: Knockapi::Client::DEFAULT_MAX_RETRIES,
       timeout: Knockapi::Client::DEFAULT_TIMEOUT_IN_SECONDS,
@@ -90,11 +90,11 @@ module Knockapi
     )
       base_url ||= "https://api.knock.app"
 
-      if bearer_token.nil?
-        raise ArgumentError.new("bearer_token is required, and can be set via environ: \"KNOCK_API_KEY\"")
+      if api_key.nil?
+        raise ArgumentError.new("api_key is required, and can be set via environ: \"KNOCK_API_KEY\"")
       end
 
-      @bearer_token = bearer_token.to_s
+      @api_key = api_key.to_s
 
       super(
         base_url: base_url,

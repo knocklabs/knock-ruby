@@ -1,6 +1,6 @@
 # Knock Ruby API library
 
-The Knock Ruby library provides convenient access to the Knock REST API from any Ruby 3.1.0+ application.
+The Knock Ruby library provides convenient access to the Knock REST API from any Ruby 3.2.0+ application.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -29,7 +29,7 @@ require "bundler/setup"
 require "knockapi"
 
 knock = Knockapi::Client.new(
-  bearer_token: "My Bearer Token" # defaults to ENV["KNOCK_API_KEY"]
+  api_key: "My API Key" # defaults to ENV["KNOCK_API_KEY"]
 )
 
 response = knock.workflows.trigger("dinosaurs-loose", recipients: ["dnedry"], data: {dinosaur: "triceratops"})
@@ -78,7 +78,7 @@ rescue Knockapi::Errors::APIError => e
 end
 ```
 
-Error codes are as followed:
+Error codes are as follows:
 
 | Cause            | Error Type                 |
 | ---------------- | -------------------------- |
@@ -204,7 +204,7 @@ This package considers improvements to the (non-runtime) `*.rbi` and `*.rbs` typ
 
 ## Requirements
 
-Ruby 3.1.0 or higher.
+Ruby 3.2.0 or higher.
 
 ## Contributing
 
