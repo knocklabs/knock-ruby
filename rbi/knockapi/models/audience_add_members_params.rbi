@@ -34,14 +34,13 @@ module Knockapi
       def to_hash; end
 
       class Member < Knockapi::Internal::Type::BaseModel
-        # A set of parameters to inline-identify a user with. Inline identifying the user
-        # will ensure that the user is available before the request is executed in Knock.
-        # It will perform an upsert for the user you're supplying, replacing any
-        # properties specified.
-        sig { returns(Knockapi::Models::InlineIdentifyUserRequest) }
+        sig { returns(Knockapi::Models::AudienceAddMembersParams::Member::User) }
         attr_reader :user
 
-        sig { params(user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::AnyHash)).void }
+        sig do
+          params(user: T.any(Knockapi::Models::AudienceAddMembersParams::Member::User, Knockapi::Internal::AnyHash))
+            .void
+        end
         attr_writer :user
 
         # The unique identifier for the tenant.
@@ -51,22 +50,38 @@ module Knockapi
         # An audience member.
         sig do
           params(
-            user: T.any(Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Internal::AnyHash),
+            user: T.any(Knockapi::Models::AudienceAddMembersParams::Member::User, Knockapi::Internal::AnyHash),
             tenant: T.nilable(String)
           )
             .returns(T.attached_class)
         end
         def self.new(
-          # A set of parameters to inline-identify a user with. Inline identifying the user
-          # will ensure that the user is available before the request is executed in Knock.
-          # It will perform an upsert for the user you're supplying, replacing any
-          # properties specified.
           user:,
           # The unique identifier for the tenant.
           tenant: nil
         ); end
-        sig { override.returns({user: Knockapi::Models::InlineIdentifyUserRequest, tenant: T.nilable(String)}) }
+        sig do
+          override
+            .returns({user: Knockapi::Models::AudienceAddMembersParams::Member::User, tenant: T.nilable(String)})
+        end
         def to_hash; end
+
+        class User < Knockapi::Internal::Type::BaseModel
+          # The ID for the user that you set when identifying them in Knock.
+          sig { returns(T.nilable(String)) }
+          attr_reader :id
+
+          sig { params(id: String).void }
+          attr_writer :id
+
+          sig { params(id: String).returns(T.attached_class) }
+          def self.new(
+            # The ID for the user that you set when identifying them in Knock.
+            id: nil
+          ); end
+          sig { override.returns({id: String}) }
+          def to_hash; end
+        end
       end
     end
   end

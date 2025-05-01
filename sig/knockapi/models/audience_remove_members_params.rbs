@@ -20,19 +20,34 @@ module Knockapi
       def to_hash: -> Knockapi::Models::audience_remove_members_params
 
       type member =
-        { user: Knockapi::Models::InlineIdentifyUserRequest, tenant: String? }
+        {
+          user: Knockapi::Models::AudienceRemoveMembersParams::Member::User,
+          tenant: String?
+        }
 
       class Member < Knockapi::Internal::Type::BaseModel
-        attr_accessor user: Knockapi::Models::InlineIdentifyUserRequest
+        attr_accessor user: Knockapi::Models::AudienceRemoveMembersParams::Member::User
 
         attr_accessor tenant: String?
 
         def initialize: (
-          user: Knockapi::Models::InlineIdentifyUserRequest,
+          user: Knockapi::Models::AudienceRemoveMembersParams::Member::User,
           ?tenant: String?
         ) -> void
 
         def to_hash: -> Knockapi::Models::AudienceRemoveMembersParams::member
+
+        type user = { id: String }
+
+        class User < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          def initialize: (?id: String) -> void
+
+          def to_hash: -> Knockapi::Models::AudienceRemoveMembersParams::Member::user
+        end
       end
     end
   end
