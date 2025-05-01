@@ -1,0 +1,47 @@
+module Knockapi
+  module Models
+    type schedule_create_params =
+      {
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        workflow: String,
+        data: ::Hash[Symbol, top]?,
+        ending_at: Time?,
+        scheduled_at: Time?,
+        tenant: Knockapi::Models::inline_tenant_request?
+      }
+      & Knockapi::Internal::Type::request_parameters
+
+    class ScheduleCreateParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
+
+      attr_accessor repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]
+
+      attr_accessor workflow: String
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      attr_accessor ending_at: Time?
+
+      attr_accessor scheduled_at: Time?
+
+      attr_accessor tenant: Knockapi::Models::inline_tenant_request?
+
+      def initialize: (
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        workflow: String,
+        ?data: ::Hash[Symbol, top]?,
+        ?ending_at: Time?,
+        ?scheduled_at: Time?,
+        ?tenant: Knockapi::Models::inline_tenant_request?,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::schedule_create_params
+    end
+  end
+end

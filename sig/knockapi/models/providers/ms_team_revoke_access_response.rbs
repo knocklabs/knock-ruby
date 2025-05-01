@@ -1,0 +1,17 @@
+module Knockapi
+  module Models
+    module Providers
+      type ms_team_revoke_access_response = { ok: String }
+
+      class MsTeamRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
+        attr_reader ok: String?
+
+        def ok=: (String) -> String
+
+        def initialize: (?ok: String) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::ms_team_revoke_access_response
+      end
+    end
+  end
+end

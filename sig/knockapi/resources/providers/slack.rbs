@@ -1,0 +1,28 @@
+module Knockapi
+  module Resources
+    class Providers
+      class Slack
+        def check_auth: (
+          String channel_id,
+          access_token_object: String,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Providers::SlackCheckAuthResponse
+
+        def list_channels: (
+          String channel_id,
+          access_token_object: String,
+          ?query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Internal::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse]
+
+        def revoke_access: (
+          String channel_id,
+          access_token_object: String,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Providers::SlackRevokeAccessResponse
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

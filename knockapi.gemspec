@@ -1,30 +1,28 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'knock/version'
+require_relative "lib/knockapi/version"
 
-Gem::Specification.new do |spec|
-  spec.name = 'knockapi'
-  spec.version = Knock::VERSION
-  spec.authors = ['Knock Labs, Inc.']
-  spec.email = ['support@knock.app']
-  spec.description = 'API client for Knock'
-  spec.summary = 'API client for Knock'
-  spec.homepage = 'https://github.com/knocklabs/knock-ruby'
-  spec.license = 'MIT'
-  spec.metadata = {
-    'documentation_uri' => 'https://docs.knock.app'
-  }
+Gem::Specification.new do |s|
+  s.name = "knockapi"
+  s.version = Knockapi::VERSION
+  s.summary = "Ruby library to access the Knock API"
+  s.authors = ["Knock"]
+  s.email = "support@knock.app"
+  s.homepage = "https://gemdocs.org/gems/knockapi"
+  s.metadata["homepage_uri"] = s.homepage
+  s.metadata["source_code_uri"] = "https://github.com/knocklabs/knock-ruby"
+  s.metadata["rubygems_mfa_required"] = false.to_s
+  s.required_ruby_version = ">= 3.2.0"
 
-  spec.files = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
-  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ['lib']
-
-  spec.add_development_dependency 'bundler', '>= 2.0.1'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'standard'
-
-  spec.required_ruby_version = '>= 2.5'
+  s.files = Dir[
+    "lib/**/*.rb",
+    "rbi/**/*.rbi",
+    "sig/**/*.rbs",
+    "manifest.yaml",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    ".ignore"
+  ]
+  s.extra_rdoc_files = ["README.md"]
+  s.add_dependency "connection_pool"
 end

@@ -1,0 +1,8 @@
+module Knockapi
+  module Models
+    type user_list_preferences_response =
+      ::Array[Knockapi::Models::Recipients::PreferenceSet]
+
+    UserListPreferencesResponse: Knockapi::Internal::Type::Converter
+  end
+end

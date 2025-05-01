@@ -1,0 +1,100 @@
+module Knockapi
+  module Resources
+    class Messages
+      attr_reader batch: Knockapi::Resources::Messages::Batch
+
+      attr_reader activities: Knockapi::Resources::Messages::Activities
+
+      def list: (
+        ?after: String,
+        ?before: String,
+        ?channel_id: String,
+        ?engagement_status: ::Array[Knockapi::Models::MessageListParams::engagement_status],
+        ?inserted_at: Knockapi::Models::MessageListParams::InsertedAt,
+        ?message_ids: ::Array[String],
+        ?page_size: Integer,
+        ?source: String,
+        ?status: ::Array[Knockapi::Models::MessageListParams::status],
+        ?tenant: String,
+        ?trigger_data: String,
+        ?workflow_categories: ::Array[String],
+        ?workflow_recipient_run_id: String,
+        ?workflow_run_id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Message]
+
+      def archive: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def get: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def get_content: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::MessageGetContentResponse
+
+      def list_activities: (
+        String message_id,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?trigger_data: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Internal::ItemsCursor[Knockapi::Models::Activity]
+
+      def list_delivery_logs: (
+        String message_id,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::MessageDeliveryLog]
+
+      def list_events: (
+        String message_id,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::MessageEvent]
+
+      def mark_as_interacted: (
+        String message_id,
+        ?metadata: ::Hash[Symbol, top],
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def mark_as_read: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def mark_as_seen: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def mark_as_unread: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def mark_as_unseen: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def unarchive: (
+        String message_id,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::Message
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

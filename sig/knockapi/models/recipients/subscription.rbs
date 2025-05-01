@@ -1,0 +1,40 @@
+module Knockapi
+  module Models
+    module Recipients
+      type subscription =
+        {
+          _typename: String,
+          inserted_at: Time,
+          object: Knockapi::Models::Object,
+          recipient: Knockapi::Models::recipient,
+          updated_at: Time,
+          properties: ::Hash[Symbol, top]?
+        }
+
+      class Subscription < Knockapi::Internal::Type::BaseModel
+        attr_accessor _typename: String
+
+        attr_accessor inserted_at: Time
+
+        attr_accessor object: Knockapi::Models::Object
+
+        attr_accessor recipient: Knockapi::Models::recipient
+
+        attr_accessor updated_at: Time
+
+        attr_accessor properties: ::Hash[Symbol, top]?
+
+        def initialize: (
+          _typename: String,
+          inserted_at: Time,
+          object: Knockapi::Models::Object,
+          recipient: Knockapi::Models::recipient,
+          updated_at: Time,
+          ?properties: ::Hash[Symbol, top]?
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Recipients::subscription
+      end
+    end
+  end
+end

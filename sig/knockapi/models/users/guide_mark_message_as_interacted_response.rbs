@@ -1,0 +1,15 @@
+module Knockapi
+  module Models
+    module Users
+      type guide_mark_message_as_interacted_response = { status: String }
+
+      class GuideMarkMessageAsInteractedResponse < Knockapi::Internal::Type::BaseModel
+        attr_accessor status: String
+
+        def initialize: (status: String) -> void
+
+        def to_hash: -> Knockapi::Models::Users::guide_mark_message_as_interacted_response
+      end
+    end
+  end
+end

@@ -1,0 +1,25 @@
+module Knockapi
+  module Resources
+    class Channels
+      class Bulk
+        def update_message_status: (
+          String channel_id,
+          Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action action,
+          ?archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
+          ?delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
+          ?engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
+          ?has_tenant: bool,
+          ?newer_than: Time,
+          ?older_than: Time,
+          ?recipient_ids: ::Array[String],
+          ?tenants: ::Array[String],
+          ?trigger_data: String,
+          ?workflows: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::BulkOperation
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

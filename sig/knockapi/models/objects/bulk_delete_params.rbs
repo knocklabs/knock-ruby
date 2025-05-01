@@ -1,0 +1,23 @@
+module Knockapi
+  module Models
+    module Objects
+      type bulk_delete_params =
+        { object_ids: ::Array[String] }
+        & Knockapi::Internal::Type::request_parameters
+
+      class BulkDeleteParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor object_ids: ::Array[String]
+
+        def initialize: (
+          object_ids: ::Array[String],
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Objects::bulk_delete_params
+      end
+    end
+  end
+end

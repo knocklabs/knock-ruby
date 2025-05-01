@@ -1,0 +1,73 @@
+module Knockapi
+  module Models
+    type schedule_repeat_rule =
+      {
+        _typename: String,
+        frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
+        day_of_month: Integer?,
+        days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
+        hours: Integer?,
+        interval: Integer,
+        minutes: Integer?
+      }
+
+    class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
+      attr_accessor _typename: String
+
+      attr_accessor frequency: Knockapi::Models::ScheduleRepeatRule::frequency
+
+      attr_accessor day_of_month: Integer?
+
+      attr_accessor days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?
+
+      attr_accessor hours: Integer?
+
+      attr_reader interval: Integer?
+
+      def interval=: (Integer) -> Integer
+
+      attr_accessor minutes: Integer?
+
+      def initialize: (
+        _typename: String,
+        frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
+        ?day_of_month: Integer?,
+        ?days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
+        ?hours: Integer?,
+        ?interval: Integer,
+        ?minutes: Integer?
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::schedule_repeat_rule
+
+      type frequency = :daily | :weekly | :monthly | :hourly
+
+      module Frequency
+        extend Knockapi::Internal::Type::Enum
+
+        DAILY: :daily
+        WEEKLY: :weekly
+        MONTHLY: :monthly
+        HOURLY: :hourly
+
+        def self?.values: -> ::Array[Knockapi::Models::ScheduleRepeatRule::frequency]
+      end
+
+      type day = :mon | :tue | :wed | :thu | :fri | :sat | :sun
+
+      module Day
+        extend Knockapi::Internal::Type::Enum
+
+        MON: :mon
+        TUE: :tue
+        WED: :wed
+        THU: :thu
+        FRI: :fri
+        SAT: :sat
+        SUN: :sun
+
+        def self?.values: -> ::Array[Knockapi::Models::ScheduleRepeatRule::day]
+      end
+    end
+  end
+end

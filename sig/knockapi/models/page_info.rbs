@@ -1,0 +1,25 @@
+module Knockapi
+  module Models
+    type page_info =
+      { _typename: String, page_size: Integer, after: String?, before: String? }
+
+    class PageInfo < Knockapi::Internal::Type::BaseModel
+      attr_accessor _typename: String
+
+      attr_accessor page_size: Integer
+
+      attr_accessor after: String?
+
+      attr_accessor before: String?
+
+      def initialize: (
+        _typename: String,
+        page_size: Integer,
+        ?after: String?,
+        ?before: String?
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::page_info
+    end
+  end
+end

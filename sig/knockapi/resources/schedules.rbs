@@ -1,0 +1,46 @@
+module Knockapi
+  module Resources
+    class Schedules
+      attr_reader bulk: Knockapi::Resources::Schedules::Bulk
+
+      def create: (
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        workflow: String,
+        ?data: ::Hash[Symbol, top]?,
+        ?ending_at: Time?,
+        ?scheduled_at: Time?,
+        ?tenant: Knockapi::Models::inline_tenant_request?,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::schedule_create_response
+
+      def update: (
+        schedule_ids: ::Array[String],
+        ?actor: Knockapi::Models::recipient_reference?,
+        ?data: ::Hash[Symbol, top]?,
+        ?ending_at: Time?,
+        ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        ?scheduled_at: Time?,
+        ?tenant: Knockapi::Models::inline_tenant_request?,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::schedule_update_response
+
+      def list: (
+        workflow: String,
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?recipients: ::Array[String],
+        ?tenant: String,
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule]
+
+      def delete: (
+        schedule_ids: ::Array[String],
+        ?request_options: Knockapi::request_opts
+      ) -> Knockapi::Models::schedule_delete_response
+
+      def initialize: (client: Knockapi::Client) -> void
+    end
+  end
+end

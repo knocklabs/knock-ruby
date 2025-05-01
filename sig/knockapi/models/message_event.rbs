@@ -1,0 +1,77 @@
+module Knockapi
+  module Models
+    type message_event =
+      {
+        id: String,
+        _typename: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient_reference,
+        type: Knockapi::Models::MessageEvent::type_,
+        data: ::Hash[Symbol, top]?
+      }
+
+    class MessageEvent < Knockapi::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor inserted_at: Time
+
+      attr_accessor recipient: Knockapi::Models::recipient_reference
+
+      attr_accessor type: Knockapi::Models::MessageEvent::type_
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      def initialize: (
+        id: String,
+        _typename: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient_reference,
+        type: Knockapi::Models::MessageEvent::type_,
+        ?data: ::Hash[Symbol, top]?
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::message_event
+
+      type type_ =
+        :"message.archived"
+        | :"message.bounced"
+        | :"message.delivered"
+        | :"message.delivery_attempted"
+        | :"message.interacted"
+        | :"message.link_clicked"
+        | :"message.not_sent"
+        | :"message.queued"
+        | :"message.read"
+        | :"message.seen"
+        | :"message.sent"
+        | :"message.unarchived"
+        | :"message.undelivered"
+        | :"message.unread"
+        | :"message.unseen"
+
+      module Type
+        extend Knockapi::Internal::Type::Enum
+
+        MESSAGE_ARCHIVED: :"message.archived"
+        MESSAGE_BOUNCED: :"message.bounced"
+        MESSAGE_DELIVERED: :"message.delivered"
+        MESSAGE_DELIVERY_ATTEMPTED: :"message.delivery_attempted"
+        MESSAGE_INTERACTED: :"message.interacted"
+        MESSAGE_LINK_CLICKED: :"message.link_clicked"
+        MESSAGE_NOT_SENT: :"message.not_sent"
+        MESSAGE_QUEUED: :"message.queued"
+        MESSAGE_READ: :"message.read"
+        MESSAGE_SEEN: :"message.seen"
+        MESSAGE_SENT: :"message.sent"
+        MESSAGE_UNARCHIVED: :"message.unarchived"
+        MESSAGE_UNDELIVERED: :"message.undelivered"
+        MESSAGE_UNREAD: :"message.unread"
+        MESSAGE_UNSEEN: :"message.unseen"
+
+        def self?.values: -> ::Array[Knockapi::Models::MessageEvent::type_]
+      end
+    end
+  end
+end

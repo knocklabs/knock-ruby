@@ -1,0 +1,14 @@
+module Knockapi
+  module Models
+    type recipient_request =
+      String
+      | Knockapi::Models::InlineIdentifyUserRequest
+      | Knockapi::Models::InlineObjectRequest
+
+    module RecipientRequest
+      extend Knockapi::Internal::Type::Union
+
+      def self?.variants: -> [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest]
+    end
+  end
+end

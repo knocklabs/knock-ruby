@@ -1,0 +1,106 @@
+module Knockapi
+  module Models
+    type object_list_subscriptions_params =
+      {
+        after: String,
+        before: String,
+        include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
+        mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+        objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::Object],
+        page_size: Integer,
+        recipients: ::Array[Knockapi::Models::recipient_reference]
+      }
+      & Knockapi::Internal::Type::request_parameters
+
+    class ObjectListSubscriptionsParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]?
+
+      def include=: (
+        ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]
+      ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]
+
+      attr_reader mode: Knockapi::Models::ObjectListSubscriptionsParams::mode?
+
+      def mode=: (
+        Knockapi::Models::ObjectListSubscriptionsParams::mode
+      ) -> Knockapi::Models::ObjectListSubscriptionsParams::mode
+
+      attr_reader objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::Object]?
+
+      def objects=: (
+        ::Array[Knockapi::Models::ObjectListSubscriptionsParams::Object]
+      ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::Object]
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      attr_reader recipients: ::Array[Knockapi::Models::recipient_reference]?
+
+      def recipients=: (
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
+
+      def initialize: (
+        ?after: String,
+        ?before: String,
+        ?include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
+        ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+        ?objects: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::Object],
+        ?page_size: Integer,
+        ?recipients: ::Array[Knockapi::Models::recipient_reference],
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::object_list_subscriptions_params
+
+      type include_ = :preferences
+
+      module Include
+        extend Knockapi::Internal::Type::Enum
+
+        PREFERENCES: :preferences
+
+        def self?.values: -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]
+      end
+
+      type mode = :recipient | :object
+
+      module Mode
+        extend Knockapi::Internal::Type::Enum
+
+        RECIPIENT: :recipient
+        OBJECT: :object
+
+        def self?.values: -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::mode]
+      end
+
+      type object = { id: String, collection: String }
+
+      class Object < Knockapi::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader collection: String?
+
+        def collection=: (String) -> String
+
+        def initialize: (?id: String, ?collection: String) -> void
+
+        def to_hash: -> Knockapi::Models::ObjectListSubscriptionsParams::object
+      end
+    end
+  end
+end

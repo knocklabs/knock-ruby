@@ -1,0 +1,11 @@
+module Knockapi
+  module Models
+    type recipient = Knockapi::Models::User | Knockapi::Models::Object
+
+    module Recipient
+      extend Knockapi::Internal::Type::Union
+
+      def self?.variants: -> [Knockapi::Models::User, Knockapi::Models::Object]
+    end
+  end
+end

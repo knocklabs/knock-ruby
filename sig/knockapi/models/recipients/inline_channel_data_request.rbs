@@ -1,0 +1,10 @@
+module Knockapi
+  module Models
+    module Recipients
+      type inline_channel_data_request =
+        ::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]
+
+      InlineChannelDataRequest: Knockapi::Internal::Type::Converter
+    end
+  end
+end

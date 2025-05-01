@@ -1,0 +1,22 @@
+module Knockapi
+  module Models
+    module Integrations
+      type census_custom_destination_response =
+        { id: String, result: ::Hash[Symbol, top] }
+
+      class CensusCustomDestinationResponse < Knockapi::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader result: ::Hash[Symbol, top]?
+
+        def result=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+        def initialize: (?id: String, ?result: ::Hash[Symbol, top]) -> void
+
+        def to_hash: -> Knockapi::Models::Integrations::census_custom_destination_response
+      end
+    end
+  end
+end

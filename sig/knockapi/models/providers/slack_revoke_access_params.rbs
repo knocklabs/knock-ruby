@@ -1,0 +1,23 @@
+module Knockapi
+  module Models
+    module Providers
+      type slack_revoke_access_params =
+        { access_token_object: String }
+        & Knockapi::Internal::Type::request_parameters
+
+      class SlackRevokeAccessParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor access_token_object: String
+
+        def initialize: (
+          access_token_object: String,
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::slack_revoke_access_params
+      end
+    end
+  end
+end

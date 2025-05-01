@@ -1,0 +1,24 @@
+module Knockapi
+  module Models
+    module Providers
+      type ms_team_list_teams_response =
+        { id: String, display_name: String, description: String? }
+
+      class MsTeamListTeamsResponse < Knockapi::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor display_name: String
+
+        attr_accessor description: String?
+
+        def initialize: (
+          id: String,
+          display_name: String,
+          ?description: String?
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Providers::ms_team_list_teams_response
+      end
+    end
+  end
+end

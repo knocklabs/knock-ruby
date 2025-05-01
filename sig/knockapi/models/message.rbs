@@ -1,0 +1,193 @@
+module Knockapi
+  module Models
+    type message =
+      {
+        id: String,
+        _typename: String,
+        actors: ::Array[Knockapi::Models::recipient_reference],
+        archived_at: Time?,
+        channel_id: String,
+        clicked_at: Time?,
+        data: ::Hash[Symbol, top]?,
+        engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
+        inserted_at: Time,
+        interacted_at: Time?,
+        link_clicked_at: Time?,
+        metadata: ::Hash[Symbol, top]?,
+        read_at: Time?,
+        recipient: Knockapi::Models::recipient_reference,
+        scheduled_at: Time?,
+        seen_at: Time?,
+        source: Knockapi::Models::Message::Source,
+        status: Knockapi::Models::Message::status,
+        tenant: String?,
+        updated_at: Time,
+        workflow: String?
+      }
+
+    class Message < Knockapi::Internal::Type::BaseModel
+      attr_reader id: String?
+
+      def id=: (String) -> String
+
+      attr_reader _typename: String?
+
+      def _typename=: (String) -> String
+
+      attr_reader actors: ::Array[Knockapi::Models::recipient_reference]?
+
+      def actors=: (
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
+
+      attr_accessor archived_at: Time?
+
+      attr_reader channel_id: String?
+
+      def channel_id=: (String) -> String
+
+      attr_accessor clicked_at: Time?
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      attr_reader engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status]?
+
+      def engagement_statuses=: (
+        ::Array[Knockapi::Models::Message::engagement_status]
+      ) -> ::Array[Knockapi::Models::Message::engagement_status]
+
+      attr_reader inserted_at: Time?
+
+      def inserted_at=: (Time) -> Time
+
+      attr_accessor interacted_at: Time?
+
+      attr_accessor link_clicked_at: Time?
+
+      attr_accessor metadata: ::Hash[Symbol, top]?
+
+      attr_accessor read_at: Time?
+
+      attr_reader recipient: Knockapi::Models::recipient_reference?
+
+      def recipient=: (
+        Knockapi::Models::recipient_reference
+      ) -> Knockapi::Models::recipient_reference
+
+      attr_accessor scheduled_at: Time?
+
+      attr_accessor seen_at: Time?
+
+      attr_reader source: Knockapi::Models::Message::Source?
+
+      def source=: (
+        Knockapi::Models::Message::Source
+      ) -> Knockapi::Models::Message::Source
+
+      attr_reader status: Knockapi::Models::Message::status?
+
+      def status=: (
+        Knockapi::Models::Message::status
+      ) -> Knockapi::Models::Message::status
+
+      attr_accessor tenant: String?
+
+      attr_reader updated_at: Time?
+
+      def updated_at=: (Time) -> Time
+
+      attr_accessor workflow: String?
+
+      def initialize: (
+        ?id: String,
+        ?_typename: String,
+        ?actors: ::Array[Knockapi::Models::recipient_reference],
+        ?archived_at: Time?,
+        ?channel_id: String,
+        ?clicked_at: Time?,
+        ?data: ::Hash[Symbol, top]?,
+        ?engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
+        ?inserted_at: Time,
+        ?interacted_at: Time?,
+        ?link_clicked_at: Time?,
+        ?metadata: ::Hash[Symbol, top]?,
+        ?read_at: Time?,
+        ?recipient: Knockapi::Models::recipient_reference,
+        ?scheduled_at: Time?,
+        ?seen_at: Time?,
+        ?source: Knockapi::Models::Message::Source,
+        ?status: Knockapi::Models::Message::status,
+        ?tenant: String?,
+        ?updated_at: Time,
+        ?workflow: String?
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::message
+
+      type engagement_status =
+        :seen | :read | :interacted | :link_clicked | :archived
+
+      module EngagementStatus
+        extend Knockapi::Internal::Type::Enum
+
+        SEEN: :seen
+        READ: :read
+        INTERACTED: :interacted
+        LINK_CLICKED: :link_clicked
+        ARCHIVED: :archived
+
+        def self?.values: -> ::Array[Knockapi::Models::Message::engagement_status]
+      end
+
+      type source =
+        {
+          _typename: String,
+          categories: ::Array[String],
+          key: String,
+          version_id: String
+        }
+
+      class Source < Knockapi::Internal::Type::BaseModel
+        attr_accessor _typename: String
+
+        attr_accessor categories: ::Array[String]
+
+        attr_accessor key: String
+
+        attr_accessor version_id: String
+
+        def initialize: (
+          _typename: String,
+          categories: ::Array[String],
+          key: String,
+          version_id: String
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::Message::source
+      end
+
+      type status =
+        :queued
+        | :sent
+        | :delivered
+        | :delivery_attempted
+        | :undelivered
+        | :not_sent
+        | :bounced
+
+      module Status
+        extend Knockapi::Internal::Type::Enum
+
+        QUEUED: :queued
+        SENT: :sent
+        DELIVERED: :delivered
+        DELIVERY_ATTEMPTED: :delivery_attempted
+        UNDELIVERED: :undelivered
+        NOT_SENT: :not_sent
+        BOUNCED: :bounced
+
+        def self?.values: -> ::Array[Knockapi::Models::Message::status]
+      end
+    end
+  end
+end

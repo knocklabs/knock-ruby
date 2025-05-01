@@ -1,0 +1,33 @@
+module Knockapi
+  module Models
+    type message_list_events_params =
+      { after: String, before: String, page_size: Integer }
+      & Knockapi::Internal::Type::request_parameters
+
+    class MessageListEventsParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      def initialize: (
+        ?after: String,
+        ?before: String,
+        ?page_size: Integer,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::message_list_events_params
+    end
+  end
+end

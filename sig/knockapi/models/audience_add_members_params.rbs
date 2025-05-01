@@ -1,0 +1,52 @@
+module Knockapi
+  module Models
+    type audience_add_members_params =
+      { members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member] }
+      & Knockapi::Internal::Type::request_parameters
+
+    class AudienceAddMembersParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member]
+
+      def initialize: (
+        members: ::Array[Knockapi::Models::AudienceAddMembersParams::Member],
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::audience_add_members_params
+
+      type member =
+        {
+          user: Knockapi::Models::AudienceAddMembersParams::Member::User,
+          tenant: String?
+        }
+
+      class Member < Knockapi::Internal::Type::BaseModel
+        attr_accessor user: Knockapi::Models::AudienceAddMembersParams::Member::User
+
+        attr_accessor tenant: String?
+
+        def initialize: (
+          user: Knockapi::Models::AudienceAddMembersParams::Member::User,
+          ?tenant: String?
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::AudienceAddMembersParams::member
+
+        type user = { id: String }
+
+        class User < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          def initialize: (?id: String) -> void
+
+          def to_hash: -> Knockapi::Models::AudienceAddMembersParams::Member::user
+        end
+      end
+    end
+  end
+end

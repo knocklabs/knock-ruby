@@ -1,0 +1,13 @@
+module Knockapi
+  module Internal
+    class SlackChannelsCursor[Elem]
+      include Knockapi::Internal::Type::BasePage[Elem]
+
+      attr_accessor next_cursor: String
+
+      attr_accessor slack_channels: ::Array[Elem]?
+
+      def inspect: -> String
+    end
+  end
+end

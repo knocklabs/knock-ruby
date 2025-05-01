@@ -1,0 +1,8 @@
+module Knockapi
+  module Models
+    type object_delete_subscriptions_response =
+      ::Array[Knockapi::Models::Recipients::Subscription]
+
+    ObjectDeleteSubscriptionsResponse: Knockapi::Internal::Type::Converter
+  end
+end

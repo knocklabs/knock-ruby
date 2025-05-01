@@ -1,0 +1,29 @@
+module Knockapi
+  module Internal
+    module Type
+      module Enum
+        include Knockapi::Internal::Type::Converter
+
+        def self.values: -> ::Array[(nil | bool | Integer | Float | Symbol)]
+
+        def ===: (top other) -> bool
+
+        def ==: (top other) -> bool
+
+        def hash: -> Integer
+
+        def coerce: (
+          String | Symbol | top value,
+          state: Knockapi::Internal::Type::Converter::coerce_state
+        ) -> (Symbol | top)
+
+        def dump: (
+          Symbol | top value,
+          state: Knockapi::Internal::Type::Converter::dump_state
+        ) -> (Symbol | top)
+
+        def inspect: (?depth: Integer) -> String
+      end
+    end
+  end
+end

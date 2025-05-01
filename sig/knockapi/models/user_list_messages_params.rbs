@@ -1,0 +1,176 @@
+module Knockapi
+  module Models
+    type user_list_messages_params =
+      {
+        after: String,
+        before: String,
+        channel_id: String,
+        engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
+        inserted_at: Knockapi::Models::UserListMessagesParams::InsertedAt,
+        message_ids: ::Array[String],
+        page_size: Integer,
+        source: String,
+        status: ::Array[Knockapi::Models::UserListMessagesParams::status],
+        tenant: String,
+        trigger_data: String,
+        workflow_categories: ::Array[String],
+        workflow_recipient_run_id: String,
+        workflow_run_id: String
+      }
+      & Knockapi::Internal::Type::request_parameters
+
+    class UserListMessagesParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader channel_id: String?
+
+      def channel_id=: (String) -> String
+
+      attr_reader engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]?
+
+      def engagement_status=: (
+        ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
+      ) -> ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
+
+      attr_reader inserted_at: Knockapi::Models::UserListMessagesParams::InsertedAt?
+
+      def inserted_at=: (
+        Knockapi::Models::UserListMessagesParams::InsertedAt
+      ) -> Knockapi::Models::UserListMessagesParams::InsertedAt
+
+      attr_reader message_ids: ::Array[String]?
+
+      def message_ids=: (::Array[String]) -> ::Array[String]
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      attr_reader source: String?
+
+      def source=: (String) -> String
+
+      attr_reader status: ::Array[Knockapi::Models::UserListMessagesParams::status]?
+
+      def status=: (
+        ::Array[Knockapi::Models::UserListMessagesParams::status]
+      ) -> ::Array[Knockapi::Models::UserListMessagesParams::status]
+
+      attr_reader tenant: String?
+
+      def tenant=: (String) -> String
+
+      attr_reader trigger_data: String?
+
+      def trigger_data=: (String) -> String
+
+      attr_reader workflow_categories: ::Array[String]?
+
+      def workflow_categories=: (::Array[String]) -> ::Array[String]
+
+      attr_reader workflow_recipient_run_id: String?
+
+      def workflow_recipient_run_id=: (String) -> String
+
+      attr_reader workflow_run_id: String?
+
+      def workflow_run_id=: (String) -> String
+
+      def initialize: (
+        ?after: String,
+        ?before: String,
+        ?channel_id: String,
+        ?engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
+        ?inserted_at: Knockapi::Models::UserListMessagesParams::InsertedAt,
+        ?message_ids: ::Array[String],
+        ?page_size: Integer,
+        ?source: String,
+        ?status: ::Array[Knockapi::Models::UserListMessagesParams::status],
+        ?tenant: String,
+        ?trigger_data: String,
+        ?workflow_categories: ::Array[String],
+        ?workflow_recipient_run_id: String,
+        ?workflow_run_id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::user_list_messages_params
+
+      type engagement_status =
+        :seen | :read | :interacted | :link_clicked | :archived
+
+      module EngagementStatus
+        extend Knockapi::Internal::Type::Enum
+
+        SEEN: :seen
+        READ: :read
+        INTERACTED: :interacted
+        LINK_CLICKED: :link_clicked
+        ARCHIVED: :archived
+
+        def self?.values: -> ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
+      end
+
+      type inserted_at = { gt: String, gte: String, lt: String, lte: String }
+
+      class InsertedAt < Knockapi::Internal::Type::BaseModel
+        attr_reader gt: String?
+
+        def gt=: (String) -> String
+
+        attr_reader gte: String?
+
+        def gte=: (String) -> String
+
+        attr_reader lt: String?
+
+        def lt=: (String) -> String
+
+        attr_reader lte: String?
+
+        def lte=: (String) -> String
+
+        def initialize: (
+          ?gt: String,
+          ?gte: String,
+          ?lt: String,
+          ?lte: String
+        ) -> void
+
+        def to_hash: -> Knockapi::Models::UserListMessagesParams::inserted_at
+      end
+
+      type status =
+        :queued
+        | :sent
+        | :delivered
+        | :delivery_attempted
+        | :undelivered
+        | :not_sent
+        | :bounced
+
+      module Status
+        extend Knockapi::Internal::Type::Enum
+
+        QUEUED: :queued
+        SENT: :sent
+        DELIVERED: :delivered
+        DELIVERY_ATTEMPTED: :delivery_attempted
+        UNDELIVERED: :undelivered
+        NOT_SENT: :not_sent
+        BOUNCED: :bounced
+
+        def self?.values: -> ::Array[Knockapi::Models::UserListMessagesParams::status]
+      end
+    end
+  end
+end

@@ -1,0 +1,28 @@
+module Knockapi
+  module Models
+    type recipient_reference =
+      String | Knockapi::Models::RecipientReference::ObjectReference
+
+    module RecipientReference
+      extend Knockapi::Internal::Type::Union
+
+      type object_reference = { id: String, collection: String }
+
+      class ObjectReference < Knockapi::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader collection: String?
+
+        def collection=: (String) -> String
+
+        def initialize: (?id: String, ?collection: String) -> void
+
+        def to_hash: -> Knockapi::Models::RecipientReference::object_reference
+      end
+
+      def self?.variants: -> [String, Knockapi::Models::RecipientReference::ObjectReference]
+    end
+  end
+end

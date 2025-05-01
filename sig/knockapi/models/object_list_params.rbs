@@ -1,0 +1,55 @@
+module Knockapi
+  module Models
+    type object_list_params =
+      {
+        after: String,
+        before: String,
+        include: ::Array[Knockapi::Models::ObjectListParams::include_],
+        page_size: Integer
+      }
+      & Knockapi::Internal::Type::request_parameters
+
+    class ObjectListParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader include: ::Array[Knockapi::Models::ObjectListParams::include_]?
+
+      def include=: (
+        ::Array[Knockapi::Models::ObjectListParams::include_]
+      ) -> ::Array[Knockapi::Models::ObjectListParams::include_]
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      def initialize: (
+        ?after: String,
+        ?before: String,
+        ?include: ::Array[Knockapi::Models::ObjectListParams::include_],
+        ?page_size: Integer,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::object_list_params
+
+      type include_ = :preferences
+
+      module Include
+        extend Knockapi::Internal::Type::Enum
+
+        PREFERENCES: :preferences
+
+        def self?.values: -> ::Array[Knockapi::Models::ObjectListParams::include_]
+      end
+    end
+  end
+end

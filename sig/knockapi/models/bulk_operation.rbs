@@ -1,0 +1,107 @@
+module Knockapi
+  module Models
+    type bulk_operation =
+      {
+        id: String,
+        _typename: String,
+        estimated_total_rows: Integer,
+        inserted_at: Time,
+        name: String,
+        processed_rows: Integer,
+        status: Knockapi::Models::BulkOperation::status,
+        success_count: Integer,
+        updated_at: Time,
+        completed_at: Time?,
+        error_count: Integer,
+        error_items: ::Array[Knockapi::Models::BulkOperation::ErrorItem],
+        failed_at: Time?,
+        progress_path: String,
+        started_at: Time?
+      }
+
+    class BulkOperation < Knockapi::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor estimated_total_rows: Integer
+
+      attr_accessor inserted_at: Time
+
+      attr_accessor name: String
+
+      attr_accessor processed_rows: Integer
+
+      attr_accessor status: Knockapi::Models::BulkOperation::status
+
+      attr_accessor success_count: Integer
+
+      attr_accessor updated_at: Time
+
+      attr_accessor completed_at: Time?
+
+      attr_reader error_count: Integer?
+
+      def error_count=: (Integer) -> Integer
+
+      attr_reader error_items: ::Array[Knockapi::Models::BulkOperation::ErrorItem]?
+
+      def error_items=: (
+        ::Array[Knockapi::Models::BulkOperation::ErrorItem]
+      ) -> ::Array[Knockapi::Models::BulkOperation::ErrorItem]
+
+      attr_accessor failed_at: Time?
+
+      attr_reader progress_path: String?
+
+      def progress_path=: (String) -> String
+
+      attr_accessor started_at: Time?
+
+      def initialize: (
+        id: String,
+        _typename: String,
+        estimated_total_rows: Integer,
+        inserted_at: Time,
+        name: String,
+        processed_rows: Integer,
+        status: Knockapi::Models::BulkOperation::status,
+        success_count: Integer,
+        updated_at: Time,
+        ?completed_at: Time?,
+        ?error_count: Integer,
+        ?error_items: ::Array[Knockapi::Models::BulkOperation::ErrorItem],
+        ?failed_at: Time?,
+        ?progress_path: String,
+        ?started_at: Time?
+      ) -> void
+
+      def to_hash: -> Knockapi::Models::bulk_operation
+
+      type status = :queued | :processing | :completed | :failed
+
+      module Status
+        extend Knockapi::Internal::Type::Enum
+
+        QUEUED: :queued
+        PROCESSING: :processing
+        COMPLETED: :completed
+        FAILED: :failed
+
+        def self?.values: -> ::Array[Knockapi::Models::BulkOperation::status]
+      end
+
+      type error_item = { id: String, collection: String? }
+
+      class ErrorItem < Knockapi::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor collection: String?
+
+        def initialize: (id: String, ?collection: String?) -> void
+
+        def to_hash: -> Knockapi::Models::BulkOperation::error_item
+      end
+    end
+  end
+end
