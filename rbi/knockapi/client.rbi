@@ -11,7 +11,7 @@ module Knockapi
     DEFAULT_MAX_RETRY_DELAY = T.let(8.0, Float)
 
     sig { returns(String) }
-    attr_reader :bearer_token
+    attr_reader :api_key
 
     sig { returns(Knockapi::Resources::Shared) }
     attr_reader :shared
@@ -59,7 +59,7 @@ module Knockapi
     # Creates and returns a new client for interacting with the API.
     sig do
       params(
-        bearer_token: T.nilable(String),
+        api_key: T.nilable(String),
         base_url: T.nilable(String),
         max_retries: Integer,
         timeout: Float,
@@ -70,7 +70,7 @@ module Knockapi
     end
     def self.new(
       # Defaults to `ENV["KNOCK_API_KEY"]`
-      bearer_token: ENV["KNOCK_API_KEY"],
+      api_key: ENV["KNOCK_API_KEY"],
       # Override the default base URL for the API, e.g.,
       # `"https://api.example.com/v2/"`. Defaults to `ENV["KNOCK_BASE_URL"]`
       base_url: ENV["KNOCK_BASE_URL"],

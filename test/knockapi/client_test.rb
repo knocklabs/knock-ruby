@@ -42,7 +42,7 @@ class KnockapiTest < Minitest::Test
   def test_client_default_request_default_retry_attempts
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
@@ -54,8 +54,7 @@ class KnockapiTest < Minitest::Test
   def test_client_given_request_default_retry_attempts
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
 
-    knock =
-      Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token", max_retries: 3)
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 3)
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
@@ -67,7 +66,7 @@ class KnockapiTest < Minitest::Test
   def test_client_default_request_given_retry_attempts
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {max_retries: 3})
@@ -79,8 +78,7 @@ class KnockapiTest < Minitest::Test
   def test_client_given_request_given_retry_attempts
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
 
-    knock =
-      Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token", max_retries: 3)
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 3)
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {max_retries: 4})
@@ -96,8 +94,7 @@ class KnockapiTest < Minitest::Test
       body: {}
     )
 
-    knock =
-      Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token", max_retries: 1)
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
@@ -114,8 +111,7 @@ class KnockapiTest < Minitest::Test
       body: {}
     )
 
-    knock =
-      Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token", max_retries: 1)
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       Thread.current.thread_variable_set(:time_now, Time.now)
@@ -134,8 +130,7 @@ class KnockapiTest < Minitest::Test
       body: {}
     )
 
-    knock =
-      Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token", max_retries: 1)
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
@@ -148,7 +143,7 @@ class KnockapiTest < Minitest::Test
   def test_retry_count_header
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id")
@@ -162,7 +157,7 @@ class KnockapiTest < Minitest::Test
   def test_omit_retry_count_header
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {extra_headers: {"x-stainless-retry-count" => nil}})
@@ -176,7 +171,7 @@ class KnockapiTest < Minitest::Test
   def test_overwrite_retry_count_header
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::InternalServerError) do
       knock.users.get("user_id", request_options: {extra_headers: {"x-stainless-retry-count" => "42"}})
@@ -196,7 +191,7 @@ class KnockapiTest < Minitest::Test
       headers: {"location" => "/redirected"}
     )
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {}})
@@ -225,7 +220,7 @@ class KnockapiTest < Minitest::Test
       headers: {"location" => "/redirected"}
     )
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {}})
@@ -249,7 +244,7 @@ class KnockapiTest < Minitest::Test
       headers: {"location" => "/redirected"}
     )
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {"authorization" => "Bearer xyz"}})
@@ -276,7 +271,7 @@ class KnockapiTest < Minitest::Test
       headers: {"location" => "https://example.com/redirected"}
     )
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Knockapi::Errors::APIConnectionError) do
       knock.users.get("user_id", request_options: {extra_headers: {"authorization" => "Bearer xyz"}})
@@ -291,7 +286,7 @@ class KnockapiTest < Minitest::Test
   def test_default_headers
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 200, body: {})
 
-    knock = Knockapi::Client.new(base_url: "http://localhost", bearer_token: "My Bearer Token")
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     knock.users.get("user_id")
 
