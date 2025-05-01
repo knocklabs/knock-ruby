@@ -8,7 +8,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.audiences.add_members("key", members: [{user: {id: "dr_sattler"}}])
+    response = @knock.audiences.add_members("key", members: [{user: {}}])
 
     assert_pattern do
       response => String
@@ -39,7 +39,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
       "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
     )
 
-    response = @knock.audiences.remove_members("key", members: [{user: {id: "dr_sattler"}}])
+    response = @knock.audiences.remove_members("key", members: [{user: {}}])
 
     assert_pattern do
       response => String

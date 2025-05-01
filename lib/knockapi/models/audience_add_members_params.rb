@@ -21,13 +21,9 @@ module Knockapi
 
       class Member < Knockapi::Internal::Type::BaseModel
         # @!attribute user
-        #   A set of parameters to inline-identify a user with. Inline identifying the user
-        #   will ensure that the user is available before the request is executed in Knock.
-        #   It will perform an upsert for the user you're supplying, replacing any
-        #   properties specified.
         #
-        #   @return [Knockapi::Models::InlineIdentifyUserRequest]
-        required :user, -> { Knockapi::Models::InlineIdentifyUserRequest }
+        #   @return [Knockapi::Models::AudienceAddMembersParams::Member::User]
+        required :user, -> { Knockapi::Models::AudienceAddMembersParams::Member::User }
 
         # @!attribute tenant
         #   The unique identifier for the tenant.
@@ -36,15 +32,23 @@ module Knockapi
         optional :tenant, String, nil?: true
 
         # @!method initialize(user:, tenant: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {Knockapi::Models::AudienceAddMembersParams::Member} for more details.
-        #
         #   An audience member.
         #
-        #   @param user [Knockapi::Models::InlineIdentifyUserRequest] A set of parameters to inline-identify a user with. Inline identifying the user
-        #   ...
+        #   @param user [Knockapi::Models::AudienceAddMembersParams::Member::User]
         #
         #   @param tenant [String, nil] The unique identifier for the tenant.
+
+        # @see Knockapi::Models::AudienceAddMembersParams::Member#user
+        class User < Knockapi::Internal::Type::BaseModel
+          # @!attribute id
+          #   The ID for the user that you set when identifying them in Knock.
+          #
+          #   @return [String, nil]
+          optional :id, String
+
+          # @!method initialize(id: nil)
+          #   @param id [String] The ID for the user that you set when identifying them in Knock.
+        end
       end
     end
   end
