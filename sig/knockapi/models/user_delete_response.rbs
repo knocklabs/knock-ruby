@@ -1,0 +1,5 @@
+module Knockapi
+  module Models
+    class UserDeleteResponse = String
+  end
+end
