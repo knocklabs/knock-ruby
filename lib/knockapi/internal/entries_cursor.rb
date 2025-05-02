@@ -24,7 +24,7 @@ module Knockapi
 
       # @return [Boolean]
       def next_page?
-        !page_info&.after.nil?
+        !entries.to_a.empty? && !page_info&.after.to_s.empty?
       end
 
       # @raise [Knockapi::HTTP::Error]
@@ -66,8 +66,8 @@ module Knockapi
         super
 
         case page_data
-        in {entries: Array | nil => entries}
-          @entries = entries&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
+        in {entries: Array => entries}
+          @entries = entries.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
         else
         end
         case page_data
