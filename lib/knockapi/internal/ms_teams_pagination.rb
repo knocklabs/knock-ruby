@@ -24,7 +24,7 @@ module Knockapi
 
       # @return [Boolean]
       def next_page?
-        !skip_token.nil?
+        !ms_teams_teams.to_a.empty? && !skip_token.to_s.empty?
       end
 
       # @raise [Knockapi::HTTP::Error]
@@ -67,8 +67,8 @@ module Knockapi
 
         @skip_token = page_data[:skip_token]
         case page_data
-        in {ms_teams_teams: Array | nil => ms_teams_teams}
-          @ms_teams_teams = ms_teams_teams&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
+        in {ms_teams_teams: Array => ms_teams_teams}
+          @ms_teams_teams = ms_teams_teams.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
         else
         end
       end
