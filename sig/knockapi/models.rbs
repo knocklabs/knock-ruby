@@ -1,0 +1,173 @@
+module Knockapi
+  class Activity = Knockapi::Models::Activity
+
+  class AudienceAddMembersParams = Knockapi::Models::AudienceAddMembersParams
+
+  class AudienceListMembersParams = Knockapi::Models::AudienceListMembersParams
+
+  class AudienceMember = Knockapi::Models::AudienceMember
+
+  class AudienceRemoveMembersParams = Knockapi::Models::AudienceRemoveMembersParams
+
+  class BulkOperation = Knockapi::Models::BulkOperation
+
+  class BulkOperationGetParams = Knockapi::Models::BulkOperationGetParams
+
+  module Channels = Knockapi::Models::Channels
+
+  class Condition = Knockapi::Models::Condition
+
+  class IdentifyUserRequest = Knockapi::Models::IdentifyUserRequest
+
+  class InlineIdentifyUserRequest = Knockapi::Models::InlineIdentifyUserRequest
+
+  class InlineObjectRequest = Knockapi::Models::InlineObjectRequest
+
+  module InlineTenantRequest = Knockapi::Models::InlineTenantRequest
+
+  module Integrations = Knockapi::Models::Integrations
+
+  class Message = Knockapi::Models::Message
+
+  class MessageArchiveParams = Knockapi::Models::MessageArchiveParams
+
+  class MessageDeliveryLog = Knockapi::Models::MessageDeliveryLog
+
+  class MessageEvent = Knockapi::Models::MessageEvent
+
+  class MessageGetContentParams = Knockapi::Models::MessageGetContentParams
+
+  class MessageGetParams = Knockapi::Models::MessageGetParams
+
+  class MessageListActivitiesParams = Knockapi::Models::MessageListActivitiesParams
+
+  class MessageListDeliveryLogsParams = Knockapi::Models::MessageListDeliveryLogsParams
+
+  class MessageListEventsParams = Knockapi::Models::MessageListEventsParams
+
+  class MessageListParams = Knockapi::Models::MessageListParams
+
+  class MessageMarkAsInteractedParams = Knockapi::Models::MessageMarkAsInteractedParams
+
+  class MessageMarkAsReadParams = Knockapi::Models::MessageMarkAsReadParams
+
+  class MessageMarkAsSeenParams = Knockapi::Models::MessageMarkAsSeenParams
+
+  class MessageMarkAsUnreadParams = Knockapi::Models::MessageMarkAsUnreadParams
+
+  class MessageMarkAsUnseenParams = Knockapi::Models::MessageMarkAsUnseenParams
+
+  module Messages = Knockapi::Models::Messages
+
+  class MessageUnarchiveParams = Knockapi::Models::MessageUnarchiveParams
+
+  class Object = Knockapi::Models::Object
+
+  class ObjectAddSubscriptionsParams = Knockapi::Models::ObjectAddSubscriptionsParams
+
+  class ObjectDeleteParams = Knockapi::Models::ObjectDeleteParams
+
+  class ObjectDeleteSubscriptionsParams = Knockapi::Models::ObjectDeleteSubscriptionsParams
+
+  class ObjectGetChannelDataParams = Knockapi::Models::ObjectGetChannelDataParams
+
+  class ObjectGetParams = Knockapi::Models::ObjectGetParams
+
+  class ObjectGetPreferencesParams = Knockapi::Models::ObjectGetPreferencesParams
+
+  class ObjectListMessagesParams = Knockapi::Models::ObjectListMessagesParams
+
+  class ObjectListParams = Knockapi::Models::ObjectListParams
+
+  class ObjectListPreferencesParams = Knockapi::Models::ObjectListPreferencesParams
+
+  class ObjectListSchedulesParams = Knockapi::Models::ObjectListSchedulesParams
+
+  class ObjectListSubscriptionsParams = Knockapi::Models::ObjectListSubscriptionsParams
+
+  module Objects = Knockapi::Models::Objects
+
+  class ObjectSetChannelDataParams = Knockapi::Models::ObjectSetChannelDataParams
+
+  class ObjectSetParams = Knockapi::Models::ObjectSetParams
+
+  class ObjectSetPreferencesParams = Knockapi::Models::ObjectSetPreferencesParams
+
+  class ObjectUnsetChannelDataParams = Knockapi::Models::ObjectUnsetChannelDataParams
+
+  class PageInfo = Knockapi::Models::PageInfo
+
+  module Providers = Knockapi::Models::Providers
+
+  module Recipient = Knockapi::Models::Recipient
+
+  module RecipientReference = Knockapi::Models::RecipientReference
+
+  module RecipientRequest = Knockapi::Models::RecipientRequest
+
+  module Recipients = Knockapi::Models::Recipients
+
+  class Schedule = Knockapi::Models::Schedule
+
+  class ScheduleCreateParams = Knockapi::Models::ScheduleCreateParams
+
+  class ScheduleDeleteParams = Knockapi::Models::ScheduleDeleteParams
+
+  class ScheduleListParams = Knockapi::Models::ScheduleListParams
+
+  class ScheduleRepeatRule = Knockapi::Models::ScheduleRepeatRule
+
+  module Schedules = Knockapi::Models::Schedules
+
+  class ScheduleUpdateParams = Knockapi::Models::ScheduleUpdateParams
+
+  class Tenant = Knockapi::Models::Tenant
+
+  class TenantDeleteParams = Knockapi::Models::TenantDeleteParams
+
+  class TenantGetParams = Knockapi::Models::TenantGetParams
+
+  class TenantListParams = Knockapi::Models::TenantListParams
+
+  class TenantRequest = Knockapi::Models::TenantRequest
+
+  module Tenants = Knockapi::Models::Tenants
+
+  class TenantSetParams = Knockapi::Models::TenantSetParams
+
+  class User = Knockapi::Models::User
+
+  class UserDeleteParams = Knockapi::Models::UserDeleteParams
+
+  class UserGetChannelDataParams = Knockapi::Models::UserGetChannelDataParams
+
+  class UserGetParams = Knockapi::Models::UserGetParams
+
+  class UserGetPreferencesParams = Knockapi::Models::UserGetPreferencesParams
+
+  class UserListMessagesParams = Knockapi::Models::UserListMessagesParams
+
+  class UserListParams = Knockapi::Models::UserListParams
+
+  class UserListPreferencesParams = Knockapi::Models::UserListPreferencesParams
+
+  class UserListSchedulesParams = Knockapi::Models::UserListSchedulesParams
+
+  class UserListSubscriptionsParams = Knockapi::Models::UserListSubscriptionsParams
+
+  class UserMergeParams = Knockapi::Models::UserMergeParams
+
+  module Users = Knockapi::Models::Users
+
+  class UserSetChannelDataParams = Knockapi::Models::UserSetChannelDataParams
+
+  class UserSetPreferencesParams = Knockapi::Models::UserSetPreferencesParams
+
+  class UserUnsetChannelDataParams = Knockapi::Models::UserUnsetChannelDataParams
+
+  class UserUpdateParams = Knockapi::Models::UserUpdateParams
+
+  class WorkflowCancelParams = Knockapi::Models::WorkflowCancelParams
+
+  class WorkflowTriggerParams = Knockapi::Models::WorkflowTriggerParams
+end
