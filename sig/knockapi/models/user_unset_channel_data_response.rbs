@@ -1,0 +1,5 @@
+module Knockapi
+  module Models
+    class UserUnsetChannelDataResponse = String
+  end
+end
