@@ -21,6 +21,7 @@ module Knockapi
 
       class Member < Knockapi::Internal::Type::BaseModel
         # @!attribute user
+        #   An object containing the user's ID.
         #
         #   @return [Knockapi::Models::AudienceRemoveMembersParams::Member::User]
         required :user, -> { Knockapi::Models::AudienceRemoveMembersParams::Member::User }
@@ -34,7 +35,7 @@ module Knockapi
         # @!method initialize(user:, tenant: nil)
         #   An audience member.
         #
-        #   @param user [Knockapi::Models::AudienceRemoveMembersParams::Member::User]
+        #   @param user [Knockapi::Models::AudienceRemoveMembersParams::Member::User] An object containing the user's ID.
         #
         #   @param tenant [String, nil] The unique identifier for the tenant.
 
@@ -47,6 +48,8 @@ module Knockapi
           optional :id, String
 
           # @!method initialize(id: nil)
+          #   An object containing the user's ID.
+          #
           #   @param id [String] The ID for the user that you set when identifying them in Knock.
         end
       end
