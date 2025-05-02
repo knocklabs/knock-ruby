@@ -36,12 +36,12 @@ module Knockapi
       #
       # @param name [String, nil] Display name of the user.
       #
-      # @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      # @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
       # ...
       #
       # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
       #
-      # @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
+      # @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
       # ...
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]

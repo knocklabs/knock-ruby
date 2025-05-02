@@ -5,7 +5,10 @@ module Knockapi
         id: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         created_at: Time?,
-        preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+        email: String?,
+        name: String?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        timezone: String?
       }
 
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
@@ -15,13 +18,22 @@ module Knockapi
 
       attr_accessor created_at: Time?
 
+      attr_accessor email: String?
+
+      attr_accessor name: String?
+
       attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+
+      attr_accessor timezone: String?
 
       def initialize: (
         id: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?created_at: Time?,
-        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+        ?email: String?,
+        ?name: String?,
+        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        ?timezone: String?
       ) -> void
 
       def to_hash: -> Knockapi::Models::inline_identify_user_request

@@ -316,10 +316,10 @@ module Knockapi
         locale: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
         preferences: nil,
-        # The timezone of the object. Must be a valid
-        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-        # Used for
-        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+        # The timezone of the object. Must be a
+        # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used
+        # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil,
         request_options: {}
       ); end

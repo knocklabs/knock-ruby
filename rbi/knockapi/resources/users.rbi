@@ -50,15 +50,15 @@ module Knockapi
         locale: nil,
         # Display name of the user.
         name: nil,
-        # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+        # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
         # user (required for SMS channels).
         phone_number: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
         preferences: nil,
-        # The timezone of the user. Must be a valid
-        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-        # Used for
-        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+        # The timezone of the user. Must be a
+        # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used
+        # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil,
         request_options: {}
       ); end

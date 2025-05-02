@@ -381,7 +381,7 @@ module Knockapi
       #
       # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}] Inline set preferences for a recipient, where the key is the preference set id.
       #
-      # @param timezone [String, nil] The timezone of the object. Must be a valid [tz database time zone string](https
+      # @param timezone [String, nil] The timezone of the object. Must be a valid [tz database time zone string](https
       # ...
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]

@@ -47,17 +47,17 @@ module Knockapi
       optional :name, String, nil?: true
 
       # @!attribute phone_number
-      #   The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      #   The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
       #   user (required for SMS channels).
       #
       #   @return [String, nil]
       optional :phone_number, String, nil?: true
 
       # @!attribute timezone
-      #   The timezone of the user. Must be a valid
-      #   [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-      #   Used for
-      #   [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+      #   The timezone of the user. Must be a
+      #   valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      #   Used
+      #   for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
       #
       #   @return [String, nil]
       optional :timezone, String, nil?: true
@@ -84,10 +84,10 @@ module Knockapi
       #
       #   @param name [String, nil] Display name of the user.
       #
-      #   @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      #   @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
       #   ...
       #
-      #   @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
+      #   @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
       #   ...
     end
   end

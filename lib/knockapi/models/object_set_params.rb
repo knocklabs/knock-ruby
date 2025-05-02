@@ -29,10 +29,10 @@ module Knockapi
                -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] }
 
       # @!attribute timezone
-      #   The timezone of the object. Must be a valid
-      #   [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-      #   Used for
-      #   [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+      #   The timezone of the object. Must be a
+      #   valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      #   Used
+      #   for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
       #
       #   @return [String, nil]
       optional :timezone, String, nil?: true
@@ -48,7 +48,7 @@ module Knockapi
       #
       #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}] Inline set preferences for a recipient, where the key is the preference set id.
       #
-      #   @param timezone [String, nil] The timezone of the object. Must be a valid [tz database time zone string](https
+      #   @param timezone [String, nil] The timezone of the object. Must be a valid [tz database time zone string](https
       #   ...
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]

@@ -34,6 +34,7 @@ module Knockapi
       def to_hash; end
 
       class Member < Knockapi::Internal::Type::BaseModel
+        # An object containing the user's ID.
         sig { returns(Knockapi::Models::AudienceAddMembersParams::Member::User) }
         attr_reader :user
 
@@ -56,6 +57,7 @@ module Knockapi
             .returns(T.attached_class)
         end
         def self.new(
+          # An object containing the user's ID.
           user:,
           # The unique identifier for the tenant.
           tenant: nil
@@ -74,6 +76,7 @@ module Knockapi
           sig { params(id: String).void }
           attr_writer :id
 
+          # An object containing the user's ID.
           sig { params(id: String).returns(T.attached_class) }
           def self.new(
             # The ID for the user that you set when identifying them in Knock.
