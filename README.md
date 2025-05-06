@@ -29,7 +29,7 @@ require "bundler/setup"
 require "knockapi"
 
 knock = Knockapi::Client.new(
-  api_key: "My API Key" # defaults to ENV["KNOCK_API_KEY"]
+  api_key: ENV["KNOCK_API_KEY"] # This is the default and can be omitted
 )
 
 response = knock.workflows.trigger("dinosaurs-loose", recipients: ["dnedry"], data: {dinosaur: "triceratops"})
