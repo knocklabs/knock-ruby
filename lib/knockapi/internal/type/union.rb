@@ -6,11 +6,11 @@ module Knockapi
       # @api private
       #
       # @example
-      #   # `recipient` is a `Knockapi::Models::Recipient`
+      #   # `recipient` is a `Knockapi::Recipient`
       #   case recipient
-      #   when Knockapi::Models::User
+      #   when Knockapi::User
       #     puts(recipient.id)
-      #   when Knockapi::Models::Object
+      #   when Knockapi::Object
       #     puts(recipient._typename)
       #   else
       #     puts(recipient)

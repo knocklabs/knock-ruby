@@ -6,6 +6,8 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # Filter by workflow key.
       sig { returns(String) }
       attr_accessor :workflow
@@ -53,9 +55,8 @@ module Knockapi
           page_size: Integer,
           recipients: T::Array[String],
           tenant: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Filter by workflow key.
@@ -71,22 +72,24 @@ module Knockapi
         # Filter by tenant ID.
         tenant: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              workflow: String,
-              after: String,
-              before: String,
-              page_size: Integer,
-              recipients: T::Array[String],
-              tenant: String,
-              request_options: Knockapi::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            workflow: String,
+            after: String,
+            before: String,
+            page_size: Integer,
+            recipients: T::Array[String],
+            tenant: String,
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

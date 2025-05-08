@@ -27,8 +27,6 @@ module Knockapi
         updated_at: Time,
         ?created_at: Time?
       ) -> void
-
-      def to_hash: -> Knockapi::Models::object
     end
   end
 end

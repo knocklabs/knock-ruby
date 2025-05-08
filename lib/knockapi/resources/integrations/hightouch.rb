@@ -22,7 +22,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Integrations::HightouchEmbeddedDestinationParams
         def embedded_destination(params)
-          parsed, options = Knockapi::Models::Integrations::HightouchEmbeddedDestinationParams.dump_request(params)
+          parsed, options = Knockapi::Integrations::HightouchEmbeddedDestinationParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/integrations/hightouch/embedded-destination",

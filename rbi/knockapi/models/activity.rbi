@@ -3,6 +3,8 @@
 module Knockapi
   module Models
     class Activity < Knockapi::Internal::Type::BaseModel
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # Unique identifier for the activity.
       sig { returns(T.nilable(String)) }
       attr_reader :id
@@ -18,7 +20,7 @@ module Knockapi
       attr_writer :_typename
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
+      sig { returns(T.nilable(T.any(Knockapi::User, Knockapi::Object))) }
       attr_accessor :actor
 
       # The workflow trigger `data` payload associated with the activity.
@@ -33,12 +35,13 @@ module Knockapi
       attr_writer :inserted_at
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
+      sig { returns(T.nilable(T.any(Knockapi::User, Knockapi::Object))) }
       attr_reader :recipient
 
       sig do
-        params(recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object))
-          .void
+        params(
+          recipient: T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash)
+        ).void
       end
       attr_writer :recipient
 
@@ -57,13 +60,13 @@ module Knockapi
         params(
           id: String,
           _typename: String,
-          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)),
+          actor:
+            T.nilable(T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash)),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           inserted_at: Time,
-          recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object),
+          recipient: T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash),
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique identifier for the activity.
@@ -80,22 +83,24 @@ module Knockapi
         recipient: nil,
         # Timestamp when the activity was last updated.
         updated_at: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              _typename: String,
-              actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)),
-              data: T.nilable(T::Hash[Symbol, T.anything]),
-              inserted_at: Time,
-              recipient: T.any(Knockapi::Models::User, Knockapi::Models::Object),
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            _typename: String,
+            actor: T.nilable(T.any(Knockapi::User, Knockapi::Object)),
+            data: T.nilable(T::Hash[Symbol, T.anything]),
+            inserted_at: Time,
+            recipient: T.any(Knockapi::User, Knockapi::Object),
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

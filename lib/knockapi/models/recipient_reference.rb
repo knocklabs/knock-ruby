@@ -11,7 +11,7 @@ module Knockapi
       variant String
 
       # A reference to a recipient object.
-      variant -> { Knockapi::Models::RecipientReference::ObjectReference }
+      variant -> { Knockapi::RecipientReference::ObjectReference }
 
       class ObjectReference < Knockapi::Internal::Type::BaseModel
         # @!attribute id
@@ -35,7 +35,7 @@ module Knockapi
       end
 
       # @!method self.variants
-      #   @return [Array(String, Knockapi::Models::RecipientReference::ObjectReference)]
+      #   @return [Array(String, Knockapi::RecipientReference::ObjectReference)]
     end
   end
 end

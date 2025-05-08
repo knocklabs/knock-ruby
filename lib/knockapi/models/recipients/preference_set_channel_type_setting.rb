@@ -7,14 +7,14 @@ module Knockapi
         # @!attribute conditions
         #   A list of conditions to apply to a channel type.
         #
-        #   @return [Array<Knockapi::Models::Condition>]
-        required :conditions, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Condition] }
+        #   @return [Array<Knockapi::Condition>]
+        required :conditions, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Condition] }
 
         # @!method initialize(conditions:)
         #   A set of settings for a channel type. Currently, this can only be a list of
         #   conditions to apply.
         #
-        #   @param conditions [Array<Knockapi::Models::Condition>] A list of conditions to apply to a channel type.
+        #   @param conditions [Array<Knockapi::Condition>] A list of conditions to apply to a channel type.
       end
     end
   end

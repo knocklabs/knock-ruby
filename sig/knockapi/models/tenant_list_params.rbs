@@ -42,8 +42,6 @@ module Knockapi
         ?tenant_id: String,
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::tenant_list_params
     end
   end
 end

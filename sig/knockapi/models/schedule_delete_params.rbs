@@ -14,8 +14,6 @@ module Knockapi
         schedule_ids: ::Array[String],
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::schedule_delete_params
     end
   end
 end

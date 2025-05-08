@@ -11,7 +11,7 @@ module Knockapi
         def list_channels: (
           String channel_id,
           access_token_object: String,
-          ?query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+          ?query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Internal::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse]
 

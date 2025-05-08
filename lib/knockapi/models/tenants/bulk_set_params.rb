@@ -11,11 +11,11 @@ module Knockapi
         # @!attribute tenants
         #   The tenants to be upserted.
         #
-        #   @return [Array<String, Knockapi::Models::TenantRequest>]
-        required :tenants, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::InlineTenantRequest] }
+        #   @return [Array<String, Knockapi::TenantRequest>]
+        required :tenants, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::InlineTenantRequest] }
 
         # @!method initialize(tenants:, request_options: {})
-        #   @param tenants [Array<String, Knockapi::Models::TenantRequest>] The tenants to be upserted.
+        #   @param tenants [Array<String, Knockapi::TenantRequest>] The tenants to be upserted.
         #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end

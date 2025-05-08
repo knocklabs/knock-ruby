@@ -11,14 +11,14 @@ module Knockapi
       #   The recipients to trigger the workflow for. Can inline identify users, objects,
       #   or use a list of user IDs. Limited to 1,000 recipients.
       #
-      #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
-      required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientRequest] }
+      #   @return [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>]
+      required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientRequest] }
 
       # @!attribute repeats
       #   The repeat rule for the schedule.
       #
-      #   @return [Array<Knockapi::Models::ScheduleRepeatRule>]
-      required :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule] }
+      #   @return [Array<Knockapi::ScheduleRepeatRule>]
+      required :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule] }
 
       # @!attribute workflow
       #   The key of the workflow.
@@ -47,17 +47,16 @@ module Knockapi
       # @!attribute tenant
       #   An request to set a tenant inline.
       #
-      #   @return [String, Knockapi::Models::TenantRequest, nil]
-      optional :tenant, union: -> { Knockapi::Models::InlineTenantRequest }, nil?: true
+      #   @return [String, Knockapi::TenantRequest, nil]
+      optional :tenant, union: -> { Knockapi::InlineTenantRequest }, nil?: true
 
       # @!method initialize(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ScheduleCreateParams} for more details.
       #
-      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
-      #   ...
+      #   @param recipients [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
       #
-      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #   @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       #   @param workflow [String] The key of the workflow.
       #
@@ -67,7 +66,7 @@ module Knockapi
       #
       #   @param scheduled_at [Time, nil] The starting date and time for the schedule.
       #
-      #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
+      #   @param tenant [String, Knockapi::TenantRequest, nil] An request to set a tenant inline.
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

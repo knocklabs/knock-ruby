@@ -32,8 +32,6 @@ module Knockapi
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::workflow_trigger_params
     end
   end
 end

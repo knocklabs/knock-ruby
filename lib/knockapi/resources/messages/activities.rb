@@ -20,17 +20,17 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Activity>]
+        # @return [Knockapi::Internal::ItemsCursor<Knockapi::Activity>]
         #
         # @see Knockapi::Models::Messages::ActivityListParams
         def list(message_id, params = {})
-          parsed, options = Knockapi::Models::Messages::ActivityListParams.dump_request(params)
+          parsed, options = Knockapi::Messages::ActivityListParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/messages/%1$s/activities", message_id],
             query: parsed,
             page: Knockapi::Internal::ItemsCursor,
-            model: Knockapi::Models::Activity,
+            model: Knockapi::Activity,
             options: options
           )
         end

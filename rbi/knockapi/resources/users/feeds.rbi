@@ -6,8 +6,11 @@ module Knockapi
       class Feeds
         # Returns the feed settings for a user.
         sig do
-          params(user_id: String, id: String, request_options: Knockapi::RequestOpts)
-            .returns(Knockapi::Models::Users::FeedGetSettingsResponse)
+          params(
+            user_id: String,
+            id: String,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Models::Users::FeedGetSettingsResponse)
         end
         def get_settings(
           # The ID for the user that you set when identifying them in Knock.
@@ -15,7 +18,9 @@ module Knockapi
           # The unique identifier for the channel.
           id,
           request_options: {}
-        ); end
+        )
+        end
+
         # Returns a paginated list of feed items for a user, including metadata about the
         # feed.
         sig do
@@ -23,18 +28,21 @@ module Knockapi
             user_id: String,
             id: String,
             after: String,
-            archived: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol,
+            archived: Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
             before: String,
             has_tenant: T::Boolean,
             page_size: Integer,
             source: String,
-            status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol,
+            status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
             tenant: String,
             trigger_data: String,
             workflow_categories: T::Array[String],
-            request_options: Knockapi::RequestOpts
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(
+            Knockapi::Internal::EntriesCursor[
+              Knockapi::Models::Users::FeedListItemsResponse
+            ]
           )
-            .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Users::FeedListItemsResponse])
         end
         def list_items(
           # The ID for the user that you set when identifying them in Knock.
@@ -62,10 +70,13 @@ module Knockapi
           # The workflow categories of the feed items.
           workflow_categories: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

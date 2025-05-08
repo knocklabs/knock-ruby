@@ -11,7 +11,7 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
     response = @knock.objects.bulk.delete("collection", object_ids: %w[obj_123 obj_456 obj_789])
 
     assert_pattern do
-      response => Knockapi::Models::BulkOperation
+      response => Knockapi::BulkOperation
     end
 
     assert_pattern do
@@ -22,12 +22,12 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knockapi::Models::BulkOperation::Status,
+        status: Knockapi::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
+        error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         progress_path: String | nil,
         started_at: Time | nil
@@ -44,7 +44,7 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
       @knock.objects.bulk.add_subscriptions("collection", subscriptions: [{recipients: [{id: "user_1"}]}])
 
     assert_pattern do
-      response => Knockapi::Models::BulkOperation
+      response => Knockapi::BulkOperation
     end
 
     assert_pattern do
@@ -55,12 +55,12 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knockapi::Models::BulkOperation::Status,
+        status: Knockapi::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
+        error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         progress_path: String | nil,
         started_at: Time | nil
@@ -76,7 +76,7 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
     response = @knock.objects.bulk.set("collection", objects: [{id: "project_1", collection: "projects"}])
 
     assert_pattern do
-      response => Knockapi::Models::BulkOperation
+      response => Knockapi::BulkOperation
     end
 
     assert_pattern do
@@ -87,12 +87,12 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knockapi::Models::BulkOperation::Status,
+        status: Knockapi::BulkOperation::Status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time | nil,
         error_count: Integer | nil,
-        error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::BulkOperation::ErrorItem]) | nil,
+        error_items: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::BulkOperation::ErrorItem]) | nil,
         failed_at: Time | nil,
         progress_path: String | nil,
         started_at: Time | nil

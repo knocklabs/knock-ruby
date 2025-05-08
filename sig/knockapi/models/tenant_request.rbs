@@ -5,7 +5,7 @@ module Knockapi
         id: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
-        settings: Knockapi::Models::TenantRequest::Settings
+        settings: Knockapi::TenantRequest::Settings
       }
 
     class TenantRequest < Knockapi::Internal::Type::BaseModel
@@ -15,42 +15,38 @@ module Knockapi
 
       attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
 
-      attr_reader settings: Knockapi::Models::TenantRequest::Settings?
+      attr_reader settings: Knockapi::TenantRequest::Settings?
 
       def settings=: (
-        Knockapi::Models::TenantRequest::Settings
-      ) -> Knockapi::Models::TenantRequest::Settings
+        Knockapi::TenantRequest::Settings
+      ) -> Knockapi::TenantRequest::Settings
 
       def initialize: (
         id: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
-        ?settings: Knockapi::Models::TenantRequest::Settings
+        ?settings: Knockapi::TenantRequest::Settings
       ) -> void
-
-      def to_hash: -> Knockapi::Models::tenant_request
 
       type settings =
         {
-          branding: Knockapi::Models::TenantRequest::Settings::Branding,
-          preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
+          branding: Knockapi::TenantRequest::Settings::Branding,
+          preference_set: Knockapi::Recipients::PreferenceSetRequest?
         }
 
       class Settings < Knockapi::Internal::Type::BaseModel
-        attr_reader branding: Knockapi::Models::TenantRequest::Settings::Branding?
+        attr_reader branding: Knockapi::TenantRequest::Settings::Branding?
 
         def branding=: (
-          Knockapi::Models::TenantRequest::Settings::Branding
-        ) -> Knockapi::Models::TenantRequest::Settings::Branding
+          Knockapi::TenantRequest::Settings::Branding
+        ) -> Knockapi::TenantRequest::Settings::Branding
 
-        attr_accessor preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
+        attr_accessor preference_set: Knockapi::Recipients::PreferenceSetRequest?
 
         def initialize: (
-          ?branding: Knockapi::Models::TenantRequest::Settings::Branding,
-          ?preference_set: Knockapi::Models::Recipients::PreferenceSetRequest?
+          ?branding: Knockapi::TenantRequest::Settings::Branding,
+          ?preference_set: Knockapi::Recipients::PreferenceSetRequest?
         ) -> void
-
-        def to_hash: -> Knockapi::Models::TenantRequest::settings
 
         type branding =
           {
@@ -75,8 +71,6 @@ module Knockapi
             ?primary_color: String?,
             ?primary_color_contrast: String?
           ) -> void
-
-          def to_hash: -> Knockapi::Models::TenantRequest::Settings::branding
         end
       end
     end

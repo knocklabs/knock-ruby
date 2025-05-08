@@ -12,9 +12,8 @@ module Knockapi
             before: String,
             page_size: Integer,
             trigger_data: String,
-            request_options: Knockapi::RequestOpts
-          )
-            .returns(Knockapi::Internal::ItemsCursor[Knockapi::Models::Activity])
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Internal::ItemsCursor[Knockapi::Activity])
         end
         def list(
           # The ID of the message to fetch activities for.
@@ -28,10 +27,13 @@ module Knockapi
           # The trigger data to filter activities by.
           trigger_data: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

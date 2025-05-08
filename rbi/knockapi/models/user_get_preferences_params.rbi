@@ -6,6 +6,8 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # The unique identifier for the tenant.
       sig { returns(T.nilable(String)) }
       attr_reader :tenant
@@ -14,16 +16,25 @@ module Knockapi
       attr_writer :tenant
 
       sig do
-        params(tenant: String, request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          .returns(T.attached_class)
+        params(
+          tenant: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The unique identifier for the tenant.
         tenant: nil,
         request_options: {}
-      ); end
-      sig { override.returns({tenant: String, request_options: Knockapi::RequestOptions}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns(
+          { tenant: String, request_options: Knockapi::RequestOptions }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

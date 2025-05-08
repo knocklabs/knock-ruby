@@ -7,8 +7,6 @@ module Knockapi
         attr_accessor tokens: ::Array[String]
 
         def initialize: (tokens: ::Array[String]) -> void
-
-        def to_hash: -> Knockapi::Models::Recipients::push_channel_data
       end
     end
   end

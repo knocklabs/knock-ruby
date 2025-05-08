@@ -12,13 +12,13 @@ module Knockapi
       variant String
 
       # A set of parameters to inline-identify a user with. Inline identifying the user will ensure that the user is available before the request is executed in Knock. It will perform an upsert for the user you're supplying, replacing any properties specified.
-      variant -> { Knockapi::Models::InlineIdentifyUserRequest }
+      variant -> { Knockapi::InlineIdentifyUserRequest }
 
       # A custom [Object](/concepts/objects) entity which belongs to a collection.
-      variant -> { Knockapi::Models::InlineObjectRequest }
+      variant -> { Knockapi::InlineObjectRequest }
 
       # @!method self.variants
-      #   @return [Array(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+      #   @return [Array(String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest)]
     end
   end
 end

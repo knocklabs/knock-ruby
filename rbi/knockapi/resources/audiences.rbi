@@ -7,10 +7,9 @@ module Knockapi
       sig do
         params(
           key: String,
-          members: T::Array[T.any(Knockapi::Models::AudienceAddMembersParams::Member, Knockapi::Internal::AnyHash)],
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(String)
+          members: T::Array[Knockapi::AudienceAddMembersParams::Member::OrHash],
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(String)
       end
       def add_members(
         # The key of the audience.
@@ -18,25 +17,31 @@ module Knockapi
         # A list of audience members to add.
         members:,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of members for the specified audience.
       sig do
-        params(key: String, request_options: Knockapi::RequestOpts)
-          .returns(Knockapi::Models::AudienceListMembersResponse)
+        params(
+          key: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Models::AudienceListMembersResponse)
       end
       def list_members(
         # The key of the audience.
         key,
         request_options: {}
-      ); end
+      )
+      end
+
       # Removes one or more members from the specified audience.
       sig do
         params(
           key: String,
-          members: T::Array[T.any(Knockapi::Models::AudienceRemoveMembersParams::Member, Knockapi::Internal::AnyHash)],
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(String)
+          members:
+            T::Array[Knockapi::AudienceRemoveMembersParams::Member::OrHash],
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(String)
       end
       def remove_members(
         # The key of the audience.
@@ -44,10 +49,13 @@ module Knockapi
         # A list of audience members to remove.
         members:,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

@@ -9,8 +9,6 @@ module Knockapi
         def ok=: (String) -> String
 
         def initialize: (?ok: String) -> void
-
-        def to_hash: -> Knockapi::Models::Providers::ms_team_revoke_access_response
       end
     end
   end

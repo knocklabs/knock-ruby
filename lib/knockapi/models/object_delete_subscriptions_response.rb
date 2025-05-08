@@ -4,6 +4,6 @@ module Knockapi
   module Models
     # @type [Knockapi::Internal::Type::Converter]
     ObjectDeleteSubscriptionsResponse =
-      Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Recipients::Subscription }]
+      Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Recipients::Subscription }]
   end
 end

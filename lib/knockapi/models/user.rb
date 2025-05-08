@@ -63,8 +63,8 @@ module Knockapi
       optional :timezone, String, nil?: true
 
       # @!method initialize(id:, _typename:, updated_at:, avatar: nil, created_at: nil, email: nil, name: nil, phone_number: nil, timezone: nil)
-      #   Some parameter documentations has been truncated, see {Knockapi::Models::User}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see {Knockapi::User} for more
+      #   details.
       #
       #   A [User](/concepts/users) represents an individual in your system who can
       #   receive notifications through Knock. Users are the most common recipients of
@@ -85,10 +85,8 @@ module Knockapi
       #   @param name [String, nil] Display name of the user.
       #
       #   @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
-      #   ...
       #
       #   @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
-      #   ...
     end
   end
 end

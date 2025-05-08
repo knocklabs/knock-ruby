@@ -1,6 +1,6 @@
 module Knockapi
   module Models
-    type schedule_update_response = ::Array[Knockapi::Models::Schedule]
+    type schedule_update_response = ::Array[Knockapi::Schedule]
 
     ScheduleUpdateResponse: Knockapi::Internal::Type::Converter
   end

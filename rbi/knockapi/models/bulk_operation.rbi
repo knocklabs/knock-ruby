@@ -3,6 +3,8 @@
 module Knockapi
   module Models
     class BulkOperation < Knockapi::Internal::Type::BaseModel
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # Unique identifier for the bulk operation.
       sig { returns(String) }
       attr_accessor :id
@@ -28,7 +30,7 @@ module Knockapi
       attr_accessor :processed_rows
 
       # The status of the bulk operation.
-      sig { returns(Knockapi::Models::BulkOperation::Status::TaggedSymbol) }
+      sig { returns(Knockapi::BulkOperation::Status::TaggedSymbol) }
       attr_accessor :status
 
       # The number of successful operations.
@@ -51,14 +53,13 @@ module Knockapi
       attr_writer :error_count
 
       # A list of items that failed to be processed.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::BulkOperation::ErrorItem])) }
+      sig { returns(T.nilable(T::Array[Knockapi::BulkOperation::ErrorItem])) }
       attr_reader :error_items
 
       sig do
         params(
-          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::AnyHash)]
-        )
-          .void
+          error_items: T::Array[Knockapi::BulkOperation::ErrorItem::OrHash]
+        ).void
       end
       attr_writer :error_items
 
@@ -86,17 +87,16 @@ module Knockapi
           inserted_at: Time,
           name: String,
           processed_rows: Integer,
-          status: Knockapi::Models::BulkOperation::Status::OrSymbol,
+          status: Knockapi::BulkOperation::Status::OrSymbol,
           success_count: Integer,
           updated_at: Time,
           completed_at: T.nilable(Time),
           error_count: Integer,
-          error_items: T::Array[T.any(Knockapi::Models::BulkOperation::ErrorItem, Knockapi::Internal::AnyHash)],
+          error_items: T::Array[Knockapi::BulkOperation::ErrorItem::OrHash],
           failed_at: T.nilable(Time),
           progress_path: String,
           started_at: T.nilable(Time)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique identifier for the bulk operation.
@@ -129,48 +129,61 @@ module Knockapi
         progress_path: nil,
         # Timestamp when the bulk operation was started.
         started_at: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              _typename: String,
-              estimated_total_rows: Integer,
-              inserted_at: Time,
-              name: String,
-              processed_rows: Integer,
-              status: Knockapi::Models::BulkOperation::Status::TaggedSymbol,
-              success_count: Integer,
-              updated_at: Time,
-              completed_at: T.nilable(Time),
-              error_count: Integer,
-              error_items: T::Array[Knockapi::Models::BulkOperation::ErrorItem],
-              failed_at: T.nilable(Time),
-              progress_path: String,
-              started_at: T.nilable(Time)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            _typename: String,
+            estimated_total_rows: Integer,
+            inserted_at: Time,
+            name: String,
+            processed_rows: Integer,
+            status: Knockapi::BulkOperation::Status::TaggedSymbol,
+            success_count: Integer,
+            updated_at: Time,
+            completed_at: T.nilable(Time),
+            error_count: Integer,
+            error_items: T::Array[Knockapi::BulkOperation::ErrorItem],
+            failed_at: T.nilable(Time),
+            progress_path: String,
+            started_at: T.nilable(Time)
+          }
+        )
+      end
+      def to_hash
+      end
 
       # The status of the bulk operation.
       module Status
         extend Knockapi::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::BulkOperation::Status) }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, Knockapi::BulkOperation::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        QUEUED = T.let(:queued, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
-        PROCESSING = T.let(:processing, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
-        COMPLETED = T.let(:completed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
-        FAILED = T.let(:failed, Knockapi::Models::BulkOperation::Status::TaggedSymbol)
+        QUEUED = T.let(:queued, Knockapi::BulkOperation::Status::TaggedSymbol)
+        PROCESSING =
+          T.let(:processing, Knockapi::BulkOperation::Status::TaggedSymbol)
+        COMPLETED =
+          T.let(:completed, Knockapi::BulkOperation::Status::TaggedSymbol)
+        FAILED = T.let(:failed, Knockapi::BulkOperation::Status::TaggedSymbol)
 
-        sig { override.returns(T::Array[Knockapi::Models::BulkOperation::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[Knockapi::BulkOperation::Status::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       class ErrorItem < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # Unique identifier for the object.
         sig { returns(String) }
         attr_accessor :id
@@ -179,15 +192,22 @@ module Knockapi
         sig { returns(T.nilable(String)) }
         attr_accessor :collection
 
-        sig { params(id: String, collection: T.nilable(String)).returns(T.attached_class) }
+        sig do
+          params(id: String, collection: T.nilable(String)).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # Unique identifier for the object.
           id:,
           # The collection this object belongs to.
           collection: nil
-        ); end
-        sig { override.returns({id: String, collection: T.nilable(String)}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ id: String, collection: T.nilable(String) }) }
+        def to_hash
+        end
       end
     end
   end

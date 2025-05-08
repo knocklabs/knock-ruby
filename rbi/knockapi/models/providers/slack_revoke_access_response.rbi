@@ -4,6 +4,9 @@ module Knockapi
   module Models
     module Providers
       class SlackRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # OK response.
         sig { returns(T.nilable(String)) }
         attr_reader :ok
@@ -16,9 +19,12 @@ module Knockapi
         def self.new(
           # OK response.
           ok: nil
-        ); end
-        sig { override.returns({ok: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ ok: String }) }
+        def to_hash
+        end
       end
     end
   end

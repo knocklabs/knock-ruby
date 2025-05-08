@@ -10,7 +10,7 @@ module Knockapi
         ?page_size: Integer,
         ?tenant_id: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Tenant]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Tenant]
 
       def delete: (
         String id,
@@ -20,15 +20,15 @@ module Knockapi
       def get: (
         String id,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Tenant
+      ) -> Knockapi::Tenant
 
       def set: (
         String id,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
-        ?settings: Knockapi::Models::TenantSetParams::Settings,
+        ?settings: Knockapi::TenantSetParams::Settings,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::Tenant
+      ) -> Knockapi::Tenant
 
       def initialize: (client: Knockapi::Client) -> void
     end

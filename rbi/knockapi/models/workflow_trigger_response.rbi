@@ -3,6 +3,8 @@
 module Knockapi
   module Models
     class WorkflowTriggerResponse < Knockapi::Internal::Type::BaseModel
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # This value allows you to track individual messages associated with this trigger
       # request.
       sig { returns(String) }
@@ -14,9 +16,12 @@ module Knockapi
         # This value allows you to track individual messages associated with this trigger
         # request.
         workflow_run_id:
-      ); end
-      sig { override.returns({workflow_run_id: String}) }
-      def to_hash; end
+      )
+      end
+
+      sig { override.returns({ workflow_run_id: String }) }
+      def to_hash
+      end
     end
   end
 end

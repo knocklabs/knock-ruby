@@ -57,8 +57,6 @@ module Knockapi
           ?tenant: String?,
           ?request_options: Knockapi::request_opts
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Users::guide_mark_message_as_interacted_params
       end
     end
   end

@@ -10,9 +10,11 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] }
+               -> {
+                 Knockapi::Internal::Type::HashOf[Knockapi::Recipients::ChannelDataRequest]
+               }
 
       # @!attribute locale
       #   The locale of the object. Used for
@@ -24,9 +26,11 @@ module Knockapi
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set id.
       #
-      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] }
+               -> {
+                 Knockapi::Internal::Type::HashOf[Knockapi::Recipients::PreferenceSetRequest]
+               }
 
       # @!attribute timezone
       #   The timezone of the object. Must be a
@@ -41,15 +45,13 @@ module Knockapi
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ObjectSetParams} for more details.
       #
-      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}] A request to set channel data for a type of channel inline.
+      #   @param channel_data [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}] A request to set channel data for a type of channel inline.
       #
       #   @param locale [String, nil] The locale of the object. Used for [message localization](/concepts/translations
-      #   ...
       #
-      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}] Inline set preferences for a recipient, where the key is the preference set id.
+      #   @param preferences [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}] Inline set preferences for a recipient, where the key is the preference set id.
       #
       #   @param timezone [String, nil] The timezone of the object. Must be a valid [tz database time zone string](https
-      #   ...
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

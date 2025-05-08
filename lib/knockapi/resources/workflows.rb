@@ -15,10 +15,8 @@ module Knockapi
       # @param key [String] The key of the workflow to cancel.
       #
       # @param cancellation_key [String] An optional key that is used to reference a specific workflow trigger request wh
-      # ...
       #
-      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
-      # ...
+      # @param recipients [Array<String, Knockapi::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -26,7 +24,7 @@ module Knockapi
       #
       # @see Knockapi::Models::WorkflowCancelParams
       def cancel(key, params)
-        parsed, options = Knockapi::Models::WorkflowCancelParams.dump_request(params)
+        parsed, options = Knockapi::WorkflowCancelParams.dump_request(params)
         @client.request(
           method: :post,
           path: ["v1/workflows/%1$s/cancel", key],
@@ -49,18 +47,15 @@ module Knockapi
       #
       # @param key [String] Key of the workflow to trigger.
       #
-      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
-      # ...
+      # @param recipients [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
       #
-      # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
-      # ...
+      # @param actor [String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
       #
       # @param cancellation_key [String, nil] An optional key that is used to reference a specific workflow trigger request wh
-      # ...
       #
       # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
       #
-      # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
+      # @param tenant [String, Knockapi::TenantRequest, nil] An request to set a tenant inline.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -68,7 +63,7 @@ module Knockapi
       #
       # @see Knockapi::Models::WorkflowTriggerParams
       def trigger(key, params)
-        parsed, options = Knockapi::Models::WorkflowTriggerParams.dump_request(params)
+        parsed, options = Knockapi::WorkflowTriggerParams.dump_request(params)
         @client.request(
           method: :post,
           path: ["v1/workflows/%1$s/trigger", key],

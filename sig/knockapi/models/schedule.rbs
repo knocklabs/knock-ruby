@@ -5,7 +5,7 @@ module Knockapi
         id: String,
         inserted_at: Time,
         recipient: Knockapi::Models::recipient,
-        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         updated_at: Time,
         workflow: String,
         _typename: String,
@@ -23,7 +23,7 @@ module Knockapi
 
       attr_accessor recipient: Knockapi::Models::recipient
 
-      attr_accessor repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]
+      attr_accessor repeats: ::Array[Knockapi::ScheduleRepeatRule]
 
       attr_accessor updated_at: Time
 
@@ -47,7 +47,7 @@ module Knockapi
         id: String,
         inserted_at: Time,
         recipient: Knockapi::Models::recipient,
-        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         updated_at: Time,
         workflow: String,
         ?_typename: String,
@@ -57,8 +57,6 @@ module Knockapi
         ?next_occurrence_at: Time?,
         ?tenant: String?
       ) -> void
-
-      def to_hash: -> Knockapi::Models::schedule
     end
   end
 end

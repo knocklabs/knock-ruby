@@ -22,9 +22,8 @@ module Knockapi
       # @!attribute include
       #   Associated resources to include in the response.
       #
-      #   @return [Array<Symbol, Knockapi::Models::UserListParams::Include>, nil]
-      optional :include,
-               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::UserListParams::Include] }
+      #   @return [Array<Symbol, Knockapi::UserListParams::Include>, nil]
+      optional :include, -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListParams::Include] }
 
       # @!attribute page_size
       #   The number of items per page.
@@ -37,7 +36,7 @@ module Knockapi
       #
       #   @param before [String] The cursor to fetch entries before.
       #
-      #   @param include [Array<Symbol, Knockapi::Models::UserListParams::Include>] Associated resources to include in the response.
+      #   @param include [Array<Symbol, Knockapi::UserListParams::Include>] Associated resources to include in the response.
       #
       #   @param page_size [Integer] The number of items per page.
       #

@@ -18,29 +18,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Message
+      row => Knockapi::Message
     end
 
     assert_pattern do
       row => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -56,29 +56,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.archive("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -94,29 +94,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.get("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -160,17 +160,17 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Activity
+      row => Knockapi::Activity
     end
 
     assert_pattern do
       row => {
         id: String | nil,
         _typename: String | nil,
-        actor: Knockapi::Models::Recipient | nil,
+        actor: Knockapi::Recipient | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         inserted_at: Time | nil,
-        recipient: Knockapi::Models::Recipient | nil,
+        recipient: Knockapi::Recipient | nil,
         updated_at: Time | nil
       }
     end
@@ -191,7 +191,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::MessageDeliveryLog
+      row => Knockapi::MessageDeliveryLog
     end
 
     assert_pattern do
@@ -200,8 +200,8 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
         _typename: String,
         environment_id: String,
         inserted_at: String,
-        request: Knockapi::Models::MessageDeliveryLog::Request,
-        response: Knockapi::Models::MessageDeliveryLog::Response,
+        request: Knockapi::MessageDeliveryLog::Request,
+        response: Knockapi::MessageDeliveryLog::Response,
         service_name: String
       }
     end
@@ -222,7 +222,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::MessageEvent
+      row => Knockapi::MessageEvent
     end
 
     assert_pattern do
@@ -230,8 +230,8 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
         id: String,
         _typename: String,
         inserted_at: Time,
-        recipient: Knockapi::Models::RecipientReference,
-        type: Knockapi::Models::MessageEvent::Type,
+        recipient: Knockapi::RecipientReference,
+        type: Knockapi::MessageEvent::Type,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
@@ -245,29 +245,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.mark_as_interacted("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -283,29 +283,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.mark_as_read("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -321,29 +321,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.mark_as_seen("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -359,29 +359,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.mark_as_unread("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -397,29 +397,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.mark_as_unseen("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -435,29 +435,29 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.unarchive("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::Message
+      response => Knockapi::Message
     end
 
     assert_pattern do
       response => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil

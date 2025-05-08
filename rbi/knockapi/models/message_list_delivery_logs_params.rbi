@@ -6,6 +6,8 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
@@ -32,9 +34,8 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The cursor to fetch entries after.
@@ -44,17 +45,21 @@ module Knockapi
         # The number of items per page.
         page_size: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns({
-                     after: String,
-                     before: String,
-                     page_size: Integer,
-                     request_options: Knockapi::RequestOptions
-                   })
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after: String,
+            before: String,
+            page_size: Integer,
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

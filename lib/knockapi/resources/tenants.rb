@@ -22,17 +22,17 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Tenant>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Tenant>]
       #
       # @see Knockapi::Models::TenantListParams
       def list(params = {})
-        parsed, options = Knockapi::Models::TenantListParams.dump_request(params)
+        parsed, options = Knockapi::TenantListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "v1/tenants",
           query: parsed,
           page: Knockapi::Internal::EntriesCursor,
-          model: Knockapi::Models::Tenant,
+          model: Knockapi::Tenant,
           options: options
         )
       end
@@ -65,14 +65,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Tenant]
+      # @return [Knockapi::Tenant]
       #
       # @see Knockapi::Models::TenantGetParams
       def get(id, params = {})
         @client.request(
           method: :get,
           path: ["v1/tenants/%1$s", id],
-          model: Knockapi::Models::Tenant,
+          model: Knockapi::Tenant,
           options: params[:request_options]
         )
       end
@@ -84,24 +84,24 @@ module Knockapi
       #
       # @param id [String] The unique identifier for the tenant.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      # @param channel_data [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
       #
-      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      # @param preferences [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
       #
-      # @param settings [Knockapi::Models::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
+      # @param settings [Knockapi::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Tenant]
+      # @return [Knockapi::Tenant]
       #
       # @see Knockapi::Models::TenantSetParams
       def set(id, params = {})
-        parsed, options = Knockapi::Models::TenantSetParams.dump_request(params)
+        parsed, options = Knockapi::TenantSetParams.dump_request(params)
         @client.request(
           method: :put,
           path: ["v1/tenants/%1$s", id],
           body: parsed,
-          model: Knockapi::Models::Tenant,
+          model: Knockapi::Tenant,
           options: options
         )
       end

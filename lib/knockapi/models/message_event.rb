@@ -26,14 +26,14 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (ID, collection).
       #
-      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference]
-      required :recipient, union: -> { Knockapi::Models::RecipientReference }
+      #   @return [String, Knockapi::RecipientReference::ObjectReference]
+      required :recipient, union: -> { Knockapi::RecipientReference }
 
       # @!attribute type
       #   The type of event that occurred.
       #
-      #   @return [Symbol, Knockapi::Models::MessageEvent::Type]
-      required :type, enum: -> { Knockapi::Models::MessageEvent::Type }
+      #   @return [Symbol, Knockapi::MessageEvent::Type]
+      required :type, enum: -> { Knockapi::MessageEvent::Type }
 
       # @!attribute data
       #   The data associated with the message event. Only present for some event types.
@@ -42,8 +42,8 @@ module Knockapi
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
       # @!method initialize(id:, _typename:, inserted_at:, recipient:, type:, data: nil)
-      #   Some parameter documentations has been truncated, see
-      #   {Knockapi::Models::MessageEvent} for more details.
+      #   Some parameter documentations has been truncated, see {Knockapi::MessageEvent}
+      #   for more details.
       #
       #   A message event. Occurs when a message
       #   [delivery or engagement status](/send-notifications/message-statuses) changes.
@@ -54,16 +54,15 @@ module Knockapi
       #
       #   @param inserted_at [Time] Timestamp when the event was created.
       #
-      #   @param recipient [String, Knockapi::Models::RecipientReference::ObjectReference] A reference to a recipient, either a user identifier (string) or an object refer
-      #   ...
+      #   @param recipient [String, Knockapi::RecipientReference::ObjectReference] A reference to a recipient, either a user identifier (string) or an object refer
       #
-      #   @param type [Symbol, Knockapi::Models::MessageEvent::Type] The type of event that occurred.
+      #   @param type [Symbol, Knockapi::MessageEvent::Type] The type of event that occurred.
       #
       #   @param data [Hash{Symbol=>Object}, nil] The data associated with the message event. Only present for some event types.
 
       # The type of event that occurred.
       #
-      # @see Knockapi::Models::MessageEvent#type
+      # @see Knockapi::MessageEvent#type
       module Type
         extend Knockapi::Internal::Type::Enum
 

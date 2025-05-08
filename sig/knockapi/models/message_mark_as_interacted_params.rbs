@@ -16,8 +16,6 @@ module Knockapi
         ?metadata: ::Hash[Symbol, top],
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::message_mark_as_interacted_params
     end
   end
 end

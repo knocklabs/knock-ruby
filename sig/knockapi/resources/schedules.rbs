@@ -5,7 +5,7 @@ module Knockapi
 
       def create: (
         recipients: ::Array[Knockapi::Models::recipient_request],
-        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         workflow: String,
         ?data: ::Hash[Symbol, top]?,
         ?ending_at: Time?,
@@ -19,7 +19,7 @@ module Knockapi
         ?actor: Knockapi::Models::recipient_reference?,
         ?data: ::Hash[Symbol, top]?,
         ?ending_at: Time?,
-        ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        ?repeats: ::Array[Knockapi::ScheduleRepeatRule],
         ?scheduled_at: Time?,
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
@@ -33,7 +33,7 @@ module Knockapi
         ?recipients: ::Array[String],
         ?tenant: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule]
+      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Schedule]
 
       def delete: (
         schedule_ids: ::Array[String],

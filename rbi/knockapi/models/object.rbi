@@ -3,6 +3,8 @@
 module Knockapi
   module Models
     class Object < Knockapi::Internal::Type::BaseModel
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # Unique identifier for the object.
       sig { returns(String) }
       attr_accessor :id
@@ -31,8 +33,7 @@ module Knockapi
           collection: String,
           updated_at: Time,
           created_at: T.nilable(Time)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique identifier for the object.
@@ -45,14 +46,22 @@ module Knockapi
         updated_at:,
         # Timestamp when the resource was created.
         created_at: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {id: String, _typename: String, collection: String, updated_at: Time, created_at: T.nilable(Time)}
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            _typename: String,
+            collection: String,
+            updated_at: Time,
+            created_at: T.nilable(Time)
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

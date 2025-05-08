@@ -7,32 +7,34 @@ module Knockapi
         # @!attribute connections
         #   List of Slack channel connections.
         #
-        #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
+        #   @return [Array<Knockapi::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
         required :connections,
-                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::SlackChannelData::Connection] }
+                 -> {
+                   Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipients::SlackChannelData::Connection]
+                 }
 
         # @!attribute token
         #   A Slack connection token.
         #
-        #   @return [Knockapi::Models::Recipients::SlackChannelData::Token, nil]
-        optional :token, -> { Knockapi::Models::Recipients::SlackChannelData::Token }, nil?: true
+        #   @return [Knockapi::Recipients::SlackChannelData::Token, nil]
+        optional :token, -> { Knockapi::Recipients::SlackChannelData::Token }, nil?: true
 
         # @!method initialize(connections:, token: nil)
         #   Slack channel data
         #
-        #   @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>] List of Slack channel connections.
+        #   @param connections [Array<Knockapi::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>] List of Slack channel connections.
         #
-        #   @param token [Knockapi::Models::Recipients::SlackChannelData::Token, nil] A Slack connection token.
+        #   @param token [Knockapi::Recipients::SlackChannelData::Token, nil] A Slack connection token.
 
         # A Slack connection, either an access token or an incoming webhook
         module Connection
           extend Knockapi::Internal::Type::Union
 
           # A Slack connection token.
-          variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection }
+          variant -> { Knockapi::Recipients::SlackChannelData::Connection::SlackTokenConnection }
 
           # A Slack connection incoming webhook.
-          variant -> { Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection }
+          variant -> { Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection }
 
           class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute access_token
@@ -77,10 +79,10 @@ module Knockapi
           end
 
           # @!method self.variants
-          #   @return [Array(Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
+          #   @return [Array(Knockapi::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
         end
 
-        # @see Knockapi::Models::Recipients::SlackChannelData#token
+        # @see Knockapi::Recipients::SlackChannelData#token
         class Token < Knockapi::Internal::Type::BaseModel
           # @!attribute access_token
           #   A Slack access token.

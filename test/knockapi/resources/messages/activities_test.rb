@@ -18,17 +18,17 @@ class Knockapi::Test::Resources::Messages::ActivitiesTest < Knockapi::Test::Reso
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Activity
+      row => Knockapi::Activity
     end
 
     assert_pattern do
       row => {
         id: String | nil,
         _typename: String | nil,
-        actor: Knockapi::Models::Recipient | nil,
+        actor: Knockapi::Recipient | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         inserted_at: Time | nil,
-        recipient: Knockapi::Models::Recipient | nil,
+        recipient: Knockapi::Recipient | nil,
         updated_at: Time | nil
       }
     end

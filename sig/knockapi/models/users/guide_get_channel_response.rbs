@@ -17,8 +17,6 @@ module Knockapi
           ?recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
         ) -> void
 
-        def to_hash: -> Knockapi::Models::Users::guide_get_channel_response
-
         type guide =
           {
             id: String,
@@ -50,8 +48,6 @@ module Knockapi
             ?metadata: ::Hash[Symbol, top],
             ?title: String
           ) -> void
-
-          def to_hash: -> Knockapi::Models::Users::GuideGetChannelResponse::guide
         end
 
         type recipient = { id: String }
@@ -62,8 +58,6 @@ module Knockapi
           def id=: (String) -> String
 
           def initialize: (?id: String) -> void
-
-          def to_hash: -> Knockapi::Models::Users::GuideGetChannelResponse::recipient
         end
       end
     end
