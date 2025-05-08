@@ -3,82 +3,76 @@ module Knockapi
     module Recipients
       type preference_set_request =
         {
-          categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
-          channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-          workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
+          categories: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::category]?,
+          channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+          workflows: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::workflow]?
         }
 
       class PreferenceSetRequest < Knockapi::Internal::Type::BaseModel
-        attr_accessor categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?
+        attr_accessor categories: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::category]?
 
-        attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
+        attr_accessor channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?
 
-        attr_accessor workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
+        attr_accessor workflows: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::workflow]?
 
         def initialize: (
-          ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
-          ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-          ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
+          ?categories: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::category]?,
+          ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+          ?workflows: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::workflow]?
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Recipients::preference_set_request
 
         type category =
           bool
-          | Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
+          | Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
 
         module Category
           extend Knockapi::Internal::Type::Union
 
           type preference_set_workflow_category_setting_object =
             {
-              channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              conditions: ::Array[Knockapi::Models::Condition]?
+              channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+              conditions: ::Array[Knockapi::Condition]?
             }
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
-            attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
+            attr_accessor channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?
 
-            attr_accessor conditions: ::Array[Knockapi::Models::Condition]?
+            attr_accessor conditions: ::Array[Knockapi::Condition]?
 
             def initialize: (
-              ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              ?conditions: ::Array[Knockapi::Models::Condition]?
+              ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+              ?conditions: ::Array[Knockapi::Condition]?
             ) -> void
-
-            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Category::preference_set_workflow_category_setting_object
           end
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject]
+          def self?.variants: -> ::Array[Knockapi::Recipients::PreferenceSetRequest::category]
         end
 
         type workflow =
           bool
-          | Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
+          | Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
 
         module Workflow
           extend Knockapi::Internal::Type::Union
 
           type preference_set_workflow_category_setting_object =
             {
-              channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              conditions: ::Array[Knockapi::Models::Condition]?
+              channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+              conditions: ::Array[Knockapi::Condition]?
             }
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
-            attr_accessor channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?
+            attr_accessor channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?
 
-            attr_accessor conditions: ::Array[Knockapi::Models::Condition]?
+            attr_accessor conditions: ::Array[Knockapi::Condition]?
 
             def initialize: (
-              ?channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes?,
-              ?conditions: ::Array[Knockapi::Models::Condition]?
+              ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+              ?conditions: ::Array[Knockapi::Condition]?
             ) -> void
-
-            def to_hash: -> Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::preference_set_workflow_category_setting_object
           end
 
-          def self?.variants: -> [bool, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject]
+          def self?.variants: -> ::Array[Knockapi::Recipients::PreferenceSetRequest::workflow]
         end
       end
     end

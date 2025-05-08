@@ -4,7 +4,7 @@ module Knockapi
       def get: (
         String id,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::BulkOperation
+      ) -> Knockapi::BulkOperation
 
       def initialize: (client: Knockapi::Client) -> void
     end

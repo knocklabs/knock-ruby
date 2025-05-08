@@ -3,12 +3,18 @@
 module Knockapi
   module Models
     class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # URL to the user's avatar image.
       sig { returns(T.nilable(String)) }
       attr_accessor :avatar
 
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
+      sig do
+        returns(
+          T.nilable(T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest])
+        )
+      end
       attr_accessor :channel_data
 
       # The creation date of the user from your system.
@@ -33,7 +39,11 @@ module Knockapi
       attr_accessor :phone_number
 
       # Inline set preferences for a recipient, where the key is the preference set id.
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
+      sig do
+        returns(
+          T.nilable(T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest])
+        )
+      end
       attr_accessor :preferences
 
       # The timezone of the user. Must be a
@@ -49,20 +59,24 @@ module Knockapi
       sig do
         params(
           avatar: T.nilable(String),
-          channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
-          ),
+          channel_data:
+            T.nilable(
+              T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest::OrHash]
+            ),
           created_at: T.nilable(Time),
           email: T.nilable(String),
           locale: T.nilable(String),
           name: T.nilable(String),
           phone_number: T.nilable(String),
-          preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
-          ),
+          preferences:
+            T.nilable(
+              T::Hash[
+                Symbol,
+                Knockapi::Recipients::PreferenceSetRequest::OrHash
+              ]
+            ),
           timezone: T.nilable(String)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # URL to the user's avatar image.
@@ -87,24 +101,32 @@ module Knockapi
         # Used
         # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              avatar: T.nilable(String),
-              channel_data: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]),
-              created_at: T.nilable(Time),
-              email: T.nilable(String),
-              locale: T.nilable(String),
-              name: T.nilable(String),
-              phone_number: T.nilable(String),
-              preferences: T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest]),
-              timezone: T.nilable(String)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            avatar: T.nilable(String),
+            channel_data:
+              T.nilable(
+                T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest]
+              ),
+            created_at: T.nilable(Time),
+            email: T.nilable(String),
+            locale: T.nilable(String),
+            name: T.nilable(String),
+            phone_number: T.nilable(String),
+            preferences:
+              T.nilable(
+                T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest]
+              ),
+            timezone: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

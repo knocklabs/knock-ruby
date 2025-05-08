@@ -9,19 +9,22 @@ module Knockapi
         # for the `actor`, `recipient`, and `tenant` fields.
         sig do
           params(
-            schedules: T::Array[T.any(Knockapi::Models::Schedules::BulkCreateParams::Schedule, Knockapi::Internal::AnyHash)],
-            request_options: Knockapi::RequestOpts
-          )
-            .returns(Knockapi::Models::BulkOperation)
+            schedules:
+              T::Array[Knockapi::Schedules::BulkCreateParams::Schedule::OrHash],
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::BulkOperation)
         end
         def create(
           # A list of schedules.
           schedules:,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

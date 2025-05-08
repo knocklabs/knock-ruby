@@ -18,7 +18,6 @@ module Knockapi
       #   The response from triggering a workflow.
       #
       #   @param workflow_run_id [String] This value allows you to track individual messages associated with this trigger
-      #   ...
     end
   end
 end

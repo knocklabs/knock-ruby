@@ -19,7 +19,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Providers::MsTeamCheckAuthParams
         def check_auth(channel_id, params)
-          parsed, options = Knockapi::Models::Providers::MsTeamCheckAuthParams.dump_request(params)
+          parsed, options = Knockapi::Providers::MsTeamCheckAuthParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/providers/ms-teams/%1$s/auth_check", channel_id],
@@ -40,7 +40,7 @@ module Knockapi
         #
         # @param team_id [String] Microsoft Teams team ID.
         #
-        # @param query_options [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
+        # @param query_options [Knockapi::Providers::MsTeamListChannelsParams::QueryOptions]
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -48,7 +48,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Providers::MsTeamListChannelsParams
         def list_channels(channel_id, params)
-          parsed, options = Knockapi::Models::Providers::MsTeamListChannelsParams.dump_request(params)
+          parsed, options = Knockapi::Providers::MsTeamListChannelsParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/providers/ms-teams/%1$s/channels", channel_id],
@@ -67,7 +67,7 @@ module Knockapi
         #
         # @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
         #
-        # @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
+        # @param query_options [Knockapi::Providers::MsTeamListTeamsParams::QueryOptions]
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -75,7 +75,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Providers::MsTeamListTeamsParams
         def list_teams(channel_id, params)
-          parsed, options = Knockapi::Models::Providers::MsTeamListTeamsParams.dump_request(params)
+          parsed, options = Knockapi::Providers::MsTeamListTeamsParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/providers/ms-teams/%1$s/teams", channel_id],
@@ -100,7 +100,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Providers::MsTeamRevokeAccessParams
         def revoke_access(channel_id, params)
-          parsed, options = Knockapi::Models::Providers::MsTeamRevokeAccessParams.dump_request(params)
+          parsed, options = Knockapi::Providers::MsTeamRevokeAccessParams.dump_request(params)
           @client.request(
             method: :put,
             path: ["v1/providers/ms-teams/%1$s/revoke_access", channel_id],

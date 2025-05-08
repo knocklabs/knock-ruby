@@ -7,8 +7,6 @@ module Knockapi
         attr_accessor player_ids: ::Array[String]
 
         def initialize: (player_ids: ::Array[String]) -> void
-
-        def to_hash: -> Knockapi::Models::Recipients::one_signal_channel_data
       end
     end
   end

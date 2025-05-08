@@ -17,8 +17,8 @@ module Knockapi
         # @!attribute archived
         #   The archived status of the feed items.
         #
-        #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived, nil]
-        optional :archived, enum: -> { Knockapi::Models::Users::FeedListItemsParams::Archived }
+        #   @return [Symbol, Knockapi::Users::FeedListItemsParams::Archived, nil]
+        optional :archived, enum: -> { Knockapi::Users::FeedListItemsParams::Archived }
 
         # @!attribute before
         #   The cursor to fetch entries before.
@@ -47,8 +47,8 @@ module Knockapi
         # @!attribute status
         #   The status of the feed items.
         #
-        #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status, nil]
-        optional :status, enum: -> { Knockapi::Models::Users::FeedListItemsParams::Status }
+        #   @return [Symbol, Knockapi::Users::FeedListItemsParams::Status, nil]
+        optional :status, enum: -> { Knockapi::Users::FeedListItemsParams::Status }
 
         # @!attribute tenant
         #   The tenant associated with the feed items.
@@ -71,7 +71,7 @@ module Knockapi
         # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #   @param after [String] The cursor to fetch entries after.
         #
-        #   @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived] The archived status of the feed items.
+        #   @param archived [Symbol, Knockapi::Users::FeedListItemsParams::Archived] The archived status of the feed items.
         #
         #   @param before [String] The cursor to fetch entries before.
         #
@@ -81,7 +81,7 @@ module Knockapi
         #
         #   @param source [String] The source of the feed items.
         #
-        #   @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status] The status of the feed items.
+        #   @param status [Symbol, Knockapi::Users::FeedListItemsParams::Status] The status of the feed items.
         #
         #   @param tenant [String] The tenant associated with the feed items.
         #

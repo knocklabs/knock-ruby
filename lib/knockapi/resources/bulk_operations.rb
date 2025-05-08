@@ -11,14 +11,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::BulkOperation]
+      # @return [Knockapi::BulkOperation]
       #
       # @see Knockapi::Models::BulkOperationGetParams
       def get(id, params = {})
         @client.request(
           method: :get,
           path: ["v1/bulk_operations/%1$s", id],
-          model: Knockapi::Models::BulkOperation,
+          model: Knockapi::BulkOperation,
           options: params[:request_options]
         )
       end

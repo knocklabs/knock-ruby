@@ -17,7 +17,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       )
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Message])
     end
   end
 
@@ -41,7 +41,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.mark_as_interacted(message_ids: ["1jNaXzB2RZX3LY8wVQnfCKyPnv7"])
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Message])
     end
   end
 
@@ -56,7 +56,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       )
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Message])
     end
   end
 
@@ -71,7 +71,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       )
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Message])
     end
   end
 
@@ -86,7 +86,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       )
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Message])
     end
   end
 
@@ -101,7 +101,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       )
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Message])
     end
   end
 
@@ -116,7 +116,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
       )
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Message])
     end
   end
 end

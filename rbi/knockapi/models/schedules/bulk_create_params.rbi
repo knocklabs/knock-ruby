@@ -7,34 +7,45 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # A list of schedules.
-        sig { returns(T::Array[Knockapi::Models::Schedules::BulkCreateParams::Schedule]) }
+        sig do
+          returns(T::Array[Knockapi::Schedules::BulkCreateParams::Schedule])
+        end
         attr_accessor :schedules
 
         sig do
           params(
-            schedules: T::Array[T.any(Knockapi::Models::Schedules::BulkCreateParams::Schedule, Knockapi::Internal::AnyHash)],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            schedules:
+              T::Array[Knockapi::Schedules::BulkCreateParams::Schedule::OrHash],
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # A list of schedules.
           schedules:,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                schedules: T::Array[Knockapi::Models::Schedules::BulkCreateParams::Schedule],
-                request_options: Knockapi::RequestOptions
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              schedules:
+                T::Array[Knockapi::Schedules::BulkCreateParams::Schedule],
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
 
         class Schedule < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
           # The key of the workflow.
           sig { returns(String) }
           attr_accessor :workflow
@@ -45,7 +56,11 @@ module Knockapi
           sig do
             returns(
               T.nilable(
-                T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
+                T.any(
+                  String,
+                  Knockapi::InlineIdentifyUserRequest,
+                  Knockapi::InlineObjectRequest
+                )
               )
             )
           end
@@ -65,7 +80,11 @@ module Knockapi
           sig do
             returns(
               T.nilable(
-                T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
+                T.any(
+                  String,
+                  Knockapi::InlineIdentifyUserRequest,
+                  Knockapi::InlineObjectRequest
+                )
               )
             )
           end
@@ -73,22 +92,23 @@ module Knockapi
 
           sig do
             params(
-              recipient: T.any(
-                String,
-                Knockapi::Models::InlineIdentifyUserRequest,
-                Knockapi::Internal::AnyHash,
-                Knockapi::Models::InlineObjectRequest
-              )
-            )
-              .void
+              recipient:
+                T.any(
+                  String,
+                  Knockapi::InlineIdentifyUserRequest::OrHash,
+                  Knockapi::InlineObjectRequest::OrHash
+                )
+            ).void
           end
           attr_writer :recipient
 
           # The repeat rule for the schedule.
-          sig { returns(T.nilable(T::Array[Knockapi::Models::ScheduleRepeatRule])) }
+          sig { returns(T.nilable(T::Array[Knockapi::ScheduleRepeatRule])) }
           attr_reader :repeats
 
-          sig { params(repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)]).void }
+          sig do
+            params(repeats: T::Array[Knockapi::ScheduleRepeatRule::OrHash]).void
+          end
           attr_writer :repeats
 
           # The starting date and time for the schedule.
@@ -96,34 +116,33 @@ module Knockapi
           attr_accessor :scheduled_at
 
           # An request to set a tenant inline.
-          sig { returns(T.nilable(T.any(String, Knockapi::Models::TenantRequest))) }
+          sig { returns(T.nilable(T.any(String, Knockapi::TenantRequest))) }
           attr_accessor :tenant
 
           # A schedule represents a recurring workflow execution.
           sig do
             params(
               workflow: String,
-              actor: T.nilable(
-                T.any(
-                  String,
-                  Knockapi::Models::InlineIdentifyUserRequest,
-                  Knockapi::Internal::AnyHash,
-                  Knockapi::Models::InlineObjectRequest
-                )
-              ),
+              actor:
+                T.nilable(
+                  T.any(
+                    String,
+                    Knockapi::InlineIdentifyUserRequest::OrHash,
+                    Knockapi::InlineObjectRequest::OrHash
+                  )
+                ),
               data: T.nilable(T::Hash[Symbol, T.anything]),
               ending_at: T.nilable(Time),
-              recipient: T.any(
-                String,
-                Knockapi::Models::InlineIdentifyUserRequest,
-                Knockapi::Internal::AnyHash,
-                Knockapi::Models::InlineObjectRequest
-              ),
-              repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
+              recipient:
+                T.any(
+                  String,
+                  Knockapi::InlineIdentifyUserRequest::OrHash,
+                  Knockapi::InlineObjectRequest::OrHash
+                ),
+              repeats: T::Array[Knockapi::ScheduleRepeatRule::OrHash],
               scheduled_at: T.nilable(Time),
-              tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash))
-            )
-              .returns(T.attached_class)
+              tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash))
+            ).returns(T.attached_class)
           end
           def self.new(
             # The key of the workflow.
@@ -146,25 +165,37 @@ module Knockapi
             scheduled_at: nil,
             # An request to set a tenant inline.
             tenant: nil
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  workflow: String,
-                  actor: T.nilable(
-                    T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)
-                  ),
-                  data: T.nilable(T::Hash[Symbol, T.anything]),
-                  ending_at: T.nilable(Time),
-                  recipient: T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest),
-                  repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],
-                  scheduled_at: T.nilable(Time),
-                  tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest))
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                workflow: String,
+                actor:
+                  T.nilable(
+                    T.any(
+                      String,
+                      Knockapi::InlineIdentifyUserRequest,
+                      Knockapi::InlineObjectRequest
+                    )
+                  ),
+                data: T.nilable(T::Hash[Symbol, T.anything]),
+                ending_at: T.nilable(Time),
+                recipient:
+                  T.any(
+                    String,
+                    Knockapi::InlineIdentifyUserRequest,
+                    Knockapi::InlineObjectRequest
+                  ),
+                repeats: T::Array[Knockapi::ScheduleRepeatRule],
+                scheduled_at: T.nilable(Time),
+                tenant: T.nilable(T.any(String, Knockapi::TenantRequest))
+              }
+            )
+          end
+          def to_hash
+          end
         end
       end
     end

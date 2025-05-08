@@ -4,6 +4,9 @@ module Knockapi
   module Models
     module Providers
       class MsTeamListTeamsResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # Microsoft Teams team ID.
         sig { returns(String) }
         attr_accessor :id
@@ -17,7 +20,11 @@ module Knockapi
         attr_accessor :description
 
         sig do
-          params(id: String, display_name: String, description: T.nilable(String)).returns(T.attached_class)
+          params(
+            id: String,
+            display_name: String,
+            description: T.nilable(String)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Microsoft Teams team ID.
@@ -26,9 +33,16 @@ module Knockapi
           display_name:,
           # Microsoft Teams team description.
           description: nil
-        ); end
-        sig { override.returns({id: String, display_name: String, description: T.nilable(String)}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            { id: String, display_name: String, description: T.nilable(String) }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

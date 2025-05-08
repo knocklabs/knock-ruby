@@ -31,14 +31,14 @@ module Knockapi
       # @!attribute request
       #   A message delivery log request.
       #
-      #   @return [Knockapi::Models::MessageDeliveryLog::Request]
-      required :request, -> { Knockapi::Models::MessageDeliveryLog::Request }
+      #   @return [Knockapi::MessageDeliveryLog::Request]
+      required :request, -> { Knockapi::MessageDeliveryLog::Request }
 
       # @!attribute response
       #   A message delivery log response.
       #
-      #   @return [Knockapi::Models::MessageDeliveryLog::Response]
-      required :response, -> { Knockapi::Models::MessageDeliveryLog::Response }
+      #   @return [Knockapi::MessageDeliveryLog::Response]
+      required :response, -> { Knockapi::MessageDeliveryLog::Response }
 
       # @!attribute service_name
       #   The name of the service that processed the delivery.
@@ -58,19 +58,19 @@ module Knockapi
       #
       #   @param inserted_at [String] Timestamp when the message delivery log was created.
       #
-      #   @param request [Knockapi::Models::MessageDeliveryLog::Request] A message delivery log request.
+      #   @param request [Knockapi::MessageDeliveryLog::Request] A message delivery log request.
       #
-      #   @param response [Knockapi::Models::MessageDeliveryLog::Response] A message delivery log response.
+      #   @param response [Knockapi::MessageDeliveryLog::Response] A message delivery log response.
       #
       #   @param service_name [String] The name of the service that processed the delivery.
 
-      # @see Knockapi::Models::MessageDeliveryLog#request
+      # @see Knockapi::MessageDeliveryLog#request
       class Request < Knockapi::Internal::Type::BaseModel
         # @!attribute body
         #   The body content that was sent with the request.
         #
         #   @return [String, Hash{Symbol=>Object}, nil]
-        optional :body, union: -> { Knockapi::Models::MessageDeliveryLog::Request::Body }
+        optional :body, union: -> { Knockapi::MessageDeliveryLog::Request::Body }
 
         # @!attribute headers
         #   The headers that were sent with the request.
@@ -87,8 +87,8 @@ module Knockapi
         # @!attribute method_
         #   The HTTP method used for the request.
         #
-        #   @return [Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method, nil]
-        optional :method_, enum: -> { Knockapi::Models::MessageDeliveryLog::Request::Method }, api_name: :method
+        #   @return [Symbol, Knockapi::MessageDeliveryLog::Request::Method, nil]
+        optional :method_, enum: -> { Knockapi::MessageDeliveryLog::Request::Method }, api_name: :method
 
         # @!attribute path
         #   The path of the URL that was requested.
@@ -111,7 +111,7 @@ module Knockapi
         #
         #   @param host [String] The host to which the request was sent.
         #
-        #   @param method_ [Symbol, Knockapi::Models::MessageDeliveryLog::Request::Method] The HTTP method used for the request.
+        #   @param method_ [Symbol, Knockapi::MessageDeliveryLog::Request::Method] The HTTP method used for the request.
         #
         #   @param path [String] The path of the URL that was requested.
         #
@@ -119,13 +119,13 @@ module Knockapi
 
         # The body content that was sent with the request.
         #
-        # @see Knockapi::Models::MessageDeliveryLog::Request#body
+        # @see Knockapi::MessageDeliveryLog::Request#body
         module Body
           extend Knockapi::Internal::Type::Union
 
           variant String
 
-          variant -> { Knockapi::Models::MessageDeliveryLog::Request::Body::UnionMember1Map }
+          variant -> { Knockapi::MessageDeliveryLog::Request::Body::UnionMember1Map }
 
           # @!method self.variants
           #   @return [Array(String, Hash{Symbol=>Object})]
@@ -136,7 +136,7 @@ module Knockapi
 
         # The HTTP method used for the request.
         #
-        # @see Knockapi::Models::MessageDeliveryLog::Request#method_
+        # @see Knockapi::MessageDeliveryLog::Request#method_
         module Method
           extend Knockapi::Internal::Type::Enum
 
@@ -151,13 +151,13 @@ module Knockapi
         end
       end
 
-      # @see Knockapi::Models::MessageDeliveryLog#response
+      # @see Knockapi::MessageDeliveryLog#response
       class Response < Knockapi::Internal::Type::BaseModel
         # @!attribute body
         #   The body content that was received with the response.
         #
         #   @return [String, Hash{Symbol=>Object}, nil]
-        optional :body, union: -> { Knockapi::Models::MessageDeliveryLog::Response::Body }
+        optional :body, union: -> { Knockapi::MessageDeliveryLog::Response::Body }
 
         # @!attribute headers
         #   The headers that were received with the response.
@@ -182,13 +182,13 @@ module Knockapi
 
         # The body content that was received with the response.
         #
-        # @see Knockapi::Models::MessageDeliveryLog::Response#body
+        # @see Knockapi::MessageDeliveryLog::Response#body
         module Body
           extend Knockapi::Internal::Type::Union
 
           variant String
 
-          variant -> { Knockapi::Models::MessageDeliveryLog::Response::Body::UnionMember1Map }
+          variant -> { Knockapi::MessageDeliveryLog::Response::Body::UnionMember1Map }
 
           # @!method self.variants
           #   @return [Array(String, Hash{Symbol=>Object})]

@@ -4,7 +4,9 @@ module Knockapi
       type request_parameters = { request_options: Knockapi::request_opts }
 
       module RequestParameters
-        attr_accessor request_options: Knockapi::request_opts
+        attr_reader request_options: Knockapi::request_opts
+
+        def request_options=: (Knockapi::request_opts) -> Knockapi::request_opts
 
         module Converter
           def dump_request: (top params) -> [top, ::Hash[Symbol, top]]

@@ -4,6 +4,9 @@ module Knockapi
   module Models
     module Recipients
       class Subscription < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # The typename of the schema.
         sig { returns(String) }
         attr_accessor :_typename
@@ -13,14 +16,14 @@ module Knockapi
         attr_accessor :inserted_at
 
         # A custom [Object](/concepts/objects) entity which belongs to a collection.
-        sig { returns(Knockapi::Models::Object) }
+        sig { returns(Knockapi::Object) }
         attr_reader :object
 
-        sig { params(object: T.any(Knockapi::Models::Object, Knockapi::Internal::AnyHash)).void }
+        sig { params(object: Knockapi::Object::OrHash).void }
         attr_writer :object
 
         # A recipient of a notification, which is either a user or an object.
-        sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
+        sig { returns(T.any(Knockapi::User, Knockapi::Object)) }
         attr_accessor :recipient
 
         # The timestamp when the resource was last updated.
@@ -36,12 +39,11 @@ module Knockapi
           params(
             _typename: String,
             inserted_at: Time,
-            object: T.any(Knockapi::Models::Object, Knockapi::Internal::AnyHash),
-            recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object),
+            object: Knockapi::Object::OrHash,
+            recipient: T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash),
             updated_at: Time,
             properties: T.nilable(T::Hash[Symbol, T.anything])
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # The typename of the schema.
@@ -56,21 +58,23 @@ module Knockapi
           updated_at:,
           # The custom properties associated with the subscription relationship.
           properties: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                _typename: String,
-                inserted_at: Time,
-                object: Knockapi::Models::Object,
-                recipient: T.any(Knockapi::Models::User, Knockapi::Models::Object),
-                updated_at: Time,
-                properties: T.nilable(T::Hash[Symbol, T.anything])
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              _typename: String,
+              inserted_at: Time,
+              object: Knockapi::Object,
+              recipient: T.any(Knockapi::User, Knockapi::Object),
+              updated_at: Time,
+              properties: T.nilable(T::Hash[Symbol, T.anything])
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

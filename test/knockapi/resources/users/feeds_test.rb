@@ -43,8 +43,8 @@ class Knockapi::Test::Resources::Users::FeedsTest < Knockapi::Test::ResourceTest
       row => {
         id: String,
         _typename: String,
-        activities: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Activity]),
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipient]),
+        activities: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Activity]),
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipient]),
         blocks: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Users::FeedListItemsResponse::Block]),
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         inserted_at: String,

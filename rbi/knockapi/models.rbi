@@ -43,13 +43,15 @@ module Knockapi
 
   MessageListActivitiesParams = Knockapi::Models::MessageListActivitiesParams
 
-  MessageListDeliveryLogsParams = Knockapi::Models::MessageListDeliveryLogsParams
+  MessageListDeliveryLogsParams =
+    Knockapi::Models::MessageListDeliveryLogsParams
 
   MessageListEventsParams = Knockapi::Models::MessageListEventsParams
 
   MessageListParams = Knockapi::Models::MessageListParams
 
-  MessageMarkAsInteractedParams = Knockapi::Models::MessageMarkAsInteractedParams
+  MessageMarkAsInteractedParams =
+    Knockapi::Models::MessageMarkAsInteractedParams
 
   MessageMarkAsReadParams = Knockapi::Models::MessageMarkAsReadParams
 
@@ -69,7 +71,8 @@ module Knockapi
 
   ObjectDeleteParams = Knockapi::Models::ObjectDeleteParams
 
-  ObjectDeleteSubscriptionsParams = Knockapi::Models::ObjectDeleteSubscriptionsParams
+  ObjectDeleteSubscriptionsParams =
+    Knockapi::Models::ObjectDeleteSubscriptionsParams
 
   ObjectGetChannelDataParams = Knockapi::Models::ObjectGetChannelDataParams
 
@@ -85,7 +88,8 @@ module Knockapi
 
   ObjectListSchedulesParams = Knockapi::Models::ObjectListSchedulesParams
 
-  ObjectListSubscriptionsParams = Knockapi::Models::ObjectListSubscriptionsParams
+  ObjectListSubscriptionsParams =
+    Knockapi::Models::ObjectListSubscriptionsParams
 
   Objects = Knockapi::Models::Objects
 

@@ -4,36 +4,52 @@ module Knockapi
   module Models
     module Providers
       class MsTeamListChannelsResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # List of Microsoft Teams channels.
-        sig { returns(T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]) }
+        sig do
+          returns(
+            T::Array[
+              Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel
+            ]
+          )
+        end
         attr_accessor :ms_teams_channels
 
         # The response from a Microsoft Teams provider request, containing a list of
         # channels.
         sig do
           params(
-            ms_teams_channels: T::Array[
-              T.any(
-                Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel,
-                Knockapi::Internal::AnyHash
-              )
-            ]
-          )
-            .returns(T.attached_class)
+            ms_teams_channels:
+              T::Array[
+                Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel::OrHash
+              ]
+          ).returns(T.attached_class)
         end
         def self.new(
           # List of Microsoft Teams channels.
           ms_teams_channels:
-        ); end
-        sig do
-          override
-            .returns(
-              {ms_teams_channels: T::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]}
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              ms_teams_channels:
+                T::Array[
+                  Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel
+                ]
+            }
+          )
+        end
+        def to_hash
+        end
 
         class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
           # Microsoft Teams channel ID.
           sig { returns(String) }
           attr_accessor :id
@@ -75,8 +91,7 @@ module Knockapi
               description: T.nilable(String),
               is_archived: T::Boolean,
               membership_type: String
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             # Microsoft Teams channel ID.
@@ -91,21 +106,23 @@ module Knockapi
             is_archived: nil,
             # Microsoft Teams channel membership type.
             membership_type: nil
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  id: String,
-                  display_name: String,
-                  created_date_time: String,
-                  description: T.nilable(String),
-                  is_archived: T::Boolean,
-                  membership_type: String
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                id: String,
+                display_name: String,
+                created_date_time: String,
+                description: T.nilable(String),
+                is_archived: T::Boolean,
+                membership_type: String
+              }
+            )
+          end
+          def to_hash
+          end
         end
       end
     end

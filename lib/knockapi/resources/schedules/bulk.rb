@@ -10,20 +10,20 @@ module Knockapi
         #
         # @overload create(schedules:, request_options: {})
         #
-        # @param schedules [Array<Knockapi::Models::Schedules::BulkCreateParams::Schedule>] A list of schedules.
+        # @param schedules [Array<Knockapi::Schedules::BulkCreateParams::Schedule>] A list of schedules.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::BulkOperation]
+        # @return [Knockapi::BulkOperation]
         #
         # @see Knockapi::Models::Schedules::BulkCreateParams
         def create(params)
-          parsed, options = Knockapi::Models::Schedules::BulkCreateParams.dump_request(params)
+          parsed, options = Knockapi::Schedules::BulkCreateParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/schedules/bulk/create",
             body: parsed,
-            model: Knockapi::Models::BulkOperation,
+            model: Knockapi::BulkOperation,
             options: options
           )
         end

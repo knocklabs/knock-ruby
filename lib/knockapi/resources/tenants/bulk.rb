@@ -12,16 +12,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::BulkOperation]
+        # @return [Knockapi::BulkOperation]
         #
         # @see Knockapi::Models::Tenants::BulkDeleteParams
         def delete(params)
-          parsed, options = Knockapi::Models::Tenants::BulkDeleteParams.dump_request(params)
+          parsed, options = Knockapi::Tenants::BulkDeleteParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/tenants/bulk/delete",
             query: parsed,
-            model: Knockapi::Models::BulkOperation,
+            model: Knockapi::BulkOperation,
             options: options
           )
         end
@@ -30,20 +30,20 @@ module Knockapi
         #
         # @overload set(tenants:, request_options: {})
         #
-        # @param tenants [Array<String, Knockapi::Models::TenantRequest>] The tenants to be upserted.
+        # @param tenants [Array<String, Knockapi::TenantRequest>] The tenants to be upserted.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::BulkOperation]
+        # @return [Knockapi::BulkOperation]
         #
         # @see Knockapi::Models::Tenants::BulkSetParams
         def set(params)
-          parsed, options = Knockapi::Models::Tenants::BulkSetParams.dump_request(params)
+          parsed, options = Knockapi::Tenants::BulkSetParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/tenants/bulk/set",
             body: parsed,
-            model: Knockapi::Models::BulkOperation,
+            model: Knockapi::BulkOperation,
             options: options
           )
         end

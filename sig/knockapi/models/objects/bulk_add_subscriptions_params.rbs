@@ -3,7 +3,7 @@ module Knockapi
     module Objects
       type bulk_add_subscriptions_params =
         {
-          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription]
+          subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription]
         }
         & Knockapi::Internal::Type::request_parameters
 
@@ -11,14 +11,12 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        attr_accessor subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription]
+        attr_accessor subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription]
 
         def initialize: (
-          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
+          subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription],
           ?request_options: Knockapi::request_opts
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Objects::bulk_add_subscriptions_params
 
         type subscription =
           {
@@ -35,8 +33,6 @@ module Knockapi
             recipients: ::Array[Knockapi::Models::recipient_request],
             ?properties: ::Hash[Symbol, top]?
           ) -> void
-
-          def to_hash: -> Knockapi::Models::Objects::BulkAddSubscriptionsParams::subscription
         end
       end
     end

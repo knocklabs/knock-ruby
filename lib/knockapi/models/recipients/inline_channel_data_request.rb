@@ -5,7 +5,7 @@ module Knockapi
     module Recipients
       # @type [Knockapi::Internal::Type::Converter]
       InlineChannelDataRequest =
-        Knockapi::Internal::Type::HashOf[-> { Knockapi::Models::Recipients::ChannelDataRequest }]
+        Knockapi::Internal::Type::HashOf[-> { Knockapi::Recipients::ChannelDataRequest }]
     end
   end
 end

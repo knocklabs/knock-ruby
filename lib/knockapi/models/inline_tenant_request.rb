@@ -10,10 +10,10 @@ module Knockapi
       variant String
 
       # A tenant to be set in the system. You can supply any additional properties on the tenant object.
-      variant -> { Knockapi::Models::TenantRequest }
+      variant -> { Knockapi::TenantRequest }
 
       # @!method self.variants
-      #   @return [Array(String, Knockapi::Models::TenantRequest)]
+      #   @return [Array(String, Knockapi::TenantRequest)]
     end
   end
 end

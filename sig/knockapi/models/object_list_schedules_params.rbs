@@ -42,8 +42,6 @@ module Knockapi
         ?workflow: String,
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::object_list_schedules_params
     end
   end
 end

@@ -10,12 +10,17 @@ module Knockapi
         params(
           key: String,
           cancellation_key: String,
-          recipients: T.nilable(
-            T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)]
-          ),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(String)
+          recipients:
+            T.nilable(
+              T::Array[
+                T.any(
+                  String,
+                  Knockapi::RecipientReference::ObjectReference::OrHash
+                )
+              ]
+            ),
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(String)
       end
       def cancel(
         # The key of the workflow to cancel.
@@ -30,7 +35,9 @@ module Knockapi
         # recipients associated with the cancellation key.
         recipients: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Trigger a workflow (specified by the key) to run for the given recipients, using
       # the parameters provided. Returns an identifier for the workflow run request. All
       # workflow runs are executed asynchronously. This endpoint also handles
@@ -39,28 +46,27 @@ module Knockapi
       sig do
         params(
           key: String,
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ],
-          actor: T.nilable(
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ),
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::InlineIdentifyUserRequest::OrHash,
+                Knockapi::InlineObjectRequest::OrHash
+              )
+            ],
+          actor:
+            T.nilable(
+              T.any(
+                String,
+                Knockapi::InlineIdentifyUserRequest::OrHash,
+                Knockapi::InlineObjectRequest::OrHash
+              )
+            ),
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Models::WorkflowTriggerResponse)
+          tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash)),
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Models::WorkflowTriggerResponse)
       end
       def trigger(
         # Key of the workflow to trigger.
@@ -83,10 +89,13 @@ module Knockapi
         # An request to set a tenant inline.
         tenant: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

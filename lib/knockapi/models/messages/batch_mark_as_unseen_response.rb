@@ -4,7 +4,7 @@ module Knockapi
   module Models
     module Messages
       # @type [Knockapi::Internal::Type::Converter]
-      BatchMarkAsUnseenResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Message }]
+      BatchMarkAsUnseenResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Message }]
     end
   end
 end

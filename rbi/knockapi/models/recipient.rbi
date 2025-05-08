@@ -6,8 +6,11 @@ module Knockapi
     module Recipient
       extend Knockapi::Internal::Type::Union
 
-      sig { override.returns([Knockapi::Models::User, Knockapi::Models::Object]) }
-      def self.variants; end
+      Variants = T.type_alias { T.any(Knockapi::User, Knockapi::Object) }
+
+      sig { override.returns(T::Array[Knockapi::Recipient::Variants]) }
+      def self.variants
+      end
     end
   end
 end

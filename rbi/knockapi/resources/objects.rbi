@@ -13,11 +13,10 @@ module Knockapi
           collection: String,
           after: String,
           before: String,
-          include: T::Array[Knockapi::Models::ObjectListParams::Include::OrSymbol],
+          include: T::Array[Knockapi::ObjectListParams::Include::OrSymbol],
           page_size: Integer,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Object])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Object])
       end
       def list(
         # The collection this object belongs to.
@@ -31,17 +30,27 @@ module Knockapi
         # The number of items per page.
         page_size: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Permanently removes an object from the specified collection. This operation
       # cannot be undone.
-      sig { params(collection: String, id: String, request_options: Knockapi::RequestOpts).returns(String) }
+      sig do
+        params(
+          collection: String,
+          id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(String)
+      end
       def delete(
         # The collection this object belongs to.
         collection,
         # Unique identifier for the object.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Add subscriptions for an object. If a subscription already exists, it will be
       # updated. This endpoint also handles
       # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
@@ -50,18 +59,17 @@ module Knockapi
         params(
           collection: String,
           object_id_: String,
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ],
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::InlineIdentifyUserRequest::OrHash,
+                Knockapi::InlineObjectRequest::OrHash
+              )
+            ],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(T::Array[Knockapi::Models::Recipients::Subscription])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T::Array[Knockapi::Recipients::Subscription])
       end
       def add_subscriptions(
         # The collection this object belongs to.
@@ -74,17 +82,24 @@ module Knockapi
         # The custom properties associated with the subscription relationship.
         properties: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Delete subscriptions for the specified recipients from an object. Returns the
       # list of deleted subscriptions.
       sig do
         params(
           collection: String,
           object_id_: String,
-          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(T::Array[Knockapi::Models::Recipients::Subscription])
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ],
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T::Array[Knockapi::Recipients::Subscription])
       end
       def delete_subscriptions(
         # The collection this object belongs to.
@@ -95,12 +110,17 @@ module Knockapi
         # object at a time.
         recipients:,
         request_options: {}
-      ); end
+      )
+      end
+
       # Retrieves a specific object by its ID from the specified collection. Returns the
       # object with all its properties.
       sig do
-        params(collection: String, id: String, request_options: Knockapi::RequestOpts)
-          .returns(Knockapi::Models::Object)
+        params(
+          collection: String,
+          id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Object)
       end
       def get(
         # The collection this object belongs to.
@@ -108,16 +128,17 @@ module Knockapi
         # Unique identifier for the object.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns the channel data for the specified object and channel.
       sig do
         params(
           collection: String,
           object_id_: String,
           channel_id: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Recipients::RecipientsChannelData)
       end
       def get_channel_data(
         # The collection this object belongs to.
@@ -127,11 +148,17 @@ module Knockapi
         # The unique identifier for the channel.
         channel_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns the preference set for the specified object and preference set `id`.
       sig do
-        params(collection: String, object_id_: String, id: String, request_options: Knockapi::RequestOpts)
-          .returns(Knockapi::Models::Recipients::PreferenceSet)
+        params(
+          collection: String,
+          object_id_: String,
+          id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Recipients::PreferenceSet)
       end
       def get_preferences(
         # The collection this object belongs to.
@@ -141,7 +168,9 @@ module Knockapi
         # Unique identifier for the preference set.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of messages for a specific object in the given
       # collection. Allows filtering by message status and provides various sorting
       # options.
@@ -152,20 +181,23 @@ module Knockapi
           after: String,
           before: String,
           channel_id: String,
-          engagement_status: T::Array[Knockapi::Models::ObjectListMessagesParams::EngagementStatus::OrSymbol],
-          inserted_at: T.any(Knockapi::Models::ObjectListMessagesParams::InsertedAt, Knockapi::Internal::AnyHash),
+          engagement_status:
+            T::Array[
+              Knockapi::ObjectListMessagesParams::EngagementStatus::OrSymbol
+            ],
+          inserted_at: Knockapi::ObjectListMessagesParams::InsertedAt::OrHash,
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
-          status: T::Array[Knockapi::Models::ObjectListMessagesParams::Status::OrSymbol],
+          status:
+            T::Array[Knockapi::ObjectListMessagesParams::Status::OrSymbol],
           tenant: String,
           trigger_data: String,
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Message])
       end
       def list_messages(
         # The collection this object belongs to.
@@ -204,11 +236,16 @@ module Knockapi
         # returned by the workflow trigger request.
         workflow_run_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of preference sets for the specified object.
       sig do
-        params(collection: String, object_id_: String, request_options: Knockapi::RequestOpts)
-          .returns(T::Array[Knockapi::Models::Recipients::PreferenceSet])
+        params(
+          collection: String,
+          object_id_: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T::Array[Knockapi::Recipients::PreferenceSet])
       end
       def list_preferences(
         # The collection this object belongs to.
@@ -216,7 +253,9 @@ module Knockapi
         # Unique identifier for the object.
         object_id_,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of schedules for an object.
       sig do
         params(
@@ -227,9 +266,8 @@ module Knockapi
           page_size: Integer,
           tenant: String,
           workflow: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Schedule])
       end
       def list_schedules(
         # The collection of the object to list schedules for.
@@ -247,7 +285,9 @@ module Knockapi
         # Filter schedules by workflow id.
         workflow: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # List subscriptions for an object. Either list the recipients that subscribe to
       # the provided object, or list the objects that the provided object is subscribed
       # to. Determined by the `mode` query parameter.
@@ -257,14 +297,25 @@ module Knockapi
           object_id_: String,
           after: String,
           before: String,
-          include: T::Array[Knockapi::Models::ObjectListSubscriptionsParams::Include::OrSymbol],
-          mode: Knockapi::Models::ObjectListSubscriptionsParams::Mode::OrSymbol,
-          objects: T::Array[T.any(Knockapi::Models::ObjectListSubscriptionsParams::Object, Knockapi::Internal::AnyHash)],
+          include:
+            T::Array[
+              Knockapi::ObjectListSubscriptionsParams::Include::OrSymbol
+            ],
+          mode: Knockapi::ObjectListSubscriptionsParams::Mode::OrSymbol,
+          objects:
+            T::Array[Knockapi::ObjectListSubscriptionsParams::Object::OrHash],
           page_size: Integer,
-          recipients: T::Array[T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)],
-          request_options: Knockapi::RequestOpts
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ],
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(
+          Knockapi::Internal::EntriesCursor[Knockapi::Recipients::Subscription]
         )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Recipients::Subscription])
       end
       def list_subscriptions(
         # The collection this object belongs to.
@@ -288,7 +339,9 @@ module Knockapi
         # Recipients to filter by (only used if mode is `object`).
         recipients: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Creates a new object or updates an existing one in the specified collection.
       # This operation is used to identify objects with their properties, as well as
       # optional preferences and channel data.
@@ -296,13 +349,14 @@ module Knockapi
         params(
           collection: String,
           id: String,
-          channel_data: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)],
+          channel_data:
+            T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest::OrHash],
           locale: T.nilable(String),
-          preferences: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)],
+          preferences:
+            T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::OrHash],
           timezone: T.nilable(String),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Models::Object)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Object)
       end
       def set(
         # The collection this object belongs to.
@@ -322,7 +376,9 @@ module Knockapi
         # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Sets the channel data for the specified object and channel. If no object exists
       # in the current environment for the given `collection` and `object_id`, Knock
       # will create the object as part of this request.
@@ -331,17 +387,16 @@ module Knockapi
           collection: String,
           object_id_: String,
           channel_id: String,
-          data: T.any(
-            Knockapi::Models::Recipients::PushChannelData,
-            Knockapi::Internal::AnyHash,
-            Knockapi::Models::Recipients::OneSignalChannelData,
-            Knockapi::Models::Recipients::SlackChannelData,
-            Knockapi::Models::Recipients::MsTeamsChannelData,
-            Knockapi::Models::Recipients::DiscordChannelData
-          ),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Models::Recipients::RecipientsChannelData)
+          data:
+            T.any(
+              Knockapi::Recipients::PushChannelData::OrHash,
+              Knockapi::Recipients::OneSignalChannelData::OrHash,
+              Knockapi::Recipients::SlackChannelData::OrHash,
+              Knockapi::Recipients::MsTeamsChannelData::OrHash,
+              Knockapi::Recipients::DiscordChannelData::OrHash
+            ),
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Recipients::RecipientsChannelData)
       end
       def set_channel_data(
         # The collection this object belongs to.
@@ -353,7 +408,9 @@ module Knockapi
         # Channel data for a given channel type.
         data:,
         request_options: {}
-      ); end
+      )
+      end
+
       # Sets preferences within the given preference set. This is a destructive
       # operation and will replace any existing preferences with the preferences given.
       # If no object exists in the current environment for the given `:collection` and
@@ -365,30 +422,30 @@ module Knockapi
           collection: String,
           object_id_: String,
           id: String,
-          categories: T.nilable(
-            T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Internal::AnyHash
-              )
-            ]
-          ),
-          channel_types: T.nilable(T.any(Knockapi::Models::Recipients::PreferenceSetChannelTypes, Knockapi::Internal::AnyHash)),
-          workflows: T.nilable(
-            T::Hash[
-              Symbol,
-              T.any(
-                T::Boolean,
-                Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
-                Knockapi::Internal::AnyHash
-              )
-            ]
-          ),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Models::Recipients::PreferenceSet)
+          categories:
+            T.nilable(
+              T::Hash[
+                Symbol,
+                T.any(
+                  T::Boolean,
+                  Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::OrHash
+                )
+              ]
+            ),
+          channel_types:
+            T.nilable(Knockapi::Recipients::PreferenceSetChannelTypes::OrHash),
+          workflows:
+            T.nilable(
+              T::Hash[
+                Symbol,
+                T.any(
+                  T::Boolean,
+                  Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::OrHash
+                )
+              ]
+            ),
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Recipients::PreferenceSet)
       end
       def set_preferences(
         # The collection this object belongs to.
@@ -406,16 +463,17 @@ module Knockapi
         # settings for that workflow.
         workflows: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Unsets the channel data for the specified object and channel.
       sig do
         params(
           collection: String,
           object_id_: String,
           channel_id: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(String)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(String)
       end
       def unset_channel_data(
         # The collection this object belongs to.
@@ -425,10 +483,13 @@ module Knockapi
         # The unique identifier for the channel.
         channel_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

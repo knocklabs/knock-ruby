@@ -43,8 +43,6 @@ module Knockapi
         ?phone_number: String?,
         ?timezone: String?
       ) -> void
-
-      def to_hash: -> Knockapi::Models::user
     end
   end
 end

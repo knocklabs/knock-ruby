@@ -3,6 +3,8 @@
 module Knockapi
   module Models
     class User < Knockapi::Internal::Type::BaseModel
+      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
       # The ID for the user that you set when identifying them in Knock.
       sig { returns(String) }
       attr_accessor :id
@@ -57,8 +59,7 @@ module Knockapi
           name: T.nilable(String),
           phone_number: T.nilable(String),
           timezone: T.nilable(String)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # The ID for the user that you set when identifying them in Knock.
@@ -83,24 +84,26 @@ module Knockapi
         # Used
         # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              _typename: String,
-              updated_at: Time,
-              avatar: T.nilable(String),
-              created_at: T.nilable(Time),
-              email: T.nilable(String),
-              name: T.nilable(String),
-              phone_number: T.nilable(String),
-              timezone: T.nilable(String)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            _typename: String,
+            updated_at: Time,
+            avatar: T.nilable(String),
+            created_at: T.nilable(Time),
+            email: T.nilable(String),
+            name: T.nilable(String),
+            phone_number: T.nilable(String),
+            timezone: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

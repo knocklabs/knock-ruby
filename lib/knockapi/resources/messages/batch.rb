@@ -13,16 +13,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Message>]
+        # @return [Array<Knockapi::Message>]
         #
         # @see Knockapi::Models::Messages::BatchArchiveParams
         def archive(params)
-          parsed, options = Knockapi::Models::Messages::BatchArchiveParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchArchiveParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/archived",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
             options: options
           )
         end
@@ -39,7 +39,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Messages::BatchGetContentParams
         def get_content(params)
-          parsed, options = Knockapi::Models::Messages::BatchGetContentParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchGetContentParams.dump_request(params)
           @client.request(
             method: :get,
             path: "v1/messages/batch/content",
@@ -63,16 +63,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Message>]
+        # @return [Array<Knockapi::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsInteractedParams
         def mark_as_interacted(params)
-          parsed, options = Knockapi::Models::Messages::BatchMarkAsInteractedParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchMarkAsInteractedParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/interacted",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
             options: options
           )
         end
@@ -86,16 +86,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Message>]
+        # @return [Array<Knockapi::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsReadParams
         def mark_as_read(params)
-          parsed, options = Knockapi::Models::Messages::BatchMarkAsReadParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchMarkAsReadParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/read",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
             options: options
           )
         end
@@ -110,16 +110,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Message>]
+        # @return [Array<Knockapi::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsSeenParams
         def mark_as_seen(params)
-          parsed, options = Knockapi::Models::Messages::BatchMarkAsSeenParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchMarkAsSeenParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/seen",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
             options: options
           )
         end
@@ -134,16 +134,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Message>]
+        # @return [Array<Knockapi::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsUnreadParams
         def mark_as_unread(params)
-          parsed, options = Knockapi::Models::Messages::BatchMarkAsUnreadParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchMarkAsUnreadParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/unread",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
             options: options
           )
         end
@@ -158,16 +158,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Message>]
+        # @return [Array<Knockapi::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsUnseenParams
         def mark_as_unseen(params)
-          parsed, options = Knockapi::Models::Messages::BatchMarkAsUnseenParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchMarkAsUnseenParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/unseen",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
             options: options
           )
         end
@@ -182,16 +182,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Message>]
+        # @return [Array<Knockapi::Message>]
         #
         # @see Knockapi::Models::Messages::BatchUnarchiveParams
         def unarchive(params)
-          parsed, options = Knockapi::Models::Messages::BatchUnarchiveParams.dump_request(params)
+          parsed, options = Knockapi::Messages::BatchUnarchiveParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/messages/batch/unarchived",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
             options: options
           )
         end

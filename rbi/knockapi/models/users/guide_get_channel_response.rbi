@@ -4,48 +4,79 @@ module Knockapi
   module Models
     module Users
       class GuideGetChannelResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # A list of guides.
-        sig { returns(T::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide]) }
+        sig do
+          returns(
+            T::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide]
+          )
+        end
         attr_accessor :guides
 
         # The recipient of the guide.
-        sig { returns(T.nilable(Knockapi::Models::Users::GuideGetChannelResponse::Recipient)) }
+        sig do
+          returns(
+            T.nilable(
+              Knockapi::Models::Users::GuideGetChannelResponse::Recipient
+            )
+          )
+        end
         attr_reader :recipient
 
         sig do
           params(
-            recipient: T.nilable(T.any(Knockapi::Models::Users::GuideGetChannelResponse::Recipient, Knockapi::Internal::AnyHash))
-          )
-            .void
+            recipient:
+              T.nilable(
+                Knockapi::Models::Users::GuideGetChannelResponse::Recipient::OrHash
+              )
+          ).void
         end
         attr_writer :recipient
 
         # A response for a list of guides.
         sig do
           params(
-            guides: T::Array[T.any(Knockapi::Models::Users::GuideGetChannelResponse::Guide, Knockapi::Internal::AnyHash)],
-            recipient: T.nilable(T.any(Knockapi::Models::Users::GuideGetChannelResponse::Recipient, Knockapi::Internal::AnyHash))
-          )
-            .returns(T.attached_class)
+            guides:
+              T::Array[
+                Knockapi::Models::Users::GuideGetChannelResponse::Guide::OrHash
+              ],
+            recipient:
+              T.nilable(
+                Knockapi::Models::Users::GuideGetChannelResponse::Recipient::OrHash
+              )
+          ).returns(T.attached_class)
         end
         def self.new(
           # A list of guides.
           guides:,
           # The recipient of the guide.
           recipient: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                guides: T::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide],
-                recipient: T.nilable(Knockapi::Models::Users::GuideGetChannelResponse::Recipient)
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              guides:
+                T::Array[
+                  Knockapi::Models::Users::GuideGetChannelResponse::Guide
+                ],
+              recipient:
+                T.nilable(
+                  Knockapi::Models::Users::GuideGetChannelResponse::Recipient
+                )
+            }
+          )
+        end
+        def to_hash
+        end
 
         class Guide < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
           # The unique identifier for the guide.
           sig { returns(T.nilable(String)) }
           attr_reader :id
@@ -75,8 +106,12 @@ module Knockapi
           attr_writer :title
 
           sig do
-            params(id: String, content: String, metadata: T::Hash[Symbol, T.anything], title: String)
-              .returns(T.attached_class)
+            params(
+              id: String,
+              content: String,
+              metadata: T::Hash[Symbol, T.anything],
+              title: String
+            ).returns(T.attached_class)
           end
           def self.new(
             # The unique identifier for the guide.
@@ -87,7 +122,9 @@ module Knockapi
             metadata: nil,
             # The title of the guide.
             title: nil
-          ); end
+          )
+          end
+
           sig do
             override.returns(
               {
@@ -98,10 +135,14 @@ module Knockapi
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class Recipient < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
           # Unique identifier for the recipient.
           sig { returns(T.nilable(String)) }
           attr_reader :id
@@ -114,9 +155,12 @@ module Knockapi
           def self.new(
             # Unique identifier for the recipient.
             id: nil
-          ); end
-          sig { override.returns({id: String}) }
-          def to_hash; end
+          )
+          end
+
+          sig { override.returns({ id: String }) }
+          def to_hash
+          end
         end
       end
     end

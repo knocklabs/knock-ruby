@@ -5,18 +5,18 @@ module Knockapi
         def delete: (
           user_ids: ::Array[String],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def identify: (
-          users: ::Array[Knockapi::Models::InlineIdentifyUserRequest],
+          users: ::Array[Knockapi::InlineIdentifyUserRequest],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def set_preferences: (
-          preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
+          preferences: Knockapi::Recipients::PreferenceSetRequest,
           user_ids: ::Array[String],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void
       end

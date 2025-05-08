@@ -5,7 +5,7 @@ module Knockapi
         {
           _typename: String,
           inserted_at: Time,
-          object: Knockapi::Models::Object,
+          object: Knockapi::Object,
           recipient: Knockapi::Models::recipient,
           updated_at: Time,
           properties: ::Hash[Symbol, top]?
@@ -16,7 +16,7 @@ module Knockapi
 
         attr_accessor inserted_at: Time
 
-        attr_accessor object: Knockapi::Models::Object
+        attr_accessor object: Knockapi::Object
 
         attr_accessor recipient: Knockapi::Models::recipient
 
@@ -27,13 +27,11 @@ module Knockapi
         def initialize: (
           _typename: String,
           inserted_at: Time,
-          object: Knockapi::Models::Object,
+          object: Knockapi::Object,
           recipient: Knockapi::Models::recipient,
           updated_at: Time,
           ?properties: ::Hash[Symbol, top]?
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Recipients::subscription
       end
     end
   end

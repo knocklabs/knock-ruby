@@ -1,11 +1,11 @@
 module Knockapi
   module Models
-    type inline_tenant_request = String | Knockapi::Models::TenantRequest
+    type inline_tenant_request = String | Knockapi::TenantRequest
 
     module InlineTenantRequest
       extend Knockapi::Internal::Type::Union
 
-      def self?.variants: -> [String, Knockapi::Models::TenantRequest]
+      def self?.variants: -> ::Array[Knockapi::Models::inline_tenant_request]
     end
   end
 end

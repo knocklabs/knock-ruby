@@ -22,7 +22,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Integrations::CensusCustomDestinationParams
         def custom_destination(params)
-          parsed, options = Knockapi::Models::Integrations::CensusCustomDestinationParams.dump_request(params)
+          parsed, options = Knockapi::Integrations::CensusCustomDestinationParams.dump_request(params)
           @client.request(
             method: :post,
             path: "v1/integrations/census/custom-destination",

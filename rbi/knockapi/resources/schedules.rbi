@@ -13,23 +13,22 @@ module Knockapi
       # for the `actor`, `recipient`, and `tenant` fields.
       sig do
         params(
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ],
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::InlineIdentifyUserRequest::OrHash,
+                Knockapi::InlineObjectRequest::OrHash
+              )
+            ],
+          repeats: T::Array[Knockapi::ScheduleRepeatRule::OrHash],
           workflow: String,
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(T::Array[Knockapi::Models::Schedule])
+          tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash)),
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T::Array[Knockapi::Schedule])
       end
       def create(
         # The recipients to trigger the workflow for. Can inline identify users, objects,
@@ -48,7 +47,9 @@ module Knockapi
         # An request to set a tenant inline.
         tenant: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Updates one or more existing schedules with new timing, data, or other
       # properties. All specified schedule IDs will be updated with the same values.
       # This endpoint also handles
@@ -57,17 +58,20 @@ module Knockapi
       sig do
         params(
           schedule_ids: T::Array[String],
-          actor: T.nilable(
-            T.any(String, Knockapi::Models::RecipientReference::ObjectReference, Knockapi::Internal::AnyHash)
-          ),
+          actor:
+            T.nilable(
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
+          repeats: T::Array[Knockapi::ScheduleRepeatRule::OrHash],
           scheduled_at: T.nilable(Time),
-          tenant: T.nilable(T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(T::Array[Knockapi::Models::Schedule])
+          tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash)),
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T::Array[Knockapi::Schedule])
       end
       def update(
         # A list of schedule IDs.
@@ -86,7 +90,9 @@ module Knockapi
         # An request to set a tenant inline.
         tenant: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of schedules for the current environment, filtered by
       # workflow and optionally by recipients and tenant.
       sig do
@@ -97,9 +103,8 @@ module Knockapi
           page_size: Integer,
           recipients: T::Array[String],
           tenant: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Schedule])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Schedule])
       end
       def list(
         # Filter by workflow key.
@@ -115,21 +120,28 @@ module Knockapi
         # Filter by tenant ID.
         tenant: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Permanently deletes one or more schedules identified by the provided schedule
       # IDs. This operation cannot be undone.
       sig do
-        params(schedule_ids: T::Array[String], request_options: Knockapi::RequestOpts)
-          .returns(T::Array[Knockapi::Models::Schedule])
+        params(
+          schedule_ids: T::Array[String],
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T::Array[Knockapi::Schedule])
       end
       def delete(
         # A list of schedule IDs.
         schedule_ids:,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

@@ -18,7 +18,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Tenant
+      row => Knockapi::Tenant
     end
 
     assert_pattern do
@@ -26,7 +26,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
         id: String,
         _typename: String,
         name: String | nil,
-        settings: Knockapi::Models::Tenant::Settings | nil
+        settings: Knockapi::Tenant::Settings | nil
       }
     end
   end
@@ -51,7 +51,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     response = @knock.tenants.get("id")
 
     assert_pattern do
-      response => Knockapi::Models::Tenant
+      response => Knockapi::Tenant
     end
 
     assert_pattern do
@@ -59,7 +59,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
         id: String,
         _typename: String,
         name: String | nil,
-        settings: Knockapi::Models::Tenant::Settings | nil
+        settings: Knockapi::Tenant::Settings | nil
       }
     end
   end
@@ -72,7 +72,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     response = @knock.tenants.set("id")
 
     assert_pattern do
-      response => Knockapi::Models::Tenant
+      response => Knockapi::Tenant
     end
 
     assert_pattern do
@@ -80,7 +80,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
         id: String,
         _typename: String,
         name: String | nil,
-        settings: Knockapi::Models::Tenant::Settings | nil
+        settings: Knockapi::Tenant::Settings | nil
       }
     end
   end

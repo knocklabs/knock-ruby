@@ -7,6 +7,9 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # The IDs of the tenants to delete.
         sig { returns(T::Array[String]) }
         attr_accessor :tenant_ids
@@ -14,17 +17,26 @@ module Knockapi
         sig do
           params(
             tenant_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # The IDs of the tenants to delete.
           tenant_ids:,
           request_options: {}
-        ); end
-        sig { override.returns({tenant_ids: T::Array[String], request_options: Knockapi::RequestOptions}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              tenant_ids: T::Array[String],
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

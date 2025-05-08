@@ -4,7 +4,7 @@ module Knockapi
       type slack_list_channels_params =
         {
           access_token_object: String,
-          query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions
+          query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions
         }
         & Knockapi::Internal::Type::request_parameters
 
@@ -14,19 +14,17 @@ module Knockapi
 
         attr_accessor access_token_object: String
 
-        attr_reader query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions?
+        attr_reader query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions?
 
         def query_options=: (
-          Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions
-        ) -> Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions
+          Knockapi::Providers::SlackListChannelsParams::QueryOptions
+        ) -> Knockapi::Providers::SlackListChannelsParams::QueryOptions
 
         def initialize: (
           access_token_object: String,
-          ?query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
+          ?query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Providers::slack_list_channels_params
 
         type query_options =
           {
@@ -65,8 +63,6 @@ module Knockapi
             ?team_id: String,
             ?types: String
           ) -> void
-
-          def to_hash: -> Knockapi::Models::Providers::SlackListChannelsParams::query_options
         end
       end
     end

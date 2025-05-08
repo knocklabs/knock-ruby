@@ -20,14 +20,14 @@ module Knockapi
         # @!attribute activities
         #   List of activities associated with this feed item.
         #
-        #   @return [Array<Knockapi::Models::Activity>]
-        required :activities, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Activity] }
+        #   @return [Array<Knockapi::Activity>]
+        required :activities, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Activity] }
 
         # @!attribute actors
         #   List of actors associated with this feed item.
         #
-        #   @return [Array<Knockapi::Models::User, Knockapi::Models::Object>]
-        required :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipient] }
+        #   @return [Array<Knockapi::User, Knockapi::Object>]
+        required :actors, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipient] }
 
         # @!attribute blocks
         #   Content blocks that make up the feed item.
@@ -121,9 +121,9 @@ module Knockapi
         #
         #   @param _typename [String] The typename of the schema.
         #
-        #   @param activities [Array<Knockapi::Models::Activity>] List of activities associated with this feed item.
+        #   @param activities [Array<Knockapi::Activity>] List of activities associated with this feed item.
         #
-        #   @param actors [Array<Knockapi::Models::User, Knockapi::Models::Object>] List of actors associated with this feed item.
+        #   @param actors [Array<Knockapi::User, Knockapi::Object>] List of actors associated with this feed item.
         #
         #   @param blocks [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>] Content blocks that make up the feed item.
         #

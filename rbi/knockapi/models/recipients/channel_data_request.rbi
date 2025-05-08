@@ -4,15 +4,18 @@ module Knockapi
   module Models
     module Recipients
       class ChannelDataRequest < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # Channel data for a given channel type.
         sig do
           returns(
             T.any(
-              Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Models::Recipients::OneSignalChannelData,
-              Knockapi::Models::Recipients::SlackChannelData,
-              Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
+              Knockapi::Recipients::PushChannelData,
+              Knockapi::Recipients::OneSignalChannelData,
+              Knockapi::Recipients::SlackChannelData,
+              Knockapi::Recipients::MsTeamsChannelData,
+              Knockapi::Recipients::DiscordChannelData
             )
           )
         end
@@ -21,48 +24,61 @@ module Knockapi
         # A request to set channel data for a type of channel.
         sig do
           params(
-            data: T.any(
-              Knockapi::Models::Recipients::PushChannelData,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::Recipients::OneSignalChannelData,
-              Knockapi::Models::Recipients::SlackChannelData,
-              Knockapi::Models::Recipients::MsTeamsChannelData,
-              Knockapi::Models::Recipients::DiscordChannelData
-            )
-          )
-            .returns(T.attached_class)
+            data:
+              T.any(
+                Knockapi::Recipients::PushChannelData::OrHash,
+                Knockapi::Recipients::OneSignalChannelData::OrHash,
+                Knockapi::Recipients::SlackChannelData::OrHash,
+                Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                Knockapi::Recipients::DiscordChannelData::OrHash
+              )
+          ).returns(T.attached_class)
         end
         def self.new(
           # Channel data for a given channel type.
           data:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                data: T.any(
-                  Knockapi::Models::Recipients::PushChannelData,
-                  Knockapi::Models::Recipients::OneSignalChannelData,
-                  Knockapi::Models::Recipients::SlackChannelData,
-                  Knockapi::Models::Recipients::MsTeamsChannelData,
-                  Knockapi::Models::Recipients::DiscordChannelData
-                )
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              data:
+                T.any(
+                  Knockapi::Recipients::PushChannelData,
+                  Knockapi::Recipients::OneSignalChannelData,
+                  Knockapi::Recipients::SlackChannelData,
+                  Knockapi::Recipients::MsTeamsChannelData,
+                  Knockapi::Recipients::DiscordChannelData
+                )
+            }
+          )
+        end
+        def to_hash
+        end
 
         # Channel data for a given channel type.
         module Data
           extend Knockapi::Internal::Type::Union
 
-          sig do
-            override
-              .returns(
-                [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+          Variants =
+            T.type_alias do
+              T.any(
+                Knockapi::Recipients::PushChannelData,
+                Knockapi::Recipients::OneSignalChannelData,
+                Knockapi::Recipients::SlackChannelData,
+                Knockapi::Recipients::MsTeamsChannelData,
+                Knockapi::Recipients::DiscordChannelData
               )
+            end
+
+          sig do
+            override.returns(
+              T::Array[Knockapi::Recipients::ChannelDataRequest::Data::Variants]
+            )
           end
-          def self.variants; end
+          def self.variants
+          end
         end
       end
     end

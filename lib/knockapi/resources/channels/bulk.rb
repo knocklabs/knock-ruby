@@ -16,13 +16,13 @@ module Knockapi
         #
         # @param channel_id [String] The ID of the channel to update messages for.
         #
-        # @param action [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action] The target status to be applied to the messages.
+        # @param action [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::Action] The target status to be applied to the messages.
         #
-        # @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived] Limits the results to messages with the given archived status.
+        # @param archived [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::Archived] Limits the results to messages with the given archived status.
         #
-        # @param delivery_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] Limits the results to messages with the given delivery status.
+        # @param delivery_status [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] Limits the results to messages with the given delivery status.
         #
-        # @param engagement_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus] Limits the results to messages with the given engagement status.
+        # @param engagement_status [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::EngagementStatus] Limits the results to messages with the given engagement status.
         #
         # @param has_tenant [Boolean] Limits the results to messages that have a tenant or not.
         #
@@ -35,22 +35,21 @@ module Knockapi
         # @param tenants [Array<String>] Limits the results to messages with the given tenant IDs.
         #
         # @param trigger_data [String] Limits the results to only messages that were generated with the given data. See
-        # ...
         #
         # @param workflows [Array<String>] Limits the results to messages with the given workflow keys.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::BulkOperation]
+        # @return [Knockapi::BulkOperation]
         #
         # @see Knockapi::Models::Channels::BulkUpdateMessageStatusParams
         def update_message_status(channel_id, action, params = {})
-          parsed, options = Knockapi::Models::Channels::BulkUpdateMessageStatusParams.dump_request(params)
+          parsed, options = Knockapi::Channels::BulkUpdateMessageStatusParams.dump_request(params)
           @client.request(
             method: :post,
             path: ["v1/channels/%1$s/messages/bulk/%2$s", channel_id, action],
             body: parsed,
-            model: Knockapi::Models::BulkOperation,
+            model: Knockapi::BulkOperation,
             options: options
           )
         end

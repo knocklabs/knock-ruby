@@ -3,6 +3,6 @@
 module Knockapi
   module Models
     # @type [Knockapi::Internal::Type::Converter]
-    ScheduleCreateResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Models::Schedule }]
+    ScheduleCreateResponse = Knockapi::Internal::Type::ArrayOf[-> { Knockapi::Schedule }]
   end
 end

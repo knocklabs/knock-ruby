@@ -5,7 +5,7 @@ module Knockapi
     module Recipients
       # @type [Knockapi::Internal::Type::Converter]
       InlinePreferenceSetRequest =
-        Knockapi::Internal::Type::HashOf[-> { Knockapi::Models::Recipients::PreferenceSetRequest }]
+        Knockapi::Internal::Type::HashOf[-> { Knockapi::Recipients::PreferenceSetRequest }]
     end
   end
 end

@@ -4,6 +4,9 @@ module Knockapi
   module Models
     module Recipients
       class PushChannelData < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # A list of push channel tokens.
         sig { returns(T::Array[String]) }
         attr_accessor :tokens
@@ -13,9 +16,12 @@ module Knockapi
         def self.new(
           # A list of push channel tokens.
           tokens:
-        ); end
-        sig { override.returns({tokens: T::Array[String]}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ tokens: T::Array[String] }) }
+        def to_hash
+        end
       end
     end
   end

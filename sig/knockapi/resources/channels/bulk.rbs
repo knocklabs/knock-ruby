@@ -16,7 +16,7 @@ module Knockapi
           ?trigger_data: String,
           ?workflows: ::Array[String],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void
       end

@@ -4,6 +4,9 @@ module Knockapi
   module Models
     module Users
       class GuideMarkMessageAsSeenResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # The status of a guide's action.
         sig { returns(String) }
         attr_accessor :status
@@ -13,9 +16,12 @@ module Knockapi
         def self.new(
           # The status of a guide's action.
           status:
-        ); end
-        sig { override.returns({status: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ status: String }) }
+        def to_hash
+        end
       end
     end
   end

@@ -7,6 +7,9 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
         # A JSON encoded string containing the Microsoft Teams tenant object reference.
         sig { returns(String) }
         attr_accessor :ms_teams_tenant_object
@@ -15,14 +18,20 @@ module Knockapi
         sig { returns(String) }
         attr_accessor :team_id
 
-        sig { returns(T.nilable(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions)) }
+        sig do
+          returns(
+            T.nilable(
+              Knockapi::Providers::MsTeamListChannelsParams::QueryOptions
+            )
+          )
+        end
         attr_reader :query_options
 
         sig do
           params(
-            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash)
-          )
-            .void
+            query_options:
+              Knockapi::Providers::MsTeamListChannelsParams::QueryOptions::OrHash
+          ).void
         end
         attr_writer :query_options
 
@@ -30,10 +39,10 @@ module Knockapi
           params(
             ms_teams_tenant_object: String,
             team_id: String,
-            query_options: T.any(Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            query_options:
+              Knockapi::Providers::MsTeamListChannelsParams::QueryOptions::OrHash,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # A JSON encoded string containing the Microsoft Teams tenant object reference.
@@ -42,21 +51,27 @@ module Knockapi
           team_id:,
           query_options: nil,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                ms_teams_tenant_object: String,
-                team_id: String,
-                query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
-                request_options: Knockapi::RequestOptions
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              ms_teams_tenant_object: String,
+              team_id: String,
+              query_options:
+                Knockapi::Providers::MsTeamListChannelsParams::QueryOptions,
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           # to the Microsoft Graph API to filter channels.
           sig { returns(T.nilable(String)) }
@@ -73,7 +88,9 @@ module Knockapi
           sig { params(select_: String).void }
           attr_writer :select_
 
-          sig { params(filter: String, select_: String).returns(T.attached_class) }
+          sig do
+            params(filter: String, select_: String).returns(T.attached_class)
+          end
           def self.new(
             # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
             # to the Microsoft Graph API to filter channels.
@@ -81,9 +98,12 @@ module Knockapi
             # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
             # to the Microsoft Graph API to select specific properties.
             select_: nil
-          ); end
-          sig { override.returns({filter: String, select_: String}) }
-          def to_hash; end
+          )
+          end
+
+          sig { override.returns({ filter: String, select_: String }) }
+          def to_hash
+          end
         end
       end
     end

@@ -6,7 +6,7 @@ module Knockapi
         actor: Knockapi::Models::recipient_reference?,
         data: ::Hash[Symbol, top]?,
         ending_at: Time?,
-        repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         scheduled_at: Time?,
         tenant: Knockapi::Models::inline_tenant_request?
       }
@@ -24,11 +24,11 @@ module Knockapi
 
       attr_accessor ending_at: Time?
 
-      attr_reader repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]?
+      attr_reader repeats: ::Array[Knockapi::ScheduleRepeatRule]?
 
       def repeats=: (
-        ::Array[Knockapi::Models::ScheduleRepeatRule]
-      ) -> ::Array[Knockapi::Models::ScheduleRepeatRule]
+        ::Array[Knockapi::ScheduleRepeatRule]
+      ) -> ::Array[Knockapi::ScheduleRepeatRule]
 
       attr_accessor scheduled_at: Time?
 
@@ -39,13 +39,11 @@ module Knockapi
         ?actor: Knockapi::Models::recipient_reference?,
         ?data: ::Hash[Symbol, top]?,
         ?ending_at: Time?,
-        ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+        ?repeats: ::Array[Knockapi::ScheduleRepeatRule],
         ?scheduled_at: Time?,
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::schedule_update_params
     end
   end
 end

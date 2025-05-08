@@ -43,8 +43,6 @@ module Knockapi
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?
       ) -> void
-
-      def to_hash: -> Knockapi::Models::identify_user_request
     end
   end
 end
