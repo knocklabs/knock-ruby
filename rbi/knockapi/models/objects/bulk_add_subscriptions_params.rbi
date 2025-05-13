@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Objects::BulkAddSubscriptionsParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A list of subscriptions.
         sig do
@@ -52,7 +57,12 @@ module Knockapi
 
         class Subscription < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Objects::BulkAddSubscriptionsParams::Subscription,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # The recipients of the subscription. You can subscribe up to 100 recipients to an
           # object at a time.

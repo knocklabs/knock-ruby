@@ -5,7 +5,12 @@ module Knockapi
     module Users
       class FeedListItemsResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Users::FeedListItemsResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Unique identifier for the feed.
         sig { returns(String) }
@@ -214,7 +219,12 @@ module Knockapi
 
           class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # The content of the block in a message in an app feed.
             sig { returns(String) }
@@ -310,7 +320,12 @@ module Knockapi
 
           class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # A list of buttons in an in app feed message.
             sig do
@@ -374,7 +389,12 @@ module Knockapi
 
             class Button < Knockapi::Internal::Type::BaseModel
               OrHash =
-                T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+                T.type_alias do
+                  T.any(
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
+                    Knockapi::Internal::AnyHash
+                  )
+                end
 
               # The action to take when the button is clicked.
               sig { returns(String) }
@@ -457,7 +477,12 @@ module Knockapi
 
         class Source < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::FeedListItemsResponse::Source,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # The typename of the schema.
           sig { returns(String) }

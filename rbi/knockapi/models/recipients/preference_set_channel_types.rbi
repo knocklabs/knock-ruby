@@ -5,7 +5,12 @@ module Knockapi
     module Recipients
       class PreferenceSetChannelTypes < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Recipients::PreferenceSetChannelTypes,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Whether the channel type is enabled for the preference set.
         sig do

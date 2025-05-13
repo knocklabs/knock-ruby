@@ -5,7 +5,12 @@ module Knockapi
     module Recipients
       class MsTeamsChannelData < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Recipients::MsTeamsChannelData,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # List of Microsoft Teams connections.
         sig do
@@ -76,7 +81,12 @@ module Knockapi
 
           class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # Microsoft Teams channel ID.
             sig { returns(T.nilable(String)) }
@@ -131,7 +141,12 @@ module Knockapi
 
           class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # Microsoft Teams incoming webhook.
             sig do
@@ -175,7 +190,12 @@ module Knockapi
 
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               OrHash =
-                T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+                T.type_alias do
+                  T.any(
+                    Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+                    Knockapi::Internal::AnyHash
+                  )
+                end
 
               # Microsoft Teams incoming webhook URL.
               sig { returns(String) }

@@ -29,8 +29,7 @@ module Knockapi
         sig do
           params(
             client: Knockapi::Internal::Transport::BaseClient,
-            req:
-              Knockapi::Internal::Transport::BaseClient::RequestComponentsShape,
+            req: Knockapi::Internal::Transport::BaseClient::RequestComponents,
             headers: T.any(T::Hash[String, String], Net::HTTPHeader),
             page_data: T.anything
           ).void

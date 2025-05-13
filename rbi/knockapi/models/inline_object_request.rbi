@@ -3,7 +3,10 @@
 module Knockapi
   module Models
     class InlineObjectRequest < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::InlineObjectRequest, Knockapi::Internal::AnyHash)
+        end
 
       # Unique identifier for the object.
       sig { returns(String) }

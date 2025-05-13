@@ -5,7 +5,12 @@ module Knockapi
     module Providers
       class MsTeamListChannelsResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Providers::MsTeamListChannelsResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # List of Microsoft Teams channels.
         sig do
@@ -48,7 +53,12 @@ module Knockapi
 
         class MsTeamsChannel < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # Microsoft Teams channel ID.
           sig { returns(String) }

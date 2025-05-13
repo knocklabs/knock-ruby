@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     class Condition < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias { T.any(Knockapi::Condition, Knockapi::Internal::AnyHash) }
 
       # The argument value to compare against in the condition.
       sig { returns(T.nilable(String)) }

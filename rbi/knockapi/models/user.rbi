@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     class User < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias { T.any(Knockapi::User, Knockapi::Internal::AnyHash) }
 
       # The ID for the user that you set when identifying them in Knock.
       sig { returns(String) }

@@ -3,7 +3,10 @@
 module Knockapi
   module Models
     class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::IdentifyUserRequest, Knockapi::Internal::AnyHash)
+        end
 
       # URL to the user's avatar image.
       sig { returns(T.nilable(String)) }

@@ -3,7 +3,10 @@
 module Knockapi
   module Models
     class TenantRequest < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::TenantRequest, Knockapi::Internal::AnyHash)
+        end
 
       # The unique identifier for the tenant.
       sig { returns(String) }
@@ -84,7 +87,12 @@ module Knockapi
 
       class Settings < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::TenantRequest::Settings,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The branding for the tenant.
         sig { returns(T.nilable(Knockapi::TenantRequest::Settings::Branding)) }
@@ -139,7 +147,12 @@ module Knockapi
 
         class Branding < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::TenantRequest::Settings::Branding,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # The icon URL for the tenant. Must point to a valid image with an image MIME
           # type.

@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Integrations::CensusCustomDestinationParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The unique identifier for the RPC request.
         sig { returns(String) }

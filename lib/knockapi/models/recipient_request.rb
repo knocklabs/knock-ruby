@@ -19,6 +19,10 @@ module Knockapi
 
       # @!method self.variants
       #   @return [Array(String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest)]
+
+      define_sorbet_constant!(:Variants) do
+        T.type_alias { T.any(String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest) }
+      end
     end
   end
 end

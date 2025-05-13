@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Channels::BulkUpdateMessageStatusParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Limits the results to messages with the given archived status.
         sig do

@@ -88,6 +88,15 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(
+                T::Boolean,
+                Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
+              )
+            end
+          end
         end
 
         # Workflow or category preferences within a preference set
@@ -125,6 +134,15 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(
+                T::Boolean,
+                Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
+              )
+            end
+          end
         end
       end
     end

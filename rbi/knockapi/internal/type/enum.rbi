@@ -17,6 +17,7 @@ module Knockapi
       # values safely.
       module Enum
         include Knockapi::Internal::Type::Converter
+        include Knockapi::Internal::Util::SorbetRuntimeSupport
 
         # All of the valid Symbol values for this enum.
         sig do

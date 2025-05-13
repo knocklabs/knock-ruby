@@ -5,7 +5,12 @@ module Knockapi
     module Recipients
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Recipients::RecipientsChannelData,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The typename of the schema.
         sig { returns(String) }

@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Users::GuideGetChannelParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The data (JSON encoded object) to use for targeting and rendering guides.
         sig { returns(T.nilable(String)) }

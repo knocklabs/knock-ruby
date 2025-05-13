@@ -5,7 +5,12 @@ module Knockapi
     module Providers
       class MsTeamRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Providers::MsTeamRevokeAccessResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # OK response.
         sig { returns(T.nilable(String)) }

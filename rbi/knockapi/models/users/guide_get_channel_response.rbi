@@ -5,7 +5,12 @@ module Knockapi
     module Users
       class GuideGetChannelResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Users::GuideGetChannelResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A list of guides.
         sig do
@@ -75,7 +80,12 @@ module Knockapi
 
         class Guide < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::GuideGetChannelResponse::Guide,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # The unique identifier for the guide.
           sig { returns(T.nilable(String)) }
@@ -141,7 +151,12 @@ module Knockapi
 
         class Recipient < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::GuideGetChannelResponse::Recipient,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # Unique identifier for the recipient.
           sig { returns(T.nilable(String)) }

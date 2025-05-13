@@ -3,7 +3,10 @@
 module Knockapi
   module Models
     class MessageDeliveryLog < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::MessageDeliveryLog, Knockapi::Internal::AnyHash)
+        end
 
       # The unique identifier for the message delivery log.
       sig { returns(String) }
@@ -92,7 +95,12 @@ module Knockapi
 
       class Request < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::MessageDeliveryLog::Request,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The body content that was sent with the request.
         sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
@@ -256,7 +264,12 @@ module Knockapi
 
       class Response < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::MessageDeliveryLog::Response,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The body content that was received with the response.
         sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }

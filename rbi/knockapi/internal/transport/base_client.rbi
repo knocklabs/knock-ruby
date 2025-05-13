@@ -5,9 +5,11 @@ module Knockapi
     module Transport
       # @api private
       class BaseClient
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
         abstract!
 
-        RequestComponentsShape =
+        RequestComponents =
           T.type_alias do
             {
               method: Symbol,
@@ -53,7 +55,7 @@ module Knockapi
             }
           end
 
-        RequestInputShape =
+        RequestInput =
           T.type_alias do
             {
               method: Symbol,
@@ -74,8 +76,7 @@ module Knockapi
           # @api private
           sig do
             params(
-              req:
-                Knockapi::Internal::Transport::BaseClient::RequestComponentsShape
+              req: Knockapi::Internal::Transport::BaseClient::RequestComponents
             ).void
           end
           def validate!(req)
@@ -94,13 +95,10 @@ module Knockapi
           # @api private
           sig do
             params(
-              request:
-                Knockapi::Internal::Transport::BaseClient::RequestInputShape,
+              request: Knockapi::Internal::Transport::BaseClient::RequestInput,
               status: Integer,
               response_headers: T.any(T::Hash[String, String], Net::HTTPHeader)
-            ).returns(
-              Knockapi::Internal::Transport::BaseClient::RequestInputShape
-            )
+            ).returns(Knockapi::Internal::Transport::BaseClient::RequestInput)
           end
           def follow_redirect(request, status:, response_headers:)
           end
@@ -167,13 +165,10 @@ module Knockapi
         sig do
           overridable
             .params(
-              req:
-                Knockapi::Internal::Transport::BaseClient::RequestComponentsShape,
+              req: Knockapi::Internal::Transport::BaseClient::RequestComponents,
               opts: Knockapi::Internal::AnyHash
             )
-            .returns(
-              Knockapi::Internal::Transport::BaseClient::RequestInputShape
-            )
+            .returns(Knockapi::Internal::Transport::BaseClient::RequestInput)
         end
         private def build_request(req, opts)
         end
@@ -191,8 +186,7 @@ module Knockapi
         # @api private
         sig do
           params(
-            request:
-              Knockapi::Internal::Transport::BaseClient::RequestInputShape,
+            request: Knockapi::Internal::Transport::BaseClient::RequestInput,
             redirect_count: Integer,
             retry_count: Integer,
             send_retry_header: T::Boolean

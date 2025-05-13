@@ -3,7 +3,10 @@
 module Knockapi
   module Models
     class BulkOperation < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::BulkOperation, Knockapi::Internal::AnyHash)
+        end
 
       # Unique identifier for the bulk operation.
       sig { returns(String) }
@@ -182,7 +185,12 @@ module Knockapi
 
       class ErrorItem < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::BulkOperation::ErrorItem,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Unique identifier for the object.
         sig { returns(String) }

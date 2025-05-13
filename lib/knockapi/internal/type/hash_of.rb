@@ -29,7 +29,7 @@ module Knockapi
         #
         #   @option spec [Boolean] :"nil?"
         #
-        # @return [Knockapi::Internal::Type::HashOf]
+        # @return [self]
         def self.[](...) = new(...)
 
         # @api public

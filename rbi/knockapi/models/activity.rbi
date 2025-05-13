@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     class Activity < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias { T.any(Knockapi::Activity, Knockapi::Internal::AnyHash) }
 
       # Unique identifier for the activity.
       sig { returns(T.nilable(String)) }

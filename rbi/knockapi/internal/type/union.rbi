@@ -6,6 +6,7 @@ module Knockapi
       # @api private
       module Union
         include Knockapi::Internal::Type::Converter
+        include Knockapi::Internal::Util::SorbetRuntimeSupport
 
         # @api private
         #

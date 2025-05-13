@@ -6,7 +6,10 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::TenantGetParams, Knockapi::Internal::AnyHash)
+        end
 
       sig do
         params(request_options: Knockapi::RequestOptions::OrHash).returns(

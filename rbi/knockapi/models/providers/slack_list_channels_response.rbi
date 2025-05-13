@@ -5,7 +5,12 @@ module Knockapi
     module Providers
       class SlackListChannelsResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Providers::SlackListChannelsResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A Slack channel ID from the Slack provider.
         sig { returns(String) }

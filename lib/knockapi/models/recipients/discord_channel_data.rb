@@ -76,6 +76,15 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(
+                Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+              )
+            end
+          end
         end
       end
     end

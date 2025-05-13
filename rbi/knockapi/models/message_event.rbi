@@ -3,7 +3,10 @@
 module Knockapi
   module Models
     class MessageEvent < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::MessageEvent, Knockapi::Internal::AnyHash)
+        end
 
       # The unique identifier for the message event.
       sig { returns(String) }

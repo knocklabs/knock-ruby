@@ -8,7 +8,9 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(Knockapi::Tenants::BulkSetParams, Knockapi::Internal::AnyHash)
+          end
 
         # The tenants to be upserted.
         sig { returns(T::Array[T.any(String, Knockapi::TenantRequest)]) }

@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     class PageInfo < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias { T.any(Knockapi::PageInfo, Knockapi::Internal::AnyHash) }
 
       # The typename of the schema.
       sig { returns(String) }

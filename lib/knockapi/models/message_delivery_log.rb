@@ -130,6 +130,10 @@ module Knockapi
           # @!method self.variants
           #   @return [Array(String, Hash{Symbol=>Object})]
 
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(String, T::Hash[Symbol, T.anything]) }
+          end
+
           # @type [Knockapi::Internal::Type::Converter]
           UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
         end
@@ -192,6 +196,10 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(String, Hash{Symbol=>Object})]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(String, T::Hash[Symbol, T.anything]) }
+          end
 
           # @type [Knockapi::Internal::Type::Converter]
           UnionMember1Map = Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]

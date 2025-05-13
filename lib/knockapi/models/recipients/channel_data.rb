@@ -62,6 +62,18 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Recipients::PushChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData, Knockapi::Recipients::OneSignalChannelData)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(
+                Knockapi::Recipients::PushChannelData,
+                Knockapi::Recipients::SlackChannelData,
+                Knockapi::Recipients::MsTeamsChannelData,
+                Knockapi::Recipients::DiscordChannelData,
+                Knockapi::Recipients::OneSignalChannelData
+              )
+            end
+          end
         end
 
         # The type of provider.

@@ -5,7 +5,12 @@ module Knockapi
     module Recipients
       class ChannelDataRequest < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Recipients::ChannelDataRequest,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Channel data for a given channel type.
         sig do

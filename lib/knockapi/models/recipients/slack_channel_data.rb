@@ -80,6 +80,15 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(
+                Knockapi::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection
+              )
+            end
+          end
         end
 
         # @see Knockapi::Recipients::SlackChannelData#token

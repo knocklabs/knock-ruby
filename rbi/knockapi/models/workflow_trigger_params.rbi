@@ -6,7 +6,10 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::WorkflowTriggerParams, Knockapi::Internal::AnyHash)
+        end
 
       # The recipients to trigger the workflow for. Can inline identify users, objects,
       # or use a list of user IDs. Limited to 1,000 recipients.
