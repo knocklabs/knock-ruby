@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Providers::MsTeamCheckAuthParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A JSON encoded string containing the Microsoft Teams tenant object reference.
         sig { returns(String) }

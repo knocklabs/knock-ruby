@@ -6,7 +6,10 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::ObjectListMessagesParams, Knockapi::Internal::AnyHash)
+        end
 
       # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
@@ -273,7 +276,12 @@ module Knockapi
 
       class InsertedAt < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::ObjectListMessagesParams::InsertedAt,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Limits the results to messages inserted after the given date.
         sig { returns(T.nilable(String)) }

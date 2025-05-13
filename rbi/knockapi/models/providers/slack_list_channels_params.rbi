@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Providers::SlackListChannelsParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A JSON encoded string containing the access token object reference.
         sig { returns(String) }
@@ -62,7 +67,12 @@ module Knockapi
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Providers::SlackListChannelsParams::QueryOptions,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # Paginate through collections of data by setting the cursor parameter to a
           # next_cursor attribute returned by a previous request's response_metadata.

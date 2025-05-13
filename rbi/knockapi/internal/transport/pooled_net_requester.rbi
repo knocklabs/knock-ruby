@@ -5,7 +5,9 @@ module Knockapi
     module Transport
       # @api private
       class PooledNetRequester
-        RequestShape =
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
+        Request =
           T.type_alias do
             {
               method: Symbol,
@@ -35,7 +37,7 @@ module Knockapi
           sig do
             params(
               request:
-                Knockapi::Internal::Transport::PooledNetRequester::RequestShape,
+                Knockapi::Internal::Transport::PooledNetRequester::Request,
               blk: T.proc.params(arg0: String).void
             ).returns([Net::HTTPGenericRequest, T.proc.void])
           end
@@ -57,8 +59,7 @@ module Knockapi
         # @api private
         sig do
           params(
-            request:
-              Knockapi::Internal::Transport::PooledNetRequester::RequestShape
+            request: Knockapi::Internal::Transport::PooledNetRequester::Request
           ).returns([Integer, Net::HTTPResponse, T::Enumerable[String]])
         end
         def execute(request)

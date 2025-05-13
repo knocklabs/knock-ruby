@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     class Schedule < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias { T.any(Knockapi::Schedule, Knockapi::Internal::AnyHash) }
 
       # Unique identifier for the schedule.
       sig { returns(String) }

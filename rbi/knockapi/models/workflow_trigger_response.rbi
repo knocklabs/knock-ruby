@@ -3,7 +3,13 @@
 module Knockapi
   module Models
     class WorkflowTriggerResponse < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(
+            Knockapi::Models::WorkflowTriggerResponse,
+            Knockapi::Internal::AnyHash
+          )
+        end
 
       # This value allows you to track individual messages associated with this trigger
       # request.

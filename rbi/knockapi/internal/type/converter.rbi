@@ -5,6 +5,8 @@ module Knockapi
     module Type
       # @api private
       module Converter
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
         Input =
           T.type_alias do
             T.any(Knockapi::Internal::Type::Converter, T::Class[T.anything])

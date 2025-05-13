@@ -3,7 +3,8 @@
 module Knockapi
   module Models
     class Message < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias { T.any(Knockapi::Message, Knockapi::Internal::AnyHash) }
 
       # The unique identifier for the message.
       sig { returns(T.nilable(String)) }
@@ -324,7 +325,9 @@ module Knockapi
 
       class Source < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(Knockapi::Message::Source, Knockapi::Internal::AnyHash)
+          end
 
         sig { returns(String) }
         attr_accessor :_typename

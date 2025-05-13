@@ -5,7 +5,12 @@ module Knockapi
     module Messages
       class BatchGetContentResponseItem < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Messages::BatchGetContentResponseItem,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The typename of the schema.
         sig { returns(String) }
@@ -98,7 +103,12 @@ module Knockapi
 
           class MessageEmailContent < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # The typename of the schema.
             sig { returns(String) }
@@ -193,7 +203,12 @@ module Knockapi
 
           class MessageSMSContent < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # The typename of the schema.
             sig { returns(String) }
@@ -232,7 +247,12 @@ module Knockapi
 
           class MessagePushContent < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # The device token to send the push notification to.
             sig { returns(String) }
@@ -295,7 +315,12 @@ module Knockapi
 
           class MessageChatContent < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # The typename of the schema.
             sig { returns(String) }
@@ -363,7 +388,12 @@ module Knockapi
 
             class Template < Knockapi::Internal::Type::BaseModel
               OrHash =
-                T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+                T.type_alias do
+                  T.any(
+                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template,
+                    Knockapi::Internal::AnyHash
+                  )
+                end
 
               # The blocks of the message in a chat.
               sig do
@@ -428,7 +458,10 @@ module Knockapi
               class Block < Knockapi::Internal::Type::BaseModel
                 OrHash =
                   T.type_alias do
-                    T.any(T.self_type, Knockapi::Internal::AnyHash)
+                    T.any(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent::Template::Block,
+                      Knockapi::Internal::AnyHash
+                    )
                   end
 
                 # The actual content of the block.
@@ -519,7 +552,12 @@ module Knockapi
 
           class MessageInAppFeedContent < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # The typename of the schema.
             sig { returns(String) }
@@ -591,7 +629,10 @@ module Knockapi
               class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
                 OrHash =
                   T.type_alias do
-                    T.any(T.self_type, Knockapi::Internal::AnyHash)
+                    T.any(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                      Knockapi::Internal::AnyHash
+                    )
                   end
 
                 # The content of the block in a message in an app feed.
@@ -689,7 +730,10 @@ module Knockapi
               class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
                 OrHash =
                   T.type_alias do
-                    T.any(T.self_type, Knockapi::Internal::AnyHash)
+                    T.any(
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock,
+                      Knockapi::Internal::AnyHash
+                    )
                   end
 
                 # A list of buttons in an in app feed message.
@@ -755,7 +799,10 @@ module Knockapi
                 class Button < Knockapi::Internal::Type::BaseModel
                   OrHash =
                     T.type_alias do
-                      T.any(T.self_type, Knockapi::Internal::AnyHash)
+                      T.any(
+                        Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button,
+                        Knockapi::Internal::AnyHash
+                      )
                     end
 
                   # The action to take when the button is clicked.

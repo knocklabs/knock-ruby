@@ -3,7 +3,10 @@
 module Knockapi
   module Models
     class AudienceMember < Knockapi::Internal::Type::BaseModel
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::AudienceMember, Knockapi::Internal::AnyHash)
+        end
 
       # The typename of the schema.
       sig { returns(String) }

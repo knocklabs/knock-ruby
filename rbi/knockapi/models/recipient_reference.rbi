@@ -14,7 +14,12 @@ module Knockapi
 
       class ObjectReference < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::RecipientReference::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # An identifier for the recipient object.
         sig { returns(T.nilable(String)) }

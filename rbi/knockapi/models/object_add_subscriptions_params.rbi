@@ -6,7 +6,13 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(
+            Knockapi::ObjectAddSubscriptionsParams,
+            Knockapi::Internal::AnyHash
+          )
+        end
 
       # The recipients of the subscription. You can subscribe up to 100 recipients to an
       # object at a time.

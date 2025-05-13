@@ -7,7 +7,10 @@ module Knockapi
   # When making a request, you can pass an actual {RequestOptions} instance, or
   # simply pass a Hash with symbol keys matching the attributes on this class.
   class RequestOptions < Knockapi::Internal::Type::BaseModel
-    OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+    OrHash =
+      T.type_alias do
+        T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
+      end
 
     # @api private
     sig { params(opts: Knockapi::RequestOptions::OrHash).void }

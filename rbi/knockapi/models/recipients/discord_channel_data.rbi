@@ -5,7 +5,12 @@ module Knockapi
     module Recipients
       class DiscordChannelData < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Recipients::DiscordChannelData,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # List of Discord channel connections.
         sig do
@@ -69,7 +74,12 @@ module Knockapi
 
           class DiscordChannelConnection < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # Discord channel ID.
             sig { returns(String) }
@@ -90,7 +100,12 @@ module Knockapi
 
           class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # Discord incoming webhook object.
             sig do
@@ -134,7 +149,12 @@ module Knockapi
 
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               OrHash =
-                T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+                T.type_alias do
+                  T.any(
+                    Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+                    Knockapi::Internal::AnyHash
+                  )
+                end
 
               # Incoming webhook URL.
               sig { returns(String) }

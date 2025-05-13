@@ -5,7 +5,12 @@ module Knockapi
     module Recipients
       class SlackChannelData < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Recipients::SlackChannelData,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # List of Slack channel connections.
         sig do
@@ -87,7 +92,12 @@ module Knockapi
 
           class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::SlackChannelData::Connection::SlackTokenConnection,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # A Slack access token.
             sig { returns(T.nilable(String)) }
@@ -134,7 +144,12 @@ module Knockapi
 
           class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # The URL of the incoming webhook for a Slack connection.
             sig { returns(String) }
@@ -166,7 +181,12 @@ module Knockapi
 
         class Token < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Recipients::SlackChannelData::Token,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # A Slack access token.
           sig { returns(T.nilable(String)) }

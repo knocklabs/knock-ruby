@@ -6,7 +6,10 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::TenantSetParams, Knockapi::Internal::AnyHash)
+        end
 
       # A request to set channel data for a type of channel inline.
       sig do
@@ -80,7 +83,12 @@ module Knockapi
 
       class Settings < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::TenantSetParams::Settings,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The branding for the tenant.
         sig do
@@ -137,7 +145,12 @@ module Knockapi
 
         class Branding < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::TenantSetParams::Settings::Branding,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # The icon URL for the tenant. Must point to a valid image with an image MIME
           # type.

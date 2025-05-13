@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Users::BulkSetPreferencesParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A request to set a preference set for a recipient.
         sig { returns(Knockapi::Recipients::PreferenceSetRequest) }

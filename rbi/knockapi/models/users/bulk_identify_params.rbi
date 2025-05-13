@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Users::BulkIdentifyParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A list of users.
         sig { returns(T::Array[Knockapi::InlineIdentifyUserRequest]) }

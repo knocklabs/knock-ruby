@@ -68,6 +68,10 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(T::Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting) }
+          end
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -83,6 +87,10 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(T::Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting) }
+          end
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -98,6 +106,10 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(T::Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting) }
+          end
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -113,6 +125,10 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(T::Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting) }
+          end
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -128,6 +144,10 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(T::Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting) }
+          end
         end
 
         # Whether the channel type is enabled for the preference set.
@@ -143,6 +163,10 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias { T.any(T::Boolean, Knockapi::Recipients::PreferenceSetChannelTypeSetting) }
+          end
         end
       end
     end

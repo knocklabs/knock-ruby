@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Schedules::BulkCreateParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A list of schedules.
         sig do
@@ -44,7 +49,12 @@ module Knockapi
 
         class Schedule < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Schedules::BulkCreateParams::Schedule,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # The key of the workflow.
           sig { returns(String) }

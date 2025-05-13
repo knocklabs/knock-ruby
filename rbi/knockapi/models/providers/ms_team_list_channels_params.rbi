@@ -8,7 +8,12 @@ module Knockapi
         include Knockapi::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Providers::MsTeamListChannelsParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A JSON encoded string containing the Microsoft Teams tenant object reference.
         sig { returns(String) }
@@ -70,7 +75,12 @@ module Knockapi
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Providers::MsTeamListChannelsParams::QueryOptions,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # [OData param](https://learn.microsoft.com/en-us/graph/query-parameters) passed
           # to the Microsoft Graph API to filter channels.

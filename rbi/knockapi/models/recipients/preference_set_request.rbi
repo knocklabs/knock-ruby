@@ -5,7 +5,12 @@ module Knockapi
     module Recipients
       class PreferenceSetRequest < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Recipients::PreferenceSetRequest,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # An object where the key is the category and the values are the preference
         # settings for that category.
@@ -141,7 +146,12 @@ module Knockapi
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # Channel type preferences.
             sig do
@@ -222,7 +232,12 @@ module Knockapi
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject,
+                  Knockapi::Internal::AnyHash
+                )
+              end
 
             # Channel type preferences.
             sig do

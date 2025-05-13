@@ -6,6 +6,7 @@ module Knockapi
       # @abstract
       class BaseModel
         extend Knockapi::Internal::Type::Converter
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
 
         class << self
           # @api private
@@ -13,10 +14,16 @@ module Knockapi
           # Assumes superclass fields are totally defined before fields are accessed /
           # defined on subclasses.
           #
-          # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
-          def known_fields
-            @known_fields ||= (self < Knockapi::Internal::Type::BaseModel ? superclass.known_fields.dup : {})
+          # @param child [Class<Knockapi::Internal::Type::BaseModel>]
+          def inherited(child)
+            super
+            child.known_fields.replace(known_fields.dup)
           end
+
+          # @api private
+          #
+          # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
+          def known_fields = @known_fields ||= {}
 
           # @api private
           #
@@ -206,7 +213,7 @@ module Knockapi
           #
           #   @option state [Integer] :branched
           #
-          # @return [Knockapi::Internal::Type::BaseModel, Object]
+          # @return [self, Object]
           def coerce(value, state:)
             exactness = state.fetch(:exactness)
 
@@ -265,7 +272,7 @@ module Knockapi
 
           # @api private
           #
-          # @param value [Knockapi::Internal::Type::BaseModel, Object]
+          # @param value [self, Object]
           #
           # @param state [Hash{Symbol=>Object}] .
           #
@@ -431,6 +438,10 @@ module Knockapi
         #
         # @return [String]
         def inspect = "#<#{self.class}:0x#{object_id.to_s(16)} #{self}>"
+
+        define_sorbet_constant!(:KnownField) do
+          T.type_alias { {mode: T.nilable(Symbol), required: T::Boolean, nilable: T::Boolean} }
+        end
       end
     end
   end

@@ -6,7 +6,13 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      OrHash = T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+      OrHash =
+        T.type_alias do
+          T.any(
+            Knockapi::AudienceRemoveMembersParams,
+            Knockapi::Internal::AnyHash
+          )
+        end
 
       # A list of audience members to remove.
       sig { returns(T::Array[Knockapi::AudienceRemoveMembersParams::Member]) }
@@ -39,7 +45,12 @@ module Knockapi
 
       class Member < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::AudienceRemoveMembersParams::Member,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # An object containing the user's ID.
         sig { returns(Knockapi::AudienceRemoveMembersParams::Member::User) }
@@ -84,7 +95,12 @@ module Knockapi
 
         class User < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::AudienceRemoveMembersParams::Member::User,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # The ID for the user that you set when identifying them in Knock.
           sig { returns(T.nilable(String)) }

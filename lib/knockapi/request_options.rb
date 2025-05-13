@@ -69,5 +69,9 @@ module Knockapi
     #   Returns a new instance of RequestOptions.
     #
     #   @param values [Hash{Symbol=>Object}]
+
+    define_sorbet_constant!(:OrHash) do
+      T.type_alias { T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash) }
+    end
   end
 end

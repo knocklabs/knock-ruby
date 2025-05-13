@@ -288,6 +288,15 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+              )
+            end
+          end
         end
 
         # @see Knockapi::Models::Users::FeedListItemsResponse#source

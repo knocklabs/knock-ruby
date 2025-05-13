@@ -2,6 +2,8 @@ module Knockapi
   module Internal
     module Transport
       class BaseClient
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
         type request_components =
           {
             method: Symbol,
@@ -20,7 +22,6 @@ module Knockapi
             model: Knockapi::Internal::Type::Converter::input?,
             options: Knockapi::request_opts?
           }
-
         type request_input =
           {
             method: Symbol,

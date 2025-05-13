@@ -5,7 +5,12 @@ module Knockapi
     module Users
       class FeedGetSettingsResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Users::FeedGetSettingsResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Features configuration for the user's feed.
         sig do
@@ -47,7 +52,12 @@ module Knockapi
 
         class Features < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::FeedGetSettingsResponse::Features,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # Whether branding is required for the user's feed.
           sig { returns(T::Boolean) }

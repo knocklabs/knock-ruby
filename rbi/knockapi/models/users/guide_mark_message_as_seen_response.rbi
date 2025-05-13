@@ -5,7 +5,12 @@ module Knockapi
     module Users
       class GuideMarkMessageAsSeenResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Users::GuideMarkMessageAsSeenResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # The status of a guide's action.
         sig { returns(String) }

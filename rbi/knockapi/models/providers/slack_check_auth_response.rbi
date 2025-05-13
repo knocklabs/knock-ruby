@@ -5,7 +5,12 @@ module Knockapi
     module Providers
       class SlackCheckAuthResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Providers::SlackCheckAuthResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # A Slack connection object.
         sig do
@@ -49,7 +54,12 @@ module Knockapi
 
         class Connection < Knockapi::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Providers::SlackCheckAuthResponse::Connection,
+                Knockapi::Internal::AnyHash
+              )
+            end
 
           # Whether the Slack connection is valid.
           sig { returns(T::Boolean) }

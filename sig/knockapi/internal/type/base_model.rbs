@@ -3,9 +3,12 @@ module Knockapi
     module Type
       class BaseModel
         extend Knockapi::Internal::Type::Converter
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
 
         type known_field =
           { mode: (:coerce | :dump)?, required: bool, nilable: bool }
+
+        def self.inherited: (self child) -> void
 
         def self.known_fields: -> ::Hash[Symbol, (Knockapi::Internal::Type::BaseModel::known_field
         & { type_fn: (^-> Knockapi::Internal::Type::Converter::input) })]
@@ -58,10 +61,10 @@ module Knockapi
         def self.coerce: (
           Knockapi::Internal::Type::BaseModel | ::Hash[top, top] | top value,
           state: Knockapi::Internal::Type::Converter::coerce_state
-        ) -> (instance | top)
+        ) -> (self | top)
 
         def self.dump: (
-          instance | top value,
+          self | top value,
           state: Knockapi::Internal::Type::Converter::dump_state
         ) -> (::Hash[top, top] | top)
 

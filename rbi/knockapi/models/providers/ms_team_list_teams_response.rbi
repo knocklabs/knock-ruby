@@ -5,7 +5,12 @@ module Knockapi
     module Providers
       class MsTeamListTeamsResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, Knockapi::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Providers::MsTeamListTeamsResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
 
         # Microsoft Teams team ID.
         sig { returns(String) }
