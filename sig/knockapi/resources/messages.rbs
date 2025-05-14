@@ -3,8 +3,6 @@ module Knockapi
     class Messages
       attr_reader batch: Knockapi::Resources::Messages::Batch
 
-      attr_reader activities: Knockapi::Resources::Messages::Activities
-
       def list: (
         ?after: String,
         ?before: String,
