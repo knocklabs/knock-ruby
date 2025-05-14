@@ -6,9 +6,6 @@ module Knockapi
       sig { returns(Knockapi::Resources::Messages::Batch) }
       attr_reader :batch
 
-      sig { returns(Knockapi::Resources::Messages::Activities) }
-      attr_reader :activities
-
       # Returns a paginated list of messages for the current environment.
       sig do
         params(

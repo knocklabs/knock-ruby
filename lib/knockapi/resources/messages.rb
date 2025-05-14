@@ -6,9 +6,6 @@ module Knockapi
       # @return [Knockapi::Resources::Messages::Batch]
       attr_reader :batch
 
-      # @return [Knockapi::Resources::Messages::Activities]
-      attr_reader :activities
-
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::MessageListParams} for more details.
       #
@@ -355,7 +352,6 @@ module Knockapi
       def initialize(client:)
         @client = client
         @batch = Knockapi::Resources::Messages::Batch.new(client: client)
-        @activities = Knockapi::Resources::Messages::Activities.new(client: client)
       end
     end
   end
