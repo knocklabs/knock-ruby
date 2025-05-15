@@ -393,6 +393,14 @@ module Knockapi
         # @param keys [Array<Symbol>, nil]
         #
         # @return [Hash{Symbol=>Object}]
+        #
+        # @example
+        #   # `condition` is a `Knockapi::Condition`
+        #   condition => {
+        #     argument: argument,
+        #     operator: operator,
+        #     variable: variable
+        #   }
         def deconstruct_keys(keys)
           (keys || self.class.known_fields.keys)
             .filter_map do |k|
