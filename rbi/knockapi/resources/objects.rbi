@@ -350,7 +350,16 @@ module Knockapi
           collection: String,
           id: String,
           channel_data:
-            T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest::OrHash],
+            T::Hash[
+              Symbol,
+              T.any(
+                Knockapi::Recipients::PushChannelData::OrHash,
+                Knockapi::Recipients::OneSignalChannelData::OrHash,
+                Knockapi::Recipients::SlackChannelData::OrHash,
+                Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                Knockapi::Recipients::DiscordChannelData::OrHash
+              )
+            ],
           locale: T.nilable(String),
           preferences:
             T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::OrHash],

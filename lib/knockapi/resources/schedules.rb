@@ -6,9 +6,6 @@ module Knockapi
       # @return [Knockapi::Resources::Schedules::Bulk]
       attr_reader :bulk
 
-      # Some parameter documentations has been truncated, see
-      # {Knockapi::Models::ScheduleCreateParams} for more details.
-      #
       # Creates one or more schedules for a workflow with the specified recipients,
       # timing, and data. Schedules can be one-time or recurring. This endpoint also
       # handles
@@ -17,7 +14,7 @@ module Knockapi
       #
       # @overload create(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
-      # @param recipients [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
+      # @param recipients [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>] The recipients to set the schedule for. Limited to 100 recipients per request.
       #
       # @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
       #

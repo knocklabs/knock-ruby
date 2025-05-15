@@ -21,7 +21,16 @@ module Knockapi
           avatar: T.nilable(String),
           channel_data:
             T.nilable(
-              T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest::OrHash]
+              T::Hash[
+                Symbol,
+                T.any(
+                  Knockapi::Recipients::PushChannelData::OrHash,
+                  Knockapi::Recipients::OneSignalChannelData::OrHash,
+                  Knockapi::Recipients::SlackChannelData::OrHash,
+                  Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                  Knockapi::Recipients::DiscordChannelData::OrHash
+                )
+              ]
             ),
           created_at: T.nilable(Time),
           email: T.nilable(String),

@@ -26,6 +26,13 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
+      # The custom properties associated with the object.
+      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      attr_reader :properties
+
+      sig { params(properties: T::Hash[Symbol, T.anything]).void }
+      attr_writer :properties
+
       # A custom [Object](/concepts/objects) entity which belongs to a collection.
       sig do
         params(
@@ -33,7 +40,8 @@ module Knockapi
           _typename: String,
           collection: String,
           updated_at: Time,
-          created_at: T.nilable(Time)
+          created_at: T.nilable(Time),
+          properties: T::Hash[Symbol, T.anything]
         ).returns(T.attached_class)
       end
       def self.new(
@@ -46,7 +54,9 @@ module Knockapi
         # The timestamp when the resource was last updated.
         updated_at:,
         # Timestamp when the resource was created.
-        created_at: nil
+        created_at: nil,
+        # The custom properties associated with the object.
+        properties: nil
       )
       end
 
@@ -57,7 +67,8 @@ module Knockapi
             _typename: String,
             collection: String,
             updated_at: Time,
-            created_at: T.nilable(Time)
+            created_at: T.nilable(Time),
+            properties: T::Hash[Symbol, T.anything]
           }
         )
       end

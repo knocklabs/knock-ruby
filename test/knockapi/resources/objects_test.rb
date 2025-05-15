@@ -27,7 +27,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         _typename: String,
         collection: String,
         updated_at: Time,
-        created_at: Time | nil
+        created_at: Time | nil,
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end
@@ -85,7 +86,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         _typename: String,
         collection: String,
         updated_at: Time,
-        created_at: Time | nil
+        created_at: Time | nil,
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end
@@ -273,7 +275,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         _typename: String,
         collection: String,
         updated_at: Time,
-        created_at: Time | nil
+        created_at: Time | nil,
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end

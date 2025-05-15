@@ -25,7 +25,7 @@ module Knockapi
       #
       # @param avatar [String, nil] URL to the user's avatar image.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      # @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       # @param created_at [Time, nil] The creation date of the user from your system.
       #
