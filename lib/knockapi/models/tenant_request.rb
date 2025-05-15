@@ -12,9 +12,11 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Recipients::ChannelDataRequest] },
+               -> {
+                 Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::InlineChannelDataRequestItem]
+               },
                nil?: true
 
       # @!attribute preferences
@@ -37,7 +39,7 @@ module Knockapi
       #
       #   @param id [String] The unique identifier for the tenant.
       #
-      #   @param channel_data [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #   @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       #   @param preferences [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
       #

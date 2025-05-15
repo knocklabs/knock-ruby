@@ -11,8 +11,7 @@ module Knockapi
           T.any(Knockapi::ScheduleCreateParams, Knockapi::Internal::AnyHash)
         end
 
-      # The recipients to trigger the workflow for. Can inline identify users, objects,
-      # or use a list of user IDs. Limited to 1,000 recipients.
+      # The recipients to set the schedule for. Limited to 100 recipients per request.
       sig do
         returns(
           T::Array[
@@ -70,8 +69,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
-        # The recipients to trigger the workflow for. Can inline identify users, objects,
-        # or use a list of user IDs. Limited to 1,000 recipients.
+        # The recipients to set the schedule for. Limited to 100 recipients per request.
         recipients:,
         # The repeat rule for the schedule.
         repeats:,

@@ -18,9 +18,11 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Recipients::ChannelDataRequest] },
+               -> {
+                 Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::InlineChannelDataRequestItem]
+               },
                nil?: true
 
       # @!attribute created_at
@@ -44,7 +46,7 @@ module Knockapi
       #
       #   @param collection [String] The collection this object belongs to.
       #
-      #   @param channel_data [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #   @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       #   @param created_at [Time, nil] Timestamp when the resource was created.
       #

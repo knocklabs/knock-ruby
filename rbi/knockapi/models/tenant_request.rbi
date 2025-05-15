@@ -15,7 +15,18 @@ module Knockapi
       # A request to set channel data for a type of channel inline.
       sig do
         returns(
-          T.nilable(T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest])
+          T.nilable(
+            T::Hash[
+              Symbol,
+              T.any(
+                Knockapi::Recipients::PushChannelData,
+                Knockapi::Recipients::OneSignalChannelData,
+                Knockapi::Recipients::SlackChannelData,
+                Knockapi::Recipients::MsTeamsChannelData,
+                Knockapi::Recipients::DiscordChannelData
+              )
+            ]
+          )
         )
       end
       attr_accessor :channel_data
@@ -42,7 +53,16 @@ module Knockapi
           id: String,
           channel_data:
             T.nilable(
-              T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest::OrHash]
+              T::Hash[
+                Symbol,
+                T.any(
+                  Knockapi::Recipients::PushChannelData::OrHash,
+                  Knockapi::Recipients::OneSignalChannelData::OrHash,
+                  Knockapi::Recipients::SlackChannelData::OrHash,
+                  Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                  Knockapi::Recipients::DiscordChannelData::OrHash
+                )
+              ]
             ),
           preferences:
             T.nilable(
@@ -72,7 +92,16 @@ module Knockapi
             id: String,
             channel_data:
               T.nilable(
-                T::Hash[Symbol, Knockapi::Recipients::ChannelDataRequest]
+                T::Hash[
+                  Symbol,
+                  T.any(
+                    Knockapi::Recipients::PushChannelData,
+                    Knockapi::Recipients::OneSignalChannelData,
+                    Knockapi::Recipients::SlackChannelData,
+                    Knockapi::Recipients::MsTeamsChannelData,
+                    Knockapi::Recipients::DiscordChannelData
+                  )
+                ]
               ),
             preferences:
               T.nilable(

@@ -368,7 +368,7 @@ module Knockapi
       #
       # @param id [String] Unique identifier for the object.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Recipients::ChannelDataRequest}] A request to set channel data for a type of channel inline.
+      # @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}] A request to set channel data for a type of channel inline.
       #
       # @param locale [String, nil] The locale of the object. Used for [message localization](/concepts/translations
       #
