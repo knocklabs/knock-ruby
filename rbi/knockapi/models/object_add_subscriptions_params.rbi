@@ -6,11 +6,25 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias do
+          T.any(
+            Knockapi::ObjectAddSubscriptionsParams,
+            Knockapi::Internal::AnyHash
+          )
+        end
+
       # The recipients of the subscription. You can subscribe up to 100 recipients to an
       # object at a time.
       sig do
         returns(
-          T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
+          T::Array[
+            T.any(
+              String,
+              Knockapi::InlineIdentifyUserRequest,
+              Knockapi::InlineObjectRequest
+            )
+          ]
         )
       end
       attr_accessor :recipients
@@ -21,18 +35,17 @@ module Knockapi
 
       sig do
         params(
-          recipients: T::Array[
-            T.any(
-              String,
-              Knockapi::Models::InlineIdentifyUserRequest,
-              Knockapi::Internal::AnyHash,
-              Knockapi::Models::InlineObjectRequest
-            )
-          ],
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::InlineIdentifyUserRequest::OrHash,
+                Knockapi::InlineObjectRequest::OrHash
+              )
+            ],
           properties: T.nilable(T::Hash[Symbol, T.anything]),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The recipients of the subscription. You can subscribe up to 100 recipients to an
@@ -41,18 +54,27 @@ module Knockapi
         # The custom properties associated with the subscription relationship.
         properties: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              recipients: T::Array[T.any(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)],
-              properties: T.nilable(T::Hash[Symbol, T.anything]),
-              request_options: Knockapi::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            recipients:
+              T::Array[
+                T.any(
+                  String,
+                  Knockapi::InlineIdentifyUserRequest,
+                  Knockapi::InlineObjectRequest
+                )
+              ],
+            properties: T.nilable(T::Hash[Symbol, T.anything]),
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

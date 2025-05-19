@@ -25,8 +25,8 @@ module Knockapi
       # @!attribute settings
       #   The settings for the tenant. Includes branding and preference set.
       #
-      #   @return [Knockapi::Models::Tenant::Settings, nil]
-      optional :settings, -> { Knockapi::Models::Tenant::Settings }, nil?: true
+      #   @return [Knockapi::Tenant::Settings, nil]
+      optional :settings, -> { Knockapi::Tenant::Settings }, nil?: true
 
       # @!method initialize(id:, _typename:, name: nil, settings: nil)
       #   A tenant entity.
@@ -37,35 +37,34 @@ module Knockapi
       #
       #   @param name [String, nil] An optional name for the tenant.
       #
-      #   @param settings [Knockapi::Models::Tenant::Settings, nil] The settings for the tenant. Includes branding and preference set.
+      #   @param settings [Knockapi::Tenant::Settings, nil] The settings for the tenant. Includes branding and preference set.
 
-      # @see Knockapi::Models::Tenant#settings
+      # @see Knockapi::Tenant#settings
       class Settings < Knockapi::Internal::Type::BaseModel
         # @!attribute branding
         #   The branding for the tenant.
         #
-        #   @return [Knockapi::Models::Tenant::Settings::Branding, nil]
-        optional :branding, -> { Knockapi::Models::Tenant::Settings::Branding }, nil?: true
+        #   @return [Knockapi::Tenant::Settings::Branding, nil]
+        optional :branding, -> { Knockapi::Tenant::Settings::Branding }, nil?: true
 
         # @!attribute preference_set
         #   A preference set represents a specific set of notification preferences for a
         #   recipient. A recipient can have multiple preference sets.
         #
-        #   @return [Knockapi::Models::Recipients::PreferenceSet, nil]
-        optional :preference_set, -> { Knockapi::Models::Recipients::PreferenceSet }, nil?: true
+        #   @return [Knockapi::Recipients::PreferenceSet, nil]
+        optional :preference_set, -> { Knockapi::Recipients::PreferenceSet }, nil?: true
 
         # @!method initialize(branding: nil, preference_set: nil)
         #   Some parameter documentations has been truncated, see
-        #   {Knockapi::Models::Tenant::Settings} for more details.
+        #   {Knockapi::Tenant::Settings} for more details.
         #
         #   The settings for the tenant. Includes branding and preference set.
         #
-        #   @param branding [Knockapi::Models::Tenant::Settings::Branding, nil] The branding for the tenant.
+        #   @param branding [Knockapi::Tenant::Settings::Branding, nil] The branding for the tenant.
         #
-        #   @param preference_set [Knockapi::Models::Recipients::PreferenceSet, nil] A preference set represents a specific set of notification preferences for a rec
-        #   ...
+        #   @param preference_set [Knockapi::Recipients::PreferenceSet, nil] A preference set represents a specific set of notification preferences for a rec
 
-        # @see Knockapi::Models::Tenant::Settings#branding
+        # @see Knockapi::Tenant::Settings#branding
         class Branding < Knockapi::Internal::Type::BaseModel
           # @!attribute icon_url
           #   The icon URL for the tenant. Must point to a valid image with an image MIME
@@ -95,15 +94,13 @@ module Knockapi
 
           # @!method initialize(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
           #   Some parameter documentations has been truncated, see
-          #   {Knockapi::Models::Tenant::Settings::Branding} for more details.
+          #   {Knockapi::Tenant::Settings::Branding} for more details.
           #
           #   The branding for the tenant.
           #
           #   @param icon_url [String, nil] The icon URL for the tenant. Must point to a valid image with an image MIME type
-          #   ...
           #
           #   @param logo_url [String, nil] The logo URL for the tenant. Must point to a valid image with an image MIME type
-          #   ...
           #
           #   @param primary_color [String, nil] The primary color for the tenant, provided as a hex value.
           #

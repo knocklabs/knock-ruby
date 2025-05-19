@@ -6,29 +6,26 @@ module Knockapi
       sig { returns(Knockapi::Resources::Messages::Batch) }
       attr_reader :batch
 
-      sig { returns(Knockapi::Resources::Messages::Activities) }
-      attr_reader :activities
-
       # Returns a paginated list of messages for the current environment.
       sig do
         params(
           after: String,
           before: String,
           channel_id: String,
-          engagement_status: T::Array[Knockapi::Models::MessageListParams::EngagementStatus::OrSymbol],
-          inserted_at: T.any(Knockapi::Models::MessageListParams::InsertedAt, Knockapi::Internal::AnyHash),
+          engagement_status:
+            T::Array[Knockapi::MessageListParams::EngagementStatus::OrSymbol],
+          inserted_at: Knockapi::MessageListParams::InsertedAt::OrHash,
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
-          status: T::Array[Knockapi::Models::MessageListParams::Status::OrSymbol],
+          status: T::Array[Knockapi::MessageListParams::Status::OrSymbol],
           tenant: String,
           trigger_data: String,
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Message])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Message])
       end
       def list(
         # The cursor to fetch entries after.
@@ -63,33 +60,53 @@ module Knockapi
         # returned by the workflow trigger request.
         workflow_run_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Archives a message for the user. Archived messages are hidden from the default
       # message list in the feed but can still be accessed and unarchived later.
-      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
+      sig do
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
+      end
       def archive(
         # The unique identifier for the message.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Retrieves a specific message by its ID.
-      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
+      sig do
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
+      end
       def get(
         # The unique identifier for the message.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns the fully rendered contents of a message, where the response depends on
       # which channel the message was sent through.
       sig do
-        params(message_id: String, request_options: Knockapi::RequestOpts)
-          .returns(Knockapi::Models::MessageGetContentResponse)
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Models::MessageGetContentResponse)
       end
       def get_content(
         # The ID of the message to fetch contents of.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of activities for the specified message.
       sig do
         params(
@@ -98,9 +115,8 @@ module Knockapi
           before: String,
           page_size: Integer,
           trigger_data: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::ItemsCursor[Knockapi::Models::Activity])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::ItemsCursor[Knockapi::Activity])
       end
       def list_activities(
         # The ID of the message to fetch activities for.
@@ -114,7 +130,9 @@ module Knockapi
         # The trigger data to filter activities by.
         trigger_data: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of delivery logs for the specified message.
       sig do
         params(
@@ -122,9 +140,10 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: Knockapi::RequestOpts
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(
+          Knockapi::Internal::EntriesCursor[Knockapi::MessageDeliveryLog]
         )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::MessageDeliveryLog])
       end
       def list_delivery_logs(
         # The ID of the message to fetch delivery logs for.
@@ -136,7 +155,9 @@ module Knockapi
         # The number of items per page.
         page_size: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Returns a paginated list of events for the specified message.
       sig do
         params(
@@ -144,9 +165,8 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::MessageEvent])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::MessageEvent])
       end
       def list_events(
         # The ID of the message to fetch events for.
@@ -158,7 +178,9 @@ module Knockapi
         # The number of items per page.
         page_size: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Marks a message as `interacted` with by the user. This can include any user
       # action on the message, with optional metadata about the specific interaction.
       # Cannot include more than 5 key-value pairs, must not contain nested data. Read
@@ -168,9 +190,8 @@ module Knockapi
         params(
           message_id: String,
           metadata: T::Hash[Symbol, T.anything],
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Models::Message)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
       end
       def mark_as_interacted(
         # The unique identifier for the message.
@@ -178,54 +199,92 @@ module Knockapi
         # Metadata about the interaction.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Marks a message as `read`. This indicates that the user has read the message
       # content. Read more about message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
+      sig do
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
+      end
       def mark_as_read(
         # The unique identifier for the message.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Marks a message as `seen`. This indicates that the user has viewed the message
       # in their feed or inbox. Read more about message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
+      sig do
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
+      end
       def mark_as_seen(
         # The unique identifier for the message.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Marks a message as `unread`. This reverses the `read` state. Read more about
       # message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
+      sig do
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
+      end
       def mark_as_unread(
         # The unique identifier for the message.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Marks a message as `unseen`. This reverses the `seen` state. Read more about
       # message engagement statuses
       # [here](/send-notifications/message-statuses#engagement-status).
-      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
+      sig do
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
+      end
       def mark_as_unseen(
         # The unique identifier for the message.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Removes a message from the archived state, making it visible in the default
       # message list in the feed again.
-      sig { params(message_id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Message) }
+      sig do
+        params(
+          message_id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Message)
+      end
       def unarchive(
         # The unique identifier for the message.
         message_id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

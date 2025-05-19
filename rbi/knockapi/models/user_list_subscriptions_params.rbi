@@ -6,6 +6,14 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias do
+          T.any(
+            Knockapi::UserListSubscriptionsParams,
+            Knockapi::Internal::AnyHash
+          )
+        end
+
       # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
@@ -21,10 +29,21 @@ module Knockapi
       attr_writer :before
 
       # Associated resources to include in the response.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[Knockapi::UserListSubscriptionsParams::Include::OrSymbol]
+          )
+        )
+      end
       attr_reader :include
 
-      sig { params(include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol]).void }
+      sig do
+        params(
+          include:
+            T::Array[Knockapi::UserListSubscriptionsParams::Include::OrSymbol]
+        ).void
+      end
       attr_writer :include
 
       # Only returns subscriptions for the specified object GIDs.
@@ -45,12 +64,12 @@ module Knockapi
         params(
           after: String,
           before: String,
-          include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
+          include:
+            T::Array[Knockapi::UserListSubscriptionsParams::Include::OrSymbol],
           objects: T::Array[String],
           page_size: Integer,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The cursor to fetch entries after.
@@ -64,32 +83,51 @@ module Knockapi
         # The number of items per page.
         page_size: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after: String,
-              before: String,
-              include: T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::OrSymbol],
-              objects: T::Array[String],
-              page_size: Integer,
-              request_options: Knockapi::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after: String,
+            before: String,
+            include:
+              T::Array[
+                Knockapi::UserListSubscriptionsParams::Include::OrSymbol
+              ],
+            objects: T::Array[String],
+            page_size: Integer,
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       module Include
         extend Knockapi::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::UserListSubscriptionsParams::Include) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Knockapi::UserListSubscriptionsParams::Include)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        PREFERENCES = T.let(:preferences, Knockapi::Models::UserListSubscriptionsParams::Include::TaggedSymbol)
+        PREFERENCES =
+          T.let(
+            :preferences,
+            Knockapi::UserListSubscriptionsParams::Include::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[Knockapi::Models::UserListSubscriptionsParams::Include::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              Knockapi::UserListSubscriptionsParams::Include::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

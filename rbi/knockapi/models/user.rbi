@@ -3,6 +3,9 @@
 module Knockapi
   module Models
     class User < Knockapi::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(Knockapi::User, Knockapi::Internal::AnyHash) }
+
       # The ID for the user that you set when identifying them in Knock.
       sig { returns(String) }
       attr_accessor :id
@@ -31,15 +34,15 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
-      # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
       # user (required for SMS channels).
       sig { returns(T.nilable(String)) }
       attr_accessor :phone_number
 
-      # The timezone of the user. Must be a valid
-      # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-      # Used for
-      # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+      # The timezone of the user. Must be a
+      # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      # Used
+      # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
       sig { returns(T.nilable(String)) }
       attr_accessor :timezone
 
@@ -57,8 +60,7 @@ module Knockapi
           name: T.nilable(String),
           phone_number: T.nilable(String),
           timezone: T.nilable(String)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # The ID for the user that you set when identifying them in Knock.
@@ -75,32 +77,34 @@ module Knockapi
         email: nil,
         # Display name of the user.
         name: nil,
-        # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+        # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
         # user (required for SMS channels).
         phone_number: nil,
-        # The timezone of the user. Must be a valid
-        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-        # Used for
-        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+        # The timezone of the user. Must be a
+        # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used
+        # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              _typename: String,
-              updated_at: Time,
-              avatar: T.nilable(String),
-              created_at: T.nilable(Time),
-              email: T.nilable(String),
-              name: T.nilable(String),
-              phone_number: T.nilable(String),
-              timezone: T.nilable(String)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            _typename: String,
+            updated_at: Time,
+            avatar: T.nilable(String),
+            created_at: T.nilable(Time),
+            email: T.nilable(String),
+            name: T.nilable(String),
+            phone_number: T.nilable(String),
+            timezone: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

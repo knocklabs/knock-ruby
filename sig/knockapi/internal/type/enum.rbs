@@ -3,6 +3,7 @@ module Knockapi
     module Type
       module Enum
         include Knockapi::Internal::Type::Converter
+        include Knockapi::Internal::Util::SorbetRuntimeSupport
 
         def self.values: -> ::Array[(nil | bool | Integer | Float | Symbol)]
 

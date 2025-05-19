@@ -7,7 +7,20 @@ module Knockapi
     module RecipientReference
       extend Knockapi::Internal::Type::Union
 
+      Variants =
+        T.type_alias do
+          T.any(String, Knockapi::RecipientReference::ObjectReference)
+        end
+
       class ObjectReference < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::RecipientReference::ObjectReference,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # An identifier for the recipient object.
         sig { returns(T.nilable(String)) }
         attr_reader :id
@@ -29,13 +42,17 @@ module Knockapi
           id: nil,
           # The collection the recipient object belongs to.
           collection: nil
-        ); end
-        sig { override.returns({id: String, collection: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ id: String, collection: String }) }
+        def to_hash
+        end
       end
 
-      sig { override.returns([String, Knockapi::Models::RecipientReference::ObjectReference]) }
-      def self.variants; end
+      sig { override.returns(T::Array[Knockapi::RecipientReference::Variants]) }
+      def self.variants
+      end
     end
   end
 end

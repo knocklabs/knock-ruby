@@ -7,6 +7,14 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Users::GuideMarkMessageAsInteractedParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # The unique identifier for the channel.
         sig { returns(String) }
         attr_accessor :channel_id
@@ -66,9 +74,8 @@ module Knockapi
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # The unique identifier for the channel.
@@ -90,25 +97,27 @@ module Knockapi
           # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                channel_id: String,
-                guide_id: String,
-                guide_key: String,
-                guide_step_ref: String,
-                content: T::Hash[Symbol, T.anything],
-                data: T::Hash[Symbol, T.anything],
-                is_final: T::Boolean,
-                metadata: T::Hash[Symbol, T.anything],
-                tenant: T.nilable(String),
-                request_options: Knockapi::RequestOptions
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              channel_id: String,
+              guide_id: String,
+              guide_key: String,
+              guide_step_ref: String,
+              content: T::Hash[Symbol, T.anything],
+              data: T::Hash[Symbol, T.anything],
+              is_final: T::Boolean,
+              metadata: T::Hash[Symbol, T.anything],
+              tenant: T.nilable(String),
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

@@ -34,7 +34,13 @@ module Knockapi
       #   @return [Time, nil]
       optional :created_at, Time, nil?: true
 
-      # @!method initialize(id:, _typename:, collection:, updated_at:, created_at: nil)
+      # @!attribute properties
+      #   The custom properties associated with the object.
+      #
+      #   @return [Hash{Symbol=>Object}, nil]
+      optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]
+
+      # @!method initialize(id:, _typename:, collection:, updated_at:, created_at: nil, properties: nil)
       #   A custom [Object](/concepts/objects) entity which belongs to a collection.
       #
       #   @param id [String] Unique identifier for the object.
@@ -46,6 +52,8 @@ module Knockapi
       #   @param updated_at [Time] The timestamp when the resource was last updated.
       #
       #   @param created_at [Time, nil] Timestamp when the resource was created.
+      #
+      #   @param properties [Hash{Symbol=>Object}] The custom properties associated with the object.
     end
   end
 end

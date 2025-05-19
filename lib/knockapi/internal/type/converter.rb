@@ -5,6 +5,8 @@ module Knockapi
     module Type
       # @api private
       module Converter
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
         # rubocop:disable Lint/UnusedMethodArgument
 
         # @api private
@@ -267,6 +269,22 @@ module Knockapi
               target.inspect
             end
           end
+        end
+
+        define_sorbet_constant!(:Input) do
+          T.type_alias { T.any(Knockapi::Internal::Type::Converter, T::Class[T.anything]) }
+        end
+        define_sorbet_constant!(:CoerceState) do
+          T.type_alias do
+            {
+              strictness: T.any(T::Boolean, Symbol),
+              exactness: {yes: Integer, no: Integer, maybe: Integer},
+              branched: Integer
+            }
+          end
+        end
+        define_sorbet_constant!(:DumpState) do
+          T.type_alias { {can_retry: T::Boolean} }
         end
       end
     end

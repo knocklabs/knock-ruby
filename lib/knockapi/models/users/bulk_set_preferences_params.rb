@@ -11,8 +11,8 @@ module Knockapi
         # @!attribute preferences
         #   A request to set a preference set for a recipient.
         #
-        #   @return [Knockapi::Models::Recipients::PreferenceSetRequest]
-        required :preferences, -> { Knockapi::Models::Recipients::PreferenceSetRequest }
+        #   @return [Knockapi::Recipients::PreferenceSetRequest]
+        required :preferences, -> { Knockapi::Recipients::PreferenceSetRequest }
 
         # @!attribute user_ids
         #   A list of user IDs.
@@ -21,7 +21,7 @@ module Knockapi
         required :user_ids, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(preferences:, user_ids:, request_options: {})
-        #   @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest] A request to set a preference set for a recipient.
+        #   @param preferences [Knockapi::Recipients::PreferenceSetRequest] A request to set a preference set for a recipient.
         #
         #   @param user_ids [Array<String>] A list of user IDs.
         #

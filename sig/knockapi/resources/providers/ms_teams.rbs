@@ -12,14 +12,14 @@ module Knockapi
           String channel_id,
           ms_teams_tenant_object: String,
           team_id: String,
-          ?query_options: Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions,
+          ?query_options: Knockapi::Providers::MsTeamListChannelsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Models::Providers::MsTeamListChannelsResponse
 
         def list_teams: (
           String channel_id,
           ms_teams_tenant_object: String,
-          ?query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
+          ?query_options: Knockapi::Providers::MsTeamListTeamsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::Internal::MsTeamsPagination[Knockapi::Models::Providers::MsTeamListTeamsResponse]
 

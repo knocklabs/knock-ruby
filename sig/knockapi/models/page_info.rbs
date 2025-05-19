@@ -18,8 +18,6 @@ module Knockapi
         ?after: String?,
         ?before: String?
       ) -> void
-
-      def to_hash: -> Knockapi::Models::page_info
     end
   end
 end

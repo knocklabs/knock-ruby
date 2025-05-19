@@ -5,12 +5,12 @@ module Knockapi
         def delete: (
           tenant_ids: ::Array[String],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def set: (
           tenants: ::Array[Knockapi::Models::inline_tenant_request],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void
       end

@@ -24,7 +24,7 @@ module Knockapi
 
       # @return [Boolean]
       def next_page?
-        !next_cursor.nil?
+        !slack_channels.to_a.empty? && !next_cursor.to_s.empty?
       end
 
       # @raise [Knockapi::HTTP::Error]
@@ -67,8 +67,8 @@ module Knockapi
 
         @next_cursor = page_data[:next_cursor]
         case page_data
-        in {slack_channels: Array | nil => slack_channels}
-          @slack_channels = slack_channels&.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
+        in {slack_channels: Array => slack_channels}
+          @slack_channels = slack_channels.map { Knockapi::Internal::Type::Converter.coerce(@model, _1) }
         else
         end
       end

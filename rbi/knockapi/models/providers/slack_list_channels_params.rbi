@@ -7,48 +7,73 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Providers::SlackListChannelsParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # A JSON encoded string containing the access token object reference.
         sig { returns(String) }
         attr_accessor :access_token_object
 
-        sig { returns(T.nilable(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions)) }
+        sig do
+          returns(
+            T.nilable(
+              Knockapi::Providers::SlackListChannelsParams::QueryOptions
+            )
+          )
+        end
         attr_reader :query_options
 
         sig do
           params(
-            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash)
-          )
-            .void
+            query_options:
+              Knockapi::Providers::SlackListChannelsParams::QueryOptions::OrHash
+          ).void
         end
         attr_writer :query_options
 
         sig do
           params(
             access_token_object: String,
-            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            query_options:
+              Knockapi::Providers::SlackListChannelsParams::QueryOptions::OrHash,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # A JSON encoded string containing the access token object reference.
           access_token_object:,
           query_options: nil,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                access_token_object: String,
-                query_options: Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions,
-                request_options: Knockapi::RequestOptions
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              access_token_object: String,
+              query_options:
+                Knockapi::Providers::SlackListChannelsParams::QueryOptions,
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
 
         class QueryOptions < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Knockapi::Providers::SlackListChannelsParams::QueryOptions,
+                Knockapi::Internal::AnyHash
+              )
+            end
+
           # Paginate through collections of data by setting the cursor parameter to a
           # next_cursor attribute returned by a previous request's response_metadata.
           # Default value fetches the first "page" of the collection.
@@ -94,8 +119,7 @@ module Knockapi
               limit: Integer,
               team_id: String,
               types: String
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             # Paginate through collections of data by setting the cursor parameter to a
@@ -111,18 +135,22 @@ module Knockapi
             # Mix and match channel types by providing a comma-separated list of any
             # combination of public_channel, private_channel, mpim, im.
             types: nil
-          ); end
-          sig do
-            override
-              .returns({
-                         cursor: String,
-                         exclude_archived: T::Boolean,
-                         limit: Integer,
-                         team_id: String,
-                         types: String
-                       })
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                cursor: String,
+                exclude_archived: T::Boolean,
+                limit: Integer,
+                team_id: String,
+                types: String
+              }
+            )
+          end
+          def to_hash
+          end
         end
       end
     end

@@ -6,19 +6,19 @@ module Knockapi
           String collection,
           object_ids: ::Array[String],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def add_subscriptions: (
           String collection,
-          subscriptions: ::Array[Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription],
+          subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def set: (
           String collection,
-          objects: ::Array[Knockapi::Models::InlineObjectRequest],
+          objects: ::Array[Knockapi::InlineObjectRequest],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void
       end

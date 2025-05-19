@@ -7,6 +7,14 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Providers::SlackCheckAuthParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # A JSON encoded string containing the access token object reference.
         sig { returns(String) }
         attr_accessor :access_token_object
@@ -14,17 +22,26 @@ module Knockapi
         sig do
           params(
             access_token_object: String,
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # A JSON encoded string containing the access token object reference.
           access_token_object:,
           request_options: {}
-        ); end
-        sig { override.returns({access_token_object: String, request_options: Knockapi::RequestOptions}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              access_token_object: String,
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

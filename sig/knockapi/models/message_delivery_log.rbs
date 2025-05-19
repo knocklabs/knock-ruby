@@ -6,8 +6,8 @@ module Knockapi
         _typename: String,
         environment_id: String,
         inserted_at: String,
-        request: Knockapi::Models::MessageDeliveryLog::Request,
-        response: Knockapi::Models::MessageDeliveryLog::Response,
+        request: Knockapi::MessageDeliveryLog::Request,
+        response: Knockapi::MessageDeliveryLog::Response,
         service_name: String
       }
 
@@ -20,9 +20,9 @@ module Knockapi
 
       attr_accessor inserted_at: String
 
-      attr_accessor request: Knockapi::Models::MessageDeliveryLog::Request
+      attr_accessor request: Knockapi::MessageDeliveryLog::Request
 
-      attr_accessor response: Knockapi::Models::MessageDeliveryLog::Response
+      attr_accessor response: Knockapi::MessageDeliveryLog::Response
 
       attr_accessor service_name: String
 
@@ -31,29 +31,27 @@ module Knockapi
         _typename: String,
         environment_id: String,
         inserted_at: String,
-        request: Knockapi::Models::MessageDeliveryLog::Request,
-        response: Knockapi::Models::MessageDeliveryLog::Response,
+        request: Knockapi::MessageDeliveryLog::Request,
+        response: Knockapi::MessageDeliveryLog::Response,
         service_name: String
       ) -> void
 
-      def to_hash: -> Knockapi::Models::message_delivery_log
-
       type request =
         {
-          body: Knockapi::Models::MessageDeliveryLog::Request::body,
+          body: Knockapi::MessageDeliveryLog::Request::body,
           headers: ::Hash[Symbol, top]?,
           host: String,
-          method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
+          method_: Knockapi::MessageDeliveryLog::Request::method_,
           path: String,
           query: String?
         }
 
       class Request < Knockapi::Internal::Type::BaseModel
-        attr_reader body: Knockapi::Models::MessageDeliveryLog::Request::body?
+        attr_reader body: Knockapi::MessageDeliveryLog::Request::body?
 
         def body=: (
-          Knockapi::Models::MessageDeliveryLog::Request::body
-        ) -> Knockapi::Models::MessageDeliveryLog::Request::body
+          Knockapi::MessageDeliveryLog::Request::body
+        ) -> Knockapi::MessageDeliveryLog::Request::body
 
         attr_accessor headers: ::Hash[Symbol, top]?
 
@@ -61,11 +59,11 @@ module Knockapi
 
         def host=: (String) -> String
 
-        attr_reader method_: Knockapi::Models::MessageDeliveryLog::Request::method_?
+        attr_reader method_: Knockapi::MessageDeliveryLog::Request::method_?
 
         def method_=: (
-          Knockapi::Models::MessageDeliveryLog::Request::method_
-        ) -> Knockapi::Models::MessageDeliveryLog::Request::method_
+          Knockapi::MessageDeliveryLog::Request::method_
+        ) -> Knockapi::MessageDeliveryLog::Request::method_
 
         attr_reader path: String?
 
@@ -74,22 +72,20 @@ module Knockapi
         attr_accessor query: String?
 
         def initialize: (
-          ?body: Knockapi::Models::MessageDeliveryLog::Request::body,
+          ?body: Knockapi::MessageDeliveryLog::Request::body,
           ?headers: ::Hash[Symbol, top]?,
           ?host: String,
-          ?method_: Knockapi::Models::MessageDeliveryLog::Request::method_,
+          ?method_: Knockapi::MessageDeliveryLog::Request::method_,
           ?path: String,
           ?query: String?
         ) -> void
-
-        def to_hash: -> Knockapi::Models::MessageDeliveryLog::request
 
         type body = String | ::Hash[Symbol, top]
 
         module Body
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [String, ::Hash[Symbol, top]]
+          def self?.variants: -> ::Array[Knockapi::MessageDeliveryLog::Request::body]
 
           UnionMember1Map: Knockapi::Internal::Type::Converter
         end
@@ -105,23 +101,23 @@ module Knockapi
           DELETE: :DELETE
           PATCH: :PATCH
 
-          def self?.values: -> ::Array[Knockapi::Models::MessageDeliveryLog::Request::method_]
+          def self?.values: -> ::Array[Knockapi::MessageDeliveryLog::Request::method_]
         end
       end
 
       type response =
         {
-          body: Knockapi::Models::MessageDeliveryLog::Response::body,
+          body: Knockapi::MessageDeliveryLog::Response::body,
           headers: ::Hash[Symbol, top]?,
           status: Integer
         }
 
       class Response < Knockapi::Internal::Type::BaseModel
-        attr_reader body: Knockapi::Models::MessageDeliveryLog::Response::body?
+        attr_reader body: Knockapi::MessageDeliveryLog::Response::body?
 
         def body=: (
-          Knockapi::Models::MessageDeliveryLog::Response::body
-        ) -> Knockapi::Models::MessageDeliveryLog::Response::body
+          Knockapi::MessageDeliveryLog::Response::body
+        ) -> Knockapi::MessageDeliveryLog::Response::body
 
         attr_accessor headers: ::Hash[Symbol, top]?
 
@@ -130,19 +126,17 @@ module Knockapi
         def status=: (Integer) -> Integer
 
         def initialize: (
-          ?body: Knockapi::Models::MessageDeliveryLog::Response::body,
+          ?body: Knockapi::MessageDeliveryLog::Response::body,
           ?headers: ::Hash[Symbol, top]?,
           ?status: Integer
         ) -> void
-
-        def to_hash: -> Knockapi::Models::MessageDeliveryLog::response
 
         type body = String | ::Hash[Symbol, top]
 
         module Body
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> [String, ::Hash[Symbol, top]]
+          def self?.variants: -> ::Array[Knockapi::MessageDeliveryLog::Response::body]
 
           UnionMember1Map: Knockapi::Internal::Type::Converter
         end

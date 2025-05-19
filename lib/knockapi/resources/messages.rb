@@ -6,9 +6,6 @@ module Knockapi
       # @return [Knockapi::Resources::Messages::Batch]
       attr_reader :batch
 
-      # @return [Knockapi::Resources::Messages::Activities]
-      attr_reader :activities
-
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::MessageListParams} for more details.
       #
@@ -22,44 +19,41 @@ module Knockapi
       #
       # @param channel_id [String] Limits the results to items with the corresponding channel ID.
       #
-      # @param engagement_status [Array<Symbol, Knockapi::Models::MessageListParams::EngagementStatus>] Limits the results to messages with the given engagement status.
+      # @param engagement_status [Array<Symbol, Knockapi::MessageListParams::EngagementStatus>] Limits the results to messages with the given engagement status.
       #
-      # @param inserted_at [Knockapi::Models::MessageListParams::InsertedAt]
+      # @param inserted_at [Knockapi::MessageListParams::InsertedAt]
       #
       # @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
-      # ...
       #
       # @param page_size [Integer] The number of items per page.
       #
       # @param source [String] Limits the results to messages triggered by the given workflow key.
       #
-      # @param status [Array<Symbol, Knockapi::Models::MessageListParams::Status>] Limits the results to messages with the given delivery status.
+      # @param status [Array<Symbol, Knockapi::MessageListParams::Status>] Limits the results to messages with the given delivery status.
       #
       # @param tenant [String] Limits the results to items with the corresponding tenant.
       #
       # @param trigger_data [String] Limits the results to only messages that were generated with the given data. See
-      # ...
       #
       # @param workflow_categories [Array<String>] Limits the results to messages related to any of the provided categories.
       #
       # @param workflow_recipient_run_id [String] Limits the results to messages for a specific recipient's workflow run.
       #
       # @param workflow_run_id [String] Limits the results to messages associated with the top-level workflow run ID ret
-      # ...
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Message>]
       #
       # @see Knockapi::Models::MessageListParams
       def list(params = {})
-        parsed, options = Knockapi::Models::MessageListParams.dump_request(params)
+        parsed, options = Knockapi::MessageListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "v1/messages",
           query: parsed,
           page: Knockapi::Internal::EntriesCursor,
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: options
         )
       end
@@ -73,14 +67,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageArchiveParams
       def archive(message_id, params = {})
         @client.request(
           method: :put,
           path: ["v1/messages/%1$s/archived", message_id],
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: params[:request_options]
         )
       end
@@ -93,14 +87,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageGetParams
       def get(message_id, params = {})
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s", message_id],
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: params[:request_options]
         )
       end
@@ -142,17 +136,17 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Activity>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Activity>]
       #
       # @see Knockapi::Models::MessageListActivitiesParams
       def list_activities(message_id, params = {})
-        parsed, options = Knockapi::Models::MessageListActivitiesParams.dump_request(params)
+        parsed, options = Knockapi::MessageListActivitiesParams.dump_request(params)
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s/activities", message_id],
           query: parsed,
           page: Knockapi::Internal::ItemsCursor,
-          model: Knockapi::Models::Activity,
+          model: Knockapi::Activity,
           options: options
         )
       end
@@ -171,17 +165,17 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::MessageDeliveryLog>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::MessageDeliveryLog>]
       #
       # @see Knockapi::Models::MessageListDeliveryLogsParams
       def list_delivery_logs(message_id, params = {})
-        parsed, options = Knockapi::Models::MessageListDeliveryLogsParams.dump_request(params)
+        parsed, options = Knockapi::MessageListDeliveryLogsParams.dump_request(params)
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s/delivery_logs", message_id],
           query: parsed,
           page: Knockapi::Internal::EntriesCursor,
-          model: Knockapi::Models::MessageDeliveryLog,
+          model: Knockapi::MessageDeliveryLog,
           options: options
         )
       end
@@ -200,17 +194,17 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::MessageEvent>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::MessageEvent>]
       #
       # @see Knockapi::Models::MessageListEventsParams
       def list_events(message_id, params = {})
-        parsed, options = Knockapi::Models::MessageListEventsParams.dump_request(params)
+        parsed, options = Knockapi::MessageListEventsParams.dump_request(params)
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s/events", message_id],
           query: parsed,
           page: Knockapi::Internal::EntriesCursor,
-          model: Knockapi::Models::MessageEvent,
+          model: Knockapi::MessageEvent,
           options: options
         )
       end
@@ -229,16 +223,16 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageMarkAsInteractedParams
       def mark_as_interacted(message_id, params = {})
-        parsed, options = Knockapi::Models::MessageMarkAsInteractedParams.dump_request(params)
+        parsed, options = Knockapi::MessageMarkAsInteractedParams.dump_request(params)
         @client.request(
           method: :put,
           path: ["v1/messages/%1$s/interacted", message_id],
           body: parsed,
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: options
         )
       end
@@ -253,14 +247,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageMarkAsReadParams
       def mark_as_read(message_id, params = {})
         @client.request(
           method: :put,
           path: ["v1/messages/%1$s/read", message_id],
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: params[:request_options]
         )
       end
@@ -275,14 +269,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageMarkAsSeenParams
       def mark_as_seen(message_id, params = {})
         @client.request(
           method: :put,
           path: ["v1/messages/%1$s/seen", message_id],
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: params[:request_options]
         )
       end
@@ -297,14 +291,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageMarkAsUnreadParams
       def mark_as_unread(message_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/messages/%1$s/read", message_id],
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: params[:request_options]
         )
       end
@@ -319,14 +313,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageMarkAsUnseenParams
       def mark_as_unseen(message_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/messages/%1$s/seen", message_id],
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: params[:request_options]
         )
       end
@@ -340,14 +334,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::Message]
+      # @return [Knockapi::Message]
       #
       # @see Knockapi::Models::MessageUnarchiveParams
       def unarchive(message_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/messages/%1$s/archived", message_id],
-          model: Knockapi::Models::Message,
+          model: Knockapi::Message,
           options: params[:request_options]
         )
       end
@@ -358,7 +352,6 @@ module Knockapi
       def initialize(client:)
         @client = client
         @batch = Knockapi::Resources::Messages::Batch.new(client: client)
-        @activities = Knockapi::Resources::Messages::Activities.new(client: client)
       end
     end
   end

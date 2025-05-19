@@ -37,7 +37,7 @@ module Knockapi
         #
         # @param after [String] The cursor to fetch entries after.
         #
-        # @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived] The archived status of the feed items.
+        # @param archived [Symbol, Knockapi::Users::FeedListItemsParams::Archived] The archived status of the feed items.
         #
         # @param before [String] The cursor to fetch entries before.
         #
@@ -47,7 +47,7 @@ module Knockapi
         #
         # @param source [String] The source of the feed items.
         #
-        # @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status] The status of the feed items.
+        # @param status [Symbol, Knockapi::Users::FeedListItemsParams::Status] The status of the feed items.
         #
         # @param tenant [String] The tenant associated with the feed items.
         #
@@ -61,7 +61,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Users::FeedListItemsParams
         def list_items(user_id, id, params = {})
-          parsed, options = Knockapi::Models::Users::FeedListItemsParams.dump_request(params)
+          parsed, options = Knockapi::Users::FeedListItemsParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/users/%1$s/feeds/%2$s", user_id, id],

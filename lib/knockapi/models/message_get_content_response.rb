@@ -485,11 +485,32 @@ module Knockapi
 
             # @!method self.variants
             #   @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock)]
+
+            define_sorbet_constant!(:Variants) do
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
+                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                )
+              end
+            end
           end
         end
 
         # @!method self.variants
         #   @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent)]
+
+        define_sorbet_constant!(:Variants) do
+          T.type_alias do
+            T.any(
+              Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
+              Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
+            )
+          end
+        end
       end
     end
   end

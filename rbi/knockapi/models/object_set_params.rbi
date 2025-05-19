@@ -6,15 +6,44 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::ObjectSetParams, Knockapi::Internal::AnyHash)
+        end
+
       # A request to set channel data for a type of channel inline.
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Hash[
+              Symbol,
+              T.any(
+                Knockapi::Recipients::PushChannelData,
+                Knockapi::Recipients::OneSignalChannelData,
+                Knockapi::Recipients::SlackChannelData,
+                Knockapi::Recipients::MsTeamsChannelData,
+                Knockapi::Recipients::DiscordChannelData
+              )
+            ]
+          )
+        )
+      end
       attr_reader :channel_data
 
       sig do
         params(
-          channel_data: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
-        )
-          .void
+          channel_data:
+            T::Hash[
+              Symbol,
+              T.any(
+                Knockapi::Recipients::PushChannelData::OrHash,
+                Knockapi::Recipients::OneSignalChannelData::OrHash,
+                Knockapi::Recipients::SlackChannelData::OrHash,
+                Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                Knockapi::Recipients::DiscordChannelData::OrHash
+              )
+            ]
+        ).void
       end
       attr_writer :channel_data
 
@@ -24,33 +53,47 @@ module Knockapi
       attr_accessor :locale
 
       # Inline set preferences for a recipient, where the key is the preference set id.
-      sig { returns(T.nilable(T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest])) }
+      sig do
+        returns(
+          T.nilable(T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest])
+        )
+      end
       attr_reader :preferences
 
       sig do
         params(
-          preferences: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
-        )
-          .void
+          preferences:
+            T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::OrHash]
+        ).void
       end
       attr_writer :preferences
 
-      # The timezone of the object. Must be a valid
-      # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-      # Used for
-      # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+      # The timezone of the object. Must be a
+      # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      # Used
+      # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
       sig { returns(T.nilable(String)) }
       attr_accessor :timezone
 
       sig do
         params(
-          channel_data: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)],
+          channel_data:
+            T::Hash[
+              Symbol,
+              T.any(
+                Knockapi::Recipients::PushChannelData::OrHash,
+                Knockapi::Recipients::OneSignalChannelData::OrHash,
+                Knockapi::Recipients::SlackChannelData::OrHash,
+                Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                Knockapi::Recipients::DiscordChannelData::OrHash
+              )
+            ],
           locale: T.nilable(String),
-          preferences: T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)],
+          preferences:
+            T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::OrHash],
           timezone: T.nilable(String),
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # A request to set channel data for a type of channel inline.
@@ -60,26 +103,39 @@ module Knockapi
         locale: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
         preferences: nil,
-        # The timezone of the object. Must be a valid
-        # [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-        # Used for
-        # [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+        # The timezone of the object. Must be a
+        # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        # Used
+        # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
         timezone: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              channel_data: T::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest],
-              locale: T.nilable(String),
-              preferences: T::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest],
-              timezone: T.nilable(String),
-              request_options: Knockapi::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            channel_data:
+              T::Hash[
+                Symbol,
+                T.any(
+                  Knockapi::Recipients::PushChannelData,
+                  Knockapi::Recipients::OneSignalChannelData,
+                  Knockapi::Recipients::SlackChannelData,
+                  Knockapi::Recipients::MsTeamsChannelData,
+                  Knockapi::Recipients::DiscordChannelData
+                )
+              ],
+            locale: T.nilable(String),
+            preferences:
+              T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest],
+            timezone: T.nilable(String),
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

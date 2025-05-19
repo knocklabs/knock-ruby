@@ -6,6 +6,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::UserListMessagesParams, Knockapi::Internal::AnyHash)
+        end
+
       # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
@@ -28,23 +33,34 @@ module Knockapi
       attr_writer :channel_id
 
       # Limits the results to messages with the given engagement status.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::UserListMessagesParams::EngagementStatus::OrSymbol])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[
+              Knockapi::UserListMessagesParams::EngagementStatus::OrSymbol
+            ]
+          )
+        )
+      end
       attr_reader :engagement_status
 
       sig do
-        params(engagement_status: T::Array[Knockapi::Models::UserListMessagesParams::EngagementStatus::OrSymbol])
-          .void
+        params(
+          engagement_status:
+            T::Array[
+              Knockapi::UserListMessagesParams::EngagementStatus::OrSymbol
+            ]
+        ).void
       end
       attr_writer :engagement_status
 
-      sig { returns(T.nilable(Knockapi::Models::UserListMessagesParams::InsertedAt)) }
+      sig { returns(T.nilable(Knockapi::UserListMessagesParams::InsertedAt)) }
       attr_reader :inserted_at
 
       sig do
         params(
-          inserted_at: T.any(Knockapi::Models::UserListMessagesParams::InsertedAt, Knockapi::Internal::AnyHash)
-        )
-          .void
+          inserted_at: Knockapi::UserListMessagesParams::InsertedAt::OrHash
+        ).void
       end
       attr_writer :inserted_at
 
@@ -71,10 +87,20 @@ module Knockapi
       attr_writer :source
 
       # Limits the results to messages with the given delivery status.
-      sig { returns(T.nilable(T::Array[Knockapi::Models::UserListMessagesParams::Status::OrSymbol])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[Knockapi::UserListMessagesParams::Status::OrSymbol]
+          )
+        )
+      end
       attr_reader :status
 
-      sig { params(status: T::Array[Knockapi::Models::UserListMessagesParams::Status::OrSymbol]).void }
+      sig do
+        params(
+          status: T::Array[Knockapi::UserListMessagesParams::Status::OrSymbol]
+        ).void
+      end
       attr_writer :status
 
       # Limits the results to items with the corresponding tenant.
@@ -120,20 +146,22 @@ module Knockapi
           after: String,
           before: String,
           channel_id: String,
-          engagement_status: T::Array[Knockapi::Models::UserListMessagesParams::EngagementStatus::OrSymbol],
-          inserted_at: T.any(Knockapi::Models::UserListMessagesParams::InsertedAt, Knockapi::Internal::AnyHash),
+          engagement_status:
+            T::Array[
+              Knockapi::UserListMessagesParams::EngagementStatus::OrSymbol
+            ],
+          inserted_at: Knockapi::UserListMessagesParams::InsertedAt::OrHash,
           message_ids: T::Array[String],
           page_size: Integer,
           source: String,
-          status: T::Array[Knockapi::Models::UserListMessagesParams::Status::OrSymbol],
+          status: T::Array[Knockapi::UserListMessagesParams::Status::OrSymbol],
           tenant: String,
           trigger_data: String,
           workflow_categories: T::Array[String],
           workflow_recipient_run_id: String,
           workflow_run_id: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The cursor to fetch entries after.
@@ -168,49 +196,92 @@ module Knockapi
         # returned by the workflow trigger request.
         workflow_run_id: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after: String,
-              before: String,
-              channel_id: String,
-              engagement_status: T::Array[Knockapi::Models::UserListMessagesParams::EngagementStatus::OrSymbol],
-              inserted_at: Knockapi::Models::UserListMessagesParams::InsertedAt,
-              message_ids: T::Array[String],
-              page_size: Integer,
-              source: String,
-              status: T::Array[Knockapi::Models::UserListMessagesParams::Status::OrSymbol],
-              tenant: String,
-              trigger_data: String,
-              workflow_categories: T::Array[String],
-              workflow_recipient_run_id: String,
-              workflow_run_id: String,
-              request_options: Knockapi::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after: String,
+            before: String,
+            channel_id: String,
+            engagement_status:
+              T::Array[
+                Knockapi::UserListMessagesParams::EngagementStatus::OrSymbol
+              ],
+            inserted_at: Knockapi::UserListMessagesParams::InsertedAt,
+            message_ids: T::Array[String],
+            page_size: Integer,
+            source: String,
+            status:
+              T::Array[Knockapi::UserListMessagesParams::Status::OrSymbol],
+            tenant: String,
+            trigger_data: String,
+            workflow_categories: T::Array[String],
+            workflow_recipient_run_id: String,
+            workflow_run_id: String,
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       module EngagementStatus
         extend Knockapi::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Knockapi::UserListMessagesParams::EngagementStatus)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        SEEN = T.let(:seen, Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol)
-        READ = T.let(:read, Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol)
-        INTERACTED = T.let(:interacted, Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol)
+        SEEN =
+          T.let(
+            :seen,
+            Knockapi::UserListMessagesParams::EngagementStatus::TaggedSymbol
+          )
+        READ =
+          T.let(
+            :read,
+            Knockapi::UserListMessagesParams::EngagementStatus::TaggedSymbol
+          )
+        INTERACTED =
+          T.let(
+            :interacted,
+            Knockapi::UserListMessagesParams::EngagementStatus::TaggedSymbol
+          )
         LINK_CLICKED =
-          T.let(:link_clicked, Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol)
-        ARCHIVED = T.let(:archived, Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol)
+          T.let(
+            :link_clicked,
+            Knockapi::UserListMessagesParams::EngagementStatus::TaggedSymbol
+          )
+        ARCHIVED =
+          T.let(
+            :archived,
+            Knockapi::UserListMessagesParams::EngagementStatus::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[Knockapi::Models::UserListMessagesParams::EngagementStatus::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              Knockapi::UserListMessagesParams::EngagementStatus::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       class InsertedAt < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::UserListMessagesParams::InsertedAt,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # Limits the results to messages inserted after the given date.
         sig { returns(T.nilable(String)) }
         attr_reader :gt
@@ -239,7 +310,11 @@ module Knockapi
         sig { params(lte: String).void }
         attr_writer :lte
 
-        sig { params(gt: String, gte: String, lt: String, lte: String).returns(T.attached_class) }
+        sig do
+          params(gt: String, gte: String, lt: String, lte: String).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # Limits the results to messages inserted after the given date.
           gt: nil,
@@ -249,28 +324,62 @@ module Knockapi
           lt: nil,
           # Limits the results to messages inserted before or on the given date.
           lte: nil
-        ); end
-        sig { override.returns({gt: String, gte: String, lt: String, lte: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns({ gt: String, gte: String, lt: String, lte: String })
+        end
+        def to_hash
+        end
       end
 
       module Status
         extend Knockapi::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::UserListMessagesParams::Status) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Knockapi::UserListMessagesParams::Status)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        QUEUED = T.let(:queued, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
-        SENT = T.let(:sent, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
-        DELIVERED = T.let(:delivered, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
+        QUEUED =
+          T.let(:queued, Knockapi::UserListMessagesParams::Status::TaggedSymbol)
+        SENT =
+          T.let(:sent, Knockapi::UserListMessagesParams::Status::TaggedSymbol)
+        DELIVERED =
+          T.let(
+            :delivered,
+            Knockapi::UserListMessagesParams::Status::TaggedSymbol
+          )
         DELIVERY_ATTEMPTED =
-          T.let(:delivery_attempted, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
-        UNDELIVERED = T.let(:undelivered, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
-        NOT_SENT = T.let(:not_sent, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
-        BOUNCED = T.let(:bounced, Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol)
+          T.let(
+            :delivery_attempted,
+            Knockapi::UserListMessagesParams::Status::TaggedSymbol
+          )
+        UNDELIVERED =
+          T.let(
+            :undelivered,
+            Knockapi::UserListMessagesParams::Status::TaggedSymbol
+          )
+        NOT_SENT =
+          T.let(
+            :not_sent,
+            Knockapi::UserListMessagesParams::Status::TaggedSymbol
+          )
+        BOUNCED =
+          T.let(
+            :bounced,
+            Knockapi::UserListMessagesParams::Status::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[Knockapi::Models::UserListMessagesParams::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[Knockapi::UserListMessagesParams::Status::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

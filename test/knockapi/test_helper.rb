@@ -52,6 +52,12 @@ class Knockapi::Test::SingletonClient < Knockapi::Client
   end
 end
 
+module Minitest::Serial
+  def test_order = :random
+
+  def run_one_method(...) = Minitest::Runnable.run_one_method(...)
+end
+
 class Minitest::Test
   include Minitest::Hooks
 

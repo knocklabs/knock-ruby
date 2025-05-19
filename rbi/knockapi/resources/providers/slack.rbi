@@ -6,8 +6,11 @@ module Knockapi
       class Slack
         # Check if a Slack channel is authenticated.
         sig do
-          params(channel_id: String, access_token_object: String, request_options: Knockapi::RequestOpts)
-            .returns(Knockapi::Models::Providers::SlackCheckAuthResponse)
+          params(
+            channel_id: String,
+            access_token_object: String,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Models::Providers::SlackCheckAuthResponse)
         end
         def check_auth(
           # The ID of the Knock Slack channel to check.
@@ -15,16 +18,22 @@ module Knockapi
           # A JSON encoded string containing the access token object reference.
           access_token_object:,
           request_options: {}
-        ); end
+        )
+        end
+
         # List Slack channels for a Slack workspace.
         sig do
           params(
             channel_id: String,
             access_token_object: String,
-            query_options: T.any(Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, Knockapi::Internal::AnyHash),
-            request_options: Knockapi::RequestOpts
+            query_options:
+              Knockapi::Providers::SlackListChannelsParams::QueryOptions::OrHash,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(
+            Knockapi::Internal::SlackChannelsCursor[
+              Knockapi::Models::Providers::SlackListChannelsResponse
+            ]
           )
-            .returns(Knockapi::Internal::SlackChannelsCursor[Knockapi::Models::Providers::SlackListChannelsResponse])
         end
         def list_channels(
           # The ID of the Knock Slack channel to get channels for.
@@ -33,11 +42,16 @@ module Knockapi
           access_token_object:,
           query_options: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # Revoke access for a Slack channel.
         sig do
-          params(channel_id: String, access_token_object: String, request_options: Knockapi::RequestOpts)
-            .returns(Knockapi::Models::Providers::SlackRevokeAccessResponse)
+          params(
+            channel_id: String,
+            access_token_object: String,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Models::Providers::SlackRevokeAccessResponse)
         end
         def revoke_access(
           # The ID of the Knock Slack channel to revoke access for.
@@ -45,10 +59,13 @@ module Knockapi
           # A JSON encoded string containing the access token object reference.
           access_token_object:,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

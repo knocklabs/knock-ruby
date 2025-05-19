@@ -2,23 +2,19 @@ module Knockapi
   module Models
     module Schedules
       type bulk_create_params =
-        {
-          schedules: ::Array[Knockapi::Models::Schedules::BulkCreateParams::Schedule]
-        }
+        { schedules: ::Array[Knockapi::Schedules::BulkCreateParams::Schedule] }
         & Knockapi::Internal::Type::request_parameters
 
       class BulkCreateParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        attr_accessor schedules: ::Array[Knockapi::Models::Schedules::BulkCreateParams::Schedule]
+        attr_accessor schedules: ::Array[Knockapi::Schedules::BulkCreateParams::Schedule]
 
         def initialize: (
-          schedules: ::Array[Knockapi::Models::Schedules::BulkCreateParams::Schedule],
+          schedules: ::Array[Knockapi::Schedules::BulkCreateParams::Schedule],
           ?request_options: Knockapi::request_opts
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Schedules::bulk_create_params
 
         type schedule =
           {
@@ -27,7 +23,7 @@ module Knockapi
             data: ::Hash[Symbol, top]?,
             ending_at: Time?,
             recipient: Knockapi::Models::recipient_request,
-            repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+            repeats: ::Array[Knockapi::ScheduleRepeatRule],
             scheduled_at: Time?,
             tenant: Knockapi::Models::inline_tenant_request?
           }
@@ -47,11 +43,11 @@ module Knockapi
             Knockapi::Models::recipient_request
           ) -> Knockapi::Models::recipient_request
 
-          attr_reader repeats: ::Array[Knockapi::Models::ScheduleRepeatRule]?
+          attr_reader repeats: ::Array[Knockapi::ScheduleRepeatRule]?
 
           def repeats=: (
-            ::Array[Knockapi::Models::ScheduleRepeatRule]
-          ) -> ::Array[Knockapi::Models::ScheduleRepeatRule]
+            ::Array[Knockapi::ScheduleRepeatRule]
+          ) -> ::Array[Knockapi::ScheduleRepeatRule]
 
           attr_accessor scheduled_at: Time?
 
@@ -63,12 +59,10 @@ module Knockapi
             ?data: ::Hash[Symbol, top]?,
             ?ending_at: Time?,
             ?recipient: Knockapi::Models::recipient_request,
-            ?repeats: ::Array[Knockapi::Models::ScheduleRepeatRule],
+            ?repeats: ::Array[Knockapi::ScheduleRepeatRule],
             ?scheduled_at: Time?,
             ?tenant: Knockapi::Models::inline_tenant_request?
           ) -> void
-
-          def to_hash: -> Knockapi::Models::Schedules::BulkCreateParams::schedule
         end
       end
     end

@@ -7,6 +7,14 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Objects::BulkDeleteParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # List of object IDs to delete.
         sig { returns(T::Array[String]) }
         attr_accessor :object_ids
@@ -14,17 +22,26 @@ module Knockapi
         sig do
           params(
             object_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # List of object IDs to delete.
           object_ids:,
           request_options: {}
-        ); end
-        sig { override.returns({object_ids: T::Array[String], request_options: Knockapi::RequestOptions}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              object_ids: T::Array[String],
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

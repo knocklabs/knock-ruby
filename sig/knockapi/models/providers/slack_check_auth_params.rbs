@@ -15,8 +15,6 @@ module Knockapi
           access_token_object: String,
           ?request_options: Knockapi::request_opts
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Providers::slack_check_auth_params
       end
     end
   end

@@ -36,8 +36,6 @@ module Knockapi
         ?timezone: String?,
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::object_set_params
     end
   end
 end

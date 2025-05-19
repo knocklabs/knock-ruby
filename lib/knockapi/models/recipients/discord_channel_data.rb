@@ -7,14 +7,16 @@ module Knockapi
         # @!attribute connections
         #   List of Discord channel connections.
         #
-        #   @return [Array<Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>]
+        #   @return [Array<Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>]
         required :connections,
-                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Recipients::DiscordChannelData::Connection] }
+                 -> {
+                   Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipients::DiscordChannelData::Connection]
+                 }
 
         # @!method initialize(connections:)
         #   Discord channel data.
         #
-        #   @param connections [Array<Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>] List of Discord channel connections.
+        #   @param connections [Array<Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>] List of Discord channel connections.
 
         # Discord channel connection, either a channel connection or an incoming webhook
         # connection.
@@ -22,10 +24,12 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           # Discord channel connection.
-          variant -> { Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection }
+          variant -> { Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection }
 
           # Discord incoming webhook connection.
-          variant -> { Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection }
+          variant -> {
+            Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+          }
 
           class DiscordChannelConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_id
@@ -44,16 +48,18 @@ module Knockapi
             # @!attribute incoming_webhook
             #   Discord incoming webhook object.
             #
-            #   @return [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook]
+            #   @return [Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook]
             required :incoming_webhook,
-                     -> { Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook }
+                     -> {
+                       Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+                     }
 
             # @!method initialize(incoming_webhook:)
             #   Discord incoming webhook connection.
             #
-            #   @param incoming_webhook [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook] Discord incoming webhook object.
+            #   @param incoming_webhook [Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook] Discord incoming webhook object.
 
-            # @see Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection#incoming_webhook
+            # @see Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               # @!attribute url
               #   Incoming webhook URL.
@@ -69,7 +75,16 @@ module Knockapi
           end
 
           # @!method self.variants
-          #   @return [Array(Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection)]
+          #   @return [Array(Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(
+                Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection,
+                Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
+              )
+            end
+          end
         end
       end
     end

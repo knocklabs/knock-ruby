@@ -47,8 +47,6 @@ module Knockapi
         ?recipient: Knockapi::Models::recipient,
         ?updated_at: Time
       ) -> void
-
-      def to_hash: -> Knockapi::Models::activity
     end
   end
 end

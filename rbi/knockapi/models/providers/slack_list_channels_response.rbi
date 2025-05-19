@@ -4,6 +4,14 @@ module Knockapi
   module Models
     module Providers
       class SlackListChannelsResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Providers::SlackListChannelsResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # A Slack channel ID from the Slack provider.
         sig { returns(String) }
         attr_accessor :id
@@ -26,8 +34,13 @@ module Knockapi
 
         # A Slack channel.
         sig do
-          params(id: String, context_team_id: String, is_im: T::Boolean, is_private: T::Boolean, name: String)
-            .returns(T.attached_class)
+          params(
+            id: String,
+            context_team_id: String,
+            is_im: T::Boolean,
+            is_private: T::Boolean,
+            name: String
+          ).returns(T.attached_class)
         end
         def self.new(
           # A Slack channel ID from the Slack provider.
@@ -40,18 +53,22 @@ module Knockapi
           is_private:,
           # Slack channel name.
           name:
-        ); end
-        sig do
-          override
-            .returns({
-                       id: String,
-                       context_team_id: String,
-                       is_im: T::Boolean,
-                       is_private: T::Boolean,
-                       name: String
-                     })
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              context_team_id: String,
+              is_im: T::Boolean,
+              is_private: T::Boolean,
+              name: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

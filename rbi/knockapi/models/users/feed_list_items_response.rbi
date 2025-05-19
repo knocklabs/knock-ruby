@@ -4,6 +4,14 @@ module Knockapi
   module Models
     module Users
       class FeedListItemsResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Users::FeedListItemsResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # Unique identifier for the feed.
         sig { returns(String) }
         attr_accessor :id
@@ -13,11 +21,11 @@ module Knockapi
         attr_accessor :_typename
 
         # List of activities associated with this feed item.
-        sig { returns(T::Array[Knockapi::Models::Activity]) }
+        sig { returns(T::Array[Knockapi::Activity]) }
         attr_accessor :activities
 
         # List of actors associated with this feed item.
-        sig { returns(T::Array[T.any(Knockapi::Models::User, Knockapi::Models::Object)]) }
+        sig { returns(T::Array[T.any(Knockapi::User, Knockapi::Object)]) }
         attr_accessor :actors
 
         # Content blocks that make up the feed item.
@@ -46,8 +54,10 @@ module Knockapi
         attr_reader :source
 
         sig do
-          params(source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::AnyHash))
-            .void
+          params(
+            source:
+              Knockapi::Models::Users::FeedListItemsResponse::Source::OrHash
+          ).void
         end
         attr_writer :source
 
@@ -96,18 +106,20 @@ module Knockapi
           params(
             id: String,
             _typename: String,
-            activities: T::Array[T.any(Knockapi::Models::Activity, Knockapi::Internal::AnyHash)],
-            actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)],
-            blocks: T::Array[
-              T.any(
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-                Knockapi::Internal::AnyHash,
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-              )
-            ],
+            activities: T::Array[Knockapi::Activity::OrHash],
+            actors:
+              T::Array[T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash)],
+            blocks:
+              T::Array[
+                T.any(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::OrHash,
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::OrHash
+                )
+              ],
             data: T.nilable(T::Hash[Symbol, T.anything]),
             inserted_at: String,
-            source: T.any(Knockapi::Models::Users::FeedListItemsResponse::Source, Knockapi::Internal::AnyHash),
+            source:
+              Knockapi::Models::Users::FeedListItemsResponse::Source::OrHash,
             tenant: T.nilable(String),
             total_activities: Integer,
             total_actors: Integer,
@@ -118,8 +130,7 @@ module Knockapi
             link_clicked_at: T.nilable(String),
             read_at: T.nilable(String),
             seen_at: T.nilable(String)
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Unique identifier for the feed.
@@ -158,44 +169,63 @@ module Knockapi
           read_at: nil,
           # Timestamp when the feed item was marked as seen.
           seen_at: nil
-        ); end
+        )
+        end
+
         sig do
-          override
-            .returns(
-              {
-                id: String,
-                _typename: String,
-                activities: T::Array[Knockapi::Models::Activity],
-                actors: T::Array[T.any(Knockapi::Models::User, Knockapi::Models::Object)],
-                blocks: T::Array[
+          override.returns(
+            {
+              id: String,
+              _typename: String,
+              activities: T::Array[Knockapi::Activity],
+              actors: T::Array[T.any(Knockapi::User, Knockapi::Object)],
+              blocks:
+                T::Array[
                   T.any(
                     Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
                     Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
                   )
                 ],
-                data: T.nilable(T::Hash[Symbol, T.anything]),
-                inserted_at: String,
-                source: Knockapi::Models::Users::FeedListItemsResponse::Source,
-                tenant: T.nilable(String),
-                total_activities: Integer,
-                total_actors: Integer,
-                updated_at: String,
-                archived_at: T.nilable(String),
-                clicked_at: T.nilable(String),
-                interacted_at: T.nilable(String),
-                link_clicked_at: T.nilable(String),
-                read_at: T.nilable(String),
-                seen_at: T.nilable(String)
-              }
-            )
+              data: T.nilable(T::Hash[Symbol, T.anything]),
+              inserted_at: String,
+              source: Knockapi::Models::Users::FeedListItemsResponse::Source,
+              tenant: T.nilable(String),
+              total_activities: Integer,
+              total_actors: Integer,
+              updated_at: String,
+              archived_at: T.nilable(String),
+              clicked_at: T.nilable(String),
+              interacted_at: T.nilable(String),
+              link_clicked_at: T.nilable(String),
+              read_at: T.nilable(String),
+              seen_at: T.nilable(String)
+            }
+          )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         # A content block for the feed, can be content or a button set.
         module Block
           extend Knockapi::Internal::Type::Union
 
+          Variants =
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+              )
+            end
+
           class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
+                  Knockapi::Internal::AnyHash
+                )
+              end
+
             # The content of the block in a message in an app feed.
             sig { returns(String) }
             attr_accessor :content
@@ -222,9 +252,9 @@ module Knockapi
                 content: String,
                 name: String,
                 rendered: String,
-                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::OrSymbol
-              )
-                .returns(T.attached_class)
+                type:
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::OrSymbol
+              ).returns(T.attached_class)
             end
             def self.new(
               # The content of the block in a message in an app feed.
@@ -235,26 +265,34 @@ module Knockapi
               rendered:,
               # The type of block in a message in an app feed.
               type:
-            ); end
-            sig do
-              override
-                .returns(
-                  {
-                    content: String,
-                    name: String,
-                    rendered: String,
-                    type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                  }
-                )
+            )
             end
-            def to_hash; end
+
+            sig do
+              override.returns(
+                {
+                  content: String,
+                  name: String,
+                  rendered: String,
+                  type:
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                }
+              )
+            end
+            def to_hash
+            end
 
             # The type of block in a message in an app feed.
             module Type
               extend Knockapi::Internal::Type::Enum
 
               TaggedSymbol =
-                T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type) }
+                T.type_alias do
+                  T.all(
+                    Symbol,
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type
+                  )
+                end
               OrSymbol = T.type_alias { T.any(Symbol, String) }
 
               MARKDOWN =
@@ -269,20 +307,32 @@ module Knockapi
                 )
 
               sig do
-                override
-                  .returns(
-                    T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol]
-                  )
+                override.returns(
+                  T::Array[
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
+                  ]
+                )
               end
-              def self.values; end
+              def self.values
+              end
             end
           end
 
           class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock,
+                  Knockapi::Internal::AnyHash
+                )
+              end
+
             # A list of buttons in an in app feed message.
             sig do
               returns(
-                T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button]
+                T::Array[
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button
+                ]
               )
             end
             attr_accessor :buttons
@@ -302,16 +352,14 @@ module Knockapi
             # A button set block in a message in an app feed.
             sig do
               params(
-                buttons: T::Array[
-                  T.any(
-                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
-                    Knockapi::Internal::AnyHash
-                  )
-                ],
+                buttons:
+                  T::Array[
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button::OrHash
+                  ],
                 name: String,
-                type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::OrSymbol
-              )
-                .returns(T.attached_class)
+                type:
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::OrSymbol
+              ).returns(T.attached_class)
             end
             def self.new(
               # A list of buttons in an in app feed message.
@@ -320,20 +368,34 @@ module Knockapi
               name:,
               # The type of block in a message in an app feed.
               type:
-            ); end
-            sig do
-              override
-                .returns(
-                  {
-                    buttons: T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
-                    name: String,
-                    type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                  }
-                )
+            )
             end
-            def to_hash; end
+
+            sig do
+              override.returns(
+                {
+                  buttons:
+                    T::Array[
+                      Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button
+                    ],
+                  name: String,
+                  type:
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                }
+              )
+            end
+            def to_hash
+            end
 
             class Button < Knockapi::Internal::Type::BaseModel
+              OrHash =
+                T.type_alias do
+                  T.any(
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button,
+                    Knockapi::Internal::AnyHash
+                  )
+                end
+
               # The action to take when the button is clicked.
               sig { returns(String) }
               attr_accessor :action
@@ -347,7 +409,11 @@ module Knockapi
               attr_accessor :name
 
               # A button in an in app feed message.
-              sig { params(action: String, label: String, name: String).returns(T.attached_class) }
+              sig do
+                params(action: String, label: String, name: String).returns(
+                  T.attached_class
+                )
+              end
               def self.new(
                 # The action to take when the button is clicked.
                 action:,
@@ -355,9 +421,16 @@ module Knockapi
                 label:,
                 # The name of the button.
                 name:
-              ); end
-              sig { override.returns({action: String, label: String, name: String}) }
-              def to_hash; end
+              )
+              end
+
+              sig do
+                override.returns(
+                  { action: String, label: String, name: String }
+                )
+              end
+              def to_hash
+              end
             end
 
             # The type of block in a message in an app feed.
@@ -365,7 +438,12 @@ module Knockapi
               extend Knockapi::Internal::Type::Enum
 
               TaggedSymbol =
-                T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type) }
+                T.type_alias do
+                  T.all(
+                    Symbol,
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type
+                  )
+                end
               OrSymbol = T.type_alias { T.any(Symbol, String) }
 
               BUTTON_SET =
@@ -375,25 +453,37 @@ module Knockapi
                 )
 
               sig do
-                override
-                  .returns(
-                    T::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol]
-                  )
+                override.returns(
+                  T::Array[
+                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
+                  ]
+                )
               end
-              def self.values; end
+              def self.values
+              end
             end
           end
 
           sig do
-            override
-              .returns(
-                [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
-              )
+            override.returns(
+              T::Array[
+                Knockapi::Models::Users::FeedListItemsResponse::Block::Variants
+              ]
+            )
           end
-          def self.variants; end
+          def self.variants
+          end
         end
 
         class Source < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::FeedListItemsResponse::Source,
+                Knockapi::Internal::AnyHash
+              )
+            end
+
           # The typename of the schema.
           sig { returns(String) }
           attr_accessor :_typename
@@ -412,8 +502,12 @@ module Knockapi
 
           # Source information for the feed item.
           sig do
-            params(_typename: String, categories: T::Array[String], key: String, version_id: String)
-              .returns(T.attached_class)
+            params(
+              _typename: String,
+              categories: T::Array[String],
+              key: String,
+              version_id: String
+            ).returns(T.attached_class)
           end
           def self.new(
             # The typename of the schema.
@@ -424,7 +518,9 @@ module Knockapi
             key:,
             # The workflow version ID.
             version_id:
-          ); end
+          )
+          end
+
           sig do
             override.returns(
               {
@@ -435,7 +531,8 @@ module Knockapi
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
       end
     end

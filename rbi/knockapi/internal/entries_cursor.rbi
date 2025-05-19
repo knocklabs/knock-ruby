@@ -15,9 +15,12 @@ module Knockapi
 
       # @api private
       sig { returns(String) }
-      def inspect; end
+      def inspect
+      end
 
       class PageInfo < Knockapi::Internal::Type::BaseModel
+        OrHash = T.type_alias { T.any(PageInfo, Knockapi::Internal::AnyHash) }
+
         sig { returns(T.nilable(String)) }
         attr_reader :after
 
@@ -25,10 +28,12 @@ module Knockapi
         attr_writer :after
 
         sig { params(after: String).returns(T.attached_class) }
-        def self.new(after: nil); end
+        def self.new(after: nil)
+        end
 
-        sig { override.returns({after: String}) }
-        def to_hash; end
+        sig { override.returns({ after: String }) }
+        def to_hash
+        end
       end
     end
   end

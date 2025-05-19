@@ -7,15 +7,22 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Users::BulkSetPreferencesParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # A request to set a preference set for a recipient.
-        sig { returns(Knockapi::Models::Recipients::PreferenceSetRequest) }
+        sig { returns(Knockapi::Recipients::PreferenceSetRequest) }
         attr_reader :preferences
 
         sig do
           params(
-            preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)
-          )
-            .void
+            preferences: Knockapi::Recipients::PreferenceSetRequest::OrHash
+          ).void
         end
         attr_writer :preferences
 
@@ -25,11 +32,10 @@ module Knockapi
 
         sig do
           params(
-            preferences: T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash),
+            preferences: Knockapi::Recipients::PreferenceSetRequest::OrHash,
             user_ids: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # A request to set a preference set for a recipient.
@@ -37,18 +43,20 @@ module Knockapi
           # A list of user IDs.
           user_ids:,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                preferences: Knockapi::Models::Recipients::PreferenceSetRequest,
-                user_ids: T::Array[String],
-                request_options: Knockapi::RequestOptions
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              preferences: Knockapi::Recipients::PreferenceSetRequest,
+              user_ids: T::Array[String],
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

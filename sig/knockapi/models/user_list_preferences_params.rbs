@@ -8,8 +8,6 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       def initialize: (?request_options: Knockapi::request_opts) -> void
-
-      def to_hash: -> Knockapi::Models::user_list_preferences_params
     end
   end
 end

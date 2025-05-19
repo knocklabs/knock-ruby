@@ -3,9 +3,9 @@ module Knockapi
     class Schedules
       class Bulk
         def create: (
-          schedules: ::Array[Knockapi::Models::Schedules::BulkCreateParams::Schedule],
+          schedules: ::Array[Knockapi::Schedules::BulkCreateParams::Schedule],
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::BulkOperation
+        ) -> Knockapi::BulkOperation
 
         def initialize: (client: Knockapi::Client) -> void
       end

@@ -6,7 +6,8 @@ module Knockapi
         _typename: String,
         collection: String,
         updated_at: Time,
-        created_at: Time?
+        created_at: Time?,
+        properties: ::Hash[Symbol, top]
       }
 
     class Object < Knockapi::Internal::Type::BaseModel
@@ -20,15 +21,18 @@ module Knockapi
 
       attr_accessor created_at: Time?
 
+      attr_reader properties: ::Hash[Symbol, top]?
+
+      def properties=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
       def initialize: (
         id: String,
         _typename: String,
         collection: String,
         updated_at: Time,
-        ?created_at: Time?
+        ?created_at: Time?,
+        ?properties: ::Hash[Symbol, top]
       ) -> void
-
-      def to_hash: -> Knockapi::Models::object
     end
   end
 end

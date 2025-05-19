@@ -14,9 +14,8 @@ module Knockapi
           name: String,
           page_size: Integer,
           tenant_id: String,
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Internal::EntriesCursor[Knockapi::Models::Tenant])
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Tenant])
       end
       def list(
         # The cursor to fetch entries after.
@@ -30,36 +29,65 @@ module Knockapi
         # Filter tenants by ID.
         tenant_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Delete a tenant and all associated data. This operation cannot be undone.
-      sig { params(id: String, request_options: Knockapi::RequestOpts).returns(String) }
+      sig do
+        params(
+          id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(String)
+      end
       def delete(
         # The unique identifier for the tenant.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a tenant by ID.
-      sig { params(id: String, request_options: Knockapi::RequestOpts).returns(Knockapi::Models::Tenant) }
+      sig do
+        params(
+          id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Tenant)
+      end
       def get(
         # The unique identifier for the tenant.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Sets a tenant within an environment, performing an upsert operation. Any
       # existing properties will be merged with the incoming properties.
       sig do
         params(
           id: String,
-          channel_data: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::ChannelDataRequest, Knockapi::Internal::AnyHash)]
-          ),
-          preferences: T.nilable(
-            T::Hash[Symbol, T.any(Knockapi::Models::Recipients::PreferenceSetRequest, Knockapi::Internal::AnyHash)]
-          ),
-          settings: T.any(Knockapi::Models::TenantSetParams::Settings, Knockapi::Internal::AnyHash),
-          request_options: Knockapi::RequestOpts
-        )
-          .returns(Knockapi::Models::Tenant)
+          channel_data:
+            T.nilable(
+              T::Hash[
+                Symbol,
+                T.any(
+                  Knockapi::Recipients::PushChannelData::OrHash,
+                  Knockapi::Recipients::OneSignalChannelData::OrHash,
+                  Knockapi::Recipients::SlackChannelData::OrHash,
+                  Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                  Knockapi::Recipients::DiscordChannelData::OrHash
+                )
+              ]
+            ),
+          preferences:
+            T.nilable(
+              T::Hash[
+                Symbol,
+                Knockapi::Recipients::PreferenceSetRequest::OrHash
+              ]
+            ),
+          settings: Knockapi::TenantSetParams::Settings::OrHash,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(Knockapi::Tenant)
       end
       def set(
         # The unique identifier for the tenant.
@@ -71,10 +99,13 @@ module Knockapi
         # The settings for the tenant. Includes branding and preference set.
         settings: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

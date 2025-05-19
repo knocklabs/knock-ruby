@@ -9,12 +9,20 @@ module Knockapi
       #   @return [String]
       required :id, String
 
+      # @!attribute avatar
+      #   URL to the user's avatar image.
+      #
+      #   @return [String, nil]
+      optional :avatar, String, nil?: true
+
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil]
       optional :channel_data,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::ChannelDataRequest] },
+               -> {
+                 Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::InlineChannelDataRequestItem]
+               },
                nil?: true
 
       # @!attribute created_at
@@ -23,15 +31,52 @@ module Knockapi
       #   @return [Time, nil]
       optional :created_at, Time, nil?: true
 
+      # @!attribute email
+      #   The primary email address for the user.
+      #
+      #   @return [String, nil]
+      optional :email, String, nil?: true
+
+      # @!attribute locale
+      #   The locale of the user. Used for [message localization](/concepts/translations).
+      #
+      #   @return [String, nil]
+      optional :locale, String, nil?: true
+
+      # @!attribute name
+      #   Display name of the user.
+      #
+      #   @return [String, nil]
+      optional :name, String, nil?: true
+
+      # @!attribute phone_number
+      #   The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      #   user (required for SMS channels).
+      #
+      #   @return [String, nil]
+      optional :phone_number, String, nil?: true
+
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set id.
       #
-      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
-               -> { Knockapi::Internal::Type::HashOf[Knockapi::Models::Recipients::PreferenceSetRequest] },
+               -> { Knockapi::Internal::Type::HashOf[Knockapi::Recipients::PreferenceSetRequest] },
                nil?: true
 
-      # @!method initialize(id:, channel_data: nil, created_at: nil, preferences: nil)
+      # @!attribute timezone
+      #   The timezone of the user. Must be a
+      #   valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      #   Used
+      #   for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+      #
+      #   @return [String, nil]
+      optional :timezone, String, nil?: true
+
+      # @!method initialize(id:, avatar: nil, channel_data: nil, created_at: nil, email: nil, locale: nil, name: nil, phone_number: nil, preferences: nil, timezone: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::InlineIdentifyUserRequest} for more details.
+      #
       #   A set of parameters to inline-identify a user with. Inline identifying the user
       #   will ensure that the user is available before the request is executed in Knock.
       #   It will perform an upsert for the user you're supplying, replacing any
@@ -39,11 +84,23 @@ module Knockapi
       #
       #   @param id [String] The ID for the user that you set when identifying them in Knock.
       #
-      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::ChannelDataRequest}, nil] A request to set channel data for a type of channel inline.
+      #   @param avatar [String, nil] URL to the user's avatar image.
+      #
+      #   @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       #   @param created_at [Time, nil] The creation date of the user from your system.
       #
-      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      #   @param email [String, nil] The primary email address for the user.
+      #
+      #   @param locale [String, nil] The locale of the user. Used for [message localization](/concepts/translations).
+      #
+      #   @param name [String, nil] Display name of the user.
+      #
+      #   @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
+      #
+      #   @param preferences [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      #
+      #   @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
     end
   end
 end

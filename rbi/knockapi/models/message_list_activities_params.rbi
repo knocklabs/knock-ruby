@@ -6,6 +6,14 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias do
+          T.any(
+            Knockapi::MessageListActivitiesParams,
+            Knockapi::Internal::AnyHash
+          )
+        end
+
       # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
@@ -40,9 +48,8 @@ module Knockapi
           before: String,
           page_size: Integer,
           trigger_data: String,
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The cursor to fetch entries after.
@@ -54,20 +61,22 @@ module Knockapi
         # The trigger data to filter activities by.
         trigger_data: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after: String,
-              before: String,
-              page_size: Integer,
-              trigger_data: String,
-              request_options: Knockapi::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after: String,
+            before: String,
+            page_size: Integer,
+            trigger_data: String,
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

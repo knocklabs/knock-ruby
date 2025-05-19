@@ -6,8 +6,13 @@ module Knockapi
     module InlineTenantRequest
       extend Knockapi::Internal::Type::Union
 
-      sig { override.returns([String, Knockapi::Models::TenantRequest]) }
-      def self.variants; end
+      Variants = T.type_alias { T.any(String, Knockapi::TenantRequest) }
+
+      sig do
+        override.returns(T::Array[Knockapi::InlineTenantRequest::Variants])
+      end
+      def self.variants
+      end
     end
   end
 end

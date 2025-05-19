@@ -20,8 +20,6 @@ module Knockapi
         ?properties: ::Hash[Symbol, top]?,
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::object_add_subscriptions_params
     end
   end
 end

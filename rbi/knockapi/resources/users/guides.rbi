@@ -12,9 +12,8 @@ module Knockapi
             data: String,
             tenant: String,
             type: String,
-            request_options: Knockapi::RequestOpts
-          )
-            .returns(Knockapi::Models::Users::GuideGetChannelResponse)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Models::Users::GuideGetChannelResponse)
         end
         def get_channel(
           # The ID for the user that you set when identifying them in Knock.
@@ -28,7 +27,9 @@ module Knockapi
           # The type of guides to filter by.
           type: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # Records that a guide has been archived by a user, triggering any associated
         # archived events.
         sig do
@@ -44,9 +45,8 @@ module Knockapi
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
-            request_options: Knockapi::RequestOpts
-          )
-            .returns(Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse)
         end
         def mark_message_as_archived(
           # The ID for the user that you set when identifying them in Knock.
@@ -72,7 +72,9 @@ module Knockapi
           # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # Records that a user has interacted with a guide, triggering any associated
         # interacted events.
         sig do
@@ -88,9 +90,10 @@ module Knockapi
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
-            request_options: Knockapi::RequestOpts
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(
+            Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse
           )
-            .returns(Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse)
         end
         def mark_message_as_interacted(
           # The ID for the user that you set when identifying them in Knock.
@@ -116,7 +119,9 @@ module Knockapi
           # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # Records that a guide has been seen by a user, triggering any associated seen
         # events.
         sig do
@@ -132,9 +137,8 @@ module Knockapi
             is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
             tenant: T.nilable(String),
-            request_options: Knockapi::RequestOpts
-          )
-            .returns(Knockapi::Models::Users::GuideMarkMessageAsSeenResponse)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Models::Users::GuideMarkMessageAsSeenResponse)
         end
         def mark_message_as_seen(
           # The ID for the user that you set when identifying them in Knock.
@@ -160,10 +164,13 @@ module Knockapi
           # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

@@ -18,7 +18,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Object
+      row => Knockapi::Object
     end
 
     assert_pattern do
@@ -27,7 +27,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         _typename: String,
         collection: String,
         updated_at: Time,
-        created_at: Time | nil
+        created_at: Time | nil,
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end
@@ -52,7 +53,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.add_subscriptions("collection", "object_id", recipients: %w[user_1 user_2])
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Recipients::Subscription])
     end
   end
 
@@ -64,7 +65,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.delete_subscriptions("collection", "object_id", recipients: ["user_123"])
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::Subscription])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Recipients::Subscription])
     end
   end
 
@@ -76,7 +77,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.get("collection", "id")
 
     assert_pattern do
-      response => Knockapi::Models::Object
+      response => Knockapi::Object
     end
 
     assert_pattern do
@@ -85,7 +86,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         _typename: String,
         collection: String,
         updated_at: Time,
-        created_at: Time | nil
+        created_at: Time | nil,
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end
@@ -99,15 +101,15 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       @knock.objects.get_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
-      response => Knockapi::Models::Recipients::RecipientsChannelData
+      response => Knockapi::Recipients::RecipientsChannelData
     end
 
     assert_pattern do
       response => {
         _typename: String,
         channel_id: String,
-        data: Knockapi::Models::Recipients::RecipientsChannelData::Data,
-        provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider | nil
+        data: Knockapi::Recipients::RecipientsChannelData::Data,
+        provider: Knockapi::Recipients::RecipientsChannelData::Provider | nil
       }
     end
   end
@@ -120,15 +122,15 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.get_preferences("collection", "object_id", "default")
 
     assert_pattern do
-      response => Knockapi::Models::Recipients::PreferenceSet
+      response => Knockapi::Recipients::PreferenceSet
     end
 
     assert_pattern do
       response => {
         id: String,
-        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
-        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
-        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
   end
@@ -148,29 +150,29 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Message
+      row => Knockapi::Message
     end
 
     assert_pattern do
       row => {
         id: String | nil,
         _typename: String | nil,
-        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::RecipientReference]) | nil,
+        actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
         channel_id: String | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
-        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Models::Message::EngagementStatus]) | nil,
+        engagement_statuses: ^(Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus]) | nil,
         inserted_at: Time | nil,
         interacted_at: Time | nil,
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient: Knockapi::Models::RecipientReference | nil,
+        recipient: Knockapi::RecipientReference | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
-        source: Knockapi::Models::Message::Source | nil,
-        status: Knockapi::Models::Message::Status | nil,
+        source: Knockapi::Message::Source | nil,
+        status: Knockapi::Message::Status | nil,
         tenant: String | nil,
         updated_at: Time | nil,
         workflow: String | nil
@@ -186,7 +188,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.list_preferences("collection", "object_id")
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Recipients::PreferenceSet])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Recipients::PreferenceSet])
     end
   end
 
@@ -205,19 +207,19 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Schedule
+      row => Knockapi::Schedule
     end
 
     assert_pattern do
       row => {
         id: String,
         inserted_at: Time,
-        recipient: Knockapi::Models::Recipient,
-        repeats: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::ScheduleRepeatRule]),
+        recipient: Knockapi::Recipient,
+        repeats: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule]),
         updated_at: Time,
         workflow: String,
         _typename: String | nil,
-        actor: Knockapi::Models::Recipient | nil,
+        actor: Knockapi::Recipient | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         last_occurrence_at: Time | nil,
         next_occurrence_at: Time | nil,
@@ -241,15 +243,15 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     return if row.nil?
 
     assert_pattern do
-      row => Knockapi::Models::Recipients::Subscription
+      row => Knockapi::Recipients::Subscription
     end
 
     assert_pattern do
       row => {
         _typename: String,
         inserted_at: Time,
-        object: Knockapi::Models::Object,
-        recipient: Knockapi::Models::Recipient,
+        object: Knockapi::Object,
+        recipient: Knockapi::Recipient,
         updated_at: Time,
         properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
@@ -264,7 +266,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.set("collection", "id")
 
     assert_pattern do
-      response => Knockapi::Models::Object
+      response => Knockapi::Object
     end
 
     assert_pattern do
@@ -273,7 +275,8 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         _typename: String,
         collection: String,
         updated_at: Time,
-        created_at: Time | nil
+        created_at: Time | nil,
+        properties: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil
       }
     end
   end
@@ -292,15 +295,15 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       )
 
     assert_pattern do
-      response => Knockapi::Models::Recipients::RecipientsChannelData
+      response => Knockapi::Recipients::RecipientsChannelData
     end
 
     assert_pattern do
       response => {
         _typename: String,
         channel_id: String,
-        data: Knockapi::Models::Recipients::RecipientsChannelData::Data,
-        provider: Knockapi::Models::Recipients::RecipientsChannelData::Provider | nil
+        data: Knockapi::Recipients::RecipientsChannelData::Data,
+        provider: Knockapi::Recipients::RecipientsChannelData::Provider | nil
       }
     end
   end
@@ -313,15 +316,15 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.set_preferences("collection", "object_id", "default")
 
     assert_pattern do
-      response => Knockapi::Models::Recipients::PreferenceSet
+      response => Knockapi::Recipients::PreferenceSet
     end
 
     assert_pattern do
       response => {
         id: String,
-        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Category]) | nil,
-        channel_types: Knockapi::Models::Recipients::PreferenceSetChannelTypes | nil,
-        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Models::Recipients::PreferenceSet::Workflow]) | nil
+        categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Category]) | nil,
+        channel_types: Knockapi::Recipients::PreferenceSetChannelTypes | nil,
+        workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
   end

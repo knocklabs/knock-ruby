@@ -7,6 +7,14 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Users::FeedListItemsParams,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # The cursor to fetch entries after.
         sig { returns(T.nilable(String)) }
         attr_reader :after
@@ -15,10 +23,18 @@ module Knockapi
         attr_writer :after
 
         # The archived status of the feed items.
-        sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol)) }
+        sig do
+          returns(
+            T.nilable(Knockapi::Users::FeedListItemsParams::Archived::OrSymbol)
+          )
+        end
         attr_reader :archived
 
-        sig { params(archived: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol).void }
+        sig do
+          params(
+            archived: Knockapi::Users::FeedListItemsParams::Archived::OrSymbol
+          ).void
+        end
         attr_writer :archived
 
         # The cursor to fetch entries before.
@@ -50,10 +66,18 @@ module Knockapi
         attr_writer :source
 
         # The status of the feed items.
-        sig { returns(T.nilable(Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol)) }
+        sig do
+          returns(
+            T.nilable(Knockapi::Users::FeedListItemsParams::Status::OrSymbol)
+          )
+        end
         attr_reader :status
 
-        sig { params(status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol).void }
+        sig do
+          params(
+            status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol
+          ).void
+        end
         attr_writer :status
 
         # The tenant associated with the feed items.
@@ -80,18 +104,17 @@ module Knockapi
         sig do
           params(
             after: String,
-            archived: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol,
+            archived: Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
             before: String,
             has_tenant: T::Boolean,
             page_size: Integer,
             source: String,
-            status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol,
+            status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
             tenant: String,
             trigger_data: String,
             workflow_categories: T::Array[String],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # The cursor to fetch entries after.
@@ -115,57 +138,112 @@ module Knockapi
           # The workflow categories of the feed items.
           workflow_categories: nil,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                after: String,
-                archived: Knockapi::Models::Users::FeedListItemsParams::Archived::OrSymbol,
-                before: String,
-                has_tenant: T::Boolean,
-                page_size: Integer,
-                source: String,
-                status: Knockapi::Models::Users::FeedListItemsParams::Status::OrSymbol,
-                tenant: String,
-                trigger_data: String,
-                workflow_categories: T::Array[String],
-                request_options: Knockapi::RequestOptions
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              after: String,
+              archived:
+                Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
+              before: String,
+              has_tenant: T::Boolean,
+              page_size: Integer,
+              source: String,
+              status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
+              tenant: String,
+              trigger_data: String,
+              workflow_categories: T::Array[String],
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
 
         # The archived status of the feed items.
         module Archived
           extend Knockapi::Internal::Type::Enum
 
-          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived) }
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, Knockapi::Users::FeedListItemsParams::Archived)
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          EXCLUDE = T.let(:exclude, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
-          INCLUDE = T.let(:include, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
-          ONLY = T.let(:only, Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol)
+          EXCLUDE =
+            T.let(
+              :exclude,
+              Knockapi::Users::FeedListItemsParams::Archived::TaggedSymbol
+            )
+          INCLUDE =
+            T.let(
+              :include,
+              Knockapi::Users::FeedListItemsParams::Archived::TaggedSymbol
+            )
+          ONLY =
+            T.let(
+              :only,
+              Knockapi::Users::FeedListItemsParams::Archived::TaggedSymbol
+            )
 
-          sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Archived::TaggedSymbol]) }
-          def self.values; end
+          sig do
+            override.returns(
+              T::Array[
+                Knockapi::Users::FeedListItemsParams::Archived::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
 
         # The status of the feed items.
         module Status
           extend Knockapi::Internal::Type::Enum
 
-          TaggedSymbol = T.type_alias { T.all(Symbol, Knockapi::Models::Users::FeedListItemsParams::Status) }
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, Knockapi::Users::FeedListItemsParams::Status)
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          UNREAD = T.let(:unread, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
-          READ = T.let(:read, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
-          UNSEEN = T.let(:unseen, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
-          SEEN = T.let(:seen, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
-          ALL = T.let(:all, Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol)
+          UNREAD =
+            T.let(
+              :unread,
+              Knockapi::Users::FeedListItemsParams::Status::TaggedSymbol
+            )
+          READ =
+            T.let(
+              :read,
+              Knockapi::Users::FeedListItemsParams::Status::TaggedSymbol
+            )
+          UNSEEN =
+            T.let(
+              :unseen,
+              Knockapi::Users::FeedListItemsParams::Status::TaggedSymbol
+            )
+          SEEN =
+            T.let(
+              :seen,
+              Knockapi::Users::FeedListItemsParams::Status::TaggedSymbol
+            )
+          ALL =
+            T.let(
+              :all,
+              Knockapi::Users::FeedListItemsParams::Status::TaggedSymbol
+            )
 
-          sig { override.returns(T::Array[Knockapi::Models::Users::FeedListItemsParams::Status::TaggedSymbol]) }
-          def self.values; end
+          sig do
+            override.returns(
+              T::Array[
+                Knockapi::Users::FeedListItemsParams::Status::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

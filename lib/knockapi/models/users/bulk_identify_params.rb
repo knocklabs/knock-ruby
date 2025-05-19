@@ -11,11 +11,11 @@ module Knockapi
         # @!attribute users
         #   A list of users.
         #
-        #   @return [Array<Knockapi::Models::InlineIdentifyUserRequest>]
-        required :users, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::InlineIdentifyUserRequest] }
+        #   @return [Array<Knockapi::InlineIdentifyUserRequest>]
+        required :users, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::InlineIdentifyUserRequest] }
 
         # @!method initialize(users:, request_options: {})
-        #   @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>] A list of users.
+        #   @param users [Array<Knockapi::InlineIdentifyUserRequest>] A list of users.
         #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end

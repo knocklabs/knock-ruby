@@ -2,6 +2,8 @@ module Knockapi
   module Internal
     module Type
       module Converter
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
         type input = Knockapi::Internal::Type::Converter | Class
 
         type coerce_state =

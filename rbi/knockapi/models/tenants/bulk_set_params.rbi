@@ -7,29 +7,38 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias do
+            T.any(Knockapi::Tenants::BulkSetParams, Knockapi::Internal::AnyHash)
+          end
+
         # The tenants to be upserted.
-        sig { returns(T::Array[T.any(String, Knockapi::Models::TenantRequest)]) }
+        sig { returns(T::Array[T.any(String, Knockapi::TenantRequest)]) }
         attr_accessor :tenants
 
         sig do
           params(
-            tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest, Knockapi::Internal::AnyHash)],
-            request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            tenants: T::Array[T.any(String, Knockapi::TenantRequest::OrHash)],
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # The tenants to be upserted.
           tenants:,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {tenants: T::Array[T.any(String, Knockapi::Models::TenantRequest)], request_options: Knockapi::RequestOptions}
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              tenants: T::Array[T.any(String, Knockapi::TenantRequest)],
+              request_options: Knockapi::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

@@ -18,7 +18,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Providers::SlackCheckAuthParams
         def check_auth(channel_id, params)
-          parsed, options = Knockapi::Models::Providers::SlackCheckAuthParams.dump_request(params)
+          parsed, options = Knockapi::Providers::SlackCheckAuthParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/providers/slack/%1$s/auth_check", channel_id],
@@ -36,7 +36,7 @@ module Knockapi
         #
         # @param access_token_object [String] A JSON encoded string containing the access token object reference.
         #
-        # @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
+        # @param query_options [Knockapi::Providers::SlackListChannelsParams::QueryOptions]
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -44,7 +44,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Providers::SlackListChannelsParams
         def list_channels(channel_id, params)
-          parsed, options = Knockapi::Models::Providers::SlackListChannelsParams.dump_request(params)
+          parsed, options = Knockapi::Providers::SlackListChannelsParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/providers/slack/%1$s/channels", channel_id],
@@ -69,7 +69,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Providers::SlackRevokeAccessParams
         def revoke_access(channel_id, params)
-          parsed, options = Knockapi::Models::Providers::SlackRevokeAccessParams.dump_request(params)
+          parsed, options = Knockapi::Providers::SlackRevokeAccessParams.dump_request(params)
           @client.request(
             method: :put,
             path: ["v1/providers/slack/%1$s/revoke_access", channel_id],

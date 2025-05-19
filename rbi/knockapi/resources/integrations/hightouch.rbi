@@ -11,9 +11,10 @@ module Knockapi
             jsonrpc: String,
             method_: String,
             params: T::Hash[Symbol, T.anything],
-            request_options: Knockapi::RequestOpts
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(
+            Knockapi::Models::Integrations::HightouchEmbeddedDestinationResponse
           )
-            .returns(Knockapi::Models::Integrations::HightouchEmbeddedDestinationResponse)
         end
         def embedded_destination(
           # The unique identifier for the RPC request.
@@ -25,10 +26,13 @@ module Knockapi
           # The parameters for the method.
           params: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

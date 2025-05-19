@@ -4,6 +4,14 @@ module Knockapi
   module Models
     module Providers
       class MsTeamRevokeAccessResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Providers::MsTeamRevokeAccessResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # OK response.
         sig { returns(T.nilable(String)) }
         attr_reader :ok
@@ -16,9 +24,12 @@ module Knockapi
         def self.new(
           # OK response.
           ok: nil
-        ); end
-        sig { override.returns({ok: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig { override.returns({ ok: String }) }
+        def to_hash
+        end
       end
     end
   end

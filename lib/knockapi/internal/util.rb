@@ -128,6 +128,22 @@ module Knockapi
             input.respond_to?(:to_h) ? input.to_h : input
           end
         end
+
+        # @api private
+        #
+        # @param input [Object]
+        #
+        # @raise [ArgumentError]
+        # @return [Hash{Object=>Object}, nil]
+        def coerce_hash!(input)
+          case coerce_hash(input)
+          in Hash | nil => coerced
+            coerced
+          else
+            message = "Expected a #{Hash} or #{Knockapi::Internal::Type::BaseModel}, got #{data.inspect}"
+            raise ArgumentError.new(message)
+          end
+        end
       end
 
       class << self
@@ -454,7 +470,7 @@ module Knockapi
       # @type [Regexp]
       JSON_CONTENT = %r{^application/(?:vnd(?:\.[^.]+)*\+)?json(?!l)}
       # @type [Regexp]
-      JSONL_CONTENT = %r{^application/(?:x-)?jsonl}
+      JSONL_CONTENT = %r{^application/(:?x-(?:n|l)djson)|(:?(?:x-)?jsonl)}
 
       class << self
         # @api private
@@ -519,7 +535,7 @@ module Knockapi
             filename = ERB::Util.url_encode(val.filename)
             y << "; filename=\"#{filename}\""
           in Pathname | IO
-            filename = ERB::Util.url_encode(File.basename(val.to_path))
+            filename = ERB::Util.url_encode(::File.basename(val.to_path))
             y << "; filename=\"#{filename}\""
           else
           end
@@ -783,6 +799,62 @@ module Knockapi
 
             y << {**blank, **current} unless current.empty?
           end
+        end
+      end
+
+      # @api private
+      module SorbetRuntimeSupport
+        class MissingSorbetRuntimeError < ::RuntimeError
+        end
+
+        # @api private
+        #
+        # @return [Hash{Symbol=>Object}]
+        private def sorbet_runtime_constants = @sorbet_runtime_constants ||= {}
+
+        # @api private
+        #
+        # @param name [Symbol]
+        def const_missing(name)
+          super unless sorbet_runtime_constants.key?(name)
+
+          unless Object.const_defined?(:T)
+            message = "Trying to access a Sorbet constant #{name.inspect} without `sorbet-runtime`."
+            raise MissingSorbetRuntimeError.new(message)
+          end
+
+          sorbet_runtime_constants.fetch(name).call
+        end
+
+        # @api private
+        #
+        # @param name [Symbol]
+        # @param blk [Proc]
+        def define_sorbet_constant!(name, &blk) = sorbet_runtime_constants.store(name, blk)
+      end
+
+      extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
+      define_sorbet_constant!(:ParsedUri) do
+        T.type_alias do
+          {
+            scheme: T.nilable(String),
+            host: T.nilable(String),
+            port: T.nilable(Integer),
+            path: T.nilable(String),
+            query: T::Hash[String, T::Array[String]]
+          }
+        end
+      end
+
+      define_sorbet_constant!(:ServerSentEvent) do
+        T.type_alias do
+          {
+            event: T.nilable(String),
+            data: T.nilable(String),
+            id: T.nilable(String),
+            retry: T.nilable(Integer)
+          }
         end
       end
     end

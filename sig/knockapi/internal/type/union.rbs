@@ -3,6 +3,7 @@ module Knockapi
     module Type
       module Union
         include Knockapi::Internal::Type::Converter
+        include Knockapi::Internal::Util::SorbetRuntimeSupport
 
         private def self.known_variants: -> ::Array[[Symbol?, (^-> Knockapi::Internal::Type::Converter::input)]]
 

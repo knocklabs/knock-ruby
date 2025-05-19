@@ -7,8 +7,6 @@ module Knockapi
         attr_accessor status: String
 
         def initialize: (status: String) -> void
-
-        def to_hash: -> Knockapi::Models::Users::guide_mark_message_as_archived_response
       end
     end
   end

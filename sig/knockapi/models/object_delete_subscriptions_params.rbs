@@ -14,8 +14,6 @@ module Knockapi
         recipients: ::Array[Knockapi::Models::recipient_reference],
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::object_delete_subscriptions_params
     end
   end
 end

@@ -27,8 +27,6 @@ module Knockapi
         ?created_at: Time?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
       ) -> void
-
-      def to_hash: -> Knockapi::Models::inline_object_request
     end
   end
 end

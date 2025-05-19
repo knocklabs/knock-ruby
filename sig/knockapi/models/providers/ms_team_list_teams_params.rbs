@@ -4,7 +4,7 @@ module Knockapi
       type ms_team_list_teams_params =
         {
           ms_teams_tenant_object: String,
-          query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions
+          query_options: Knockapi::Providers::MsTeamListTeamsParams::QueryOptions
         }
         & Knockapi::Internal::Type::request_parameters
 
@@ -14,19 +14,17 @@ module Knockapi
 
         attr_accessor ms_teams_tenant_object: String
 
-        attr_reader query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions?
+        attr_reader query_options: Knockapi::Providers::MsTeamListTeamsParams::QueryOptions?
 
         def query_options=: (
-          Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions
-        ) -> Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions
+          Knockapi::Providers::MsTeamListTeamsParams::QueryOptions
+        ) -> Knockapi::Providers::MsTeamListTeamsParams::QueryOptions
 
         def initialize: (
           ms_teams_tenant_object: String,
-          ?query_options: Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions,
+          ?query_options: Knockapi::Providers::MsTeamListTeamsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Providers::ms_team_list_teams_params
 
         type query_options =
           { filter: String, select_: String, skiptoken: String, top: Integer }
@@ -54,8 +52,6 @@ module Knockapi
             ?skiptoken: String,
             ?top: Integer
           ) -> void
-
-          def to_hash: -> Knockapi::Models::Providers::MsTeamListTeamsParams::query_options
         end
       end
     end

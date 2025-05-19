@@ -31,8 +31,6 @@ module Knockapi
           ?params: ::Hash[Symbol, top],
           ?request_options: Knockapi::request_opts
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Integrations::census_custom_destination_params
       end
     end
   end

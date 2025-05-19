@@ -14,8 +14,6 @@ module Knockapi
         def result=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
         def initialize: (?id: String, ?result: ::Hash[Symbol, top]) -> void
-
-        def to_hash: -> Knockapi::Models::Integrations::hightouch_embedded_destination_response
       end
     end
   end

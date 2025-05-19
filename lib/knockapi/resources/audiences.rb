@@ -9,7 +9,7 @@ module Knockapi
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add.
+      # @param members [Array<Knockapi::AudienceAddMembersParams::Member>] A list of audience members to add.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -17,7 +17,7 @@ module Knockapi
       #
       # @see Knockapi::Models::AudienceAddMembersParams
       def add_members(key, params)
-        parsed, options = Knockapi::Models::AudienceAddMembersParams.dump_request(params)
+        parsed, options = Knockapi::AudienceAddMembersParams.dump_request(params)
         @client.request(
           method: :post,
           path: ["v1/audiences/%1$s/members", key],
@@ -53,7 +53,7 @@ module Knockapi
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
+      # @param members [Array<Knockapi::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -61,7 +61,7 @@ module Knockapi
       #
       # @see Knockapi::Models::AudienceRemoveMembersParams
       def remove_members(key, params)
-        parsed, options = Knockapi::Models::AudienceRemoveMembersParams.dump_request(params)
+        parsed, options = Knockapi::AudienceRemoveMembersParams.dump_request(params)
         @client.request(
           method: :delete,
           path: ["v1/audiences/%1$s/members", key],

@@ -5,7 +5,7 @@ module Knockapi
         {
           id: String,
           _typename: String,
-          activities: ::Array[Knockapi::Models::Activity],
+          activities: ::Array[Knockapi::Activity],
           actors: ::Array[Knockapi::Models::recipient],
           blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block],
           data: ::Hash[Symbol, top]?,
@@ -28,7 +28,7 @@ module Knockapi
 
         attr_accessor _typename: String
 
-        attr_accessor activities: ::Array[Knockapi::Models::Activity]
+        attr_accessor activities: ::Array[Knockapi::Activity]
 
         attr_accessor actors: ::Array[Knockapi::Models::recipient]
 
@@ -63,7 +63,7 @@ module Knockapi
         def initialize: (
           id: String,
           _typename: String,
-          activities: ::Array[Knockapi::Models::Activity],
+          activities: ::Array[Knockapi::Activity],
           actors: ::Array[Knockapi::Models::recipient],
           blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block],
           data: ::Hash[Symbol, top]?,
@@ -80,8 +80,6 @@ module Knockapi
           ?read_at: String?,
           ?seen_at: String?
         ) -> void
-
-        def to_hash: -> Knockapi::Models::Users::feed_list_items_response
 
         type block =
           Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock
@@ -113,8 +111,6 @@ module Knockapi
               rendered: String,
               type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
             ) -> void
-
-            def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_content_block
 
             type type_ = :markdown | :text
 
@@ -148,8 +144,6 @@ module Knockapi
               type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
             ) -> void
 
-            def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::message_in_app_feed_button_set_block
-
             type button = { action: String, label: String, name: String }
 
             class Button < Knockapi::Internal::Type::BaseModel
@@ -164,8 +158,6 @@ module Knockapi
                 label: String,
                 name: String
               ) -> void
-
-              def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::button
             end
 
             type type_ = :button_set
@@ -179,7 +171,7 @@ module Knockapi
             end
           end
 
-          def self?.variants: -> [Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock]
+          def self?.variants: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::block]
         end
 
         type source =
@@ -205,8 +197,6 @@ module Knockapi
             key: String,
             version_id: String
           ) -> void
-
-          def to_hash: -> Knockapi::Models::Users::FeedListItemsResponse::source
         end
       end
     end

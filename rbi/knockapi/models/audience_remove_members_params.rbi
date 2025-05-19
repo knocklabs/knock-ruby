@@ -6,42 +6,60 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias do
+          T.any(
+            Knockapi::AudienceRemoveMembersParams,
+            Knockapi::Internal::AnyHash
+          )
+        end
+
       # A list of audience members to remove.
-      sig { returns(T::Array[Knockapi::Models::AudienceRemoveMembersParams::Member]) }
+      sig { returns(T::Array[Knockapi::AudienceRemoveMembersParams::Member]) }
       attr_accessor :members
 
       sig do
         params(
-          members: T::Array[T.any(Knockapi::Models::AudienceRemoveMembersParams::Member, Knockapi::Internal::AnyHash)],
-          request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          members:
+            T::Array[Knockapi::AudienceRemoveMembersParams::Member::OrHash],
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # A list of audience members to remove.
         members:,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              members: T::Array[Knockapi::Models::AudienceRemoveMembersParams::Member],
-              request_options: Knockapi::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            members: T::Array[Knockapi::AudienceRemoveMembersParams::Member],
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Member < Knockapi::Internal::Type::BaseModel
-        sig { returns(Knockapi::Models::AudienceRemoveMembersParams::Member::User) }
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::AudienceRemoveMembersParams::Member,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
+        # An object containing the user's ID.
+        sig { returns(Knockapi::AudienceRemoveMembersParams::Member::User) }
         attr_reader :user
 
         sig do
           params(
-            user: T.any(Knockapi::Models::AudienceRemoveMembersParams::Member::User, Knockapi::Internal::AnyHash)
-          )
-            .void
+            user: Knockapi::AudienceRemoveMembersParams::Member::User::OrHash
+          ).void
         end
         attr_writer :user
 
@@ -52,23 +70,38 @@ module Knockapi
         # An audience member.
         sig do
           params(
-            user: T.any(Knockapi::Models::AudienceRemoveMembersParams::Member::User, Knockapi::Internal::AnyHash),
+            user: Knockapi::AudienceRemoveMembersParams::Member::User::OrHash,
             tenant: T.nilable(String)
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
+          # An object containing the user's ID.
           user:,
           # The unique identifier for the tenant.
           tenant: nil
-        ); end
-        sig do
-          override
-            .returns({user: Knockapi::Models::AudienceRemoveMembersParams::Member::User, tenant: T.nilable(String)})
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              user: Knockapi::AudienceRemoveMembersParams::Member::User,
+              tenant: T.nilable(String)
+            }
+          )
+        end
+        def to_hash
+        end
 
         class User < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Knockapi::AudienceRemoveMembersParams::Member::User,
+                Knockapi::Internal::AnyHash
+              )
+            end
+
           # The ID for the user that you set when identifying them in Knock.
           sig { returns(T.nilable(String)) }
           attr_reader :id
@@ -76,13 +109,17 @@ module Knockapi
           sig { params(id: String).void }
           attr_writer :id
 
+          # An object containing the user's ID.
           sig { params(id: String).returns(T.attached_class) }
           def self.new(
             # The ID for the user that you set when identifying them in Knock.
             id: nil
-          ); end
-          sig { override.returns({id: String}) }
-          def to_hash; end
+          )
+          end
+
+          sig { override.returns({ id: String }) }
+          def to_hash
+          end
         end
       end
     end

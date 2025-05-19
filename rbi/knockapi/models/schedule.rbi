@@ -3,6 +3,9 @@
 module Knockapi
   module Models
     class Schedule < Knockapi::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(Knockapi::Schedule, Knockapi::Internal::AnyHash) }
+
       # Unique identifier for the schedule.
       sig { returns(String) }
       attr_accessor :id
@@ -12,11 +15,11 @@ module Knockapi
       attr_accessor :inserted_at
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.any(Knockapi::Models::User, Knockapi::Models::Object)) }
+      sig { returns(T.any(Knockapi::User, Knockapi::Object)) }
       attr_accessor :recipient
 
       # The repeat rule for the schedule.
-      sig { returns(T::Array[Knockapi::Models::ScheduleRepeatRule]) }
+      sig { returns(T::Array[Knockapi::ScheduleRepeatRule]) }
       attr_accessor :repeats
 
       # The timestamp when the resource was last updated.
@@ -35,7 +38,7 @@ module Knockapi
       attr_writer :_typename
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object))) }
+      sig { returns(T.nilable(T.any(Knockapi::User, Knockapi::Object))) }
       attr_accessor :actor
 
       # An optional map of data to pass into the workflow execution.
@@ -61,18 +64,18 @@ module Knockapi
         params(
           id: String,
           inserted_at: Time,
-          recipient: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object),
-          repeats: T::Array[T.any(Knockapi::Models::ScheduleRepeatRule, Knockapi::Internal::AnyHash)],
+          recipient: T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash),
+          repeats: T::Array[Knockapi::ScheduleRepeatRule::OrHash],
           updated_at: Time,
           workflow: String,
           _typename: String,
-          actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash, Knockapi::Models::Object)),
+          actor:
+            T.nilable(T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash)),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           last_occurrence_at: T.nilable(Time),
           next_occurrence_at: T.nilable(Time),
           tenant: T.nilable(String)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # Unique identifier for the schedule.
@@ -101,27 +104,29 @@ module Knockapi
         # tenant-level overrides associated with the tenant object, and all messages
         # produced from workflow runs will be tagged with the tenant.
         tenant: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              inserted_at: Time,
-              recipient: T.any(Knockapi::Models::User, Knockapi::Models::Object),
-              repeats: T::Array[Knockapi::Models::ScheduleRepeatRule],
-              updated_at: Time,
-              workflow: String,
-              _typename: String,
-              actor: T.nilable(T.any(Knockapi::Models::User, Knockapi::Models::Object)),
-              data: T.nilable(T::Hash[Symbol, T.anything]),
-              last_occurrence_at: T.nilable(Time),
-              next_occurrence_at: T.nilable(Time),
-              tenant: T.nilable(String)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            inserted_at: Time,
+            recipient: T.any(Knockapi::User, Knockapi::Object),
+            repeats: T::Array[Knockapi::ScheduleRepeatRule],
+            updated_at: Time,
+            workflow: String,
+            _typename: String,
+            actor: T.nilable(T.any(Knockapi::User, Knockapi::Object)),
+            data: T.nilable(T::Hash[Symbol, T.anything]),
+            last_occurrence_at: T.nilable(Time),
+            next_occurrence_at: T.nilable(Time),
+            tenant: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

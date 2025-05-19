@@ -12,8 +12,8 @@ module Knockapi
       # @!attribute operator
       #   The operator to use in the condition evaluation.
       #
-      #   @return [Symbol, Knockapi::Models::Condition::Operator]
-      required :operator, enum: -> { Knockapi::Models::Condition::Operator }
+      #   @return [Symbol, Knockapi::Condition::Operator]
+      required :operator, enum: -> { Knockapi::Condition::Operator }
 
       # @!attribute variable
       #   The variable to be evaluated in the condition.
@@ -26,13 +26,13 @@ module Knockapi
       #
       #   @param argument [String, nil] The argument value to compare against in the condition.
       #
-      #   @param operator [Symbol, Knockapi::Models::Condition::Operator] The operator to use in the condition evaluation.
+      #   @param operator [Symbol, Knockapi::Condition::Operator] The operator to use in the condition evaluation.
       #
       #   @param variable [String] The variable to be evaluated in the condition.
 
       # The operator to use in the condition evaluation.
       #
-      # @see Knockapi::Models::Condition#operator
+      # @see Knockapi::Condition#operator
       module Operator
         extend Knockapi::Internal::Type::Enum
 

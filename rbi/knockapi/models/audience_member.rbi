@@ -3,6 +3,11 @@
 module Knockapi
   module Models
     class AudienceMember < Knockapi::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::AudienceMember, Knockapi::Internal::AnyHash)
+        end
+
       # The typename of the schema.
       sig { returns(String) }
       attr_accessor :_typename
@@ -14,10 +19,10 @@ module Knockapi
       # A [User](/concepts/users) represents an individual in your system who can
       # receive notifications through Knock. Users are the most common recipients of
       # notifications and are always referenced by your internal identifier.
-      sig { returns(Knockapi::Models::User) }
+      sig { returns(Knockapi::User) }
       attr_reader :user
 
-      sig { params(user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash)).void }
+      sig { params(user: Knockapi::User::OrHash).void }
       attr_writer :user
 
       # The ID for the user that you set when identifying them in Knock.
@@ -33,11 +38,10 @@ module Knockapi
         params(
           _typename: String,
           added_at: Time,
-          user: T.any(Knockapi::Models::User, Knockapi::Internal::AnyHash),
+          user: Knockapi::User::OrHash,
           user_id: String,
           tenant: T.nilable(String)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         # The typename of the schema.
@@ -52,14 +56,22 @@ module Knockapi
         user_id:,
         # The unique identifier for the tenant.
         tenant: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {_typename: String, added_at: Time, user: Knockapi::Models::User, user_id: String, tenant: T.nilable(String)}
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            _typename: String,
+            added_at: Time,
+            user: Knockapi::User,
+            user_id: String,
+            tenant: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

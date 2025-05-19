@@ -4,7 +4,7 @@ module Knockapi
       {
         after: String,
         before: String,
-        include: ::Array[Knockapi::Models::ObjectListParams::include_],
+        include: ::Array[Knockapi::ObjectListParams::include_],
         page_size: Integer
       }
       & Knockapi::Internal::Type::request_parameters
@@ -21,11 +21,11 @@ module Knockapi
 
       def before=: (String) -> String
 
-      attr_reader include: ::Array[Knockapi::Models::ObjectListParams::include_]?
+      attr_reader include: ::Array[Knockapi::ObjectListParams::include_]?
 
       def include=: (
-        ::Array[Knockapi::Models::ObjectListParams::include_]
-      ) -> ::Array[Knockapi::Models::ObjectListParams::include_]
+        ::Array[Knockapi::ObjectListParams::include_]
+      ) -> ::Array[Knockapi::ObjectListParams::include_]
 
       attr_reader page_size: Integer?
 
@@ -34,12 +34,10 @@ module Knockapi
       def initialize: (
         ?after: String,
         ?before: String,
-        ?include: ::Array[Knockapi::Models::ObjectListParams::include_],
+        ?include: ::Array[Knockapi::ObjectListParams::include_],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> void
-
-      def to_hash: -> Knockapi::Models::object_list_params
 
       type include_ = :preferences
 
@@ -48,7 +46,7 @@ module Knockapi
 
         PREFERENCES: :preferences
 
-        def self?.values: -> ::Array[Knockapi::Models::ObjectListParams::include_]
+        def self?.values: -> ::Array[Knockapi::ObjectListParams::include_]
       end
     end
   end

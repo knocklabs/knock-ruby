@@ -6,8 +6,6 @@ module Knockapi
       attr_accessor workflow_run_id: String
 
       def initialize: (workflow_run_id: String) -> void
-
-      def to_hash: -> Knockapi::Models::workflow_trigger_response
     end
   end
 end

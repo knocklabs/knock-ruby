@@ -1,7 +1,7 @@
 module Knockapi
   module Models
     type object_add_subscriptions_response =
-      ::Array[Knockapi::Models::Recipients::Subscription]
+      ::Array[Knockapi::Recipients::Subscription]
 
     ObjectAddSubscriptionsResponse: Knockapi::Internal::Type::Converter
   end

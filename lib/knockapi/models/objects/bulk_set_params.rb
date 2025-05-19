@@ -11,11 +11,11 @@ module Knockapi
         # @!attribute objects
         #   A list of objects.
         #
-        #   @return [Array<Knockapi::Models::InlineObjectRequest>]
-        required :objects, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::InlineObjectRequest] }
+        #   @return [Array<Knockapi::InlineObjectRequest>]
+        required :objects, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::InlineObjectRequest] }
 
         # @!method initialize(objects:, request_options: {})
-        #   @param objects [Array<Knockapi::Models::InlineObjectRequest>] A list of objects.
+        #   @param objects [Array<Knockapi::InlineObjectRequest>] A list of objects.
         #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
       end

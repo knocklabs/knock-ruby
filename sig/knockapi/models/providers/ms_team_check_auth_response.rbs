@@ -13,8 +13,6 @@ module Knockapi
           connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
         ) -> void
 
-        def to_hash: -> Knockapi::Models::Providers::ms_team_check_auth_response
-
         type connection = { ok: bool, reason: String? }
 
         class Connection < Knockapi::Internal::Type::BaseModel
@@ -23,8 +21,6 @@ module Knockapi
           attr_accessor reason: String?
 
           def initialize: (ok: bool, ?reason: String?) -> void
-
-          def to_hash: -> Knockapi::Models::Providers::MsTeamCheckAuthResponse::connection
         end
       end
     end

@@ -2,6 +2,8 @@ module Knockapi
   module Internal
     module Transport
       class BaseClient
+        extend Knockapi::Internal::Util::SorbetRuntimeSupport
+
         type request_components =
           {
             method: Symbol,
@@ -20,7 +22,6 @@ module Knockapi
             model: Knockapi::Internal::Type::Converter::input?,
             options: Knockapi::request_opts?
           }
-
         type request_input =
           {
             method: Symbol,
@@ -54,6 +55,20 @@ module Knockapi
           Integer | Knockapi::Errors::APIConnectionError status,
           stream: Enumerable[String]?
         ) -> void
+
+        attr_reader base_url: URI::Generic
+
+        attr_reader timeout: Float
+
+        attr_reader max_retries: Integer
+
+        attr_reader initial_retry_delay: Float
+
+        attr_reader max_retry_delay: Float
+
+        attr_reader headers: ::Hash[String, String]
+
+        attr_reader idempotency_header: String?
 
         # @api private
         attr_reader requester: Knockapi::Internal::Transport::PooledNetRequester

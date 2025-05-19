@@ -24,7 +24,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Users::GuideGetChannelParams
         def get_channel(user_id, channel_id, params = {})
-          parsed, options = Knockapi::Models::Users::GuideGetChannelParams.dump_request(params)
+          parsed, options = Knockapi::Users::GuideGetChannelParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["v1/users/%1$s/guides/%2$s", user_id, channel_id],
@@ -67,7 +67,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Users::GuideMarkMessageAsArchivedParams
         def mark_message_as_archived(user_id, message_id, params)
-          parsed, options = Knockapi::Models::Users::GuideMarkMessageAsArchivedParams.dump_request(params)
+          parsed, options = Knockapi::Users::GuideMarkMessageAsArchivedParams.dump_request(params)
           @client.request(
             method: :put,
             path: ["v1/users/%1$s/guides/messages/%2$s/archived", user_id, message_id],
@@ -110,7 +110,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Users::GuideMarkMessageAsInteractedParams
         def mark_message_as_interacted(user_id, message_id, params)
-          parsed, options = Knockapi::Models::Users::GuideMarkMessageAsInteractedParams.dump_request(params)
+          parsed, options = Knockapi::Users::GuideMarkMessageAsInteractedParams.dump_request(params)
           @client.request(
             method: :put,
             path: ["v1/users/%1$s/guides/messages/%2$s/interacted", user_id, message_id],
@@ -153,7 +153,7 @@ module Knockapi
         #
         # @see Knockapi::Models::Users::GuideMarkMessageAsSeenParams
         def mark_message_as_seen(user_id, message_id, params)
-          parsed, options = Knockapi::Models::Users::GuideMarkMessageAsSeenParams.dump_request(params)
+          parsed, options = Knockapi::Users::GuideMarkMessageAsSeenParams.dump_request(params)
           @client.request(
             method: :put,
             path: ["v1/users/%1$s/guides/messages/%2$s/seen", user_id, message_id],

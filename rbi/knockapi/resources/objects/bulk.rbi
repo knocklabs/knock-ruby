@@ -6,8 +6,11 @@ module Knockapi
       class Bulk
         # Bulk deletes objects from the specified collection.
         sig do
-          params(collection: String, object_ids: T::Array[String], request_options: Knockapi::RequestOpts)
-            .returns(Knockapi::Models::BulkOperation)
+          params(
+            collection: String,
+            object_ids: T::Array[String],
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::BulkOperation)
         end
         def delete(
           # The collection this object belongs to.
@@ -15,7 +18,9 @@ module Knockapi
           # List of object IDs to delete.
           object_ids:,
           request_options: {}
-        ); end
+        )
+        end
+
         # Add subscriptions for all objects in a single collection. If a subscription for
         # an object in the collection already exists, it will be updated. This endpoint
         # also handles
@@ -24,10 +29,12 @@ module Knockapi
         sig do
           params(
             collection: String,
-            subscriptions: T::Array[T.any(Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription, Knockapi::Internal::AnyHash)],
-            request_options: Knockapi::RequestOpts
-          )
-            .returns(Knockapi::Models::BulkOperation)
+            subscriptions:
+              T::Array[
+                Knockapi::Objects::BulkAddSubscriptionsParams::Subscription::OrHash
+              ],
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::BulkOperation)
         end
         def add_subscriptions(
           # The collection this object belongs to.
@@ -35,15 +42,16 @@ module Knockapi
           # A list of subscriptions.
           subscriptions:,
           request_options: {}
-        ); end
+        )
+        end
+
         # Bulk sets up to 1,000 objects at a time in the specified collection.
         sig do
           params(
             collection: String,
-            objects: T::Array[T.any(Knockapi::Models::InlineObjectRequest, Knockapi::Internal::AnyHash)],
-            request_options: Knockapi::RequestOpts
-          )
-            .returns(Knockapi::Models::BulkOperation)
+            objects: T::Array[Knockapi::InlineObjectRequest::OrHash],
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::BulkOperation)
         end
         def set(
           # The collection this object belongs to.
@@ -51,10 +59,13 @@ module Knockapi
           # A list of objects.
           objects:,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: Knockapi::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

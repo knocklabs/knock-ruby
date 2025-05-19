@@ -1,8 +1,21 @@
 module Knockapi
   module Models
     module Recipients
+      type inline_channel_data_request_item =
+        Knockapi::Recipients::PushChannelData
+        | Knockapi::Recipients::OneSignalChannelData
+        | Knockapi::Recipients::SlackChannelData
+        | Knockapi::Recipients::MsTeamsChannelData
+        | Knockapi::Recipients::DiscordChannelData
+
+      module InlineChannelDataRequestItem
+        extend Knockapi::Internal::Type::Union
+
+        def self?.variants: -> ::Array[Knockapi::Recipients::inline_channel_data_request_item]
+      end
+
       type inline_channel_data_request =
-        ::Hash[Symbol, Knockapi::Models::Recipients::ChannelDataRequest]
+        ::Hash[Symbol, Knockapi::Recipients::inline_channel_data_request_item]
 
       InlineChannelDataRequest: Knockapi::Internal::Type::Converter
     end

@@ -28,8 +28,8 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
 
     assert_pattern do
       response => {
-        entries: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::AudienceMember]),
-        page_info: Knockapi::Models::PageInfo
+        entries: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceMember]),
+        page_info: Knockapi::PageInfo
       }
     end
   end

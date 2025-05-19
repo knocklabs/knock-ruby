@@ -4,6 +4,14 @@ module Knockapi
   module Models
     module Integrations
       class CensusCustomDestinationResponse < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::Models::Integrations::CensusCustomDestinationResponse,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
         # The request ID.
         sig { returns(T.nilable(String)) }
         attr_reader :id
@@ -18,15 +26,24 @@ module Knockapi
         sig { params(result: T::Hash[Symbol, T.anything]).void }
         attr_writer :result
 
-        sig { params(id: String, result: T::Hash[Symbol, T.anything]).returns(T.attached_class) }
+        sig do
+          params(id: String, result: T::Hash[Symbol, T.anything]).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # The request ID.
           id: nil,
           # The result of the RPC call.
           result: nil
-        ); end
-        sig { override.returns({id: String, result: T::Hash[Symbol, T.anything]}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns({ id: String, result: T::Hash[Symbol, T.anything] })
+        end
+        def to_hash
+        end
       end
     end
   end

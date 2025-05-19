@@ -4,7 +4,7 @@ module Knockapi
       {
         _typename: String,
         added_at: Time,
-        user: Knockapi::Models::User,
+        user: Knockapi::User,
         user_id: String,
         tenant: String?
       }
@@ -14,7 +14,7 @@ module Knockapi
 
       attr_accessor added_at: Time
 
-      attr_accessor user: Knockapi::Models::User
+      attr_accessor user: Knockapi::User
 
       attr_accessor user_id: String
 
@@ -23,12 +23,10 @@ module Knockapi
       def initialize: (
         _typename: String,
         added_at: Time,
-        user: Knockapi::Models::User,
+        user: Knockapi::User,
         user_id: String,
         ?tenant: String?
       ) -> void
-
-      def to_hash: -> Knockapi::Models::audience_member
     end
   end
 end

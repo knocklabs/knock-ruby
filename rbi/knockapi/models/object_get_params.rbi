@@ -6,14 +6,22 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      sig do
-        params(request_options: T.any(Knockapi::RequestOptions, Knockapi::Internal::AnyHash))
-          .returns(T.attached_class)
-      end
-      def self.new(request_options: {}); end
+      OrHash =
+        T.type_alias do
+          T.any(Knockapi::ObjectGetParams, Knockapi::Internal::AnyHash)
+        end
 
-      sig { override.returns({request_options: Knockapi::RequestOptions}) }
-      def to_hash; end
+      sig do
+        params(request_options: Knockapi::RequestOptions::OrHash).returns(
+          T.attached_class
+        )
+      end
+      def self.new(request_options: {})
+      end
+
+      sig { override.returns({ request_options: Knockapi::RequestOptions }) }
+      def to_hash
+      end
     end
   end
 end
