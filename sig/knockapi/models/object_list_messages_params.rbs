@@ -104,16 +104,26 @@ module Knockapi
       ) -> void
 
       type engagement_status =
-        :seen | :read | :interacted | :link_clicked | :archived
+        :seen
+        | :unseen
+        | :read
+        | :unread
+        | :archived
+        | :unarchived
+        | :link_clicked
+        | :interacted
 
       module EngagementStatus
         extend Knockapi::Internal::Type::Enum
 
         SEEN: :seen
+        UNSEEN: :unseen
         READ: :read
-        INTERACTED: :interacted
-        LINK_CLICKED: :link_clicked
+        UNREAD: :unread
         ARCHIVED: :archived
+        UNARCHIVED: :unarchived
+        LINK_CLICKED: :link_clicked
+        INTERACTED: :interacted
 
         def self?.values: -> ::Array[Knockapi::ObjectListMessagesParams::engagement_status]
       end

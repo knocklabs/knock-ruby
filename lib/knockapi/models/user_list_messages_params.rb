@@ -138,10 +138,13 @@ module Knockapi
         extend Knockapi::Internal::Type::Enum
 
         SEEN = :seen
+        UNSEEN = :unseen
         READ = :read
-        INTERACTED = :interacted
-        LINK_CLICKED = :link_clicked
+        UNREAD = :unread
         ARCHIVED = :archived
+        UNARCHIVED = :unarchived
+        LINK_CLICKED = :link_clicked
+        INTERACTED = :interacted
 
         # @!method self.values
         #   @return [Array<Symbol>]
