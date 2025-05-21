@@ -488,32 +488,11 @@ module Knockapi
 
               # @!method self.variants
               #   @return [Array(Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock)]
-
-              define_sorbet_constant!(:Variants) do
-                T.type_alias do
-                  T.any(
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                  )
-                end
-              end
             end
           end
 
           # @!method self.variants
           #   @return [Array(Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent, Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent)]
-
-          define_sorbet_constant!(:Variants) do
-            T.type_alias do
-              T.any(
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
-                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
-              )
-            end
-          end
         end
       end
 

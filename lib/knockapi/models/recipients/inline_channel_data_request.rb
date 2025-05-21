@@ -24,18 +24,6 @@ module Knockapi
 
         # @!method self.variants
         #   @return [Array(Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData)]
-
-        define_sorbet_constant!(:Variants) do
-          T.type_alias do
-            T.any(
-              Knockapi::Recipients::PushChannelData,
-              Knockapi::Recipients::OneSignalChannelData,
-              Knockapi::Recipients::SlackChannelData,
-              Knockapi::Recipients::MsTeamsChannelData,
-              Knockapi::Recipients::DiscordChannelData
-            )
-          end
-        end
       end
 
       # @type [Knockapi::Internal::Type::Converter]
