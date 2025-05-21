@@ -107,15 +107,6 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
-
-          define_sorbet_constant!(:Variants) do
-            T.type_alias do
-              T.any(
-                Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection,
-                Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection
-              )
-            end
-          end
         end
       end
     end
