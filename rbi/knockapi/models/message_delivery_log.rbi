@@ -103,10 +103,18 @@ module Knockapi
           end
 
         # The body content that was sent with the request.
-        sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
+        sig do
+          returns(
+            T.nilable(Knockapi::MessageDeliveryLog::Request::Body::Variants)
+          )
+        end
         attr_reader :body
 
-        sig { params(body: T.any(String, T::Hash[Symbol, T.anything])).void }
+        sig do
+          params(
+            body: Knockapi::MessageDeliveryLog::Request::Body::Variants
+          ).void
+        end
         attr_writer :body
 
         # The headers that were sent with the request.
@@ -151,7 +159,7 @@ module Knockapi
         # A message delivery log request.
         sig do
           params(
-            body: T.any(String, T::Hash[Symbol, T.anything]),
+            body: Knockapi::MessageDeliveryLog::Request::Body::Variants,
             headers: T.nilable(T::Hash[Symbol, T.anything]),
             host: String,
             method_: Knockapi::MessageDeliveryLog::Request::Method::OrSymbol,
@@ -178,7 +186,7 @@ module Knockapi
         sig do
           override.returns(
             {
-              body: T.any(String, T::Hash[Symbol, T.anything]),
+              body: Knockapi::MessageDeliveryLog::Request::Body::Variants,
               headers: T.nilable(T::Hash[Symbol, T.anything]),
               host: String,
               method_:
@@ -272,10 +280,18 @@ module Knockapi
           end
 
         # The body content that was received with the response.
-        sig { returns(T.nilable(T.any(String, T::Hash[Symbol, T.anything]))) }
+        sig do
+          returns(
+            T.nilable(Knockapi::MessageDeliveryLog::Response::Body::Variants)
+          )
+        end
         attr_reader :body
 
-        sig { params(body: T.any(String, T::Hash[Symbol, T.anything])).void }
+        sig do
+          params(
+            body: Knockapi::MessageDeliveryLog::Response::Body::Variants
+          ).void
+        end
         attr_writer :body
 
         # The headers that were received with the response.
@@ -292,7 +308,7 @@ module Knockapi
         # A message delivery log response.
         sig do
           params(
-            body: T.any(String, T::Hash[Symbol, T.anything]),
+            body: Knockapi::MessageDeliveryLog::Response::Body::Variants,
             headers: T.nilable(T::Hash[Symbol, T.anything]),
             status: Integer
           ).returns(T.attached_class)
@@ -310,7 +326,7 @@ module Knockapi
         sig do
           override.returns(
             {
-              body: T.any(String, T::Hash[Symbol, T.anything]),
+              body: Knockapi::MessageDeliveryLog::Response::Body::Variants,
               headers: T.nilable(T::Hash[Symbol, T.anything]),
               status: Integer
             }

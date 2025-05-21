@@ -19,13 +19,7 @@ module Knockapi
         # Content data specific to the channel type.
         sig do
           returns(
-            T.any(
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
-              Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
-            )
+            Knockapi::Models::Messages::BatchGetContentResponseItem::Data::Variants
           )
         end
         attr_accessor :data
@@ -71,13 +65,7 @@ module Knockapi
             {
               _typename: String,
               data:
-                T.any(
-                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageEmailContent,
-                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageSMSContent,
-                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessagePushContent,
-                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageChatContent,
-                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent
-                ),
+                Knockapi::Models::Messages::BatchGetContentResponseItem::Data::Variants,
               inserted_at: Time,
               message_id: String
             }
@@ -567,10 +555,7 @@ module Knockapi
             sig do
               returns(
                 T::Array[
-                  T.any(
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                    Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                  )
+                  Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::Variants
                 ]
               )
             end
@@ -603,10 +588,7 @@ module Knockapi
                   _typename: String,
                   blocks:
                     T::Array[
-                      T.any(
-                        Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                        Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                      )
+                      Knockapi::Models::Messages::BatchGetContentResponseItem::Data::MessageInAppFeedContent::Block::Variants
                     ]
                 }
               )

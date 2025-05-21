@@ -28,7 +28,7 @@ module Knockapi
         attr_writer :object
 
         # A recipient of a notification, which is either a user or an object.
-        sig { returns(T.any(Knockapi::User, Knockapi::Object)) }
+        sig { returns(Knockapi::Recipient::Variants) }
         attr_accessor :recipient
 
         # The timestamp when the resource was last updated.
@@ -72,7 +72,7 @@ module Knockapi
               _typename: String,
               inserted_at: Time,
               object: Knockapi::Object,
-              recipient: T.any(Knockapi::User, Knockapi::Object),
+              recipient: Knockapi::Recipient::Variants,
               updated_at: Time,
               properties: T.nilable(T::Hash[Symbol, T.anything])
             }

@@ -22,15 +22,7 @@ module Knockapi
 
         # Channel data for a given channel type.
         sig do
-          returns(
-            T.any(
-              Knockapi::Recipients::PushChannelData,
-              Knockapi::Recipients::SlackChannelData,
-              Knockapi::Recipients::MsTeamsChannelData,
-              Knockapi::Recipients::DiscordChannelData,
-              Knockapi::Recipients::OneSignalChannelData
-            )
-          )
+          returns(Knockapi::Recipients::RecipientsChannelData::Data::Variants)
         end
         attr_accessor :data
 
@@ -86,14 +78,7 @@ module Knockapi
             {
               _typename: String,
               channel_id: String,
-              data:
-                T.any(
-                  Knockapi::Recipients::PushChannelData,
-                  Knockapi::Recipients::SlackChannelData,
-                  Knockapi::Recipients::MsTeamsChannelData,
-                  Knockapi::Recipients::DiscordChannelData,
-                  Knockapi::Recipients::OneSignalChannelData
-                ),
+              data: Knockapi::Recipients::RecipientsChannelData::Data::Variants,
               provider:
                 Knockapi::Recipients::RecipientsChannelData::Provider::TaggedSymbol
             }
