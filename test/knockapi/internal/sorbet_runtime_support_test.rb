@@ -25,6 +25,7 @@ class Knockapi::Test::SorbetRuntimeSupportTest < Minitest::Test
     err = Knockapi::Internal::Util::SorbetRuntimeSupport::MissingSorbetRuntimeError
 
     assert_raises(err) { Knockapi::Internal::AnyHash }
+    assert_raises(err) { Knockapi::Internal::FileInput }
     assert_raises(err) { Knockapi::Internal::Type::Converter::Input }
     assert_raises(err) { Knockapi::Internal::Type::Converter::CoerceState }
     assert_raises(err) { Knockapi::Internal::Type::Converter::DumpState }
