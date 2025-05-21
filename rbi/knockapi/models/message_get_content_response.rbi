@@ -17,15 +17,7 @@ module Knockapi
 
       # Content data specific to the channel type.
       sig do
-        returns(
-          T.any(
-            Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
-            Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
-            Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
-            Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
-            Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
-          )
-        )
+        returns(Knockapi::Models::MessageGetContentResponse::Data::Variants)
       end
       attr_accessor :data
 
@@ -69,14 +61,7 @@ module Knockapi
         override.returns(
           {
             _typename: String,
-            data:
-              T.any(
-                Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
-                Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
-              ),
+            data: Knockapi::Models::MessageGetContentResponse::Data::Variants,
             inserted_at: Time,
             message_id: String
           }
@@ -566,10 +551,7 @@ module Knockapi
           sig do
             returns(
               T::Array[
-                T.any(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                )
+                Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::Variants
               ]
             )
           end
@@ -602,10 +584,7 @@ module Knockapi
                 _typename: String,
                 blocks:
                   T::Array[
-                    T.any(
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
-                    )
+                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::Variants
                   ]
               }
             )
