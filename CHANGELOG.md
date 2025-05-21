@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.2.0 (2025-05-21)
+
+Full Changelog: [v1.1.0...v1.2.0](https://github.com/knocklabs/knock-ruby/compare/v1.1.0...v1.2.0)
+
+### Features
+
+* **api:** api update ([a2f7806](https://github.com/knocklabs/knock-ruby/commit/a2f7806c82832774d11f588232b5e8f86d126800))
+
+
+### Bug Fixes
+
+* correctly instantiate sorbet type aliases for enums and unions ([cb2a162](https://github.com/knocklabs/knock-ruby/commit/cb2a1627efa4a45d8cdee2844f963797fdfd9e59))
+
+
+### Chores
+
+* refine Yard and Sorbet types and ensure linting is turned on for examples ([4f2f24f](https://github.com/knocklabs/knock-ruby/commit/4f2f24fa37eaef8744a3bce3d02918d2e2929a69))
+* use sorbet union aliases where available ([80047be](https://github.com/knocklabs/knock-ruby/commit/80047be1c2fe8a496da2adf2ed99c2e0b146706d))
+* whitespaces ([6205cfa](https://github.com/knocklabs/knock-ruby/commit/6205cfa7ed48346b98f38131439e8f5e598853b1))
+
 ## 1.1.0 (2025-05-15)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/knocklabs/knock-ruby/compare/v1.0.0...v1.1.0)
