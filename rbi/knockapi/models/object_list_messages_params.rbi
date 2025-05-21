@@ -242,14 +242,29 @@ module Knockapi
             :seen,
             Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
           )
+        UNSEEN =
+          T.let(
+            :unseen,
+            Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
+          )
         READ =
           T.let(
             :read,
             Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
           )
-        INTERACTED =
+        UNREAD =
           T.let(
-            :interacted,
+            :unread,
+            Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
+          )
+        ARCHIVED =
+          T.let(
+            :archived,
+            Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
+          )
+        UNARCHIVED =
+          T.let(
+            :unarchived,
             Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
           )
         LINK_CLICKED =
@@ -257,9 +272,9 @@ module Knockapi
             :link_clicked,
             Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
           )
-        ARCHIVED =
+        INTERACTED =
           T.let(
-            :archived,
+            :interacted,
             Knockapi::ObjectListMessagesParams::EngagementStatus::TaggedSymbol
           )
 

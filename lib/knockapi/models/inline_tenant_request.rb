@@ -14,10 +14,6 @@ module Knockapi
 
       # @!method self.variants
       #   @return [Array(String, Knockapi::TenantRequest)]
-
-      define_sorbet_constant!(:Variants) do
-        T.type_alias { T.any(String, Knockapi::TenantRequest) }
-      end
     end
   end
 end

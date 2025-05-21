@@ -21,7 +21,7 @@ module Knockapi
       attr_writer :_typename
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.nilable(T.any(Knockapi::User, Knockapi::Object))) }
+      sig { returns(T.nilable(Knockapi::Recipient::Variants)) }
       attr_accessor :actor
 
       # The workflow trigger `data` payload associated with the activity.
@@ -36,7 +36,7 @@ module Knockapi
       attr_writer :inserted_at
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.nilable(T.any(Knockapi::User, Knockapi::Object))) }
+      sig { returns(T.nilable(Knockapi::Recipient::Variants)) }
       attr_reader :recipient
 
       sig do
@@ -92,10 +92,10 @@ module Knockapi
           {
             id: String,
             _typename: String,
-            actor: T.nilable(T.any(Knockapi::User, Knockapi::Object)),
+            actor: T.nilable(Knockapi::Recipient::Variants),
             data: T.nilable(T::Hash[Symbol, T.anything]),
             inserted_at: Time,
-            recipient: T.any(Knockapi::User, Knockapi::Object),
+            recipient: Knockapi::Recipient::Variants,
             updated_at: Time
           }
         )

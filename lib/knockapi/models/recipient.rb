@@ -14,10 +14,6 @@ module Knockapi
 
       # @!method self.variants
       #   @return [Array(Knockapi::User, Knockapi::Object)]
-
-      define_sorbet_constant!(:Variants) do
-        T.type_alias { T.any(Knockapi::User, Knockapi::Object) }
-      end
     end
   end
 end

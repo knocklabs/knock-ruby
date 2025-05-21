@@ -24,13 +24,7 @@ module Knockapi
       # that can contain up to 10 actors if the message is produced from a
       # [batch](/designing-workflows/batch-function).
       sig do
-        returns(
-          T.nilable(
-            T::Array[
-              T.any(String, Knockapi::RecipientReference::ObjectReference)
-            ]
-          )
-        )
+        returns(T.nilable(T::Array[Knockapi::RecipientReference::Variants]))
       end
       attr_reader :actors
 
@@ -111,13 +105,7 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (ID, collection).
-      sig do
-        returns(
-          T.nilable(
-            T.any(String, Knockapi::RecipientReference::ObjectReference)
-          )
-        )
-      end
+      sig { returns(T.nilable(Knockapi::RecipientReference::Variants)) }
       attr_reader :recipient
 
       sig do
@@ -263,10 +251,7 @@ module Knockapi
           {
             id: String,
             _typename: String,
-            actors:
-              T::Array[
-                T.any(String, Knockapi::RecipientReference::ObjectReference)
-              ],
+            actors: T::Array[Knockapi::RecipientReference::Variants],
             archived_at: T.nilable(Time),
             channel_id: String,
             clicked_at: T.nilable(Time),
@@ -278,8 +263,7 @@ module Knockapi
             link_clicked_at: T.nilable(Time),
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
             read_at: T.nilable(Time),
-            recipient:
-              T.any(String, Knockapi::RecipientReference::ObjectReference),
+            recipient: Knockapi::RecipientReference::Variants,
             scheduled_at: T.nilable(Time),
             seen_at: T.nilable(Time),
             source: Knockapi::Message::Source,

@@ -25,17 +25,14 @@ module Knockapi
         attr_accessor :activities
 
         # List of actors associated with this feed item.
-        sig { returns(T::Array[T.any(Knockapi::User, Knockapi::Object)]) }
+        sig { returns(T::Array[Knockapi::Recipient::Variants]) }
         attr_accessor :actors
 
         # Content blocks that make up the feed item.
         sig do
           returns(
             T::Array[
-              T.any(
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-                Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-              )
+              Knockapi::Models::Users::FeedListItemsResponse::Block::Variants
             ]
           )
         end
@@ -178,13 +175,10 @@ module Knockapi
               id: String,
               _typename: String,
               activities: T::Array[Knockapi::Activity],
-              actors: T::Array[T.any(Knockapi::User, Knockapi::Object)],
+              actors: T::Array[Knockapi::Recipient::Variants],
               blocks:
                 T::Array[
-                  T.any(
-                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock,
-                    Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
-                  )
+                  Knockapi::Models::Users::FeedListItemsResponse::Block::Variants
                 ],
               data: T.nilable(T::Hash[Symbol, T.anything]),
               inserted_at: String,

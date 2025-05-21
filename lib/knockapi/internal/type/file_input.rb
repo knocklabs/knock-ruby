@@ -89,6 +89,13 @@ module Knockapi
 
             value
           end
+
+          # @api private
+          #
+          # @return [Object]
+          def to_sorbet_type
+            T.any(Pathname, StringIO, IO, String, Knockapi::FilePart)
+          end
         end
       end
     end

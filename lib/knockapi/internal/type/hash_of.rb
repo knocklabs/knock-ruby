@@ -12,6 +12,7 @@ module Knockapi
       # Hash of items of a given type.
       class HashOf
         include Knockapi::Internal::Type::Converter
+        include Knockapi::Internal::Util::SorbetRuntimeSupport
 
         private_class_method :new
 
@@ -128,6 +129,13 @@ module Knockapi
           else
             super
           end
+        end
+
+        # @api private
+        #
+        # @return [Object]
+        def to_sorbet_type
+          T::Hash[Knockapi::Internal::Util::SorbetRuntimeSupport.to_sorbet_type(item_type)]
         end
 
         # @api private

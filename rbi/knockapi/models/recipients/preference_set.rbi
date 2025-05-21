@@ -23,10 +23,7 @@ module Knockapi
             T.nilable(
               T::Hash[
                 Symbol,
-                T.any(
-                  T::Boolean,
-                  Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
-                )
+                Knockapi::Recipients::PreferenceSet::Category::Variants
               ]
             )
           )
@@ -54,10 +51,7 @@ module Knockapi
             T.nilable(
               T::Hash[
                 Symbol,
-                T.any(
-                  T::Boolean,
-                  Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
-                )
+                Knockapi::Recipients::PreferenceSet::Workflow::Variants
               ]
             )
           )
@@ -117,10 +111,7 @@ module Knockapi
                 T.nilable(
                   T::Hash[
                     Symbol,
-                    T.any(
-                      T::Boolean,
-                      Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject
-                    )
+                    Knockapi::Recipients::PreferenceSet::Category::Variants
                   ]
                 ),
               channel_types:
@@ -129,10 +120,7 @@ module Knockapi
                 T.nilable(
                   T::Hash[
                     Symbol,
-                    T.any(
-                      T::Boolean,
-                      Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject
-                    )
+                    Knockapi::Recipients::PreferenceSet::Workflow::Variants
                   ]
                 )
             }

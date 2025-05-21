@@ -22,9 +22,7 @@ module Knockapi
 
       # A reference to a recipient, either a user identifier (string) or an object
       # reference (ID, collection).
-      sig do
-        returns(T.any(String, Knockapi::RecipientReference::ObjectReference))
-      end
+      sig { returns(Knockapi::RecipientReference::Variants) }
       attr_accessor :recipient
 
       # The type of event that occurred.
@@ -74,8 +72,7 @@ module Knockapi
             id: String,
             _typename: String,
             inserted_at: Time,
-            recipient:
-              T.any(String, Knockapi::RecipientReference::ObjectReference),
+            recipient: Knockapi::RecipientReference::Variants,
             type: Knockapi::MessageEvent::Type::TaggedSymbol,
             data: T.nilable(T::Hash[Symbol, T.anything])
           }

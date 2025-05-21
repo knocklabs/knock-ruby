@@ -15,7 +15,7 @@ module Knockapi
       attr_accessor :inserted_at
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.any(Knockapi::User, Knockapi::Object)) }
+      sig { returns(Knockapi::Recipient::Variants) }
       attr_accessor :recipient
 
       # The repeat rule for the schedule.
@@ -38,7 +38,7 @@ module Knockapi
       attr_writer :_typename
 
       # A recipient of a notification, which is either a user or an object.
-      sig { returns(T.nilable(T.any(Knockapi::User, Knockapi::Object))) }
+      sig { returns(T.nilable(Knockapi::Recipient::Variants)) }
       attr_accessor :actor
 
       # An optional map of data to pass into the workflow execution.
@@ -112,12 +112,12 @@ module Knockapi
           {
             id: String,
             inserted_at: Time,
-            recipient: T.any(Knockapi::User, Knockapi::Object),
+            recipient: Knockapi::Recipient::Variants,
             repeats: T::Array[Knockapi::ScheduleRepeatRule],
             updated_at: Time,
             workflow: String,
             _typename: String,
-            actor: T.nilable(T.any(Knockapi::User, Knockapi::Object)),
+            actor: T.nilable(Knockapi::Recipient::Variants),
             data: T.nilable(T::Hash[Symbol, T.anything]),
             last_occurrence_at: T.nilable(Time),
             next_occurrence_at: T.nilable(Time),
