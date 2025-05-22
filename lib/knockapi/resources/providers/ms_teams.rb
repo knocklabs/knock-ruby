@@ -40,7 +40,7 @@ module Knockapi
         #
         # @param team_id [String] Microsoft Teams team ID.
         #
-        # @param query_options [Knockapi::Providers::MsTeamListChannelsParams::QueryOptions]
+        # @param query_options [Knockapi::Models::Providers::MsTeamListChannelsParams::QueryOptions]
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -67,7 +67,7 @@ module Knockapi
         #
         # @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
         #
-        # @param query_options [Knockapi::Providers::MsTeamListTeamsParams::QueryOptions]
+        # @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

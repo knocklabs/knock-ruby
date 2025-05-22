@@ -27,6 +27,13 @@ module Knockapi
           ?type: String,
           ?request_options: Knockapi::request_opts
         ) -> void
+
+        def to_hash: -> {
+          data: String,
+          tenant: String,
+          type: String,
+          request_options: Knockapi::RequestOptions
+        }
       end
     end
   end

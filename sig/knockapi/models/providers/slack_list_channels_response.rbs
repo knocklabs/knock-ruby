@@ -28,6 +28,14 @@ module Knockapi
           is_private: bool,
           name: String
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          context_team_id: String,
+          is_im: bool,
+          is_private: bool,
+          name: String
+        }
       end
     end
   end

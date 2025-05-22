@@ -16,6 +16,12 @@ module Knockapi
           display_name: String,
           ?description: String?
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          display_name: String,
+          description: String?
+        }
       end
     end
   end

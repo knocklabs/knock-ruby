@@ -13,7 +13,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Message>]
+        # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchArchiveParams
         def archive(params)
@@ -22,7 +22,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/archived",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -63,7 +63,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Message>]
+        # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsInteractedParams
         def mark_as_interacted(params)
@@ -72,7 +72,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/interacted",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -86,7 +86,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Message>]
+        # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsReadParams
         def mark_as_read(params)
@@ -95,7 +95,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/read",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -110,7 +110,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Message>]
+        # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsSeenParams
         def mark_as_seen(params)
@@ -119,7 +119,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/seen",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -134,7 +134,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Message>]
+        # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsUnreadParams
         def mark_as_unread(params)
@@ -143,7 +143,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/unread",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -158,7 +158,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Message>]
+        # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchMarkAsUnseenParams
         def mark_as_unseen(params)
@@ -167,7 +167,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/unseen",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end
@@ -182,7 +182,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Message>]
+        # @return [Array<Knockapi::Models::Message>]
         #
         # @see Knockapi::Models::Messages::BatchUnarchiveParams
         def unarchive(params)
@@ -191,7 +191,7 @@ module Knockapi
             method: :post,
             path: "v1/messages/batch/unarchived",
             body: parsed,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
             options: options
           )
         end

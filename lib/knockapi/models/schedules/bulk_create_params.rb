@@ -11,12 +11,12 @@ module Knockapi
         # @!attribute schedules
         #   A list of schedules.
         #
-        #   @return [Array<Knockapi::Schedules::BulkCreateParams::Schedule>]
+        #   @return [Array<Knockapi::Models::Schedules::BulkCreateParams::Schedule>]
         required :schedules,
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Schedules::BulkCreateParams::Schedule] }
 
         # @!method initialize(schedules:, request_options: {})
-        #   @param schedules [Array<Knockapi::Schedules::BulkCreateParams::Schedule>] A list of schedules.
+        #   @param schedules [Array<Knockapi::Models::Schedules::BulkCreateParams::Schedule>] A list of schedules.
         #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
@@ -32,7 +32,7 @@ module Knockapi
           #   (string), an inline user request (object), or an inline object request, which is
           #   determined by the presence of a `collection` property.
           #
-          #   @return [String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest, nil]
+          #   @return [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
           optional :actor, union: -> { Knockapi::RecipientRequest }, nil?: true
 
           # @!attribute data
@@ -52,13 +52,13 @@ module Knockapi
           #   (string), an inline user request (object), or an inline object request, which is
           #   determined by the presence of a `collection` property.
           #
-          #   @return [String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest, nil]
+          #   @return [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
           optional :recipient, union: -> { Knockapi::RecipientRequest }
 
           # @!attribute repeats
           #   The repeat rule for the schedule.
           #
-          #   @return [Array<Knockapi::ScheduleRepeatRule>, nil]
+          #   @return [Array<Knockapi::Models::ScheduleRepeatRule>, nil]
           optional :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule] }
 
           # @!attribute scheduled_at
@@ -70,30 +70,30 @@ module Knockapi
           # @!attribute tenant
           #   An request to set a tenant inline.
           #
-          #   @return [String, Knockapi::TenantRequest, nil]
+          #   @return [String, Knockapi::Models::TenantRequest, nil]
           optional :tenant, union: -> { Knockapi::InlineTenantRequest }, nil?: true
 
           # @!method initialize(workflow:, actor: nil, data: nil, ending_at: nil, recipient: nil, repeats: nil, scheduled_at: nil, tenant: nil)
           #   Some parameter documentations has been truncated, see
-          #   {Knockapi::Schedules::BulkCreateParams::Schedule} for more details.
+          #   {Knockapi::Models::Schedules::BulkCreateParams::Schedule} for more details.
           #
           #   A schedule represents a recurring workflow execution.
           #
           #   @param workflow [String] The key of the workflow.
           #
-          #   @param actor [String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
+          #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
           #
           #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
           #
           #   @param ending_at [Time, nil] The ending date and time for the schedule.
           #
-          #   @param recipient [String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest] Specifies a recipient in a request. This can either be a user identifier (string
+          #   @param recipient [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest] Specifies a recipient in a request. This can either be a user identifier (string
           #
-          #   @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
+          #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
           #
           #   @param scheduled_at [Time, nil] The starting date and time for the schedule.
           #
-          #   @param tenant [String, Knockapi::TenantRequest, nil] An request to set a tenant inline.
+          #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
         end
       end
     end

@@ -33,6 +33,15 @@ module Knockapi
         ?created_at: Time?,
         ?properties: ::Hash[Symbol, top]
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        _typename: String,
+        collection: String,
+        updated_at: Time,
+        created_at: Time?,
+        properties: ::Hash[Symbol, top]
+      }
     end
   end
 end

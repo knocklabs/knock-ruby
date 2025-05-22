@@ -9,7 +9,7 @@ module Knockapi
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::AudienceAddMembersParams::Member>] A list of audience members to add.
+      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -53,7 +53,7 @@ module Knockapi
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
+      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

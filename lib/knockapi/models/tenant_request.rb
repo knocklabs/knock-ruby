@@ -12,7 +12,7 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil]
       optional :channel_data,
                -> {
                  Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::InlineChannelDataRequestItem]
@@ -22,7 +22,7 @@ module Knockapi
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set id.
       #
-      #   @return [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
                -> { Knockapi::Internal::Type::HashOf[Knockapi::Recipients::PreferenceSetRequest] },
                nil?: true
@@ -30,7 +30,7 @@ module Knockapi
       # @!attribute settings
       #   The settings for the tenant. Includes branding and preference set.
       #
-      #   @return [Knockapi::TenantRequest::Settings, nil]
+      #   @return [Knockapi::Models::TenantRequest::Settings, nil]
       optional :settings, -> { Knockapi::TenantRequest::Settings }
 
       # @!method initialize(id:, channel_data: nil, preferences: nil, settings: nil)
@@ -39,34 +39,34 @@ module Knockapi
       #
       #   @param id [String] The unique identifier for the tenant.
       #
-      #   @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
-      #   @param preferences [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
       #
-      #   @param settings [Knockapi::TenantRequest::Settings] The settings for the tenant. Includes branding and preference set.
+      #   @param settings [Knockapi::Models::TenantRequest::Settings] The settings for the tenant. Includes branding and preference set.
 
-      # @see Knockapi::TenantRequest#settings
+      # @see Knockapi::Models::TenantRequest#settings
       class Settings < Knockapi::Internal::Type::BaseModel
         # @!attribute branding
         #   The branding for the tenant.
         #
-        #   @return [Knockapi::TenantRequest::Settings::Branding, nil]
+        #   @return [Knockapi::Models::TenantRequest::Settings::Branding, nil]
         optional :branding, -> { Knockapi::TenantRequest::Settings::Branding }
 
         # @!attribute preference_set
         #   A request to set a preference set for a recipient.
         #
-        #   @return [Knockapi::Recipients::PreferenceSetRequest, nil]
+        #   @return [Knockapi::Models::Recipients::PreferenceSetRequest, nil]
         optional :preference_set, -> { Knockapi::Recipients::PreferenceSetRequest }, nil?: true
 
         # @!method initialize(branding: nil, preference_set: nil)
         #   The settings for the tenant. Includes branding and preference set.
         #
-        #   @param branding [Knockapi::TenantRequest::Settings::Branding] The branding for the tenant.
+        #   @param branding [Knockapi::Models::TenantRequest::Settings::Branding] The branding for the tenant.
         #
-        #   @param preference_set [Knockapi::Recipients::PreferenceSetRequest, nil] A request to set a preference set for a recipient.
+        #   @param preference_set [Knockapi::Models::Recipients::PreferenceSetRequest, nil] A request to set a preference set for a recipient.
 
-        # @see Knockapi::TenantRequest::Settings#branding
+        # @see Knockapi::Models::TenantRequest::Settings#branding
         class Branding < Knockapi::Internal::Type::BaseModel
           # @!attribute icon_url
           #   The icon URL for the tenant. Must point to a valid image with an image MIME
@@ -96,7 +96,7 @@ module Knockapi
 
           # @!method initialize(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
           #   Some parameter documentations has been truncated, see
-          #   {Knockapi::TenantRequest::Settings::Branding} for more details.
+          #   {Knockapi::Models::TenantRequest::Settings::Branding} for more details.
           #
           #   The branding for the tenant.
           #

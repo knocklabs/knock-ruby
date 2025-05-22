@@ -11,14 +11,14 @@ module Knockapi
       #   The recipients of the subscription. You can subscribe up to 100 recipients to an
       #   object at a time.
       #
-      #   @return [Array<String, Knockapi::RecipientReference::ObjectReference>]
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>]
       required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference] }
 
       # @!method initialize(recipients:, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ObjectDeleteSubscriptionsParams} for more details.
       #
-      #   @param recipients [Array<String, Knockapi::RecipientReference::ObjectReference>] The recipients of the subscription. You can subscribe up to 100 recipients to an
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] The recipients of the subscription. You can subscribe up to 100 recipients to an
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

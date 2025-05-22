@@ -21,7 +21,7 @@ module Knockapi
       #   A list of recipients to cancel the notification for. If omitted, cancels for all
       #   recipients associated with the cancellation key.
       #
-      #   @return [Array<String, Knockapi::RecipientReference::ObjectReference>, nil]
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
       optional :recipients,
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference] },
                nil?: true
@@ -32,7 +32,7 @@ module Knockapi
       #
       #   @param cancellation_key [String] An optional key that is used to reference a specific workflow trigger request wh
       #
-      #   @param recipients [Array<String, Knockapi::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

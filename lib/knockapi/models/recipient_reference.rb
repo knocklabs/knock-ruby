@@ -35,7 +35,7 @@ module Knockapi
       end
 
       # @!method self.variants
-      #   @return [Array(String, Knockapi::RecipientReference::ObjectReference)]
+      #   @return [Array(String, Knockapi::Models::RecipientReference::ObjectReference)]
     end
   end
 end

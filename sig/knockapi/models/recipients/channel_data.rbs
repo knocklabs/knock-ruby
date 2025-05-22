@@ -5,8 +5,8 @@ module Knockapi
         {
           _typename: String,
           channel_id: String,
-          data: Knockapi::Recipients::RecipientsChannelData::data,
-          provider: Knockapi::Recipients::RecipientsChannelData::provider
+          data: Knockapi::Models::Recipients::RecipientsChannelData::data,
+          provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
         }
 
       class RecipientsChannelData < Knockapi::Internal::Type::BaseModel
@@ -14,20 +14,27 @@ module Knockapi
 
         attr_accessor channel_id: String
 
-        attr_accessor data: Knockapi::Recipients::RecipientsChannelData::data
+        attr_accessor data: Knockapi::Models::Recipients::RecipientsChannelData::data
 
-        attr_reader provider: Knockapi::Recipients::RecipientsChannelData::provider?
+        attr_reader provider: Knockapi::Models::Recipients::RecipientsChannelData::provider?
 
         def provider=: (
-          Knockapi::Recipients::RecipientsChannelData::provider
-        ) -> Knockapi::Recipients::RecipientsChannelData::provider
+          Knockapi::Models::Recipients::RecipientsChannelData::provider
+        ) -> Knockapi::Models::Recipients::RecipientsChannelData::provider
 
         def initialize: (
           _typename: String,
           channel_id: String,
-          data: Knockapi::Recipients::RecipientsChannelData::data,
-          ?provider: Knockapi::Recipients::RecipientsChannelData::provider
+          data: Knockapi::Models::Recipients::RecipientsChannelData::data,
+          ?provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
         ) -> void
+
+        def to_hash: -> {
+          _typename: String,
+          channel_id: String,
+          data: Knockapi::Models::Recipients::RecipientsChannelData::data,
+          provider: Knockapi::Models::Recipients::RecipientsChannelData::provider
+        }
 
         type data =
           Knockapi::Recipients::PushChannelData
@@ -39,7 +46,7 @@ module Knockapi
         module Data
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> ::Array[Knockapi::Recipients::RecipientsChannelData::data]
+          def self?.variants: -> ::Array[Knockapi::Models::Recipients::RecipientsChannelData::data]
         end
 
         type provider =
@@ -64,7 +71,7 @@ module Knockapi
           CHAT_DISCORD: :chat_discord
           HTTP_KNOCK_WEBHOOK: :http_knock_webhook
 
-          def self?.values: -> ::Array[Knockapi::Recipients::RecipientsChannelData::provider]
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::RecipientsChannelData::provider]
         end
       end
     end

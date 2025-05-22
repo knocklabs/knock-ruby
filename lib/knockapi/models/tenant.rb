@@ -25,7 +25,7 @@ module Knockapi
       # @!attribute settings
       #   The settings for the tenant. Includes branding and preference set.
       #
-      #   @return [Knockapi::Tenant::Settings, nil]
+      #   @return [Knockapi::Models::Tenant::Settings, nil]
       optional :settings, -> { Knockapi::Tenant::Settings }, nil?: true
 
       # @!method initialize(id:, _typename:, name: nil, settings: nil)
@@ -37,34 +37,34 @@ module Knockapi
       #
       #   @param name [String, nil] An optional name for the tenant.
       #
-      #   @param settings [Knockapi::Tenant::Settings, nil] The settings for the tenant. Includes branding and preference set.
+      #   @param settings [Knockapi::Models::Tenant::Settings, nil] The settings for the tenant. Includes branding and preference set.
 
-      # @see Knockapi::Tenant#settings
+      # @see Knockapi::Models::Tenant#settings
       class Settings < Knockapi::Internal::Type::BaseModel
         # @!attribute branding
         #   The branding for the tenant.
         #
-        #   @return [Knockapi::Tenant::Settings::Branding, nil]
+        #   @return [Knockapi::Models::Tenant::Settings::Branding, nil]
         optional :branding, -> { Knockapi::Tenant::Settings::Branding }, nil?: true
 
         # @!attribute preference_set
         #   A preference set represents a specific set of notification preferences for a
         #   recipient. A recipient can have multiple preference sets.
         #
-        #   @return [Knockapi::Recipients::PreferenceSet, nil]
+        #   @return [Knockapi::Models::Recipients::PreferenceSet, nil]
         optional :preference_set, -> { Knockapi::Recipients::PreferenceSet }, nil?: true
 
         # @!method initialize(branding: nil, preference_set: nil)
         #   Some parameter documentations has been truncated, see
-        #   {Knockapi::Tenant::Settings} for more details.
+        #   {Knockapi::Models::Tenant::Settings} for more details.
         #
         #   The settings for the tenant. Includes branding and preference set.
         #
-        #   @param branding [Knockapi::Tenant::Settings::Branding, nil] The branding for the tenant.
+        #   @param branding [Knockapi::Models::Tenant::Settings::Branding, nil] The branding for the tenant.
         #
-        #   @param preference_set [Knockapi::Recipients::PreferenceSet, nil] A preference set represents a specific set of notification preferences for a rec
+        #   @param preference_set [Knockapi::Models::Recipients::PreferenceSet, nil] A preference set represents a specific set of notification preferences for a rec
 
-        # @see Knockapi::Tenant::Settings#branding
+        # @see Knockapi::Models::Tenant::Settings#branding
         class Branding < Knockapi::Internal::Type::BaseModel
           # @!attribute icon_url
           #   The icon URL for the tenant. Must point to a valid image with an image MIME
@@ -94,7 +94,7 @@ module Knockapi
 
           # @!method initialize(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
           #   Some parameter documentations has been truncated, see
-          #   {Knockapi::Tenant::Settings::Branding} for more details.
+          #   {Knockapi::Models::Tenant::Settings::Branding} for more details.
           #
           #   The branding for the tenant.
           #

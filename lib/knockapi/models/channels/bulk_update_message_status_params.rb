@@ -11,13 +11,13 @@ module Knockapi
         # @!attribute archived
         #   Limits the results to messages with the given archived status.
         #
-        #   @return [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::Archived, nil]
+        #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived, nil]
         optional :archived, enum: -> { Knockapi::Channels::BulkUpdateMessageStatusParams::Archived }
 
         # @!attribute delivery_status
         #   Limits the results to messages with the given delivery status.
         #
-        #   @return [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::DeliveryStatus, nil]
+        #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus, nil]
         optional :delivery_status,
                  enum: -> {
                    Knockapi::Channels::BulkUpdateMessageStatusParams::DeliveryStatus
@@ -26,7 +26,7 @@ module Knockapi
         # @!attribute engagement_status
         #   Limits the results to messages with the given engagement status.
         #
-        #   @return [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::EngagementStatus, nil]
+        #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus, nil]
         optional :engagement_status,
                  enum: -> { Knockapi::Channels::BulkUpdateMessageStatusParams::EngagementStatus }
 
@@ -78,11 +78,11 @@ module Knockapi
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Channels::BulkUpdateMessageStatusParams} for more details.
         #
-        #   @param archived [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::Archived] Limits the results to messages with the given archived status.
+        #   @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived] Limits the results to messages with the given archived status.
         #
-        #   @param delivery_status [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] Limits the results to messages with the given delivery status.
+        #   @param delivery_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] Limits the results to messages with the given delivery status.
         #
-        #   @param engagement_status [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::EngagementStatus] Limits the results to messages with the given engagement status.
+        #   @param engagement_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus] Limits the results to messages with the given engagement status.
         #
         #   @param has_tenant [Boolean] Limits the results to messages that have a tenant or not.
         #

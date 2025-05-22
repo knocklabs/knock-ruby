@@ -10,11 +10,11 @@ module Knockapi
       # @!attribute members
       #   A list of audience members to add.
       #
-      #   @return [Array<Knockapi::AudienceAddMembersParams::Member>]
+      #   @return [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
       required :members, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceAddMembersParams::Member] }
 
       # @!method initialize(members:, request_options: {})
-      #   @param members [Array<Knockapi::AudienceAddMembersParams::Member>] A list of audience members to add.
+      #   @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add.
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
@@ -22,7 +22,7 @@ module Knockapi
         # @!attribute user
         #   An object containing the user's ID.
         #
-        #   @return [Knockapi::AudienceAddMembersParams::Member::User]
+        #   @return [Knockapi::Models::AudienceAddMembersParams::Member::User]
         required :user, -> { Knockapi::AudienceAddMembersParams::Member::User }
 
         # @!attribute tenant
@@ -34,11 +34,11 @@ module Knockapi
         # @!method initialize(user:, tenant: nil)
         #   An audience member.
         #
-        #   @param user [Knockapi::AudienceAddMembersParams::Member::User] An object containing the user's ID.
+        #   @param user [Knockapi::Models::AudienceAddMembersParams::Member::User] An object containing the user's ID.
         #
         #   @param tenant [String, nil] The unique identifier for the tenant.
 
-        # @see Knockapi::AudienceAddMembersParams::Member#user
+        # @see Knockapi::Models::AudienceAddMembersParams::Member#user
         class User < Knockapi::Internal::Type::BaseModel
           # @!attribute id
           #   The ID for the user that you set when identifying them in Knock.

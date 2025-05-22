@@ -2,14 +2,18 @@ module Knockapi
   module Models
     module Recipients
       type channel_data_request =
-        { data: Knockapi::Recipients::ChannelDataRequest::data }
+        { data: Knockapi::Models::Recipients::ChannelDataRequest::data }
 
       class ChannelDataRequest < Knockapi::Internal::Type::BaseModel
-        attr_accessor data: Knockapi::Recipients::ChannelDataRequest::data
+        attr_accessor data: Knockapi::Models::Recipients::ChannelDataRequest::data
 
         def initialize: (
-          data: Knockapi::Recipients::ChannelDataRequest::data
+          data: Knockapi::Models::Recipients::ChannelDataRequest::data
         ) -> void
+
+        def to_hash: -> {
+          data: Knockapi::Models::Recipients::ChannelDataRequest::data
+        }
 
         type data =
           Knockapi::Recipients::PushChannelData
@@ -21,7 +25,7 @@ module Knockapi
         module Data
           extend Knockapi::Internal::Type::Union
 
-          def self?.variants: -> ::Array[Knockapi::Recipients::ChannelDataRequest::data]
+          def self?.variants: -> ::Array[Knockapi::Models::Recipients::ChannelDataRequest::data]
         end
       end
     end

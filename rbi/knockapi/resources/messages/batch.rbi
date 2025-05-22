@@ -10,7 +10,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(T::Array[Knockapi::Message])
+          ).returns(T::Array[Knockapi::Models::Message])
         end
         def archive(
           # The message IDs to update the status of.
@@ -45,7 +45,7 @@ module Knockapi
             message_ids: T::Array[String],
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(T::Array[Knockapi::Message])
+          ).returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_interacted(
           # The message IDs to batch mark as interacted with.
@@ -62,7 +62,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(T::Array[Knockapi::Message])
+          ).returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_read(
           # The message IDs to update the status of.
@@ -78,7 +78,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(T::Array[Knockapi::Message])
+          ).returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_seen(
           # The message IDs to update the status of.
@@ -94,7 +94,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(T::Array[Knockapi::Message])
+          ).returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unread(
           # The message IDs to update the status of.
@@ -110,7 +110,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(T::Array[Knockapi::Message])
+          ).returns(T::Array[Knockapi::Models::Message])
         end
         def mark_as_unseen(
           # The message IDs to update the status of.
@@ -126,7 +126,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(T::Array[Knockapi::Message])
+          ).returns(T::Array[Knockapi::Models::Message])
         end
         def unarchive(
           # The message IDs to update the status of.

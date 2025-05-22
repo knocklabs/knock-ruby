@@ -12,7 +12,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Tenants::BulkDeleteParams
         def delete(params)
@@ -30,11 +30,11 @@ module Knockapi
         #
         # @overload set(tenants:, request_options: {})
         #
-        # @param tenants [Array<String, Knockapi::TenantRequest>] The tenants to be upserted.
+        # @param tenants [Array<String, Knockapi::Models::TenantRequest>] The tenants to be upserted.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Tenants::BulkSetParams
         def set(params)

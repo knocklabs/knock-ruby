@@ -24,6 +24,13 @@ module Knockapi
         message_id: String
       ) -> void
 
+      def to_hash: -> {
+        _typename: String,
+        data: Knockapi::Models::MessageGetContentResponse::data,
+        inserted_at: Time,
+        message_id: String
+      }
+
       type data =
         Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent
         | Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent
@@ -77,6 +84,18 @@ module Knockapi
             ?cc: String?,
             ?reply_to: String?
           ) -> void
+
+          def to_hash: -> {
+            _typename: String,
+            from: String,
+            html_body: String,
+            subject_line: String,
+            text_body: String,
+            to: String,
+            bcc: String?,
+            cc: String?,
+            reply_to: String?
+          }
         end
 
         type message_sms_content =
@@ -90,6 +109,8 @@ module Knockapi
           attr_accessor to: String
 
           def initialize: (_typename: String, body: String, to: String) -> void
+
+          def to_hash: -> { _typename: String, body: String, to: String }
         end
 
         type message_push_content =
@@ -119,6 +140,14 @@ module Knockapi
             title: String,
             ?data: ::Hash[Symbol, top]?
           ) -> void
+
+          def to_hash: -> {
+            token: String,
+            _typename: String,
+            body: String,
+            title: String,
+            data: ::Hash[Symbol, top]?
+          }
         end
 
         type message_chat_content =
@@ -145,6 +174,13 @@ module Knockapi
             ?metadata: ::Hash[Symbol, top]?
           ) -> void
 
+          def to_hash: -> {
+            _typename: String,
+            connection: ::Hash[Symbol, top],
+            template: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+            metadata: ::Hash[Symbol, top]?
+          }
+
           type template =
             {
               blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block]?,
@@ -165,6 +201,12 @@ module Knockapi
               ?summary: String?
             ) -> void
 
+            def to_hash: -> {
+              blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block]?,
+              json_content: ::Hash[Symbol, top]?,
+              summary: String?
+            }
+
             type block =
               {
                 content: String,
@@ -184,6 +226,12 @@ module Knockapi
                 name: String,
                 type: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::type_
               ) -> void
+
+              def to_hash: -> {
+                content: String,
+                name: String,
+                type: Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::type_
+              }
 
               type type_ = :text | :markdown
 
@@ -215,6 +263,11 @@ module Knockapi
             blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::block]
           ) -> void
 
+          def to_hash: -> {
+            _typename: String,
+            blocks: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::block]
+          }
+
           type block =
             Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock
             | Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
@@ -245,6 +298,13 @@ module Knockapi
                 rendered: String,
                 type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_
               ) -> void
+
+              def to_hash: -> {
+                content: String,
+                name: String,
+                rendered: String,
+                type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::type_
+              }
 
               type type_ = :markdown | :text
 
@@ -278,6 +338,12 @@ module Knockapi
                 type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_
               ) -> void
 
+              def to_hash: -> {
+                buttons: ::Array[Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button],
+                name: String,
+                type: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::type_
+              }
+
               type button = { action: String, label: String, name: String }
 
               class Button < Knockapi::Internal::Type::BaseModel
@@ -292,6 +358,8 @@ module Knockapi
                   label: String,
                   name: String
                 ) -> void
+
+                def to_hash: -> { action: String, label: String, name: String }
               end
 
               type type_ = :button_set

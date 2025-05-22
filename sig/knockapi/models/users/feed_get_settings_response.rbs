@@ -11,12 +11,18 @@ module Knockapi
           features: Knockapi::Models::Users::FeedGetSettingsResponse::Features
         ) -> void
 
+        def to_hash: -> {
+          features: Knockapi::Models::Users::FeedGetSettingsResponse::Features
+        }
+
         type features = { branding_required: bool }
 
         class Features < Knockapi::Internal::Type::BaseModel
           attr_accessor branding_required: bool
 
           def initialize: (branding_required: bool) -> void
+
+          def to_hash: -> { branding_required: bool }
         end
       end
     end

@@ -18,7 +18,7 @@ module Knockapi
       variant -> { Knockapi::InlineObjectRequest }
 
       # @!method self.variants
-      #   @return [Array(String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest)]
+      #   @return [Array(String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest)]
     end
   end
 end

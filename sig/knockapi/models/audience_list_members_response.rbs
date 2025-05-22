@@ -15,6 +15,11 @@ module Knockapi
         entries: ::Array[Knockapi::AudienceMember],
         page_info: Knockapi::PageInfo
       ) -> void
+
+      def to_hash: -> {
+        entries: ::Array[Knockapi::AudienceMember],
+        page_info: Knockapi::PageInfo
+      }
     end
   end
 end

@@ -18,6 +18,11 @@ module Knockapi
           ?request_options: Knockapi::request_opts
         ) -> void
 
+        def to_hash: -> {
+          subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription],
+          request_options: Knockapi::RequestOptions
+        }
+
         type subscription =
           {
             recipients: ::Array[Knockapi::Models::recipient_request],
@@ -33,6 +38,11 @@ module Knockapi
             recipients: ::Array[Knockapi::Models::recipient_request],
             ?properties: ::Hash[Symbol, top]?
           ) -> void
+
+          def to_hash: -> {
+            recipients: ::Array[Knockapi::Models::recipient_request],
+            properties: ::Hash[Symbol, top]?
+          }
         end
       end
     end

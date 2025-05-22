@@ -7,6 +7,8 @@ module Knockapi
         attr_accessor tokens: ::Array[String]
 
         def initialize: (tokens: ::Array[String]) -> void
+
+        def to_hash: -> { tokens: ::Array[String] }
       end
     end
   end

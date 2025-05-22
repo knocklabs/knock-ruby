@@ -27,6 +27,14 @@ module Knockapi
         user_id: String,
         ?tenant: String?
       ) -> void
+
+      def to_hash: -> {
+        _typename: String,
+        added_at: Time,
+        user: Knockapi::User,
+        user_id: String,
+        tenant: String?
+      }
     end
   end
 end

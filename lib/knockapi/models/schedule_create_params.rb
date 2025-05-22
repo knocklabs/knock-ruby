@@ -10,13 +10,13 @@ module Knockapi
       # @!attribute recipients
       #   The recipients to set the schedule for. Limited to 100 recipients per request.
       #
-      #   @return [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>]
+      #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientRequest] }
 
       # @!attribute repeats
       #   The repeat rule for the schedule.
       #
-      #   @return [Array<Knockapi::ScheduleRepeatRule>]
+      #   @return [Array<Knockapi::Models::ScheduleRepeatRule>]
       required :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule] }
 
       # @!attribute workflow
@@ -46,13 +46,13 @@ module Knockapi
       # @!attribute tenant
       #   An request to set a tenant inline.
       #
-      #   @return [String, Knockapi::TenantRequest, nil]
+      #   @return [String, Knockapi::Models::TenantRequest, nil]
       optional :tenant, union: -> { Knockapi::InlineTenantRequest }, nil?: true
 
       # @!method initialize(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
-      #   @param recipients [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>] The recipients to set the schedule for. Limited to 100 recipients per request.
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to set the schedule for. Limited to 100 recipients per request.
       #
-      #   @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       #   @param workflow [String] The key of the workflow.
       #
@@ -62,7 +62,7 @@ module Knockapi
       #
       #   @param scheduled_at [Time, nil] The starting date and time for the schedule.
       #
-      #   @param tenant [String, Knockapi::TenantRequest, nil] An request to set a tenant inline.
+      #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

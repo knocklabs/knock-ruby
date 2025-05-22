@@ -26,6 +26,13 @@ module Knockapi
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after: String,
+        before: String,
+        page_size: Integer,
+        request_options: Knockapi::RequestOptions
+      }
     end
   end
 end

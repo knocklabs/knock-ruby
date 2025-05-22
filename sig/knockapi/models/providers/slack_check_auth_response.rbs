@@ -13,6 +13,10 @@ module Knockapi
           connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection
         ) -> void
 
+        def to_hash: -> {
+          connection: Knockapi::Models::Providers::SlackCheckAuthResponse::Connection
+        }
+
         type connection = { ok: bool, reason: String? }
 
         class Connection < Knockapi::Internal::Type::BaseModel
@@ -21,6 +25,8 @@ module Knockapi
           attr_accessor reason: String?
 
           def initialize: (ok: bool, ?reason: String?) -> void
+
+          def to_hash: -> { ok: bool, reason: String? }
         end
       end
     end

@@ -14,9 +14,9 @@ module Knockapi
       #
       # @overload create(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
-      # @param recipients [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>] The recipients to set the schedule for. Limited to 100 recipients per request.
+      # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to set the schedule for. Limited to 100 recipients per request.
       #
-      # @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
+      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       # @param workflow [String] The key of the workflow.
       #
@@ -26,11 +26,11 @@ module Knockapi
       #
       # @param scheduled_at [Time, nil] The starting date and time for the schedule.
       #
-      # @param tenant [String, Knockapi::TenantRequest, nil] An request to set a tenant inline.
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Schedule>]
+      # @return [Array<Knockapi::Models::Schedule>]
       #
       # @see Knockapi::Models::ScheduleCreateParams
       def create(params)
@@ -57,21 +57,21 @@ module Knockapi
       #
       # @param schedule_ids [Array<String>] A list of schedule IDs.
       #
-      # @param actor [String, Knockapi::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
+      # @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
       #
       # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
       #
       # @param ending_at [Time, nil] The ending date and time for the schedule.
       #
-      # @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
+      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       # @param scheduled_at [Time, nil] The starting date and time for the schedule.
       #
-      # @param tenant [String, Knockapi::TenantRequest, nil] An request to set a tenant inline.
+      # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Schedule>]
+      # @return [Array<Knockapi::Models::Schedule>]
       #
       # @see Knockapi::Models::ScheduleUpdateParams
       def update(params)
@@ -104,7 +104,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Schedule>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Schedule>]
       #
       # @see Knockapi::Models::ScheduleListParams
       def list(params)
@@ -128,7 +128,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Schedule>]
+      # @return [Array<Knockapi::Models::Schedule>]
       #
       # @see Knockapi::Models::ScheduleDeleteParams
       def delete(params)
