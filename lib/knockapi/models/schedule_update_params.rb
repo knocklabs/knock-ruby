@@ -21,7 +21,10 @@ module Knockapi
       optional :actor, union: -> { Knockapi::RecipientReference }, nil?: true
 
       # @!attribute data
-      #   An optional map of data to pass into the workflow execution.
+      #   An optional map of data to pass into the workflow execution. There is a 1024
+      #   byte limit on the size of any single string value (with the exception of
+      #   [email attachments](/integrations/email/attachments)), and a 10MB limit on the
+      #   size of the full `data` payload.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
@@ -58,7 +61,7 @@ module Knockapi
       #
       #   @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
       #
-      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
       #
       #   @param ending_at [Time, nil] The ending date and time for the schedule.
       #

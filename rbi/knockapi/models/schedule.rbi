@@ -41,7 +41,10 @@ module Knockapi
       sig { returns(T.nilable(Knockapi::Recipient::Variants)) }
       attr_accessor :actor
 
-      # An optional map of data to pass into the workflow execution.
+      # An optional map of data to pass into the workflow execution. There is a 1024
+      # byte limit on the size of any single string value (with the exception of
+      # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
+      # size of the full `data` payload.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
@@ -94,7 +97,10 @@ module Knockapi
         _typename: nil,
         # A recipient of a notification, which is either a user or an object.
         actor: nil,
-        # An optional map of data to pass into the workflow execution.
+        # An optional map of data to pass into the workflow execution. There is a 1024
+        # byte limit on the size of any single string value (with the exception of
+        # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
+        # size of the full `data` payload.
         data: nil,
         # The last occurrence of the schedule.
         last_occurrence_at: nil,
