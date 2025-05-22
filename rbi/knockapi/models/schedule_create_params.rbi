@@ -33,7 +33,10 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :workflow
 
-      # An optional map of data to pass into the workflow execution.
+      # An optional map of data to pass into the workflow execution. There is a 1024
+      # byte limit on the size of any single string value (with the exception of
+      # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
+      # size of the full `data` payload.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
@@ -75,7 +78,10 @@ module Knockapi
         repeats:,
         # The key of the workflow.
         workflow:,
-        # An optional map of data to pass into the workflow execution.
+        # An optional map of data to pass into the workflow execution. There is a 1024
+        # byte limit on the size of any single string value (with the exception of
+        # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
+        # size of the full `data` payload.
         data: nil,
         # The ending date and time for the schedule.
         ending_at: nil,

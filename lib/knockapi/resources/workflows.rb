@@ -53,7 +53,7 @@ module Knockapi
       #
       # @param cancellation_key [String, nil] An optional key that is used to reference a specific workflow trigger request wh
       #
-      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
       #
       # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
       #

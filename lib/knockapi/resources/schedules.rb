@@ -6,6 +6,9 @@ module Knockapi
       # @return [Knockapi::Resources::Schedules::Bulk]
       attr_reader :bulk
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::ScheduleCreateParams} for more details.
+      #
       # Creates one or more schedules for a workflow with the specified recipients,
       # timing, and data. Schedules can be one-time or recurring. This endpoint also
       # handles
@@ -20,7 +23,7 @@ module Knockapi
       #
       # @param workflow [String] The key of the workflow.
       #
-      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
       #
       # @param ending_at [Time, nil] The ending date and time for the schedule.
       #
@@ -59,7 +62,7 @@ module Knockapi
       #
       # @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
       #
-      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
       #
       # @param ending_at [Time, nil] The ending date and time for the schedule.
       #

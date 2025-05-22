@@ -84,7 +84,10 @@ module Knockapi
         # subsequent cancellation. Should be unique across trigger requests to avoid
         # unintentional cancellations.
         cancellation_key: nil,
-        # An optional map of data to pass into the workflow execution.
+        # An optional map of data to pass into the workflow execution. There is a 1024
+        # byte limit on the size of any single string value (with the exception of
+        # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
+        # size of the full `data` payload.
         data: nil,
         # An request to set a tenant inline.
         tenant: nil,
