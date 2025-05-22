@@ -28,7 +28,7 @@ module Knockapi
       # @!attribute engagement_status
       #   Limits the results to messages with the given engagement status.
       #
-      #   @return [Array<Symbol, Knockapi::UserListMessagesParams::EngagementStatus>, nil]
+      #   @return [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>, nil]
       optional :engagement_status,
                -> {
                  Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListMessagesParams::EngagementStatus]
@@ -36,7 +36,7 @@ module Knockapi
 
       # @!attribute inserted_at
       #
-      #   @return [Knockapi::UserListMessagesParams::InsertedAt, nil]
+      #   @return [Knockapi::Models::UserListMessagesParams::InsertedAt, nil]
       optional :inserted_at, -> { Knockapi::UserListMessagesParams::InsertedAt }
 
       # @!attribute message_ids
@@ -61,7 +61,7 @@ module Knockapi
       # @!attribute status
       #   Limits the results to messages with the given delivery status.
       #
-      #   @return [Array<Symbol, Knockapi::UserListMessagesParams::Status>, nil]
+      #   @return [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>, nil]
       optional :status,
                -> {
                  Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListMessagesParams::Status]
@@ -110,9 +110,9 @@ module Knockapi
       #
       #   @param channel_id [String] Limits the results to items with the corresponding channel ID.
       #
-      #   @param engagement_status [Array<Symbol, Knockapi::UserListMessagesParams::EngagementStatus>] Limits the results to messages with the given engagement status.
+      #   @param engagement_status [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>] Limits the results to messages with the given engagement status.
       #
-      #   @param inserted_at [Knockapi::UserListMessagesParams::InsertedAt]
+      #   @param inserted_at [Knockapi::Models::UserListMessagesParams::InsertedAt]
       #
       #   @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
       #
@@ -120,7 +120,7 @@ module Knockapi
       #
       #   @param source [String] Limits the results to messages triggered by the given workflow key.
       #
-      #   @param status [Array<Symbol, Knockapi::UserListMessagesParams::Status>] Limits the results to messages with the given delivery status.
+      #   @param status [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>] Limits the results to messages with the given delivery status.
       #
       #   @param tenant [String] Limits the results to items with the corresponding tenant.
       #

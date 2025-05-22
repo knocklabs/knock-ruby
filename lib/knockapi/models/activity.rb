@@ -19,7 +19,7 @@ module Knockapi
       # @!attribute actor
       #   A recipient of a notification, which is either a user or an object.
       #
-      #   @return [Knockapi::User, Knockapi::Object, nil]
+      #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :actor, union: -> { Knockapi::Recipient }, nil?: true
 
       # @!attribute data
@@ -37,7 +37,7 @@ module Knockapi
       # @!attribute recipient
       #   A recipient of a notification, which is either a user or an object.
       #
-      #   @return [Knockapi::User, Knockapi::Object, nil]
+      #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :recipient, union: -> { Knockapi::Recipient }
 
       # @!attribute updated_at
@@ -56,13 +56,13 @@ module Knockapi
       #
       #   @param _typename [String] The typename of the schema.
       #
-      #   @param actor [Knockapi::User, Knockapi::Object, nil] A recipient of a notification, which is either a user or an object.
+      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil] A recipient of a notification, which is either a user or an object.
       #
       #   @param data [Hash{Symbol=>Object}, nil] The workflow trigger `data` payload associated with the activity.
       #
       #   @param inserted_at [Time] Timestamp when the activity was created.
       #
-      #   @param recipient [Knockapi::User, Knockapi::Object] A recipient of a notification, which is either a user or an object.
+      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object] A recipient of a notification, which is either a user or an object.
       #
       #   @param updated_at [Time] Timestamp when the activity was last updated.
     end

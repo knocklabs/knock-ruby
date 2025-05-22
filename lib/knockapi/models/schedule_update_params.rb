@@ -17,7 +17,7 @@ module Knockapi
       #   A reference to a recipient, either a user identifier (string) or an object
       #   reference (ID, collection).
       #
-      #   @return [String, Knockapi::RecipientReference::ObjectReference, nil]
+      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
       optional :actor, union: -> { Knockapi::RecipientReference }, nil?: true
 
       # @!attribute data
@@ -35,7 +35,7 @@ module Knockapi
       # @!attribute repeats
       #   The repeat rule for the schedule.
       #
-      #   @return [Array<Knockapi::ScheduleRepeatRule>, nil]
+      #   @return [Array<Knockapi::Models::ScheduleRepeatRule>, nil]
       optional :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule] }
 
       # @!attribute scheduled_at
@@ -47,7 +47,7 @@ module Knockapi
       # @!attribute tenant
       #   An request to set a tenant inline.
       #
-      #   @return [String, Knockapi::TenantRequest, nil]
+      #   @return [String, Knockapi::Models::TenantRequest, nil]
       optional :tenant, union: -> { Knockapi::InlineTenantRequest }, nil?: true
 
       # @!method initialize(schedule_ids:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
@@ -56,17 +56,17 @@ module Knockapi
       #
       #   @param schedule_ids [Array<String>] A list of schedule IDs.
       #
-      #   @param actor [String, Knockapi::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
+      #   @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
       #
       #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
       #
       #   @param ending_at [Time, nil] The ending date and time for the schedule.
       #
-      #   @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       #   @param scheduled_at [Time, nil] The starting date and time for the schedule.
       #
-      #   @param tenant [String, Knockapi::TenantRequest, nil] An request to set a tenant inline.
+      #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end

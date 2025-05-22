@@ -9,6 +9,8 @@ module Knockapi
         def ok=: (String) -> String
 
         def initialize: (?ok: String) -> void
+
+        def to_hash: -> { ok: String }
       end
     end
   end

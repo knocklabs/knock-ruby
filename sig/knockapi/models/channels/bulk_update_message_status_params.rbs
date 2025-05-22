@@ -80,6 +80,20 @@ module Knockapi
           ?request_options: Knockapi::request_opts
         ) -> void
 
+        def to_hash: -> {
+          archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
+          delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
+          engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
+          has_tenant: bool,
+          newer_than: Time,
+          older_than: Time,
+          recipient_ids: ::Array[String],
+          tenants: ::Array[String],
+          trigger_data: String,
+          workflows: ::Array[String],
+          request_options: Knockapi::RequestOptions
+        }
+
         type action =
           :seen
           | :unseen

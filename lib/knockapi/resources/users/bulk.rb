@@ -13,7 +13,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Users::BulkDeleteParams
         def delete(params)
@@ -33,11 +33,11 @@ module Knockapi
         #
         # @overload identify(users:, request_options: {})
         #
-        # @param users [Array<Knockapi::InlineIdentifyUserRequest>] A list of users.
+        # @param users [Array<Knockapi::Models::InlineIdentifyUserRequest>] A list of users.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Users::BulkIdentifyParams
         def identify(params)
@@ -57,13 +57,13 @@ module Knockapi
         #
         # @overload set_preferences(preferences:, user_ids:, request_options: {})
         #
-        # @param preferences [Knockapi::Recipients::PreferenceSetRequest] A request to set a preference set for a recipient.
+        # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest] A request to set a preference set for a recipient.
         #
         # @param user_ids [Array<String>] A list of user IDs.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Users::BulkSetPreferencesParams
         def set_preferences(params)

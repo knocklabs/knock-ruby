@@ -5,12 +5,12 @@ module Knockapi
         after: String,
         before: String,
         channel_id: String,
-        engagement_status: ::Array[Knockapi::UserListMessagesParams::engagement_status],
+        engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
         inserted_at: Knockapi::UserListMessagesParams::InsertedAt,
         message_ids: ::Array[String],
         page_size: Integer,
         source: String,
-        status: ::Array[Knockapi::UserListMessagesParams::status],
+        status: ::Array[Knockapi::Models::UserListMessagesParams::status],
         tenant: String,
         trigger_data: String,
         workflow_categories: ::Array[String],
@@ -35,11 +35,11 @@ module Knockapi
 
       def channel_id=: (String) -> String
 
-      attr_reader engagement_status: ::Array[Knockapi::UserListMessagesParams::engagement_status]?
+      attr_reader engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]?
 
       def engagement_status=: (
-        ::Array[Knockapi::UserListMessagesParams::engagement_status]
-      ) -> ::Array[Knockapi::UserListMessagesParams::engagement_status]
+        ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
+      ) -> ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
 
       attr_reader inserted_at: Knockapi::UserListMessagesParams::InsertedAt?
 
@@ -59,11 +59,11 @@ module Knockapi
 
       def source=: (String) -> String
 
-      attr_reader status: ::Array[Knockapi::UserListMessagesParams::status]?
+      attr_reader status: ::Array[Knockapi::Models::UserListMessagesParams::status]?
 
       def status=: (
-        ::Array[Knockapi::UserListMessagesParams::status]
-      ) -> ::Array[Knockapi::UserListMessagesParams::status]
+        ::Array[Knockapi::Models::UserListMessagesParams::status]
+      ) -> ::Array[Knockapi::Models::UserListMessagesParams::status]
 
       attr_reader tenant: String?
 
@@ -89,12 +89,12 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?channel_id: String,
-        ?engagement_status: ::Array[Knockapi::UserListMessagesParams::engagement_status],
+        ?engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
         ?inserted_at: Knockapi::UserListMessagesParams::InsertedAt,
         ?message_ids: ::Array[String],
         ?page_size: Integer,
         ?source: String,
-        ?status: ::Array[Knockapi::UserListMessagesParams::status],
+        ?status: ::Array[Knockapi::Models::UserListMessagesParams::status],
         ?tenant: String,
         ?trigger_data: String,
         ?workflow_categories: ::Array[String],
@@ -102,6 +102,24 @@ module Knockapi
         ?workflow_run_id: String,
         ?request_options: Knockapi::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after: String,
+        before: String,
+        channel_id: String,
+        engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
+        inserted_at: Knockapi::UserListMessagesParams::InsertedAt,
+        message_ids: ::Array[String],
+        page_size: Integer,
+        source: String,
+        status: ::Array[Knockapi::Models::UserListMessagesParams::status],
+        tenant: String,
+        trigger_data: String,
+        workflow_categories: ::Array[String],
+        workflow_recipient_run_id: String,
+        workflow_run_id: String,
+        request_options: Knockapi::RequestOptions
+      }
 
       type engagement_status =
         :seen
@@ -125,7 +143,7 @@ module Knockapi
         LINK_CLICKED: :link_clicked
         INTERACTED: :interacted
 
-        def self?.values: -> ::Array[Knockapi::UserListMessagesParams::engagement_status]
+        def self?.values: -> ::Array[Knockapi::Models::UserListMessagesParams::engagement_status]
       end
 
       type inserted_at = { gt: String, gte: String, lt: String, lte: String }
@@ -153,6 +171,8 @@ module Knockapi
           ?lt: String,
           ?lte: String
         ) -> void
+
+        def to_hash: -> { gt: String, gte: String, lt: String, lte: String }
       end
 
       type status =
@@ -175,7 +195,7 @@ module Knockapi
         NOT_SENT: :not_sent
         BOUNCED: :bounced
 
-        def self?.values: -> ::Array[Knockapi::UserListMessagesParams::status]
+        def self?.values: -> ::Array[Knockapi::Models::UserListMessagesParams::status]
       end
     end
   end

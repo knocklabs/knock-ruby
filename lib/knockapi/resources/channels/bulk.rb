@@ -16,13 +16,13 @@ module Knockapi
         #
         # @param channel_id [String] The ID of the channel to update messages for.
         #
-        # @param action [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::Action] The target status to be applied to the messages.
+        # @param action [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action] The target status to be applied to the messages.
         #
-        # @param archived [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::Archived] Limits the results to messages with the given archived status.
+        # @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived] Limits the results to messages with the given archived status.
         #
-        # @param delivery_status [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] Limits the results to messages with the given delivery status.
+        # @param delivery_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus] Limits the results to messages with the given delivery status.
         #
-        # @param engagement_status [Symbol, Knockapi::Channels::BulkUpdateMessageStatusParams::EngagementStatus] Limits the results to messages with the given engagement status.
+        # @param engagement_status [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::EngagementStatus] Limits the results to messages with the given engagement status.
         #
         # @param has_tenant [Boolean] Limits the results to messages that have a tenant or not.
         #
@@ -40,7 +40,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Channels::BulkUpdateMessageStatusParams
         def update_message_status(channel_id, action, params = {})

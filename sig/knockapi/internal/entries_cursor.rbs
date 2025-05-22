@@ -16,6 +16,8 @@ module Knockapi
         def after=: (String) -> String
 
         def initialize: (?after: String) -> void
+
+        def to_hash: -> { after: String }
       end
     end
   end

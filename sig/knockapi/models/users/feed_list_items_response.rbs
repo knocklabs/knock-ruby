@@ -81,6 +81,27 @@ module Knockapi
           ?seen_at: String?
         ) -> void
 
+        def to_hash: -> {
+          id: String,
+          _typename: String,
+          activities: ::Array[Knockapi::Activity],
+          actors: ::Array[Knockapi::Models::recipient],
+          blocks: ::Array[Knockapi::Models::Users::FeedListItemsResponse::block],
+          data: ::Hash[Symbol, top]?,
+          inserted_at: String,
+          source: Knockapi::Models::Users::FeedListItemsResponse::Source,
+          tenant: String?,
+          total_activities: Integer,
+          total_actors: Integer,
+          updated_at: String,
+          archived_at: String?,
+          clicked_at: String?,
+          interacted_at: String?,
+          link_clicked_at: String?,
+          read_at: String?,
+          seen_at: String?
+        }
+
         type block =
           Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock
           | Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
@@ -111,6 +132,13 @@ module Knockapi
               rendered: String,
               type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
             ) -> void
+
+            def to_hash: -> {
+              content: String,
+              name: String,
+              rendered: String,
+              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
+            }
 
             type type_ = :markdown | :text
 
@@ -144,6 +172,12 @@ module Knockapi
               type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
             ) -> void
 
+            def to_hash: -> {
+              buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
+              name: String,
+              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
+            }
+
             type button = { action: String, label: String, name: String }
 
             class Button < Knockapi::Internal::Type::BaseModel
@@ -158,6 +192,8 @@ module Knockapi
                 label: String,
                 name: String
               ) -> void
+
+              def to_hash: -> { action: String, label: String, name: String }
             end
 
             type type_ = :button_set
@@ -197,6 +233,13 @@ module Knockapi
             key: String,
             version_id: String
           ) -> void
+
+          def to_hash: -> {
+            _typename: String,
+            categories: ::Array[String],
+            key: String,
+            version_id: String
+          }
         end
       end
     end

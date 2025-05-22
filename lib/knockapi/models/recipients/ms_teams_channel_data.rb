@@ -7,7 +7,7 @@ module Knockapi
         # @!attribute connections
         #   List of Microsoft Teams connections.
         #
-        #   @return [Array<Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
+        #   @return [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>]
         required :connections,
                  -> {
                    Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipients::MsTeamsChannelData::Connection]
@@ -22,7 +22,7 @@ module Knockapi
         # @!method initialize(connections:, ms_teams_tenant_id: nil)
         #   Microsoft Teams channel connection.
         #
-        #   @param connections [Array<Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>] List of Microsoft Teams connections.
+        #   @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>] List of Microsoft Teams connections.
         #
         #   @param ms_teams_tenant_id [String, nil] Microsoft Teams tenant ID.
 
@@ -79,7 +79,7 @@ module Knockapi
             # @!attribute incoming_webhook
             #   Microsoft Teams incoming webhook.
             #
-            #   @return [Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook]
+            #   @return [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook]
             required :incoming_webhook,
                      -> {
                        Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
@@ -88,9 +88,9 @@ module Knockapi
             # @!method initialize(incoming_webhook:)
             #   Microsoft Teams incoming webhook connection.
             #
-            #   @param incoming_webhook [Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook] Microsoft Teams incoming webhook.
+            #   @param incoming_webhook [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook] Microsoft Teams incoming webhook.
 
-            # @see Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection#incoming_webhook
+            # @see Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel
               # @!attribute url
               #   Microsoft Teams incoming webhook URL.
@@ -106,7 +106,7 @@ module Knockapi
           end
 
           # @!method self.variants
-          #   @return [Array(Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
+          #   @return [Array(Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection)]
         end
       end
     end

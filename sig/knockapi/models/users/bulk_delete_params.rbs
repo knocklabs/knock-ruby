@@ -15,6 +15,11 @@ module Knockapi
           user_ids: ::Array[String],
           ?request_options: Knockapi::request_opts
         ) -> void
+
+        def to_hash: -> {
+          user_ids: ::Array[String],
+          request_options: Knockapi::RequestOptions
+        }
       end
     end
   end
