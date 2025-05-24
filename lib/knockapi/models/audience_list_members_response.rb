@@ -7,21 +7,21 @@ module Knockapi
       # @!attribute entries
       #   A list of audience members.
       #
-      #   @return [Array<Knockapi::AudienceMember>]
+      #   @return [Array<Knockapi::Models::AudienceMember>]
       required :entries, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceMember] }
 
       # @!attribute page_info
       #   Pagination information for a list of resources.
       #
-      #   @return [Knockapi::PageInfo]
+      #   @return [Knockapi::Models::PageInfo]
       required :page_info, -> { Knockapi::PageInfo }
 
       # @!method initialize(entries:, page_info:)
       #   A paginated list of audience members.
       #
-      #   @param entries [Array<Knockapi::AudienceMember>] A list of audience members.
+      #   @param entries [Array<Knockapi::Models::AudienceMember>] A list of audience members.
       #
-      #   @param page_info [Knockapi::PageInfo] Pagination information for a list of resources.
+      #   @param page_info [Knockapi::Models::PageInfo] Pagination information for a list of resources.
     end
   end
 end

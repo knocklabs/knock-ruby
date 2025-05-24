@@ -36,7 +36,7 @@ module Knockapi
         #
         # @param access_token_object [String] A JSON encoded string containing the access token object reference.
         #
-        # @param query_options [Knockapi::Providers::SlackListChannelsParams::QueryOptions]
+        # @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

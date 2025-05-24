@@ -8,7 +8,7 @@ module Knockapi
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knockapi::BulkOperation::status,
+        status: Knockapi::Models::BulkOperation::status,
         success_count: Integer,
         updated_at: Time,
         completed_at: Time?,
@@ -32,7 +32,7 @@ module Knockapi
 
       attr_accessor processed_rows: Integer
 
-      attr_accessor status: Knockapi::BulkOperation::status
+      attr_accessor status: Knockapi::Models::BulkOperation::status
 
       attr_accessor success_count: Integer
 
@@ -65,7 +65,7 @@ module Knockapi
         inserted_at: Time,
         name: String,
         processed_rows: Integer,
-        status: Knockapi::BulkOperation::status,
+        status: Knockapi::Models::BulkOperation::status,
         success_count: Integer,
         updated_at: Time,
         ?completed_at: Time?,
@@ -75,6 +75,24 @@ module Knockapi
         ?progress_path: String,
         ?started_at: Time?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        _typename: String,
+        estimated_total_rows: Integer,
+        inserted_at: Time,
+        name: String,
+        processed_rows: Integer,
+        status: Knockapi::Models::BulkOperation::status,
+        success_count: Integer,
+        updated_at: Time,
+        completed_at: Time?,
+        error_count: Integer,
+        error_items: ::Array[Knockapi::BulkOperation::ErrorItem],
+        failed_at: Time?,
+        progress_path: String,
+        started_at: Time?
+      }
 
       type status = :queued | :processing | :completed | :failed
 
@@ -86,7 +104,7 @@ module Knockapi
         COMPLETED: :completed
         FAILED: :failed
 
-        def self?.values: -> ::Array[Knockapi::BulkOperation::status]
+        def self?.values: -> ::Array[Knockapi::Models::BulkOperation::status]
       end
 
       type error_item = { id: String, collection: String? }
@@ -97,6 +115,8 @@ module Knockapi
         attr_accessor collection: String?
 
         def initialize: (id: String, ?collection: String?) -> void
+
+        def to_hash: -> { id: String, collection: String? }
       end
     end
   end

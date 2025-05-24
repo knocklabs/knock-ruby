@@ -13,6 +13,10 @@ module Knockapi
           ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
         ) -> void
 
+        def to_hash: -> {
+          ms_teams_channels: ::Array[Knockapi::Models::Providers::MsTeamListChannelsResponse::MsTeamsChannel]
+        }
+
         type ms_teams_channel =
           {
             id: String,
@@ -50,6 +54,15 @@ module Knockapi
             ?is_archived: bool,
             ?membership_type: String
           ) -> void
+
+          def to_hash: -> {
+            id: String,
+            display_name: String,
+            created_date_time: String,
+            description: String?,
+            is_archived: bool,
+            membership_type: String
+          }
         end
       end
     end

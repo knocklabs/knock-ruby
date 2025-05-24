@@ -14,6 +14,11 @@ module Knockapi
         recipients: ::Array[Knockapi::Models::recipient_reference],
         ?request_options: Knockapi::request_opts
       ) -> void
+
+      def to_hash: -> {
+        recipients: ::Array[Knockapi::Models::recipient_reference],
+        request_options: Knockapi::RequestOptions
+      }
     end
   end
 end

@@ -26,6 +26,12 @@ module Knockapi
           ?request_options: Knockapi::request_opts
         ) -> void
 
+        def to_hash: -> {
+          access_token_object: String,
+          query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions,
+          request_options: Knockapi::RequestOptions
+        }
+
         type query_options =
           {
             cursor: String,
@@ -63,6 +69,14 @@ module Knockapi
             ?team_id: String,
             ?types: String
           ) -> void
+
+          def to_hash: -> {
+            cursor: String,
+            exclude_archived: bool,
+            limit: Integer,
+            team_id: String,
+            types: String
+          }
         end
       end
     end

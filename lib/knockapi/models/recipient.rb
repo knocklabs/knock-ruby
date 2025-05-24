@@ -13,7 +13,7 @@ module Knockapi
       variant -> { Knockapi::Object }
 
       # @!method self.variants
-      #   @return [Array(Knockapi::User, Knockapi::Object)]
+      #   @return [Array(Knockapi::Models::User, Knockapi::Models::Object)]
     end
   end
 end

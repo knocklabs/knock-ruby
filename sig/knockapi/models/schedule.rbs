@@ -57,6 +57,21 @@ module Knockapi
         ?next_occurrence_at: Time?,
         ?tenant: String?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient,
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
+        updated_at: Time,
+        workflow: String,
+        _typename: String,
+        actor: Knockapi::Models::recipient?,
+        data: ::Hash[Symbol, top]?,
+        last_occurrence_at: Time?,
+        next_occurrence_at: Time?,
+        tenant: String?
+      }
     end
   end
 end

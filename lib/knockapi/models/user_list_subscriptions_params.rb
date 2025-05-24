@@ -22,7 +22,7 @@ module Knockapi
       # @!attribute include
       #   Associated resources to include in the response.
       #
-      #   @return [Array<Symbol, Knockapi::UserListSubscriptionsParams::Include>, nil]
+      #   @return [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>, nil]
       optional :include,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListSubscriptionsParams::Include] }
 
@@ -43,7 +43,7 @@ module Knockapi
       #
       #   @param before [String] The cursor to fetch entries before.
       #
-      #   @param include [Array<Symbol, Knockapi::UserListSubscriptionsParams::Include>] Associated resources to include in the response.
+      #   @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>] Associated resources to include in the response.
       #
       #   @param objects [Array<String>] Only returns subscriptions for the specified object GIDs.
       #

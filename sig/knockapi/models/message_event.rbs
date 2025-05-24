@@ -6,7 +6,7 @@ module Knockapi
         _typename: String,
         inserted_at: Time,
         recipient: Knockapi::Models::recipient_reference,
-        type: Knockapi::MessageEvent::type_,
+        type: Knockapi::Models::MessageEvent::type_,
         data: ::Hash[Symbol, top]?
       }
 
@@ -19,7 +19,7 @@ module Knockapi
 
       attr_accessor recipient: Knockapi::Models::recipient_reference
 
-      attr_accessor type: Knockapi::MessageEvent::type_
+      attr_accessor type: Knockapi::Models::MessageEvent::type_
 
       attr_accessor data: ::Hash[Symbol, top]?
 
@@ -28,9 +28,18 @@ module Knockapi
         _typename: String,
         inserted_at: Time,
         recipient: Knockapi::Models::recipient_reference,
-        type: Knockapi::MessageEvent::type_,
+        type: Knockapi::Models::MessageEvent::type_,
         ?data: ::Hash[Symbol, top]?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        _typename: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient_reference,
+        type: Knockapi::Models::MessageEvent::type_,
+        data: ::Hash[Symbol, top]?
+      }
 
       type type_ =
         :"message.archived"
@@ -68,7 +77,7 @@ module Knockapi
         MESSAGE_UNREAD: :"message.unread"
         MESSAGE_UNSEEN: :"message.unseen"
 
-        def self?.values: -> ::Array[Knockapi::MessageEvent::type_]
+        def self?.values: -> ::Array[Knockapi::Models::MessageEvent::type_]
       end
     end
   end

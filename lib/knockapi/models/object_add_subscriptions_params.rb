@@ -11,7 +11,7 @@ module Knockapi
       #   The recipients of the subscription. You can subscribe up to 100 recipients to an
       #   object at a time.
       #
-      #   @return [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>]
+      #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientRequest] }
 
       # @!attribute properties
@@ -24,7 +24,7 @@ module Knockapi
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ObjectAddSubscriptionsParams} for more details.
       #
-      #   @param recipients [Array<String, Knockapi::InlineIdentifyUserRequest, Knockapi::InlineObjectRequest>] The recipients of the subscription. You can subscribe up to 100 recipients to an
+      #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients of the subscription. You can subscribe up to 100 recipients to an
       #
       #   @param properties [Hash{Symbol=>Object}, nil] The custom properties associated with the subscription relationship.
       #

@@ -12,7 +12,7 @@ module Knockapi
       # @!attribute frequency
       #   The frequency of the schedule.
       #
-      #   @return [Symbol, Knockapi::ScheduleRepeatRule::Frequency]
+      #   @return [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency]
       required :frequency, enum: -> { Knockapi::ScheduleRepeatRule::Frequency }
 
       # @!attribute day_of_month
@@ -24,7 +24,7 @@ module Knockapi
       # @!attribute days
       #   The days of the week to repeat the schedule.
       #
-      #   @return [Array<Symbol, Knockapi::ScheduleRepeatRule::Day>, nil]
+      #   @return [Array<Symbol, Knockapi::Models::ScheduleRepeatRule::Day>, nil]
       optional :days,
                -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::ScheduleRepeatRule::Day] },
                nil?: true
@@ -52,11 +52,11 @@ module Knockapi
       #
       #   @param _typename [String] The typename of the schema.
       #
-      #   @param frequency [Symbol, Knockapi::ScheduleRepeatRule::Frequency] The frequency of the schedule.
+      #   @param frequency [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency] The frequency of the schedule.
       #
       #   @param day_of_month [Integer, nil] The day of the month to repeat the schedule.
       #
-      #   @param days [Array<Symbol, Knockapi::ScheduleRepeatRule::Day>, nil] The days of the week to repeat the schedule.
+      #   @param days [Array<Symbol, Knockapi::Models::ScheduleRepeatRule::Day>, nil] The days of the week to repeat the schedule.
       #
       #   @param hours [Integer, nil] The hour of the day to repeat the schedule.
       #
@@ -66,7 +66,7 @@ module Knockapi
 
       # The frequency of the schedule.
       #
-      # @see Knockapi::ScheduleRepeatRule#frequency
+      # @see Knockapi::Models::ScheduleRepeatRule#frequency
       module Frequency
         extend Knockapi::Internal::Type::Enum
 

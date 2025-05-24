@@ -1,7 +1,7 @@
 module Knockapi
   module Models
     module Messages
-      type batch_unarchive_response = ::Array[Knockapi::Message]
+      type batch_unarchive_response = ::Array[Knockapi::Models::Message]
 
       BatchUnarchiveResponse: Knockapi::Internal::Type::Converter
     end

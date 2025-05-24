@@ -57,6 +57,19 @@ module Knockapi
           ?tenant: String?,
           ?request_options: Knockapi::request_opts
         ) -> void
+
+        def to_hash: -> {
+          channel_id: String,
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          content: ::Hash[Symbol, top],
+          data: ::Hash[Symbol, top],
+          is_final: bool,
+          metadata: ::Hash[Symbol, top],
+          tenant: String?,
+          request_options: Knockapi::RequestOptions
+        }
       end
     end
   end

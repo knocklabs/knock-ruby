@@ -18,6 +18,13 @@ module Knockapi
         ?after: String?,
         ?before: String?
       ) -> void
+
+      def to_hash: -> {
+        _typename: String,
+        page_size: Integer,
+        after: String?,
+        before: String?
+      }
     end
   end
 end

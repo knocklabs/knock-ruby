@@ -7,17 +7,17 @@ module Knockapi
         # @!attribute data
         #   Channel data for a given channel type.
         #
-        #   @return [Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData]
+        #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
         required :data, union: -> { Knockapi::Recipients::ChannelDataRequest::Data }
 
         # @!method initialize(data:)
         #   A request to set channel data for a type of channel.
         #
-        #   @param data [Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData] Channel data for a given channel type.
+        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
 
         # Channel data for a given channel type.
         #
-        # @see Knockapi::Recipients::ChannelDataRequest#data
+        # @see Knockapi::Models::Recipients::ChannelDataRequest#data
         module Data
           extend Knockapi::Internal::Type::Union
 
@@ -37,7 +37,7 @@ module Knockapi
           variant -> { Knockapi::Recipients::DiscordChannelData }
 
           # @!method self.variants
-          #   @return [Array(Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData)]
+          #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]
         end
       end
     end

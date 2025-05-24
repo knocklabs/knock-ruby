@@ -32,6 +32,15 @@ module Knockapi
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
       ) -> void
+
+      def to_hash: -> {
+        recipients: ::Array[Knockapi::Models::recipient_request],
+        actor: Knockapi::Models::recipient_request?,
+        cancellation_key: String?,
+        data: ::Hash[Symbol, top]?,
+        tenant: Knockapi::Models::inline_tenant_request?,
+        request_options: Knockapi::RequestOptions
+      }
     end
   end
 end

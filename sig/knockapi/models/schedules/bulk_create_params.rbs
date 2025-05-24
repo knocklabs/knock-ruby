@@ -16,6 +16,11 @@ module Knockapi
           ?request_options: Knockapi::request_opts
         ) -> void
 
+        def to_hash: -> {
+          schedules: ::Array[Knockapi::Schedules::BulkCreateParams::Schedule],
+          request_options: Knockapi::RequestOptions
+        }
+
         type schedule =
           {
             workflow: String,
@@ -63,6 +68,17 @@ module Knockapi
             ?scheduled_at: Time?,
             ?tenant: Knockapi::Models::inline_tenant_request?
           ) -> void
+
+          def to_hash: -> {
+            workflow: String,
+            actor: Knockapi::Models::recipient_request?,
+            data: ::Hash[Symbol, top]?,
+            ending_at: Time?,
+            recipient: Knockapi::Models::recipient_request,
+            repeats: ::Array[Knockapi::ScheduleRepeatRule],
+            scheduled_at: Time?,
+            tenant: Knockapi::Models::inline_tenant_request?
+          }
         end
       end
     end

@@ -63,8 +63,8 @@ module Knockapi
       optional :timezone, String, nil?: true
 
       # @!method initialize(id:, _typename:, updated_at:, avatar: nil, created_at: nil, email: nil, name: nil, phone_number: nil, timezone: nil)
-      #   Some parameter documentations has been truncated, see {Knockapi::User} for more
-      #   details.
+      #   Some parameter documentations has been truncated, see {Knockapi::Models::User}
+      #   for more details.
       #
       #   A [User](/concepts/users) represents an individual in your system who can
       #   receive notifications through Knock. Users are the most common recipients of

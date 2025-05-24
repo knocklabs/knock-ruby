@@ -24,7 +24,7 @@ module Knockapi
       def list: (
         ?after: String,
         ?before: String,
-        ?include: ::Array[Knockapi::UserListParams::include_],
+        ?include: ::Array[Knockapi::Models::UserListParams::include_],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::User]
@@ -57,12 +57,12 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?channel_id: String,
-        ?engagement_status: ::Array[Knockapi::UserListMessagesParams::engagement_status],
+        ?engagement_status: ::Array[Knockapi::Models::UserListMessagesParams::engagement_status],
         ?inserted_at: Knockapi::UserListMessagesParams::InsertedAt,
         ?message_ids: ::Array[String],
         ?page_size: Integer,
         ?source: String,
-        ?status: ::Array[Knockapi::UserListMessagesParams::status],
+        ?status: ::Array[Knockapi::Models::UserListMessagesParams::status],
         ?tenant: String,
         ?trigger_data: String,
         ?workflow_categories: ::Array[String],
@@ -90,7 +90,7 @@ module Knockapi
         String user_id,
         ?after: String,
         ?before: String,
-        ?include: ::Array[Knockapi::UserListSubscriptionsParams::include_],
+        ?include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
         ?objects: ::Array[String],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
@@ -112,9 +112,9 @@ module Knockapi
       def set_preferences: (
         String user_id,
         String id,
-        ?categories: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::category]?,
+        ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
         ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
-        ?workflows: ::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::workflow]?,
+        ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Recipients::PreferenceSet
 

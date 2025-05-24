@@ -14,7 +14,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Objects::BulkDeleteParams
         def delete(collection, params)
@@ -38,11 +38,11 @@ module Knockapi
         #
         # @param collection [String] The collection this object belongs to.
         #
-        # @param subscriptions [Array<Knockapi::Objects::BulkAddSubscriptionsParams::Subscription>] A list of subscriptions.
+        # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>] A list of subscriptions.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Objects::BulkAddSubscriptionsParams
         def add_subscriptions(collection, params)
@@ -62,11 +62,11 @@ module Knockapi
         #
         # @param collection [String] The collection this object belongs to.
         #
-        # @param objects [Array<Knockapi::InlineObjectRequest>] A list of objects.
+        # @param objects [Array<Knockapi::Models::InlineObjectRequest>] A list of objects.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::BulkOperation]
+        # @return [Knockapi::Models::BulkOperation]
         #
         # @see Knockapi::Models::Objects::BulkSetParams
         def set(collection, params)

@@ -15,6 +15,11 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> void
 
+      def to_hash: -> {
+        members: ::Array[Knockapi::AudienceRemoveMembersParams::Member],
+        request_options: Knockapi::RequestOptions
+      }
+
       type member =
         {
           user: Knockapi::AudienceRemoveMembersParams::Member::User,
@@ -31,6 +36,11 @@ module Knockapi
           ?tenant: String?
         ) -> void
 
+        def to_hash: -> {
+          user: Knockapi::AudienceRemoveMembersParams::Member::User,
+          tenant: String?
+        }
+
         type user = { id: String }
 
         class User < Knockapi::Internal::Type::BaseModel
@@ -39,6 +49,8 @@ module Knockapi
           def id=: (String) -> String
 
           def initialize: (?id: String) -> void
+
+          def to_hash: -> { id: String }
         end
       end
     end

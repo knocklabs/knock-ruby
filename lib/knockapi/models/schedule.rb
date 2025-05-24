@@ -19,13 +19,13 @@ module Knockapi
       # @!attribute recipient
       #   A recipient of a notification, which is either a user or an object.
       #
-      #   @return [Knockapi::User, Knockapi::Object]
+      #   @return [Knockapi::Models::User, Knockapi::Models::Object]
       required :recipient, union: -> { Knockapi::Recipient }
 
       # @!attribute repeats
       #   The repeat rule for the schedule.
       #
-      #   @return [Array<Knockapi::ScheduleRepeatRule>]
+      #   @return [Array<Knockapi::Models::ScheduleRepeatRule>]
       required :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule] }
 
       # @!attribute updated_at
@@ -49,11 +49,14 @@ module Knockapi
       # @!attribute actor
       #   A recipient of a notification, which is either a user or an object.
       #
-      #   @return [Knockapi::User, Knockapi::Object, nil]
+      #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
       optional :actor, union: -> { Knockapi::Recipient }, nil?: true
 
       # @!attribute data
-      #   An optional map of data to pass into the workflow execution.
+      #   An optional map of data to pass into the workflow execution. There is a 1024
+      #   byte limit on the size of any single string value (with the exception of
+      #   [email attachments](/integrations/email/attachments)), and a 10MB limit on the
+      #   size of the full `data` payload.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
@@ -79,8 +82,8 @@ module Knockapi
       optional :tenant, String, nil?: true
 
       # @!method initialize(id:, inserted_at:, recipient:, repeats:, updated_at:, workflow:, _typename: nil, actor: nil, data: nil, last_occurrence_at: nil, next_occurrence_at: nil, tenant: nil)
-      #   Some parameter documentations has been truncated, see {Knockapi::Schedule} for
-      #   more details.
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::Schedule} for more details.
       #
       #   A schedule represents a recurring workflow execution.
       #
@@ -88,9 +91,9 @@ module Knockapi
       #
       #   @param inserted_at [Time] Timestamp when the resource was created.
       #
-      #   @param recipient [Knockapi::User, Knockapi::Object] A recipient of a notification, which is either a user or an object.
+      #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object] A recipient of a notification, which is either a user or an object.
       #
-      #   @param repeats [Array<Knockapi::ScheduleRepeatRule>] The repeat rule for the schedule.
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       #   @param updated_at [Time] The timestamp when the resource was last updated.
       #
@@ -98,9 +101,9 @@ module Knockapi
       #
       #   @param _typename [String] The typename of the schema.
       #
-      #   @param actor [Knockapi::User, Knockapi::Object, nil] A recipient of a notification, which is either a user or an object.
+      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil] A recipient of a notification, which is either a user or an object.
       #
-      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution.
+      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
       #
       #   @param last_occurrence_at [Time, nil] The last occurrence of the schedule.
       #

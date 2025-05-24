@@ -32,6 +32,15 @@ module Knockapi
           updated_at: Time,
           ?properties: ::Hash[Symbol, top]?
         ) -> void
+
+        def to_hash: -> {
+          _typename: String,
+          inserted_at: Time,
+          object: Knockapi::Object,
+          recipient: Knockapi::Models::recipient,
+          updated_at: Time,
+          properties: ::Hash[Symbol, top]?
+        }
       end
     end
   end

@@ -15,6 +15,11 @@ module Knockapi
           access_token_object: String,
           ?request_options: Knockapi::request_opts
         ) -> void
+
+        def to_hash: -> {
+          access_token_object: String,
+          request_options: Knockapi::RequestOptions
+        }
       end
     end
   end

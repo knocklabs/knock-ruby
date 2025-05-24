@@ -9,7 +9,7 @@ module Knockapi
         channel_id: String,
         clicked_at: Time?,
         data: ::Hash[Symbol, top]?,
-        engagement_statuses: ::Array[Knockapi::Message::engagement_status],
+        engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
         inserted_at: Time,
         interacted_at: Time?,
         link_clicked_at: Time?,
@@ -19,7 +19,7 @@ module Knockapi
         scheduled_at: Time?,
         seen_at: Time?,
         source: Knockapi::Message::Source,
-        status: Knockapi::Message::status,
+        status: Knockapi::Models::Message::status,
         tenant: String?,
         updated_at: Time,
         workflow: String?
@@ -50,11 +50,11 @@ module Knockapi
 
       attr_accessor data: ::Hash[Symbol, top]?
 
-      attr_reader engagement_statuses: ::Array[Knockapi::Message::engagement_status]?
+      attr_reader engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status]?
 
       def engagement_statuses=: (
-        ::Array[Knockapi::Message::engagement_status]
-      ) -> ::Array[Knockapi::Message::engagement_status]
+        ::Array[Knockapi::Models::Message::engagement_status]
+      ) -> ::Array[Knockapi::Models::Message::engagement_status]
 
       attr_reader inserted_at: Time?
 
@@ -82,9 +82,11 @@ module Knockapi
 
       def source=: (Knockapi::Message::Source) -> Knockapi::Message::Source
 
-      attr_reader status: Knockapi::Message::status?
+      attr_reader status: Knockapi::Models::Message::status?
 
-      def status=: (Knockapi::Message::status) -> Knockapi::Message::status
+      def status=: (
+        Knockapi::Models::Message::status
+      ) -> Knockapi::Models::Message::status
 
       attr_accessor tenant: String?
 
@@ -102,7 +104,7 @@ module Knockapi
         ?channel_id: String,
         ?clicked_at: Time?,
         ?data: ::Hash[Symbol, top]?,
-        ?engagement_statuses: ::Array[Knockapi::Message::engagement_status],
+        ?engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
         ?inserted_at: Time,
         ?interacted_at: Time?,
         ?link_clicked_at: Time?,
@@ -112,11 +114,35 @@ module Knockapi
         ?scheduled_at: Time?,
         ?seen_at: Time?,
         ?source: Knockapi::Message::Source,
-        ?status: Knockapi::Message::status,
+        ?status: Knockapi::Models::Message::status,
         ?tenant: String?,
         ?updated_at: Time,
         ?workflow: String?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        _typename: String,
+        actors: ::Array[Knockapi::Models::recipient_reference],
+        archived_at: Time?,
+        channel_id: String,
+        clicked_at: Time?,
+        data: ::Hash[Symbol, top]?,
+        engagement_statuses: ::Array[Knockapi::Models::Message::engagement_status],
+        inserted_at: Time,
+        interacted_at: Time?,
+        link_clicked_at: Time?,
+        metadata: ::Hash[Symbol, top]?,
+        read_at: Time?,
+        recipient: Knockapi::Models::recipient_reference,
+        scheduled_at: Time?,
+        seen_at: Time?,
+        source: Knockapi::Message::Source,
+        status: Knockapi::Models::Message::status,
+        tenant: String?,
+        updated_at: Time,
+        workflow: String?
+      }
 
       type engagement_status =
         :seen | :read | :interacted | :link_clicked | :archived
@@ -130,7 +156,7 @@ module Knockapi
         LINK_CLICKED: :link_clicked
         ARCHIVED: :archived
 
-        def self?.values: -> ::Array[Knockapi::Message::engagement_status]
+        def self?.values: -> ::Array[Knockapi::Models::Message::engagement_status]
       end
 
       type source =
@@ -156,6 +182,13 @@ module Knockapi
           key: String,
           version_id: String
         ) -> void
+
+        def to_hash: -> {
+          _typename: String,
+          categories: ::Array[String],
+          key: String,
+          version_id: String
+        }
       end
 
       type status =
@@ -178,7 +211,7 @@ module Knockapi
         NOT_SENT: :not_sent
         BOUNCED: :bounced
 
-        def self?.values: -> ::Array[Knockapi::Message::status]
+        def self?.values: -> ::Array[Knockapi::Models::Message::status]
       end
     end
   end

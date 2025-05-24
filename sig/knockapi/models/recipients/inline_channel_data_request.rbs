@@ -11,11 +11,11 @@ module Knockapi
       module InlineChannelDataRequestItem
         extend Knockapi::Internal::Type::Union
 
-        def self?.variants: -> ::Array[Knockapi::Recipients::inline_channel_data_request_item]
+        def self?.variants: -> ::Array[Knockapi::Models::Recipients::inline_channel_data_request_item]
       end
 
       type inline_channel_data_request =
-        ::Hash[Symbol, Knockapi::Recipients::inline_channel_data_request_item]
+        ::Hash[Symbol, Knockapi::Models::Recipients::inline_channel_data_request_item]
 
       InlineChannelDataRequest: Knockapi::Internal::Type::Converter
     end

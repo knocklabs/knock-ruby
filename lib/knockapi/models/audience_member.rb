@@ -20,7 +20,7 @@ module Knockapi
       #   receive notifications through Knock. Users are the most common recipients of
       #   notifications and are always referenced by your internal identifier.
       #
-      #   @return [Knockapi::User]
+      #   @return [Knockapi::Models::User]
       required :user, -> { Knockapi::User }
 
       # @!attribute user_id
@@ -36,8 +36,8 @@ module Knockapi
       optional :tenant, String, nil?: true
 
       # @!method initialize(_typename:, added_at:, user:, user_id:, tenant: nil)
-      #   Some parameter documentations has been truncated, see {Knockapi::AudienceMember}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::AudienceMember} for more details.
       #
       #   An audience member.
       #
@@ -45,7 +45,7 @@ module Knockapi
       #
       #   @param added_at [Time] Timestamp when the resource was created.
       #
-      #   @param user [Knockapi::User] A [User](/concepts/users) represents an individual in your system who can receiv
+      #   @param user [Knockapi::Models::User] A [User](/concepts/users) represents an individual in your system who can receiv
       #
       #   @param user_id [String] The ID for the user that you set when identifying them in Knock.
       #

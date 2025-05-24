@@ -4,7 +4,7 @@ module Knockapi
       {
         after: String,
         before: String,
-        include: ::Array[Knockapi::ObjectListSubscriptionsParams::include_],
+        include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
         mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
         objects: ::Array[Knockapi::ObjectListSubscriptionsParams::Object],
         page_size: Integer,
@@ -24,11 +24,11 @@ module Knockapi
 
       def before=: (String) -> String
 
-      attr_reader include: ::Array[Knockapi::ObjectListSubscriptionsParams::include_]?
+      attr_reader include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]?
 
       def include=: (
-        ::Array[Knockapi::ObjectListSubscriptionsParams::include_]
-      ) -> ::Array[Knockapi::ObjectListSubscriptionsParams::include_]
+        ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]
+      ) -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]
 
       attr_reader mode: Knockapi::Models::ObjectListSubscriptionsParams::mode?
 
@@ -55,13 +55,24 @@ module Knockapi
       def initialize: (
         ?after: String,
         ?before: String,
-        ?include: ::Array[Knockapi::ObjectListSubscriptionsParams::include_],
+        ?include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
         ?mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
         ?objects: ::Array[Knockapi::ObjectListSubscriptionsParams::Object],
         ?page_size: Integer,
         ?recipients: ::Array[Knockapi::Models::recipient_reference],
         ?request_options: Knockapi::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after: String,
+        before: String,
+        include: ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_],
+        mode: Knockapi::Models::ObjectListSubscriptionsParams::mode,
+        objects: ::Array[Knockapi::ObjectListSubscriptionsParams::Object],
+        page_size: Integer,
+        recipients: ::Array[Knockapi::Models::recipient_reference],
+        request_options: Knockapi::RequestOptions
+      }
 
       type include_ = :preferences
 
@@ -70,7 +81,7 @@ module Knockapi
 
         PREFERENCES: :preferences
 
-        def self?.values: -> ::Array[Knockapi::ObjectListSubscriptionsParams::include_]
+        def self?.values: -> ::Array[Knockapi::Models::ObjectListSubscriptionsParams::include_]
       end
 
       type mode = :recipient | :object
@@ -96,6 +107,8 @@ module Knockapi
         def collection=: (String) -> String
 
         def initialize: (?id: String, ?collection: String) -> void
+
+        def to_hash: -> { id: String, collection: String }
       end
     end
   end

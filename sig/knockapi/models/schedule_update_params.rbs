@@ -44,6 +44,17 @@ module Knockapi
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
       ) -> void
+
+      def to_hash: -> {
+        schedule_ids: ::Array[String],
+        actor: Knockapi::Models::recipient_reference?,
+        data: ::Hash[Symbol, top]?,
+        ending_at: Time?,
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
+        scheduled_at: Time?,
+        tenant: Knockapi::Models::inline_tenant_request?,
+        request_options: Knockapi::RequestOptions
+      }
     end
   end
 end
