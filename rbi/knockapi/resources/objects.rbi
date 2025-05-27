@@ -197,7 +197,7 @@ module Knockapi
           workflow_recipient_run_id: String,
           workflow_run_id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Message])
+        ).returns(Knockapi::Internal::ItemsCursor[Knockapi::Message])
       end
       def list_messages(
         # The collection this object belongs to.

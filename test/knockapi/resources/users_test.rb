@@ -150,7 +150,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.list_messages("user_id")
 
     assert_pattern do
-      response => Knockapi::Internal::EntriesCursor
+      response => Knockapi::Internal::ItemsCursor
     end
 
     row = response.to_enum.first

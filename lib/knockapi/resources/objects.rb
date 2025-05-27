@@ -239,7 +239,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Message>]
       #
       # @see Knockapi::Models::ObjectListMessagesParams
       def list_messages(collection, id, params = {})
@@ -248,7 +248,7 @@ module Knockapi
           method: :get,
           path: ["v1/objects/%1$s/%2$s/messages", collection, id],
           query: parsed,
-          page: Knockapi::Internal::EntriesCursor,
+          page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Message,
           options: options
         )

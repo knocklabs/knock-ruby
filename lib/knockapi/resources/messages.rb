@@ -43,7 +43,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Message>]
       #
       # @see Knockapi::Models::MessageListParams
       def list(params = {})
@@ -52,7 +52,7 @@ module Knockapi
           method: :get,
           path: "v1/messages",
           query: parsed,
-          page: Knockapi::Internal::EntriesCursor,
+          page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Message,
           options: options
         )
@@ -165,7 +165,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::MessageDeliveryLog>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::MessageDeliveryLog>]
       #
       # @see Knockapi::Models::MessageListDeliveryLogsParams
       def list_delivery_logs(message_id, params = {})
@@ -174,7 +174,7 @@ module Knockapi
           method: :get,
           path: ["v1/messages/%1$s/delivery_logs", message_id],
           query: parsed,
-          page: Knockapi::Internal::EntriesCursor,
+          page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::MessageDeliveryLog,
           options: options
         )
@@ -194,7 +194,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::MessageEvent>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::MessageEvent>]
       #
       # @see Knockapi::Models::MessageListEventsParams
       def list_events(message_id, params = {})
@@ -203,7 +203,7 @@ module Knockapi
           method: :get,
           path: ["v1/messages/%1$s/events", message_id],
           query: parsed,
-          page: Knockapi::Internal::EntriesCursor,
+          page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::MessageEvent,
           options: options
         )

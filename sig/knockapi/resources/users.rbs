@@ -69,7 +69,7 @@ module Knockapi
         ?workflow_recipient_run_id: String,
         ?workflow_run_id: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Message]
+      ) -> Knockapi::Internal::ItemsCursor[Knockapi::Message]
 
       def list_preferences: (
         String user_id,
