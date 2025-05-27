@@ -10,8 +10,8 @@ module Knockapi
     #   end
     #
     # @example
-    #   items_cursor.auto_paging_each do |message|
-    #     puts(message)
+    #   items_cursor.auto_paging_each do |user|
+    #     puts(user)
     #   end
     class ItemsCursor
       include Knockapi::Internal::Type::BasePage

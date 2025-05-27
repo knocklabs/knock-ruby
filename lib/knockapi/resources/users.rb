@@ -217,7 +217,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Message>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Message>]
       #
       # @see Knockapi::Models::UserListMessagesParams
       def list_messages(user_id, params = {})
@@ -226,7 +226,7 @@ module Knockapi
           method: :get,
           path: ["v1/users/%1$s/messages", user_id],
           query: parsed,
-          page: Knockapi::Internal::EntriesCursor,
+          page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Message,
           options: options
         )

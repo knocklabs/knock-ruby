@@ -19,7 +19,7 @@ module Knockapi
         ?workflow_recipient_run_id: String,
         ?workflow_run_id: String,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Internal::EntriesCursor[Knockapi::Message]
+      ) -> Knockapi::Internal::ItemsCursor[Knockapi::Message]
 
       def archive: (
         String message_id,
@@ -51,7 +51,7 @@ module Knockapi
         ?before: String,
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Internal::EntriesCursor[Knockapi::MessageDeliveryLog]
+      ) -> Knockapi::Internal::ItemsCursor[Knockapi::MessageDeliveryLog]
 
       def list_events: (
         String message_id,
@@ -59,7 +59,7 @@ module Knockapi
         ?before: String,
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Internal::EntriesCursor[Knockapi::MessageEvent]
+      ) -> Knockapi::Internal::ItemsCursor[Knockapi::MessageEvent]
 
       def mark_as_interacted: (
         String message_id,
