@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.3.0 (2025-05-28)
+
+Full Changelog: [v1.2.0...v1.3.0](https://github.com/knocklabs/knock-ruby/compare/v1.2.0...v1.3.0)
+
+### Features
+
+* **api:** api update ([c47c0e6](https://github.com/knocklabs/knock-ruby/commit/c47c0e68992f447af50889cd4435d136e5fa2904))
+* **api:** api update ([346b571](https://github.com/knocklabs/knock-ruby/commit/346b571779ade48f5954f018ab3f7d8f8dbdbdd9))
+
+
+### Bug Fixes
+
+* prevent rubocop from mangling `===` to `is_a?` check ([9ddd5e9](https://github.com/knocklabs/knock-ruby/commit/9ddd5e93e0ffb56f07a5216f64ff7a4eaab43468))
+* sorbet types for enums, and make tapioca detection ignore `tapioca dsl` ([83ce737](https://github.com/knocklabs/knock-ruby/commit/83ce737225a0be39758aa1affcef2352a7e02502))
+
+
+### Chores
+
+* **docs:** grammar improvements ([3913113](https://github.com/knocklabs/knock-ruby/commit/3913113994e8e2e203fe2ab60a6e5fd817a130c5))
+* force utf-8 locale via `RUBYOPT` when formatting ([ec69c77](https://github.com/knocklabs/knock-ruby/commit/ec69c77c94ba059d577798a05098847bb304b36b))
+* use fully qualified names for yard annotations and rbs aliases ([ef4ddca](https://github.com/knocklabs/knock-ruby/commit/ef4ddca29f6bfa5d707415ee12e18a08738a3293))
+
 ## 1.2.0 (2025-05-21)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/knocklabs/knock-ruby/compare/v1.1.0...v1.2.0)
