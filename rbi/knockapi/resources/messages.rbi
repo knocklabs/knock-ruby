@@ -25,7 +25,7 @@ module Knockapi
           workflow_recipient_run_id: String,
           workflow_run_id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Message])
+        ).returns(Knockapi::Internal::ItemsCursor[Knockapi::Message])
       end
       def list(
         # The cursor to fetch entries after.
@@ -141,9 +141,7 @@ module Knockapi
           before: String,
           page_size: Integer,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(
-          Knockapi::Internal::EntriesCursor[Knockapi::MessageDeliveryLog]
-        )
+        ).returns(Knockapi::Internal::ItemsCursor[Knockapi::MessageDeliveryLog])
       end
       def list_delivery_logs(
         # The ID of the message to fetch delivery logs for.
@@ -166,7 +164,7 @@ module Knockapi
           before: String,
           page_size: Integer,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(Knockapi::Internal::EntriesCursor[Knockapi::MessageEvent])
+        ).returns(Knockapi::Internal::ItemsCursor[Knockapi::MessageEvent])
       end
       def list_events(
         # The ID of the message to fetch events for.

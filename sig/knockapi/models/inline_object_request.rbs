@@ -27,6 +27,14 @@ module Knockapi
         ?created_at: Time?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        collection: String,
+        channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        created_at: Time?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?
+      }
     end
   end
 end

@@ -43,7 +43,7 @@ module Knockapi
       # @!attribute status
       #   The status of the bulk operation.
       #
-      #   @return [Symbol, Knockapi::BulkOperation::Status]
+      #   @return [Symbol, Knockapi::Models::BulkOperation::Status]
       required :status, enum: -> { Knockapi::BulkOperation::Status }
 
       # @!attribute success_count
@@ -73,7 +73,7 @@ module Knockapi
       # @!attribute error_items
       #   A list of items that failed to be processed.
       #
-      #   @return [Array<Knockapi::BulkOperation::ErrorItem>, nil]
+      #   @return [Array<Knockapi::Models::BulkOperation::ErrorItem>, nil]
       optional :error_items, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::BulkOperation::ErrorItem] }
 
       # @!attribute failed_at
@@ -109,7 +109,7 @@ module Knockapi
       #
       #   @param processed_rows [Integer] The number of rows processed so far.
       #
-      #   @param status [Symbol, Knockapi::BulkOperation::Status] The status of the bulk operation.
+      #   @param status [Symbol, Knockapi::Models::BulkOperation::Status] The status of the bulk operation.
       #
       #   @param success_count [Integer] The number of successful operations.
       #
@@ -119,7 +119,7 @@ module Knockapi
       #
       #   @param error_count [Integer] The number of failed operations.
       #
-      #   @param error_items [Array<Knockapi::BulkOperation::ErrorItem>] A list of items that failed to be processed.
+      #   @param error_items [Array<Knockapi::Models::BulkOperation::ErrorItem>] A list of items that failed to be processed.
       #
       #   @param failed_at [Time, nil] Timestamp when the bulk operation failed.
       #
@@ -129,7 +129,7 @@ module Knockapi
 
       # The status of the bulk operation.
       #
-      # @see Knockapi::BulkOperation#status
+      # @see Knockapi::Models::BulkOperation#status
       module Status
         extend Knockapi::Internal::Type::Enum
 

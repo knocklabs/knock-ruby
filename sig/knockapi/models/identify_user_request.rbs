@@ -43,6 +43,18 @@ module Knockapi
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?timezone: String?
       ) -> void
+
+      def to_hash: -> {
+        avatar: String?,
+        channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        created_at: Time?,
+        email: String?,
+        locale: String?,
+        name: String?,
+        phone_number: String?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        timezone: String?
+      }
     end
   end
 end

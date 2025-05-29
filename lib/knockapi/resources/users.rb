@@ -25,7 +25,7 @@ module Knockapi
       #
       # @param avatar [String, nil] URL to the user's avatar image.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       # @param created_at [Time, nil] The creation date of the user from your system.
       #
@@ -37,13 +37,13 @@ module Knockapi
       #
       # @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
       #
-      # @param preferences [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
       #
       # @param timezone [String, nil] The timezone of the user. Must be a valid [tz database time zone string](https:/
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::User]
+      # @return [Knockapi::Models::User]
       #
       # @see Knockapi::Models::UserUpdateParams
       def update(user_id, params = {})
@@ -66,13 +66,13 @@ module Knockapi
       #
       # @param before [String] The cursor to fetch entries before.
       #
-      # @param include [Array<Symbol, Knockapi::UserListParams::Include>] Associated resources to include in the response.
+      # @param include [Array<Symbol, Knockapi::Models::UserListParams::Include>] Associated resources to include in the response.
       #
       # @param page_size [Integer] The number of items per page.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::User>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::User>]
       #
       # @see Knockapi::Models::UserListParams
       def list(params = {})
@@ -115,7 +115,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::User]
+      # @return [Knockapi::Models::User]
       #
       # @see Knockapi::Models::UserGetParams
       def get(user_id, params = {})
@@ -137,7 +137,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Recipients::RecipientsChannelData]
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::UserGetChannelDataParams
       def get_channel_data(user_id, channel_id, params = {})
@@ -162,7 +162,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Recipients::PreferenceSet]
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
       #
       # @see Knockapi::Models::UserGetPreferencesParams
       def get_preferences(user_id, id, params = {})
@@ -193,9 +193,9 @@ module Knockapi
       #
       # @param channel_id [String] Limits the results to items with the corresponding channel ID.
       #
-      # @param engagement_status [Array<Symbol, Knockapi::UserListMessagesParams::EngagementStatus>] Limits the results to messages with the given engagement status.
+      # @param engagement_status [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>] Limits the results to messages with the given engagement status.
       #
-      # @param inserted_at [Knockapi::UserListMessagesParams::InsertedAt]
+      # @param inserted_at [Knockapi::Models::UserListMessagesParams::InsertedAt]
       #
       # @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
       #
@@ -203,7 +203,7 @@ module Knockapi
       #
       # @param source [String] Limits the results to messages triggered by the given workflow key.
       #
-      # @param status [Array<Symbol, Knockapi::UserListMessagesParams::Status>] Limits the results to messages with the given delivery status.
+      # @param status [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>] Limits the results to messages with the given delivery status.
       #
       # @param tenant [String] Limits the results to items with the corresponding tenant.
       #
@@ -217,7 +217,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Message>]
+      # @return [Knockapi::Internal::ItemsCursor<Knockapi::Models::Message>]
       #
       # @see Knockapi::Models::UserListMessagesParams
       def list_messages(user_id, params = {})
@@ -226,7 +226,7 @@ module Knockapi
           method: :get,
           path: ["v1/users/%1$s/messages", user_id],
           query: parsed,
-          page: Knockapi::Internal::EntriesCursor,
+          page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Message,
           options: options
         )
@@ -240,7 +240,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Knockapi::Recipients::PreferenceSet>]
+      # @return [Array<Knockapi::Models::Recipients::PreferenceSet>]
       #
       # @see Knockapi::Models::UserListPreferencesParams
       def list_preferences(user_id, params = {})
@@ -270,7 +270,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Schedule>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Schedule>]
       #
       # @see Knockapi::Models::UserListSchedulesParams
       def list_schedules(user_id, params = {})
@@ -296,7 +296,7 @@ module Knockapi
       #
       # @param before [String] The cursor to fetch entries before.
       #
-      # @param include [Array<Symbol, Knockapi::UserListSubscriptionsParams::Include>] Associated resources to include in the response.
+      # @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>] Associated resources to include in the response.
       #
       # @param objects [Array<String>] Only returns subscriptions for the specified object GIDs.
       #
@@ -304,7 +304,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Recipients::Subscription>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Recipients::Subscription>]
       #
       # @see Knockapi::Models::UserListSubscriptionsParams
       def list_subscriptions(user_id, params = {})
@@ -330,7 +330,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::User]
+      # @return [Knockapi::Models::User]
       #
       # @see Knockapi::Models::UserMergeParams
       def merge(user_id, params)
@@ -352,11 +352,11 @@ module Knockapi
       #
       # @param channel_id [String] The unique identifier for the channel.
       #
-      # @param data [Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData] Channel data for a given channel type.
+      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Recipients::RecipientsChannelData]
+      # @return [Knockapi::Models::Recipients::RecipientsChannelData]
       #
       # @see Knockapi::Models::UserSetChannelDataParams
       def set_channel_data(user_id, channel_id, params)
@@ -382,15 +382,15 @@ module Knockapi
       #
       # @param id [String] Unique identifier for the preference set.
       #
-      # @param categories [Hash{Symbol=>Boolean, Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
+      # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
       #
-      # @param channel_types [Knockapi::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+      # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
       #
-      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
+      # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Recipients::PreferenceSet]
+      # @return [Knockapi::Models::Recipients::PreferenceSet]
       #
       # @see Knockapi::Models::UserSetPreferencesParams
       def set_preferences(user_id, id, params = {})

@@ -22,7 +22,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Tenant>]
+      # @return [Knockapi::Internal::EntriesCursor<Knockapi::Models::Tenant>]
       #
       # @see Knockapi::Models::TenantListParams
       def list(params = {})
@@ -65,7 +65,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Tenant]
+      # @return [Knockapi::Models::Tenant]
       #
       # @see Knockapi::Models::TenantGetParams
       def get(id, params = {})
@@ -84,15 +84,15 @@ module Knockapi
       #
       # @param id [String] The unique identifier for the tenant.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
-      # @param preferences [Hash{Symbol=>Knockapi::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
+      # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
       #
-      # @param settings [Knockapi::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
+      # @param settings [Knockapi::Models::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Tenant]
+      # @return [Knockapi::Models::Tenant]
       #
       # @see Knockapi::Models::TenantSetParams
       def set(id, params = {})

@@ -23,7 +23,7 @@ module Knockapi
         variant -> { Knockapi::Recipients::DiscordChannelData }
 
         # @!method self.variants
-        #   @return [Array(Knockapi::Recipients::PushChannelData, Knockapi::Recipients::OneSignalChannelData, Knockapi::Recipients::SlackChannelData, Knockapi::Recipients::MsTeamsChannelData, Knockapi::Recipients::DiscordChannelData)]
+        #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]
       end
 
       # @type [Knockapi::Internal::Type::Converter]

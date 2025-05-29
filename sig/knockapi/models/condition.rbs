@@ -3,22 +3,28 @@ module Knockapi
     type condition =
       {
         argument: String?,
-        operator: Knockapi::Condition::operator,
+        operator: Knockapi::Models::Condition::operator,
         variable: String
       }
 
     class Condition < Knockapi::Internal::Type::BaseModel
       attr_accessor argument: String?
 
-      attr_accessor operator: Knockapi::Condition::operator
+      attr_accessor operator: Knockapi::Models::Condition::operator
 
       attr_accessor variable: String
 
       def initialize: (
         argument: String?,
-        operator: Knockapi::Condition::operator,
+        operator: Knockapi::Models::Condition::operator,
         variable: String
       ) -> void
+
+      def to_hash: -> {
+        argument: String?,
+        operator: Knockapi::Models::Condition::operator,
+        variable: String
+      }
 
       type operator =
         :equal_to
@@ -62,7 +68,7 @@ module Knockapi
         IS_AUDIENCE_MEMBER: :is_audience_member
         IS_NOT_AUDIENCE_MEMBER: :is_not_audience_member
 
-        def self?.values: -> ::Array[Knockapi::Condition::operator]
+        def self?.values: -> ::Array[Knockapi::Models::Condition::operator]
       end
     end
   end

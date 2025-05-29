@@ -28,6 +28,13 @@ module Knockapi
         ?settings: Knockapi::TenantRequest::Settings
       ) -> void
 
+      def to_hash: -> {
+        id: String,
+        channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
+        settings: Knockapi::TenantRequest::Settings
+      }
+
       type settings =
         {
           branding: Knockapi::TenantRequest::Settings::Branding,
@@ -47,6 +54,11 @@ module Knockapi
           ?branding: Knockapi::TenantRequest::Settings::Branding,
           ?preference_set: Knockapi::Recipients::PreferenceSetRequest?
         ) -> void
+
+        def to_hash: -> {
+          branding: Knockapi::TenantRequest::Settings::Branding,
+          preference_set: Knockapi::Recipients::PreferenceSetRequest?
+        }
 
         type branding =
           {
@@ -71,6 +83,13 @@ module Knockapi
             ?primary_color: String?,
             ?primary_color_contrast: String?
           ) -> void
+
+          def to_hash: -> {
+            icon_url: String?,
+            logo_url: String?,
+            primary_color: String?,
+            primary_color_contrast: String?
+          }
         end
       end
     end

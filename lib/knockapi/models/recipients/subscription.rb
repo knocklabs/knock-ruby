@@ -19,13 +19,13 @@ module Knockapi
         # @!attribute object
         #   A custom [Object](/concepts/objects) entity which belongs to a collection.
         #
-        #   @return [Knockapi::Object]
+        #   @return [Knockapi::Models::Object]
         required :object, -> { Knockapi::Object }
 
         # @!attribute recipient
         #   A recipient of a notification, which is either a user or an object.
         #
-        #   @return [Knockapi::User, Knockapi::Object]
+        #   @return [Knockapi::Models::User, Knockapi::Models::Object]
         required :recipient, union: -> { Knockapi::Recipient }
 
         # @!attribute updated_at
@@ -47,9 +47,9 @@ module Knockapi
         #
         #   @param inserted_at [Time] Timestamp when the resource was created.
         #
-        #   @param object [Knockapi::Object] A custom [Object](/concepts/objects) entity which belongs to a collection.
+        #   @param object [Knockapi::Models::Object] A custom [Object](/concepts/objects) entity which belongs to a collection.
         #
-        #   @param recipient [Knockapi::User, Knockapi::Object] A recipient of a notification, which is either a user or an object.
+        #   @param recipient [Knockapi::Models::User, Knockapi::Models::Object] A recipient of a notification, which is either a user or an object.
         #
         #   @param updated_at [Time] The timestamp when the resource was last updated.
         #

@@ -7,6 +7,8 @@ module Knockapi
         attr_accessor status: String
 
         def initialize: (status: String) -> void
+
+        def to_hash: -> { status: String }
       end
     end
   end

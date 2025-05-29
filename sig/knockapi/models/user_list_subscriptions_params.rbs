@@ -4,7 +4,7 @@ module Knockapi
       {
         after: String,
         before: String,
-        include: ::Array[Knockapi::UserListSubscriptionsParams::include_],
+        include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
         objects: ::Array[String],
         page_size: Integer
       }
@@ -22,11 +22,11 @@ module Knockapi
 
       def before=: (String) -> String
 
-      attr_reader include: ::Array[Knockapi::UserListSubscriptionsParams::include_]?
+      attr_reader include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]?
 
       def include=: (
-        ::Array[Knockapi::UserListSubscriptionsParams::include_]
-      ) -> ::Array[Knockapi::UserListSubscriptionsParams::include_]
+        ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
+      ) -> ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
 
       attr_reader objects: ::Array[String]?
 
@@ -39,11 +39,20 @@ module Knockapi
       def initialize: (
         ?after: String,
         ?before: String,
-        ?include: ::Array[Knockapi::UserListSubscriptionsParams::include_],
+        ?include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
         ?objects: ::Array[String],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after: String,
+        before: String,
+        include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
+        objects: ::Array[String],
+        page_size: Integer,
+        request_options: Knockapi::RequestOptions
+      }
 
       type include_ = :preferences
 
@@ -52,7 +61,7 @@ module Knockapi
 
         PREFERENCES: :preferences
 
-        def self?.values: -> ::Array[Knockapi::UserListSubscriptionsParams::include_]
+        def self?.values: -> ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
       end
     end
   end

@@ -6,6 +6,8 @@ module Knockapi
       attr_accessor workflow_run_id: String
 
       def initialize: (workflow_run_id: String) -> void
+
+      def to_hash: -> { workflow_run_id: String }
     end
   end
 end

@@ -26,6 +26,12 @@ module Knockapi
           ?request_options: Knockapi::request_opts
         ) -> void
 
+        def to_hash: -> {
+          ms_teams_tenant_object: String,
+          query_options: Knockapi::Providers::MsTeamListTeamsParams::QueryOptions,
+          request_options: Knockapi::RequestOptions
+        }
+
         type query_options =
           { filter: String, select_: String, skiptoken: String, top: Integer }
 
@@ -52,6 +58,13 @@ module Knockapi
             ?skiptoken: String,
             ?top: Integer
           ) -> void
+
+          def to_hash: -> {
+            filter: String,
+            select_: String,
+            skiptoken: String,
+            top: Integer
+          }
         end
       end
     end

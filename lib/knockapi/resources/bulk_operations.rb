@@ -11,7 +11,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::BulkOperation]
+      # @return [Knockapi::Models::BulkOperation]
       #
       # @see Knockapi::Models::BulkOperationGetParams
       def get(id, params = {})
