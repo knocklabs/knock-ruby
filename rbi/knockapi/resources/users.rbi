@@ -325,7 +325,9 @@ module Knockapi
       )
       end
 
-      # Updates or creates channel data for a specific user and channel ID.
+      # Updates or creates channel data for a specific user and channel ID. If no user
+      # exists in the current environment for the given `user_id`, Knock will create the
+      # user entry as part of this request.
       sig do
         params(
           user_id: String,
