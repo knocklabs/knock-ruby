@@ -13,17 +13,19 @@ module Knockapi
       #   @return [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>]
       required :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientRequest] }
 
-      # @!attribute repeats
-      #   The repeat rule for the schedule.
-      #
-      #   @return [Array<Knockapi::Models::ScheduleRepeatRule>]
-      required :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule] }
-
       # @!attribute workflow
       #   The key of the workflow.
       #
       #   @return [String]
       required :workflow, String
+
+      # @!attribute actor
+      #   Specifies a recipient in a request. This can either be a user identifier
+      #   (string), an inline user request (object), or an inline object request, which is
+      #   determined by the presence of a `collection` property.
+      #
+      #   @return [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil]
+      optional :actor, union: -> { Knockapi::RecipientRequest }, nil?: true
 
       # @!attribute data
       #   An optional map of data to pass into the workflow execution. There is a 1024
@@ -40,6 +42,12 @@ module Knockapi
       #   @return [Time, nil]
       optional :ending_at, Time, nil?: true
 
+      # @!attribute repeats
+      #   The repeat rule for the schedule.
+      #
+      #   @return [Array<Knockapi::Models::ScheduleRepeatRule>, nil]
+      optional :repeats, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ScheduleRepeatRule] }
+
       # @!attribute scheduled_at
       #   The starting date and time for the schedule.
       #
@@ -52,19 +60,21 @@ module Knockapi
       #   @return [String, Knockapi::Models::TenantRequest, nil]
       optional :tenant, union: -> { Knockapi::InlineTenantRequest }, nil?: true
 
-      # @!method initialize(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
+      # @!method initialize(recipients:, workflow:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ScheduleCreateParams} for more details.
       #
       #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to set the schedule for. Limited to 100 recipients per request.
       #
-      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
-      #
       #   @param workflow [String] The key of the workflow.
+      #
+      #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
       #
       #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
       #
       #   @param ending_at [Time, nil] The ending date and time for the schedule.
+      #
+      #   @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       #   @param scheduled_at [Time, nil] The starting date and time for the schedule.
       #
