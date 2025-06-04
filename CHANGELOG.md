@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.5.0 (2025-06-04)
+
+Full Changelog: [v1.4.0...v1.5.0](https://github.com/knocklabs/knock-ruby/compare/v1.4.0...v1.5.0)
+
+### Features
+
+* **api:** api update ([b4a8a6f](https://github.com/knocklabs/knock-ruby/commit/b4a8a6f6bd5451fb68be75c19b5b08b7629543cc))
+
+
+### Bug Fixes
+
+* `to_sorbet_type` should not return branded types ([2fe0597](https://github.com/knocklabs/knock-ruby/commit/2fe05973673d02ced0a04abc32f0ea079ff9313f))
+
 ## 1.4.0 (2025-05-29)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/knocklabs/knock-ruby/compare/v1.3.0...v1.4.0)
