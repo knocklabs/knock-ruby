@@ -5,10 +5,11 @@ module Knockapi
 
       def create: (
         recipients: ::Array[Knockapi::Models::recipient_request],
-        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         workflow: String,
+        ?actor: Knockapi::Models::recipient_request?,
         ?data: ::Hash[Symbol, top]?,
         ?ending_at: Time?,
+        ?repeats: ::Array[Knockapi::ScheduleRepeatRule],
         ?scheduled_at: Time?,
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts

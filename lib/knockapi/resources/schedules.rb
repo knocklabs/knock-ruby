@@ -15,17 +15,19 @@ module Knockapi
       # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
       # for the `actor`, `recipient`, and `tenant` fields.
       #
-      # @overload create(recipients:, repeats:, workflow:, data: nil, ending_at: nil, scheduled_at: nil, tenant: nil, request_options: {})
+      # @overload create(recipients:, workflow:, actor: nil, data: nil, ending_at: nil, repeats: nil, scheduled_at: nil, tenant: nil, request_options: {})
       #
       # @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to set the schedule for. Limited to 100 recipients per request.
       #
-      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
-      #
       # @param workflow [String] The key of the workflow.
+      #
+      # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
       #
       # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
       #
       # @param ending_at [Time, nil] The ending date and time for the schedule.
+      #
+      # @param repeats [Array<Knockapi::Models::ScheduleRepeatRule>] The repeat rule for the schedule.
       #
       # @param scheduled_at [Time, nil] The starting date and time for the schedule.
       #
