@@ -21,10 +21,18 @@ module Knockapi
                 Knockapi::InlineObjectRequest::OrHash
               )
             ],
-          repeats: T::Array[Knockapi::ScheduleRepeatRule::OrHash],
           workflow: String,
+          actor:
+            T.nilable(
+              T.any(
+                String,
+                Knockapi::InlineIdentifyUserRequest::OrHash,
+                Knockapi::InlineObjectRequest::OrHash
+              )
+            ),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           ending_at: T.nilable(Time),
+          repeats: T::Array[Knockapi::ScheduleRepeatRule::OrHash],
           scheduled_at: T.nilable(Time),
           tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash)),
           request_options: Knockapi::RequestOptions::OrHash
@@ -33,10 +41,12 @@ module Knockapi
       def create(
         # The recipients to set the schedule for. Limited to 100 recipients per request.
         recipients:,
-        # The repeat rule for the schedule.
-        repeats:,
         # The key of the workflow.
         workflow:,
+        # Specifies a recipient in a request. This can either be a user identifier
+        # (string), an inline user request (object), or an inline object request, which is
+        # determined by the presence of a `collection` property.
+        actor: nil,
         # An optional map of data to pass into the workflow execution. There is a 1024
         # byte limit on the size of any single string value (with the exception of
         # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
@@ -44,6 +54,8 @@ module Knockapi
         data: nil,
         # The ending date and time for the schedule.
         ending_at: nil,
+        # The repeat rule for the schedule.
+        repeats: nil,
         # The starting date and time for the schedule.
         scheduled_at: nil,
         # An request to set a tenant inline.

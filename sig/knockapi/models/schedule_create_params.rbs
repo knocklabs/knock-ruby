@@ -3,10 +3,11 @@ module Knockapi
     type schedule_create_params =
       {
         recipients: ::Array[Knockapi::Models::recipient_request],
-        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         workflow: String,
+        actor: Knockapi::Models::recipient_request?,
         data: ::Hash[Symbol, top]?,
         ending_at: Time?,
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         scheduled_at: Time?,
         tenant: Knockapi::Models::inline_tenant_request?
       }
@@ -18,13 +19,19 @@ module Knockapi
 
       attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
 
-      attr_accessor repeats: ::Array[Knockapi::ScheduleRepeatRule]
-
       attr_accessor workflow: String
+
+      attr_accessor actor: Knockapi::Models::recipient_request?
 
       attr_accessor data: ::Hash[Symbol, top]?
 
       attr_accessor ending_at: Time?
+
+      attr_reader repeats: ::Array[Knockapi::ScheduleRepeatRule]?
+
+      def repeats=: (
+        ::Array[Knockapi::ScheduleRepeatRule]
+      ) -> ::Array[Knockapi::ScheduleRepeatRule]
 
       attr_accessor scheduled_at: Time?
 
@@ -32,10 +39,11 @@ module Knockapi
 
       def initialize: (
         recipients: ::Array[Knockapi::Models::recipient_request],
-        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         workflow: String,
+        ?actor: Knockapi::Models::recipient_request?,
         ?data: ::Hash[Symbol, top]?,
         ?ending_at: Time?,
+        ?repeats: ::Array[Knockapi::ScheduleRepeatRule],
         ?scheduled_at: Time?,
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
@@ -43,10 +51,11 @@ module Knockapi
 
       def to_hash: -> {
         recipients: ::Array[Knockapi::Models::recipient_request],
-        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         workflow: String,
+        actor: Knockapi::Models::recipient_request?,
         data: ::Hash[Symbol, top]?,
         ending_at: Time?,
+        repeats: ::Array[Knockapi::ScheduleRepeatRule],
         scheduled_at: Time?,
         tenant: Knockapi::Models::inline_tenant_request?,
         request_options: Knockapi::RequestOptions
