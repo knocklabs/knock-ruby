@@ -283,7 +283,13 @@ module Knockapi
           before: String,
           include:
             T::Array[Knockapi::UserListSubscriptionsParams::Include::OrSymbol],
-          objects: T::Array[String],
+          objects:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ],
           page_size: Integer,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(
@@ -299,7 +305,7 @@ module Knockapi
         before: nil,
         # Associated resources to include in the response.
         include: nil,
-        # Only returns subscriptions for the specified object GIDs.
+        # Only returns subscriptions for the specified object references.
         objects: nil,
         # The number of items per page.
         page_size: nil,

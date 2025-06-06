@@ -2,8 +2,8 @@ module Knockapi
   module Models
     type schedule_repeat_rule =
       {
-        _typename: String,
         frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
+        _typename: String,
         day_of_month: Integer?,
         days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
         hours: Integer?,
@@ -12,9 +12,11 @@ module Knockapi
       }
 
     class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
-      attr_accessor _typename: String
-
       attr_accessor frequency: Knockapi::Models::ScheduleRepeatRule::frequency
+
+      attr_reader _typename: String?
+
+      def _typename=: (String) -> String
 
       attr_accessor day_of_month: Integer?
 
@@ -29,8 +31,8 @@ module Knockapi
       attr_accessor minutes: Integer?
 
       def initialize: (
-        _typename: String,
         frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
+        ?_typename: String,
         ?day_of_month: Integer?,
         ?days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
         ?hours: Integer?,
@@ -39,8 +41,8 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
-        _typename: String,
         frequency: Knockapi::Models::ScheduleRepeatRule::frequency,
+        _typename: String,
         day_of_month: Integer?,
         days: ::Array[Knockapi::Models::ScheduleRepeatRule::day]?,
         hours: Integer?,

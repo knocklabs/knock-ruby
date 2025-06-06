@@ -46,11 +46,29 @@ module Knockapi
       end
       attr_writer :include
 
-      # Only returns subscriptions for the specified object GIDs.
-      sig { returns(T.nilable(T::Array[String])) }
+      # Only returns subscriptions for the specified object references.
+      sig do
+        returns(
+          T.nilable(
+            T::Array[
+              T.any(String, Knockapi::RecipientReference::ObjectReference)
+            ]
+          )
+        )
+      end
       attr_reader :objects
 
-      sig { params(objects: T::Array[String]).void }
+      sig do
+        params(
+          objects:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ]
+        ).void
+      end
       attr_writer :objects
 
       # The number of items per page.
@@ -66,7 +84,13 @@ module Knockapi
           before: String,
           include:
             T::Array[Knockapi::UserListSubscriptionsParams::Include::OrSymbol],
-          objects: T::Array[String],
+          objects:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ],
           page_size: Integer,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -78,7 +102,7 @@ module Knockapi
         before: nil,
         # Associated resources to include in the response.
         include: nil,
-        # Only returns subscriptions for the specified object GIDs.
+        # Only returns subscriptions for the specified object references.
         objects: nil,
         # The number of items per page.
         page_size: nil,
@@ -95,7 +119,10 @@ module Knockapi
               T::Array[
                 Knockapi::UserListSubscriptionsParams::Include::OrSymbol
               ],
-            objects: T::Array[String],
+            objects:
+              T::Array[
+                T.any(String, Knockapi::RecipientReference::ObjectReference)
+              ],
             page_size: Integer,
             request_options: Knockapi::RequestOptions
           }

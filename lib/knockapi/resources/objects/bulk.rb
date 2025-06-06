@@ -62,7 +62,7 @@ module Knockapi
         #
         # @param collection [String] The collection this object belongs to.
         #
-        # @param objects [Array<Knockapi::Models::InlineObjectRequest>] A list of objects.
+        # @param objects [Array<Knockapi::Models::Objects::BulkSetParams::Object>] A list of objects.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

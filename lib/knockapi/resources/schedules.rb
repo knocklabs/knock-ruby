@@ -103,7 +103,7 @@ module Knockapi
       #
       # @param page_size [Integer] The number of items per page.
       #
-      # @param recipients [Array<String>] Filter by recipient IDs.
+      # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Filter by recipient references.
       #
       # @param tenant [String] Filter by tenant ID.
       #

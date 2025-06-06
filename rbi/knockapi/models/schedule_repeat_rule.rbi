@@ -8,13 +8,16 @@ module Knockapi
           T.any(Knockapi::ScheduleRepeatRule, Knockapi::Internal::AnyHash)
         end
 
-      # The typename of the schema.
-      sig { returns(String) }
-      attr_accessor :_typename
-
       # The frequency of the schedule.
       sig { returns(Knockapi::ScheduleRepeatRule::Frequency::OrSymbol) }
       attr_accessor :frequency
+
+      # The typename of the schema.
+      sig { returns(T.nilable(String)) }
+      attr_reader :_typename
+
+      sig { params(_typename: String).void }
+      attr_writer :_typename
 
       # The day of the month to repeat the schedule.
       sig { returns(T.nilable(Integer)) }
@@ -46,8 +49,8 @@ module Knockapi
       # The repeat rule for the schedule.
       sig do
         params(
-          _typename: String,
           frequency: Knockapi::ScheduleRepeatRule::Frequency::OrSymbol,
+          _typename: String,
           day_of_month: T.nilable(Integer),
           days:
             T.nilable(T::Array[Knockapi::ScheduleRepeatRule::Day::OrSymbol]),
@@ -57,10 +60,10 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
-        # The typename of the schema.
-        _typename:,
         # The frequency of the schedule.
         frequency:,
+        # The typename of the schema.
+        _typename: nil,
         # The day of the month to repeat the schedule.
         day_of_month: nil,
         # The days of the week to repeat the schedule.
@@ -77,8 +80,8 @@ module Knockapi
       sig do
         override.returns(
           {
-            _typename: String,
             frequency: Knockapi::ScheduleRepeatRule::Frequency::OrSymbol,
+            _typename: String,
             day_of_month: T.nilable(Integer),
             days:
               T.nilable(T::Array[Knockapi::ScheduleRepeatRule::Day::OrSymbol]),

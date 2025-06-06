@@ -78,13 +78,6 @@ module Knockapi
                 )
               ]
             ),
-          preferences:
-            T.nilable(
-              T::Hash[
-                Symbol,
-                Knockapi::Recipients::PreferenceSetRequest::OrHash
-              ]
-            ),
           settings: Knockapi::TenantSetParams::Settings::OrHash,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(Knockapi::Tenant)
@@ -94,8 +87,6 @@ module Knockapi
         id,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
-        # Inline set preferences for a recipient, where the key is the preference set id.
-        preferences: nil,
         # The settings for the tenant. Includes branding and preference set.
         settings: nil,
         request_options: {}

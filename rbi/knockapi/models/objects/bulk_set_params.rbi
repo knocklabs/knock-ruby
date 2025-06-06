@@ -13,12 +13,12 @@ module Knockapi
           end
 
         # A list of objects.
-        sig { returns(T::Array[Knockapi::InlineObjectRequest]) }
+        sig { returns(T::Array[Knockapi::Objects::BulkSetParams::Object]) }
         attr_accessor :objects
 
         sig do
           params(
-            objects: T::Array[Knockapi::InlineObjectRequest::OrHash],
+            objects: T::Array[Knockapi::Objects::BulkSetParams::Object::OrHash],
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
@@ -32,12 +32,126 @@ module Knockapi
         sig do
           override.returns(
             {
-              objects: T::Array[Knockapi::InlineObjectRequest],
+              objects: T::Array[Knockapi::Objects::BulkSetParams::Object],
               request_options: Knockapi::RequestOptions
             }
           )
         end
         def to_hash
+        end
+
+        class Object < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Knockapi::Objects::BulkSetParams::Object,
+                Knockapi::Internal::AnyHash
+              )
+            end
+
+          # Unique identifier for the object.
+          sig { returns(String) }
+          attr_accessor :id
+
+          # A request to set channel data for a type of channel inline.
+          sig do
+            returns(
+              T.nilable(
+                T::Hash[
+                  Symbol,
+                  T.any(
+                    Knockapi::Recipients::PushChannelData,
+                    Knockapi::Recipients::OneSignalChannelData,
+                    Knockapi::Recipients::SlackChannelData,
+                    Knockapi::Recipients::MsTeamsChannelData,
+                    Knockapi::Recipients::DiscordChannelData
+                  )
+                ]
+              )
+            )
+          end
+          attr_accessor :channel_data
+
+          # Timestamp when the resource was created.
+          sig { returns(T.nilable(Time)) }
+          attr_accessor :created_at
+
+          # Inline set preferences for a recipient, where the key is the preference set id.
+          sig do
+            returns(
+              T.nilable(
+                T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest]
+              )
+            )
+          end
+          attr_accessor :preferences
+
+          # A custom [Object](/concepts/objects) entity which belongs to a collection.
+          sig do
+            params(
+              id: String,
+              channel_data:
+                T.nilable(
+                  T::Hash[
+                    Symbol,
+                    T.any(
+                      Knockapi::Recipients::PushChannelData::OrHash,
+                      Knockapi::Recipients::OneSignalChannelData::OrHash,
+                      Knockapi::Recipients::SlackChannelData::OrHash,
+                      Knockapi::Recipients::MsTeamsChannelData::OrHash,
+                      Knockapi::Recipients::DiscordChannelData::OrHash
+                    )
+                  ]
+                ),
+              created_at: T.nilable(Time),
+              preferences:
+                T.nilable(
+                  T::Hash[
+                    Symbol,
+                    Knockapi::Recipients::PreferenceSetRequest::OrHash
+                  ]
+                )
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            # Unique identifier for the object.
+            id:,
+            # A request to set channel data for a type of channel inline.
+            channel_data: nil,
+            # Timestamp when the resource was created.
+            created_at: nil,
+            # Inline set preferences for a recipient, where the key is the preference set id.
+            preferences: nil
+          )
+          end
+
+          sig do
+            override.returns(
+              {
+                id: String,
+                channel_data:
+                  T.nilable(
+                    T::Hash[
+                      Symbol,
+                      T.any(
+                        Knockapi::Recipients::PushChannelData,
+                        Knockapi::Recipients::OneSignalChannelData,
+                        Knockapi::Recipients::SlackChannelData,
+                        Knockapi::Recipients::MsTeamsChannelData,
+                        Knockapi::Recipients::DiscordChannelData
+                      )
+                    ]
+                  ),
+                created_at: T.nilable(Time),
+                preferences:
+                  T.nilable(
+                    T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest]
+                  )
+              }
+            )
+          end
+          def to_hash
+          end
         end
       end
     end
