@@ -49,7 +49,7 @@ module Knockapi
         sig do
           params(
             collection: String,
-            objects: T::Array[Knockapi::InlineObjectRequest::OrHash],
+            objects: T::Array[Knockapi::Objects::BulkSetParams::Object::OrHash],
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(Knockapi::BulkOperation)
         end

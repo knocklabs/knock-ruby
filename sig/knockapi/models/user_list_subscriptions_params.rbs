@@ -5,7 +5,7 @@ module Knockapi
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
-        objects: ::Array[String],
+        objects: ::Array[Knockapi::Models::recipient_reference],
         page_size: Integer
       }
       & Knockapi::Internal::Type::request_parameters
@@ -28,9 +28,11 @@ module Knockapi
         ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
       ) -> ::Array[Knockapi::Models::UserListSubscriptionsParams::include_]
 
-      attr_reader objects: ::Array[String]?
+      attr_reader objects: ::Array[Knockapi::Models::recipient_reference]?
 
-      def objects=: (::Array[String]) -> ::Array[String]
+      def objects=: (
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
 
       attr_reader page_size: Integer?
 
@@ -40,7 +42,7 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
-        ?objects: ::Array[String],
+        ?objects: ::Array[Knockapi::Models::recipient_reference],
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> void
@@ -49,7 +51,7 @@ module Knockapi
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
-        objects: ::Array[String],
+        objects: ::Array[Knockapi::Models::recipient_reference],
         page_size: Integer,
         request_options: Knockapi::RequestOptions
       }

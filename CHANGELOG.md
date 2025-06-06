@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.6.0 (2025-06-06)
+
+Full Changelog: [v1.5.0...v1.6.0](https://github.com/knocklabs/knock-ruby/compare/v1.5.0...v1.6.0)
+
+### Features
+
+* **api:** api update ([53aa9c9](https://github.com/knocklabs/knock-ruby/commit/53aa9c9ebd4a8e7be2fd5bdf08a4b749f6b9d116))
+
+
+### Bug Fixes
+
+* default content-type for text in multi-part formdata uploads should be text/plain ([de655f0](https://github.com/knocklabs/knock-ruby/commit/de655f0dd9194b4c30d7ad26e2da98f6cba51a0f))
+
 ## 1.5.0 (2025-06-04)
 
 Full Changelog: [v1.4.0...v1.5.0](https://github.com/knocklabs/knock-ruby/compare/v1.4.0...v1.5.0)

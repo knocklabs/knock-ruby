@@ -298,7 +298,7 @@ module Knockapi
       #
       # @param include [Array<Symbol, Knockapi::Models::UserListSubscriptionsParams::Include>] Associated resources to include in the response.
       #
-      # @param objects [Array<String>] Only returns subscriptions for the specified object GIDs.
+      # @param objects [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Only returns subscriptions for the specified object references.
       #
       # @param page_size [Integer] The number of items per page.
       #
