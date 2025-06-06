@@ -16,7 +16,7 @@ module Knockapi
 
         def set: (
           String collection,
-          objects: ::Array[Knockapi::InlineObjectRequest],
+          objects: ::Array[Knockapi::Objects::BulkSetParams::Object],
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::BulkOperation
 

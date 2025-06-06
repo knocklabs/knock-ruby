@@ -118,7 +118,13 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          recipients: T::Array[String],
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ],
           tenant: String,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(Knockapi::Internal::EntriesCursor[Knockapi::Schedule])
@@ -132,7 +138,7 @@ module Knockapi
         before: nil,
         # The number of items per page.
         page_size: nil,
-        # Filter by recipient IDs.
+        # Filter by recipient references.
         recipients: nil,
         # Filter by tenant ID.
         tenant: nil,

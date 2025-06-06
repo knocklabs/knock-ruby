@@ -25,7 +25,6 @@ module Knockapi
       def set: (
         String id,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
-        ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?settings: Knockapi::TenantSetParams::Settings,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Tenant

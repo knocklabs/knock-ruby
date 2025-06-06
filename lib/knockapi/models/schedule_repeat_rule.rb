@@ -3,17 +3,17 @@
 module Knockapi
   module Models
     class ScheduleRepeatRule < Knockapi::Internal::Type::BaseModel
-      # @!attribute _typename
-      #   The typename of the schema.
-      #
-      #   @return [String]
-      required :_typename, String, api_name: :__typename
-
       # @!attribute frequency
       #   The frequency of the schedule.
       #
       #   @return [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency]
       required :frequency, enum: -> { Knockapi::ScheduleRepeatRule::Frequency }
+
+      # @!attribute _typename
+      #   The typename of the schema.
+      #
+      #   @return [String, nil]
+      optional :_typename, String, api_name: :__typename
 
       # @!attribute day_of_month
       #   The day of the month to repeat the schedule.
@@ -47,12 +47,12 @@ module Knockapi
       #   @return [Integer, nil]
       optional :minutes, Integer, nil?: true
 
-      # @!method initialize(_typename:, frequency:, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil)
+      # @!method initialize(frequency:, _typename: nil, day_of_month: nil, days: nil, hours: nil, interval: nil, minutes: nil)
       #   The repeat rule for the schedule.
       #
-      #   @param _typename [String] The typename of the schema.
-      #
       #   @param frequency [Symbol, Knockapi::Models::ScheduleRepeatRule::Frequency] The frequency of the schedule.
+      #
+      #   @param _typename [String] The typename of the schema.
       #
       #   @param day_of_month [Integer, nil] The day of the month to repeat the schedule.
       #

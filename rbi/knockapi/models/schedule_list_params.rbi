@@ -36,11 +36,29 @@ module Knockapi
       sig { params(page_size: Integer).void }
       attr_writer :page_size
 
-      # Filter by recipient IDs.
-      sig { returns(T.nilable(T::Array[String])) }
+      # Filter by recipient references.
+      sig do
+        returns(
+          T.nilable(
+            T::Array[
+              T.any(String, Knockapi::RecipientReference::ObjectReference)
+            ]
+          )
+        )
+      end
       attr_reader :recipients
 
-      sig { params(recipients: T::Array[String]).void }
+      sig do
+        params(
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ]
+        ).void
+      end
       attr_writer :recipients
 
       # Filter by tenant ID.
@@ -56,7 +74,13 @@ module Knockapi
           after: String,
           before: String,
           page_size: Integer,
-          recipients: T::Array[String],
+          recipients:
+            T::Array[
+              T.any(
+                String,
+                Knockapi::RecipientReference::ObjectReference::OrHash
+              )
+            ],
           tenant: String,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -70,7 +94,7 @@ module Knockapi
         before: nil,
         # The number of items per page.
         page_size: nil,
-        # Filter by recipient IDs.
+        # Filter by recipient references.
         recipients: nil,
         # Filter by tenant ID.
         tenant: nil,
@@ -85,7 +109,10 @@ module Knockapi
             after: String,
             before: String,
             page_size: Integer,
-            recipients: T::Array[String],
+            recipients:
+              T::Array[
+                T.any(String, Knockapi::RecipientReference::ObjectReference)
+              ],
             tenant: String,
             request_options: Knockapi::RequestOptions
           }

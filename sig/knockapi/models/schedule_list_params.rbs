@@ -6,7 +6,7 @@ module Knockapi
         after: String,
         before: String,
         page_size: Integer,
-        recipients: ::Array[String],
+        recipients: ::Array[Knockapi::Models::recipient_reference],
         tenant: String
       }
       & Knockapi::Internal::Type::request_parameters
@@ -29,9 +29,11 @@ module Knockapi
 
       def page_size=: (Integer) -> Integer
 
-      attr_reader recipients: ::Array[String]?
+      attr_reader recipients: ::Array[Knockapi::Models::recipient_reference]?
 
-      def recipients=: (::Array[String]) -> ::Array[String]
+      def recipients=: (
+        ::Array[Knockapi::Models::recipient_reference]
+      ) -> ::Array[Knockapi::Models::recipient_reference]
 
       attr_reader tenant: String?
 
@@ -42,7 +44,7 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?page_size: Integer,
-        ?recipients: ::Array[String],
+        ?recipients: ::Array[Knockapi::Models::recipient_reference],
         ?tenant: String,
         ?request_options: Knockapi::request_opts
       ) -> void
@@ -52,7 +54,7 @@ module Knockapi
         after: String,
         before: String,
         page_size: Integer,
-        recipients: ::Array[String],
+        recipients: ::Array[Knockapi::Models::recipient_reference],
         tenant: String,
         request_options: Knockapi::RequestOptions
       }

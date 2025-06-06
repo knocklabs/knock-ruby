@@ -31,7 +31,7 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?page_size: Integer,
-        ?recipients: ::Array[String],
+        ?recipients: ::Array[Knockapi::Models::recipient_reference],
         ?tenant: String,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Schedule]

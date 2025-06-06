@@ -32,10 +32,10 @@ module Knockapi
       optional :page_size, Integer
 
       # @!attribute recipients
-      #   Filter by recipient IDs.
+      #   Filter by recipient references.
       #
-      #   @return [Array<String>, nil]
-      optional :recipients, Knockapi::Internal::Type::ArrayOf[String]
+      #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
+      optional :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference] }
 
       # @!attribute tenant
       #   Filter by tenant ID.
@@ -52,7 +52,7 @@ module Knockapi
       #
       #   @param page_size [Integer] The number of items per page.
       #
-      #   @param recipients [Array<String>] Filter by recipient IDs.
+      #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Filter by recipient references.
       #
       #   @param tenant [String] Filter by tenant ID.
       #
