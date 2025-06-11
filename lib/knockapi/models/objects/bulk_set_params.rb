@@ -44,6 +44,8 @@ module Knockapi
 
           # @!attribute preferences
           #   Inline set preferences for a recipient, where the key is the preference set id.
+          #   Preferences that are set inline will be merged into any existing preferences
+          #   rather than replacing them.
           #
           #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
           optional :preferences,
@@ -51,6 +53,9 @@ module Knockapi
                    nil?: true
 
           # @!method initialize(id:, channel_data: nil, created_at: nil, preferences: nil)
+          #   Some parameter documentations has been truncated, see
+          #   {Knockapi::Models::Objects::BulkSetParams::Object} for more details.
+          #
           #   A custom [Object](/concepts/objects) entity which belongs to a collection.
           #
           #   @param id [String] Unique identifier for the object.

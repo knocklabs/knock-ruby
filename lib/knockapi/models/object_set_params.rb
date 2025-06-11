@@ -25,6 +25,8 @@ module Knockapi
 
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set id.
+      #   Preferences that are set inline will be merged into any existing preferences
+      #   rather than replacing them.
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,

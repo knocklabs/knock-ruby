@@ -21,6 +21,8 @@ module Knockapi
 
       # @!attribute preferences
       #   Inline set preferences for a recipient, where the key is the preference set id.
+      #   Preferences that are set inline will be merged into any existing preferences
+      #   rather than replacing them.
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
       optional :preferences,
@@ -34,6 +36,9 @@ module Knockapi
       optional :settings, -> { Knockapi::TenantRequest::Settings }
 
       # @!method initialize(id:, channel_data: nil, preferences: nil, settings: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::TenantRequest} for more details.
+      #
       #   A tenant to be set in the system. You can supply any additional properties on
       #   the tenant object.
       #

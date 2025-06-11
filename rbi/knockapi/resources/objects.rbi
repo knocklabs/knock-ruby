@@ -378,6 +378,8 @@ module Knockapi
         # [message localization](/concepts/translations).
         locale: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
+        # Preferences that are set inline will be merged into any existing preferences
+        # rather than replacing them.
         preferences: nil,
         # The timezone of the object. Must be a
         # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
