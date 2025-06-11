@@ -60,6 +60,8 @@ module Knockapi
       attr_accessor :phone_number
 
       # Inline set preferences for a recipient, where the key is the preference set id.
+      # Preferences that are set inline will be merged into any existing preferences
+      # rather than replacing them.
       sig do
         returns(
           T.nilable(T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest])
@@ -129,6 +131,8 @@ module Knockapi
         # user (required for SMS channels).
         phone_number: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
+        # Preferences that are set inline will be merged into any existing preferences
+        # rather than replacing them.
         preferences: nil,
         # The timezone of the user. Must be a
         # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).

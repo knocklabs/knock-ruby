@@ -77,6 +77,8 @@ module Knockapi
           attr_accessor :created_at
 
           # Inline set preferences for a recipient, where the key is the preference set id.
+          # Preferences that are set inline will be merged into any existing preferences
+          # rather than replacing them.
           sig do
             returns(
               T.nilable(
@@ -121,6 +123,8 @@ module Knockapi
             # Timestamp when the resource was created.
             created_at: nil,
             # Inline set preferences for a recipient, where the key is the preference set id.
+            # Preferences that are set inline will be merged into any existing preferences
+            # rather than replacing them.
             preferences: nil
           )
           end

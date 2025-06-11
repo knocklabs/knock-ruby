@@ -32,6 +32,8 @@ module Knockapi
       attr_accessor :channel_data
 
       # Inline set preferences for a recipient, where the key is the preference set id.
+      # Preferences that are set inline will be merged into any existing preferences
+      # rather than replacing them.
       sig do
         returns(
           T.nilable(T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest])
@@ -80,6 +82,8 @@ module Knockapi
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
+        # Preferences that are set inline will be merged into any existing preferences
+        # rather than replacing them.
         preferences: nil,
         # The settings for the tenant. Includes branding and preference set.
         settings: nil
