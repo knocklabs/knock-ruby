@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.0 (2025-06-12)
+
+Full Changelog: [v1.6.0...v1.7.0](https://github.com/knocklabs/knock-ruby/compare/v1.6.0...v1.7.0)
+
+### Features
+
+* **api:** api update ([ccc6df0](https://github.com/knocklabs/knock-ruby/commit/ccc6df0d616d93198a605ec4c986e03369a8843b))
+* **api:** api update ([fddf322](https://github.com/knocklabs/knock-ruby/commit/fddf3226958f8a212c5c3fa4d0dc8f72c01dcbe5))
+
+
+### Chores
+
+* **ci:** link to correct github repo ([acd8f88](https://github.com/knocklabs/knock-ruby/commit/acd8f8882a660c449b45113b848944327382f1a0))
+
 ## 1.6.0 (2025-06-06)
 
 Full Changelog: [v1.5.0...v1.6.0](https://github.com/knocklabs/knock-ruby/compare/v1.5.0...v1.6.0)

@@ -4,8 +4,7 @@ module Knockapi
   module Resources
     class Users
       class Bulk
-        # Deletes multiple users in a single operation. Accepts up to 100 user IDs to
-        # delete and returns a bulk operation that can be queried for progress.
+        # Permanently deletes up to 1,000 users at a time.
         #
         # @overload delete(user_ids:, request_options: {})
         #
@@ -28,8 +27,8 @@ module Knockapi
         end
 
         # Identifies multiple users in a single operation. Allows creating or updating up
-        # to 100 users in a single batch with various properties, preferences, and channel
-        # data.
+        # to 1,000 users in a single batch with various properties, preferences, and
+        # channel data.
         #
         # @overload identify(users:, request_options: {})
         #
@@ -51,9 +50,11 @@ module Knockapi
           )
         end
 
-        # Sets preferences for multiple users in a single operation. Supports either
-        # setting the same preferences for multiple users or specific preferences for each
-        # user.
+        # Bulk sets the preferences for up to 1,000 users at a time. The preference
+        # set `:id` can be either `default` or a `tenant.id`. Learn more
+        # about [per-tenant preferences](/preferences/tenant-preferences). Note that this
+        # is a destructive operation and will replace any existing users' preferences with
+        # the preferences sent.
         #
         # @overload set_preferences(preferences:, user_ids:, request_options: {})
         #
