@@ -36,13 +36,14 @@ module Knockapi
           optional :cursor, String
 
           # @!attribute exclude_archived
-          #   Set to true to exclude archived channels from the list.
+          #   Set to true to exclude archived channels from the list. Defaults to `true` when
+          #   not explicitly provided.
           #
           #   @return [Boolean, nil]
           optional :exclude_archived, Knockapi::Internal::Type::Boolean
 
           # @!attribute limit
-          #   The maximum number of channels to return.
+          #   The maximum number of channels to return. Defaults to 200.
           #
           #   @return [Integer, nil]
           optional :limit, Integer
@@ -55,7 +56,8 @@ module Knockapi
 
           # @!attribute types
           #   Mix and match channel types by providing a comma-separated list of any
-          #   combination of public_channel, private_channel, mpim, im.
+          #   combination of public_channel, private_channel, mpim, im. Defaults to
+          #   `"public_channel,private_channel"`.
           #
           #   @return [String, nil]
           optional :types, String
@@ -67,9 +69,9 @@ module Knockapi
           #
           #   @param cursor [String] Paginate through collections of data by setting the cursor parameter to a next_c
           #
-          #   @param exclude_archived [Boolean] Set to true to exclude archived channels from the list.
+          #   @param exclude_archived [Boolean] Set to true to exclude archived channels from the list. Defaults to `true` when
           #
-          #   @param limit [Integer] The maximum number of channels to return.
+          #   @param limit [Integer] The maximum number of channels to return. Defaults to 200.
           #
           #   @param team_id [String] Encoded team ID (T1234) to list channels in, required if org token is used.
           #
