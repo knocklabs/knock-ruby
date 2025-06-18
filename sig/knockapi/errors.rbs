@@ -5,6 +5,15 @@ module Knockapi
     end
 
     class ConversionError < Knockapi::Errors::Error
+      def cause: -> StandardError?
+
+      def initialize: (
+        on: Class,
+        method: Symbol,
+        target: top,
+        value: top,
+        ?cause: StandardError?
+      ) -> void
     end
 
     class APIError < Knockapi::Errors::Error
