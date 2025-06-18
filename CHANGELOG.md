@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.8.1 (2025-06-18)
+
+Full Changelog: [v1.8.0...v1.8.1](https://github.com/knocklabs/knock-ruby/compare/v1.8.0...v1.8.1)
+
+### Bug Fixes
+
+* issue where we cannot mutate arrays on base model derivatives ([2c56679](https://github.com/knocklabs/knock-ruby/commit/2c56679d7f62da36dcae21fe5944d24211afe854))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([985de4e](https://github.com/knocklabs/knock-ruby/commit/985de4e91baf5684d7cf308f6e3de661fbb8163d))
+
 ## 1.8.0 (2025-06-13)
 
 Full Changelog: [v1.7.0...v1.8.0](https://github.com/knocklabs/knock-ruby/compare/v1.7.0...v1.8.0)
