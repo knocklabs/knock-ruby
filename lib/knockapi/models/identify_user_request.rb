@@ -4,7 +4,7 @@ module Knockapi
   module Models
     class IdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute avatar
-      #   URL to the user's avatar image.
+      #   A URL for the avatar of the user.
       #
       #   @return [String, nil]
       optional :avatar, String, nil?: true
@@ -77,7 +77,7 @@ module Knockapi
       #   that's specified elsewhere in the request. You can supply any additional
       #   properties you'd like to upsert for the user.
       #
-      #   @param avatar [String, nil] URL to the user's avatar image.
+      #   @param avatar [String, nil] A URL for the avatar of the user.
       #
       #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #

@@ -7,16 +7,16 @@ module Knockapi
       module InlineChannelDataRequestItem
         extend Knockapi::Internal::Type::Union
 
-        # The content of a push notification.
+        # Push channel data.
         variant -> { Knockapi::Recipients::PushChannelData }
 
         # OneSignal channel data.
         variant -> { Knockapi::Recipients::OneSignalChannelData }
 
-        # Slack channel data
+        # Slack channel data.
         variant -> { Knockapi::Recipients::SlackChannelData }
 
-        # Microsoft Teams channel connection.
+        # Microsoft Teams channel data.
         variant -> { Knockapi::Recipients::MsTeamsChannelData }
 
         # Discord channel data.

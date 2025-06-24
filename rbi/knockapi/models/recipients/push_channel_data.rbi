@@ -16,7 +16,7 @@ module Knockapi
         sig { returns(T::Array[String]) }
         attr_accessor :tokens
 
-        # The content of a push notification.
+        # Push channel data.
         sig { params(tokens: T::Array[String]).returns(T.attached_class) }
         def self.new(
           # A list of push channel tokens.

@@ -45,13 +45,13 @@ module Knockapi
         module Data
           extend Knockapi::Internal::Type::Union
 
-          # The content of a push notification.
+          # Push channel data.
           variant -> { Knockapi::Recipients::PushChannelData }
 
-          # Slack channel data
+          # Slack channel data.
           variant -> { Knockapi::Recipients::SlackChannelData }
 
-          # Microsoft Teams channel connection.
+          # Microsoft Teams channel data.
           variant -> { Knockapi::Recipients::MsTeamsChannelData }
 
           # Discord channel data.

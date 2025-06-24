@@ -47,7 +47,7 @@ module Knockapi
       optional :message_ids, Knockapi::Internal::Type::ArrayOf[String]
 
       # @!attribute page_size
-      #   The number of items per page.
+      #   The number of items per page (defaults to 50).
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -114,7 +114,7 @@ module Knockapi
       #
       #   @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
       #
-      #   @param page_size [Integer] The number of items per page.
+      #   @param page_size [Integer] The number of items per page (defaults to 50).
       #
       #   @param source [String] Limits the results to messages triggered by the given workflow key.
       #

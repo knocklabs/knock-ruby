@@ -40,7 +40,7 @@ module Knockapi
       end
       attr_writer :include
 
-      # The number of items per page.
+      # The number of items per page (defaults to 50).
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 
@@ -63,7 +63,7 @@ module Knockapi
         before: nil,
         # Associated resources to include in the response.
         include: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
       )

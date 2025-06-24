@@ -16,7 +16,7 @@ module Knockapi
       #
       # @param name [String] Filter tenants by name.
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param tenant_id [String] Filter tenants by ID.
       #

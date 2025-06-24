@@ -19,7 +19,7 @@ module Knockapi
       #
       # @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>] Includes preferences of the objects in the response.
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -221,7 +221,7 @@ module Knockapi
       #
       # @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param source [String] Limits the results to messages triggered by the given workflow key.
       #
@@ -288,7 +288,7 @@ module Knockapi
       #
       # @param before [String] The cursor to fetch entries before.
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param tenant [String] Filter schedules by tenant id.
       #
@@ -334,7 +334,7 @@ module Knockapi
       #
       # @param objects [Array<Knockapi::Models::ObjectListSubscriptionsParams::Object>] Objects to filter by (only used if mode is `recipient`).
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Recipients to filter by (only used if mode is `object`).
       #

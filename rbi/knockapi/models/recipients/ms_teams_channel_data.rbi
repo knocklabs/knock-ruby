@@ -29,7 +29,7 @@ module Knockapi
         sig { returns(T.nilable(String)) }
         attr_accessor :ms_teams_tenant_id
 
-        # Microsoft Teams channel connection.
+        # Microsoft Teams channel data.
         sig do
           params(
             connections:

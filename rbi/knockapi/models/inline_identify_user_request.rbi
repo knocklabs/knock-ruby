@@ -11,11 +11,11 @@ module Knockapi
           )
         end
 
-      # The ID for the user that you set when identifying them in Knock.
+      # The unique identifier of the user.
       sig { returns(String) }
       attr_accessor :id
 
-      # URL to the user's avatar image.
+      # A URL for the avatar of the user.
       sig { returns(T.nilable(String)) }
       attr_accessor :avatar
 
@@ -113,9 +113,9 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         id:,
-        # URL to the user's avatar image.
+        # A URL for the avatar of the user.
         avatar: nil,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,

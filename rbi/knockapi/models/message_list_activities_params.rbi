@@ -28,7 +28,7 @@ module Knockapi
       sig { params(before: String).void }
       attr_writer :before
 
-      # The number of items per page.
+      # The number of items per page (defaults to 50).
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 
@@ -56,7 +56,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # The trigger data to filter activities by.
         trigger_data: nil,

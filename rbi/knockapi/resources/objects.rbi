@@ -27,7 +27,7 @@ module Knockapi
         before: nil,
         # Includes preferences of the objects in the response.
         include: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
       )
@@ -216,7 +216,7 @@ module Knockapi
         # Limits the results to only the message IDs given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # Limits the results to messages triggered by the given workflow key.
         source: nil,
@@ -278,7 +278,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # Filter schedules by tenant id.
         tenant: nil,
@@ -334,7 +334,7 @@ module Knockapi
         mode: nil,
         # Objects to filter by (only used if mode is `recipient`).
         objects: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # Recipients to filter by (only used if mode is `object`).
         recipients: nil,

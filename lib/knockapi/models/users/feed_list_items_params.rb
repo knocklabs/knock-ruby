@@ -33,13 +33,13 @@ module Knockapi
         optional :has_tenant, Knockapi::Internal::Type::Boolean
 
         # @!attribute page_size
-        #   The number of items per page.
+        #   The number of items per page (defaults to 50).
         #
         #   @return [Integer, nil]
         optional :page_size, Integer
 
         # @!attribute source
-        #   The source of the feed items.
+        #   The workflow key associated with the message in the feed.
         #
         #   @return [String, nil]
         optional :source, String
@@ -77,9 +77,9 @@ module Knockapi
         #
         #   @param has_tenant [Boolean] Whether the feed items have a tenant.
         #
-        #   @param page_size [Integer] The number of items per page.
+        #   @param page_size [Integer] The number of items per page (defaults to 50).
         #
-        #   @param source [String] The source of the feed items.
+        #   @param source [String] The workflow key associated with the message in the feed.
         #
         #   @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status] The status of the feed items.
         #

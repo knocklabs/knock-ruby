@@ -25,7 +25,7 @@ module Knockapi
       #
       # @param message_ids [Array<String>] Limits the results to only the message IDs given (max 50). Note: when using this
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param source [String] Limits the results to messages triggered by the given workflow key.
       #
@@ -130,7 +130,7 @@ module Knockapi
       #
       # @param before [String] The cursor to fetch entries before.
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param trigger_data [String] The trigger data to filter activities by.
       #
@@ -161,7 +161,7 @@ module Knockapi
       #
       # @param before [String] The cursor to fetch entries before.
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -190,7 +190,7 @@ module Knockapi
       #
       # @param before [String] The cursor to fetch entries before.
       #
-      # @param page_size [Integer] The number of items per page.
+      # @param page_size [Integer] The number of items per page (defaults to 50).
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

@@ -20,7 +20,7 @@ module Knockapi
         optional :ms_teams_tenant_id, String, nil?: true
 
         # @!method initialize(connections:, ms_teams_tenant_id: nil)
-        #   Microsoft Teams channel connection.
+        #   Microsoft Teams channel data.
         #
         #   @param connections [Array<Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection, Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection>] List of Microsoft Teams connections.
         #

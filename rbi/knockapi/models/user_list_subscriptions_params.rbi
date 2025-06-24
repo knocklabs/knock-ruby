@@ -71,7 +71,7 @@ module Knockapi
       end
       attr_writer :objects
 
-      # The number of items per page.
+      # The number of items per page (defaults to 50).
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 
@@ -104,7 +104,7 @@ module Knockapi
         include: nil,
         # Only returns subscriptions for the specified object references.
         objects: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
       )

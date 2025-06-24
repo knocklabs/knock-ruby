@@ -24,7 +24,7 @@ module Knockapi
         before: nil,
         # Filter tenants by name.
         name: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # Filter tenants by ID.
         tenant_id: nil,
