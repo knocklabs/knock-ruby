@@ -33,7 +33,7 @@ module Knockapi
       optional :objects, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference] }
 
       # @!attribute page_size
-      #   The number of items per page.
+      #   The number of items per page (defaults to 50).
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -47,7 +47,7 @@ module Knockapi
       #
       #   @param objects [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Only returns subscriptions for the specified object references.
       #
-      #   @param page_size [Integer] The number of items per page.
+      #   @param page_size [Integer] The number of items per page (defaults to 50).
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 

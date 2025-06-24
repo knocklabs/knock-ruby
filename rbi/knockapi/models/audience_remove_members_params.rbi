@@ -102,7 +102,7 @@ module Knockapi
               )
             end
 
-          # The ID for the user that you set when identifying them in Knock.
+          # The unique identifier of the user.
           sig { returns(T.nilable(String)) }
           attr_reader :id
 
@@ -112,7 +112,7 @@ module Knockapi
           # An object containing the user's ID.
           sig { params(id: String).returns(T.attached_class) }
           def self.new(
-            # The ID for the user that you set when identifying them in Knock.
+            # The unique identifier of the user.
             id: nil
           )
           end

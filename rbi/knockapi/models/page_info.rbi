@@ -10,7 +10,7 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :_typename
 
-      # The number of items per page.
+      # The number of items per page (defaults to 50).
       sig { returns(Integer) }
       attr_accessor :page_size
 
@@ -34,7 +34,7 @@ module Knockapi
       def self.new(
         # The typename of the schema.
         _typename:,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size:,
         # The cursor to fetch entries after.
         after: nil,

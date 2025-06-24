@@ -44,7 +44,7 @@ module Knockapi
         # @see Knockapi::Models::AudienceRemoveMembersParams::Member#user
         class User < Knockapi::Internal::Type::BaseModel
           # @!attribute id
-          #   The ID for the user that you set when identifying them in Knock.
+          #   The unique identifier of the user.
           #
           #   @return [String, nil]
           optional :id, String
@@ -52,7 +52,7 @@ module Knockapi
           # @!method initialize(id: nil)
           #   An object containing the user's ID.
           #
-          #   @param id [String] The ID for the user that you set when identifying them in Knock.
+          #   @param id [String] The unique identifier of the user.
         end
       end
     end

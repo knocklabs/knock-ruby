@@ -5,7 +5,7 @@ module Knockapi
     # @see Knockapi::Resources::Users#update
     class User < Knockapi::Internal::Type::BaseModel
       # @!attribute id
-      #   The ID for the user that you set when identifying them in Knock.
+      #   The unique identifier of the user.
       #
       #   @return [String]
       required :id, String
@@ -23,7 +23,7 @@ module Knockapi
       required :updated_at, Time
 
       # @!attribute avatar
-      #   URL to the user's avatar image.
+      #   A URL for the avatar of the user.
       #
       #   @return [String, nil]
       optional :avatar, String, nil?: true
@@ -70,13 +70,13 @@ module Knockapi
       #   receive notifications through Knock. Users are the most common recipients of
       #   notifications and are always referenced by your internal identifier.
       #
-      #   @param id [String] The ID for the user that you set when identifying them in Knock.
+      #   @param id [String] The unique identifier of the user.
       #
       #   @param _typename [String] The typename of the schema.
       #
       #   @param updated_at [Time] The timestamp when the resource was last updated.
       #
-      #   @param avatar [String, nil] URL to the user's avatar image.
+      #   @param avatar [String, nil] A URL for the avatar of the user.
       #
       #   @param created_at [Time, nil] The creation date of the user from your system.
       #

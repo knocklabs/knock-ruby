@@ -25,7 +25,7 @@ module Knockapi
       sig { params(user: Knockapi::User::OrHash).void }
       attr_writer :user
 
-      # The ID for the user that you set when identifying them in Knock.
+      # The unique identifier of the user.
       sig { returns(String) }
       attr_accessor :user_id
 
@@ -52,7 +52,7 @@ module Knockapi
         # receive notifications through Knock. Users are the most common recipients of
         # notifications and are always referenced by your internal identifier.
         user:,
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id:,
         # The unique identifier for the tenant.
         tenant: nil

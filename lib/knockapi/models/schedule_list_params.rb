@@ -26,7 +26,7 @@ module Knockapi
       optional :before, String
 
       # @!attribute page_size
-      #   The number of items per page.
+      #   The number of items per page (defaults to 50).
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -50,7 +50,7 @@ module Knockapi
       #
       #   @param before [String] The cursor to fetch entries before.
       #
-      #   @param page_size [Integer] The number of items per page.
+      #   @param page_size [Integer] The number of items per page (defaults to 50).
       #
       #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Filter by recipient references.
       #

@@ -49,9 +49,9 @@ module Knockapi
         ).returns(Knockapi::User)
       end
       def update(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id,
-        # URL to the user's avatar image.
+        # A URL for the avatar of the user.
         avatar: nil,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
@@ -97,7 +97,7 @@ module Knockapi
         before: nil,
         # Associated resources to include in the response.
         include: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
       )
@@ -140,7 +140,7 @@ module Knockapi
         ).returns(Knockapi::Recipients::RecipientsChannelData)
       end
       def get_channel_data(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id,
         # The unique identifier for the channel.
         channel_id,
@@ -159,7 +159,7 @@ module Knockapi
         ).returns(Knockapi::Recipients::PreferenceSet)
       end
       def get_preferences(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id,
         # Unique identifier for the preference set.
         id,
@@ -169,9 +169,9 @@ module Knockapi
       )
       end
 
-      # Returns a paginated list of messages for a specific user. Allows filtering by
-      # message status and provides various sorting options. Messages outside the
-      # account's retention window will not be included in the results.
+      # Returns a paginated list of messages for a specific user. Messages are sorted
+      # with the most recent ones appearing first. Messages outside the account's
+      # retention window will not be included in the results.
       sig do
         params(
           user_id: String,
@@ -210,7 +210,7 @@ module Knockapi
         # Limits the results to only the message IDs given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # Limits the results to messages triggered by the given workflow key.
         source: nil,
@@ -241,7 +241,7 @@ module Knockapi
         ).returns(T::Array[Knockapi::Recipients::PreferenceSet])
       end
       def list_preferences(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id,
         request_options: {}
       )
@@ -266,7 +266,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # The tenant ID to filter schedules for.
         tenant: nil,
@@ -309,7 +309,7 @@ module Knockapi
         include: nil,
         # Only returns subscriptions for the specified object references.
         objects: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
       )
@@ -352,7 +352,7 @@ module Knockapi
         ).returns(Knockapi::Recipients::RecipientsChannelData)
       end
       def set_channel_data(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id,
         # The unique identifier for the channel.
         channel_id,
@@ -394,7 +394,7 @@ module Knockapi
         ).returns(Knockapi::Recipients::PreferenceSet)
       end
       def set_preferences(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id,
         # Unique identifier for the preference set.
         id,
@@ -419,7 +419,7 @@ module Knockapi
         ).returns(String)
       end
       def unset_channel_data(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         user_id,
         # The unique identifier for the channel.
         channel_id,

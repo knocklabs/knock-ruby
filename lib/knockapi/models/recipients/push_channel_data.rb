@@ -11,7 +11,7 @@ module Knockapi
         required :tokens, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!method initialize(tokens:)
-        #   The content of a push notification.
+        #   Push channel data.
         #
         #   @param tokens [Array<String>] A list of push channel tokens.
       end

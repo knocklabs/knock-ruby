@@ -6,7 +6,7 @@ module Knockapi
       OrHash =
         T.type_alias { T.any(Knockapi::User, Knockapi::Internal::AnyHash) }
 
-      # The ID for the user that you set when identifying them in Knock.
+      # The unique identifier of the user.
       sig { returns(String) }
       attr_accessor :id
 
@@ -18,7 +18,7 @@ module Knockapi
       sig { returns(Time) }
       attr_accessor :updated_at
 
-      # URL to the user's avatar image.
+      # A URL for the avatar of the user.
       sig { returns(T.nilable(String)) }
       attr_accessor :avatar
 
@@ -63,13 +63,13 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
-        # The ID for the user that you set when identifying them in Knock.
+        # The unique identifier of the user.
         id:,
         # The typename of the schema.
         _typename:,
         # The timestamp when the resource was last updated.
         updated_at:,
-        # URL to the user's avatar image.
+        # A URL for the avatar of the user.
         avatar: nil,
         # The creation date of the user from your system.
         created_at: nil,

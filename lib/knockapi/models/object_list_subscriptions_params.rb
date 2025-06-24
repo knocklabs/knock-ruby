@@ -44,7 +44,7 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[Knockapi::ObjectListSubscriptionsParams::Object] }
 
       # @!attribute page_size
-      #   The number of items per page.
+      #   The number of items per page (defaults to 50).
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -69,7 +69,7 @@ module Knockapi
       #
       #   @param objects [Array<Knockapi::Models::ObjectListSubscriptionsParams::Object>] Objects to filter by (only used if mode is `recipient`).
       #
-      #   @param page_size [Integer] The number of items per page.
+      #   @param page_size [Integer] The number of items per page (defaults to 50).
       #
       #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] Recipients to filter by (only used if mode is `object`).
       #
