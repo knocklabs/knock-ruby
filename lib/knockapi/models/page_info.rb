@@ -10,7 +10,7 @@ module Knockapi
       required :_typename, String, api_name: :__typename
 
       # @!attribute page_size
-      #   The number of items per page.
+      #   The number of items per page (defaults to 50).
       #
       #   @return [Integer]
       required :page_size, Integer
@@ -32,7 +32,7 @@ module Knockapi
       #
       #   @param _typename [String] The typename of the schema.
       #
-      #   @param page_size [Integer] The number of items per page.
+      #   @param page_size [Integer] The number of items per page (defaults to 50).
       #
       #   @param after [String, nil] The cursor to fetch entries after.
       #

@@ -13,7 +13,7 @@ module Knockapi
           ).returns(Knockapi::Models::Users::FeedGetSettingsResponse)
         end
         def get_settings(
-          # The ID for the user that you set when identifying them in Knock.
+          # The unique identifier of the user.
           user_id,
           # The unique identifier for the channel.
           id,
@@ -21,8 +21,20 @@ module Knockapi
         )
         end
 
-        # Returns a paginated list of feed items for a user, including metadata about the
-        # feed.
+        # Returns a paginated list of feed items for a user in reverse chronological
+        # order, including metadata about the feed. If the user has not yet been
+        # identified within Knock, an empty feed will be returned.
+        #
+        # You can customize the response using
+        # [response filters](/integrations/in-app/knock#customizing-api-response-content)
+        # to exclude or only include specific properties on your resources.
+        #
+        # **Notes:**
+        #
+        # - When making this call from a client-side environment, use your publishable key
+        #   along with a user token.
+        # - This endpoint’s rate limit is always scoped per-user and per-environment. This
+        #   is true even for requests made without a signed user token.
         sig do
           params(
             user_id: String,
@@ -45,7 +57,7 @@ module Knockapi
           )
         end
         def list_items(
-          # The ID for the user that you set when identifying them in Knock.
+          # The unique identifier of the user.
           user_id,
           # The unique identifier for the channel.
           id,
@@ -57,9 +69,9 @@ module Knockapi
           before: nil,
           # Whether the feed items have a tenant.
           has_tenant: nil,
-          # The number of items per page.
+          # The number of items per page (defaults to 50).
           page_size: nil,
-          # The source of the feed items.
+          # The workflow key associated with the message in the feed.
           source: nil,
           # The status of the feed items.
           status: nil,

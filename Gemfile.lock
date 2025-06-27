@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    knockapi (1.8.1)
+    knockapi (1.9.0)
       connection_pool
 
 GEM

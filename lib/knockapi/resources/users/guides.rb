@@ -8,7 +8,7 @@ module Knockapi
         #
         # @overload get_channel(user_id, channel_id, data: nil, tenant: nil, type: nil, request_options: {})
         #
-        # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+        # @param user_id [String] The unique identifier of the user.
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
@@ -39,7 +39,7 @@ module Knockapi
         #
         # @overload mark_message_as_archived(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
         #
-        # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+        # @param user_id [String] The unique identifier of the user.
         #
         # @param message_id [String] The unique identifier for the message.
         #
@@ -82,7 +82,7 @@ module Knockapi
         #
         # @overload mark_message_as_interacted(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
         #
-        # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+        # @param user_id [String] The unique identifier of the user.
         #
         # @param message_id [String] The unique identifier for the message.
         #
@@ -125,7 +125,7 @@ module Knockapi
         #
         # @overload mark_message_as_seen(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
         #
-        # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+        # @param user_id [String] The unique identifier of the user.
         #
         # @param message_id [String] The unique identifier for the message.
         #

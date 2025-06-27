@@ -20,7 +20,7 @@ module Knockapi
         optional :token, -> { Knockapi::Recipients::SlackChannelData::Token }, nil?: true
 
         # @!method initialize(connections:, token: nil)
-        #   Slack channel data
+        #   Slack channel data.
         #
         #   @param connections [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>] List of Slack channel connections.
         #

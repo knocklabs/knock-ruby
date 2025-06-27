@@ -51,7 +51,7 @@ module Knockapi
         # The content of an SMS message.
         variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent }
 
-        # The content of a push notification.
+        # Push channel data.
         variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent }
 
         # The content of a chat message.
@@ -198,7 +198,7 @@ module Knockapi
           optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
           # @!method initialize(token:, _typename:, body:, title:, data: nil)
-          #   The content of a push notification.
+          #   Push channel data.
           #
           #   @param token [String] The device token to send the push notification to.
           #

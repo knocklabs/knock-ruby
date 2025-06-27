@@ -40,7 +40,7 @@ module Knockapi
         # Limits the results to only the message IDs given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # Limits the results to messages triggered by the given workflow key.
         source: nil,
@@ -125,7 +125,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # The trigger data to filter activities by.
         trigger_data: nil,
@@ -150,7 +150,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
       )
@@ -173,7 +173,7 @@ module Knockapi
         after: nil,
         # The cursor to fetch entries before.
         before: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
       )

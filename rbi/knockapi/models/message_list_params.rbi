@@ -68,7 +68,7 @@ module Knockapi
       sig { params(message_ids: T::Array[String]).void }
       attr_writer :message_ids
 
-      # The number of items per page.
+      # The number of items per page (defaults to 50).
       sig { returns(T.nilable(Integer)) }
       attr_reader :page_size
 
@@ -168,7 +168,7 @@ module Knockapi
         # Limits the results to only the message IDs given (max 50). Note: when using this
         # option, the results will be subject to any other filters applied to the query.
         message_ids: nil,
-        # The number of items per page.
+        # The number of items per page (defaults to 50).
         page_size: nil,
         # Limits the results to messages triggered by the given workflow key.
         source: nil,

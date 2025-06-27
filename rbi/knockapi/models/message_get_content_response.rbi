@@ -258,7 +258,7 @@ module Knockapi
           sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
           attr_accessor :data
 
-          # The content of a push notification.
+          # Push channel data.
           sig do
             params(
               token: String,

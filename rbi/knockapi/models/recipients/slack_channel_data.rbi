@@ -39,7 +39,7 @@ module Knockapi
         end
         attr_writer :token
 
-        # Slack channel data
+        # Slack channel data.
         sig do
           params(
             connections:

@@ -16,7 +16,7 @@ module Knockapi
           ).returns(Knockapi::Models::Users::GuideGetChannelResponse)
         end
         def get_channel(
-          # The ID for the user that you set when identifying them in Knock.
+          # The unique identifier of the user.
           user_id,
           # The unique identifier for the channel.
           channel_id,
@@ -49,7 +49,7 @@ module Knockapi
           ).returns(Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse)
         end
         def mark_message_as_archived(
-          # The ID for the user that you set when identifying them in Knock.
+          # The unique identifier of the user.
           user_id,
           # The unique identifier for the message.
           message_id,
@@ -96,7 +96,7 @@ module Knockapi
           )
         end
         def mark_message_as_interacted(
-          # The ID for the user that you set when identifying them in Knock.
+          # The unique identifier of the user.
           user_id,
           # The unique identifier for the message.
           message_id,
@@ -141,7 +141,7 @@ module Knockapi
           ).returns(Knockapi::Models::Users::GuideMarkMessageAsSeenResponse)
         end
         def mark_message_as_seen(
-          # The ID for the user that you set when identifying them in Knock.
+          # The unique identifier of the user.
           user_id,
           # The unique identifier for the message.
           message_id,

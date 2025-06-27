@@ -24,7 +24,7 @@ module Knockapi
       required :user, -> { Knockapi::User }
 
       # @!attribute user_id
-      #   The ID for the user that you set when identifying them in Knock.
+      #   The unique identifier of the user.
       #
       #   @return [String]
       required :user_id, String
@@ -47,7 +47,7 @@ module Knockapi
       #
       #   @param user [Knockapi::Models::User] A [User](/concepts/users) represents an individual in your system who can receiv
       #
-      #   @param user_id [String] The ID for the user that you set when identifying them in Knock.
+      #   @param user_id [String] The unique identifier of the user.
       #
       #   @param tenant [String, nil] The unique identifier for the tenant.
     end

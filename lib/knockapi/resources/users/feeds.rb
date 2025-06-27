@@ -8,7 +8,7 @@ module Knockapi
         #
         # @overload get_settings(user_id, id, request_options: {})
         #
-        # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+        # @param user_id [String] The unique identifier of the user.
         #
         # @param id [String] The unique identifier for the channel.
         #
@@ -26,12 +26,24 @@ module Knockapi
           )
         end
 
-        # Returns a paginated list of feed items for a user, including metadata about the
-        # feed.
+        # Returns a paginated list of feed items for a user in reverse chronological
+        # order, including metadata about the feed. If the user has not yet been
+        # identified within Knock, an empty feed will be returned.
+        #
+        # You can customize the response using
+        # [response filters](/integrations/in-app/knock#customizing-api-response-content)
+        # to exclude or only include specific properties on your resources.
+        #
+        # **Notes:**
+        #
+        # - When making this call from a client-side environment, use your publishable key
+        #   along with a user token.
+        # - This endpoint’s rate limit is always scoped per-user and per-environment. This
+        #   is true even for requests made without a signed user token.
         #
         # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #
-        # @param user_id [String] The ID for the user that you set when identifying them in Knock.
+        # @param user_id [String] The unique identifier of the user.
         #
         # @param id [String] The unique identifier for the channel.
         #
@@ -43,9 +55,9 @@ module Knockapi
         #
         # @param has_tenant [Boolean] Whether the feed items have a tenant.
         #
-        # @param page_size [Integer] The number of items per page.
+        # @param page_size [Integer] The number of items per page (defaults to 50).
         #
-        # @param source [String] The source of the feed items.
+        # @param source [String] The workflow key associated with the message in the feed.
         #
         # @param status [Symbol, Knockapi::Models::Users::FeedListItemsParams::Status] The status of the feed items.
         #

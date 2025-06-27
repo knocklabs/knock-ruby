@@ -8,7 +8,7 @@ module Knockapi
           T.any(Knockapi::IdentifyUserRequest, Knockapi::Internal::AnyHash)
         end
 
-      # URL to the user's avatar image.
+      # A URL for the avatar of the user.
       sig { returns(T.nilable(String)) }
       attr_accessor :avatar
 
@@ -104,7 +104,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
-        # URL to the user's avatar image.
+        # A URL for the avatar of the user.
         avatar: nil,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,

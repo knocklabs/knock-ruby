@@ -4,13 +4,13 @@ module Knockapi
   module Models
     class InlineIdentifyUserRequest < Knockapi::Internal::Type::BaseModel
       # @!attribute id
-      #   The ID for the user that you set when identifying them in Knock.
+      #   The unique identifier of the user.
       #
       #   @return [String]
       required :id, String
 
       # @!attribute avatar
-      #   URL to the user's avatar image.
+      #   A URL for the avatar of the user.
       #
       #   @return [String, nil]
       optional :avatar, String, nil?: true
@@ -84,9 +84,9 @@ module Knockapi
       #   It will perform an upsert for the user you're supplying, replacing any
       #   properties specified.
       #
-      #   @param id [String] The ID for the user that you set when identifying them in Knock.
+      #   @param id [String] The unique identifier of the user.
       #
-      #   @param avatar [String, nil] URL to the user's avatar image.
+      #   @param avatar [String, nil] A URL for the avatar of the user.
       #
       #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #

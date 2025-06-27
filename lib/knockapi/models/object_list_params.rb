@@ -26,7 +26,7 @@ module Knockapi
       optional :include, -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::ObjectListParams::Include] }
 
       # @!attribute page_size
-      #   The number of items per page.
+      #   The number of items per page (defaults to 50).
       #
       #   @return [Integer, nil]
       optional :page_size, Integer
@@ -38,7 +38,7 @@ module Knockapi
       #
       #   @param include [Array<Symbol, Knockapi::Models::ObjectListParams::Include>] Includes preferences of the objects in the response.
       #
-      #   @param page_size [Integer] The number of items per page.
+      #   @param page_size [Integer] The number of items per page (defaults to 50).
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
