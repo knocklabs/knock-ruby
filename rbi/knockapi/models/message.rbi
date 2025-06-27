@@ -328,13 +328,18 @@ module Knockapi
         sig { returns(String) }
         attr_accessor :version_id
 
+        # The step reference for the step in the workflow that generated the message
+        sig { returns(T.nilable(String)) }
+        attr_accessor :step_ref
+
         # The workflow that triggered the message.
         sig do
           params(
             _typename: String,
             categories: T::Array[String],
             key: String,
-            version_id: String
+            version_id: String,
+            step_ref: T.nilable(String)
           ).returns(T.attached_class)
         end
         def self.new(
@@ -344,7 +349,9 @@ module Knockapi
           # The key of the workflow that triggered the message.
           key:,
           # The ID of the version of the workflow that triggered the message.
-          version_id:
+          version_id:,
+          # The step reference for the step in the workflow that generated the message
+          step_ref: nil
         )
         end
 
@@ -354,7 +361,8 @@ module Knockapi
               _typename: String,
               categories: T::Array[String],
               key: String,
-              version_id: String
+              version_id: String,
+              step_ref: T.nilable(String)
             }
           )
         end

@@ -164,7 +164,8 @@ module Knockapi
           _typename: String,
           categories: ::Array[String],
           key: String,
-          version_id: String
+          version_id: String,
+          step_ref: String?
         }
 
       class Source < Knockapi::Internal::Type::BaseModel
@@ -176,18 +177,22 @@ module Knockapi
 
         attr_accessor version_id: String
 
+        attr_accessor step_ref: String?
+
         def initialize: (
           _typename: String,
           categories: ::Array[String],
           key: String,
-          version_id: String
+          version_id: String,
+          ?step_ref: String?
         ) -> void
 
         def to_hash: -> {
           _typename: String,
           categories: ::Array[String],
           key: String,
-          version_id: String
+          version_id: String,
+          step_ref: String?
         }
       end
 
