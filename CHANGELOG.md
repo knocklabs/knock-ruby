@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9.1 (2025-06-28)
+
+Full Changelog: [v1.9.0...v1.9.1](https://github.com/knocklabs/knock-ruby/compare/v1.9.0...v1.9.1)
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([854d6f0](https://github.com/knocklabs/knock-ruby/commit/854d6f0a527695decdb8e0e4a0093bc3d94eff9f))
+
 ## 1.9.0 (2025-06-27)
 
 Full Changelog: [v1.8.1...v1.9.0](https://github.com/knocklabs/knock-ruby/compare/v1.8.1...v1.9.0)
