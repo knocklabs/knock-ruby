@@ -23,7 +23,7 @@ module Knockapi
       #
       # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
       #
-      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 10MB lim
       #
       # @param ending_at [Time, nil] The ending date and time for the schedule.
       #
@@ -64,7 +64,7 @@ module Knockapi
       #
       # @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
       #
-      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
+      # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 10MB lim
       #
       # @param ending_at [Time, nil] The ending date and time for the schedule.
       #
