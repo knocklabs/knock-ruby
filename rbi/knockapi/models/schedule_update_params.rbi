@@ -26,10 +26,10 @@ module Knockapi
       end
       attr_accessor :actor
 
-      # An optional map of data to pass into the workflow execution. There is a 1024
-      # byte limit on the size of any single string value (with the exception of
-      # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
-      # size of the full `data` payload.
+      # An optional map of data to pass into the workflow execution. There is a 10MB
+      # limit on the size of the full `data` payload. Any individual string value
+      # greater than 1024 bytes in length will be
+      # [truncated](/developer-tools/api-logs#log-truncation) in your logs.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
@@ -78,10 +78,10 @@ module Knockapi
         # A reference to a recipient, either a user identifier (string) or an object
         # reference (ID, collection).
         actor: nil,
-        # An optional map of data to pass into the workflow execution. There is a 1024
-        # byte limit on the size of any single string value (with the exception of
-        # [email attachments](/integrations/email/attachments)), and a 10MB limit on the
-        # size of the full `data` payload.
+        # An optional map of data to pass into the workflow execution. There is a 10MB
+        # limit on the size of the full `data` payload. Any individual string value
+        # greater than 1024 bytes in length will be
+        # [truncated](/developer-tools/api-logs#log-truncation) in your logs.
         data: nil,
         # The ending date and time for the schedule.
         ending_at: nil,
