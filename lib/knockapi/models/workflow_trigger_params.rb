@@ -33,10 +33,10 @@ module Knockapi
       optional :cancellation_key, String, nil?: true
 
       # @!attribute data
-      #   An optional map of data to pass into the workflow execution. There is a 1024
-      #   byte limit on the size of any single string value (with the exception of
-      #   [email attachments](/integrations/email/attachments)), and a 10MB limit on the
-      #   size of the full `data` payload.
+      #   An optional map of data to pass into the workflow execution. There is a 10MB
+      #   limit on the size of the full `data` payload. Any individual string value
+      #   greater than 1024 bytes in length will be
+      #   [truncated](/developer-tools/api-logs#log-truncation) in your logs.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
@@ -57,7 +57,7 @@ module Knockapi
       #
       #   @param cancellation_key [String, nil] An optional key that is used to reference a specific workflow trigger request wh
       #
-      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 1024 byt
+      #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 10MB lim
       #
       #   @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
       #

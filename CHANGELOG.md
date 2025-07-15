@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.10.0 (2025-07-15)
+
+Full Changelog: [v1.9.0...v1.10.0](https://github.com/knocklabs/knock-ruby/compare/v1.9.0...v1.10.0)
+
+### Features
+
+* **api:** api update ([d8ce1f1](https://github.com/knocklabs/knock-ruby/commit/d8ce1f14fbfd984d72a8eaa81a060659f46eb9b7))
+* **api:** api update ([b3ed2ae](https://github.com/knocklabs/knock-ruby/commit/b3ed2ae46f54a0e046a8bcef0492c6ae6ee2555a))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([854d6f0](https://github.com/knocklabs/knock-ruby/commit/854d6f0a527695decdb8e0e4a0093bc3d94eff9f))
+* **internal:** allow streams to also be unwrapped on a per-row basis ([f77e1d6](https://github.com/knocklabs/knock-ruby/commit/f77e1d62802fc88dcb62764834ac1c71005d1f87))
+
 ## 1.9.0 (2025-06-27)
 
 Full Changelog: [v1.8.1...v1.9.0](https://github.com/knocklabs/knock-ruby/compare/v1.8.1...v1.9.0)
