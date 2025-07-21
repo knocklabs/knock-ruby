@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.10.1 (2025-07-21)
+
+Full Changelog: [v1.10.0...v1.10.1](https://github.com/knocklabs/knock-ruby/compare/v1.10.0...v1.10.1)
+
+### Chores
+
+* **internal:** version bump ([eb7a32b](https://github.com/knocklabs/knock-ruby/commit/eb7a32b5f4bc292dd5b197fd3838ca7c340bac36))
+
 ## 1.10.0 (2025-07-15)
 
 Full Changelog: [v1.9.0...v1.10.0](https://github.com/knocklabs/knock-ruby/compare/v1.9.0...v1.10.0)
