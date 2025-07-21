@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.10.2 (2025-07-21)
+
+Full Changelog: [v1.10.1...v1.10.2](https://github.com/knocklabs/knock-ruby/compare/v1.10.1...v1.10.2)
+
+### Chores
+
+* fix formatting ([e281fdc](https://github.com/knocklabs/knock-ruby/commit/e281fdce28d18ae794f3364f5046e7d65de39844))
+* **internal:** version bump ([0aaa054](https://github.com/knocklabs/knock-ruby/commit/0aaa054c1d389b3679fc06cf0ffa95cfc7f6c774))
+
 ## 1.10.1 (2025-07-21)
 
 Full Changelog: [v1.10.0...v1.10.1](https://github.com/knocklabs/knock-ruby/compare/v1.10.0...v1.10.1)
