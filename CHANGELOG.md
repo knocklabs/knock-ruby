@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.10.3 (2025-07-26)
+
+Full Changelog: [v1.10.2...v1.10.3](https://github.com/knocklabs/knock-ruby/compare/v1.10.2...v1.10.3)
+
+### Chores
+
+* update contribute.md ([3ff1a87](https://github.com/knocklabs/knock-ruby/commit/3ff1a87c6bb8111da0f6127d38cc19c2fa5d54fa))
+
 ## 1.10.2 (2025-07-21)
 
 Full Changelog: [v1.10.1...v1.10.2](https://github.com/knocklabs/knock-ruby/compare/v1.10.1...v1.10.2)
