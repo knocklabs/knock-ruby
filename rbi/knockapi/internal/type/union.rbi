@@ -16,7 +16,8 @@ module Knockapi
             T::Array[
               [
                 T.nilable(Symbol),
-                T.proc.returns(Knockapi::Internal::Type::Converter::Input)
+                T.proc.returns(Knockapi::Internal::Type::Converter::Input),
+                Knockapi::Internal::AnyHash
               ]
             ]
           )
@@ -25,7 +26,13 @@ module Knockapi
         end
 
         # @api private
-        sig { returns(T::Array[[T.nilable(Symbol), T.anything]]) }
+        sig do
+          returns(
+            T::Array[
+              [T.nilable(Symbol), T.anything, Knockapi::Internal::AnyHash]
+            ]
+          )
+        end
         protected def derefed_variants
         end
 
