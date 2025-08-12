@@ -4,9 +4,7 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Users::FeedsTest < Knockapi::Test::ResourceTest
   def test_get_settings
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.feeds.get_settings("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
@@ -22,9 +20,7 @@ class Knockapi::Test::Resources::Users::FeedsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_items
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.feeds.list_items("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 

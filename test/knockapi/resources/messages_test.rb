@@ -4,9 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_list
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.list
 
@@ -49,9 +47,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_archive
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.archive("message_id")
 
@@ -87,9 +83,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.get("message_id")
 
@@ -125,9 +119,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_content
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.get_content("message_id")
 
@@ -146,9 +138,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_activities
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.list_activities("message_id")
 
@@ -177,9 +167,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_delivery_logs
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.list_delivery_logs("message_id")
 
@@ -208,9 +196,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_events
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.list_events("message_id")
 
@@ -238,9 +224,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_interacted
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_interacted("message_id")
 
@@ -276,9 +260,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_read
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_read("message_id")
 
@@ -314,9 +296,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_seen
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_seen("message_id")
 
@@ -352,9 +332,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_unread
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_unread("message_id")
 
@@ -390,9 +368,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_unseen
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_unseen("message_id")
 
@@ -428,9 +404,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_unarchive
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.messages.unarchive("message_id")
 
