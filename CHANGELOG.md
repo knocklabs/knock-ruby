@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.10.3 (2025-08-12)
+
+Full Changelog: [v1.10.2...v1.10.3](https://github.com/knocklabs/knock-ruby/compare/v1.10.2...v1.10.3)
+
+### Bug Fixes
+
+* **internal:** ensure sorbet test always runs serially ([66f6791](https://github.com/knocklabs/knock-ruby/commit/66f67914b8f2c811e98c1a7806fd361463614271))
+
+
+### Chores
+
+* collect metadata from type DSL ([7221a47](https://github.com/knocklabs/knock-ruby/commit/7221a470e5604d56b1e1a91b3504f3400a8e62d2))
+* **internal:** codegen related update ([83d9236](https://github.com/knocklabs/knock-ruby/commit/83d9236dedfc1d4dae46e0b1abed22206461df80))
+* **internal:** increase visibility of internal helper method ([18a3bc1](https://github.com/knocklabs/knock-ruby/commit/18a3bc1e07170a0c0e2595ac17c8a0e74a4855ff))
+* **internal:** update comment in script ([c0a5fc6](https://github.com/knocklabs/knock-ruby/commit/c0a5fc6a4760bb057e222e490700e702f54480fe))
+* update @stainless-api/prism-cli to v5.15.0 ([f92c3e6](https://github.com/knocklabs/knock-ruby/commit/f92c3e6157c76770e840c6c8363bd57565e3e465))
+* update contribute.md ([3ff1a87](https://github.com/knocklabs/knock-ruby/commit/3ff1a87c6bb8111da0f6127d38cc19c2fa5d54fa))
+
 ## 1.10.2 (2025-07-21)
 
 Full Changelog: [v1.10.1...v1.10.2](https://github.com/knocklabs/knock-ruby/compare/v1.10.1...v1.10.2)

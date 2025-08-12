@@ -17,7 +17,7 @@ To use this gem, install via Bundler by adding the following to your application
 <!-- x-release-please-start-version -->
 
 ```ruby
-gem "knockapi", "~> 1.10.2"
+gem "knockapi", "~> 1.10.3"
 ```
 
 <!-- x-release-please-end -->
