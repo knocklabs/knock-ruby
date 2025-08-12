@@ -4,9 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
   def test_create_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.schedules.create(recipients: ["user_123"], workflow: "comment-created")
 
@@ -16,9 +14,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
   end
 
   def test_update_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.schedules.update(schedule_ids: ["123e4567-e89b-12d3-a456-426614174000"])
 
@@ -28,9 +24,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.schedules.list(workflow: "workflow")
 
@@ -64,9 +58,7 @@ class Knockapi::Test::Resources::SchedulesTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.schedules.delete(schedule_ids: ["123e4567-e89b-12d3-a456-426614174000"])
 
