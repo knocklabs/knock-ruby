@@ -4,9 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   def test_add_members_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.audiences.add_members("key", members: [{user: {}}])
 
@@ -16,9 +14,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_members
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.audiences.list_members("key")
 
@@ -35,9 +31,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   end
 
   def test_remove_members_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.audiences.remove_members("key", members: [{user: {}}])
 

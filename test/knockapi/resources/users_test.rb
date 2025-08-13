@@ -4,9 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   def test_update
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.update("user_id")
 
@@ -30,9 +28,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.list
 
@@ -63,9 +59,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.delete("user_id")
 
@@ -75,9 +69,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.get("user_id")
 
@@ -101,9 +93,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_channel_data
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.get_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
@@ -122,9 +112,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_preferences
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.get_preferences("user_id", "default")
 
@@ -143,9 +131,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_messages
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.list_messages("user_id")
 
@@ -188,9 +174,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_preferences
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.list_preferences("user_id")
 
@@ -200,9 +184,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_schedules
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.list_schedules("user_id")
 
@@ -236,9 +218,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_subscriptions
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.list_subscriptions("user_id")
 
@@ -266,9 +246,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_merge_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.merge("user_id", from_user_id: "user_1")
 
@@ -292,9 +270,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_channel_data_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response =
       @knock.users.set_channel_data(
@@ -318,9 +294,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_preferences
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.set_preferences("user_id", "default")
 
@@ -339,9 +313,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_unset_channel_data
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.unset_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 

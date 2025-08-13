@@ -4,9 +4,7 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTest
   def test_get_channel
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.users.guides.get_channel("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
@@ -23,9 +21,7 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
   end
 
   def test_mark_message_as_archived_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response =
       @knock.users.guides.mark_message_as_archived(
@@ -49,9 +45,7 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
   end
 
   def test_mark_message_as_interacted_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response =
       @knock.users.guides.mark_message_as_interacted(
@@ -75,9 +69,7 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
   end
 
   def test_mark_message_as_seen_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response =
       @knock.users.guides.mark_message_as_seen(

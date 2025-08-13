@@ -4,9 +4,7 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::ResourceTest
   def test_check_auth_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.providers.slack.check_auth("channel_id", access_token_object: "access_token_object")
 
@@ -22,9 +20,7 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
   end
 
   def test_list_channels_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.providers.slack.list_channels("channel_id", access_token_object: "access_token_object")
 
@@ -51,9 +47,7 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
   end
 
   def test_revoke_access_required_params
-    skip(
-      "skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url"
-    )
+    skip("Prism doesn't support callbacks yet")
 
     response = @knock.providers.slack.revoke_access("channel_id", access_token_object: "access_token_object")
 
