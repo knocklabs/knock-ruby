@@ -12,6 +12,25 @@ module Knockapi
             )
           end
 
+        # Controls how the preference set is persisted. 'replace' will completely replace
+        # the preference set, 'merge' will merge with existing preferences.
+        sig do
+          returns(
+            T.nilable(
+              Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::OrSymbol
+            )
+          )
+        end
+        attr_reader :_persistence_strategy
+
+        sig do
+          params(
+            _persistence_strategy:
+              Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::OrSymbol
+          ).void
+        end
+        attr_writer :_persistence_strategy
+
         # An object where the key is the category and the values are the preference
         # settings for that category.
         sig do
@@ -63,6 +82,8 @@ module Knockapi
         # A request to set a preference set for a recipient.
         sig do
           params(
+            _persistence_strategy:
+              Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::OrSymbol,
             categories:
               T.nilable(
                 T::Hash[
@@ -90,6 +111,9 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
+          # Controls how the preference set is persisted. 'replace' will completely replace
+          # the preference set, 'merge' will merge with existing preferences.
+          _persistence_strategy: nil,
           # An object where the key is the category and the values are the preference
           # settings for that category.
           categories: nil,
@@ -104,6 +128,8 @@ module Knockapi
         sig do
           override.returns(
             {
+              _persistence_strategy:
+                Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::OrSymbol,
               categories:
                 T.nilable(
                   T::Hash[
@@ -130,6 +156,42 @@ module Knockapi
           )
         end
         def to_hash
+        end
+
+        # Controls how the preference set is persisted. 'replace' will completely replace
+        # the preference set, 'merge' will merge with existing preferences.
+        module PersistenceStrategy
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          MERGE =
+            T.let(
+              :merge,
+              Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::TaggedSymbol
+            )
+          REPLACE =
+            T.let(
+              :replace,
+              Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
 
         # Workflow or category preferences within a preference set

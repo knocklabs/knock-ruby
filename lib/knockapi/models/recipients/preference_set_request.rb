@@ -4,6 +4,15 @@ module Knockapi
   module Models
     module Recipients
       class PreferenceSetRequest < Knockapi::Internal::Type::BaseModel
+        # @!attribute _persistence_strategy
+        #   Controls how the preference set is persisted. 'replace' will completely replace
+        #   the preference set, 'merge' will merge with existing preferences.
+        #
+        #   @return [Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::PersistenceStrategy, nil]
+        optional :_persistence_strategy,
+                 enum: -> { Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy },
+                 api_name: :__persistence_strategy__
+
         # @!attribute categories
         #   An object where the key is the category and the values are the preference
         #   settings for that category.
@@ -32,17 +41,33 @@ module Knockapi
                  },
                  nil?: true
 
-        # @!method initialize(categories: nil, channel_types: nil, workflows: nil)
+        # @!method initialize(_persistence_strategy: nil, categories: nil, channel_types: nil, workflows: nil)
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Recipients::PreferenceSetRequest} for more details.
         #
         #   A request to set a preference set for a recipient.
+        #
+        #   @param _persistence_strategy [Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::PersistenceStrategy] Controls how the preference set is persisted. 'replace' will completely replace
         #
         #   @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
         #
         #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
         #
         #   @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
+
+        # Controls how the preference set is persisted. 'replace' will completely replace
+        # the preference set, 'merge' will merge with existing preferences.
+        #
+        # @see Knockapi::Models::Recipients::PreferenceSetRequest#_persistence_strategy
+        module PersistenceStrategy
+          extend Knockapi::Internal::Type::Enum
+
+          MERGE = :merge
+          REPLACE = :replace
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
 
         # Workflow or category preferences within a preference set
         module Category
