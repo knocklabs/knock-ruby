@@ -362,12 +362,16 @@ module Knockapi
       )
       end
 
-      # Updates a complete preference set for a user. This is a destructive operation
-      # that will replace the existing preference set for the user.
+      # Updates a complete preference set for a user. By default, this is a destructive
+      # operation and will replace any existing preferences with the preferences given.
+      # Use '**persistence_strategy**': 'merge' to merge with existing preferences
+      # instead.
       sig do
         params(
           user_id: String,
           id: String,
+          _persistence_strategy:
+            Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::OrSymbol,
           categories:
             T.nilable(
               T::Hash[
@@ -398,6 +402,9 @@ module Knockapi
         user_id,
         # Unique identifier for the preference set.
         id,
+        # Controls how the preference set is persisted. 'replace' will completely replace
+        # the preference set, 'merge' will merge with existing preferences.
+        _persistence_strategy: nil,
         # An object where the key is the category and the values are the preference
         # settings for that category.
         categories: nil,

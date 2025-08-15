@@ -3,12 +3,19 @@ module Knockapi
     module Recipients
       type preference_set_request =
         {
+          _persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
           categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
           channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
         }
 
       class PreferenceSetRequest < Knockapi::Internal::Type::BaseModel
+        attr_reader _persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy?
+
+        def _persistence_strategy=: (
+          Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy
+        ) -> Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy
+
         attr_accessor categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?
 
         attr_accessor channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?
@@ -16,16 +23,29 @@ module Knockapi
         attr_accessor workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
 
         def initialize: (
+          ?_persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
           ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
           ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
           ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
         ) -> void
 
         def to_hash: -> {
+          _persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
           categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
           channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
         }
+
+        type persistence_strategy = :merge | :replace
+
+        module PersistenceStrategy
+          extend Knockapi::Internal::Type::Enum
+
+          MERGE: :merge
+          REPLACE: :replace
+
+          def self?.values: -> ::Array[Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy]
+        end
 
         type category =
           bool

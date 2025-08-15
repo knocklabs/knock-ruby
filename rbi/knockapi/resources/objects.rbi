@@ -422,17 +422,21 @@ module Knockapi
       )
       end
 
-      # Sets preferences within the given preference set. This is a destructive
-      # operation and will replace any existing preferences with the preferences given.
-      # If no object exists in the current environment for the given `:collection` and
-      # `:object_id`, Knock will create the object as part of this request. The
-      # preference set `:id` can be either `default` or a `tenant.id`. Learn more about
+      # Sets preferences within the given preference set. By default, this is a
+      # destructive operation and will replace any existing preferences with the
+      # preferences given. Use '\_\_persistence_strategy': 'merge' to merge with
+      # existing preferences instead. If no object exists in the current environment for
+      # the given `:collection` and `:object_id`, Knock will create the object as part
+      # of this request. The preference set `:id` can be either `default` or a
+      # `tenant.id`. Learn more about
       # [per-tenant preferences](/preferences/tenant-preferences).
       sig do
         params(
           collection: String,
           object_id_: String,
           id: String,
+          _persistence_strategy:
+            Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::OrSymbol,
           categories:
             T.nilable(
               T::Hash[
@@ -465,6 +469,9 @@ module Knockapi
         object_id_,
         # Unique identifier for the preference set.
         id,
+        # Controls how the preference set is persisted. 'replace' will completely replace
+        # the preference set, 'merge' will merge with existing preferences.
+        _persistence_strategy: nil,
         # An object where the key is the category and the values are the preference
         # settings for that category.
         categories: nil,
