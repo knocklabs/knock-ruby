@@ -125,6 +125,7 @@ module Knockapi
         String collection,
         String object_id_,
         String id,
+        ?_persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
         ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
         ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
         ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?,

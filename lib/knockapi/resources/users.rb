@@ -375,14 +375,18 @@ module Knockapi
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::UserSetPreferencesParams} for more details.
       #
-      # Updates a complete preference set for a user. This is a destructive operation
-      # that will replace the existing preference set for the user.
+      # Updates a complete preference set for a user. By default, this is a destructive
+      # operation and will replace any existing preferences with the preferences given.
+      # Use '**persistence_strategy**': 'merge' to merge with existing preferences
+      # instead.
       #
-      # @overload set_preferences(user_id, id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
+      # @overload set_preferences(user_id, id, _persistence_strategy: nil, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #
       # @param user_id [String] The unique identifier of the user.
       #
       # @param id [String] Unique identifier for the preference set.
+      #
+      # @param _persistence_strategy [Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::PersistenceStrategy] Controls how the preference set is persisted. 'replace' will completely replace
       #
       # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
       #

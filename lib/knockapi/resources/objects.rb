@@ -425,20 +425,24 @@ module Knockapi
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::ObjectSetPreferencesParams} for more details.
       #
-      # Sets preferences within the given preference set. This is a destructive
-      # operation and will replace any existing preferences with the preferences given.
-      # If no object exists in the current environment for the given `:collection` and
-      # `:object_id`, Knock will create the object as part of this request. The
-      # preference set `:id` can be either `default` or a `tenant.id`. Learn more about
+      # Sets preferences within the given preference set. By default, this is a
+      # destructive operation and will replace any existing preferences with the
+      # preferences given. Use '\_\_persistence_strategy': 'merge' to merge with
+      # existing preferences instead. If no object exists in the current environment for
+      # the given `:collection` and `:object_id`, Knock will create the object as part
+      # of this request. The preference set `:id` can be either `default` or a
+      # `tenant.id`. Learn more about
       # [per-tenant preferences](/preferences/tenant-preferences).
       #
-      # @overload set_preferences(collection, object_id_, id, categories: nil, channel_types: nil, workflows: nil, request_options: {})
+      # @overload set_preferences(collection, object_id_, id, _persistence_strategy: nil, categories: nil, channel_types: nil, workflows: nil, request_options: {})
       #
       # @param collection [String] The collection this object belongs to.
       #
       # @param object_id_ [String] Unique identifier for the object.
       #
       # @param id [String] Unique identifier for the preference set.
+      #
+      # @param _persistence_strategy [Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::PersistenceStrategy] Controls how the preference set is persisted. 'replace' will completely replace
       #
       # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
       #

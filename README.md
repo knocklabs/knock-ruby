@@ -17,7 +17,7 @@ To use this gem, install via Bundler by adding the following to your application
 <!-- x-release-please-start-version -->
 
 ```ruby
-gem "knockapi", "~> 1.10.3"
+gem "knockapi", "~> 1.11.0"
 ```
 
 <!-- x-release-please-end -->
@@ -225,25 +225,25 @@ knock.workflows.trigger("dinosaurs-loose", **params)
 Since this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:
 
 ```ruby
-# :exclude
-puts(Knockapi::Users::FeedListItemsParams::Archived::EXCLUDE)
+# :merge
+puts(Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::MERGE)
 
-# Revealed type: `T.all(Knockapi::Users::FeedListItemsParams::Archived, Symbol)`
-T.reveal_type(Knockapi::Users::FeedListItemsParams::Archived::EXCLUDE)
+# Revealed type: `T.all(Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy, Symbol)`
+T.reveal_type(Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::MERGE)
 ```
 
 Enum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:
 
 ```ruby
 # Using the enum constants preserves the tagged type information:
-knock.users.feeds.list_items(
-  archived: Knockapi::Users::FeedListItemsParams::Archived::EXCLUDE,
+knock.users.set_preferences(
+  _persistence_strategy: Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::MERGE,
   # …
 )
 
 # Literal values are also permissible:
-knock.users.feeds.list_items(
-  archived: :exclude,
+knock.users.set_preferences(
+  _persistence_strategy: :merge,
   # …
 )
 ```
