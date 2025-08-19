@@ -30,9 +30,7 @@ module Knockapi
       #
       #   @return [Array<Symbol, Knockapi::Models::ObjectListMessagesParams::EngagementStatus>, nil]
       optional :engagement_status,
-               -> {
-                 Knockapi::Internal::Type::ArrayOf[enum: Knockapi::ObjectListMessagesParams::EngagementStatus]
-               }
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::ObjectListMessagesParams::EngagementStatus] }
 
       # @!attribute inserted_at
       #

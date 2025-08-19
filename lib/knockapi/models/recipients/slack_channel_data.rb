@@ -9,9 +9,7 @@ module Knockapi
         #
         #   @return [Array<Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection, Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection>]
         required :connections,
-                 -> {
-                   Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipients::SlackChannelData::Connection]
-                 }
+                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipients::SlackChannelData::Connection] }
 
         # @!attribute token
         #   A Slack connection token.

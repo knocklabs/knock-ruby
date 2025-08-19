@@ -18,10 +18,7 @@ module Knockapi
         #   Limits the results to messages with the given delivery status.
         #
         #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::DeliveryStatus, nil]
-        optional :delivery_status,
-                 enum: -> {
-                   Knockapi::Channels::BulkUpdateMessageStatusParams::DeliveryStatus
-                 }
+        optional :delivery_status, enum: -> { Knockapi::Channels::BulkUpdateMessageStatusParams::DeliveryStatus }
 
         # @!attribute engagement_status
         #   Limits the results to messages with the given engagement status.

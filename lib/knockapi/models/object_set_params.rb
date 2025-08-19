@@ -12,9 +12,7 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil]
       optional :channel_data,
-               -> {
-                 Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::InlineChannelDataRequestItem]
-               }
+               -> { Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::InlineChannelDataRequestItem] }
 
       # @!attribute locale
       #   The locale of the object. Used for
@@ -29,10 +27,7 @@ module Knockapi
       #   rather than replacing them.
       #
       #   @return [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil]
-      optional :preferences,
-               -> {
-                 Knockapi::Internal::Type::HashOf[Knockapi::Recipients::PreferenceSetRequest]
-               }
+      optional :preferences, -> { Knockapi::Internal::Type::HashOf[Knockapi::Recipients::PreferenceSetRequest] }
 
       # @!attribute timezone
       #   The timezone of the object. Must be a

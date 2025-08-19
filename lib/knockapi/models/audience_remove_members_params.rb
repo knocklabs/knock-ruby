@@ -11,10 +11,7 @@ module Knockapi
       #   A list of audience members to remove.
       #
       #   @return [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
-      required :members,
-               -> {
-                 Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceRemoveMembersParams::Member]
-               }
+      required :members, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceRemoveMembersParams::Member] }
 
       # @!method initialize(members:, request_options: {})
       #   @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove.

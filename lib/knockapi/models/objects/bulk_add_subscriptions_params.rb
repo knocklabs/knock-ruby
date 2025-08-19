@@ -13,9 +13,7 @@ module Knockapi
         #
         #   @return [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>]
         required :subscriptions,
-                 -> {
-                   Knockapi::Internal::Type::ArrayOf[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription]
-                 }
+                 -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription] }
 
         # @!method initialize(subscriptions:, request_options: {})
         #   @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>] A list of subscriptions.
