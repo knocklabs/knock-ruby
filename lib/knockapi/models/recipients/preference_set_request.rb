@@ -76,9 +76,7 @@ module Knockapi
           variant Knockapi::Internal::Type::Boolean
 
           # The settings object for a workflow or category, where you can specify channel types or conditions.
-          variant -> {
-            Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject
-          }
+          variant -> { Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject }
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_types
@@ -113,9 +111,7 @@ module Knockapi
           variant Knockapi::Internal::Type::Boolean
 
           # The settings object for a workflow or category, where you can specify channel types or conditions.
-          variant -> {
-            Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject
-          }
+          variant -> { Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject }
 
           class PreferenceSetWorkflowCategorySettingObject < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_types

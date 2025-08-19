@@ -30,9 +30,7 @@ module Knockapi
       #
       #   @return [Array<Symbol, Knockapi::Models::UserListMessagesParams::EngagementStatus>, nil]
       optional :engagement_status,
-               -> {
-                 Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListMessagesParams::EngagementStatus]
-               }
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListMessagesParams::EngagementStatus] }
 
       # @!attribute inserted_at
       #
@@ -62,10 +60,7 @@ module Knockapi
       #   Limits the results to messages with the given delivery status.
       #
       #   @return [Array<Symbol, Knockapi::Models::UserListMessagesParams::Status>, nil]
-      optional :status,
-               -> {
-                 Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListMessagesParams::Status]
-               }
+      optional :status, -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::UserListMessagesParams::Status] }
 
       # @!attribute tenant
       #   Limits the results to items with the corresponding tenant.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.11.1 (2025-08-19)
+
+Full Changelog: [v1.11.0...v1.11.1](https://github.com/knocklabs/knock-ruby/compare/v1.11.0...v1.11.1)
+
+### Bug Fixes
+
+* bump sorbet version and fix new type errors from the breaking change ([0194974](https://github.com/knocklabs/knock-ruby/commit/0194974b049c8c69ce3749f1bc8086b724a39272))
+
 ## 1.11.0 (2025-08-15)
 
 Full Changelog: [v1.10.3...v1.11.0](https://github.com/knocklabs/knock-ruby/compare/v1.10.3...v1.11.0)
