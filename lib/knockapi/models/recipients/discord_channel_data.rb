@@ -9,9 +9,7 @@ module Knockapi
         #
         #   @return [Array<Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection, Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection>]
         required :connections,
-                 -> {
-                   Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipients::DiscordChannelData::Connection]
-                 }
+                 -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Recipients::DiscordChannelData::Connection] }
 
         # @!method initialize(connections:)
         #   Discord channel data.
@@ -27,9 +25,7 @@ module Knockapi
           variant -> { Knockapi::Recipients::DiscordChannelData::Connection::DiscordChannelConnection }
 
           # Discord incoming webhook connection.
-          variant -> {
-            Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection
-          }
+          variant -> { Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection }
 
           class DiscordChannelConnection < Knockapi::Internal::Type::BaseModel
             # @!attribute channel_id
@@ -50,9 +46,7 @@ module Knockapi
             #
             #   @return [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook]
             required :incoming_webhook,
-                     -> {
-                       Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
-                     }
+                     -> { Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook }
 
             # @!method initialize(incoming_webhook:)
             #   Discord incoming webhook connection.

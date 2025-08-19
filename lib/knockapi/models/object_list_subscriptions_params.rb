@@ -24,9 +24,7 @@ module Knockapi
       #
       #   @return [Array<Symbol, Knockapi::Models::ObjectListSubscriptionsParams::Include>, nil]
       optional :include,
-               -> {
-                 Knockapi::Internal::Type::ArrayOf[enum: Knockapi::ObjectListSubscriptionsParams::Include]
-               }
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::ObjectListSubscriptionsParams::Include] }
 
       # @!attribute mode
       #   Mode of the request. `recipient` to list the objects that the provided object is
