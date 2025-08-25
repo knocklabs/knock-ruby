@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.11.2 (2025-08-24)
+
+Full Changelog: [v1.11.1...v1.11.2](https://github.com/knocklabs/knock-ruby/compare/v1.11.1...v1.11.2)
+
+### Chores
+
+* add json schema comment for rubocop.yml ([83abcfa](https://github.com/knocklabs/knock-ruby/commit/83abcfa2c17d0495243044a3868ed3e26120c1c3))
+
 ## 1.11.1 (2025-08-19)
 
 Full Changelog: [v1.11.0...v1.11.1](https://github.com/knocklabs/knock-ruby/compare/v1.11.0...v1.11.1)
