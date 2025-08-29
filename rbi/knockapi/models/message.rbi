@@ -292,7 +292,7 @@ module Knockapi
         sig { returns(String) }
         attr_accessor :version_id
 
-        # The step reference for the step in the workflow that generated the message
+        # The step reference for the step in the workflow that generated the message.
         sig { returns(T.nilable(String)) }
         attr_accessor :step_ref
 
@@ -314,7 +314,7 @@ module Knockapi
           key:,
           # The ID of the version of the workflow that triggered the message.
           version_id:,
-          # The step reference for the step in the workflow that generated the message
+          # The step reference for the step in the workflow that generated the message.
           step_ref: nil
         )
         end

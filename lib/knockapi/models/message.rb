@@ -231,7 +231,7 @@ module Knockapi
         required :version_id, String
 
         # @!attribute step_ref
-        #   The step reference for the step in the workflow that generated the message
+        #   The step reference for the step in the workflow that generated the message.
         #
         #   @return [String, nil]
         optional :step_ref, String, nil?: true
@@ -247,7 +247,7 @@ module Knockapi
         #
         #   @param version_id [String] The ID of the version of the workflow that triggered the message.
         #
-        #   @param step_ref [String, nil] The step reference for the step in the workflow that generated the message
+        #   @param step_ref [String, nil] The step reference for the step in the workflow that generated the message.
       end
 
       # The message delivery status.
