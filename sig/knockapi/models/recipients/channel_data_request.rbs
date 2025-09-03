@@ -18,12 +18,23 @@ module Knockapi
         type data =
           Knockapi::Recipients::PushChannelData
           | Knockapi::Recipients::OneSignalChannelData
+          | Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData
           | Knockapi::Recipients::SlackChannelData
           | Knockapi::Recipients::MsTeamsChannelData
           | Knockapi::Recipients::DiscordChannelData
 
         module Data
           extend Knockapi::Internal::Type::Union
+
+          type aws_sns_push_channel_data = { target_arns: ::Array[String] }
+
+          class AwsSnsPushChannelData < Knockapi::Internal::Type::BaseModel
+            attr_accessor target_arns: ::Array[String]
+
+            def initialize: (target_arns: ::Array[String]) -> void
+
+            def to_hash: -> { target_arns: ::Array[String] }
+          end
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::ChannelDataRequest::data]
         end
