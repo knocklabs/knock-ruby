@@ -7,58 +7,14 @@ module Knockapi
       # @!attribute id
       #   The unique identifier for the message.
       #
-      #   @return [String]
-      required :id, String
+      #   @return [String, nil]
+      optional :id, String
 
       # @!attribute _typename
       #   The typename of the schema.
       #
-      #   @return [String]
-      required :_typename, String, api_name: :__typename
-
-      # @!attribute channel_id
-      #   The ID for the channel the message was sent through.
-      #
-      #   @return [String]
-      required :channel_id, String
-
-      # @!attribute engagement_statuses
-      #   A list of engagement statuses.
-      #
-      #   @return [Array<Symbol, Knockapi::Models::Message::EngagementStatus>]
-      required :engagement_statuses,
-               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus] }
-
-      # @!attribute inserted_at
-      #   Timestamp when the resource was created.
-      #
-      #   @return [Time]
-      required :inserted_at, Time
-
-      # @!attribute recipient
-      #   A reference to a recipient, either a user identifier (string) or an object
-      #   reference (ID, collection).
-      #
-      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference]
-      required :recipient, union: -> { Knockapi::RecipientReference }
-
-      # @!attribute source
-      #   The workflow that triggered the message.
-      #
-      #   @return [Knockapi::Models::Message::Source]
-      required :source, -> { Knockapi::Message::Source }
-
-      # @!attribute status
-      #   The message delivery status.
-      #
-      #   @return [Symbol, Knockapi::Models::Message::Status]
-      required :status, enum: -> { Knockapi::Message::Status }
-
-      # @!attribute updated_at
-      #   The timestamp when the resource was last updated.
-      #
-      #   @return [Time]
-      required :updated_at, Time
+      #   @return [String, nil]
+      optional :_typename, String, api_name: :__typename
 
       # @!attribute actors
       #   One or more actors that are associated with this message. Note: this is a list
@@ -73,6 +29,12 @@ module Knockapi
       #
       #   @return [Time, nil]
       optional :archived_at, Time, nil?: true
+
+      # @!attribute channel_id
+      #   The ID for the channel the message was sent through.
+      #
+      #   @return [String, nil]
+      optional :channel_id, String
 
       # @!attribute clicked_at
       #   Timestamp when the message was clicked.
@@ -89,6 +51,19 @@ module Knockapi
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :data, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
+
+      # @!attribute engagement_statuses
+      #   A list of engagement statuses.
+      #
+      #   @return [Array<Symbol, Knockapi::Models::Message::EngagementStatus>, nil]
+      optional :engagement_statuses,
+               -> { Knockapi::Internal::Type::ArrayOf[enum: Knockapi::Message::EngagementStatus] }
+
+      # @!attribute inserted_at
+      #   Timestamp when the resource was created.
+      #
+      #   @return [Time, nil]
+      optional :inserted_at, Time
 
       # @!attribute interacted_at
       #   Timestamp when the message was interacted with.
@@ -114,6 +89,13 @@ module Knockapi
       #   @return [Time, nil]
       optional :read_at, Time, nil?: true
 
+      # @!attribute recipient
+      #   A reference to a recipient, either a user identifier (string) or an object
+      #   reference (ID, collection).
+      #
+      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
+      optional :recipient, union: -> { Knockapi::RecipientReference }
+
       # @!attribute scheduled_at
       #   Timestamp when the message was scheduled to be sent.
       #
@@ -126,12 +108,30 @@ module Knockapi
       #   @return [Time, nil]
       optional :seen_at, Time, nil?: true
 
+      # @!attribute source
+      #   The workflow that triggered the message.
+      #
+      #   @return [Knockapi::Models::Message::Source, nil]
+      optional :source, -> { Knockapi::Message::Source }
+
+      # @!attribute status
+      #   The message delivery status.
+      #
+      #   @return [Symbol, Knockapi::Models::Message::Status, nil]
+      optional :status, enum: -> { Knockapi::Message::Status }
+
       # @!attribute tenant
       #   The ID of the `tenant` associated with the message. Only present when a `tenant`
       #   is provided on a workflow trigger request.
       #
       #   @return [String, nil]
       optional :tenant, String, nil?: true
+
+      # @!attribute updated_at
+      #   The timestamp when the resource was last updated.
+      #
+      #   @return [Time, nil]
+      optional :updated_at, Time
 
       # @!attribute workflow
       #   @deprecated
@@ -141,7 +141,7 @@ module Knockapi
       #   @return [String, nil]
       optional :workflow, String, nil?: true
 
-      # @!method initialize(id:, _typename:, channel_id:, engagement_statuses:, inserted_at:, recipient:, source:, status:, updated_at:, actors: nil, archived_at: nil, clicked_at: nil, data: nil, interacted_at: nil, link_clicked_at: nil, metadata: nil, read_at: nil, scheduled_at: nil, seen_at: nil, tenant: nil, workflow: nil)
+      # @!method initialize(id: nil, _typename: nil, actors: nil, archived_at: nil, channel_id: nil, clicked_at: nil, data: nil, engagement_statuses: nil, inserted_at: nil, interacted_at: nil, link_clicked_at: nil, metadata: nil, read_at: nil, recipient: nil, scheduled_at: nil, seen_at: nil, source: nil, status: nil, tenant: nil, updated_at: nil, workflow: nil)
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::Message} for more details.
       #
@@ -152,27 +152,19 @@ module Knockapi
       #
       #   @param _typename [String] The typename of the schema.
       #
-      #   @param channel_id [String] The ID for the channel the message was sent through.
-      #
-      #   @param engagement_statuses [Array<Symbol, Knockapi::Models::Message::EngagementStatus>] A list of engagement statuses.
-      #
-      #   @param inserted_at [Time] Timestamp when the resource was created.
-      #
-      #   @param recipient [String, Knockapi::Models::RecipientReference::ObjectReference] A reference to a recipient, either a user identifier (string) or an object refer
-      #
-      #   @param source [Knockapi::Models::Message::Source] The workflow that triggered the message.
-      #
-      #   @param status [Symbol, Knockapi::Models::Message::Status] The message delivery status.
-      #
-      #   @param updated_at [Time] The timestamp when the resource was last updated.
-      #
       #   @param actors [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] One or more actors that are associated with this message. Note: this is a list t
       #
       #   @param archived_at [Time, nil] Timestamp when the message was archived.
       #
+      #   @param channel_id [String] The ID for the channel the message was sent through.
+      #
       #   @param clicked_at [Time, nil] Timestamp when the message was clicked.
       #
       #   @param data [Hash{Symbol=>Object}, nil] Data associated with the message’s workflow run. Includes the workflow trigger r
+      #
+      #   @param engagement_statuses [Array<Symbol, Knockapi::Models::Message::EngagementStatus>] A list of engagement statuses.
+      #
+      #   @param inserted_at [Time] Timestamp when the resource was created.
       #
       #   @param interacted_at [Time, nil] Timestamp when the message was interacted with.
       #
@@ -182,11 +174,19 @@ module Knockapi
       #
       #   @param read_at [Time, nil] Timestamp when the message was read.
       #
+      #   @param recipient [String, Knockapi::Models::RecipientReference::ObjectReference] A reference to a recipient, either a user identifier (string) or an object refer
+      #
       #   @param scheduled_at [Time, nil] Timestamp when the message was scheduled to be sent.
       #
       #   @param seen_at [Time, nil] Timestamp when the message was seen.
       #
+      #   @param source [Knockapi::Models::Message::Source] The workflow that triggered the message.
+      #
+      #   @param status [Symbol, Knockapi::Models::Message::Status] The message delivery status.
+      #
       #   @param tenant [String, nil] The ID of the `tenant` associated with the message. Only present when a `tenant`
+      #
+      #   @param updated_at [Time] The timestamp when the resource was last updated.
       #
       #   @param workflow [String, nil] The key of the workflow that generated the message.
 
@@ -231,7 +231,7 @@ module Knockapi
         required :version_id, String
 
         # @!attribute step_ref
-        #   The step reference for the step in the workflow that generated the message.
+        #   The step reference for the step in the workflow that generated the message
         #
         #   @return [String, nil]
         optional :step_ref, String, nil?: true
@@ -247,7 +247,7 @@ module Knockapi
         #
         #   @param version_id [String] The ID of the version of the workflow that triggered the message.
         #
-        #   @param step_ref [String, nil] The step reference for the step in the workflow that generated the message.
+        #   @param step_ref [String, nil] The step reference for the step in the workflow that generated the message
       end
 
       # The message delivery status.
