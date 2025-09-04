@@ -19,7 +19,7 @@ module Knockapi
         # @!attribute data
         #   Channel data for a given channel type.
         #
-        #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwsSnsPushChannelData]
+        #   @return [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData]
         required :data, union: -> { Knockapi::Recipients::RecipientsChannelData::Data }
 
         # @!attribute provider
@@ -35,7 +35,7 @@ module Knockapi
         #
         #   @param channel_id [String] The unique identifier for the channel.
         #
-        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwsSnsPushChannelData] Channel data for a given channel type.
+        #   @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData] Channel data for a given channel type.
         #
         #   @param provider [Symbol, Knockapi::Models::Recipients::RecipientsChannelData::Provider] The type of provider.
 
@@ -60,29 +60,8 @@ module Knockapi
           # OneSignal channel data.
           variant -> { Knockapi::Recipients::OneSignalChannelData }
 
-          # AWS SNS push channel data.
-          variant -> { Knockapi::Recipients::RecipientsChannelData::Data::AwsSnsPushChannelData }
-
-          class AwsSnsPushChannelData < Knockapi::Internal::Type::BaseModel
-            # @!attribute target_arns
-            #   A list of platform endpoint ARNs. See
-            #   [Setting up an Amazon SNS platform endpoint for mobile notifications](https://docs.aws.amazon.com/sns/latest/dg/mobile-platform-endpoint.html).
-            #
-            #   @return [Array<String>]
-            required :target_arns, Knockapi::Internal::Type::ArrayOf[String]
-
-            # @!method initialize(target_arns:)
-            #   Some parameter documentations has been truncated, see
-            #   {Knockapi::Models::Recipients::RecipientsChannelData::Data::AwsSnsPushChannelData}
-            #   for more details.
-            #
-            #   AWS SNS push channel data.
-            #
-            #   @param target_arns [Array<String>] A list of platform endpoint ARNs. See [Setting up an Amazon SNS platform endpoin
-          end
-
           # @!method self.variants
-          #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwsSnsPushChannelData)]
+          #   @return [Array(Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData, Knockapi::Models::Recipients::OneSignalChannelData)]
         end
 
         # The type of provider.
@@ -93,7 +72,6 @@ module Knockapi
 
           PUSH_FCM = :push_fcm
           PUSH_APNS = :push_apns
-          PUSH_AWS_SNS = :push_aws_sns
           PUSH_EXPO = :push_expo
           PUSH_ONE_SIGNAL = :push_one_signal
           CHAT_SLACK = :chat_slack
