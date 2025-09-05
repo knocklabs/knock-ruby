@@ -42,9 +42,20 @@ module Knockapi
           | Knockapi::Recipients::MsTeamsChannelData
           | Knockapi::Recipients::DiscordChannelData
           | Knockapi::Recipients::OneSignalChannelData
+          | Knockapi::Recipients::RecipientsChannelData::Data::AwsSnsPushChannelData
 
         module Data
           extend Knockapi::Internal::Type::Union
+
+          type aws_sns_push_channel_data = { target_arns: ::Array[String] }
+
+          class AwsSnsPushChannelData < Knockapi::Internal::Type::BaseModel
+            attr_accessor target_arns: ::Array[String]
+
+            def initialize: (target_arns: ::Array[String]) -> void
+
+            def to_hash: -> { target_arns: ::Array[String] }
+          end
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::RecipientsChannelData::data]
         end
@@ -52,6 +63,7 @@ module Knockapi
         type provider =
           :push_fcm
           | :push_apns
+          | :push_aws_sns
           | :push_expo
           | :push_one_signal
           | :chat_slack
@@ -64,6 +76,7 @@ module Knockapi
 
           PUSH_FCM: :push_fcm
           PUSH_APNS: :push_apns
+          PUSH_AWS_SNS: :push_aws_sns
           PUSH_EXPO: :push_expo
           PUSH_ONE_SIGNAL: :push_one_signal
           CHAT_SLACK: :chat_slack
