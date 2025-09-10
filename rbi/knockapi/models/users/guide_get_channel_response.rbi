@@ -94,6 +94,13 @@ module Knockapi
           sig { params(id: String).void }
           attr_writer :id
 
+          # Whether the guide is active.
+          sig { returns(T.nilable(T::Boolean)) }
+          attr_reader :active
+
+          sig { params(active: T::Boolean).void }
+          attr_writer :active
+
           # The content of the guide.
           sig { returns(T.nilable(String)) }
           attr_reader :content
@@ -118,6 +125,7 @@ module Knockapi
           sig do
             params(
               id: String,
+              active: T::Boolean,
               content: String,
               metadata: T::Hash[Symbol, T.anything],
               title: String
@@ -126,6 +134,8 @@ module Knockapi
           def self.new(
             # The unique identifier for the guide.
             id: nil,
+            # Whether the guide is active.
+            active: nil,
             # The content of the guide.
             content: nil,
             # The metadata of the guide.
@@ -139,6 +149,7 @@ module Knockapi
             override.returns(
               {
                 id: String,
+                active: T::Boolean,
                 content: String,
                 metadata: T::Hash[Symbol, T.anything],
                 title: String

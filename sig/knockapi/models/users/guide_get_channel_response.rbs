@@ -25,6 +25,7 @@ module Knockapi
         type guide =
           {
             id: String,
+            active: bool,
             content: String,
             metadata: ::Hash[Symbol, top],
             title: String
@@ -34,6 +35,10 @@ module Knockapi
           attr_reader id: String?
 
           def id=: (String) -> String
+
+          attr_reader active: bool?
+
+          def active=: (bool) -> bool
 
           attr_reader content: String?
 
@@ -49,6 +54,7 @@ module Knockapi
 
           def initialize: (
             ?id: String,
+            ?active: bool,
             ?content: String,
             ?metadata: ::Hash[Symbol, top],
             ?title: String
@@ -56,6 +62,7 @@ module Knockapi
 
           def to_hash: -> {
             id: String,
+            active: bool,
             content: String,
             metadata: ::Hash[Symbol, top],
             title: String
