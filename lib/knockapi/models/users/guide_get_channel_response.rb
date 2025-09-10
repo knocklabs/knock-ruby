@@ -32,6 +32,12 @@ module Knockapi
           #   @return [String, nil]
           optional :id, String
 
+          # @!attribute active
+          #   Whether the guide is active.
+          #
+          #   @return [Boolean, nil]
+          optional :active, Knockapi::Internal::Type::Boolean
+
           # @!attribute content
           #   The content of the guide.
           #
@@ -50,8 +56,10 @@ module Knockapi
           #   @return [String, nil]
           optional :title, String
 
-          # @!method initialize(id: nil, content: nil, metadata: nil, title: nil)
+          # @!method initialize(id: nil, active: nil, content: nil, metadata: nil, title: nil)
           #   @param id [String] The unique identifier for the guide.
+          #
+          #   @param active [Boolean] Whether the guide is active.
           #
           #   @param content [String] The content of the guide.
           #
