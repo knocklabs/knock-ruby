@@ -26,6 +26,7 @@ module Knockapi
                 T.any(
                   Knockapi::Recipients::PushChannelData::OrHash,
                   Knockapi::Recipients::OneSignalChannelData::OrHash,
+                  Knockapi::Recipients::InlineChannelDataRequestItem::AwsSnsPushChannelData::OrHash,
                   Knockapi::Recipients::SlackChannelData::OrHash,
                   Knockapi::Recipients::MsTeamsChannelData::OrHash,
                   Knockapi::Recipients::DiscordChannelData::OrHash
@@ -344,6 +345,7 @@ module Knockapi
             T.any(
               Knockapi::Recipients::PushChannelData::OrHash,
               Knockapi::Recipients::OneSignalChannelData::OrHash,
+              Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData::OrHash,
               Knockapi::Recipients::SlackChannelData::OrHash,
               Knockapi::Recipients::MsTeamsChannelData::OrHash,
               Knockapi::Recipients::DiscordChannelData::OrHash
