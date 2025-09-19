@@ -41,7 +41,7 @@ module Knockapi
         #
         # @param user_id [String] The unique identifier of the user.
         #
-        # @param message_id [String] The unique identifier for the message.
+        # @param message_id [String]
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
@@ -84,7 +84,7 @@ module Knockapi
         #
         # @param user_id [String] The unique identifier of the user.
         #
-        # @param message_id [String] The unique identifier for the message.
+        # @param message_id [String]
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
@@ -127,7 +127,7 @@ module Knockapi
         #
         # @param user_id [String] The unique identifier of the user.
         #
-        # @param message_id [String] The unique identifier for the message.
+        # @param message_id [String]
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
