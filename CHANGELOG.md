@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.14.0 (2025-09-19)
+
+Full Changelog: [v1.13.0...v1.14.0](https://github.com/knocklabs/knock-ruby/compare/v1.13.0...v1.14.0)
+
+### Features
+
+* expose response headers for both streams and errors ([5cbf48f](https://github.com/knocklabs/knock-ruby/commit/5cbf48f94eecc974a2e3d9a200a04bbfc9d08db4))
+
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([daac840](https://github.com/knocklabs/knock-ruby/commit/daac84029a5ba728f68163b9cccb77dacf56a6b1))
+
 ## 1.13.0 (2025-09-10)
 
 Full Changelog: [v1.12.0...v1.13.0](https://github.com/knocklabs/knock-ruby/compare/v1.12.0...v1.13.0)
