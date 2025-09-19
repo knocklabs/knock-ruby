@@ -51,7 +51,6 @@ module Knockapi
         def mark_message_as_archived(
           # The unique identifier of the user.
           user_id,
-          # The unique identifier for the message.
           message_id,
           # The unique identifier for the channel.
           channel_id:,
@@ -98,7 +97,6 @@ module Knockapi
         def mark_message_as_interacted(
           # The unique identifier of the user.
           user_id,
-          # The unique identifier for the message.
           message_id,
           # The unique identifier for the channel.
           channel_id:,
@@ -143,7 +141,6 @@ module Knockapi
         def mark_message_as_seen(
           # The unique identifier of the user.
           user_id,
-          # The unique identifier for the message.
           message_id,
           # The unique identifier for the channel.
           channel_id:,
