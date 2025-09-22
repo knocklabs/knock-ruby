@@ -133,7 +133,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   def test_list_messages
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.users.list_messages("user_id")
+    response = @knock.users.list_messages("user-123")
 
     assert_pattern do
       response => Knockapi::Internal::ItemsCursor
