@@ -20,7 +20,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [String]
+      # @return [nil]
       #
       # @see Knockapi::Models::WorkflowCancelParams
       def cancel(key, params)
@@ -29,7 +29,7 @@ module Knockapi
           method: :post,
           path: ["v1/workflows/%1$s/cancel", key],
           body: parsed,
-          model: String,
+          model: NilClass,
           options: options
         )
       end

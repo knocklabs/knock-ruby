@@ -37,7 +37,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
     response = @knock.objects.delete("collection", "id")
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 
@@ -308,7 +308,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       @knock.objects.unset_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 end

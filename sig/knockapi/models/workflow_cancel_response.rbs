@@ -1,5 +1,0 @@
-module Knockapi
-  module Models
-    class WorkflowCancelResponse = String
-  end
-end

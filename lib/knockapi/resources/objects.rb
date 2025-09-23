@@ -49,14 +49,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [String]
+      # @return [nil]
       #
       # @see Knockapi::Models::ObjectDeleteParams
       def delete(collection, id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/objects/%1$s/%2$s", collection, id],
-          model: String,
+          model: NilClass,
           options: params[:request_options]
         )
       end
@@ -478,14 +478,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [String]
+      # @return [nil]
       #
       # @see Knockapi::Models::ObjectUnsetChannelDataParams
       def unset_channel_data(collection, object_id_, channel_id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/objects/%1$s/%2$s/channel_data/%3$s", collection, object_id_, channel_id],
-          model: String,
+          model: NilClass,
           options: params[:request_options]
         )
       end
