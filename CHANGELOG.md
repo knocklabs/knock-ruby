@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.15.0 (2025-09-23)
+
+Full Changelog: [v1.14.0...v1.15.0](https://github.com/knocklabs/knock-ruby/compare/v1.14.0...v1.15.0)
+
+### Features
+
+* **api:** api update ([9e20ef7](https://github.com/knocklabs/knock-ruby/commit/9e20ef78f55bd98a4a44ad32a85c63d5b0f7da97))
+* **api:** api update ([f6a598f](https://github.com/knocklabs/knock-ruby/commit/f6a598f8caab8d8fadc652efa12ebbbc62a5d3dc))
+* **api:** set idempotency key header by default ([14e4fac](https://github.com/knocklabs/knock-ruby/commit/14e4face034def9abbb45120d5c1af1cb415b689))
+
+
+### Chores
+
+* improve example values ([3745058](https://github.com/knocklabs/knock-ruby/commit/37450588f7a937fec2ab49ab04c7142493c7d646))
+
 ## 1.14.0 (2025-09-19)
 
 Full Changelog: [v1.13.0...v1.14.0](https://github.com/knocklabs/knock-ruby/compare/v1.13.0...v1.14.0)
