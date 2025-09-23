@@ -9,7 +9,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
     response = @knock.audiences.add_members("key", members: [{user: {}}])
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 
@@ -36,7 +36,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
     response = @knock.audiences.remove_members("key", members: [{user: {}}])
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 end

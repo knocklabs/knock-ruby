@@ -64,7 +64,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.delete("user_id")
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 
@@ -318,7 +318,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
     response = @knock.users.unset_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 end

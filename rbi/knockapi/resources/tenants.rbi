@@ -37,7 +37,7 @@ module Knockapi
         params(
           id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def delete(
         # The unique identifier for the tenant.

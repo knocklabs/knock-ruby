@@ -20,7 +20,7 @@ module Knockapi
               ]
             ),
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def cancel(
         # The key of the workflow to cancel.

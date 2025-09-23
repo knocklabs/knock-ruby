@@ -35,7 +35,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
     response = @knock.tenants.delete("id")
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 

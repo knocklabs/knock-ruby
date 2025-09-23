@@ -12,10 +12,7 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::Tenant]
 
-      def delete: (
-        String id,
-        ?request_options: Knockapi::request_opts
-      ) -> String
+      def delete: (String id, ?request_options: Knockapi::request_opts) -> nil
 
       def get: (
         String id,

@@ -9,7 +9,7 @@ module Knockapi
           key: String,
           members: T::Array[Knockapi::AudienceAddMembersParams::Member::OrHash],
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def add_members(
         # The key of the audience.
@@ -41,7 +41,7 @@ module Knockapi
           members:
             T::Array[Knockapi::AudienceRemoveMembersParams::Member::OrHash],
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def remove_members(
         # The key of the audience.

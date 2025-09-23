@@ -1,5 +1,0 @@
-module Knockapi
-  module Models
-    class AudienceRemoveMembersResponse = String
-  end
-end

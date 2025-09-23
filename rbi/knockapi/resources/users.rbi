@@ -109,7 +109,7 @@ module Knockapi
         params(
           user_id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def delete(
         # The ID of the user to delete.
@@ -425,7 +425,7 @@ module Knockapi
           user_id: String,
           channel_id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def unset_channel_data(
         # The unique identifier of the user.

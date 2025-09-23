@@ -40,7 +40,7 @@ module Knockapi
           collection: String,
           id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def delete(
         # The collection this object belongs to.
@@ -493,7 +493,7 @@ module Knockapi
           object_id_: String,
           channel_id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def unset_channel_data(
         # The collection this object belongs to.
