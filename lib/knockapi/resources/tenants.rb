@@ -45,14 +45,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [String]
+      # @return [nil]
       #
       # @see Knockapi::Models::TenantDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
           path: ["v1/tenants/%1$s", id],
-          model: String,
+          model: NilClass,
           options: params[:request_options]
         )
       end

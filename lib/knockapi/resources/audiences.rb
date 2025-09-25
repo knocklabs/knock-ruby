@@ -13,7 +13,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [String]
+      # @return [nil]
       #
       # @see Knockapi::Models::AudienceAddMembersParams
       def add_members(key, params)
@@ -22,7 +22,7 @@ module Knockapi
           method: :post,
           path: ["v1/audiences/%1$s/members", key],
           body: parsed,
-          model: String,
+          model: NilClass,
           options: options
         )
       end
@@ -57,7 +57,7 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [String]
+      # @return [nil]
       #
       # @see Knockapi::Models::AudienceRemoveMembersParams
       def remove_members(key, params)
@@ -66,7 +66,7 @@ module Knockapi
           method: :delete,
           path: ["v1/audiences/%1$s/members", key],
           body: parsed,
-          model: String,
+          model: NilClass,
           options: options
         )
       end

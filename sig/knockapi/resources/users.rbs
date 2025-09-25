@@ -32,7 +32,7 @@ module Knockapi
       def delete: (
         String user_id,
         ?request_options: Knockapi::request_opts
-      ) -> String
+      ) -> nil
 
       def get: (
         String user_id,
@@ -123,7 +123,7 @@ module Knockapi
         String user_id,
         String channel_id,
         ?request_options: Knockapi::request_opts
-      ) -> String
+      ) -> nil
 
       def initialize: (client: Knockapi::Client) -> void
     end

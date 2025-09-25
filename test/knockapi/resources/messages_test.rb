@@ -49,7 +49,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_archive
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.archive("message_id")
+    response = @knock.messages.archive("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message
@@ -85,7 +85,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_get
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.get("message_id")
+    response = @knock.messages.get("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message
@@ -226,7 +226,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_mark_as_interacted
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.mark_as_interacted("message_id")
+    response = @knock.messages.mark_as_interacted("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message
@@ -262,7 +262,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_mark_as_read
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.mark_as_read("message_id")
+    response = @knock.messages.mark_as_read("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message
@@ -298,7 +298,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_mark_as_seen
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.mark_as_seen("message_id")
+    response = @knock.messages.mark_as_seen("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message
@@ -334,7 +334,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_mark_as_unread
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.mark_as_unread("message_id")
+    response = @knock.messages.mark_as_unread("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message
@@ -370,7 +370,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_mark_as_unseen
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.mark_as_unseen("message_id")
+    response = @knock.messages.mark_as_unseen("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message
@@ -406,7 +406,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_unarchive
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.messages.unarchive("message_id")
+    response = @knock.messages.unarchive("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
       response => Knockapi::Message

@@ -16,7 +16,7 @@ module Knockapi
         String collection,
         String id,
         ?request_options: Knockapi::request_opts
-      ) -> String
+      ) -> nil
 
       def add_subscriptions: (
         String collection,
@@ -137,7 +137,7 @@ module Knockapi
         String object_id_,
         String channel_id,
         ?request_options: Knockapi::request_opts
-      ) -> String
+      ) -> nil
 
       def initialize: (client: Knockapi::Client) -> void
     end

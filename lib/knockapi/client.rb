@@ -80,13 +80,16 @@ module Knockapi
     # @param initial_retry_delay [Float]
     #
     # @param max_retry_delay [Float]
+    #
+    # @param idempotency_header [String]
     def initialize(
       api_key: ENV["KNOCK_API_KEY"],
       base_url: ENV["KNOCK_BASE_URL"],
       max_retries: self.class::DEFAULT_MAX_RETRIES,
       timeout: self.class::DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: self.class::DEFAULT_INITIAL_RETRY_DELAY,
-      max_retry_delay: self.class::DEFAULT_MAX_RETRY_DELAY
+      max_retry_delay: self.class::DEFAULT_MAX_RETRY_DELAY,
+      idempotency_header: "Idempotency-Key"
     )
       base_url ||= "https://api.knock.app"
 
@@ -101,7 +104,8 @@ module Knockapi
         timeout: timeout,
         max_retries: max_retries,
         initial_retry_delay: initial_retry_delay,
-        max_retry_delay: max_retry_delay
+        max_retry_delay: max_retry_delay,
+        idempotency_header: idempotency_header
       )
 
       @shared = Knockapi::Resources::Shared.new(client: self)

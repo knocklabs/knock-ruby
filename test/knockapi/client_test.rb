@@ -278,6 +278,42 @@ class KnockapiTest < Minitest::Test
     end
   end
 
+  def test_client_default_idempotency_key_on_writes
+    stub_request(:post, "http://localhost/v1/users/user_id/merge").to_return_json(status: 500, body: {})
+
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+
+    assert_raises(Knockapi::Errors::InternalServerError) do
+      knock.users.merge("user_id", from_user_id: "user_1", request_options: {max_retries: 1})
+    end
+
+    headers = []
+    assert_requested(:any, /./, times: 2) do
+      header = _1.headers.transform_keys(&:downcase).fetch("idempotency-key")
+      headers << header
+      refute_empty(header)
+    end
+
+    assert_equal(*headers)
+  end
+
+  def test_request_option_idempotency_key_on_writes
+    stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 500, body: {})
+
+    knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+
+    assert_raises(Knockapi::Errors::InternalServerError) do
+      knock.users.get("user_id", request_options: {max_retries: 1, idempotency_key: "user-supplied-key"})
+    end
+
+    assert_requested(
+      :any,
+      /./,
+      headers: {"idempotency-key" => "user-supplied-key"},
+      times: 2
+    )
+  end
+
   def test_default_headers
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(status: 200, body: {})
 

@@ -9,7 +9,7 @@ class Knockapi::Test::Resources::WorkflowsTest < Knockapi::Test::ResourceTest
     response = @knock.workflows.cancel("key", cancellation_key: "cancel-workflow-123")
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 
