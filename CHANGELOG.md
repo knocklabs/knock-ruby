@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.16.0 (2025-09-26)
+
+Full Changelog: [v1.15.0...v1.16.0](https://github.com/knocklabs/knock-ruby/compare/v1.15.0...v1.16.0)
+
+### Features
+
+* **api:** api update ([27835b7](https://github.com/knocklabs/knock-ruby/commit/27835b7a76ec99e59511e5f92e0ddb88a48ed608))
+
+
+### Bug Fixes
+
+* **internal:** use null byte as file separator in the fast formatting script ([d8c723e](https://github.com/knocklabs/knock-ruby/commit/d8c723ed107313e3cc641ea8b68eb5ee8543bfcc))
+* shorten multipart boundary sep to less than RFC specificed max length ([66403e8](https://github.com/knocklabs/knock-ruby/commit/66403e82039587fbf154aff05c2cbfc1e56066a0))
+
+
+### Performance Improvements
+
+* faster code formatting ([b578cd0](https://github.com/knocklabs/knock-ruby/commit/b578cd025eefbe8b3ba863403c8a59f9b0acc6bf))
+
+
+### Chores
+
+* allow fast-format to use bsd sed as well ([c57f00b](https://github.com/knocklabs/knock-ruby/commit/c57f00b885b596ea799f8929986228240fa3aab4))
+
 ## 1.15.0 (2025-09-23)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/knocklabs/knock-ruby/compare/v1.14.0...v1.15.0)
