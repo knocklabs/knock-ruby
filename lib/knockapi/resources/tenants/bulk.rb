@@ -4,7 +4,8 @@ module Knockapi
   module Resources
     class Tenants
       class Bulk
-        # Delete multiple tenants in a single operation. This operation cannot be undone.
+        # Delete up to 100 tenants at a time in a single operation. This operation cannot
+        # be undone.
         #
         # @overload delete(tenant_ids:, request_options: {})
         #
@@ -26,7 +27,7 @@ module Knockapi
           )
         end
 
-        # Set or update up to 1,000 tenants in a single operation.
+        # Set or update up to 100 tenants in a single operation.
         #
         # @overload set(tenants:, request_options: {})
         #
