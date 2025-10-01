@@ -9,7 +9,7 @@ module Knockapi
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add.
+      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add. Limited to 1,000 members per request.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

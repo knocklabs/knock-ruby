@@ -11,7 +11,7 @@ module Knockapi
           T.any(Knockapi::AudienceAddMembersParams, Knockapi::Internal::AnyHash)
         end
 
-      # A list of audience members to add.
+      # A list of audience members to add. Limited to 1,000 members per request.
       sig { returns(T::Array[Knockapi::AudienceAddMembersParams::Member]) }
       attr_accessor :members
 
@@ -22,7 +22,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
-        # A list of audience members to add.
+        # A list of audience members to add. Limited to 1,000 members per request.
         members:,
         request_options: {}
       )
