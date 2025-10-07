@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.16.0 (2025-10-07)
+
+Full Changelog: [v1.15.0...v1.16.0](https://github.com/knocklabs/knock-ruby/compare/v1.15.0...v1.16.0)
+
+### Features
+
+* **api:** api update ([f006836](https://github.com/knocklabs/knock-ruby/commit/f0068369fd1ad7dfa9843753966d6bfb3758e1ea))
+* **api:** api update ([8f74167](https://github.com/knocklabs/knock-ruby/commit/8f74167231ab9aba28065beb23922d7c4cba9cea))
+* **api:** api update ([27835b7](https://github.com/knocklabs/knock-ruby/commit/27835b7a76ec99e59511e5f92e0ddb88a48ed608))
+* **api:** manual updates ([22850d8](https://github.com/knocklabs/knock-ruby/commit/22850d8c0b0605e045cc7d19020ac9f9c97ae163))
+
+
+### Bug Fixes
+
+* always send `filename=...` for multipart requests where a file is expected ([1a6d4ac](https://github.com/knocklabs/knock-ruby/commit/1a6d4acdcf66e42ddc5b813a61dc7c535e5f90ee))
+* coroutine leaks from connection pool ([3bc1ff2](https://github.com/knocklabs/knock-ruby/commit/3bc1ff25c7b0cda3f712779d67a8c5f6f5b28969))
+* **internal:** use null byte as file separator in the fast formatting script ([d8c723e](https://github.com/knocklabs/knock-ruby/commit/d8c723ed107313e3cc641ea8b68eb5ee8543bfcc))
+* shorten multipart boundary sep to less than RFC specificed max length ([66403e8](https://github.com/knocklabs/knock-ruby/commit/66403e82039587fbf154aff05c2cbfc1e56066a0))
+
+
+### Performance Improvements
+
+* faster code formatting ([b578cd0](https://github.com/knocklabs/knock-ruby/commit/b578cd025eefbe8b3ba863403c8a59f9b0acc6bf))
+
+
+### Chores
+
+* allow fast-format to use bsd sed as well ([c57f00b](https://github.com/knocklabs/knock-ruby/commit/c57f00b885b596ea799f8929986228240fa3aab4))
+
 ## 1.15.0 (2025-09-23)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/knocklabs/knock-ruby/compare/v1.14.0...v1.15.0)
