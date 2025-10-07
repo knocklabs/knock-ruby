@@ -18,9 +18,6 @@ module Knockapi
     # @return [String]
     attr_reader :api_key
 
-    # @return [Knockapi::Resources::Shared]
-    attr_reader :shared
-
     # @return [Knockapi::Resources::Recipients]
     attr_reader :recipients
 
@@ -108,7 +105,6 @@ module Knockapi
         idempotency_header: idempotency_header
       )
 
-      @shared = Knockapi::Resources::Shared.new(client: self)
       @recipients = Knockapi::Resources::Recipients.new(client: self)
       @users = Knockapi::Resources::Users.new(client: self)
       @objects = Knockapi::Resources::Objects.new(client: self)

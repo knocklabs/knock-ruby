@@ -13,9 +13,6 @@ module Knockapi
     sig { returns(String) }
     attr_reader :api_key
 
-    sig { returns(Knockapi::Resources::Shared) }
-    attr_reader :shared
-
     sig { returns(Knockapi::Resources::Recipients) }
     attr_reader :recipients
 

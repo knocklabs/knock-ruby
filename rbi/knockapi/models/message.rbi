@@ -33,7 +33,7 @@ module Knockapi
       sig { returns(Knockapi::RecipientReference::Variants) }
       attr_accessor :recipient
 
-      # The workflow that triggered the message.
+      # The workflow or guide that triggered the message.
       sig { returns(Knockapi::Message::Source) }
       attr_reader :source
 
@@ -170,7 +170,7 @@ module Knockapi
         # A reference to a recipient, either a user identifier (string) or an object
         # reference (ID, collection).
         recipient:,
-        # The workflow that triggered the message.
+        # The workflow or guide that triggered the message.
         source:,
         # The message delivery status.
         status:,
@@ -284,11 +284,11 @@ module Knockapi
         sig { returns(T::Array[String]) }
         attr_accessor :categories
 
-        # The key of the workflow that triggered the message.
+        # The key of the workflow or guide that triggered the message.
         sig { returns(String) }
         attr_accessor :key
 
-        # The ID of the version of the workflow that triggered the message.
+        # The ID of the version of the workflow or guide that triggered the message.
         sig { returns(String) }
         attr_accessor :version_id
 
@@ -296,26 +296,38 @@ module Knockapi
         sig { returns(T.nilable(String)) }
         attr_accessor :step_ref
 
-        # The workflow that triggered the message.
+        # Whether this message was generated from a workflow, broadcast, or guide.
+        sig do
+          returns(T.nilable(Knockapi::Message::Source::Type::TaggedSymbol))
+        end
+        attr_reader :type
+
+        sig { params(type: Knockapi::Message::Source::Type::OrSymbol).void }
+        attr_writer :type
+
+        # The workflow or guide that triggered the message.
         sig do
           params(
             _typename: String,
             categories: T::Array[String],
             key: String,
             version_id: String,
-            step_ref: T.nilable(String)
+            step_ref: T.nilable(String),
+            type: Knockapi::Message::Source::Type::OrSymbol
           ).returns(T.attached_class)
         end
         def self.new(
           _typename:,
           # The categories associated with the message.
           categories:,
-          # The key of the workflow that triggered the message.
+          # The key of the workflow or guide that triggered the message.
           key:,
-          # The ID of the version of the workflow that triggered the message.
+          # The ID of the version of the workflow or guide that triggered the message.
           version_id:,
           # The step reference for the step in the workflow that generated the message.
-          step_ref: nil
+          step_ref: nil,
+          # Whether this message was generated from a workflow, broadcast, or guide.
+          type: nil
         )
         end
 
@@ -326,11 +338,35 @@ module Knockapi
               categories: T::Array[String],
               key: String,
               version_id: String,
-              step_ref: T.nilable(String)
+              step_ref: T.nilable(String),
+              type: Knockapi::Message::Source::Type::TaggedSymbol
             }
           )
         end
         def to_hash
+        end
+
+        # Whether this message was generated from a workflow, broadcast, or guide.
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, Knockapi::Message::Source::Type) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          BROADCAST =
+            T.let(:broadcast, Knockapi::Message::Source::Type::TaggedSymbol)
+          WORKFLOW =
+            T.let(:workflow, Knockapi::Message::Source::Type::TaggedSymbol)
+          GUIDE = T.let(:guide, Knockapi::Message::Source::Type::TaggedSymbol)
+
+          sig do
+            override.returns(
+              T::Array[Knockapi::Message::Source::Type::TaggedSymbol]
+            )
+          end
+          def self.values
+          end
         end
       end
 

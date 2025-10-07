@@ -14,7 +14,7 @@ module Knockapi
       def add_members(
         # The key of the audience.
         key,
-        # A list of audience members to add.
+        # A list of audience members to add. Limited to 1,000 members per request.
         members:,
         request_options: {}
       )

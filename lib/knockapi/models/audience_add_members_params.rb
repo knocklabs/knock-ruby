@@ -8,13 +8,13 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute members
-      #   A list of audience members to add.
+      #   A list of audience members to add. Limited to 1,000 members per request.
       #
       #   @return [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
       required :members, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceAddMembersParams::Member] }
 
       # @!method initialize(members:, request_options: {})
-      #   @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add.
+      #   @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add. Limited to 1,000 members per request.
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 
