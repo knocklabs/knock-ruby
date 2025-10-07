@@ -141,7 +141,8 @@ module Knockapi
           categories: ::Array[String],
           key: String,
           version_id: String,
-          step_ref: String?
+          step_ref: String?,
+          type: Knockapi::Models::Message::Source::type_
         }
 
       class Source < Knockapi::Internal::Type::BaseModel
@@ -155,12 +156,19 @@ module Knockapi
 
         attr_accessor step_ref: String?
 
+        attr_reader type: Knockapi::Models::Message::Source::type_?
+
+        def type=: (
+          Knockapi::Models::Message::Source::type_
+        ) -> Knockapi::Models::Message::Source::type_
+
         def initialize: (
           _typename: String,
           categories: ::Array[String],
           key: String,
           version_id: String,
-          ?step_ref: String?
+          ?step_ref: String?,
+          ?type: Knockapi::Models::Message::Source::type_
         ) -> void
 
         def to_hash: -> {
@@ -168,8 +176,21 @@ module Knockapi
           categories: ::Array[String],
           key: String,
           version_id: String,
-          step_ref: String?
+          step_ref: String?,
+          type: Knockapi::Models::Message::Source::type_
         }
+
+        type type_ = :broadcast | :workflow | :guide
+
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          BROADCAST: :broadcast
+          WORKFLOW: :workflow
+          GUIDE: :guide
+
+          def self?.values: -> ::Array[Knockapi::Models::Message::Source::type_]
+        end
       end
 
       type status =

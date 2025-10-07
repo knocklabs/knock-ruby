@@ -43,7 +43,7 @@ module Knockapi
       required :recipient, union: -> { Knockapi::RecipientReference }
 
       # @!attribute source
-      #   The workflow that triggered the message.
+      #   The workflow or guide that triggered the message.
       #
       #   @return [Knockapi::Models::Message::Source]
       required :source, -> { Knockapi::Message::Source }
@@ -160,7 +160,7 @@ module Knockapi
       #
       #   @param recipient [String, Knockapi::Models::RecipientReference::ObjectReference] A reference to a recipient, either a user identifier (string) or an object refer
       #
-      #   @param source [Knockapi::Models::Message::Source] The workflow that triggered the message.
+      #   @param source [Knockapi::Models::Message::Source] The workflow or guide that triggered the message.
       #
       #   @param status [Symbol, Knockapi::Models::Message::Status] The message delivery status.
       #
@@ -219,13 +219,13 @@ module Knockapi
         required :categories, Knockapi::Internal::Type::ArrayOf[String]
 
         # @!attribute key
-        #   The key of the workflow that triggered the message.
+        #   The key of the workflow or guide that triggered the message.
         #
         #   @return [String]
         required :key, String
 
         # @!attribute version_id
-        #   The ID of the version of the workflow that triggered the message.
+        #   The ID of the version of the workflow or guide that triggered the message.
         #
         #   @return [String]
         required :version_id, String
@@ -236,18 +236,40 @@ module Knockapi
         #   @return [String, nil]
         optional :step_ref, String, nil?: true
 
-        # @!method initialize(_typename:, categories:, key:, version_id:, step_ref: nil)
-        #   The workflow that triggered the message.
+        # @!attribute type
+        #   Whether this message was generated from a workflow, broadcast, or guide.
+        #
+        #   @return [Symbol, Knockapi::Models::Message::Source::Type, nil]
+        optional :type, enum: -> { Knockapi::Message::Source::Type }
+
+        # @!method initialize(_typename:, categories:, key:, version_id:, step_ref: nil, type: nil)
+        #   The workflow or guide that triggered the message.
         #
         #   @param _typename [String]
         #
         #   @param categories [Array<String>] The categories associated with the message.
         #
-        #   @param key [String] The key of the workflow that triggered the message.
+        #   @param key [String] The key of the workflow or guide that triggered the message.
         #
-        #   @param version_id [String] The ID of the version of the workflow that triggered the message.
+        #   @param version_id [String] The ID of the version of the workflow or guide that triggered the message.
         #
         #   @param step_ref [String, nil] The step reference for the step in the workflow that generated the message.
+        #
+        #   @param type [Symbol, Knockapi::Models::Message::Source::Type] Whether this message was generated from a workflow, broadcast, or guide.
+
+        # Whether this message was generated from a workflow, broadcast, or guide.
+        #
+        # @see Knockapi::Models::Message::Source#type
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          BROADCAST = :broadcast
+          WORKFLOW = :workflow
+          GUIDE = :guide
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
 
       # The message delivery status.
