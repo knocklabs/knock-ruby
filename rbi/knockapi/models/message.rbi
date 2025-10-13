@@ -14,7 +14,7 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :_typename
 
-      # The ID for the channel the message was sent through.
+      # Deprecated, use channel.id instead.
       sig { returns(String) }
       attr_accessor :channel_id
 
@@ -72,6 +72,13 @@ module Knockapi
       # Timestamp when the message was archived.
       sig { returns(T.nilable(Time)) }
       attr_accessor :archived_at
+
+      # A configured channel, which is a way to route messages to a provider.
+      sig { returns(T.nilable(Knockapi::Message::Channel)) }
+      attr_reader :channel
+
+      sig { params(channel: Knockapi::Message::Channel::OrHash).void }
+      attr_writer :channel
 
       # Timestamp when the message was clicked.
       sig { returns(T.nilable(Time)) }
@@ -144,6 +151,7 @@ module Knockapi
               )
             ],
           archived_at: T.nilable(Time),
+          channel: Knockapi::Message::Channel::OrHash,
           clicked_at: T.nilable(Time),
           data: T.nilable(T::Hash[Symbol, T.anything]),
           interacted_at: T.nilable(Time),
@@ -161,7 +169,7 @@ module Knockapi
         id:,
         # The typename of the schema.
         _typename:,
-        # The ID for the channel the message was sent through.
+        # Deprecated, use channel.id instead.
         channel_id:,
         # A list of engagement statuses.
         engagement_statuses:,
@@ -182,6 +190,8 @@ module Knockapi
         actors: nil,
         # Timestamp when the message was archived.
         archived_at: nil,
+        # A configured channel, which is a way to route messages to a provider.
+        channel: nil,
         # Timestamp when the message was clicked.
         clicked_at: nil,
         # Data associated with the message’s workflow run. Includes the workflow trigger
@@ -225,6 +235,7 @@ module Knockapi
             updated_at: Time,
             actors: T::Array[Knockapi::RecipientReference::Variants],
             archived_at: T.nilable(Time),
+            channel: Knockapi::Message::Channel,
             clicked_at: T.nilable(Time),
             data: T.nilable(T::Hash[Symbol, T.anything]),
             interacted_at: T.nilable(Time),
@@ -391,6 +402,116 @@ module Knockapi
           override.returns(T::Array[Knockapi::Message::Status::TaggedSymbol])
         end
         def self.values
+        end
+      end
+
+      class Channel < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(Knockapi::Message::Channel, Knockapi::Internal::AnyHash)
+          end
+
+        # The unique identifier for the channel.
+        sig { returns(String) }
+        attr_accessor :id
+
+        # The timestamp of when the channel was created.
+        sig { returns(Time) }
+        attr_accessor :created_at
+
+        # The ID of the provider that this channel uses to deliver messages.
+        sig { returns(String) }
+        attr_accessor :provider
+
+        # The type of channel, determining what kind of messages it can send.
+        sig { returns(Knockapi::Message::Channel::Type::TaggedSymbol) }
+        attr_accessor :type
+
+        # The timestamp of when the channel was last updated.
+        sig { returns(Time) }
+        attr_accessor :updated_at
+
+        # Unique identifier for the channel within a project (immutable once created).
+        sig { returns(T.nilable(String)) }
+        attr_accessor :key
+
+        # The human-readable name of the channel.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :name
+
+        # A configured channel, which is a way to route messages to a provider.
+        sig do
+          params(
+            id: String,
+            created_at: Time,
+            provider: String,
+            type: Knockapi::Message::Channel::Type::OrSymbol,
+            updated_at: Time,
+            key: T.nilable(String),
+            name: T.nilable(String)
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The unique identifier for the channel.
+          id:,
+          # The timestamp of when the channel was created.
+          created_at:,
+          # The ID of the provider that this channel uses to deliver messages.
+          provider:,
+          # The type of channel, determining what kind of messages it can send.
+          type:,
+          # The timestamp of when the channel was last updated.
+          updated_at:,
+          # Unique identifier for the channel within a project (immutable once created).
+          key: nil,
+          # The human-readable name of the channel.
+          name: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              provider: String,
+              type: Knockapi::Message::Channel::Type::TaggedSymbol,
+              updated_at: Time,
+              key: T.nilable(String),
+              name: T.nilable(String)
+            }
+          )
+        end
+        def to_hash
+        end
+
+        # The type of channel, determining what kind of messages it can send.
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, Knockapi::Message::Channel::Type) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          EMAIL = T.let(:email, Knockapi::Message::Channel::Type::TaggedSymbol)
+          IN_APP =
+            T.let(:in_app, Knockapi::Message::Channel::Type::TaggedSymbol)
+          IN_APP_FEED =
+            T.let(:in_app_feed, Knockapi::Message::Channel::Type::TaggedSymbol)
+          IN_APP_GUIDE =
+            T.let(:in_app_guide, Knockapi::Message::Channel::Type::TaggedSymbol)
+          SMS = T.let(:sms, Knockapi::Message::Channel::Type::TaggedSymbol)
+          PUSH = T.let(:push, Knockapi::Message::Channel::Type::TaggedSymbol)
+          CHAT = T.let(:chat, Knockapi::Message::Channel::Type::TaggedSymbol)
+          HTTP = T.let(:http, Knockapi::Message::Channel::Type::TaggedSymbol)
+
+          sig do
+            override.returns(
+              T::Array[Knockapi::Message::Channel::Type::TaggedSymbol]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

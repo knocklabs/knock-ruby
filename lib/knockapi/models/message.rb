@@ -17,7 +17,9 @@ module Knockapi
       required :_typename, String, api_name: :__typename
 
       # @!attribute channel_id
-      #   The ID for the channel the message was sent through.
+      #   @deprecated
+      #
+      #   Deprecated, use channel.id instead.
       #
       #   @return [String]
       required :channel_id, String
@@ -73,6 +75,12 @@ module Knockapi
       #
       #   @return [Time, nil]
       optional :archived_at, Time, nil?: true
+
+      # @!attribute channel
+      #   A configured channel, which is a way to route messages to a provider.
+      #
+      #   @return [Knockapi::Models::Message::Channel, nil]
+      optional :channel, -> { Knockapi::Message::Channel }
 
       # @!attribute clicked_at
       #   Timestamp when the message was clicked.
@@ -141,7 +149,7 @@ module Knockapi
       #   @return [String, nil]
       optional :workflow, String, nil?: true
 
-      # @!method initialize(id:, _typename:, channel_id:, engagement_statuses:, inserted_at:, recipient:, source:, status:, updated_at:, actors: nil, archived_at: nil, clicked_at: nil, data: nil, interacted_at: nil, link_clicked_at: nil, metadata: nil, read_at: nil, scheduled_at: nil, seen_at: nil, tenant: nil, workflow: nil)
+      # @!method initialize(id:, _typename:, channel_id:, engagement_statuses:, inserted_at:, recipient:, source:, status:, updated_at:, actors: nil, archived_at: nil, channel: nil, clicked_at: nil, data: nil, interacted_at: nil, link_clicked_at: nil, metadata: nil, read_at: nil, scheduled_at: nil, seen_at: nil, tenant: nil, workflow: nil)
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::Message} for more details.
       #
@@ -152,7 +160,7 @@ module Knockapi
       #
       #   @param _typename [String] The typename of the schema.
       #
-      #   @param channel_id [String] The ID for the channel the message was sent through.
+      #   @param channel_id [String] Deprecated, use channel.id instead.
       #
       #   @param engagement_statuses [Array<Symbol, Knockapi::Models::Message::EngagementStatus>] A list of engagement statuses.
       #
@@ -169,6 +177,8 @@ module Knockapi
       #   @param actors [Array<String, Knockapi::Models::RecipientReference::ObjectReference>] One or more actors that are associated with this message. Note: this is a list t
       #
       #   @param archived_at [Time, nil] Timestamp when the message was archived.
+      #
+      #   @param channel [Knockapi::Models::Message::Channel] A configured channel, which is a way to route messages to a provider.
       #
       #   @param clicked_at [Time, nil] Timestamp when the message was clicked.
       #
@@ -288,6 +298,87 @@ module Knockapi
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      # @see Knockapi::Models::Message#channel
+      class Channel < Knockapi::Internal::Type::BaseModel
+        # @!attribute id
+        #   The unique identifier for the channel.
+        #
+        #   @return [String]
+        required :id, String
+
+        # @!attribute created_at
+        #   The timestamp of when the channel was created.
+        #
+        #   @return [Time]
+        required :created_at, Time
+
+        # @!attribute provider
+        #   The ID of the provider that this channel uses to deliver messages.
+        #
+        #   @return [String]
+        required :provider, String
+
+        # @!attribute type
+        #   The type of channel, determining what kind of messages it can send.
+        #
+        #   @return [Symbol, Knockapi::Models::Message::Channel::Type]
+        required :type, enum: -> { Knockapi::Message::Channel::Type }
+
+        # @!attribute updated_at
+        #   The timestamp of when the channel was last updated.
+        #
+        #   @return [Time]
+        required :updated_at, Time
+
+        # @!attribute key
+        #   Unique identifier for the channel within a project (immutable once created).
+        #
+        #   @return [String, nil]
+        optional :key, String, nil?: true
+
+        # @!attribute name
+        #   The human-readable name of the channel.
+        #
+        #   @return [String, nil]
+        optional :name, String, nil?: true
+
+        # @!method initialize(id:, created_at:, provider:, type:, updated_at:, key: nil, name: nil)
+        #   A configured channel, which is a way to route messages to a provider.
+        #
+        #   @param id [String] The unique identifier for the channel.
+        #
+        #   @param created_at [Time] The timestamp of when the channel was created.
+        #
+        #   @param provider [String] The ID of the provider that this channel uses to deliver messages.
+        #
+        #   @param type [Symbol, Knockapi::Models::Message::Channel::Type] The type of channel, determining what kind of messages it can send.
+        #
+        #   @param updated_at [Time] The timestamp of when the channel was last updated.
+        #
+        #   @param key [String, nil] Unique identifier for the channel within a project (immutable once created).
+        #
+        #   @param name [String, nil] The human-readable name of the channel.
+
+        # The type of channel, determining what kind of messages it can send.
+        #
+        # @see Knockapi::Models::Message::Channel#type
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          EMAIL = :email
+          IN_APP = :in_app
+          IN_APP_FEED = :in_app_feed
+          IN_APP_GUIDE = :in_app_guide
+          SMS = :sms
+          PUSH = :push
+          CHAT = :chat
+          HTTP = :http
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end
