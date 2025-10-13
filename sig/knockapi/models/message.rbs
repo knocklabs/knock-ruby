@@ -13,6 +13,7 @@ module Knockapi
         updated_at: Time,
         actors: ::Array[Knockapi::Models::recipient_reference],
         archived_at: Time?,
+        channel: Knockapi::Message::Channel,
         clicked_at: Time?,
         data: ::Hash[Symbol, top]?,
         interacted_at: Time?,
@@ -52,6 +53,10 @@ module Knockapi
 
       attr_accessor archived_at: Time?
 
+      attr_reader channel: Knockapi::Message::Channel?
+
+      def channel=: (Knockapi::Message::Channel) -> Knockapi::Message::Channel
+
       attr_accessor clicked_at: Time?
 
       attr_accessor data: ::Hash[Symbol, top]?
@@ -84,6 +89,7 @@ module Knockapi
         updated_at: Time,
         ?actors: ::Array[Knockapi::Models::recipient_reference],
         ?archived_at: Time?,
+        ?channel: Knockapi::Message::Channel,
         ?clicked_at: Time?,
         ?data: ::Hash[Symbol, top]?,
         ?interacted_at: Time?,
@@ -108,6 +114,7 @@ module Knockapi
         updated_at: Time,
         actors: ::Array[Knockapi::Models::recipient_reference],
         archived_at: Time?,
+        channel: Knockapi::Message::Channel,
         clicked_at: Time?,
         data: ::Hash[Symbol, top]?,
         interacted_at: Time?,
@@ -214,6 +221,78 @@ module Knockapi
         BOUNCED: :bounced
 
         def self?.values: -> ::Array[Knockapi::Models::Message::status]
+      end
+
+      type channel =
+        {
+          id: String,
+          created_at: Time,
+          provider: String,
+          type: Knockapi::Models::Message::Channel::type_,
+          updated_at: Time,
+          key: String?,
+          name: String?
+        }
+
+      class Channel < Knockapi::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor provider: String
+
+        attr_accessor type: Knockapi::Models::Message::Channel::type_
+
+        attr_accessor updated_at: Time
+
+        attr_accessor key: String?
+
+        attr_accessor name: String?
+
+        def initialize: (
+          id: String,
+          created_at: Time,
+          provider: String,
+          type: Knockapi::Models::Message::Channel::type_,
+          updated_at: Time,
+          ?key: String?,
+          ?name: String?
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          created_at: Time,
+          provider: String,
+          type: Knockapi::Models::Message::Channel::type_,
+          updated_at: Time,
+          key: String?,
+          name: String?
+        }
+
+        type type_ =
+          :email
+          | :in_app
+          | :in_app_feed
+          | :in_app_guide
+          | :sms
+          | :push
+          | :chat
+          | :http
+
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          EMAIL: :email
+          IN_APP: :in_app
+          IN_APP_FEED: :in_app_feed
+          IN_APP_GUIDE: :in_app_guide
+          SMS: :sms
+          PUSH: :push
+          CHAT: :chat
+          HTTP: :http
+
+          def self?.values: -> ::Array[Knockapi::Models::Message::Channel::type_]
+        end
       end
     end
   end

@@ -150,6 +150,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         updated_at: Time,
         actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
+        channel: Knockapi::Message::Channel | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         interacted_at: Time | nil,
