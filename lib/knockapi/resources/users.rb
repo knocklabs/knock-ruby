@@ -380,7 +380,7 @@ module Knockapi
       # Use '**persistence_strategy**': 'merge' to merge with existing preferences
       # instead.
       #
-      # @overload set_preferences(user_id, id, _persistence_strategy: nil, categories: nil, channel_types: nil, workflows: nil, request_options: {})
+      # @overload set_preferences(user_id, id, _persistence_strategy: nil, categories: nil, channel_types: nil, commercial_subscribed: nil, workflows: nil, request_options: {})
       #
       # @param user_id [String] The unique identifier of the user.
       #
@@ -391,6 +391,8 @@ module Knockapi
       # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
       #
       # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+      #
+      # @param commercial_subscribed [Boolean, nil] Whether the recipient is subscribed to commercial communications. When false, th
       #
       # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
       #

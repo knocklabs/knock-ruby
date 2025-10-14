@@ -30,6 +30,13 @@ module Knockapi
         #   @return [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil]
         optional :channel_types, -> { Knockapi::Recipients::PreferenceSetChannelTypes }, nil?: true
 
+        # @!attribute commercial_subscribed
+        #   Whether the recipient is subscribed to commercial communications. When false,
+        #   the recipient will not receive commercial workflow notifications.
+        #
+        #   @return [Boolean, nil]
+        optional :commercial_subscribed, Knockapi::Internal::Type::Boolean, nil?: true
+
         # @!attribute workflows
         #   An object where the key is the workflow key and the values are the preference
         #   settings for that workflow.
@@ -41,7 +48,7 @@ module Knockapi
                  },
                  nil?: true
 
-        # @!method initialize(_persistence_strategy: nil, categories: nil, channel_types: nil, workflows: nil)
+        # @!method initialize(_persistence_strategy: nil, categories: nil, channel_types: nil, commercial_subscribed: nil, workflows: nil)
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Recipients::PreferenceSetRequest} for more details.
         #
@@ -52,6 +59,8 @@ module Knockapi
         #   @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
         #
         #   @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+        #
+        #   @param commercial_subscribed [Boolean, nil] Whether the recipient is subscribed to commercial communications. When false, th
         #
         #   @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
 

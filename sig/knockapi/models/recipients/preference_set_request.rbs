@@ -6,6 +6,7 @@ module Knockapi
           _persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
           categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
           channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+          commercial_subscribed: bool?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
         }
 
@@ -20,12 +21,15 @@ module Knockapi
 
         attr_accessor channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?
 
+        attr_accessor commercial_subscribed: bool?
+
         attr_accessor workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
 
         def initialize: (
           ?_persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
           ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
           ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+          ?commercial_subscribed: bool?,
           ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
         ) -> void
 
@@ -33,6 +37,7 @@ module Knockapi
           _persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
           categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
           channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+          commercial_subscribed: bool?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?
         }
 
