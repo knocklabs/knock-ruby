@@ -16,9 +16,9 @@ module Knockapi
         sig do
           returns(
             T.any(
-              Knockapi::Recipients::PushChannelData,
-              Knockapi::Recipients::OneSignalChannelData,
-              Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData,
+              Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly,
+              Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly,
+              Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly,
               Knockapi::Recipients::SlackChannelData,
               Knockapi::Recipients::MsTeamsChannelData,
               Knockapi::Recipients::DiscordChannelData
@@ -32,9 +32,9 @@ module Knockapi
           params(
             data:
               T.any(
-                Knockapi::Recipients::PushChannelData::OrHash,
-                Knockapi::Recipients::OneSignalChannelData::OrHash,
-                Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData::OrHash,
+                Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly::OrHash,
+                Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly::OrHash,
+                Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly::OrHash,
                 Knockapi::Recipients::SlackChannelData::OrHash,
                 Knockapi::Recipients::MsTeamsChannelData::OrHash,
                 Knockapi::Recipients::DiscordChannelData::OrHash
@@ -52,9 +52,9 @@ module Knockapi
             {
               data:
                 T.any(
-                  Knockapi::Recipients::PushChannelData,
-                  Knockapi::Recipients::OneSignalChannelData,
-                  Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData,
+                  Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly,
+                  Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly,
+                  Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly,
                   Knockapi::Recipients::SlackChannelData,
                   Knockapi::Recipients::MsTeamsChannelData,
                   Knockapi::Recipients::DiscordChannelData
@@ -72,20 +72,46 @@ module Knockapi
           Variants =
             T.type_alias do
               T.any(
-                Knockapi::Recipients::PushChannelData,
-                Knockapi::Recipients::OneSignalChannelData,
-                Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData,
+                Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly,
+                Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly,
+                Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly,
                 Knockapi::Recipients::SlackChannelData,
                 Knockapi::Recipients::MsTeamsChannelData,
                 Knockapi::Recipients::DiscordChannelData
               )
             end
 
-          class AwsSnsPushChannelData < Knockapi::Internal::Type::BaseModel
+          class PushChannelDataTokensOnly < Knockapi::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
                 T.any(
-                  Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData,
+                  Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly,
+                  Knockapi::Internal::AnyHash
+                )
+              end
+
+            # A list of push channel tokens.
+            sig { returns(T::Array[String]) }
+            attr_accessor :tokens
+
+            # Push channel data.
+            sig { params(tokens: T::Array[String]).returns(T.attached_class) }
+            def self.new(
+              # A list of push channel tokens.
+              tokens:
+            )
+            end
+
+            sig { override.returns({ tokens: T::Array[String] }) }
+            def to_hash
+            end
+          end
+
+          class AwssnsPushChannelDataTargetArNsOnly < Knockapi::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly,
                   Knockapi::Internal::AnyHash
                 )
               end
@@ -107,6 +133,34 @@ module Knockapi
             end
 
             sig { override.returns({ target_arns: T::Array[String] }) }
+            def to_hash
+            end
+          end
+
+          class OneSignalChannelDataPlayerIDsOnly < Knockapi::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly,
+                  Knockapi::Internal::AnyHash
+                )
+              end
+
+            # A list of OneSignal player IDs.
+            sig { returns(T::Array[String]) }
+            attr_accessor :player_ids
+
+            # OneSignal channel data.
+            sig do
+              params(player_ids: T::Array[String]).returns(T.attached_class)
+            end
+            def self.new(
+              # A list of OneSignal player IDs.
+              player_ids:
+            )
+            end
+
+            sig { override.returns({ player_ids: T::Array[String] }) }
             def to_hash
             end
           end

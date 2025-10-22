@@ -16,9 +16,9 @@ module Knockapi
         }
 
         type data =
-          Knockapi::Recipients::PushChannelData
-          | Knockapi::Recipients::OneSignalChannelData
-          | Knockapi::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData
+          Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly
+          | Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly
+          | Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly
           | Knockapi::Recipients::SlackChannelData
           | Knockapi::Recipients::MsTeamsChannelData
           | Knockapi::Recipients::DiscordChannelData
@@ -26,14 +26,36 @@ module Knockapi
         module Data
           extend Knockapi::Internal::Type::Union
 
-          type aws_sns_push_channel_data = { target_arns: ::Array[String] }
+          type push_channel_data_tokens_only = { tokens: ::Array[String] }
 
-          class AwsSnsPushChannelData < Knockapi::Internal::Type::BaseModel
+          class PushChannelDataTokensOnly < Knockapi::Internal::Type::BaseModel
+            attr_accessor tokens: ::Array[String]
+
+            def initialize: (tokens: ::Array[String]) -> void
+
+            def to_hash: -> { tokens: ::Array[String] }
+          end
+
+          type awssns_push_channel_data_target_ar_ns_only =
+            { target_arns: ::Array[String] }
+
+          class AwssnsPushChannelDataTargetArNsOnly < Knockapi::Internal::Type::BaseModel
             attr_accessor target_arns: ::Array[String]
 
             def initialize: (target_arns: ::Array[String]) -> void
 
             def to_hash: -> { target_arns: ::Array[String] }
+          end
+
+          type one_signal_channel_data_player_ids_only =
+            { player_ids: ::Array[String] }
+
+          class OneSignalChannelDataPlayerIDsOnly < Knockapi::Internal::Type::BaseModel
+            attr_accessor player_ids: ::Array[String]
+
+            def initialize: (player_ids: ::Array[String]) -> void
+
+            def to_hash: -> { player_ids: ::Array[String] }
           end
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::ChannelDataRequest::data]
