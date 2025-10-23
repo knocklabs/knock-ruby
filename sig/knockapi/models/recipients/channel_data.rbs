@@ -37,8 +37,8 @@ module Knockapi
         }
 
         type data =
-          Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull
-          | Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull
+          Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataTokensOnly
+          | Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataTargetArNsOnly
           | Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly
           | Knockapi::Recipients::SlackChannelData
           | Knockapi::Recipients::MsTeamsChannelData
@@ -47,101 +47,25 @@ module Knockapi
         module Data
           extend Knockapi::Internal::Type::Union
 
-          type push_channel_data_full =
-            {
-              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device],
-              tokens: ::Array[String]
-            }
+          type push_channel_data_tokens_only = { tokens: ::Array[String] }
 
-          class PushChannelDataFull < Knockapi::Internal::Type::BaseModel
-            attr_accessor devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device]
-
+          class PushChannelDataTokensOnly < Knockapi::Internal::Type::BaseModel
             attr_accessor tokens: ::Array[String]
 
-            def initialize: (
-              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device],
-              tokens: ::Array[String]
-            ) -> void
+            def initialize: (tokens: ::Array[String]) -> void
 
-            def to_hash: -> {
-              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device],
-              tokens: ::Array[String]
-            }
-
-            type device = { token: String, locale: String, timezone: String }
-
-            class Device < Knockapi::Internal::Type::BaseModel
-              attr_accessor token: String
-
-              attr_reader locale: String?
-
-              def locale=: (String) -> String
-
-              attr_reader timezone: String?
-
-              def timezone=: (String) -> String
-
-              def initialize: (
-                token: String,
-                ?locale: String,
-                ?timezone: String
-              ) -> void
-
-              def to_hash: -> {
-                token: String,
-                locale: String,
-                timezone: String
-              }
-            end
+            def to_hash: -> { tokens: ::Array[String] }
           end
 
-          type awssns_push_channel_data_full =
-            {
-              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device],
-              target_arns: ::Array[String]
-            }
+          type awssns_push_channel_data_target_ar_ns_only =
+            { target_arns: ::Array[String] }
 
-          class AwssnsPushChannelDataFull < Knockapi::Internal::Type::BaseModel
-            attr_accessor devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device]
-
+          class AwssnsPushChannelDataTargetArNsOnly < Knockapi::Internal::Type::BaseModel
             attr_accessor target_arns: ::Array[String]
 
-            def initialize: (
-              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device],
-              target_arns: ::Array[String]
-            ) -> void
+            def initialize: (target_arns: ::Array[String]) -> void
 
-            def to_hash: -> {
-              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device],
-              target_arns: ::Array[String]
-            }
-
-            type device =
-              { target_arn: String, locale: String, timezone: String }
-
-            class Device < Knockapi::Internal::Type::BaseModel
-              attr_accessor target_arn: String
-
-              attr_reader locale: String?
-
-              def locale=: (String) -> String
-
-              attr_reader timezone: String?
-
-              def timezone=: (String) -> String
-
-              def initialize: (
-                target_arn: String,
-                ?locale: String,
-                ?timezone: String
-              ) -> void
-
-              def to_hash: -> {
-                target_arn: String,
-                locale: String,
-                timezone: String
-              }
-            end
+            def to_hash: -> { target_arns: ::Array[String] }
           end
 
           type one_signal_channel_data_player_ids_only =
