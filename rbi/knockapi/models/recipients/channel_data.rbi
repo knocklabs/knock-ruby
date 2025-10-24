@@ -51,8 +51,8 @@ module Knockapi
             channel_id: String,
             data:
               T.any(
-                Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataTokensOnly::OrHash,
-                Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataTargetArNsOnly::OrHash,
+                Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::OrHash,
+                Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::OrHash,
                 Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly::OrHash,
                 Knockapi::Recipients::SlackChannelData::OrHash,
                 Knockapi::Recipients::MsTeamsChannelData::OrHash,
@@ -95,8 +95,8 @@ module Knockapi
           Variants =
             T.type_alias do
               T.any(
-                Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataTokensOnly,
-                Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataTargetArNsOnly,
+                Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull,
+                Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull,
                 Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly,
                 Knockapi::Recipients::SlackChannelData,
                 Knockapi::Recipients::MsTeamsChannelData,
@@ -104,40 +104,142 @@ module Knockapi
               )
             end
 
-          class PushChannelDataTokensOnly < Knockapi::Internal::Type::BaseModel
+          class PushChannelDataFull < Knockapi::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
                 T.any(
-                  Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataTokensOnly,
+                  Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull,
                   Knockapi::Internal::AnyHash
                 )
               end
+
+            # A list of devices. Each device contains a token, and optionally a locale and
+            # timezone.
+            sig do
+              returns(
+                T::Array[
+                  Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device
+                ]
+              )
+            end
+            attr_accessor :devices
 
             # A list of push channel tokens.
             sig { returns(T::Array[String]) }
             attr_accessor :tokens
 
             # Push channel data.
-            sig { params(tokens: T::Array[String]).returns(T.attached_class) }
+            sig do
+              params(
+                devices:
+                  T::Array[
+                    Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device::OrHash
+                  ],
+                tokens: T::Array[String]
+              ).returns(T.attached_class)
+            end
             def self.new(
+              # A list of devices. Each device contains a token, and optionally a locale and
+              # timezone.
+              devices:,
               # A list of push channel tokens.
               tokens:
             )
             end
 
-            sig { override.returns({ tokens: T::Array[String] }) }
+            sig do
+              override.returns(
+                {
+                  devices:
+                    T::Array[
+                      Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device
+                    ],
+                  tokens: T::Array[String]
+                }
+              )
+            end
             def to_hash
+            end
+
+            class Device < Knockapi::Internal::Type::BaseModel
+              OrHash =
+                T.type_alias do
+                  T.any(
+                    Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device,
+                    Knockapi::Internal::AnyHash
+                  )
+                end
+
+              # The device token to send the push notification to.
+              sig { returns(String) }
+              attr_accessor :token
+
+              # The locale of the object. Used for
+              # [message localization](/concepts/translations).
+              sig { returns(T.nilable(String)) }
+              attr_accessor :locale
+
+              # The timezone of the object. Must be a
+              # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+              # Used
+              # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+              sig { returns(T.nilable(String)) }
+              attr_accessor :timezone
+
+              sig do
+                params(
+                  token: String,
+                  locale: T.nilable(String),
+                  timezone: T.nilable(String)
+                ).returns(T.attached_class)
+              end
+              def self.new(
+                # The device token to send the push notification to.
+                token:,
+                # The locale of the object. Used for
+                # [message localization](/concepts/translations).
+                locale: nil,
+                # The timezone of the object. Must be a
+                # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+                # Used
+                # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+                timezone: nil
+              )
+              end
+
+              sig do
+                override.returns(
+                  {
+                    token: String,
+                    locale: T.nilable(String),
+                    timezone: T.nilable(String)
+                  }
+                )
+              end
+              def to_hash
+              end
             end
           end
 
-          class AwssnsPushChannelDataTargetArNsOnly < Knockapi::Internal::Type::BaseModel
+          class AwssnsPushChannelDataFull < Knockapi::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
                 T.any(
-                  Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataTargetArNsOnly,
+                  Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull,
                   Knockapi::Internal::AnyHash
                 )
               end
+
+            # A list of devices. Each device contains a target_arn, and optionally a locale
+            # and timezone.
+            sig do
+              returns(
+                T::Array[
+                  Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device
+                ]
+              )
+            end
+            attr_accessor :devices
 
             # A list of platform endpoint ARNs. See
             # [Setting up an Amazon SNS platform endpoint for mobile notifications](https://docs.aws.amazon.com/sns/latest/dg/mobile-platform-endpoint.html).
@@ -146,17 +248,99 @@ module Knockapi
 
             # AWS SNS push channel data.
             sig do
-              params(target_arns: T::Array[String]).returns(T.attached_class)
+              params(
+                devices:
+                  T::Array[
+                    Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device::OrHash
+                  ],
+                target_arns: T::Array[String]
+              ).returns(T.attached_class)
             end
             def self.new(
+              # A list of devices. Each device contains a target_arn, and optionally a locale
+              # and timezone.
+              devices:,
               # A list of platform endpoint ARNs. See
               # [Setting up an Amazon SNS platform endpoint for mobile notifications](https://docs.aws.amazon.com/sns/latest/dg/mobile-platform-endpoint.html).
               target_arns:
             )
             end
 
-            sig { override.returns({ target_arns: T::Array[String] }) }
+            sig do
+              override.returns(
+                {
+                  devices:
+                    T::Array[
+                      Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device
+                    ],
+                  target_arns: T::Array[String]
+                }
+              )
+            end
             def to_hash
+            end
+
+            class Device < Knockapi::Internal::Type::BaseModel
+              OrHash =
+                T.type_alias do
+                  T.any(
+                    Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device,
+                    Knockapi::Internal::AnyHash
+                  )
+                end
+
+              # The ARN of a platform endpoint associated with a platform application and a
+              # device token. See
+              # [Setting up an Amazon SNS platform endpoint for mobile notifications](https://docs.aws.amazon.com/sns/latest/dg/mobile-platform-endpoint.html).
+              sig { returns(String) }
+              attr_accessor :target_arn
+
+              # The locale of the object. Used for
+              # [message localization](/concepts/translations).
+              sig { returns(T.nilable(String)) }
+              attr_accessor :locale
+
+              # The timezone of the object. Must be a
+              # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+              # Used
+              # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+              sig { returns(T.nilable(String)) }
+              attr_accessor :timezone
+
+              sig do
+                params(
+                  target_arn: String,
+                  locale: T.nilable(String),
+                  timezone: T.nilable(String)
+                ).returns(T.attached_class)
+              end
+              def self.new(
+                # The ARN of a platform endpoint associated with a platform application and a
+                # device token. See
+                # [Setting up an Amazon SNS platform endpoint for mobile notifications](https://docs.aws.amazon.com/sns/latest/dg/mobile-platform-endpoint.html).
+                target_arn:,
+                # The locale of the object. Used for
+                # [message localization](/concepts/translations).
+                locale: nil,
+                # The timezone of the object. Must be a
+                # valid [tz database time zone string](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+                # Used
+                # for [recurring schedules](/concepts/schedules#scheduling-workflows-with-recurring-schedules-for-recipients).
+                timezone: nil
+              )
+              end
+
+              sig do
+                override.returns(
+                  {
+                    target_arn: String,
+                    locale: T.nilable(String),
+                    timezone: T.nilable(String)
+                  }
+                )
+              end
+              def to_hash
+              end
             end
           end
 
