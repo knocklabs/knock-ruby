@@ -434,7 +434,7 @@ module Knockapi
       # `tenant.id`. Learn more about
       # [per-tenant preferences](/preferences/tenant-preferences).
       #
-      # @overload set_preferences(collection, object_id_, id, _persistence_strategy: nil, categories: nil, channel_types: nil, commercial_subscribed: nil, workflows: nil, request_options: {})
+      # @overload set_preferences(collection, object_id_, id, _persistence_strategy: nil, categories: nil, channel_types: nil, channels: nil, commercial_subscribed: nil, workflows: nil, request_options: {})
       #
       # @param collection [String] The collection this object belongs to.
       #
@@ -447,6 +447,8 @@ module Knockapi
       # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
       #
       # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+      #
+      # @param channels [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting}, nil] Channel preferences.
       #
       # @param commercial_subscribed [Boolean, nil] Whether the recipient is subscribed to commercial communications. When false, th
       #
