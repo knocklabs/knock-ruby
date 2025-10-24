@@ -44,6 +44,24 @@ module Knockapi
         end
         attr_writer :channel_types
 
+        # Channel preferences.
+        sig do
+          returns(
+            T.nilable(
+              T::Hash[
+                Symbol,
+                Knockapi::Recipients::PreferenceSet::Channel::Variants
+              ]
+            )
+          )
+        end
+        attr_accessor :channels
+
+        # Whether the recipient is subscribed to commercial communications. When false,
+        # the recipient will not receive commercial workflow notifications.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_accessor :commercial_subscribed
+
         # An object where the key is the workflow key and the values are the preference
         # settings for that workflow.
         sig do
@@ -77,6 +95,17 @@ module Knockapi
               T.nilable(
                 Knockapi::Recipients::PreferenceSetChannelTypes::OrHash
               ),
+            channels:
+              T.nilable(
+                T::Hash[
+                  Symbol,
+                  T.any(
+                    T::Boolean,
+                    Knockapi::Recipients::PreferenceSet::Channel::PreferenceSetChannelSetting::OrHash
+                  )
+                ]
+              ),
+            commercial_subscribed: T.nilable(T::Boolean),
             workflows:
               T.nilable(
                 T::Hash[
@@ -97,6 +126,11 @@ module Knockapi
           categories: nil,
           # Channel type preferences.
           channel_types: nil,
+          # Channel preferences.
+          channels: nil,
+          # Whether the recipient is subscribed to commercial communications. When false,
+          # the recipient will not receive commercial workflow notifications.
+          commercial_subscribed: nil,
           # An object where the key is the workflow key and the values are the preference
           # settings for that workflow.
           workflows: nil
@@ -116,6 +150,14 @@ module Knockapi
                 ),
               channel_types:
                 T.nilable(Knockapi::Recipients::PreferenceSetChannelTypes),
+              channels:
+                T.nilable(
+                  T::Hash[
+                    Symbol,
+                    Knockapi::Recipients::PreferenceSet::Channel::Variants
+                  ]
+                ),
+              commercial_subscribed: T.nilable(T::Boolean),
               workflows:
                 T.nilable(
                   T::Hash[
@@ -168,6 +210,19 @@ module Knockapi
             end
             attr_writer :channel_types
 
+            # Channel preferences.
+            sig do
+              returns(
+                T.nilable(
+                  T::Hash[
+                    Symbol,
+                    Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject::Channel::Variants
+                  ]
+                )
+              )
+            end
+            attr_accessor :channels
+
             # A list of conditions to apply to a channel type.
             sig { returns(T.nilable(T::Array[Knockapi::Condition])) }
             attr_accessor :conditions
@@ -180,12 +235,24 @@ module Knockapi
                   T.nilable(
                     Knockapi::Recipients::PreferenceSetChannelTypes::OrHash
                   ),
+                channels:
+                  T.nilable(
+                    T::Hash[
+                      Symbol,
+                      T.any(
+                        T::Boolean,
+                        Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting::OrHash
+                      )
+                    ]
+                  ),
                 conditions: T.nilable(T::Array[Knockapi::Condition::OrHash])
               ).returns(T.attached_class)
             end
             def self.new(
               # Channel type preferences.
               channel_types: nil,
+              # Channel preferences.
+              channels: nil,
               # A list of conditions to apply to a channel type.
               conditions: nil
             )
@@ -196,9 +263,130 @@ module Knockapi
                 {
                   channel_types:
                     T.nilable(Knockapi::Recipients::PreferenceSetChannelTypes),
+                  channels:
+                    T.nilable(
+                      T::Hash[
+                        Symbol,
+                        Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject::Channel::Variants
+                      ]
+                    ),
                   conditions: T.nilable(T::Array[Knockapi::Condition])
                 }
               )
+            end
+            def to_hash
+            end
+
+            # Whether the specific channel (by channel_id) is enabled for the preference set,
+            # or a settings object with conditions.
+            module Channel
+              extend Knockapi::Internal::Type::Union
+
+              Variants =
+                T.type_alias do
+                  T.any(
+                    T::Boolean,
+                    Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                  )
+                end
+
+              class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
+                OrHash =
+                  T.type_alias do
+                    T.any(
+                      Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting,
+                      Knockapi::Internal::AnyHash
+                    )
+                  end
+
+                # A list of conditions to apply to a specific channel.
+                sig { returns(T::Array[Knockapi::Condition]) }
+                attr_accessor :conditions
+
+                # A set of settings for a specific channel. Currently, this can only be a list of
+                # conditions to apply.
+                sig do
+                  params(
+                    conditions: T::Array[Knockapi::Condition::OrHash]
+                  ).returns(T.attached_class)
+                end
+                def self.new(
+                  # A list of conditions to apply to a specific channel.
+                  conditions:
+                )
+                end
+
+                sig do
+                  override.returns(
+                    { conditions: T::Array[Knockapi::Condition] }
+                  )
+                end
+                def to_hash
+                end
+              end
+
+              sig do
+                override.returns(
+                  T::Array[
+                    Knockapi::Recipients::PreferenceSet::Category::PreferenceSetWorkflowCategorySettingObject::Channel::Variants
+                  ]
+                )
+              end
+              def self.variants
+              end
+            end
+          end
+
+          sig do
+            override.returns(
+              T::Array[Knockapi::Recipients::PreferenceSet::Category::Variants]
+            )
+          end
+          def self.variants
+          end
+        end
+
+        # Whether the specific channel (by channel_id) is enabled for the preference set,
+        # or a settings object with conditions.
+        module Channel
+          extend Knockapi::Internal::Type::Union
+
+          Variants =
+            T.type_alias do
+              T.any(
+                T::Boolean,
+                Knockapi::Recipients::PreferenceSet::Channel::PreferenceSetChannelSetting
+              )
+            end
+
+          class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Knockapi::Recipients::PreferenceSet::Channel::PreferenceSetChannelSetting,
+                  Knockapi::Internal::AnyHash
+                )
+              end
+
+            # A list of conditions to apply to a specific channel.
+            sig { returns(T::Array[Knockapi::Condition]) }
+            attr_accessor :conditions
+
+            # A set of settings for a specific channel. Currently, this can only be a list of
+            # conditions to apply.
+            sig do
+              params(conditions: T::Array[Knockapi::Condition::OrHash]).returns(
+                T.attached_class
+              )
+            end
+            def self.new(
+              # A list of conditions to apply to a specific channel.
+              conditions:
+            )
+            end
+
+            sig do
+              override.returns({ conditions: T::Array[Knockapi::Condition] })
             end
             def to_hash
             end
@@ -206,7 +394,7 @@ module Knockapi
 
           sig do
             override.returns(
-              T::Array[Knockapi::Recipients::PreferenceSet::Category::Variants]
+              T::Array[Knockapi::Recipients::PreferenceSet::Channel::Variants]
             )
           end
           def self.variants
@@ -252,6 +440,19 @@ module Knockapi
             end
             attr_writer :channel_types
 
+            # Channel preferences.
+            sig do
+              returns(
+                T.nilable(
+                  T::Hash[
+                    Symbol,
+                    Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::Variants
+                  ]
+                )
+              )
+            end
+            attr_accessor :channels
+
             # A list of conditions to apply to a channel type.
             sig { returns(T.nilable(T::Array[Knockapi::Condition])) }
             attr_accessor :conditions
@@ -264,12 +465,24 @@ module Knockapi
                   T.nilable(
                     Knockapi::Recipients::PreferenceSetChannelTypes::OrHash
                   ),
+                channels:
+                  T.nilable(
+                    T::Hash[
+                      Symbol,
+                      T.any(
+                        T::Boolean,
+                        Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting::OrHash
+                      )
+                    ]
+                  ),
                 conditions: T.nilable(T::Array[Knockapi::Condition::OrHash])
               ).returns(T.attached_class)
             end
             def self.new(
               # Channel type preferences.
               channel_types: nil,
+              # Channel preferences.
+              channels: nil,
               # A list of conditions to apply to a channel type.
               conditions: nil
             )
@@ -280,11 +493,77 @@ module Knockapi
                 {
                   channel_types:
                     T.nilable(Knockapi::Recipients::PreferenceSetChannelTypes),
+                  channels:
+                    T.nilable(
+                      T::Hash[
+                        Symbol,
+                        Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::Variants
+                      ]
+                    ),
                   conditions: T.nilable(T::Array[Knockapi::Condition])
                 }
               )
             end
             def to_hash
+            end
+
+            # Whether the specific channel (by channel_id) is enabled for the preference set,
+            # or a settings object with conditions.
+            module Channel
+              extend Knockapi::Internal::Type::Union
+
+              Variants =
+                T.type_alias do
+                  T.any(
+                    T::Boolean,
+                    Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                  )
+                end
+
+              class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
+                OrHash =
+                  T.type_alias do
+                    T.any(
+                      Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting,
+                      Knockapi::Internal::AnyHash
+                    )
+                  end
+
+                # A list of conditions to apply to a specific channel.
+                sig { returns(T::Array[Knockapi::Condition]) }
+                attr_accessor :conditions
+
+                # A set of settings for a specific channel. Currently, this can only be a list of
+                # conditions to apply.
+                sig do
+                  params(
+                    conditions: T::Array[Knockapi::Condition::OrHash]
+                  ).returns(T.attached_class)
+                end
+                def self.new(
+                  # A list of conditions to apply to a specific channel.
+                  conditions:
+                )
+                end
+
+                sig do
+                  override.returns(
+                    { conditions: T::Array[Knockapi::Condition] }
+                  )
+                end
+                def to_hash
+                end
+              end
+
+              sig do
+                override.returns(
+                  T::Array[
+                    Knockapi::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::Variants
+                  ]
+                )
+              end
+              def self.variants
+              end
             end
           end
 
