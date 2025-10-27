@@ -3,82 +3,345 @@ module Knockapi
     module Users
       type guide_get_channel_response =
         {
-          guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide],
-          recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
+          entries: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry],
+          guide_group_display_logs: ::Hash[Symbol, Time],
+          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
         }
 
       class GuideGetChannelResponse < Knockapi::Internal::Type::BaseModel
-        attr_accessor guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide]
+        attr_accessor entries: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry]
 
-        attr_accessor recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
+        attr_accessor guide_group_display_logs: ::Hash[Symbol, Time]
+
+        attr_accessor guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
 
         def initialize: (
-          guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide],
-          ?recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
+          entries: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry],
+          guide_group_display_logs: ::Hash[Symbol, Time],
+          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
         ) -> void
 
         def to_hash: -> {
-          guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Guide],
-          recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient?
+          entries: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry],
+          guide_group_display_logs: ::Hash[Symbol, Time],
+          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
         }
 
-        type guide =
+        type entry =
           {
             id: String,
+            _typename: String,
+            activation_url_patterns: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLPattern],
+            activation_url_rules: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLRule],
             active: bool,
-            content: String,
-            metadata: ::Hash[Symbol, top],
-            title: String
+            bypass_global_group_limit: bool,
+            channel_id: String,
+            inserted_at: Time,
+            key: String,
+            semver: String,
+            steps: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step],
+            type: String,
+            updated_at: Time
           }
 
-        class Guide < Knockapi::Internal::Type::BaseModel
+        class Entry < Knockapi::Internal::Type::BaseModel
           attr_reader id: String?
 
           def id=: (String) -> String
+
+          attr_reader _typename: String?
+
+          def _typename=: (String) -> String
+
+          attr_reader activation_url_patterns: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLPattern]?
+
+          def activation_url_patterns=: (
+            ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLPattern]
+          ) -> ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLPattern]
+
+          attr_reader activation_url_rules: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLRule]?
+
+          def activation_url_rules=: (
+            ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLRule]
+          ) -> ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLRule]
 
           attr_reader active: bool?
 
           def active=: (bool) -> bool
 
-          attr_reader content: String?
+          attr_reader bypass_global_group_limit: bool?
 
-          def content=: (String) -> String
+          def bypass_global_group_limit=: (bool) -> bool
 
-          attr_reader metadata: ::Hash[Symbol, top]?
+          attr_reader channel_id: String?
 
-          def metadata=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+          def channel_id=: (String) -> String
 
-          attr_reader title: String?
+          attr_reader inserted_at: Time?
 
-          def title=: (String) -> String
+          def inserted_at=: (Time) -> Time
+
+          attr_reader key: String?
+
+          def key=: (String) -> String
+
+          attr_reader semver: String?
+
+          def semver=: (String) -> String
+
+          attr_reader steps: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step]?
+
+          def steps=: (
+            ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step]
+          ) -> ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step]
+
+          attr_reader type: String?
+
+          def type=: (String) -> String
+
+          attr_reader updated_at: Time?
+
+          def updated_at=: (Time) -> Time
 
           def initialize: (
             ?id: String,
+            ?_typename: String,
+            ?activation_url_patterns: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLPattern],
+            ?activation_url_rules: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLRule],
             ?active: bool,
-            ?content: String,
-            ?metadata: ::Hash[Symbol, top],
-            ?title: String
+            ?bypass_global_group_limit: bool,
+            ?channel_id: String,
+            ?inserted_at: Time,
+            ?key: String,
+            ?semver: String,
+            ?steps: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step],
+            ?type: String,
+            ?updated_at: Time
           ) -> void
 
           def to_hash: -> {
             id: String,
+            _typename: String,
+            activation_url_patterns: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLPattern],
+            activation_url_rules: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::ActivationURLRule],
             active: bool,
-            content: String,
-            metadata: ::Hash[Symbol, top],
-            title: String
+            bypass_global_group_limit: bool,
+            channel_id: String,
+            inserted_at: Time,
+            key: String,
+            semver: String,
+            steps: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step],
+            type: String,
+            updated_at: Time
           }
+
+          type activation_url_pattern = { directive: String, pathname: String }
+
+          class ActivationURLPattern < Knockapi::Internal::Type::BaseModel
+            attr_reader directive: String?
+
+            def directive=: (String) -> String
+
+            attr_reader pathname: String?
+
+            def pathname=: (String) -> String
+
+            def initialize: (?directive: String, ?pathname: String) -> void
+
+            def to_hash: -> { directive: String, pathname: String }
+          end
+
+          type activation_url_rule =
+            {
+              argument: String,
+              directive: String,
+              operator: String,
+              variable: String
+            }
+
+          class ActivationURLRule < Knockapi::Internal::Type::BaseModel
+            attr_reader argument: String?
+
+            def argument=: (String) -> String
+
+            attr_reader directive: String?
+
+            def directive=: (String) -> String
+
+            attr_reader operator: String?
+
+            def operator=: (String) -> String
+
+            attr_reader variable: String?
+
+            def variable=: (String) -> String
+
+            def initialize: (
+              ?argument: String,
+              ?directive: String,
+              ?operator: String,
+              ?variable: String
+            ) -> void
+
+            def to_hash: -> {
+              argument: String,
+              directive: String,
+              operator: String,
+              variable: String
+            }
+          end
+
+          type step =
+            {
+              content: ::Hash[Symbol, top],
+              message: Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step::Message,
+              ref: String,
+              schema_key: String,
+              schema_semver: String,
+              schema_variant_key: String
+            }
+
+          class Step < Knockapi::Internal::Type::BaseModel
+            attr_reader content: ::Hash[Symbol, top]?
+
+            def content=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+            attr_reader message: Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step::Message?
+
+            def message=: (
+              Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step::Message
+            ) -> Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step::Message
+
+            attr_reader ref: String?
+
+            def ref=: (String) -> String
+
+            attr_reader schema_key: String?
+
+            def schema_key=: (String) -> String
+
+            attr_reader schema_semver: String?
+
+            def schema_semver=: (String) -> String
+
+            attr_reader schema_variant_key: String?
+
+            def schema_variant_key=: (String) -> String
+
+            def initialize: (
+              ?content: ::Hash[Symbol, top],
+              ?message: Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step::Message,
+              ?ref: String,
+              ?schema_key: String,
+              ?schema_semver: String,
+              ?schema_variant_key: String
+            ) -> void
+
+            def to_hash: -> {
+              content: ::Hash[Symbol, top],
+              message: Knockapi::Models::Users::GuideGetChannelResponse::Entry::Step::Message,
+              ref: String,
+              schema_key: String,
+              schema_semver: String,
+              schema_variant_key: String
+            }
+
+            type message =
+              {
+                id: String?,
+                archived_at: Time?,
+                interacted_at: Time?,
+                link_clicked_at: Time?,
+                read_at: Time?,
+                seen_at: Time?
+              }
+
+            class Message < Knockapi::Internal::Type::BaseModel
+              attr_accessor id: String?
+
+              attr_accessor archived_at: Time?
+
+              attr_accessor interacted_at: Time?
+
+              attr_accessor link_clicked_at: Time?
+
+              attr_accessor read_at: Time?
+
+              attr_accessor seen_at: Time?
+
+              def initialize: (
+                ?id: String?,
+                ?archived_at: Time?,
+                ?interacted_at: Time?,
+                ?link_clicked_at: Time?,
+                ?read_at: Time?,
+                ?seen_at: Time?
+              ) -> void
+
+              def to_hash: -> {
+                id: String?,
+                archived_at: Time?,
+                interacted_at: Time?,
+                link_clicked_at: Time?,
+                read_at: Time?,
+                seen_at: Time?
+              }
+            end
+          end
         end
 
-        type recipient = { id: String }
+        type guide_group =
+          {
+            _typename: String,
+            display_interval: Integer,
+            display_sequence: ::Array[String],
+            inserted_at: Time,
+            key: String,
+            updated_at: Time
+          }
 
-        class Recipient < Knockapi::Internal::Type::BaseModel
-          attr_reader id: String?
+        class GuideGroup < Knockapi::Internal::Type::BaseModel
+          attr_reader _typename: String?
 
-          def id=: (String) -> String
+          def _typename=: (String) -> String
 
-          def initialize: (?id: String) -> void
+          attr_reader display_interval: Integer?
 
-          def to_hash: -> { id: String }
+          def display_interval=: (Integer) -> Integer
+
+          attr_reader display_sequence: ::Array[String]?
+
+          def display_sequence=: (::Array[String]) -> ::Array[String]
+
+          attr_reader inserted_at: Time?
+
+          def inserted_at=: (Time) -> Time
+
+          attr_reader key: String?
+
+          def key=: (String) -> String
+
+          attr_reader updated_at: Time?
+
+          def updated_at=: (Time) -> Time
+
+          def initialize: (
+            ?_typename: String,
+            ?display_interval: Integer,
+            ?display_sequence: ::Array[String],
+            ?inserted_at: Time,
+            ?key: String,
+            ?updated_at: Time
+          ) -> void
+
+          def to_hash: -> {
+            _typename: String,
+            display_interval: Integer,
+            display_sequence: ::Array[String],
+            inserted_at: Time,
+            key: String,
+            updated_at: Time
+          }
         end
       end
     end

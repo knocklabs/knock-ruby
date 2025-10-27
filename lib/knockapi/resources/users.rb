@@ -25,7 +25,7 @@ module Knockapi
       #
       # @param avatar [String, nil] A URL for the avatar of the user.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwsSnsPushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       # @param created_at [Time, nil] The creation date of the user from your system.
       #
@@ -354,7 +354,7 @@ module Knockapi
       #
       # @param channel_id [String] The unique identifier for the channel.
       #
-      # @param data [Knockapi::Models::Recipients::PushChannelData, Knockapi::Models::Recipients::OneSignalChannelData, Knockapi::Models::Recipients::ChannelDataRequest::Data::AwsSnsPushChannelData, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
+      # @param data [Knockapi::Models::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly, Knockapi::Models::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -380,7 +380,7 @@ module Knockapi
       # Use '**persistence_strategy**': 'merge' to merge with existing preferences
       # instead.
       #
-      # @overload set_preferences(user_id, id, _persistence_strategy: nil, categories: nil, channel_types: nil, workflows: nil, request_options: {})
+      # @overload set_preferences(user_id, id, _persistence_strategy: nil, categories: nil, channel_types: nil, channels: nil, commercial_subscribed: nil, workflows: nil, request_options: {})
       #
       # @param user_id [String] The unique identifier of the user.
       #
@@ -391,6 +391,10 @@ module Knockapi
       # @param categories [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the category and the values are the preference settin
       #
       # @param channel_types [Knockapi::Models::Recipients::PreferenceSetChannelTypes, nil] Channel type preferences.
+      #
+      # @param channels [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting}, nil] Channel preferences.
+      #
+      # @param commercial_subscribed [Boolean, nil] Whether the recipient is subscribed to commercial communications. When false, th
       #
       # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
       #

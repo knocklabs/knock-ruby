@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.17.0 (2025-10-24)
+
+Full Changelog: [v1.16.0...v1.17.0](https://github.com/knocklabs/knock-ruby/compare/v1.16.0...v1.17.0)
+
+### Features
+
+* **api:** api update ([fd477b8](https://github.com/knocklabs/knock-ruby/commit/fd477b877f0a74c124a531a9f9b09e52905383b7))
+* **api:** api update ([e47f831](https://github.com/knocklabs/knock-ruby/commit/e47f831b8ec05779d0003c27f701f9b0fd1c85b5))
+* **api:** api update ([2b5808c](https://github.com/knocklabs/knock-ruby/commit/2b5808ccb42252fdebc45486d231aba4dfa9a7b7))
+* **api:** api update ([99546b7](https://github.com/knocklabs/knock-ruby/commit/99546b73a6a6440e373059c1bdc71d48532af3fa))
+* **api:** api update ([042c92a](https://github.com/knocklabs/knock-ruby/commit/042c92a80665539dfeda7c2b8de0acead59fcfb1))
+* **api:** api update ([0f7fc4a](https://github.com/knocklabs/knock-ruby/commit/0f7fc4a35357d5cf6cb8394f0df9b60598d15e63))
+* handle thread interrupts in the core HTTP client ([6161a77](https://github.com/knocklabs/knock-ruby/commit/6161a7749b9fa424f49758cebd3753d135a84095))
+
+
+### Bug Fixes
+
+* absolutely qualified uris should always override the default ([2bb6341](https://github.com/knocklabs/knock-ruby/commit/2bb63414bbf3b9d9b4b996cd75341a183a6aa792))
+* should not reuse buffers for `IO.copy_stream` interop ([6464681](https://github.com/knocklabs/knock-ruby/commit/64646819574a19a1eb4969dc4abbc1d718ed7f4f))
+
+
+### Chores
+
+* ignore linter error for tests having large collections ([20f8ea6](https://github.com/knocklabs/knock-ruby/commit/20f8ea6a8cae8b3463b48d48f4ad065df465cddb))
+* simplify model references ([c126d85](https://github.com/knocklabs/knock-ruby/commit/c126d85300aa1ffe211fbc8e1c25eff4ca25ab7e))
+
 ## 1.16.0 (2025-10-07)
 
 Full Changelog: [v1.15.0...v1.16.0](https://github.com/knocklabs/knock-ruby/compare/v1.15.0...v1.16.0)

@@ -37,24 +37,114 @@ module Knockapi
         }
 
         type data =
-          Knockapi::Recipients::PushChannelData
+          Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull
+          | Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull
+          | Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly
           | Knockapi::Recipients::SlackChannelData
           | Knockapi::Recipients::MsTeamsChannelData
           | Knockapi::Recipients::DiscordChannelData
-          | Knockapi::Recipients::OneSignalChannelData
-          | Knockapi::Recipients::RecipientsChannelData::Data::AwsSnsPushChannelData
 
         module Data
           extend Knockapi::Internal::Type::Union
 
-          type aws_sns_push_channel_data = { target_arns: ::Array[String] }
+          type push_channel_data_full =
+            {
+              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device],
+              tokens: ::Array[String]
+            }
 
-          class AwsSnsPushChannelData < Knockapi::Internal::Type::BaseModel
+          class PushChannelDataFull < Knockapi::Internal::Type::BaseModel
+            attr_accessor devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device]
+
+            attr_accessor tokens: ::Array[String]
+
+            def initialize: (
+              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device],
+              tokens: ::Array[String]
+            ) -> void
+
+            def to_hash: -> {
+              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::Device],
+              tokens: ::Array[String]
+            }
+
+            type device = { token: String, locale: String?, timezone: String? }
+
+            class Device < Knockapi::Internal::Type::BaseModel
+              attr_accessor token: String
+
+              attr_accessor locale: String?
+
+              attr_accessor timezone: String?
+
+              def initialize: (
+                token: String,
+                ?locale: String?,
+                ?timezone: String?
+              ) -> void
+
+              def to_hash: -> {
+                token: String,
+                locale: String?,
+                timezone: String?
+              }
+            end
+          end
+
+          type awssns_push_channel_data_full =
+            {
+              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device],
+              target_arns: ::Array[String]
+            }
+
+          class AwssnsPushChannelDataFull < Knockapi::Internal::Type::BaseModel
+            attr_accessor devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device]
+
             attr_accessor target_arns: ::Array[String]
 
-            def initialize: (target_arns: ::Array[String]) -> void
+            def initialize: (
+              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device],
+              target_arns: ::Array[String]
+            ) -> void
 
-            def to_hash: -> { target_arns: ::Array[String] }
+            def to_hash: -> {
+              devices: ::Array[Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::Device],
+              target_arns: ::Array[String]
+            }
+
+            type device =
+              { target_arn: String, locale: String?, timezone: String? }
+
+            class Device < Knockapi::Internal::Type::BaseModel
+              attr_accessor target_arn: String
+
+              attr_accessor locale: String?
+
+              attr_accessor timezone: String?
+
+              def initialize: (
+                target_arn: String,
+                ?locale: String?,
+                ?timezone: String?
+              ) -> void
+
+              def to_hash: -> {
+                target_arn: String,
+                locale: String?,
+                timezone: String?
+              }
+            end
+          end
+
+          type one_signal_channel_data_player_ids_only =
+            { player_ids: ::Array[String] }
+
+          class OneSignalChannelDataPlayerIDsOnly < Knockapi::Internal::Type::BaseModel
+            attr_accessor player_ids: ::Array[String]
+
+            def initialize: (player_ids: ::Array[String]) -> void
+
+            def to_hash: -> { player_ids: ::Array[String] }
           end
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::RecipientsChannelData::data]

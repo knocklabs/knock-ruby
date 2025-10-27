@@ -125,6 +125,8 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         id: String,
         categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Recipients::PreferenceSetChannelTypes | nil,
+        channels: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Channel]) | nil,
+        commercial_subscribed: Knockapi::Internal::Type::Boolean | nil,
         workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
@@ -159,6 +161,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         updated_at: Time,
         actors: ^(Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference]) | nil,
         archived_at: Time | nil,
+        channel: Knockapi::Message::Channel | nil,
         clicked_at: Time | nil,
         data: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         interacted_at: Time | nil,
@@ -307,6 +310,8 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
         id: String,
         categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Recipients::PreferenceSetChannelTypes | nil,
+        channels: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Channel]) | nil,
+        commercial_subscribed: Knockapi::Internal::Type::Boolean | nil,
         workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Workflow]) | nil
       }
     end

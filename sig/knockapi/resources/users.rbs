@@ -115,6 +115,8 @@ module Knockapi
         ?_persistence_strategy: Knockapi::Models::Recipients::PreferenceSetRequest::persistence_strategy,
         ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::category]?,
         ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
+        ?channels: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::channel]?,
+        ?commercial_subscribed: bool?,
         ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSetRequest::workflow]?,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Recipients::PreferenceSet

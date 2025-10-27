@@ -5,7 +5,7 @@ module Knockapi
     module Messages
       BatchUnarchiveResponse =
         T.let(
-          Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Message],
+          Knockapi::Internal::Type::ArrayOf[Knockapi::Message],
           Knockapi::Internal::Type::Converter
         )
     end

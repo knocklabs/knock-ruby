@@ -14,8 +14,9 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
 
     assert_pattern do
       response => {
-        guides: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::Guide]),
-        recipient: Knockapi::Models::Users::GuideGetChannelResponse::Recipient | nil
+        entries: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::Entry]),
+        guide_group_display_logs: ^(Knockapi::Internal::Type::HashOf[Time]),
+        guide_groups: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup])
       }
     end
   end
