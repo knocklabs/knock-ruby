@@ -451,16 +451,6 @@ module Knockapi
             ),
           channel_types:
             T.nilable(Knockapi::Recipients::PreferenceSetChannelTypes::OrHash),
-          channels:
-            T.nilable(
-              T::Hash[
-                Symbol,
-                T.any(
-                  T::Boolean,
-                  Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting::OrHash
-                )
-              ]
-            ),
           commercial_subscribed: T.nilable(T::Boolean),
           workflows:
             T.nilable(
@@ -490,8 +480,6 @@ module Knockapi
         categories: nil,
         # Channel type preferences.
         channel_types: nil,
-        # Channel preferences.
-        channels: nil,
         # Whether the recipient is subscribed to commercial communications. When false,
         # the recipient will not receive commercial workflow notifications.
         commercial_subscribed: nil,
