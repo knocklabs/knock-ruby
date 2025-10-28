@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.18.0 (2025-10-28)
+
+Full Changelog: [v1.17.0...v1.18.0](https://github.com/knocklabs/knock-ruby/compare/v1.17.0...v1.18.0)
+
+### Features
+
+* **api:** api update ([276ab1a](https://github.com/knocklabs/knock-ruby/commit/276ab1acb42bffaf4e23bf2af3a752200d2a3b22))
+* **api:** api update ([32ea1e5](https://github.com/knocklabs/knock-ruby/commit/32ea1e552eeeb0e4fabb7074c5d8c4e52cc02ff1))
+* **api:** api update ([4d00bd1](https://github.com/knocklabs/knock-ruby/commit/4d00bd1384ab9303995cb23adf1791647265d049))
+
 ## 1.17.0 (2025-10-24)
 
 Full Changelog: [v1.16.0...v1.17.0](https://github.com/knocklabs/knock-ruby/compare/v1.16.0...v1.17.0)
