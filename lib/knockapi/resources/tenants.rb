@@ -84,7 +84,7 @@ module Knockapi
       #
       # @param id [String] The unique identifier for the tenant.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       # @param settings [Knockapi::Models::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
       #

@@ -25,9 +25,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::OrHash,
                   Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::OrHash,
                   Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly::OrHash,
                   Knockapi::Recipients::SlackChannelData::OrHash,
                   Knockapi::Recipients::MsTeamsChannelData::OrHash,
@@ -346,9 +344,7 @@ module Knockapi
           data:
             T.any(
               Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly::OrHash,
-              Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataDevicesOnly::OrHash,
               Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly::OrHash,
-              Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataDevicesOnly::OrHash,
               Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly::OrHash,
               Knockapi::Recipients::SlackChannelData::OrHash,
               Knockapi::Recipients::MsTeamsChannelData::OrHash,
