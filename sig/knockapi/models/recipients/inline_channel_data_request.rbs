@@ -3,7 +3,9 @@ module Knockapi
     module Recipients
       type inline_channel_data_request_item =
         Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly
+        | Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly
         | Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly
+        | Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly
         | Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly
         | Knockapi::Recipients::SlackChannelData
         | Knockapi::Recipients::MsTeamsChannelData
@@ -22,6 +24,45 @@ module Knockapi
           def to_hash: -> { tokens: ::Array[String] }
         end
 
+        type push_channel_data_devices_only =
+          {
+            devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::Device]
+          }
+
+        class PushChannelDataDevicesOnly < Knockapi::Internal::Type::BaseModel
+          attr_accessor devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::Device]
+
+          def initialize: (
+            devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::Device]
+          ) -> void
+
+          def to_hash: -> {
+            devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::Device]
+          }
+
+          type device = { token: String, locale: String?, timezone: String? }
+
+          class Device < Knockapi::Internal::Type::BaseModel
+            attr_accessor token: String
+
+            attr_accessor locale: String?
+
+            attr_accessor timezone: String?
+
+            def initialize: (
+              token: String,
+              ?locale: String?,
+              ?timezone: String?
+            ) -> void
+
+            def to_hash: -> {
+              token: String,
+              locale: String?,
+              timezone: String?
+            }
+          end
+        end
+
         type awssns_push_channel_data_target_ar_ns_only =
           { target_arns: ::Array[String] }
 
@@ -31,6 +72,46 @@ module Knockapi
           def initialize: (target_arns: ::Array[String]) -> void
 
           def to_hash: -> { target_arns: ::Array[String] }
+        end
+
+        type awssns_push_channel_data_devices_only =
+          {
+            devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::Device]
+          }
+
+        class AwssnsPushChannelDataDevicesOnly < Knockapi::Internal::Type::BaseModel
+          attr_accessor devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::Device]
+
+          def initialize: (
+            devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::Device]
+          ) -> void
+
+          def to_hash: -> {
+            devices: ::Array[Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::Device]
+          }
+
+          type device =
+            { target_arn: String, locale: String?, timezone: String? }
+
+          class Device < Knockapi::Internal::Type::BaseModel
+            attr_accessor target_arn: String
+
+            attr_accessor locale: String?
+
+            attr_accessor timezone: String?
+
+            def initialize: (
+              target_arn: String,
+              ?locale: String?,
+              ?timezone: String?
+            ) -> void
+
+            def to_hash: -> {
+              target_arn: String,
+              locale: String?,
+              timezone: String?
+            }
+          end
         end
 
         type one_signal_channel_data_player_ids_only =
