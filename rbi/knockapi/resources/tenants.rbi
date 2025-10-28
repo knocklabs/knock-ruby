@@ -71,9 +71,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::OrHash,
                   Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::OrHash,
                   Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly::OrHash,
                   Knockapi::Recipients::SlackChannelData::OrHash,
                   Knockapi::Recipients::MsTeamsChannelData::OrHash,
