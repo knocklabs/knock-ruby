@@ -18,7 +18,7 @@ module Knockapi
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
-      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil]
+      #   @return [Hash{Symbol=>Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil]
       optional :channel_data,
                -> {
                  Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::InlineChannelDataRequestItem]
@@ -51,7 +51,7 @@ module Knockapi
       #
       #   @param collection [String] The collection this object belongs to.
       #
-      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       #   @param created_at [Time, nil] Timestamp when the resource was created.
       #
