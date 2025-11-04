@@ -1,0 +1,16 @@
+module Knockapi
+  module Models
+    module Recipients
+      type aws_sns_push_channel_data_target_arns_only =
+        { target_arns: ::Array[String] }
+
+      class AwsSnsPushChannelDataTargetArnsOnly < Knockapi::Internal::Type::BaseModel
+        attr_accessor target_arns: ::Array[String]
+
+        def initialize: (target_arns: ::Array[String]) -> void
+
+        def to_hash: -> { target_arns: ::Array[String] }
+      end
+    end
+  end
+end

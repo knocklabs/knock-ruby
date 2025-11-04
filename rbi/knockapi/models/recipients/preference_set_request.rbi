@@ -70,7 +70,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting
+                  Knockapi::Recipients::PreferenceSetChannelSetting
                 )
               ]
             )
@@ -125,7 +125,7 @@ module Knockapi
                   Symbol,
                   T.any(
                     T::Boolean,
-                    Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting::OrHash
+                    Knockapi::Recipients::PreferenceSetChannelSetting::OrHash
                   )
                 ]
               ),
@@ -185,7 +185,7 @@ module Knockapi
                     Symbol,
                     T.any(
                       T::Boolean,
-                      Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting
+                      Knockapi::Recipients::PreferenceSetChannelSetting
                     )
                   ]
                 ),
@@ -289,7 +289,7 @@ module Knockapi
                     Symbol,
                     T.any(
                       T::Boolean,
-                      Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                      Knockapi::Recipients::PreferenceSetChannelSetting
                     )
                   ]
                 )
@@ -315,7 +315,7 @@ module Knockapi
                       Symbol,
                       T.any(
                         T::Boolean,
-                        Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting::OrHash
+                        Knockapi::Recipients::PreferenceSetChannelSetting::OrHash
                       )
                     ]
                   ),
@@ -343,7 +343,7 @@ module Knockapi
                         Symbol,
                         T.any(
                           T::Boolean,
-                          Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                          Knockapi::Recipients::PreferenceSetChannelSetting
                         )
                       ]
                     ),
@@ -363,44 +363,9 @@ module Knockapi
                 T.type_alias do
                   T.any(
                     T::Boolean,
-                    Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                    Knockapi::Recipients::PreferenceSetChannelSetting
                   )
                 end
-
-              class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
-                OrHash =
-                  T.type_alias do
-                    T.any(
-                      Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting,
-                      Knockapi::Internal::AnyHash
-                    )
-                  end
-
-                # A list of conditions to apply to a specific channel.
-                sig { returns(T::Array[Knockapi::Condition]) }
-                attr_accessor :conditions
-
-                # A set of settings for a specific channel. Currently, this can only be a list of
-                # conditions to apply.
-                sig do
-                  params(
-                    conditions: T::Array[Knockapi::Condition::OrHash]
-                  ).returns(T.attached_class)
-                end
-                def self.new(
-                  # A list of conditions to apply to a specific channel.
-                  conditions:
-                )
-                end
-
-                sig do
-                  override.returns(
-                    { conditions: T::Array[Knockapi::Condition] }
-                  )
-                end
-                def to_hash
-                end
-              end
 
               sig do
                 override.returns(
@@ -434,42 +399,9 @@ module Knockapi
             T.type_alias do
               T.any(
                 T::Boolean,
-                Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting
+                Knockapi::Recipients::PreferenceSetChannelSetting
               )
             end
-
-          class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
-            OrHash =
-              T.type_alias do
-                T.any(
-                  Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting,
-                  Knockapi::Internal::AnyHash
-                )
-              end
-
-            # A list of conditions to apply to a specific channel.
-            sig { returns(T::Array[Knockapi::Condition]) }
-            attr_accessor :conditions
-
-            # A set of settings for a specific channel. Currently, this can only be a list of
-            # conditions to apply.
-            sig do
-              params(conditions: T::Array[Knockapi::Condition::OrHash]).returns(
-                T.attached_class
-              )
-            end
-            def self.new(
-              # A list of conditions to apply to a specific channel.
-              conditions:
-            )
-            end
-
-            sig do
-              override.returns({ conditions: T::Array[Knockapi::Condition] })
-            end
-            def to_hash
-            end
-          end
 
           sig do
             override.returns(
@@ -529,7 +461,7 @@ module Knockapi
                     Symbol,
                     T.any(
                       T::Boolean,
-                      Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                      Knockapi::Recipients::PreferenceSetChannelSetting
                     )
                   ]
                 )
@@ -555,7 +487,7 @@ module Knockapi
                       Symbol,
                       T.any(
                         T::Boolean,
-                        Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting::OrHash
+                        Knockapi::Recipients::PreferenceSetChannelSetting::OrHash
                       )
                     ]
                   ),
@@ -583,7 +515,7 @@ module Knockapi
                         Symbol,
                         T.any(
                           T::Boolean,
-                          Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                          Knockapi::Recipients::PreferenceSetChannelSetting
                         )
                       ]
                     ),
@@ -603,44 +535,9 @@ module Knockapi
                 T.type_alias do
                   T.any(
                     T::Boolean,
-                    Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+                    Knockapi::Recipients::PreferenceSetChannelSetting
                   )
                 end
-
-              class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
-                OrHash =
-                  T.type_alias do
-                    T.any(
-                      Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting,
-                      Knockapi::Internal::AnyHash
-                    )
-                  end
-
-                # A list of conditions to apply to a specific channel.
-                sig { returns(T::Array[Knockapi::Condition]) }
-                attr_accessor :conditions
-
-                # A set of settings for a specific channel. Currently, this can only be a list of
-                # conditions to apply.
-                sig do
-                  params(
-                    conditions: T::Array[Knockapi::Condition::OrHash]
-                  ).returns(T.attached_class)
-                end
-                def self.new(
-                  # A list of conditions to apply to a specific channel.
-                  conditions:
-                )
-                end
-
-                sig do
-                  override.returns(
-                    { conditions: T::Array[Knockapi::Condition] }
-                  )
-                end
-                def to_hash
-                end
-              end
 
               sig do
                 override.returns(

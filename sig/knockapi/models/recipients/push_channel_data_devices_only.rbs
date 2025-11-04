@@ -1,0 +1,40 @@
+module Knockapi
+  module Models
+    module Recipients
+      type push_channel_data_devices_only =
+        {
+          devices: ::Array[Knockapi::Recipients::PushChannelDataDevicesOnly::Device]
+        }
+
+      class PushChannelDataDevicesOnly < Knockapi::Internal::Type::BaseModel
+        attr_accessor devices: ::Array[Knockapi::Recipients::PushChannelDataDevicesOnly::Device]
+
+        def initialize: (
+          devices: ::Array[Knockapi::Recipients::PushChannelDataDevicesOnly::Device]
+        ) -> void
+
+        def to_hash: -> {
+          devices: ::Array[Knockapi::Recipients::PushChannelDataDevicesOnly::Device]
+        }
+
+        type device = { token: String, locale: String?, timezone: String? }
+
+        class Device < Knockapi::Internal::Type::BaseModel
+          attr_accessor token: String
+
+          attr_accessor locale: String?
+
+          attr_accessor timezone: String?
+
+          def initialize: (
+            token: String,
+            ?locale: String?,
+            ?timezone: String?
+          ) -> void
+
+          def to_hash: -> { token: String, locale: String?, timezone: String? }
+        end
+      end
+    end
+  end
+end
