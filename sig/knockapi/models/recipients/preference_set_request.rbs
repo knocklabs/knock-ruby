@@ -91,24 +91,10 @@ module Knockapi
             }
 
             type channel =
-              bool
-              | Knockapi::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+              bool | Knockapi::Recipients::PreferenceSetChannelSetting
 
             module Channel
               extend Knockapi::Internal::Type::Union
-
-              type preference_set_channel_setting =
-                { conditions: ::Array[Knockapi::Condition] }
-
-              class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
-                attr_accessor conditions: ::Array[Knockapi::Condition]
-
-                def initialize: (
-                  conditions: ::Array[Knockapi::Condition]
-                ) -> void
-
-                def to_hash: -> { conditions: ::Array[Knockapi::Condition] }
-              end
 
               def self?.variants: -> ::Array[Knockapi::Models::Recipients::PreferenceSetRequest::Category::PreferenceSetWorkflowCategorySettingObject::channel]
             end
@@ -117,23 +103,10 @@ module Knockapi
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::PreferenceSetRequest::category]
         end
 
-        type channel =
-          bool
-          | Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting
+        type channel = bool | Knockapi::Recipients::PreferenceSetChannelSetting
 
         module Channel
           extend Knockapi::Internal::Type::Union
-
-          type preference_set_channel_setting =
-            { conditions: ::Array[Knockapi::Condition] }
-
-          class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
-            attr_accessor conditions: ::Array[Knockapi::Condition]
-
-            def initialize: (conditions: ::Array[Knockapi::Condition]) -> void
-
-            def to_hash: -> { conditions: ::Array[Knockapi::Condition] }
-          end
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::PreferenceSetRequest::channel]
         end
@@ -172,24 +145,10 @@ module Knockapi
             }
 
             type channel =
-              bool
-              | Knockapi::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::Channel::PreferenceSetChannelSetting
+              bool | Knockapi::Recipients::PreferenceSetChannelSetting
 
             module Channel
               extend Knockapi::Internal::Type::Union
-
-              type preference_set_channel_setting =
-                { conditions: ::Array[Knockapi::Condition] }
-
-              class PreferenceSetChannelSetting < Knockapi::Internal::Type::BaseModel
-                attr_accessor conditions: ::Array[Knockapi::Condition]
-
-                def initialize: (
-                  conditions: ::Array[Knockapi::Condition]
-                ) -> void
-
-                def to_hash: -> { conditions: ::Array[Knockapi::Condition] }
-              end
 
               def self?.variants: -> ::Array[Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject::channel]
             end

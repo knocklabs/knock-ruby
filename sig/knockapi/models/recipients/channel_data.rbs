@@ -39,7 +39,7 @@ module Knockapi
         type data =
           Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull
           | Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull
-          | Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly
+          | Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly
           | Knockapi::Recipients::SlackChannelData
           | Knockapi::Recipients::MsTeamsChannelData
           | Knockapi::Recipients::DiscordChannelData
@@ -134,17 +134,6 @@ module Knockapi
                 timezone: String?
               }
             end
-          end
-
-          type one_signal_channel_data_player_ids_only =
-            { player_ids: ::Array[String] }
-
-          class OneSignalChannelDataPlayerIDsOnly < Knockapi::Internal::Type::BaseModel
-            attr_accessor player_ids: ::Array[String]
-
-            def initialize: (player_ids: ::Array[String]) -> void
-
-            def to_hash: -> { player_ids: ::Array[String] }
           end
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::RecipientsChannelData::data]

@@ -1,0 +1,15 @@
+module Knockapi
+  module Models
+    module Recipients
+      type push_channel_data_tokens_only = { tokens: ::Array[String] }
+
+      class PushChannelDataTokensOnly < Knockapi::Internal::Type::BaseModel
+        attr_accessor tokens: ::Array[String]
+
+        def initialize: (tokens: ::Array[String]) -> void
+
+        def to_hash: -> { tokens: ::Array[String] }
+      end
+    end
+  end
+end

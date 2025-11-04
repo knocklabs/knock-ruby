@@ -19,7 +19,7 @@ module Knockapi
         # @!attribute data
         #   Channel data for a given channel type.
         #
-        #   @return [Knockapi::Models::Recipients::RecipientsChannelData::Data::PushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
+        #   @return [Knockapi::Models::Recipients::RecipientsChannelData::Data::PushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData]
         required :data, union: -> { Knockapi::Recipients::RecipientsChannelData::Data }
 
         # @!attribute provider
@@ -35,7 +35,7 @@ module Knockapi
         #
         #   @param channel_id [String] The unique identifier for the channel.
         #
-        #   @param data [Knockapi::Models::Recipients::RecipientsChannelData::Data::PushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
+        #   @param data [Knockapi::Models::Recipients::RecipientsChannelData::Data::PushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData] Channel data for a given channel type.
         #
         #   @param provider [Symbol, Knockapi::Models::Recipients::RecipientsChannelData::Provider] The type of provider.
 
@@ -52,7 +52,7 @@ module Knockapi
           variant -> { Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull }
 
           # OneSignal channel data.
-          variant -> { Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly }
+          variant -> { Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly }
 
           # Slack channel data.
           variant -> { Knockapi::Recipients::SlackChannelData }
@@ -190,21 +190,8 @@ module Knockapi
             end
           end
 
-          class OneSignalChannelDataPlayerIDsOnly < Knockapi::Internal::Type::BaseModel
-            # @!attribute player_ids
-            #   A list of OneSignal player IDs.
-            #
-            #   @return [Array<String>]
-            required :player_ids, Knockapi::Internal::Type::ArrayOf[String]
-
-            # @!method initialize(player_ids:)
-            #   OneSignal channel data.
-            #
-            #   @param player_ids [Array<String>] A list of OneSignal player IDs.
-          end
-
           # @!method self.variants
-          #   @return [Array(Knockapi::Models::Recipients::RecipientsChannelData::Data::PushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]
+          #   @return [Array(Knockapi::Models::Recipients::RecipientsChannelData::Data::PushChannelDataFull, Knockapi::Models::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData)]
         end
 
         # The type of provider.
