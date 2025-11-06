@@ -17,14 +17,22 @@ module Knockapi
                },
                nil?: true
 
+      # @!attribute name
+      #   An optional name for the tenant.
+      #
+      #   @return [String, nil]
+      optional :name, String, nil?: true
+
       # @!attribute settings
       #   The settings for the tenant. Includes branding and preference set.
       #
       #   @return [Knockapi::Models::TenantSetParams::Settings, nil]
       optional :settings, -> { Knockapi::TenantSetParams::Settings }
 
-      # @!method initialize(channel_data: nil, settings: nil, request_options: {})
+      # @!method initialize(channel_data: nil, name: nil, settings: nil, request_options: {})
       #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      #
+      #   @param name [String, nil] An optional name for the tenant.
       #
       #   @param settings [Knockapi::Models::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
       #

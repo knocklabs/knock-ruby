@@ -7,6 +7,7 @@ module Knockapi
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,
           has_tenant: bool,
+          locale: String,
           page_size: Integer,
           source: String,
           status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -37,6 +38,10 @@ module Knockapi
         attr_reader has_tenant: bool?
 
         def has_tenant=: (bool) -> bool
+
+        attr_reader locale: String?
+
+        def locale=: (String) -> String
 
         attr_reader page_size: Integer?
 
@@ -69,6 +74,7 @@ module Knockapi
           ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           ?before: String,
           ?has_tenant: bool,
+          ?locale: String,
           ?page_size: Integer,
           ?source: String,
           ?status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -83,6 +89,7 @@ module Knockapi
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,
           has_tenant: bool,
+          locale: String,
           page_size: Integer,
           source: String,
           status: Knockapi::Models::Users::FeedListItemsParams::status,

@@ -42,6 +42,12 @@ module Knockapi
           #   @return [Time, nil]
           optional :created_at, Time, nil?: true
 
+          # @!attribute name
+          #   An optional name for the object.
+          #
+          #   @return [String, nil]
+          optional :name, String, nil?: true
+
           # @!attribute preferences
           #   Inline set preferences for a recipient, where the key is the preference set id.
           #   Preferences that are set inline will be merged into any existing preferences
@@ -52,7 +58,7 @@ module Knockapi
                    -> { Knockapi::Internal::Type::HashOf[Knockapi::Recipients::PreferenceSetRequest] },
                    nil?: true
 
-          # @!method initialize(id:, channel_data: nil, created_at: nil, preferences: nil)
+          # @!method initialize(id:, channel_data: nil, created_at: nil, name: nil, preferences: nil)
           #   Some parameter documentations has been truncated, see
           #   {Knockapi::Models::Objects::BulkSetParams::Object} for more details.
           #
@@ -63,6 +69,8 @@ module Knockapi
           #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
           #
           #   @param created_at [Time, nil] Timestamp when the resource was created.
+          #
+          #   @param name [String, nil] An optional name for the object.
           #
           #   @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}, nil] Inline set preferences for a recipient, where the key is the preference set id.
         end

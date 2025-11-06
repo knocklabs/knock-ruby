@@ -26,6 +26,9 @@ module Knockapi
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {Knockapi::Models::Users::FeedListItemsParams} for more details.
+        #
         # Returns a paginated list of feed items for a user in reverse chronological
         # order, including metadata about the feed. If the user has not yet been
         # identified within Knock, an empty feed will be returned.
@@ -41,7 +44,7 @@ module Knockapi
         # - This endpoint’s rate limit is always scoped per-user and per-environment. This
         #   is true even for requests made without a signed user token.
         #
-        # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
         #
@@ -54,6 +57,8 @@ module Knockapi
         # @param before [String] The cursor to fetch entries before.
         #
         # @param has_tenant [Boolean] Whether the feed items have a tenant.
+        #
+        # @param locale [String] The locale to render the feed items in. Must be in the IETF 5646 format (e.g. `e
         #
         # @param page_size [Integer] The number of items per page (defaults to 50).
         #

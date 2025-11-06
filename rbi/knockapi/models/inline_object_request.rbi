@@ -42,6 +42,10 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :created_at
 
+      # An optional name for the object.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :name
+
       # Inline set preferences for a recipient, where the key is the preference set id.
       # Preferences that are set inline will be merged into any existing preferences
       # rather than replacing them.
@@ -74,6 +78,7 @@ module Knockapi
               ]
             ),
           created_at: T.nilable(Time),
+          name: T.nilable(String),
           preferences:
             T.nilable(
               T::Hash[
@@ -92,6 +97,8 @@ module Knockapi
         channel_data: nil,
         # Timestamp when the resource was created.
         created_at: nil,
+        # An optional name for the object.
+        name: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
         # Preferences that are set inline will be merged into any existing preferences
         # rather than replacing them.
@@ -121,6 +128,7 @@ module Knockapi
                 ]
               ),
             created_at: T.nilable(Time),
+            name: T.nilable(String),
             preferences:
               T.nilable(
                 T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest]

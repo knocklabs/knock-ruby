@@ -3,6 +3,7 @@ module Knockapi
     type tenant_set_params =
       {
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        name: String?,
         settings: Knockapi::TenantSetParams::Settings
       }
       & Knockapi::Internal::Type::request_parameters
@@ -13,6 +14,8 @@ module Knockapi
 
       attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
 
+      attr_accessor name: String?
+
       attr_reader settings: Knockapi::TenantSetParams::Settings?
 
       def settings=: (
@@ -21,12 +24,14 @@ module Knockapi
 
       def initialize: (
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?name: String?,
         ?settings: Knockapi::TenantSetParams::Settings,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> {
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        name: String?,
         settings: Knockapi::TenantSetParams::Settings,
         request_options: Knockapi::RequestOptions
       }

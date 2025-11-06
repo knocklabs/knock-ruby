@@ -51,6 +51,16 @@ module Knockapi
         sig { params(has_tenant: T::Boolean).void }
         attr_writer :has_tenant
 
+        # The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
+        # `en-US`). When not provided, will default to the locale that the feed items were
+        # rendered in. Only available for enterprise plan customers using custom
+        # translations.
+        sig { returns(T.nilable(String)) }
+        attr_reader :locale
+
+        sig { params(locale: String).void }
+        attr_writer :locale
+
         # The number of items per page (defaults to 50).
         sig { returns(T.nilable(Integer)) }
         attr_reader :page_size
@@ -107,6 +117,7 @@ module Knockapi
             archived: Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
             before: String,
             has_tenant: T::Boolean,
+            locale: String,
             page_size: Integer,
             source: String,
             status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
@@ -125,6 +136,11 @@ module Knockapi
           before: nil,
           # Whether the feed items have a tenant.
           has_tenant: nil,
+          # The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
+          # `en-US`). When not provided, will default to the locale that the feed items were
+          # rendered in. Only available for enterprise plan customers using custom
+          # translations.
+          locale: nil,
           # The number of items per page (defaults to 50).
           page_size: nil,
           # The workflow key associated with the message in the feed.
@@ -149,6 +165,7 @@ module Knockapi
                 Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
               before: String,
               has_tenant: T::Boolean,
+              locale: String,
               page_size: Integer,
               source: String,
               status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,

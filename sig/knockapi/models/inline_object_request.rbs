@@ -6,6 +6,7 @@ module Knockapi
         collection: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         created_at: Time?,
+        name: String?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?
       }
 
@@ -18,6 +19,8 @@ module Knockapi
 
       attr_accessor created_at: Time?
 
+      attr_accessor name: String?
+
       attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
 
       def initialize: (
@@ -25,6 +28,7 @@ module Knockapi
         collection: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?created_at: Time?,
+        ?name: String?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?
       ) -> void
 
@@ -33,6 +37,7 @@ module Knockapi
         collection: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         created_at: Time?,
+        name: String?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?
       }
     end
