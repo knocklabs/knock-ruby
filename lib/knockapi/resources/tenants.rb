@@ -80,11 +80,13 @@ module Knockapi
       # Sets a tenant within an environment, performing an upsert operation. Any
       # existing properties will be merged with the incoming properties.
       #
-      # @overload set(id, channel_data: nil, settings: nil, request_options: {})
+      # @overload set(id, channel_data: nil, name: nil, settings: nil, request_options: {})
       #
       # @param id [String] The unique identifier for the tenant.
       #
       # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      #
+      # @param name [String, nil] An optional name for the tenant.
       #
       # @param settings [Knockapi::Models::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
       #

@@ -362,7 +362,7 @@ module Knockapi
       # This operation is used to identify objects with their properties, as well as
       # optional preferences and channel data.
       #
-      # @overload set(collection, id, channel_data: nil, locale: nil, preferences: nil, timezone: nil, request_options: {})
+      # @overload set(collection, id, channel_data: nil, locale: nil, name: nil, preferences: nil, timezone: nil, request_options: {})
       #
       # @param collection [String] The collection this object belongs to.
       #
@@ -371,6 +371,8 @@ module Knockapi
       # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}] A request to set channel data for a type of channel inline.
       #
       # @param locale [String, nil] The locale of the object. Used for [message localization](/concepts/translations
+      #
+      # @param name [String, nil] An optional name for the object.
       #
       # @param preferences [Hash{Symbol=>Knockapi::Models::Recipients::PreferenceSetRequest}] Inline set preferences for a recipient, where the key is the preference set id.
       #

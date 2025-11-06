@@ -4,6 +4,7 @@ module Knockapi
       {
         id: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        name: String?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         settings: Knockapi::TenantRequest::Settings
       }
@@ -12,6 +13,8 @@ module Knockapi
       attr_accessor id: String
 
       attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
+
+      attr_accessor name: String?
 
       attr_accessor preferences: Knockapi::Models::Recipients::inline_preference_set_request?
 
@@ -24,6 +27,7 @@ module Knockapi
       def initialize: (
         id: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        ?name: String?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         ?settings: Knockapi::TenantRequest::Settings
       ) -> void
@@ -31,6 +35,7 @@ module Knockapi
       def to_hash: -> {
         id: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
+        name: String?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request?,
         settings: Knockapi::TenantRequest::Settings
       }

@@ -34,6 +34,10 @@ module Knockapi
       end
       attr_accessor :channel_data
 
+      # An optional name for the tenant.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :name
+
       # Inline set preferences for a recipient, where the key is the preference set id.
       # Preferences that are set inline will be merged into any existing preferences
       # rather than replacing them.
@@ -72,6 +76,7 @@ module Knockapi
                 )
               ]
             ),
+          name: T.nilable(String),
           preferences:
             T.nilable(
               T::Hash[
@@ -87,6 +92,8 @@ module Knockapi
         id:,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
+        # An optional name for the tenant.
+        name: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
         # Preferences that are set inline will be merged into any existing preferences
         # rather than replacing them.
@@ -116,6 +123,7 @@ module Knockapi
                   )
                 ]
               ),
+            name: T.nilable(String),
             preferences:
               T.nilable(
                 T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest]

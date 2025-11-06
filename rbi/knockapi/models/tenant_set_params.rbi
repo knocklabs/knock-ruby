@@ -33,6 +33,10 @@ module Knockapi
       end
       attr_accessor :channel_data
 
+      # An optional name for the tenant.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :name
+
       # The settings for the tenant. Includes branding and preference set.
       sig { returns(T.nilable(Knockapi::TenantSetParams::Settings)) }
       attr_reader :settings
@@ -58,6 +62,7 @@ module Knockapi
                 )
               ]
             ),
+          name: T.nilable(String),
           settings: Knockapi::TenantSetParams::Settings::OrHash,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -65,6 +70,8 @@ module Knockapi
       def self.new(
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
+        # An optional name for the tenant.
+        name: nil,
         # The settings for the tenant. Includes branding and preference set.
         settings: nil,
         request_options: {}
@@ -90,6 +97,7 @@ module Knockapi
                   )
                 ]
               ),
+            name: T.nilable(String),
             settings: Knockapi::TenantSetParams::Settings,
             request_options: Knockapi::RequestOptions
           }
