@@ -70,17 +70,18 @@ module Knockapi
               T::Hash[
                 Symbol,
                 T.any(
-                  Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly::OrHash,
+                  Knockapi::Recipients::PushChannelDataTokensOnly::OrHash,
+                  Knockapi::Recipients::PushChannelDataDevicesOnly::OrHash,
+                  Knockapi::Recipients::AwsSnsPushChannelDataTargetArnsOnly::OrHash,
+                  Knockapi::Recipients::AwsSnsPushChannelDataDevicesOnly::OrHash,
+                  Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly::OrHash,
                   Knockapi::Recipients::SlackChannelData::OrHash,
                   Knockapi::Recipients::MsTeamsChannelData::OrHash,
                   Knockapi::Recipients::DiscordChannelData::OrHash
                 )
               ]
             ),
+          name: T.nilable(String),
           settings: Knockapi::TenantSetParams::Settings::OrHash,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(Knockapi::Tenant)
@@ -90,6 +91,8 @@ module Knockapi
         id,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
+        # An optional name for the tenant.
+        name: nil,
         # The settings for the tenant. Includes branding and preference set.
         settings: nil,
         request_options: {}

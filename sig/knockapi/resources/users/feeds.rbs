@@ -15,6 +15,7 @@ module Knockapi
           ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           ?before: String,
           ?has_tenant: bool,
+          ?locale: String,
           ?page_size: Integer,
           ?source: String,
           ?status: Knockapi::Models::Users::FeedListItemsParams::status,

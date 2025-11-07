@@ -53,7 +53,7 @@ module Knockapi
               T.any(
                 Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull::OrHash,
                 Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull::OrHash,
-                Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly::OrHash,
+                Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly::OrHash,
                 Knockapi::Recipients::SlackChannelData::OrHash,
                 Knockapi::Recipients::MsTeamsChannelData::OrHash,
                 Knockapi::Recipients::DiscordChannelData::OrHash
@@ -97,7 +97,7 @@ module Knockapi
               T.any(
                 Knockapi::Recipients::RecipientsChannelData::Data::PushChannelDataFull,
                 Knockapi::Recipients::RecipientsChannelData::Data::AwssnsPushChannelDataFull,
-                Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly,
+                Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly,
                 Knockapi::Recipients::SlackChannelData,
                 Knockapi::Recipients::MsTeamsChannelData,
                 Knockapi::Recipients::DiscordChannelData
@@ -341,34 +341,6 @@ module Knockapi
               end
               def to_hash
               end
-            end
-          end
-
-          class OneSignalChannelDataPlayerIDsOnly < Knockapi::Internal::Type::BaseModel
-            OrHash =
-              T.type_alias do
-                T.any(
-                  Knockapi::Recipients::RecipientsChannelData::Data::OneSignalChannelDataPlayerIDsOnly,
-                  Knockapi::Internal::AnyHash
-                )
-              end
-
-            # A list of OneSignal player IDs.
-            sig { returns(T::Array[String]) }
-            attr_accessor :player_ids
-
-            # OneSignal channel data.
-            sig do
-              params(player_ids: T::Array[String]).returns(T.attached_class)
-            end
-            def self.new(
-              # A list of OneSignal player IDs.
-              player_ids:
-            )
-            end
-
-            sig { override.returns({ player_ids: T::Array[String] }) }
-            def to_hash
             end
           end
 

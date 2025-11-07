@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.19.0 (2025-11-07)
+
+Full Changelog: [v1.18.0...v1.19.0](https://github.com/knocklabs/knock-ruby/compare/v1.18.0...v1.19.0)
+
+### Features
+
+* **api:** api update ([49dfcac](https://github.com/knocklabs/knock-ruby/commit/49dfcacc09c8dfe929b609b27160fbc378953e67))
+* **api:** api update ([21f8ae5](https://github.com/knocklabs/knock-ruby/commit/21f8ae5d08e7a977043af146d5eca6ed2204153d))
+* **api:** api update ([6cf1256](https://github.com/knocklabs/knock-ruby/commit/6cf125684bca003fcde03286c25e12275702eb46))
+* **api:** support specifying a branch ([ebb9daa](https://github.com/knocklabs/knock-ruby/commit/ebb9daa2a60ff30730a5e5566ef4495d038b8ff0))
+* correct channel data schemas ([10baf42](https://github.com/knocklabs/knock-ruby/commit/10baf42ada5f4249951177b98f338e103fe648ae))
+
+
+### Bug Fixes
+
+* better thread safety via early initializing SSL store during HTTP client creation ([513da8d](https://github.com/knocklabs/knock-ruby/commit/513da8d87063a34c430572553cc987996cebf1aa))
+
+
+### Chores
+
+* bump dependency version and update sorbet types ([373db9a](https://github.com/knocklabs/knock-ruby/commit/373db9a9ef43934c3783a5fda89c443062bf6780))
+* **client:** send user-agent header ([5946677](https://github.com/knocklabs/knock-ruby/commit/59466777a63ea93441435ac1cd468a1d7ca76cd6))
+
 ## 1.18.0 (2025-10-28)
 
 Full Changelog: [v1.17.0...v1.18.0](https://github.com/knocklabs/knock-ruby/compare/v1.17.0...v1.18.0)

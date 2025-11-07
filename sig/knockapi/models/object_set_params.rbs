@@ -4,6 +4,7 @@ module Knockapi
       {
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         locale: String?,
+        name: String?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request,
         timezone: String?
       }
@@ -21,6 +22,8 @@ module Knockapi
 
       attr_accessor locale: String?
 
+      attr_accessor name: String?
+
       attr_reader preferences: Knockapi::Models::Recipients::inline_preference_set_request?
 
       def preferences=: (
@@ -32,6 +35,7 @@ module Knockapi
       def initialize: (
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         ?locale: String?,
+        ?name: String?,
         ?preferences: Knockapi::Models::Recipients::inline_preference_set_request,
         ?timezone: String?,
         ?request_options: Knockapi::request_opts
@@ -40,6 +44,7 @@ module Knockapi
       def to_hash: -> {
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         locale: String?,
+        name: String?,
         preferences: Knockapi::Models::Recipients::inline_preference_set_request,
         timezone: String?,
         request_options: Knockapi::RequestOptions

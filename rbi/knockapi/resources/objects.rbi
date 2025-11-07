@@ -353,17 +353,18 @@ module Knockapi
             T::Hash[
               Symbol,
               T.any(
-                Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly::OrHash,
-                Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::OrHash,
-                Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly::OrHash,
-                Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::OrHash,
-                Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly::OrHash,
+                Knockapi::Recipients::PushChannelDataTokensOnly::OrHash,
+                Knockapi::Recipients::PushChannelDataDevicesOnly::OrHash,
+                Knockapi::Recipients::AwsSnsPushChannelDataTargetArnsOnly::OrHash,
+                Knockapi::Recipients::AwsSnsPushChannelDataDevicesOnly::OrHash,
+                Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly::OrHash,
                 Knockapi::Recipients::SlackChannelData::OrHash,
                 Knockapi::Recipients::MsTeamsChannelData::OrHash,
                 Knockapi::Recipients::DiscordChannelData::OrHash
               )
             ],
           locale: T.nilable(String),
+          name: T.nilable(String),
           preferences:
             T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest::OrHash],
           timezone: T.nilable(String),
@@ -380,6 +381,8 @@ module Knockapi
         # The locale of the object. Used for
         # [message localization](/concepts/translations).
         locale: nil,
+        # An optional name for the object.
+        name: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
         # Preferences that are set inline will be merged into any existing preferences
         # rather than replacing them.
@@ -403,11 +406,11 @@ module Knockapi
           channel_id: String,
           data:
             T.any(
-              Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataTokensOnly::OrHash,
-              Knockapi::Recipients::ChannelDataRequest::Data::PushChannelDataDevicesOnly::OrHash,
-              Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataTargetArNsOnly::OrHash,
-              Knockapi::Recipients::ChannelDataRequest::Data::AwssnsPushChannelDataDevicesOnly::OrHash,
-              Knockapi::Recipients::ChannelDataRequest::Data::OneSignalChannelDataPlayerIDsOnly::OrHash,
+              Knockapi::Recipients::PushChannelDataTokensOnly::OrHash,
+              Knockapi::Recipients::PushChannelDataDevicesOnly::OrHash,
+              Knockapi::Recipients::AwsSnsPushChannelDataTargetArnsOnly::OrHash,
+              Knockapi::Recipients::AwsSnsPushChannelDataDevicesOnly::OrHash,
+              Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly::OrHash,
               Knockapi::Recipients::SlackChannelData::OrHash,
               Knockapi::Recipients::MsTeamsChannelData::OrHash,
               Knockapi::Recipients::DiscordChannelData::OrHash
@@ -461,7 +464,7 @@ module Knockapi
                 Symbol,
                 T.any(
                   T::Boolean,
-                  Knockapi::Recipients::PreferenceSetRequest::Channel::PreferenceSetChannelSetting::OrHash
+                  Knockapi::Recipients::PreferenceSetChannelSetting::OrHash
                 )
               ]
             ),

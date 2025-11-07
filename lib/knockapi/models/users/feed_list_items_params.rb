@@ -32,6 +32,15 @@ module Knockapi
         #   @return [Boolean, nil]
         optional :has_tenant, Knockapi::Internal::Type::Boolean
 
+        # @!attribute locale
+        #   The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
+        #   `en-US`). When not provided, will default to the locale that the feed items were
+        #   rendered in. Only available for enterprise plan customers using custom
+        #   translations.
+        #
+        #   @return [String, nil]
+        optional :locale, String
+
         # @!attribute page_size
         #   The number of items per page (defaults to 50).
         #
@@ -68,7 +77,10 @@ module Knockapi
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        #   Some parameter documentations has been truncated, see
+        #   {Knockapi::Models::Users::FeedListItemsParams} for more details.
+        #
         #   @param after [String] The cursor to fetch entries after.
         #
         #   @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived] The archived status of the feed items.
@@ -76,6 +88,8 @@ module Knockapi
         #   @param before [String] The cursor to fetch entries before.
         #
         #   @param has_tenant [Boolean] Whether the feed items have a tenant.
+        #
+        #   @param locale [String] The locale to render the feed items in. Must be in the IETF 5646 format (e.g. `e
         #
         #   @param page_size [Integer] The number of items per page (defaults to 50).
         #

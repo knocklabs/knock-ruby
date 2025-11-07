@@ -36,7 +36,7 @@ class Knockapi::Test::Resources::Tenants::BulkTest < Knockapi::Test::ResourceTes
   def test_set_required_params
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.tenants.bulk.set(tenants: ["string"])
+    response = @knock.tenants.bulk.set(tenants: [{id: "tenant_1"}])
 
     assert_pattern do
       response => Knockapi::BulkOperation

@@ -19,11 +19,11 @@ module Knockapi
             T::Hash[
               Symbol,
               T.any(
-                Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly,
-                Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly,
-                Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly,
-                Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly,
-                Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly,
+                Knockapi::Recipients::PushChannelDataTokensOnly,
+                Knockapi::Recipients::PushChannelDataDevicesOnly,
+                Knockapi::Recipients::AwsSnsPushChannelDataTargetArnsOnly,
+                Knockapi::Recipients::AwsSnsPushChannelDataDevicesOnly,
+                Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly,
                 Knockapi::Recipients::SlackChannelData,
                 Knockapi::Recipients::MsTeamsChannelData,
                 Knockapi::Recipients::DiscordChannelData
@@ -33,6 +33,10 @@ module Knockapi
         )
       end
       attr_accessor :channel_data
+
+      # An optional name for the tenant.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :name
 
       # Inline set preferences for a recipient, where the key is the preference set id.
       # Preferences that are set inline will be merged into any existing preferences
@@ -61,17 +65,18 @@ module Knockapi
               T::Hash[
                 Symbol,
                 T.any(
-                  Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly::OrHash,
-                  Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly::OrHash,
+                  Knockapi::Recipients::PushChannelDataTokensOnly::OrHash,
+                  Knockapi::Recipients::PushChannelDataDevicesOnly::OrHash,
+                  Knockapi::Recipients::AwsSnsPushChannelDataTargetArnsOnly::OrHash,
+                  Knockapi::Recipients::AwsSnsPushChannelDataDevicesOnly::OrHash,
+                  Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly::OrHash,
                   Knockapi::Recipients::SlackChannelData::OrHash,
                   Knockapi::Recipients::MsTeamsChannelData::OrHash,
                   Knockapi::Recipients::DiscordChannelData::OrHash
                 )
               ]
             ),
+          name: T.nilable(String),
           preferences:
             T.nilable(
               T::Hash[
@@ -87,6 +92,8 @@ module Knockapi
         id:,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
+        # An optional name for the tenant.
+        name: nil,
         # Inline set preferences for a recipient, where the key is the preference set id.
         # Preferences that are set inline will be merged into any existing preferences
         # rather than replacing them.
@@ -105,17 +112,18 @@ module Knockapi
                 T::Hash[
                   Symbol,
                   T.any(
-                    Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataTokensOnly,
-                    Knockapi::Recipients::InlineChannelDataRequestItem::PushChannelDataDevicesOnly,
-                    Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataTargetArNsOnly,
-                    Knockapi::Recipients::InlineChannelDataRequestItem::AwssnsPushChannelDataDevicesOnly,
-                    Knockapi::Recipients::InlineChannelDataRequestItem::OneSignalChannelDataPlayerIDsOnly,
+                    Knockapi::Recipients::PushChannelDataTokensOnly,
+                    Knockapi::Recipients::PushChannelDataDevicesOnly,
+                    Knockapi::Recipients::AwsSnsPushChannelDataTargetArnsOnly,
+                    Knockapi::Recipients::AwsSnsPushChannelDataDevicesOnly,
+                    Knockapi::Recipients::OneSignalChannelDataPlayerIDsOnly,
                     Knockapi::Recipients::SlackChannelData,
                     Knockapi::Recipients::MsTeamsChannelData,
                     Knockapi::Recipients::DiscordChannelData
                   )
                 ]
               ),
+            name: T.nilable(String),
             preferences:
               T.nilable(
                 T::Hash[Symbol, Knockapi::Recipients::PreferenceSetRequest]
