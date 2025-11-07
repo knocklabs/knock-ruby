@@ -13,6 +13,10 @@ module Knockapi
     sig { returns(String) }
     attr_reader :api_key
 
+    # The slug of an existing branch
+    sig { returns(T.nilable(String)) }
+    attr_reader :branch
+
     sig { returns(Knockapi::Resources::Recipients) }
     attr_reader :recipients
 
@@ -58,6 +62,7 @@ module Knockapi
     sig do
       params(
         api_key: T.nilable(String),
+        branch: T.nilable(String),
         base_url: T.nilable(String),
         max_retries: Integer,
         timeout: Float,
@@ -69,6 +74,8 @@ module Knockapi
     def self.new(
       # Defaults to `ENV["KNOCK_API_KEY"]`
       api_key: ENV["KNOCK_API_KEY"],
+      # The slug of an existing branch Defaults to `ENV["KNOCK_BRANCH"]`
+      branch: ENV["KNOCK_BRANCH"],
       # Override the default base URL for the API, e.g.,
       # `"https://api.example.com/v2/"`. Defaults to `ENV["KNOCK_BASE_URL"]`
       base_url: ENV["KNOCK_BASE_URL"],

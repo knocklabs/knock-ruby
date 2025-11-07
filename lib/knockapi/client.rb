@@ -18,6 +18,10 @@ module Knockapi
     # @return [String]
     attr_reader :api_key
 
+    # The slug of an existing branch
+    # @return [String, nil]
+    attr_reader :branch
+
     # @return [Knockapi::Resources::Recipients]
     attr_reader :recipients
 
@@ -67,6 +71,8 @@ module Knockapi
     #
     # @param api_key [String, nil] Defaults to `ENV["KNOCK_API_KEY"]`
     #
+    # @param branch [String, nil] The slug of an existing branch Defaults to `ENV["KNOCK_BRANCH"]`
+    #
     # @param base_url [String, nil] Override the default base URL for the API, e.g.,
     # `"https://api.example.com/v2/"`. Defaults to `ENV["KNOCK_BASE_URL"]`
     #
@@ -81,6 +87,7 @@ module Knockapi
     # @param idempotency_header [String]
     def initialize(
       api_key: ENV["KNOCK_API_KEY"],
+      branch: ENV["KNOCK_BRANCH"],
       base_url: ENV["KNOCK_BASE_URL"],
       max_retries: self.class::DEFAULT_MAX_RETRIES,
       timeout: self.class::DEFAULT_TIMEOUT_IN_SECONDS,
@@ -94,6 +101,10 @@ module Knockapi
         raise ArgumentError.new("api_key is required, and can be set via environ: \"KNOCK_API_KEY\"")
       end
 
+      headers = {
+        "x-knock-branch" => (@branch = branch&.to_s)
+      }
+
       @api_key = api_key.to_s
 
       super(
@@ -102,6 +113,7 @@ module Knockapi
         max_retries: max_retries,
         initial_retry_delay: initial_retry_delay,
         max_retry_delay: max_retry_delay,
+        headers: headers,
         idempotency_header: idempotency_header
       )
 
