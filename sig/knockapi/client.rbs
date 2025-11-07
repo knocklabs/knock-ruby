@@ -10,6 +10,8 @@ module Knockapi
 
     attr_reader api_key: String
 
+    attr_reader branch: String?
+
     attr_reader recipients: Knockapi::Resources::Recipients
 
     attr_reader users: Knockapi::Resources::Users
@@ -38,6 +40,7 @@ module Knockapi
 
     def initialize: (
       ?api_key: String?,
+      ?branch: String?,
       ?base_url: String?,
       ?max_retries: Integer,
       ?timeout: Float,
