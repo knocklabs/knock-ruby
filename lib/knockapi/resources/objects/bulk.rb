@@ -38,7 +38,7 @@ module Knockapi
         #
         # @param collection [String] The collection this object belongs to.
         #
-        # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>] A list of subscriptions.
+        # @param subscriptions [Array<Knockapi::Models::Objects::BulkAddSubscriptionsParams::Subscription>] A nested list of subscriptions.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
