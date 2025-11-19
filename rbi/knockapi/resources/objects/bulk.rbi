@@ -39,7 +39,7 @@ module Knockapi
         def add_subscriptions(
           # The collection this object belongs to.
           collection,
-          # A list of subscriptions.
+          # A nested list of subscriptions.
           subscriptions:,
           request_options: {}
         )

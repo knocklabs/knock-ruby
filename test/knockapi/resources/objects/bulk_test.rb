@@ -37,7 +37,10 @@ class Knockapi::Test::Resources::Objects::BulkTest < Knockapi::Test::ResourceTes
     skip("Prism doesn't support callbacks yet")
 
     response =
-      @knock.objects.bulk.add_subscriptions("projects", subscriptions: [{recipients: [{id: "user_1"}]}])
+      @knock.objects.bulk.add_subscriptions(
+        "projects",
+        subscriptions: [{id: "project-1", recipients: [{id: "user_1"}]}]
+      )
 
     assert_pattern do
       response => Knockapi::BulkOperation
