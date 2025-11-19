@@ -7,6 +7,14 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute resolve_full_preference_settings
+      #   When true, merges environment-level default preferences into the tenant's
+      #   `settings.preference_set` field before returning the response. Defaults to
+      #   false.
+      #
+      #   @return [Boolean, nil]
+      optional :resolve_full_preference_settings, Knockapi::Internal::Type::Boolean
+
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
@@ -29,7 +37,12 @@ module Knockapi
       #   @return [Knockapi::Models::TenantSetParams::Settings, nil]
       optional :settings, -> { Knockapi::TenantSetParams::Settings }
 
-      # @!method initialize(channel_data: nil, name: nil, settings: nil, request_options: {})
+      # @!method initialize(resolve_full_preference_settings: nil, channel_data: nil, name: nil, settings: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::TenantSetParams} for more details.
+      #
+      #   @param resolve_full_preference_settings [Boolean] When true, merges environment-level default preferences into the tenant's `setti
+      #
       #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
       #
       #   @param name [String, nil] An optional name for the tenant.

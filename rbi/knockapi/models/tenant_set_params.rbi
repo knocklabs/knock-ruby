@@ -11,6 +11,15 @@ module Knockapi
           T.any(Knockapi::TenantSetParams, Knockapi::Internal::AnyHash)
         end
 
+      # When true, merges environment-level default preferences into the tenant's
+      # `settings.preference_set` field before returning the response. Defaults to
+      # false.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :resolve_full_preference_settings
+
+      sig { params(resolve_full_preference_settings: T::Boolean).void }
+      attr_writer :resolve_full_preference_settings
+
       # A request to set channel data for a type of channel inline.
       sig do
         returns(
@@ -46,6 +55,7 @@ module Knockapi
 
       sig do
         params(
+          resolve_full_preference_settings: T::Boolean,
           channel_data:
             T.nilable(
               T::Hash[
@@ -68,6 +78,10 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
+        # When true, merges environment-level default preferences into the tenant's
+        # `settings.preference_set` field before returning the response. Defaults to
+        # false.
+        resolve_full_preference_settings: nil,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
         # An optional name for the tenant.
@@ -81,6 +95,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            resolve_full_preference_settings: T::Boolean,
             channel_data:
               T.nilable(
                 T::Hash[
