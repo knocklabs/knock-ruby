@@ -16,11 +16,13 @@ module Knockapi
 
       def get: (
         String id,
+        ?resolve_full_preference_settings: bool,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Tenant
 
       def set: (
         String id,
+        ?resolve_full_preference_settings: bool,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?name: String?,
         ?settings: Knockapi::TenantSetParams::Settings,
