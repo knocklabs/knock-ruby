@@ -1,0 +1,50 @@
+module Knockapi
+  module Models
+    module Objects
+      type bulk_delete_subscriptions_params =
+        {
+          subscriptions: ::Array[Knockapi::Objects::BulkDeleteSubscriptionsParams::Subscription]
+        }
+        & Knockapi::Internal::Type::request_parameters
+
+      class BulkDeleteSubscriptionsParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor subscriptions: ::Array[Knockapi::Objects::BulkDeleteSubscriptionsParams::Subscription]
+
+        def initialize: (
+          subscriptions: ::Array[Knockapi::Objects::BulkDeleteSubscriptionsParams::Subscription],
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          subscriptions: ::Array[Knockapi::Objects::BulkDeleteSubscriptionsParams::Subscription],
+          request_options: Knockapi::RequestOptions
+        }
+
+        type subscription =
+          {
+            id: String,
+            recipients: ::Array[Knockapi::Models::recipient_reference]
+          }
+
+        class Subscription < Knockapi::Internal::Type::BaseModel
+          attr_accessor id: String
+
+          attr_accessor recipients: ::Array[Knockapi::Models::recipient_reference]
+
+          def initialize: (
+            id: String,
+            recipients: ::Array[Knockapi::Models::recipient_reference]
+          ) -> void
+
+          def to_hash: -> {
+            id: String,
+            recipients: ::Array[Knockapi::Models::recipient_reference]
+          }
+        end
+      end
+    end
+  end
+end
