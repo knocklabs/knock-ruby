@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.21.0 (2025-11-20)
+
+Full Changelog: [v1.20.0...v1.21.0](https://github.com/knocklabs/knock-ruby/compare/v1.20.0...v1.21.0)
+
+### Features
+
+* **api:** Add bulk delete subscriptions ([2fed837](https://github.com/knocklabs/knock-ruby/commit/2fed8371bbd0a682d8a5c3fd030024847c69180b))
+
+
+### Chores
+
+* explicitly require "base64" gem ([cde84e5](https://github.com/knocklabs/knock-ruby/commit/cde84e5db590434da5db78b9138915f3072ec82d))
+
 ## 1.20.0 (2025-11-19)
 
 Full Changelog: [v1.19.0...v1.20.0](https://github.com/knocklabs/knock-ruby/compare/v1.19.0...v1.20.0)
