@@ -15,7 +15,7 @@ module Knockapi
             )
           end
 
-        # A list of subscriptions.
+        # A nested list of subscriptions.
         sig do
           returns(
             T::Array[
@@ -35,7 +35,7 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
-          # A list of subscriptions.
+          # A nested list of subscriptions.
           subscriptions:,
           request_options: {}
         )
@@ -64,6 +64,10 @@ module Knockapi
               )
             end
 
+          # Unique identifier for the object.
+          sig { returns(String) }
+          attr_accessor :id
+
           # The recipients of the subscription. You can subscribe up to 100 recipients to an
           # object at a time.
           sig do
@@ -83,8 +87,10 @@ module Knockapi
           sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
           attr_accessor :properties
 
+          # A list of subscriptions. 1 subscribed-to id, and N subscriber recipients.
           sig do
             params(
+              id: String,
               recipients:
                 T::Array[
                   T.any(
@@ -97,6 +103,8 @@ module Knockapi
             ).returns(T.attached_class)
           end
           def self.new(
+            # Unique identifier for the object.
+            id:,
             # The recipients of the subscription. You can subscribe up to 100 recipients to an
             # object at a time.
             recipients:,
@@ -108,6 +116,7 @@ module Knockapi
           sig do
             override.returns(
               {
+                id: String,
                 recipients:
                   T::Array[
                     T.any(

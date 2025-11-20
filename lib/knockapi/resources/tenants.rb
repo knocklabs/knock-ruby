@@ -57,11 +57,16 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::TenantGetParams} for more details.
+      #
       # Get a tenant by ID.
       #
-      # @overload get(id, request_options: {})
+      # @overload get(id, resolve_full_preference_settings: nil, request_options: {})
       #
       # @param id [String] The unique identifier for the tenant.
+      #
+      # @param resolve_full_preference_settings [Boolean] When true, merges environment-level default preferences into the tenant's `setti
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -69,26 +74,33 @@ module Knockapi
       #
       # @see Knockapi::Models::TenantGetParams
       def get(id, params = {})
+        parsed, options = Knockapi::TenantGetParams.dump_request(params)
         @client.request(
           method: :get,
           path: ["v1/tenants/%1$s", id],
+          query: parsed,
           model: Knockapi::Tenant,
-          options: params[:request_options]
+          options: options
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::TenantSetParams} for more details.
+      #
       # Sets a tenant within an environment, performing an upsert operation. Any
       # existing properties will be merged with the incoming properties.
       #
-      # @overload set(id, channel_data: nil, name: nil, settings: nil, request_options: {})
+      # @overload set(id, resolve_full_preference_settings: nil, channel_data: nil, name: nil, settings: nil, request_options: {})
       #
-      # @param id [String] The unique identifier for the tenant.
+      # @param id [String] Path param: The unique identifier for the tenant.
       #
-      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] A request to set channel data for a type of channel inline.
+      # @param resolve_full_preference_settings [Boolean] Query param: When true, merges environment-level default preferences into the te
       #
-      # @param name [String, nil] An optional name for the tenant.
+      # @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}, nil] Body param: A request to set channel data for a type of channel inline.
       #
-      # @param settings [Knockapi::Models::TenantSetParams::Settings] The settings for the tenant. Includes branding and preference set.
+      # @param name [String, nil] Body param: An optional name for the tenant.
+      #
+      # @param settings [Knockapi::Models::TenantSetParams::Settings] Body param: The settings for the tenant. Includes branding and preference set.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -97,10 +109,12 @@ module Knockapi
       # @see Knockapi::Models::TenantSetParams
       def set(id, params = {})
         parsed, options = Knockapi::TenantSetParams.dump_request(params)
+        query_params = [:resolve_full_preference_settings]
         @client.request(
           method: :put,
           path: ["v1/tenants/%1$s", id],
-          body: parsed,
+          query: parsed.slice(*query_params),
+          body: parsed.except(*query_params),
           model: Knockapi::Tenant,
           options: options
         )

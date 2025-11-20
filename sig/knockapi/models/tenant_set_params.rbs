@@ -2,6 +2,7 @@ module Knockapi
   module Models
     type tenant_set_params =
       {
+        resolve_full_preference_settings: bool,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         name: String?,
         settings: Knockapi::TenantSetParams::Settings
@@ -11,6 +12,10 @@ module Knockapi
     class TenantSetParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
+
+      attr_reader resolve_full_preference_settings: bool?
+
+      def resolve_full_preference_settings=: (bool) -> bool
 
       attr_accessor channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
 
@@ -23,6 +28,7 @@ module Knockapi
       ) -> Knockapi::TenantSetParams::Settings
 
       def initialize: (
+        ?resolve_full_preference_settings: bool,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         ?name: String?,
         ?settings: Knockapi::TenantSetParams::Settings,
@@ -30,6 +36,7 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        resolve_full_preference_settings: bool,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request?,
         name: String?,
         settings: Knockapi::TenantSetParams::Settings,

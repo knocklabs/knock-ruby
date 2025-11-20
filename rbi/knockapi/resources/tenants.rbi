@@ -50,12 +50,17 @@ module Knockapi
       sig do
         params(
           id: String,
+          resolve_full_preference_settings: T::Boolean,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(Knockapi::Tenant)
       end
       def get(
         # The unique identifier for the tenant.
         id,
+        # When true, merges environment-level default preferences into the tenant's
+        # `settings.preference_set` field before returning the response. Defaults to
+        # false.
+        resolve_full_preference_settings: nil,
         request_options: {}
       )
       end
@@ -65,6 +70,7 @@ module Knockapi
       sig do
         params(
           id: String,
+          resolve_full_preference_settings: T::Boolean,
           channel_data:
             T.nilable(
               T::Hash[
@@ -87,13 +93,17 @@ module Knockapi
         ).returns(Knockapi::Tenant)
       end
       def set(
-        # The unique identifier for the tenant.
+        # Path param: The unique identifier for the tenant.
         id,
-        # A request to set channel data for a type of channel inline.
+        # Query param: When true, merges environment-level default preferences into the
+        # tenant's `settings.preference_set` field before returning the response. Defaults
+        # to false.
+        resolve_full_preference_settings: nil,
+        # Body param: A request to set channel data for a type of channel inline.
         channel_data: nil,
-        # An optional name for the tenant.
+        # Body param: An optional name for the tenant.
         name: nil,
-        # The settings for the tenant. Includes branding and preference set.
+        # Body param: The settings for the tenant. Includes branding and preference set.
         settings: nil,
         request_options: {}
       )
