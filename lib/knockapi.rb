@@ -3,6 +3,7 @@
 # Standard libraries.
 # rubocop:disable Lint/RedundantRequireStatement
 require "English"
+require "base64"
 require "cgi"
 require "date"
 require "erb"
@@ -125,6 +126,7 @@ require_relative "knockapi/models/object_list_schedules_params"
 require_relative "knockapi/models/object_list_subscriptions_params"
 require_relative "knockapi/models/objects/bulk_add_subscriptions_params"
 require_relative "knockapi/models/objects/bulk_delete_params"
+require_relative "knockapi/models/objects/bulk_delete_subscriptions_params"
 require_relative "knockapi/models/objects/bulk_set_params"
 require_relative "knockapi/models/object_set_channel_data_params"
 require_relative "knockapi/models/object_set_params"

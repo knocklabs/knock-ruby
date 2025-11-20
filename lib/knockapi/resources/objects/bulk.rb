@@ -56,6 +56,31 @@ module Knockapi
           )
         end
 
+        # Delete subscriptions for many objects in a single collection type. If a
+        # subscription for an object in the collection doesn't exist, it will be skipped.
+        #
+        # @overload delete_subscriptions(collection, subscriptions:, request_options: {})
+        #
+        # @param collection [String] The collection this object belongs to.
+        #
+        # @param subscriptions [Array<Knockapi::Models::Objects::BulkDeleteSubscriptionsParams::Subscription>] A nested list of subscriptions.
+        #
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+        #
+        # @return [Knockapi::Models::BulkOperation]
+        #
+        # @see Knockapi::Models::Objects::BulkDeleteSubscriptionsParams
+        def delete_subscriptions(collection, params)
+          parsed, options = Knockapi::Objects::BulkDeleteSubscriptionsParams.dump_request(params)
+          @client.request(
+            method: :post,
+            path: ["v1/objects/%1$s/bulk/subscriptions/delete", collection],
+            body: parsed,
+            model: Knockapi::BulkOperation,
+            options: options
+          )
+        end
+
         # Bulk sets up to 1,000 objects at a time in the specified collection.
         #
         # @overload set(collection, objects:, request_options: {})
