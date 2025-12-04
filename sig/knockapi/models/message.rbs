@@ -149,7 +149,9 @@ module Knockapi
           key: String,
           version_id: String,
           step_ref: String?,
-          type: Knockapi::Models::Message::Source::type_
+          type: Knockapi::Models::Message::Source::type_,
+          workflow_recipient_run_id: String?,
+          workflow_run_id: String?
         }
 
       class Source < Knockapi::Internal::Type::BaseModel
@@ -169,13 +171,19 @@ module Knockapi
           Knockapi::Models::Message::Source::type_
         ) -> Knockapi::Models::Message::Source::type_
 
+        attr_accessor workflow_recipient_run_id: String?
+
+        attr_accessor workflow_run_id: String?
+
         def initialize: (
           _typename: String,
           categories: ::Array[String],
           key: String,
           version_id: String,
           ?step_ref: String?,
-          ?type: Knockapi::Models::Message::Source::type_
+          ?type: Knockapi::Models::Message::Source::type_,
+          ?workflow_recipient_run_id: String?,
+          ?workflow_run_id: String?
         ) -> void
 
         def to_hash: -> {
@@ -184,7 +192,9 @@ module Knockapi
           key: String,
           version_id: String,
           step_ref: String?,
-          type: Knockapi::Models::Message::Source::type_
+          type: Knockapi::Models::Message::Source::type_,
+          workflow_recipient_run_id: String?,
+          workflow_run_id: String?
         }
 
         type type_ = :broadcast | :workflow | :guide
