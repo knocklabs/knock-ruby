@@ -252,7 +252,24 @@ module Knockapi
         #   @return [Symbol, Knockapi::Models::Message::Source::Type, nil]
         optional :type, enum: -> { Knockapi::Message::Source::Type }
 
-        # @!method initialize(_typename:, categories:, key:, version_id:, step_ref: nil, type: nil)
+        # @!attribute workflow_recipient_run_id
+        #   The unique identifier for the workflow recipient run that generated this
+        #   message. Only present for workflow/broadcast messages.
+        #
+        #   @return [String, nil]
+        optional :workflow_recipient_run_id, String, nil?: true
+
+        # @!attribute workflow_run_id
+        #   The unique identifier for the workflow run that generated this message. Only
+        #   present for workflow/broadcast messages.
+        #
+        #   @return [String, nil]
+        optional :workflow_run_id, String, nil?: true
+
+        # @!method initialize(_typename:, categories:, key:, version_id:, step_ref: nil, type: nil, workflow_recipient_run_id: nil, workflow_run_id: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {Knockapi::Models::Message::Source} for more details.
+        #
         #   The workflow or guide that triggered the message.
         #
         #   @param _typename [String]
@@ -266,6 +283,10 @@ module Knockapi
         #   @param step_ref [String, nil] The step reference for the step in the workflow that generated the message.
         #
         #   @param type [Symbol, Knockapi::Models::Message::Source::Type] Whether this message was generated from a workflow, broadcast, or guide.
+        #
+        #   @param workflow_recipient_run_id [String, nil] The unique identifier for the workflow recipient run that generated this message
+        #
+        #   @param workflow_run_id [String, nil] The unique identifier for the workflow run that generated this message. Only pre
 
         # Whether this message was generated from a workflow, broadcast, or guide.
         #

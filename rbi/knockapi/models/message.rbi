@@ -316,6 +316,16 @@ module Knockapi
         sig { params(type: Knockapi::Message::Source::Type::OrSymbol).void }
         attr_writer :type
 
+        # The unique identifier for the workflow recipient run that generated this
+        # message. Only present for workflow/broadcast messages.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :workflow_recipient_run_id
+
+        # The unique identifier for the workflow run that generated this message. Only
+        # present for workflow/broadcast messages.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :workflow_run_id
+
         # The workflow or guide that triggered the message.
         sig do
           params(
@@ -324,7 +334,9 @@ module Knockapi
             key: String,
             version_id: String,
             step_ref: T.nilable(String),
-            type: Knockapi::Message::Source::Type::OrSymbol
+            type: Knockapi::Message::Source::Type::OrSymbol,
+            workflow_recipient_run_id: T.nilable(String),
+            workflow_run_id: T.nilable(String)
           ).returns(T.attached_class)
         end
         def self.new(
@@ -338,7 +350,13 @@ module Knockapi
           # The step reference for the step in the workflow that generated the message.
           step_ref: nil,
           # Whether this message was generated from a workflow, broadcast, or guide.
-          type: nil
+          type: nil,
+          # The unique identifier for the workflow recipient run that generated this
+          # message. Only present for workflow/broadcast messages.
+          workflow_recipient_run_id: nil,
+          # The unique identifier for the workflow run that generated this message. Only
+          # present for workflow/broadcast messages.
+          workflow_run_id: nil
         )
         end
 
@@ -350,7 +368,9 @@ module Knockapi
               key: String,
               version_id: String,
               step_ref: T.nilable(String),
-              type: Knockapi::Message::Source::Type::TaggedSymbol
+              type: Knockapi::Message::Source::Type::TaggedSymbol,
+              workflow_recipient_run_id: T.nilable(String),
+              workflow_run_id: T.nilable(String)
             }
           )
         end
