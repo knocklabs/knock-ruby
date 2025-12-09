@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.24.0 (2025-12-09)
+
+Full Changelog: [v1.23.0...v1.24.0](https://github.com/knocklabs/knock-ruby/compare/v1.23.0...v1.24.0)
+
+### Features
+
+* **api:** api update ([ec72c5d](https://github.com/knocklabs/knock-ruby/commit/ec72c5dd5d634d1543eb68ba5fe0788bef37332e))
+
 ## 1.23.0 (2025-12-09)
 
 Full Changelog: [v1.22.0...v1.23.0](https://github.com/knocklabs/knock-ruby/compare/v1.22.0...v1.23.0)
