@@ -4,8 +4,8 @@ module Knockapi
   module Resources
     class Tenants
       class Bulk
-        # Delete up to 100 tenants at a time in a single operation. This operation cannot
-        # be undone.
+        # Delete up to 1,000 tenants at a time in a single operation. This operation
+        # cannot be undone.
         sig do
           params(
             tenant_ids: T::Array[String],
@@ -19,7 +19,7 @@ module Knockapi
         )
         end
 
-        # Set or update up to 100 tenants in a single operation.
+        # Set or update up to 1,000 tenants in a single operation.
         sig do
           params(
             tenants: T::Array[T.any(String, Knockapi::TenantRequest::OrHash)],
