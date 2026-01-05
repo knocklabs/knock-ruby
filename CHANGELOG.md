@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.25.1 (2026-01-05)
+
+Full Changelog: [v1.25.0...v1.25.1](https://github.com/knocklabs/knock-ruby/compare/v1.25.0...v1.25.1)
+
+### Bug Fixes
+
+* calling `break` out of streams should be instantaneous ([e0aaa94](https://github.com/knocklabs/knock-ruby/commit/e0aaa946c031e505099b14ce116c8c759cd8a0d8))
+* issue where json.parse errors when receiving HTTP 204 with nobody ([a3db935](https://github.com/knocklabs/knock-ruby/commit/a3db935b41a2910e81827c7de0a89a5598b7e7b2))
+
+
+### Chores
+
+* **internal:** codegen related update ([c826f27](https://github.com/knocklabs/knock-ruby/commit/c826f27bab301d7b42e57433eb370a8593723a8f))
+
 ## 1.25.0 (2025-12-09)
 
 Full Changelog: [v1.24.0...v1.25.0](https://github.com/knocklabs/knock-ruby/compare/v1.24.0...v1.25.0)
