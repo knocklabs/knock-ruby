@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.25.2 (2026-01-09)
+
+Full Changelog: [v1.25.1...v1.25.2](https://github.com/knocklabs/knock-ruby/compare/v1.25.1...v1.25.2)
+
+### Chores
+
+* move `cgi` into dependencies for ruby 4 ([e06fcea](https://github.com/knocklabs/knock-ruby/commit/e06fcea3affc4265c987a44731bd7c6c83ef291d))
+
 ## 1.25.1 (2026-01-05)
 
 Full Changelog: [v1.25.0...v1.25.1](https://github.com/knocklabs/knock-ruby/compare/v1.25.0...v1.25.1)
