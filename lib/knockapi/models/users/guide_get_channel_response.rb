@@ -25,7 +25,14 @@ module Knockapi
         required :guide_groups,
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup] }
 
-        # @!method initialize(entries:, guide_group_display_logs:, guide_groups:)
+        # @!attribute ineligible_guides
+        #   Markers for guides the user is not eligible to see.
+        #
+        #   @return [Array<Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide>]
+        required :ineligible_guides,
+                 -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide] }
+
+        # @!method initialize(entries:, guide_group_display_logs:, guide_groups:, ineligible_guides:)
         #   A response for a list of guides.
         #
         #   @param entries [Array<Knockapi::Models::Users::GuideGetChannelResponse::Entry>] A list of guides.
@@ -33,6 +40,8 @@ module Knockapi
         #   @param guide_group_display_logs [Hash{Symbol=>Time}] A map of guide group keys to their last display timestamps.
         #
         #   @param guide_groups [Array<Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup>] A list of guide groups with their display sequences and intervals.
+        #
+        #   @param ineligible_guides [Array<Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide>] Markers for guides the user is not eligible to see.
 
         class Entry < Knockapi::Internal::Type::BaseModel
           # @!attribute id
@@ -316,6 +325,48 @@ module Knockapi
           #   @param inserted_at [Time]
           #   @param key [String]
           #   @param updated_at [Time]
+        end
+
+        class IneligibleGuide < Knockapi::Internal::Type::BaseModel
+          # @!attribute key
+          #   The guide's key identifier
+          #
+          #   @return [String]
+          required :key, String
+
+          # @!attribute message
+          #   Human-readable explanation of ineligibility
+          #
+          #   @return [String]
+          required :message, String
+
+          # @!attribute reason
+          #   Reason code for ineligibility
+          #
+          #   @return [Symbol, Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason]
+          required :reason, enum: -> { Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason }
+
+          # @!method initialize(key:, message:, reason:)
+          #   @param key [String] The guide's key identifier
+          #
+          #   @param message [String] Human-readable explanation of ineligibility
+          #
+          #   @param reason [Symbol, Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason] Reason code for ineligibility
+
+          # Reason code for ineligibility
+          #
+          # @see Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide#reason
+          module Reason
+            extend Knockapi::Internal::Type::Enum
+
+            GUIDE_NOT_ACTIVE = :guide_not_active
+            MARKED_AS_ARCHIVED = :marked_as_archived
+            TARGET_CONDITIONS_NOT_MET = :target_conditions_not_met
+            NOT_IN_TARGET_AUDIENCE = :not_in_target_audience
+
+            # @!method self.values
+            #   @return [Array<Symbol>]
+          end
         end
       end
     end
