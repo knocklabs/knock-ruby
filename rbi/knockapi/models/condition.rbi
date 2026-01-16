@@ -85,9 +85,9 @@ module Knockapi
           T.let(:is_timestamp, Knockapi::Condition::Operator::TaggedSymbol)
         IS_NOT_TIMESTAMP =
           T.let(:is_not_timestamp, Knockapi::Condition::Operator::TaggedSymbol)
-        IS_TIMESTAMP_AFTER =
+        IS_TIMESTAMP_ON_OR_AFTER =
           T.let(
-            :is_timestamp_after,
+            :is_timestamp_on_or_after,
             Knockapi::Condition::Operator::TaggedSymbol
           )
         IS_TIMESTAMP_BEFORE =
