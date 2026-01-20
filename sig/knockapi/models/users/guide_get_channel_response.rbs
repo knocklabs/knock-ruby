@@ -5,7 +5,8 @@ module Knockapi
         {
           entries: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry],
           guide_group_display_logs: ::Hash[Symbol, Time],
-          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
+          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup],
+          ineligible_guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide]
         }
 
       class GuideGetChannelResponse < Knockapi::Internal::Type::BaseModel
@@ -15,16 +16,20 @@ module Knockapi
 
         attr_accessor guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
 
+        attr_accessor ineligible_guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide]
+
         def initialize: (
           entries: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry],
           guide_group_display_logs: ::Hash[Symbol, Time],
-          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
+          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup],
+          ineligible_guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide]
         ) -> void
 
         def to_hash: -> {
           entries: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::Entry],
           guide_group_display_logs: ::Hash[Symbol, Time],
-          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]
+          guide_groups: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup],
+          ineligible_guides: ::Array[Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide]
         }
 
         type entry =
@@ -342,6 +347,50 @@ module Knockapi
             key: String,
             updated_at: Time
           }
+        end
+
+        type ineligible_guide =
+          {
+            key: String,
+            message: String,
+            reason: Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::reason
+          }
+
+        class IneligibleGuide < Knockapi::Internal::Type::BaseModel
+          attr_accessor key: String
+
+          attr_accessor message: String
+
+          attr_accessor reason: Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::reason
+
+          def initialize: (
+            key: String,
+            message: String,
+            reason: Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::reason
+          ) -> void
+
+          def to_hash: -> {
+            key: String,
+            message: String,
+            reason: Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::reason
+          }
+
+          type reason =
+            :guide_not_active
+            | :marked_as_archived
+            | :target_conditions_not_met
+            | :not_in_target_audience
+
+          module Reason
+            extend Knockapi::Internal::Type::Enum
+
+            GUIDE_NOT_ACTIVE: :guide_not_active
+            MARKED_AS_ARCHIVED: :marked_as_archived
+            TARGET_CONDITIONS_NOT_MET: :target_conditions_not_met
+            NOT_IN_TARGET_AUDIENCE: :not_in_target_audience
+
+            def self?.values: -> ::Array[Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::reason]
+          end
         end
       end
     end

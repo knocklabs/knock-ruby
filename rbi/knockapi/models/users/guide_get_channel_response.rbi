@@ -34,6 +34,16 @@ module Knockapi
         end
         attr_accessor :guide_groups
 
+        # Markers for guides the user is not eligible to see.
+        sig do
+          returns(
+            T::Array[
+              Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide
+            ]
+          )
+        end
+        attr_accessor :ineligible_guides
+
         # A response for a list of guides.
         sig do
           params(
@@ -45,6 +55,10 @@ module Knockapi
             guide_groups:
               T::Array[
                 Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup::OrHash
+              ],
+            ineligible_guides:
+              T::Array[
+                Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::OrHash
               ]
           ).returns(T.attached_class)
         end
@@ -54,7 +68,9 @@ module Knockapi
           # A map of guide group keys to their last display timestamps.
           guide_group_display_logs:,
           # A list of guide groups with their display sequences and intervals.
-          guide_groups:
+          guide_groups:,
+          # Markers for guides the user is not eligible to see.
+          ineligible_guides:
         )
         end
 
@@ -69,6 +85,10 @@ module Knockapi
               guide_groups:
                 T::Array[
                   Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup
+                ],
+              ineligible_guides:
+                T::Array[
+                  Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide
                 ]
             }
           )
@@ -648,6 +668,108 @@ module Knockapi
             )
           end
           def to_hash
+          end
+        end
+
+        class IneligibleGuide < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide,
+                Knockapi::Internal::AnyHash
+              )
+            end
+
+          # The guide's key identifier
+          sig { returns(String) }
+          attr_accessor :key
+
+          # Human-readable explanation of ineligibility
+          sig { returns(String) }
+          attr_accessor :message
+
+          # Reason code for ineligibility
+          sig do
+            returns(
+              Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::TaggedSymbol
+            )
+          end
+          attr_accessor :reason
+
+          sig do
+            params(
+              key: String,
+              message: String,
+              reason:
+                Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::OrSymbol
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            # The guide's key identifier
+            key:,
+            # Human-readable explanation of ineligibility
+            message:,
+            # Reason code for ineligibility
+            reason:
+          )
+          end
+
+          sig do
+            override.returns(
+              {
+                key: String,
+                message: String,
+                reason:
+                  Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::TaggedSymbol
+              }
+            )
+          end
+          def to_hash
+          end
+
+          # Reason code for ineligibility
+          module Reason
+            extend Knockapi::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            GUIDE_NOT_ACTIVE =
+              T.let(
+                :guide_not_active,
+                Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::TaggedSymbol
+              )
+            MARKED_AS_ARCHIVED =
+              T.let(
+                :marked_as_archived,
+                Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::TaggedSymbol
+              )
+            TARGET_CONDITIONS_NOT_MET =
+              T.let(
+                :target_conditions_not_met,
+                Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::TaggedSymbol
+              )
+            NOT_IN_TARGET_AUDIENCE =
+              T.let(
+                :not_in_target_audience,
+                Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide::Reason::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
           end
         end
       end

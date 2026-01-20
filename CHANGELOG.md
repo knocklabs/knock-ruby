@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.26.0 (2026-01-16)
+
+Full Changelog: [v1.25.1...v1.26.0](https://github.com/knocklabs/knock-ruby/compare/v1.25.1...v1.26.0)
+
+### Features
+
+* **api:** api update ([04d2e5a](https://github.com/knocklabs/knock-ruby/commit/04d2e5a33c984fc502525a4994cd3e15023b028a))
+* **api:** api update ([0e52398](https://github.com/knocklabs/knock-ruby/commit/0e52398502d88f25790725df54813f5cece44a69))
+
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([aa18733](https://github.com/knocklabs/knock-ruby/commit/aa187339691334c36410d2eb2d35eeb62addc122))
+* move `cgi` into dependencies for ruby 4 ([e06fcea](https://github.com/knocklabs/knock-ruby/commit/e06fcea3affc4265c987a44731bd7c6c83ef291d))
+
 ## 1.25.1 (2026-01-05)
 
 Full Changelog: [v1.25.0...v1.25.1](https://github.com/knocklabs/knock-ruby/compare/v1.25.0...v1.25.1)

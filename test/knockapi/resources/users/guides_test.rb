@@ -16,7 +16,8 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
       response => {
         entries: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::Entry]),
         guide_group_display_logs: ^(Knockapi::Internal::Type::HashOf[Time]),
-        guide_groups: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup])
+        guide_groups: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::GuideGroup]),
+        ineligible_guides: ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::GuideGetChannelResponse::IneligibleGuide])
       }
     end
   end
