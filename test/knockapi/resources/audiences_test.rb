@@ -6,7 +6,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   def test_add_members_required_params
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.audiences.add_members("key", members: [{user: {}}])
+    response = @knock.audiences.add_members("key", members: [{user: {id: "dr_sattler"}}])
 
     assert_pattern do
       response => nil
@@ -33,7 +33,7 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   def test_remove_members_required_params
     skip("Prism doesn't support callbacks yet")
 
-    response = @knock.audiences.remove_members("key", members: [{user: {}}])
+    response = @knock.audiences.remove_members("key", members: [{user: {id: "dr_sattler"}}])
 
     assert_pattern do
       response => nil
