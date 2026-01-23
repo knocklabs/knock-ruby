@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.29.0 (2026-01-23)
+
+Full Changelog: [v1.28.0...v1.29.0](https://github.com/knocklabs/knock-ruby/compare/v1.28.0...v1.29.0)
+
+### Features
+
+* **api:** api update ([bea8ceb](https://github.com/knocklabs/knock-ruby/commit/bea8cebbd2499815f0117dc68193e7b1cac3545e))
+
 ## 1.28.0 (2026-01-23)
 
 Full Changelog: [v1.27.0...v1.28.0](https://github.com/knocklabs/knock-ruby/compare/v1.27.0...v1.28.0)
