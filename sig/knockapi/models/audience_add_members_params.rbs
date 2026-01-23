@@ -21,22 +21,37 @@ module Knockapi
       }
 
       type member =
-        { user: Knockapi::InlineIdentifyUserRequest, tenant: String? }
+        {
+          user: Knockapi::AudienceAddMembersParams::Member::User,
+          tenant: String?
+        }
 
       class Member < Knockapi::Internal::Type::BaseModel
-        attr_accessor user: Knockapi::InlineIdentifyUserRequest
+        attr_accessor user: Knockapi::AudienceAddMembersParams::Member::User
 
         attr_accessor tenant: String?
 
         def initialize: (
-          user: Knockapi::InlineIdentifyUserRequest,
+          user: Knockapi::AudienceAddMembersParams::Member::User,
           ?tenant: String?
         ) -> void
 
         def to_hash: -> {
-          user: Knockapi::InlineIdentifyUserRequest,
+          user: Knockapi::AudienceAddMembersParams::Member::User,
           tenant: String?
         }
+
+        type user = { id: String }
+
+        class User < Knockapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          def initialize: (?id: String) -> void
+
+          def to_hash: -> { id: String }
+        end
       end
     end
   end

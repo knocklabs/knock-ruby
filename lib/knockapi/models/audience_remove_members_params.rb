@@ -20,13 +20,10 @@ module Knockapi
 
       class Member < Knockapi::Internal::Type::BaseModel
         # @!attribute user
-        #   A set of parameters to inline-identify a user with. Inline identifying the user
-        #   will ensure that the user is available before the request is executed in Knock.
-        #   It will perform an upsert for the user you're supplying, replacing any
-        #   properties specified.
+        #   An object containing the user's ID.
         #
-        #   @return [Knockapi::Models::InlineIdentifyUserRequest]
-        required :user, -> { Knockapi::InlineIdentifyUserRequest }
+        #   @return [Knockapi::Models::AudienceRemoveMembersParams::Member::User]
+        required :user, -> { Knockapi::AudienceRemoveMembersParams::Member::User }
 
         # @!attribute tenant
         #   The unique identifier for the tenant.
@@ -35,14 +32,25 @@ module Knockapi
         optional :tenant, String, nil?: true
 
         # @!method initialize(user:, tenant: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {Knockapi::Models::AudienceRemoveMembersParams::Member} for more details.
-        #
         #   An audience member.
         #
-        #   @param user [Knockapi::Models::InlineIdentifyUserRequest] A set of parameters to inline-identify a user with. Inline identifying the user
+        #   @param user [Knockapi::Models::AudienceRemoveMembersParams::Member::User] An object containing the user's ID.
         #
         #   @param tenant [String, nil] The unique identifier for the tenant.
+
+        # @see Knockapi::Models::AudienceRemoveMembersParams::Member#user
+        class User < Knockapi::Internal::Type::BaseModel
+          # @!attribute id
+          #   The unique identifier of the user.
+          #
+          #   @return [String, nil]
+          optional :id, String
+
+          # @!method initialize(id: nil)
+          #   An object containing the user's ID.
+          #
+          #   @param id [String] The unique identifier of the user.
+        end
       end
     end
   end
