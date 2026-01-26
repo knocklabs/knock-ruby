@@ -48,15 +48,14 @@ module Knockapi
             )
           end
 
-        # An object containing the user's ID.
-        sig { returns(Knockapi::AudienceAddMembersParams::Member::User) }
+        # A set of parameters to inline-identify a user with. Inline identifying the user
+        # will ensure that the user is available before the request is executed in Knock.
+        # It will perform an upsert for the user you're supplying, replacing any
+        # properties specified.
+        sig { returns(Knockapi::InlineIdentifyUserRequest) }
         attr_reader :user
 
-        sig do
-          params(
-            user: Knockapi::AudienceAddMembersParams::Member::User::OrHash
-          ).void
-        end
+        sig { params(user: Knockapi::InlineIdentifyUserRequest::OrHash).void }
         attr_writer :user
 
         # The unique identifier for the tenant.
@@ -66,12 +65,15 @@ module Knockapi
         # An audience member.
         sig do
           params(
-            user: Knockapi::AudienceAddMembersParams::Member::User::OrHash,
+            user: Knockapi::InlineIdentifyUserRequest::OrHash,
             tenant: T.nilable(String)
           ).returns(T.attached_class)
         end
         def self.new(
-          # An object containing the user's ID.
+          # A set of parameters to inline-identify a user with. Inline identifying the user
+          # will ensure that the user is available before the request is executed in Knock.
+          # It will perform an upsert for the user you're supplying, replacing any
+          # properties specified.
           user:,
           # The unique identifier for the tenant.
           tenant: nil
@@ -81,41 +83,12 @@ module Knockapi
         sig do
           override.returns(
             {
-              user: Knockapi::AudienceAddMembersParams::Member::User,
+              user: Knockapi::InlineIdentifyUserRequest,
               tenant: T.nilable(String)
             }
           )
         end
         def to_hash
-        end
-
-        class User < Knockapi::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                Knockapi::AudienceAddMembersParams::Member::User,
-                Knockapi::Internal::AnyHash
-              )
-            end
-
-          # The unique identifier of the user.
-          sig { returns(T.nilable(String)) }
-          attr_reader :id
-
-          sig { params(id: String).void }
-          attr_writer :id
-
-          # An object containing the user's ID.
-          sig { params(id: String).returns(T.attached_class) }
-          def self.new(
-            # The unique identifier of the user.
-            id: nil
-          )
-          end
-
-          sig { override.returns({ id: String }) }
-          def to_hash
-          end
         end
       end
     end
