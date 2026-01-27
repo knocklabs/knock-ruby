@@ -43,9 +43,6 @@ module Knockapi
         #   along with a user token.
         # - This endpoint’s rate limit is always scoped per-user and per-environment. This
         #   is true even for requests made without a signed user token.
-        # - Any [attachments](/integrations/email/attachments) present in trigger data are
-        #   automatically excluded from both the `data` and `activities` fields of
-        #   `UserInAppFeedResponse`.
         #
         # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #
