@@ -164,10 +164,18 @@ module Knockapi
             #   @return [String, nil]
             optional :pathname, String
 
-            # @!method initialize(directive: nil, pathname: nil)
+            # @!attribute search
+            #   The search query params to match
+            #
+            #   @return [String, nil]
+            optional :search, String
+
+            # @!method initialize(directive: nil, pathname: nil, search: nil)
             #   @param directive [String] The directive for the URL pattern ('allow' or 'block')
             #
             #   @param pathname [String] The pathname pattern to match (supports wildcards like /\*)
+            #
+            #   @param search [String] The search query params to match
           end
 
           class ActivationURLRule < Knockapi::Internal::Type::BaseModel
@@ -178,7 +186,7 @@ module Knockapi
             optional :argument, String
 
             # @!attribute directive
-            #   The directive for the URL pattern ('allow' or 'block')
+            #   The directive for the URL rule ('allow' or 'block')
             #
             #   @return [String, nil]
             optional :directive, String
@@ -198,7 +206,7 @@ module Knockapi
             # @!method initialize(argument: nil, directive: nil, operator: nil, variable: nil)
             #   @param argument [String] The value to compare against
             #
-            #   @param directive [String] The directive for the URL pattern ('allow' or 'block')
+            #   @param directive [String] The directive for the URL rule ('allow' or 'block')
             #
             #   @param operator [String] The comparison operator ('contains' or 'equal_to')
             #
