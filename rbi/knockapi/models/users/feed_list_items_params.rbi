@@ -44,6 +44,15 @@ module Knockapi
         sig { params(before: String).void }
         attr_writer :before
 
+        # Comma-separated list of field paths to exclude from the response. Use dot
+        # notation for nested fields (e.g., `entries.archived_at`). Limited to 3 levels
+        # deep.
+        sig { returns(T.nilable(String)) }
+        attr_reader :exclude
+
+        sig { params(exclude: String).void }
+        attr_writer :exclude
+
         # Whether the feed items have a tenant.
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :has_tenant
@@ -116,6 +125,7 @@ module Knockapi
             after: String,
             archived: Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
             before: String,
+            exclude: String,
             has_tenant: T::Boolean,
             locale: String,
             page_size: Integer,
@@ -134,6 +144,10 @@ module Knockapi
           archived: nil,
           # The cursor to fetch entries before.
           before: nil,
+          # Comma-separated list of field paths to exclude from the response. Use dot
+          # notation for nested fields (e.g., `entries.archived_at`). Limited to 3 levels
+          # deep.
+          exclude: nil,
           # Whether the feed items have a tenant.
           has_tenant: nil,
           # The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
@@ -164,6 +178,7 @@ module Knockapi
               archived:
                 Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
               before: String,
+              exclude: String,
               has_tenant: T::Boolean,
               locale: String,
               page_size: Integer,

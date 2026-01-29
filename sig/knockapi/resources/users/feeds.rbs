@@ -14,6 +14,7 @@ module Knockapi
           ?after: String,
           ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           ?before: String,
+          ?exclude: String,
           ?has_tenant: bool,
           ?locale: String,
           ?page_size: Integer,
