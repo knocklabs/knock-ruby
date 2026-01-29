@@ -47,7 +47,7 @@ module Knockapi
         #   automatically excluded from both the `data` and `activities` fields of
         #   `UserInAppFeedResponse`.
         #
-        # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
         #
@@ -58,6 +58,8 @@ module Knockapi
         # @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived] The archived status of the feed items.
         #
         # @param before [String] The cursor to fetch entries before.
+        #
+        # @param exclude [String] Comma-separated list of field paths to exclude from the response. Use dot notati
         #
         # @param has_tenant [Boolean] Whether the feed items have a tenant.
         #

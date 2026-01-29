@@ -26,6 +26,14 @@ module Knockapi
         #   @return [String, nil]
         optional :before, String
 
+        # @!attribute exclude
+        #   Comma-separated list of field paths to exclude from the response. Use dot
+        #   notation for nested fields (e.g., `entries.archived_at`). Limited to 3 levels
+        #   deep.
+        #
+        #   @return [String, nil]
+        optional :exclude, String
+
         # @!attribute has_tenant
         #   Whether the feed items have a tenant.
         #
@@ -77,7 +85,7 @@ module Knockapi
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @!method initialize(after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Users::FeedListItemsParams} for more details.
         #
@@ -86,6 +94,8 @@ module Knockapi
         #   @param archived [Symbol, Knockapi::Models::Users::FeedListItemsParams::Archived] The archived status of the feed items.
         #
         #   @param before [String] The cursor to fetch entries before.
+        #
+        #   @param exclude [String] Comma-separated list of field paths to exclude from the response. Use dot notati
         #
         #   @param has_tenant [Boolean] Whether the feed items have a tenant.
         #

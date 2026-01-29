@@ -6,6 +6,7 @@ module Knockapi
           after: String,
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,
+          exclude: String,
           has_tenant: bool,
           locale: String,
           page_size: Integer,
@@ -34,6 +35,10 @@ module Knockapi
         attr_reader before: String?
 
         def before=: (String) -> String
+
+        attr_reader exclude: String?
+
+        def exclude=: (String) -> String
 
         attr_reader has_tenant: bool?
 
@@ -73,6 +78,7 @@ module Knockapi
           ?after: String,
           ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           ?before: String,
+          ?exclude: String,
           ?has_tenant: bool,
           ?locale: String,
           ?page_size: Integer,
@@ -88,6 +94,7 @@ module Knockapi
           after: String,
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,
+          exclude: String,
           has_tenant: bool,
           locale: String,
           page_size: Integer,
