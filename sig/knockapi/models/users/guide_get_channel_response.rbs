@@ -140,7 +140,8 @@ module Knockapi
             updated_at: Time
           }
 
-          type activation_url_pattern = { directive: String, pathname: String }
+          type activation_url_pattern =
+            { directive: String, pathname: String, search: String }
 
           class ActivationURLPattern < Knockapi::Internal::Type::BaseModel
             attr_reader directive: String?
@@ -151,9 +152,21 @@ module Knockapi
 
             def pathname=: (String) -> String
 
-            def initialize: (?directive: String, ?pathname: String) -> void
+            attr_reader search: String?
 
-            def to_hash: -> { directive: String, pathname: String }
+            def search=: (String) -> String
+
+            def initialize: (
+              ?directive: String,
+              ?pathname: String,
+              ?search: String
+            ) -> void
+
+            def to_hash: -> {
+              directive: String,
+              pathname: String,
+              search: String
+            }
           end
 
           type activation_url_rule =

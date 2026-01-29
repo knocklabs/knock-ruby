@@ -343,20 +343,35 @@ module Knockapi
             sig { params(pathname: String).void }
             attr_writer :pathname
 
+            # The search query params to match
+            sig { returns(T.nilable(String)) }
+            attr_reader :search
+
+            sig { params(search: String).void }
+            attr_writer :search
+
             sig do
-              params(directive: String, pathname: String).returns(
-                T.attached_class
-              )
+              params(
+                directive: String,
+                pathname: String,
+                search: String
+              ).returns(T.attached_class)
             end
             def self.new(
               # The directive for the URL pattern ('allow' or 'block')
               directive: nil,
               # The pathname pattern to match (supports wildcards like /\*)
-              pathname: nil
+              pathname: nil,
+              # The search query params to match
+              search: nil
             )
             end
 
-            sig { override.returns({ directive: String, pathname: String }) }
+            sig do
+              override.returns(
+                { directive: String, pathname: String, search: String }
+              )
+            end
             def to_hash
             end
           end
@@ -377,7 +392,7 @@ module Knockapi
             sig { params(argument: String).void }
             attr_writer :argument
 
-            # The directive for the URL pattern ('allow' or 'block')
+            # The directive for the URL rule ('allow' or 'block')
             sig { returns(T.nilable(String)) }
             attr_reader :directive
 
@@ -409,7 +424,7 @@ module Knockapi
             def self.new(
               # The value to compare against
               argument: nil,
-              # The directive for the URL pattern ('allow' or 'block')
+              # The directive for the URL rule ('allow' or 'block')
               directive: nil,
               # The comparison operator ('contains' or 'equal_to')
               operator: nil,
