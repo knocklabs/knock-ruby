@@ -48,7 +48,6 @@ module Knockapi
             exclude: String,
             has_tenant: T::Boolean,
             locale: String,
-            mode: Knockapi::Users::FeedListItemsParams::Mode::OrSymbol,
             page_size: Integer,
             source: String,
             status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
@@ -84,11 +83,6 @@ module Knockapi
           # rendered in. Only available for enterprise plan customers using custom
           # translations.
           locale: nil,
-          # The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
-          # `rich`. When `mode` is `compact`, feed items will not have `activities` and
-          # `total_activities` fields, and the `data` field will not include nested arrays
-          # and objects.
-          mode: nil,
           # The number of items per page (defaults to 50).
           page_size: nil,
           # The workflow key associated with the message in the feed.
