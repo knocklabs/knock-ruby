@@ -17,6 +17,7 @@ module Knockapi
           ?exclude: String,
           ?has_tenant: bool,
           ?locale: String,
+          ?mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           ?page_size: Integer,
           ?source: String,
           ?status: Knockapi::Models::Users::FeedListItemsParams::status,
