@@ -49,15 +49,6 @@ module Knockapi
         #   @return [String, nil]
         optional :locale, String
 
-        # @!attribute mode
-        #   The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
-        #   `rich`. When `mode` is `compact`, feed items will not have `activities` and
-        #   `total_activities` fields, and the `data` field will not include nested arrays
-        #   and objects.
-        #
-        #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Mode, nil]
-        optional :mode, enum: -> { Knockapi::Users::FeedListItemsParams::Mode }
-
         # @!attribute page_size
         #   The number of items per page (defaults to 50).
         #
@@ -94,7 +85,7 @@ module Knockapi
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, locale: nil, mode: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @!method initialize(after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Users::FeedListItemsParams} for more details.
         #
@@ -109,8 +100,6 @@ module Knockapi
         #   @param has_tenant [Boolean] Whether the feed items have a tenant.
         #
         #   @param locale [String] The locale to render the feed items in. Must be in the IETF 5646 format (e.g. `e
-        #
-        #   @param mode [Symbol, Knockapi::Models::Users::FeedListItemsParams::Mode] The mode to render the feed items in. Can be `compact` or `rich`. Defaults to `r
         #
         #   @param page_size [Integer] The number of items per page (defaults to 50).
         #
@@ -133,20 +122,6 @@ module Knockapi
           EXCLUDE = :exclude
           INCLUDE = :include
           ONLY = :only
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-
-        # The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
-        # `rich`. When `mode` is `compact`, feed items will not have `activities` and
-        # `total_activities` fields, and the `data` field will not include nested arrays
-        # and objects.
-        module Mode
-          extend Knockapi::Internal::Type::Enum
-
-          COMPACT = :compact
-          RICH = :rich
 
           # @!method self.values
           #   @return [Array<Symbol>]
