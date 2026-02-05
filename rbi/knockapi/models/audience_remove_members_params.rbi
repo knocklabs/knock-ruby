@@ -14,7 +14,8 @@ module Knockapi
           )
         end
 
-      # A list of audience members to remove.
+      # A list of audience members to remove. You can remove up to 1,000 members per
+      # request.
       sig { returns(T::Array[Knockapi::AudienceRemoveMembersParams::Member]) }
       attr_accessor :members
 
@@ -26,7 +27,8 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
-        # A list of audience members to remove.
+        # A list of audience members to remove. You can remove up to 1,000 members per
+        # request.
         members:,
         request_options: {}
       )
