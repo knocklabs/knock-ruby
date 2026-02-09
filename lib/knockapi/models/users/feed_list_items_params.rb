@@ -40,6 +40,11 @@ module Knockapi
         #   @return [Boolean, nil]
         optional :has_tenant, Knockapi::Internal::Type::Boolean
 
+        # @!attribute inserted_at
+        #
+        #   @return [Knockapi::Models::Users::FeedListItemsParams::InsertedAt, nil]
+        optional :inserted_at, -> { Knockapi::Users::FeedListItemsParams::InsertedAt }
+
         # @!attribute locale
         #   The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
         #   `en-US`). When not provided, will default to the locale that the feed items were
@@ -85,7 +90,7 @@ module Knockapi
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @!method initialize(after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, inserted_at: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Users::FeedListItemsParams} for more details.
         #
@@ -98,6 +103,8 @@ module Knockapi
         #   @param exclude [String] Comma-separated list of field paths to exclude from the response. Use dot notati
         #
         #   @param has_tenant [Boolean] Whether the feed items have a tenant.
+        #
+        #   @param inserted_at [Knockapi::Models::Users::FeedListItemsParams::InsertedAt]
         #
         #   @param locale [String] The locale to render the feed items in. Must be in the IETF 5646 format (e.g. `e
         #
@@ -125,6 +132,41 @@ module Knockapi
 
           # @!method self.values
           #   @return [Array<Symbol>]
+        end
+
+        class InsertedAt < Knockapi::Internal::Type::BaseModel
+          # @!attribute gt
+          #   Limits the results to items inserted after the given date.
+          #
+          #   @return [String, nil]
+          optional :gt, String
+
+          # @!attribute gte
+          #   Limits the results to items inserted after or on the given date.
+          #
+          #   @return [String, nil]
+          optional :gte, String
+
+          # @!attribute lt
+          #   Limits the results to items inserted before the given date.
+          #
+          #   @return [String, nil]
+          optional :lt, String
+
+          # @!attribute lte
+          #   Limits the results to items inserted before or on the given date.
+          #
+          #   @return [String, nil]
+          optional :lte, String
+
+          # @!method initialize(gt: nil, gte: nil, lt: nil, lte: nil)
+          #   @param gt [String] Limits the results to items inserted after the given date.
+          #
+          #   @param gte [String] Limits the results to items inserted after or on the given date.
+          #
+          #   @param lt [String] Limits the results to items inserted before the given date.
+          #
+          #   @param lte [String] Limits the results to items inserted before or on the given date.
         end
 
         # The status of the feed items.

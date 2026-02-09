@@ -47,7 +47,7 @@ module Knockapi
         #   automatically excluded from both the `data` and `activities` fields of
         #   `UserInAppFeedResponse`.
         #
-        # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @overload list_items(user_id, id, after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, inserted_at: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
         #
@@ -62,6 +62,8 @@ module Knockapi
         # @param exclude [String] Comma-separated list of field paths to exclude from the response. Use dot notati
         #
         # @param has_tenant [Boolean] Whether the feed items have a tenant.
+        #
+        # @param inserted_at [Knockapi::Models::Users::FeedListItemsParams::InsertedAt]
         #
         # @param locale [String] The locale to render the feed items in. Must be in the IETF 5646 format (e.g. `e
         #
