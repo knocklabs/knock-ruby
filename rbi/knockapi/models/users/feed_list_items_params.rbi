@@ -60,6 +60,19 @@ module Knockapi
         sig { params(has_tenant: T::Boolean).void }
         attr_writer :has_tenant
 
+        sig do
+          returns(T.nilable(Knockapi::Users::FeedListItemsParams::InsertedAt))
+        end
+        attr_reader :inserted_at
+
+        sig do
+          params(
+            inserted_at:
+              Knockapi::Users::FeedListItemsParams::InsertedAt::OrHash
+          ).void
+        end
+        attr_writer :inserted_at
+
         # The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
         # `en-US`). When not provided, will default to the locale that the feed items were
         # rendered in. Only available for enterprise plan customers using custom
@@ -127,6 +140,8 @@ module Knockapi
             before: String,
             exclude: String,
             has_tenant: T::Boolean,
+            inserted_at:
+              Knockapi::Users::FeedListItemsParams::InsertedAt::OrHash,
             locale: String,
             page_size: Integer,
             source: String,
@@ -150,6 +165,7 @@ module Knockapi
           exclude: nil,
           # Whether the feed items have a tenant.
           has_tenant: nil,
+          inserted_at: nil,
           # The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
           # `en-US`). When not provided, will default to the locale that the feed items were
           # rendered in. Only available for enterprise plan customers using custom
@@ -180,6 +196,7 @@ module Knockapi
               before: String,
               exclude: String,
               has_tenant: T::Boolean,
+              inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
               locale: String,
               page_size: Integer,
               source: String,
@@ -228,6 +245,69 @@ module Knockapi
             )
           end
           def self.values
+          end
+        end
+
+        class InsertedAt < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Knockapi::Users::FeedListItemsParams::InsertedAt,
+                Knockapi::Internal::AnyHash
+              )
+            end
+
+          # Limits the results to items inserted after the given date.
+          sig { returns(T.nilable(String)) }
+          attr_reader :gt
+
+          sig { params(gt: String).void }
+          attr_writer :gt
+
+          # Limits the results to items inserted after or on the given date.
+          sig { returns(T.nilable(String)) }
+          attr_reader :gte
+
+          sig { params(gte: String).void }
+          attr_writer :gte
+
+          # Limits the results to items inserted before the given date.
+          sig { returns(T.nilable(String)) }
+          attr_reader :lt
+
+          sig { params(lt: String).void }
+          attr_writer :lt
+
+          # Limits the results to items inserted before or on the given date.
+          sig { returns(T.nilable(String)) }
+          attr_reader :lte
+
+          sig { params(lte: String).void }
+          attr_writer :lte
+
+          sig do
+            params(gt: String, gte: String, lt: String, lte: String).returns(
+              T.attached_class
+            )
+          end
+          def self.new(
+            # Limits the results to items inserted after the given date.
+            gt: nil,
+            # Limits the results to items inserted after or on the given date.
+            gte: nil,
+            # Limits the results to items inserted before the given date.
+            lt: nil,
+            # Limits the results to items inserted before or on the given date.
+            lte: nil
+          )
+          end
+
+          sig do
+            override.returns(
+              { gt: String, gte: String, lt: String, lte: String }
+            )
+          end
+          def to_hash
           end
         end
 

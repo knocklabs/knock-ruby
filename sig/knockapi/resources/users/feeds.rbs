@@ -16,6 +16,7 @@ module Knockapi
           ?before: String,
           ?exclude: String,
           ?has_tenant: bool,
+          ?inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           ?locale: String,
           ?page_size: Integer,
           ?source: String,

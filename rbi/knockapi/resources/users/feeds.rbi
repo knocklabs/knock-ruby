@@ -47,6 +47,8 @@ module Knockapi
             before: String,
             exclude: String,
             has_tenant: T::Boolean,
+            inserted_at:
+              Knockapi::Users::FeedListItemsParams::InsertedAt::OrHash,
             locale: String,
             page_size: Integer,
             source: String,
@@ -78,6 +80,7 @@ module Knockapi
           exclude: nil,
           # Whether the feed items have a tenant.
           has_tenant: nil,
+          inserted_at: nil,
           # The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
           # `en-US`). When not provided, will default to the locale that the feed items were
           # rendered in. Only available for enterprise plan customers using custom

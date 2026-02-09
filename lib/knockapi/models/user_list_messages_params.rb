@@ -147,37 +147,37 @@ module Knockapi
 
       class InsertedAt < Knockapi::Internal::Type::BaseModel
         # @!attribute gt
-        #   Limits the results to messages inserted after the given date.
+        #   Limits the results to items inserted after the given date.
         #
         #   @return [String, nil]
         optional :gt, String
 
         # @!attribute gte
-        #   Limits the results to messages inserted after or on the given date.
+        #   Limits the results to items inserted after or on the given date.
         #
         #   @return [String, nil]
         optional :gte, String
 
         # @!attribute lt
-        #   Limits the results to messages inserted before the given date.
+        #   Limits the results to items inserted before the given date.
         #
         #   @return [String, nil]
         optional :lt, String
 
         # @!attribute lte
-        #   Limits the results to messages inserted before or on the given date.
+        #   Limits the results to items inserted before or on the given date.
         #
         #   @return [String, nil]
         optional :lte, String
 
         # @!method initialize(gt: nil, gte: nil, lt: nil, lte: nil)
-        #   @param gt [String] Limits the results to messages inserted after the given date.
+        #   @param gt [String] Limits the results to items inserted after the given date.
         #
-        #   @param gte [String] Limits the results to messages inserted after or on the given date.
+        #   @param gte [String] Limits the results to items inserted after or on the given date.
         #
-        #   @param lt [String] Limits the results to messages inserted before the given date.
+        #   @param lt [String] Limits the results to items inserted before the given date.
         #
-        #   @param lte [String] Limits the results to messages inserted before or on the given date.
+        #   @param lte [String] Limits the results to items inserted before or on the given date.
       end
 
       module Status

@@ -8,6 +8,7 @@ module Knockapi
           before: String,
           exclude: String,
           has_tenant: bool,
+          inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           locale: String,
           page_size: Integer,
           source: String,
@@ -43,6 +44,12 @@ module Knockapi
         attr_reader has_tenant: bool?
 
         def has_tenant=: (bool) -> bool
+
+        attr_reader inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt?
+
+        def inserted_at=: (
+          Knockapi::Users::FeedListItemsParams::InsertedAt
+        ) -> Knockapi::Users::FeedListItemsParams::InsertedAt
 
         attr_reader locale: String?
 
@@ -80,6 +87,7 @@ module Knockapi
           ?before: String,
           ?exclude: String,
           ?has_tenant: bool,
+          ?inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           ?locale: String,
           ?page_size: Integer,
           ?source: String,
@@ -96,6 +104,7 @@ module Knockapi
           before: String,
           exclude: String,
           has_tenant: bool,
+          inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           locale: String,
           page_size: Integer,
           source: String,
@@ -116,6 +125,35 @@ module Knockapi
           ONLY: :only
 
           def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::archived]
+        end
+
+        type inserted_at = { gt: String, gte: String, lt: String, lte: String }
+
+        class InsertedAt < Knockapi::Internal::Type::BaseModel
+          attr_reader gt: String?
+
+          def gt=: (String) -> String
+
+          attr_reader gte: String?
+
+          def gte=: (String) -> String
+
+          attr_reader lt: String?
+
+          def lt=: (String) -> String
+
+          attr_reader lte: String?
+
+          def lte=: (String) -> String
+
+          def initialize: (
+            ?gt: String,
+            ?gte: String,
+            ?lt: String,
+            ?lte: String
+          ) -> void
+
+          def to_hash: -> { gt: String, gte: String, lt: String, lte: String }
         end
 
         type status = :unread | :read | :unseen | :seen | :all
