@@ -83,6 +83,24 @@ module Knockapi
         sig { params(locale: String).void }
         attr_writer :locale
 
+        # The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
+        # `rich`. When `mode` is `compact`, feed items will not have `activities` and
+        # `total_activities` fields; the `data` field will not include nested arrays and
+        # objects; and the `actors` field will only have up to one actor.
+        sig do
+          returns(
+            T.nilable(Knockapi::Users::FeedListItemsParams::Mode::OrSymbol)
+          )
+        end
+        attr_reader :mode
+
+        sig do
+          params(
+            mode: Knockapi::Users::FeedListItemsParams::Mode::OrSymbol
+          ).void
+        end
+        attr_writer :mode
+
         # The number of items per page (defaults to 50).
         sig { returns(T.nilable(Integer)) }
         attr_reader :page_size
@@ -143,6 +161,7 @@ module Knockapi
             inserted_at:
               Knockapi::Users::FeedListItemsParams::InsertedAt::OrHash,
             locale: String,
+            mode: Knockapi::Users::FeedListItemsParams::Mode::OrSymbol,
             page_size: Integer,
             source: String,
             status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
@@ -171,6 +190,11 @@ module Knockapi
           # rendered in. Only available for enterprise plan customers using custom
           # translations.
           locale: nil,
+          # The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
+          # `rich`. When `mode` is `compact`, feed items will not have `activities` and
+          # `total_activities` fields; the `data` field will not include nested arrays and
+          # objects; and the `actors` field will only have up to one actor.
+          mode: nil,
           # The number of items per page (defaults to 50).
           page_size: nil,
           # The workflow key associated with the message in the feed.
@@ -198,6 +222,7 @@ module Knockapi
               has_tenant: T::Boolean,
               inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
               locale: String,
+              mode: Knockapi::Users::FeedListItemsParams::Mode::OrSymbol,
               page_size: Integer,
               source: String,
               status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
@@ -308,6 +333,39 @@ module Knockapi
             )
           end
           def to_hash
+          end
+        end
+
+        # The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
+        # `rich`. When `mode` is `compact`, feed items will not have `activities` and
+        # `total_activities` fields; the `data` field will not include nested arrays and
+        # objects; and the `actors` field will only have up to one actor.
+        module Mode
+          extend Knockapi::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, Knockapi::Users::FeedListItemsParams::Mode)
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          COMPACT =
+            T.let(
+              :compact,
+              Knockapi::Users::FeedListItemsParams::Mode::TaggedSymbol
+            )
+          RICH =
+            T.let(
+              :rich,
+              Knockapi::Users::FeedListItemsParams::Mode::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[Knockapi::Users::FeedListItemsParams::Mode::TaggedSymbol]
+            )
+          end
+          def self.values
           end
         end
 

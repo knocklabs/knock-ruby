@@ -10,6 +10,7 @@ module Knockapi
           has_tenant: bool,
           inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           locale: String,
+          mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           page_size: Integer,
           source: String,
           status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -55,6 +56,12 @@ module Knockapi
 
         def locale=: (String) -> String
 
+        attr_reader mode: Knockapi::Models::Users::FeedListItemsParams::mode?
+
+        def mode=: (
+          Knockapi::Models::Users::FeedListItemsParams::mode
+        ) -> Knockapi::Models::Users::FeedListItemsParams::mode
+
         attr_reader page_size: Integer?
 
         def page_size=: (Integer) -> Integer
@@ -89,6 +96,7 @@ module Knockapi
           ?has_tenant: bool,
           ?inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           ?locale: String,
+          ?mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           ?page_size: Integer,
           ?source: String,
           ?status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -106,6 +114,7 @@ module Knockapi
           has_tenant: bool,
           inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           locale: String,
+          mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           page_size: Integer,
           source: String,
           status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -154,6 +163,17 @@ module Knockapi
           ) -> void
 
           def to_hash: -> { gt: String, gte: String, lt: String, lte: String }
+        end
+
+        type mode = :compact | :rich
+
+        module Mode
+          extend Knockapi::Internal::Type::Enum
+
+          COMPACT: :compact
+          RICH: :rich
+
+          def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::mode]
         end
 
         type status = :unread | :read | :unseen | :seen | :all

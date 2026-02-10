@@ -18,6 +18,7 @@ module Knockapi
           ?has_tenant: bool,
           ?inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           ?locale: String,
+          ?mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           ?page_size: Integer,
           ?source: String,
           ?status: Knockapi::Models::Users::FeedListItemsParams::status,
