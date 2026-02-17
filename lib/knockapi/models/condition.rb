@@ -46,6 +46,8 @@ module Knockapi
         NOT_CONTAINS = :not_contains
         EMPTY = :empty
         NOT_EMPTY = :not_empty
+        EXISTS = :exists
+        NOT_EXISTS = :not_exists
         CONTAINS_ALL = :contains_all
         IS_TIMESTAMP = :is_timestamp
         IS_NOT_TIMESTAMP = :is_not_timestamp
