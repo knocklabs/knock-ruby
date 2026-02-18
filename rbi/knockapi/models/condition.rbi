@@ -79,9 +79,6 @@ module Knockapi
         EMPTY = T.let(:empty, Knockapi::Condition::Operator::TaggedSymbol)
         NOT_EMPTY =
           T.let(:not_empty, Knockapi::Condition::Operator::TaggedSymbol)
-        EXISTS = T.let(:exists, Knockapi::Condition::Operator::TaggedSymbol)
-        NOT_EXISTS =
-          T.let(:not_exists, Knockapi::Condition::Operator::TaggedSymbol)
         CONTAINS_ALL =
           T.let(:contains_all, Knockapi::Condition::Operator::TaggedSymbol)
         IS_TIMESTAMP =
