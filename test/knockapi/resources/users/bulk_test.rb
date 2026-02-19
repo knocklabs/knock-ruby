@@ -4,7 +4,7 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Users::BulkTest < Knockapi::Test::ResourceTest
   def test_delete_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.bulk.delete(user_ids: %w[user_1 user_2])
 
@@ -34,7 +34,7 @@ class Knockapi::Test::Resources::Users::BulkTest < Knockapi::Test::ResourceTest
   end
 
   def test_identify_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.bulk.identify(users: [{id: "user_1"}])
 
@@ -64,7 +64,7 @@ class Knockapi::Test::Resources::Users::BulkTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_preferences_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.bulk.set_preferences(preferences: {}, user_ids: %w[user_1 user_2])
 

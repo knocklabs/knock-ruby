@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   def test_list
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.list("collection")
 
@@ -32,7 +32,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.delete("collection", "id")
 
@@ -42,7 +42,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_add_subscriptions_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.add_subscriptions("collection", "object_id", recipients: %w[user_1 user_2])
 
@@ -52,7 +52,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete_subscriptions_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.delete_subscriptions("collection", "object_id", recipients: ["user_123"])
 
@@ -62,7 +62,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.get("collection", "id")
 
@@ -83,7 +83,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_channel_data
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response =
       @knock.objects.get_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
@@ -103,7 +103,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_preferences
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.get_preferences("collection", "object_id", "default")
 
@@ -124,7 +124,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_messages
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.list_messages("projects", "project-123")
 
@@ -168,7 +168,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_preferences
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.list_preferences("collection", "object_id")
 
@@ -178,7 +178,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_schedules
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.list_schedules("collection", "id")
 
@@ -212,7 +212,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_subscriptions
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.list_subscriptions("collection", "object_id")
 
@@ -240,7 +240,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.set("collection", "id")
 
@@ -261,7 +261,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_channel_data_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response =
       @knock.objects.set_channel_data(
@@ -286,7 +286,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_preferences
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.objects.set_preferences("collection", "object_id", "default")
 
@@ -307,7 +307,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_unset_channel_data
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response =
       @knock.objects.unset_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
