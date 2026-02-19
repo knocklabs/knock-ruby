@@ -8,14 +8,18 @@ module Knockapi
         params(
           key: String,
           members: T::Array[Knockapi::AudienceAddMembersParams::Member::OrHash],
+          create_audience: T::Boolean,
           request_options: Knockapi::RequestOptions::OrHash
         ).void
       end
       def add_members(
-        # The key of the audience.
+        # Path param: The key of the audience.
         key,
-        # A list of audience members to add. You can add up to 1,000 members per request.
+        # Body param: A list of audience members to add. You can add up to 1,000 members
+        # per request.
         members:,
+        # Query param: Create the audience if it does not exist.
+        create_audience: nil,
         request_options: {}
       )
       end
