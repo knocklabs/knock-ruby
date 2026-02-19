@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::WorkflowsTest < Knockapi::Test::ResourceTest
   def test_cancel_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.workflows.cancel("key", cancellation_key: "cancel-workflow-123")
 
@@ -14,7 +14,7 @@ class Knockapi::Test::Resources::WorkflowsTest < Knockapi::Test::ResourceTest
   end
 
   def test_trigger_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.workflows.trigger("key", recipients: %w[dr_grant dr_sattler dr_malcolm])
 
