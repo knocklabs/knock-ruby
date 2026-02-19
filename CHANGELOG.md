@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.31.0 (2026-02-19)
+
+Full Changelog: [v1.30.0...v1.31.0](https://github.com/knocklabs/knock-ruby/compare/v1.30.0...v1.31.0)
+
+### Features
+
+* **api:** api update ([dcc8c6c](https://github.com/knocklabs/knock-ruby/commit/dcc8c6c3e141eb231a053dc35325c8bc639068e8))
+* **api:** api update ([2d7ec95](https://github.com/knocklabs/knock-ruby/commit/2d7ec957ddd6b1069ac8aaaa3d7b1c70b456a452))
+* **api:** api update ([f78aef3](https://github.com/knocklabs/knock-ruby/commit/f78aef3b059e14786543f033c8a603da8961e7dc))
+* **api:** api update ([1cd0625](https://github.com/knocklabs/knock-ruby/commit/1cd0625d5420735e1851b16a7af23fe19b41a394))
+* **api:** api update ([3ef0f26](https://github.com/knocklabs/knock-ruby/commit/3ef0f264c2bb77151eca4cd3474c46d318c36749))
+* **api:** api update ([1562c35](https://github.com/knocklabs/knock-ruby/commit/1562c35982e64c0870123987b022cb46490be6f8))
+* **api:** api update ([1381ed5](https://github.com/knocklabs/knock-ruby/commit/1381ed582a7df881d56425ceb8785664ca6130e9))
+* **api:** api update ([0be92ad](https://github.com/knocklabs/knock-ruby/commit/0be92ad96b5f1e973f36fc89fabc2cfdb873cc82))
+
+
+### Bug Fixes
+
+* **client:** always add content-length to post body, even when empty ([4cd7959](https://github.com/knocklabs/knock-ruby/commit/4cd79592e97e3fafa21d247ab81a72e4bded4f72))
+* **client:** loosen json header parsing ([6ab2346](https://github.com/knocklabs/knock-ruby/commit/6ab23468b66b8fdf7de9ebe96d49f1400300c00c))
+
+
+### Chores
+
+* **docs:** remove www prefix ([5719ce2](https://github.com/knocklabs/knock-ruby/commit/5719ce273d7996e16385184f536facd6fc59c096))
+* update mock server docs ([bc0b313](https://github.com/knocklabs/knock-ruby/commit/bc0b313569f751b55f1d3c2ca69a6942c0b012b8))
+
 ## 1.30.0 (2026-01-29)
 
 Full Changelog: [v1.29.0...v1.30.0](https://github.com/knocklabs/knock-ruby/compare/v1.29.0...v1.30.0)
