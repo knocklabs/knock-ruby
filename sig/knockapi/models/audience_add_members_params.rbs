@@ -1,7 +1,10 @@
 module Knockapi
   module Models
     type audience_add_members_params =
-      { members: ::Array[Knockapi::AudienceAddMembersParams::Member] }
+      {
+        members: ::Array[Knockapi::AudienceAddMembersParams::Member],
+        create_audience: bool
+      }
       & Knockapi::Internal::Type::request_parameters
 
     class AudienceAddMembersParams < Knockapi::Internal::Type::BaseModel
@@ -10,13 +13,19 @@ module Knockapi
 
       attr_accessor members: ::Array[Knockapi::AudienceAddMembersParams::Member]
 
+      attr_reader create_audience: bool?
+
+      def create_audience=: (bool) -> bool
+
       def initialize: (
         members: ::Array[Knockapi::AudienceAddMembersParams::Member],
+        ?create_audience: bool,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> {
         members: ::Array[Knockapi::AudienceAddMembersParams::Member],
+        create_audience: bool,
         request_options: Knockapi::RequestOptions
       }
 
