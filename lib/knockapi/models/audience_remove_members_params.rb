@@ -8,13 +8,17 @@ module Knockapi
       include Knockapi::Internal::Type::RequestParameters
 
       # @!attribute members
-      #   A list of audience members to remove.
+      #   A list of audience members to remove. You can remove up to 1,000 members per
+      #   request.
       #
       #   @return [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>]
       required :members, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceRemoveMembersParams::Member] }
 
       # @!method initialize(members:, request_options: {})
-      #   @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
+      #   Some parameter documentations has been truncated, see
+      #   {Knockapi::Models::AudienceRemoveMembersParams} for more details.
+      #
+      #   @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove. You can remove up to 1,000 members per req
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 

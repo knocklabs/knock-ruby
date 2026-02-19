@@ -45,8 +45,12 @@ module Knockapi
             after: String,
             archived: Knockapi::Users::FeedListItemsParams::Archived::OrSymbol,
             before: String,
+            exclude: String,
             has_tenant: T::Boolean,
+            inserted_at:
+              Knockapi::Users::FeedListItemsParams::InsertedAt::OrHash,
             locale: String,
+            mode: Knockapi::Users::FeedListItemsParams::Mode::OrSymbol,
             page_size: Integer,
             source: String,
             status: Knockapi::Users::FeedListItemsParams::Status::OrSymbol,
@@ -71,13 +75,23 @@ module Knockapi
           archived: nil,
           # The cursor to fetch entries before.
           before: nil,
+          # Comma-separated list of field paths to exclude from the response. Use dot
+          # notation for nested fields (e.g., `entries.archived_at`). Limited to 3 levels
+          # deep.
+          exclude: nil,
           # Whether the feed items have a tenant.
           has_tenant: nil,
+          inserted_at: nil,
           # The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
           # `en-US`). When not provided, will default to the locale that the feed items were
           # rendered in. Only available for enterprise plan customers using custom
           # translations.
           locale: nil,
+          # The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
+          # `rich`. When `mode` is `compact`, feed items will not have `activities` and
+          # `total_activities` fields; the `data` field will not include nested arrays and
+          # objects; and the `actors` field will only have up to one actor.
+          mode: nil,
           # The number of items per page (defaults to 50).
           page_size: nil,
           # The workflow key associated with the message in the feed.

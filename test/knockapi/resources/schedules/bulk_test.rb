@@ -4,7 +4,7 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Schedules::BulkTest < Knockapi::Test::ResourceTest
   def test_create_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response =
       @knock.schedules.bulk.create(schedules: [{workflow: "comment-created"}, {workflow: "comment-created"}])

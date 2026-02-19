@@ -43,13 +43,13 @@ If you’d like to use the repository from source, you can either install from g
 To install via git in your `Gemfile`:
 
 ```ruby
-gem "knockapi", git: "https://www.github.com/knocklabs/knock-ruby"
+gem "knockapi", git: "https://github.com/knocklabs/knock-ruby"
 ```
 
 Alternatively, reference local copy of the repo:
 
 ```bash
-$ git clone -- 'https://www.github.com/knocklabs/knock-ruby' '<path-to-repo>'
+$ git clone -- 'https://github.com/knocklabs/knock-ruby' '<path-to-repo>'
 ```
 
 ```ruby
@@ -68,8 +68,8 @@ $ bundle exec rake
 
 Most tests require you to [set up a mock server](https://github.com/stoplightio/prism) against the OpenAPI spec to run the tests.
 
-```bash
-$ npx prism mock path/to/your/openapi.yml
+```sh
+$ ./scripts/mock
 ```
 
 ```bash

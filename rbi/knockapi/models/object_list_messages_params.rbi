@@ -298,28 +298,28 @@ module Knockapi
             )
           end
 
-        # Limits the results to messages inserted after the given date.
+        # Limits the results to items inserted after the given date.
         sig { returns(T.nilable(String)) }
         attr_reader :gt
 
         sig { params(gt: String).void }
         attr_writer :gt
 
-        # Limits the results to messages inserted after or on the given date.
+        # Limits the results to items inserted after or on the given date.
         sig { returns(T.nilable(String)) }
         attr_reader :gte
 
         sig { params(gte: String).void }
         attr_writer :gte
 
-        # Limits the results to messages inserted before the given date.
+        # Limits the results to items inserted before the given date.
         sig { returns(T.nilable(String)) }
         attr_reader :lt
 
         sig { params(lt: String).void }
         attr_writer :lt
 
-        # Limits the results to messages inserted before or on the given date.
+        # Limits the results to items inserted before or on the given date.
         sig { returns(T.nilable(String)) }
         attr_reader :lte
 
@@ -332,13 +332,13 @@ module Knockapi
           )
         end
         def self.new(
-          # Limits the results to messages inserted after the given date.
+          # Limits the results to items inserted after the given date.
           gt: nil,
-          # Limits the results to messages inserted after or on the given date.
+          # Limits the results to items inserted after or on the given date.
           gte: nil,
-          # Limits the results to messages inserted before the given date.
+          # Limits the results to items inserted before the given date.
           lt: nil,
-          # Limits the results to messages inserted before or on the given date.
+          # Limits the results to items inserted before or on the given date.
           lte: nil
         )
         end

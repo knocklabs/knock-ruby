@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   def test_update
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.update("user_id")
 
@@ -28,7 +28,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.list
 
@@ -59,7 +59,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.delete("user_id")
 
@@ -69,7 +69,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.get("user_id")
 
@@ -93,7 +93,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_channel_data
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.get_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
@@ -112,7 +112,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_preferences
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.get_preferences("user_id", "default")
 
@@ -133,7 +133,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_messages
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.list_messages("user-123")
 
@@ -177,7 +177,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_preferences
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.list_preferences("user_id")
 
@@ -187,7 +187,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_schedules
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.list_schedules("user_id")
 
@@ -221,7 +221,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_subscriptions
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.list_subscriptions("user_id")
 
@@ -249,7 +249,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_merge_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.merge("user_id", from_user_id: "user_1")
 
@@ -273,7 +273,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_channel_data_required_params
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response =
       @knock.users.set_channel_data(
@@ -297,7 +297,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_preferences
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.set_preferences("user_id", "default")
 
@@ -318,7 +318,7 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
   end
 
   def test_unset_channel_data
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.users.unset_channel_data("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 

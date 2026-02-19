@@ -6,8 +6,11 @@ module Knockapi
           after: String,
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,
+          exclude: String,
           has_tenant: bool,
+          inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           locale: String,
+          mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           page_size: Integer,
           source: String,
           status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -35,13 +38,29 @@ module Knockapi
 
         def before=: (String) -> String
 
+        attr_reader exclude: String?
+
+        def exclude=: (String) -> String
+
         attr_reader has_tenant: bool?
 
         def has_tenant=: (bool) -> bool
 
+        attr_reader inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt?
+
+        def inserted_at=: (
+          Knockapi::Users::FeedListItemsParams::InsertedAt
+        ) -> Knockapi::Users::FeedListItemsParams::InsertedAt
+
         attr_reader locale: String?
 
         def locale=: (String) -> String
+
+        attr_reader mode: Knockapi::Models::Users::FeedListItemsParams::mode?
+
+        def mode=: (
+          Knockapi::Models::Users::FeedListItemsParams::mode
+        ) -> Knockapi::Models::Users::FeedListItemsParams::mode
 
         attr_reader page_size: Integer?
 
@@ -73,8 +92,11 @@ module Knockapi
           ?after: String,
           ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           ?before: String,
+          ?exclude: String,
           ?has_tenant: bool,
+          ?inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           ?locale: String,
+          ?mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           ?page_size: Integer,
           ?source: String,
           ?status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -88,8 +110,11 @@ module Knockapi
           after: String,
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,
+          exclude: String,
           has_tenant: bool,
+          inserted_at: Knockapi::Users::FeedListItemsParams::InsertedAt,
           locale: String,
+          mode: Knockapi::Models::Users::FeedListItemsParams::mode,
           page_size: Integer,
           source: String,
           status: Knockapi::Models::Users::FeedListItemsParams::status,
@@ -109,6 +134,46 @@ module Knockapi
           ONLY: :only
 
           def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::archived]
+        end
+
+        type inserted_at = { gt: String, gte: String, lt: String, lte: String }
+
+        class InsertedAt < Knockapi::Internal::Type::BaseModel
+          attr_reader gt: String?
+
+          def gt=: (String) -> String
+
+          attr_reader gte: String?
+
+          def gte=: (String) -> String
+
+          attr_reader lt: String?
+
+          def lt=: (String) -> String
+
+          attr_reader lte: String?
+
+          def lte=: (String) -> String
+
+          def initialize: (
+            ?gt: String,
+            ?gte: String,
+            ?lt: String,
+            ?lte: String
+          ) -> void
+
+          def to_hash: -> { gt: String, gte: String, lt: String, lte: String }
+        end
+
+        type mode = :compact | :rich
+
+        module Mode
+          extend Knockapi::Internal::Type::Enum
+
+          COMPACT: :compact
+          RICH: :rich
+
+          def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsParams::mode]
         end
 
         type status = :unread | :read | :unseen | :seen | :all

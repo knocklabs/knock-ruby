@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   def test_list
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.tenants.list
 
@@ -30,7 +30,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.tenants.delete("id")
 
@@ -40,7 +40,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.tenants.get("id")
 
@@ -59,7 +59,7 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.tenants.set("id")
 

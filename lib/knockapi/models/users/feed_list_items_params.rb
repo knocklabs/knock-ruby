@@ -26,11 +26,24 @@ module Knockapi
         #   @return [String, nil]
         optional :before, String
 
+        # @!attribute exclude
+        #   Comma-separated list of field paths to exclude from the response. Use dot
+        #   notation for nested fields (e.g., `entries.archived_at`). Limited to 3 levels
+        #   deep.
+        #
+        #   @return [String, nil]
+        optional :exclude, String
+
         # @!attribute has_tenant
         #   Whether the feed items have a tenant.
         #
         #   @return [Boolean, nil]
         optional :has_tenant, Knockapi::Internal::Type::Boolean
+
+        # @!attribute inserted_at
+        #
+        #   @return [Knockapi::Models::Users::FeedListItemsParams::InsertedAt, nil]
+        optional :inserted_at, -> { Knockapi::Users::FeedListItemsParams::InsertedAt }
 
         # @!attribute locale
         #   The locale to render the feed items in. Must be in the IETF 5646 format (e.g.
@@ -40,6 +53,15 @@ module Knockapi
         #
         #   @return [String, nil]
         optional :locale, String
+
+        # @!attribute mode
+        #   The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
+        #   `rich`. When `mode` is `compact`, feed items will not have `activities` and
+        #   `total_activities` fields; the `data` field will not include nested arrays and
+        #   objects; and the `actors` field will only have up to one actor.
+        #
+        #   @return [Symbol, Knockapi::Models::Users::FeedListItemsParams::Mode, nil]
+        optional :mode, enum: -> { Knockapi::Users::FeedListItemsParams::Mode }
 
         # @!attribute page_size
         #   The number of items per page (defaults to 50).
@@ -77,7 +99,7 @@ module Knockapi
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(after: nil, archived: nil, before: nil, has_tenant: nil, locale: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @!method initialize(after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, inserted_at: nil, locale: nil, mode: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Users::FeedListItemsParams} for more details.
         #
@@ -87,9 +109,15 @@ module Knockapi
         #
         #   @param before [String] The cursor to fetch entries before.
         #
+        #   @param exclude [String] Comma-separated list of field paths to exclude from the response. Use dot notati
+        #
         #   @param has_tenant [Boolean] Whether the feed items have a tenant.
         #
+        #   @param inserted_at [Knockapi::Models::Users::FeedListItemsParams::InsertedAt]
+        #
         #   @param locale [String] The locale to render the feed items in. Must be in the IETF 5646 format (e.g. `e
+        #
+        #   @param mode [Symbol, Knockapi::Models::Users::FeedListItemsParams::Mode] The mode to render the feed items in. Can be `compact` or `rich`. Defaults to `r
         #
         #   @param page_size [Integer] The number of items per page (defaults to 50).
         #
@@ -112,6 +140,55 @@ module Knockapi
           EXCLUDE = :exclude
           INCLUDE = :include
           ONLY = :only
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        class InsertedAt < Knockapi::Internal::Type::BaseModel
+          # @!attribute gt
+          #   Limits the results to items inserted after the given date.
+          #
+          #   @return [String, nil]
+          optional :gt, String
+
+          # @!attribute gte
+          #   Limits the results to items inserted after or on the given date.
+          #
+          #   @return [String, nil]
+          optional :gte, String
+
+          # @!attribute lt
+          #   Limits the results to items inserted before the given date.
+          #
+          #   @return [String, nil]
+          optional :lt, String
+
+          # @!attribute lte
+          #   Limits the results to items inserted before or on the given date.
+          #
+          #   @return [String, nil]
+          optional :lte, String
+
+          # @!method initialize(gt: nil, gte: nil, lt: nil, lte: nil)
+          #   @param gt [String] Limits the results to items inserted after the given date.
+          #
+          #   @param gte [String] Limits the results to items inserted after or on the given date.
+          #
+          #   @param lt [String] Limits the results to items inserted before the given date.
+          #
+          #   @param lte [String] Limits the results to items inserted before or on the given date.
+        end
+
+        # The mode to render the feed items in. Can be `compact` or `rich`. Defaults to
+        # `rich`. When `mode` is `compact`, feed items will not have `activities` and
+        # `total_activities` fields; the `data` field will not include nested arrays and
+        # objects; and the `actors` field will only have up to one actor.
+        module Mode
+          extend Knockapi::Internal::Type::Enum
+
+          COMPACT = :compact
+          RICH = :rich
 
           # @!method self.values
           #   @return [Array<Symbol>]

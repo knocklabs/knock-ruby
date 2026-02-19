@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_list
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.list
 
@@ -48,7 +48,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_archive
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.archive("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
@@ -85,7 +85,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.get("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
@@ -122,7 +122,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_content
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.get_content("message_id")
 
@@ -141,7 +141,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_activities
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.list_activities("message_id")
 
@@ -170,7 +170,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_delivery_logs
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.list_delivery_logs("message_id")
 
@@ -199,7 +199,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_events
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.list_events("message_id")
 
@@ -227,7 +227,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_interacted
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_interacted("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
@@ -264,7 +264,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_read
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_read("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
@@ -301,7 +301,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_seen
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_seen("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
@@ -338,7 +338,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_unread
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_unread("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
@@ -375,7 +375,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_unseen
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.mark_as_unseen("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
@@ -412,7 +412,7 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_unarchive
-    skip("Prism doesn't support callbacks yet")
+    skip("Mock server doesn't support callbacks yet")
 
     response = @knock.messages.unarchive("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 

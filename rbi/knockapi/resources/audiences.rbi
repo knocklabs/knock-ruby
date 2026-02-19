@@ -14,7 +14,7 @@ module Knockapi
       def add_members(
         # The key of the audience.
         key,
-        # A list of audience members to add. Limited to 1,000 members per request.
+        # A list of audience members to add. You can add up to 1,000 members per request.
         members:,
         request_options: {}
       )
@@ -46,7 +46,8 @@ module Knockapi
       def remove_members(
         # The key of the audience.
         key,
-        # A list of audience members to remove.
+        # A list of audience members to remove. You can remove up to 1,000 members per
+        # request.
         members:,
         request_options: {}
       )

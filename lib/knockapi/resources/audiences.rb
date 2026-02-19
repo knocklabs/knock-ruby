@@ -9,7 +9,7 @@ module Knockapi
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add. Limited to 1,000 members per request.
+      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add. You can add up to 1,000 members per request.
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -47,13 +47,16 @@ module Knockapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Knockapi::Models::AudienceRemoveMembersParams} for more details.
+      #
       # Removes one or more members from the specified audience.
       #
       # @overload remove_members(key, members:, request_options: {})
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove.
+      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove. You can remove up to 1,000 members per req
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
