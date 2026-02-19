@@ -13,8 +13,16 @@ module Knockapi
       #   @return [Array<Knockapi::Models::AudienceAddMembersParams::Member>]
       required :members, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::AudienceAddMembersParams::Member] }
 
-      # @!method initialize(members:, request_options: {})
+      # @!attribute create_audience
+      #   Create the audience if it does not exist.
+      #
+      #   @return [Boolean, nil]
+      optional :create_audience, Knockapi::Internal::Type::Boolean
+
+      # @!method initialize(members:, create_audience: nil, request_options: {})
       #   @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] A list of audience members to add. You can add up to 1,000 members per request.
+      #
+      #   @param create_audience [Boolean] Create the audience if it does not exist.
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
 

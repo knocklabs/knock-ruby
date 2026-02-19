@@ -15,15 +15,25 @@ module Knockapi
       sig { returns(T::Array[Knockapi::AudienceAddMembersParams::Member]) }
       attr_accessor :members
 
+      # Create the audience if it does not exist.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :create_audience
+
+      sig { params(create_audience: T::Boolean).void }
+      attr_writer :create_audience
+
       sig do
         params(
           members: T::Array[Knockapi::AudienceAddMembersParams::Member::OrHash],
+          create_audience: T::Boolean,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
         # A list of audience members to add. You can add up to 1,000 members per request.
         members:,
+        # Create the audience if it does not exist.
+        create_audience: nil,
         request_options: {}
       )
       end
@@ -32,6 +42,7 @@ module Knockapi
         override.returns(
           {
             members: T::Array[Knockapi::AudienceAddMembersParams::Member],
+            create_audience: T::Boolean,
             request_options: Knockapi::RequestOptions
           }
         )
