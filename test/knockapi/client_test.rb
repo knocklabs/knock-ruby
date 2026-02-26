@@ -100,19 +100,21 @@ class KnockapiTest < Minitest::Test
   end
 
   def test_client_retry_after_date
+    time_now = Time.now
+
     stub_request(:get, "http://localhost/v1/users/user_id").to_return_json(
       status: 500,
-      headers: {"retry-after" => (Time.now + 10).httpdate},
+      headers: {"retry-after" => (time_now + 10).httpdate},
       body: {}
     )
 
     knock = Knockapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
+    Thread.current.thread_variable_set(:time_now, time_now)
     assert_raises(Knockapi::Errors::InternalServerError) do
-      Thread.current.thread_variable_set(:time_now, Time.now)
       knock.users.get("user_id")
-      Thread.current.thread_variable_set(:time_now, nil)
     end
+    Thread.current.thread_variable_set(:time_now, nil)
 
     assert_requested(:any, /./, times: 2)
     assert_in_delta(10, Thread.current.thread_variable_get(:mock_sleep).last, 1.0)
