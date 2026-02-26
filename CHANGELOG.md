@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.32.1 (2026-02-26)
+
+Full Changelog: [v1.32.0...v1.32.1](https://github.com/knocklabs/knock-ruby/compare/v1.32.0...v1.32.1)
+
+### Bug Fixes
+
+* properly mock time in ruby ci tests ([e77a038](https://github.com/knocklabs/knock-ruby/commit/e77a038cbe1d018e470c1bebe33b0c8f371c74fb))
+
 ## 1.32.0 (2026-02-19)
 
 Full Changelog: [v1.31.0...v1.32.0](https://github.com/knocklabs/knock-ruby/compare/v1.31.0...v1.32.0)
