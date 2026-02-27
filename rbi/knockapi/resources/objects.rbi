@@ -2,7 +2,10 @@
 
 module Knockapi
   module Resources
+    # An object represents a resource in your system that you want to map into Knock.
     class Objects
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       sig { returns(Knockapi::Resources::Objects::Bulk) }
       attr_reader :bulk
 

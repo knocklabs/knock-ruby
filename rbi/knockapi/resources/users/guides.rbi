@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Users
+      # A user is an individual from your system, represented in Knock. They are most
+      # commonly a recipient of a notification.
       class Guides
         # Returns a list of eligible in-app guides for a specific user and channel.
         sig do

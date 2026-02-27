@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Users
+      # A user is an individual from your system, represented in Knock. They are most
+      # commonly a recipient of a notification.
       class Feeds
         # Returns the feed settings for a user.
         #

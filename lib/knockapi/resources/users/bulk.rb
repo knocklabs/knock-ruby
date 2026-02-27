@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Users
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       class Bulk
         # Permanently deletes up to 1,000 users at a time.
         #

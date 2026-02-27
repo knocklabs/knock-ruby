@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Channels
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       class Bulk
         # Bulk update the status of messages for a specific channel. The channel is
         # specified by the `channel_id` parameter. The action to perform is specified by

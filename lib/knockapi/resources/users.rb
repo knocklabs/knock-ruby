@@ -2,13 +2,21 @@
 
 module Knockapi
   module Resources
+    # A user is an individual from your system, represented in Knock. They are most
+    # commonly a recipient of a notification.
     class Users
+      # A user is an individual from your system, represented in Knock. They are most
+      # commonly a recipient of a notification.
       # @return [Knockapi::Resources::Users::Feeds]
       attr_reader :feeds
 
+      # A user is an individual from your system, represented in Knock. They are most
+      # commonly a recipient of a notification.
       # @return [Knockapi::Resources::Users::Guides]
       attr_reader :guides
 
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       # @return [Knockapi::Resources::Users::Bulk]
       attr_reader :bulk
 
