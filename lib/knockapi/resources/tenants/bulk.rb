@@ -18,10 +18,11 @@ module Knockapi
         # @see Knockapi::Models::Tenants::BulkDeleteParams
         def delete(params)
           parsed, options = Knockapi::Tenants::BulkDeleteParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :post,
             path: "v1/tenants/bulk/delete",
-            query: parsed,
+            query: query,
             model: Knockapi::BulkOperation,
             options: options
           )

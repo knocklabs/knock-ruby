@@ -88,10 +88,11 @@ module Knockapi
         # @see Knockapi::Models::Users::FeedListItemsParams
         def list_items(user_id, id, params = {})
           parsed, options = Knockapi::Users::FeedListItemsParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["v1/users/%1$s/feeds/%2$s", user_id, id],
-            query: parsed,
+            query: query,
             page: Knockapi::Internal::EntriesCursor,
             model: Knockapi::Models::Users::FeedListItemsResponse,
             options: options

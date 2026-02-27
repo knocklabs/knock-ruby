@@ -114,10 +114,11 @@ module Knockapi
       # @see Knockapi::Models::ScheduleListParams
       def list(params)
         parsed, options = Knockapi::ScheduleListParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "v1/schedules",
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Schedule,
           options: options

@@ -40,10 +40,11 @@ module Knockapi
         # @see Knockapi::Models::Messages::BatchGetContentParams
         def get_content(params)
           parsed, options = Knockapi::Messages::BatchGetContentParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: "v1/messages/batch/content",
-            query: parsed,
+            query: query,
             model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem],
             options: options
           )
