@@ -2,6 +2,8 @@
 
 module Knockapi
   module Resources
+    # A workflow is a structured set of steps that is triggered to produce
+    # notifications sent over channels.
     class Workflows
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::WorkflowCancelParams} for more details.

@@ -20,18 +20,26 @@ module Knockapi
     sig { returns(Knockapi::Resources::Recipients) }
     attr_reader :recipients
 
+    # A user is an individual from your system, represented in Knock. They are most
+    # commonly a recipient of a notification.
     sig { returns(Knockapi::Resources::Users) }
     attr_reader :users
 
+    # An object represents a resource in your system that you want to map into Knock.
     sig { returns(Knockapi::Resources::Objects) }
     attr_reader :objects
 
+    # A tenant represents a top-level entity from your system, like a company,
+    # organization, account, or workspace.
     sig { returns(Knockapi::Resources::Tenants) }
     attr_reader :tenants
 
+    # A bulk operation is a set of changes applied across zero or more records
+    # triggered via a call to the Knock API and performed asynchronously.
     sig { returns(Knockapi::Resources::BulkOperations) }
     attr_reader :bulk_operations
 
+    # A message sent to a single recipient on a channel.
     sig { returns(Knockapi::Resources::Messages) }
     attr_reader :messages
 
@@ -41,15 +49,20 @@ module Knockapi
     sig { returns(Knockapi::Resources::Integrations) }
     attr_reader :integrations
 
+    # A workflow is a structured set of steps that is triggered to produce
+    # notifications sent over channels.
     sig { returns(Knockapi::Resources::Workflows) }
     attr_reader :workflows
 
+    # A schedule is a per-recipient, timezone-aware configuration for when to invoke a
+    # workflow.
     sig { returns(Knockapi::Resources::Schedules) }
     attr_reader :schedules
 
     sig { returns(Knockapi::Resources::Channels) }
     attr_reader :channels
 
+    # An Audience is a segment of users.
     sig { returns(Knockapi::Resources::Audiences) }
     attr_reader :audiences
 

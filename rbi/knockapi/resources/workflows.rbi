@@ -2,6 +2,8 @@
 
 module Knockapi
   module Resources
+    # A workflow is a structured set of steps that is triggered to produce
+    # notifications sent over channels.
     class Workflows
       # When invoked for a workflow using a specific workflow key and cancellation key,
       # will cancel any queued workflow runs associated with that key/cancellation key

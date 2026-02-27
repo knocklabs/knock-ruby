@@ -2,6 +2,7 @@
 
 module Knockapi
   module Resources
+    # An Audience is a segment of users.
     class Audiences
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::AudienceAddMembersParams} for more details.

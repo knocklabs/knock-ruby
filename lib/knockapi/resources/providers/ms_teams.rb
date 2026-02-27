@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Providers
+      # A provider represents a third-party service that Knock integrates with and is
+      # configured via a channel.
       class MsTeams
         # Check if a connection to Microsoft Teams has been authorized for a given
         # Microsoft Teams tenant object.

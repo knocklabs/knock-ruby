@@ -2,6 +2,7 @@
 
 module Knockapi
   module Resources
+    # An Audience is a segment of users.
     class Audiences
       # Adds one or more members to the specified audience.
       sig do

@@ -2,7 +2,11 @@
 
 module Knockapi
   module Resources
+    # A tenant represents a top-level entity from your system, like a company,
+    # organization, account, or workspace.
     class Tenants
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       # @return [Knockapi::Resources::Tenants::Bulk]
       attr_reader :bulk
 

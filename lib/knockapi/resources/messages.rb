@@ -2,7 +2,9 @@
 
 module Knockapi
   module Resources
+    # A message sent to a single recipient on a channel.
     class Messages
+      # A message sent to a single recipient on a channel.
       # @return [Knockapi::Resources::Messages::Batch]
       attr_reader :batch
 

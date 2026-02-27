@@ -2,6 +2,8 @@
 
 module Knockapi
   module Resources
+    # A bulk operation is a set of changes applied across zero or more records
+    # triggered via a call to the Knock API and performed asynchronously.
     class BulkOperations
       # Retrieves a bulk operation (if it exists) and displays the current state of it.
       #
