@@ -27,10 +27,11 @@ module Knockapi
       # @see Knockapi::Models::TenantListParams
       def list(params = {})
         parsed, options = Knockapi::TenantListParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "v1/tenants",
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Tenant,
           options: options
@@ -75,10 +76,11 @@ module Knockapi
       # @see Knockapi::Models::TenantGetParams
       def get(id, params = {})
         parsed, options = Knockapi::TenantGetParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/tenants/%1$s", id],
-          query: parsed,
+          query: query,
           model: Knockapi::Tenant,
           options: options
         )
@@ -108,12 +110,13 @@ module Knockapi
       #
       # @see Knockapi::Models::TenantSetParams
       def set(id, params = {})
-        parsed, options = Knockapi::TenantSetParams.dump_request(params)
         query_params = [:resolve_full_preference_settings]
+        parsed, options = Knockapi::TenantSetParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed.slice(*query_params))
         @client.request(
           method: :put,
           path: ["v1/tenants/%1$s", id],
-          query: parsed.slice(*query_params),
+          query: query,
           body: parsed.except(*query_params),
           model: Knockapi::Tenant,
           options: options

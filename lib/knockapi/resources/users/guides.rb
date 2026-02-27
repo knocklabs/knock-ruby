@@ -25,10 +25,11 @@ module Knockapi
         # @see Knockapi::Models::Users::GuideGetChannelParams
         def get_channel(user_id, channel_id, params = {})
           parsed, options = Knockapi::Users::GuideGetChannelParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["v1/users/%1$s/guides/%2$s", user_id, channel_id],
-            query: parsed,
+            query: query,
             model: Knockapi::Models::Users::GuideGetChannelResponse,
             options: options
           )

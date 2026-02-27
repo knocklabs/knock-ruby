@@ -77,10 +77,11 @@ module Knockapi
       # @see Knockapi::Models::UserListParams
       def list(params = {})
         parsed, options = Knockapi::UserListParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "v1/users",
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::User,
           options: options
@@ -167,10 +168,11 @@ module Knockapi
       # @see Knockapi::Models::UserGetPreferencesParams
       def get_preferences(user_id, id, params = {})
         parsed, options = Knockapi::UserGetPreferencesParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/users/%1$s/preferences/%2$s", user_id, id],
-          query: parsed,
+          query: query,
           model: Knockapi::Recipients::PreferenceSet,
           options: options
         )
@@ -222,10 +224,11 @@ module Knockapi
       # @see Knockapi::Models::UserListMessagesParams
       def list_messages(user_id, params = {})
         parsed, options = Knockapi::UserListMessagesParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/users/%1$s/messages", user_id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Message,
           options: options
@@ -275,10 +278,11 @@ module Knockapi
       # @see Knockapi::Models::UserListSchedulesParams
       def list_schedules(user_id, params = {})
         parsed, options = Knockapi::UserListSchedulesParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/users/%1$s/schedules", user_id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Schedule,
           options: options
@@ -309,10 +313,11 @@ module Knockapi
       # @see Knockapi::Models::UserListSubscriptionsParams
       def list_subscriptions(user_id, params = {})
         parsed, options = Knockapi::UserListSubscriptionsParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/users/%1$s/subscriptions", user_id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Recipients::Subscription,
           options: options
