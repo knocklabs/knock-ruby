@@ -88,12 +88,6 @@ module Knockapi
           #   @return [String, nil]
           optional :channel_id, String
 
-          # @!attribute dashboard_url
-          #   URL to this guide in the Knock dashboard
-          #
-          #   @return [String, nil]
-          optional :dashboard_url, String
-
           # @!attribute inserted_at
           #
           #   @return [Time, nil]
@@ -127,7 +121,7 @@ module Knockapi
           #   @return [Time, nil]
           optional :updated_at, Time
 
-          # @!method initialize(id: nil, _typename: nil, activation_url_patterns: nil, activation_url_rules: nil, active: nil, bypass_global_group_limit: nil, channel_id: nil, dashboard_url: nil, inserted_at: nil, key: nil, semver: nil, steps: nil, type: nil, updated_at: nil)
+          # @!method initialize(id: nil, _typename: nil, activation_url_patterns: nil, activation_url_rules: nil, active: nil, bypass_global_group_limit: nil, channel_id: nil, inserted_at: nil, key: nil, semver: nil, steps: nil, type: nil, updated_at: nil)
           #   Some parameter documentations has been truncated, see
           #   {Knockapi::Models::Users::GuideGetChannelResponse::Entry} for more details.
           #
@@ -144,8 +138,6 @@ module Knockapi
           #   @param bypass_global_group_limit [Boolean]
           #
           #   @param channel_id [String]
-          #
-          #   @param dashboard_url [String] URL to this guide in the Knock dashboard
           #
           #   @param inserted_at [Time]
           #
