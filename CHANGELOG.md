@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.33.0 (2026-03-03)
+
+Full Changelog: [v1.32.1...v1.33.0](https://github.com/knocklabs/knock-ruby/compare/v1.32.1...v1.33.0)
+
+### Features
+
+* **api:** api update ([7ba6675](https://github.com/knocklabs/knock-ruby/commit/7ba667550ffe7a071924b835e6f7bbb735dc93ad))
+* **api:** api update ([9a5227f](https://github.com/knocklabs/knock-ruby/commit/9a5227feaac4df242717be5e3704e4e327783250))
+
+
+### Bug Fixes
+
+* **client:** serialize query parameters properly ([0a76966](https://github.com/knocklabs/knock-ruby/commit/0a7696661973ba7e4f461be1bda646a3654a955a))
+
+
+### Chores
+
+* **ci:** add build step ([979140d](https://github.com/knocklabs/knock-ruby/commit/979140db56dabc14ead8dd64cee25c12c38f8c40))
+* **docs:** add missing descriptions ([d1d2610](https://github.com/knocklabs/knock-ruby/commit/d1d26104b361735f37a9739d676e350d088f27b8))
+
 ## 1.32.1 (2026-02-26)
 
 Full Changelog: [v1.32.0...v1.32.1](https://github.com/knocklabs/knock-ruby/compare/v1.32.0...v1.32.1)
