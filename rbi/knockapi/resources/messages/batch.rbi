@@ -3,6 +3,7 @@
 module Knockapi
   module Resources
     class Messages
+      # A message sent to a single recipient on a channel.
       class Batch
         # Marks the given messages as archived. Archived messages are hidden from the
         # default message list in the feed but can still be accessed and unarchived later.

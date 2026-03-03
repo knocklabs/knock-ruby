@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Objects
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       class Bulk
         # Bulk deletes objects from the specified collection.
         #

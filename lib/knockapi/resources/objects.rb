@@ -2,7 +2,10 @@
 
 module Knockapi
   module Resources
+    # An object represents a resource in your system that you want to map into Knock.
     class Objects
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       # @return [Knockapi::Resources::Objects::Bulk]
       attr_reader :bulk
 
@@ -28,10 +31,11 @@ module Knockapi
       # @see Knockapi::Models::ObjectListParams
       def list(collection, params = {})
         parsed, options = Knockapi::ObjectListParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/objects/%1$s", collection],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Object,
           options: options
@@ -244,10 +248,11 @@ module Knockapi
       # @see Knockapi::Models::ObjectListMessagesParams
       def list_messages(collection, id, params = {})
         parsed, options = Knockapi::ObjectListMessagesParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/objects/%1$s/%2$s/messages", collection, id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Message,
           options: options
@@ -301,10 +306,11 @@ module Knockapi
       # @see Knockapi::Models::ObjectListSchedulesParams
       def list_schedules(collection, id, params = {})
         parsed, options = Knockapi::ObjectListSchedulesParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/objects/%1$s/%2$s/schedules", collection, id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Schedule,
           options: options
@@ -345,10 +351,11 @@ module Knockapi
       # @see Knockapi::Models::ObjectListSubscriptionsParams
       def list_subscriptions(collection, object_id_, params = {})
         parsed, options = Knockapi::ObjectListSubscriptionsParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/objects/%1$s/%2$s/subscriptions", collection, object_id_],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Recipients::Subscription,
           options: options

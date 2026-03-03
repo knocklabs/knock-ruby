@@ -2,6 +2,7 @@
 
 module Knockapi
   module Resources
+    # An Audience is a segment of users.
     class Audiences
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::AudienceAddMembersParams} for more details.
@@ -22,12 +23,13 @@ module Knockapi
       #
       # @see Knockapi::Models::AudienceAddMembersParams
       def add_members(key, params)
-        parsed, options = Knockapi::AudienceAddMembersParams.dump_request(params)
         query_params = [:create_audience]
+        parsed, options = Knockapi::AudienceAddMembersParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed.slice(*query_params))
         @client.request(
           method: :post,
           path: ["v1/audiences/%1$s/members", key],
-          query: parsed.slice(*query_params),
+          query: query,
           body: parsed.except(*query_params),
           model: NilClass,
           options: options

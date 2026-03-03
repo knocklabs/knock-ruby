@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Schedules
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       class Bulk
         # Bulk creates up to 1,000 schedules at a time. This endpoint also handles
         # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)

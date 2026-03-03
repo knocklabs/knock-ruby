@@ -3,6 +3,7 @@
 module Knockapi
   module Resources
     class Messages
+      # A message sent to a single recipient on a channel.
       class Batch
         # Marks the given messages as archived. Archived messages are hidden from the
         # default message list in the feed but can still be accessed and unarchived later.
@@ -40,10 +41,11 @@ module Knockapi
         # @see Knockapi::Models::Messages::BatchGetContentParams
         def get_content(params)
           parsed, options = Knockapi::Messages::BatchGetContentParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: "v1/messages/batch/content",
-            query: parsed,
+            query: query,
             model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem],
             options: options
           )

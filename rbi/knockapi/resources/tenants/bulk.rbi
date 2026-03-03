@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Tenants
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       class Bulk
         # Delete up to 1,000 tenants at a time in a single operation. This operation
         # cannot be undone.

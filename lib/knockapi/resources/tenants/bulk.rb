@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Tenants
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       class Bulk
         # Delete up to 1,000 tenants at a time in a single operation. This operation
         # cannot be undone.
@@ -18,10 +20,11 @@ module Knockapi
         # @see Knockapi::Models::Tenants::BulkDeleteParams
         def delete(params)
           parsed, options = Knockapi::Tenants::BulkDeleteParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :post,
             path: "v1/tenants/bulk/delete",
-            query: parsed,
+            query: query,
             model: Knockapi::BulkOperation,
             options: options
           )

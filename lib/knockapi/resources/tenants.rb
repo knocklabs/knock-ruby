@@ -2,7 +2,11 @@
 
 module Knockapi
   module Resources
+    # A tenant represents a top-level entity from your system, like a company,
+    # organization, account, or workspace.
     class Tenants
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       # @return [Knockapi::Resources::Tenants::Bulk]
       attr_reader :bulk
 
@@ -27,10 +31,11 @@ module Knockapi
       # @see Knockapi::Models::TenantListParams
       def list(params = {})
         parsed, options = Knockapi::TenantListParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "v1/tenants",
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Tenant,
           options: options
@@ -75,10 +80,11 @@ module Knockapi
       # @see Knockapi::Models::TenantGetParams
       def get(id, params = {})
         parsed, options = Knockapi::TenantGetParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/tenants/%1$s", id],
-          query: parsed,
+          query: query,
           model: Knockapi::Tenant,
           options: options
         )
@@ -108,12 +114,13 @@ module Knockapi
       #
       # @see Knockapi::Models::TenantSetParams
       def set(id, params = {})
-        parsed, options = Knockapi::TenantSetParams.dump_request(params)
         query_params = [:resolve_full_preference_settings]
+        parsed, options = Knockapi::TenantSetParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed.slice(*query_params))
         @client.request(
           method: :put,
           path: ["v1/tenants/%1$s", id],
-          query: parsed.slice(*query_params),
+          query: query,
           body: parsed.except(*query_params),
           model: Knockapi::Tenant,
           options: options

@@ -3,6 +3,8 @@
 module Knockapi
   module Resources
     class Providers
+      # A provider represents a third-party service that Knock integrates with and is
+      # configured via a channel.
       class Slack
         # Check if a Slack channel is authenticated.
         #
@@ -19,10 +21,11 @@ module Knockapi
         # @see Knockapi::Models::Providers::SlackCheckAuthParams
         def check_auth(channel_id, params)
           parsed, options = Knockapi::Providers::SlackCheckAuthParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["v1/providers/slack/%1$s/auth_check", channel_id],
-            query: parsed,
+            query: query,
             model: Knockapi::Models::Providers::SlackCheckAuthResponse,
             options: options
           )
@@ -45,10 +48,11 @@ module Knockapi
         # @see Knockapi::Models::Providers::SlackListChannelsParams
         def list_channels(channel_id, params)
           parsed, options = Knockapi::Providers::SlackListChannelsParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["v1/providers/slack/%1$s/channels", channel_id],
-            query: parsed,
+            query: query,
             page: Knockapi::Internal::SlackChannelsCursor,
             model: Knockapi::Models::Providers::SlackListChannelsResponse,
             options: options
@@ -70,10 +74,11 @@ module Knockapi
         # @see Knockapi::Models::Providers::SlackRevokeAccessParams
         def revoke_access(channel_id, params)
           parsed, options = Knockapi::Providers::SlackRevokeAccessParams.dump_request(params)
+          query = Knockapi::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :put,
             path: ["v1/providers/slack/%1$s/revoke_access", channel_id],
-            query: parsed,
+            query: query,
             model: Knockapi::Models::Providers::SlackRevokeAccessResponse,
             options: options
           )

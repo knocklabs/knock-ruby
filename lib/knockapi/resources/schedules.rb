@@ -2,7 +2,11 @@
 
 module Knockapi
   module Resources
+    # A schedule is a per-recipient, timezone-aware configuration for when to invoke a
+    # workflow.
     class Schedules
+      # A bulk operation is a set of changes applied across zero or more records
+      # triggered via a call to the Knock API and performed asynchronously.
       # @return [Knockapi::Resources::Schedules::Bulk]
       attr_reader :bulk
 
@@ -114,10 +118,11 @@ module Knockapi
       # @see Knockapi::Models::ScheduleListParams
       def list(params)
         parsed, options = Knockapi::ScheduleListParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "v1/schedules",
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::EntriesCursor,
           model: Knockapi::Schedule,
           options: options

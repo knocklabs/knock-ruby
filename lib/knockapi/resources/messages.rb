@@ -2,7 +2,9 @@
 
 module Knockapi
   module Resources
+    # A message sent to a single recipient on a channel.
     class Messages
+      # A message sent to a single recipient on a channel.
       # @return [Knockapi::Resources::Messages::Batch]
       attr_reader :batch
 
@@ -48,10 +50,11 @@ module Knockapi
       # @see Knockapi::Models::MessageListParams
       def list(params = {})
         parsed, options = Knockapi::MessageListParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "v1/messages",
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Message,
           options: options
@@ -141,10 +144,11 @@ module Knockapi
       # @see Knockapi::Models::MessageListActivitiesParams
       def list_activities(message_id, params = {})
         parsed, options = Knockapi::MessageListActivitiesParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s/activities", message_id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::Activity,
           options: options
@@ -170,10 +174,11 @@ module Knockapi
       # @see Knockapi::Models::MessageListDeliveryLogsParams
       def list_delivery_logs(message_id, params = {})
         parsed, options = Knockapi::MessageListDeliveryLogsParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s/delivery_logs", message_id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::MessageDeliveryLog,
           options: options
@@ -199,10 +204,11 @@ module Knockapi
       # @see Knockapi::Models::MessageListEventsParams
       def list_events(message_id, params = {})
         parsed, options = Knockapi::MessageListEventsParams.dump_request(params)
+        query = Knockapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s/events", message_id],
-          query: parsed,
+          query: query,
           page: Knockapi::Internal::ItemsCursor,
           model: Knockapi::MessageEvent,
           options: options
