@@ -11,15 +11,31 @@ module Knockapi
           T.any(Knockapi::ObjectGetParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :collection
+
+      sig { returns(String) }
+      attr_accessor :id
+
       sig do
-        params(request_options: Knockapi::RequestOptions::OrHash).returns(
-          T.attached_class
-        )
+        params(
+          collection: String,
+          id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(request_options: {})
+      def self.new(collection:, id:, request_options: {})
       end
 
-      sig { override.returns({ request_options: Knockapi::RequestOptions }) }
+      sig do
+        override.returns(
+          {
+            collection: String,
+            id: String,
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
       def to_hash
       end
     end

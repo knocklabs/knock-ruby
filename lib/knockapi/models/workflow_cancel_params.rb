@@ -7,6 +7,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute key
+      #
+      #   @return [String]
+      required :key, String
+
       # @!attribute cancellation_key
       #   An optional key that is used to reference a specific workflow trigger request
       #   when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
@@ -26,9 +31,11 @@ module Knockapi
                -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference] },
                nil?: true
 
-      # @!method initialize(cancellation_key:, recipients: nil, request_options: {})
+      # @!method initialize(key:, cancellation_key:, recipients: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::WorkflowCancelParams} for more details.
+      #
+      #   @param key [String]
       #
       #   @param cancellation_key [String] An optional key that is used to reference a specific workflow trigger request wh
       #

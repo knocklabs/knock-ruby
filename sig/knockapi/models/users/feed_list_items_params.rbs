@@ -3,6 +3,8 @@ module Knockapi
     module Users
       type feed_list_items_params =
         {
+          user_id: String,
+          id: String,
           after: String,
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,
@@ -23,6 +25,10 @@ module Knockapi
       class FeedListItemsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor user_id: String
+
+        attr_accessor id: String
 
         attr_reader after: String?
 
@@ -89,6 +95,8 @@ module Knockapi
         def workflow_categories=: (::Array[String]) -> ::Array[String]
 
         def initialize: (
+          user_id: String,
+          id: String,
           ?after: String,
           ?archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           ?before: String,
@@ -107,6 +115,8 @@ module Knockapi
         ) -> void
 
         def to_hash: -> {
+          user_id: String,
+          id: String,
           after: String,
           archived: Knockapi::Models::Users::FeedListItemsParams::archived,
           before: String,

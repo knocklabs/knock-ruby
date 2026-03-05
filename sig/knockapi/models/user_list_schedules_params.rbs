@@ -2,6 +2,7 @@ module Knockapi
   module Models
     type user_list_schedules_params =
       {
+        user_id: String,
         after: String,
         before: String,
         page_size: Integer,
@@ -13,6 +14,8 @@ module Knockapi
     class UserListSchedulesParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor user_id: String
 
       attr_reader after: String?
 
@@ -35,6 +38,7 @@ module Knockapi
       def workflow=: (String) -> String
 
       def initialize: (
+        user_id: String,
         ?after: String,
         ?before: String,
         ?page_size: Integer,
@@ -44,6 +48,7 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        user_id: String,
         after: String,
         before: String,
         page_size: Integer,

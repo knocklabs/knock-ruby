@@ -14,6 +14,9 @@ module Knockapi
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :message_id
+
       # Metadata about the interaction.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_reader :metadata
@@ -23,11 +26,13 @@ module Knockapi
 
       sig do
         params(
+          message_id: String,
           metadata: T::Hash[Symbol, T.anything],
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        message_id:,
         # Metadata about the interaction.
         metadata: nil,
         request_options: {}
@@ -37,6 +42,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            message_id: String,
             metadata: T::Hash[Symbol, T.anything],
             request_options: Knockapi::RequestOptions
           }

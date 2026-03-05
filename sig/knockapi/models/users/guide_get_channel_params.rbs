@@ -2,12 +2,22 @@ module Knockapi
   module Models
     module Users
       type guide_get_channel_params =
-        { data: String, tenant: String, type: String }
+        {
+          user_id: String,
+          channel_id: String,
+          data: String,
+          tenant: String,
+          type: String
+        }
         & Knockapi::Internal::Type::request_parameters
 
       class GuideGetChannelParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor user_id: String
+
+        attr_accessor channel_id: String
 
         attr_reader data: String?
 
@@ -22,6 +32,8 @@ module Knockapi
         def type=: (String) -> String
 
         def initialize: (
+          user_id: String,
+          channel_id: String,
           ?data: String,
           ?tenant: String,
           ?type: String,
@@ -29,6 +41,8 @@ module Knockapi
         ) -> void
 
         def to_hash: -> {
+          user_id: String,
+          channel_id: String,
           data: String,
           tenant: String,
           type: String,

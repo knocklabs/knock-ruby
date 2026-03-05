@@ -8,6 +8,16 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute user_id
+        #
+        #   @return [String]
+        required :user_id, String
+
+        # @!attribute message_id
+        #
+        #   @return [String]
+        required :message_id, String
+
         # @!attribute channel_id
         #   The unique identifier for the channel.
         #
@@ -62,7 +72,11 @@ module Knockapi
         #   @return [String, nil]
         optional :tenant, String, nil?: true
 
-        # @!method initialize(channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
+        # @!method initialize(user_id:, message_id:, channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
+        #   @param user_id [String]
+        #
+        #   @param message_id [String]
+        #
         #   @param channel_id [String] The unique identifier for the channel.
         #
         #   @param guide_id [String] The unique identifier for the guide.

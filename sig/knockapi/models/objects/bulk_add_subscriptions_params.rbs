@@ -3,6 +3,7 @@ module Knockapi
     module Objects
       type bulk_add_subscriptions_params =
         {
+          collection: String,
           subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription]
         }
         & Knockapi::Internal::Type::request_parameters
@@ -11,14 +12,18 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        attr_accessor collection: String
+
         attr_accessor subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription]
 
         def initialize: (
+          collection: String,
           subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription],
           ?request_options: Knockapi::request_opts
         ) -> void
 
         def to_hash: -> {
+          collection: String,
           subscriptions: ::Array[Knockapi::Objects::BulkAddSubscriptionsParams::Subscription],
           request_options: Knockapi::RequestOptions
         }

@@ -11,6 +11,9 @@ module Knockapi
           T.any(Knockapi::ObjectListParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :collection
+
       # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
@@ -49,6 +52,7 @@ module Knockapi
 
       sig do
         params(
+          collection: String,
           after: String,
           before: String,
           include: T::Array[Knockapi::ObjectListParams::Include::OrSymbol],
@@ -57,6 +61,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
+        collection:,
         # The cursor to fetch entries after.
         after: nil,
         # The cursor to fetch entries before.
@@ -72,6 +77,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            collection: String,
             after: String,
             before: String,
             include: T::Array[Knockapi::ObjectListParams::Include::OrSymbol],

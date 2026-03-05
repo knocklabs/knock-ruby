@@ -1,12 +1,14 @@
 module Knockapi
   module Models
     type message_list_delivery_logs_params =
-      { after: String, before: String, page_size: Integer }
+      { message_id: String, after: String, before: String, page_size: Integer }
       & Knockapi::Internal::Type::request_parameters
 
     class MessageListDeliveryLogsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor message_id: String
 
       attr_reader after: String?
 
@@ -21,6 +23,7 @@ module Knockapi
       def page_size=: (Integer) -> Integer
 
       def initialize: (
+        message_id: String,
         ?after: String,
         ?before: String,
         ?page_size: Integer,
@@ -28,6 +31,7 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        message_id: String,
         after: String,
         before: String,
         page_size: Integer,

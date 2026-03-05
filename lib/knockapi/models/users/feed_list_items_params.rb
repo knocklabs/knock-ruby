@@ -8,6 +8,16 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute user_id
+        #
+        #   @return [String]
+        required :user_id, String
+
+        # @!attribute id
+        #
+        #   @return [String]
+        required :id, String
+
         # @!attribute after
         #   The cursor to fetch entries after.
         #
@@ -99,9 +109,13 @@ module Knockapi
         #   @return [Array<String>, nil]
         optional :workflow_categories, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, inserted_at: nil, locale: nil, mode: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
+        # @!method initialize(user_id:, id:, after: nil, archived: nil, before: nil, exclude: nil, has_tenant: nil, inserted_at: nil, locale: nil, mode: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Users::FeedListItemsParams} for more details.
+        #
+        #   @param user_id [String]
+        #
+        #   @param id [String]
         #
         #   @param after [String] The cursor to fetch entries after.
         #

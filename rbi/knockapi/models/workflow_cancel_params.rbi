@@ -11,6 +11,9 @@ module Knockapi
           T.any(Knockapi::WorkflowCancelParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :key
+
       # An optional key that is used to reference a specific workflow trigger request
       # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
       # request. Must be provided while triggering a workflow in order to enable
@@ -34,6 +37,7 @@ module Knockapi
 
       sig do
         params(
+          key: String,
           cancellation_key: String,
           recipients:
             T.nilable(
@@ -48,6 +52,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
+        key:,
         # An optional key that is used to reference a specific workflow trigger request
         # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
         # request. Must be provided while triggering a workflow in order to enable
@@ -64,6 +69,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            key: String,
             cancellation_key: String,
             recipients:
               T.nilable(

@@ -8,6 +8,11 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute collection
+        #
+        #   @return [String]
+        required :collection, String
+
         # @!attribute subscriptions
         #   A nested list of subscriptions.
         #
@@ -15,7 +20,9 @@ module Knockapi
         required :subscriptions,
                  -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Objects::BulkDeleteSubscriptionsParams::Subscription] }
 
-        # @!method initialize(subscriptions:, request_options: {})
+        # @!method initialize(collection:, subscriptions:, request_options: {})
+        #   @param collection [String]
+        #
         #   @param subscriptions [Array<Knockapi::Models::Objects::BulkDeleteSubscriptionsParams::Subscription>] A nested list of subscriptions.
         #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]

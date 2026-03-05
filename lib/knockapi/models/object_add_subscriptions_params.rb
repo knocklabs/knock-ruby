@@ -7,6 +7,16 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute collection
+      #
+      #   @return [String]
+      required :collection, String
+
+      # @!attribute object_id_
+      #
+      #   @return [String]
+      required :object_id_, String
+
       # @!attribute recipients
       #   The recipients of the subscription. You can subscribe up to 100 recipients to an
       #   object at a time.
@@ -20,9 +30,13 @@ module Knockapi
       #   @return [Hash{Symbol=>Object}, nil]
       optional :properties, Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown], nil?: true
 
-      # @!method initialize(recipients:, properties: nil, request_options: {})
+      # @!method initialize(collection:, object_id_:, recipients:, properties: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ObjectAddSubscriptionsParams} for more details.
+      #
+      #   @param collection [String]
+      #
+      #   @param object_id_ [String]
       #
       #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients of the subscription. You can subscribe up to 100 recipients to an
       #

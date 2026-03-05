@@ -2,6 +2,7 @@ module Knockapi
   module Models
     type user_list_subscriptions_params =
       {
+        user_id: String,
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
@@ -13,6 +14,8 @@ module Knockapi
     class UserListSubscriptionsParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor user_id: String
 
       attr_reader after: String?
 
@@ -39,6 +42,7 @@ module Knockapi
       def page_size=: (Integer) -> Integer
 
       def initialize: (
+        user_id: String,
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],
@@ -48,6 +52,7 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        user_id: String,
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::UserListSubscriptionsParams::include_],

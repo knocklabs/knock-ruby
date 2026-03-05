@@ -3,6 +3,7 @@ module Knockapi
     module Providers
       type ms_team_list_channels_params =
         {
+          channel_id: String,
           ms_teams_tenant_object: String,
           team_id: String,
           query_options: Knockapi::Providers::MsTeamListChannelsParams::QueryOptions
@@ -12,6 +13,8 @@ module Knockapi
       class MsTeamListChannelsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor channel_id: String
 
         attr_accessor ms_teams_tenant_object: String
 
@@ -24,6 +27,7 @@ module Knockapi
         ) -> Knockapi::Providers::MsTeamListChannelsParams::QueryOptions
 
         def initialize: (
+          channel_id: String,
           ms_teams_tenant_object: String,
           team_id: String,
           ?query_options: Knockapi::Providers::MsTeamListChannelsParams::QueryOptions,
@@ -31,6 +35,7 @@ module Knockapi
         ) -> void
 
         def to_hash: -> {
+          channel_id: String,
           ms_teams_tenant_object: String,
           team_id: String,
           query_options: Knockapi::Providers::MsTeamListChannelsParams::QueryOptions,
