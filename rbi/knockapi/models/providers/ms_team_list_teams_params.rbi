@@ -15,6 +15,9 @@ module Knockapi
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :channel_id
+
         # A JSON encoded string containing the Microsoft Teams tenant object reference.
         sig { returns(String) }
         attr_accessor :ms_teams_tenant_object
@@ -36,6 +39,7 @@ module Knockapi
 
         sig do
           params(
+            channel_id: String,
             ms_teams_tenant_object: String,
             query_options:
               Knockapi::Providers::MsTeamListTeamsParams::QueryOptions::OrHash,
@@ -43,6 +47,7 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
+          channel_id:,
           # A JSON encoded string containing the Microsoft Teams tenant object reference.
           ms_teams_tenant_object:,
           query_options: nil,
@@ -53,6 +58,7 @@ module Knockapi
         sig do
           override.returns(
             {
+              channel_id: String,
               ms_teams_tenant_object: String,
               query_options:
                 Knockapi::Providers::MsTeamListTeamsParams::QueryOptions,

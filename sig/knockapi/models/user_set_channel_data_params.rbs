@@ -1,15 +1,32 @@
 module Knockapi
   module Models
     type user_set_channel_data_params =
-      {  } & Knockapi::Internal::Type::request_parameters
+      { user_id: String, channel_id: String }
+      & Knockapi::Internal::Type::request_parameters
 
     class UserSetChannelDataParams < Knockapi::Models::Recipients::ChannelDataRequest
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      def initialize: (?request_options: Knockapi::request_opts) -> void
+      def user_id: -> String
 
-      def to_hash: -> { request_options: Knockapi::RequestOptions }
+      def user_id=: (String _) -> String
+
+      def channel_id: -> String
+
+      def channel_id=: (String _) -> String
+
+      def initialize: (
+        user_id: String,
+        channel_id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        user_id: String,
+        channel_id: String,
+        request_options: Knockapi::RequestOptions
+      }
     end
   end
 end

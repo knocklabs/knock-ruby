@@ -7,6 +7,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute user_id
+      #
+      #   @return [String]
+      required :user_id, String
+
       # @!attribute after
       #   The cursor to fetch entries after.
       #
@@ -95,9 +100,11 @@ module Knockapi
       #   @return [String, nil]
       optional :workflow_run_id, String
 
-      # @!method initialize(after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
+      # @!method initialize(user_id:, after: nil, before: nil, channel_id: nil, engagement_status: nil, inserted_at: nil, message_ids: nil, page_size: nil, source: nil, status: nil, tenant: nil, trigger_data: nil, workflow_categories: nil, workflow_recipient_run_id: nil, workflow_run_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::UserListMessagesParams} for more details.
+      #
+      #   @param user_id [String]
       #
       #   @param after [String] The cursor to fetch entries after.
       #

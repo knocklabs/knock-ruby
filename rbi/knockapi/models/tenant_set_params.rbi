@@ -11,6 +11,9 @@ module Knockapi
           T.any(Knockapi::TenantSetParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # When true, merges environment-level default preferences into the tenant's
       # `settings.preference_set` field before returning the response. Defaults to
       # false.
@@ -55,6 +58,7 @@ module Knockapi
 
       sig do
         params(
+          id: String,
           resolve_full_preference_settings: T::Boolean,
           channel_data:
             T.nilable(
@@ -78,6 +82,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # When true, merges environment-level default preferences into the tenant's
         # `settings.preference_set` field before returning the response. Defaults to
         # false.
@@ -95,6 +100,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            id: String,
             resolve_full_preference_settings: T::Boolean,
             channel_data:
               T.nilable(

@@ -7,7 +7,19 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      # @!method initialize(request_options: {})
+      # @!attribute collection
+      #
+      #   @return [String]
+      required :collection, String
+
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
+      # @!method initialize(collection:, id:, request_options: {})
+      #   @param collection [String]
+      #   @param id [String]
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

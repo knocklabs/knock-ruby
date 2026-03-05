@@ -2,6 +2,7 @@ module Knockapi
   module Models
     type workflow_cancel_params =
       {
+        key: String,
         cancellation_key: String,
         recipients: ::Array[Knockapi::Models::recipient_reference]?
       }
@@ -11,17 +12,21 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      attr_accessor key: String
+
       attr_accessor cancellation_key: String
 
       attr_accessor recipients: ::Array[Knockapi::Models::recipient_reference]?
 
       def initialize: (
+        key: String,
         cancellation_key: String,
         ?recipients: ::Array[Knockapi::Models::recipient_reference]?,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> {
+        key: String,
         cancellation_key: String,
         recipients: ::Array[Knockapi::Models::recipient_reference]?,
         request_options: Knockapi::RequestOptions

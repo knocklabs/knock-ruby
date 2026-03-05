@@ -15,6 +15,12 @@ module Knockapi
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :user_id
+
+        sig { returns(String) }
+        attr_accessor :channel_id
+
         # The data (JSON encoded object) to use for targeting and rendering guides.
         sig { returns(T.nilable(String)) }
         attr_reader :data
@@ -38,6 +44,8 @@ module Knockapi
 
         sig do
           params(
+            user_id: String,
+            channel_id: String,
             data: String,
             tenant: String,
             type: String,
@@ -45,6 +53,8 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
+          user_id:,
+          channel_id:,
           # The data (JSON encoded object) to use for targeting and rendering guides.
           data: nil,
           # The tenant ID to use for targeting and rendering guides.
@@ -58,6 +68,8 @@ module Knockapi
         sig do
           override.returns(
             {
+              user_id: String,
+              channel_id: String,
               data: String,
               tenant: String,
               type: String,

@@ -15,6 +15,9 @@ module Knockapi
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :channel_id
+
         # A JSON encoded string containing the access token object reference.
         sig { returns(String) }
         attr_accessor :access_token_object
@@ -38,6 +41,7 @@ module Knockapi
 
         sig do
           params(
+            channel_id: String,
             access_token_object: String,
             query_options:
               Knockapi::Providers::SlackListChannelsParams::QueryOptions::OrHash,
@@ -45,6 +49,7 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
+          channel_id:,
           # A JSON encoded string containing the access token object reference.
           access_token_object:,
           query_options: nil,
@@ -55,6 +60,7 @@ module Knockapi
         sig do
           override.returns(
             {
+              channel_id: String,
               access_token_object: String,
               query_options:
                 Knockapi::Providers::SlackListChannelsParams::QueryOptions,

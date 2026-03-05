@@ -15,17 +15,22 @@ module Knockapi
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :collection
+
         # List of object IDs to delete.
         sig { returns(T::Array[String]) }
         attr_accessor :object_ids
 
         sig do
           params(
+            collection: String,
             object_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
         def self.new(
+          collection:,
           # List of object IDs to delete.
           object_ids:,
           request_options: {}
@@ -35,6 +40,7 @@ module Knockapi
         sig do
           override.returns(
             {
+              collection: String,
               object_ids: T::Array[String],
               request_options: Knockapi::RequestOptions
             }

@@ -7,6 +7,16 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute collection
+      #
+      #   @return [String]
+      required :collection, String
+
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute channel_data
       #   A request to set channel data for a type of channel inline.
       #
@@ -44,9 +54,13 @@ module Knockapi
       #   @return [String, nil]
       optional :timezone, String, nil?: true
 
-      # @!method initialize(channel_data: nil, locale: nil, name: nil, preferences: nil, timezone: nil, request_options: {})
+      # @!method initialize(collection:, id:, channel_data: nil, locale: nil, name: nil, preferences: nil, timezone: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ObjectSetParams} for more details.
+      #
+      #   @param collection [String]
+      #
+      #   @param id [String]
       #
       #   @param channel_data [Hash{Symbol=>Knockapi::Models::Recipients::PushChannelDataTokensOnly, Knockapi::Models::Recipients::PushChannelDataDevicesOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataTargetArnsOnly, Knockapi::Models::Recipients::AwsSnsPushChannelDataDevicesOnly, Knockapi::Models::Recipients::OneSignalChannelDataPlayerIDsOnly, Knockapi::Models::Recipients::SlackChannelData, Knockapi::Models::Recipients::MsTeamsChannelData, Knockapi::Models::Recipients::DiscordChannelData}] A request to set channel data for a type of channel inline.
       #

@@ -3,6 +3,7 @@ module Knockapi
     module Providers
       type slack_list_channels_params =
         {
+          channel_id: String,
           access_token_object: String,
           query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions
         }
@@ -11,6 +12,8 @@ module Knockapi
       class SlackListChannelsParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor channel_id: String
 
         attr_accessor access_token_object: String
 
@@ -21,12 +24,14 @@ module Knockapi
         ) -> Knockapi::Providers::SlackListChannelsParams::QueryOptions
 
         def initialize: (
+          channel_id: String,
           access_token_object: String,
           ?query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions,
           ?request_options: Knockapi::request_opts
         ) -> void
 
         def to_hash: -> {
+          channel_id: String,
           access_token_object: String,
           query_options: Knockapi::Providers::SlackListChannelsParams::QueryOptions,
           request_options: Knockapi::RequestOptions

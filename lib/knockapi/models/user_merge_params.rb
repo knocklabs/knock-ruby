@@ -7,13 +7,20 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute user_id
+      #
+      #   @return [String]
+      required :user_id, String
+
       # @!attribute from_user_id
       #   The user ID to merge from.
       #
       #   @return [String]
       required :from_user_id, String
 
-      # @!method initialize(from_user_id:, request_options: {})
+      # @!method initialize(user_id:, from_user_id:, request_options: {})
+      #   @param user_id [String]
+      #
       #   @param from_user_id [String] The user ID to merge from.
       #
       #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]

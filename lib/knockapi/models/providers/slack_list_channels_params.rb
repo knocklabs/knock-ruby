@@ -8,6 +8,11 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute channel_id
+        #
+        #   @return [String]
+        required :channel_id, String
+
         # @!attribute access_token_object
         #   A JSON encoded string containing the access token object reference.
         #
@@ -19,7 +24,9 @@ module Knockapi
         #   @return [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions, nil]
         optional :query_options, -> { Knockapi::Providers::SlackListChannelsParams::QueryOptions }
 
-        # @!method initialize(access_token_object:, query_options: nil, request_options: {})
+        # @!method initialize(channel_id:, access_token_object:, query_options: nil, request_options: {})
+        #   @param channel_id [String]
+        #
         #   @param access_token_object [String] A JSON encoded string containing the access token object reference.
         #
         #   @param query_options [Knockapi::Models::Providers::SlackListChannelsParams::QueryOptions]

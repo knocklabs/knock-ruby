@@ -15,6 +15,9 @@ module Knockapi
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :collection
+
         # A nested list of subscriptions.
         sig do
           returns(
@@ -27,6 +30,7 @@ module Knockapi
 
         sig do
           params(
+            collection: String,
             subscriptions:
               T::Array[
                 Knockapi::Objects::BulkDeleteSubscriptionsParams::Subscription::OrHash
@@ -35,6 +39,7 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
+          collection:,
           # A nested list of subscriptions.
           subscriptions:,
           request_options: {}
@@ -44,6 +49,7 @@ module Knockapi
         sig do
           override.returns(
             {
+              collection: String,
               subscriptions:
                 T::Array[
                   Knockapi::Objects::BulkDeleteSubscriptionsParams::Subscription

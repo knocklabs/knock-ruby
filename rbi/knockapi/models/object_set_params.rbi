@@ -11,6 +11,12 @@ module Knockapi
           T.any(Knockapi::ObjectSetParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :collection
+
+      sig { returns(String) }
+      attr_accessor :id
+
       # A request to set channel data for a type of channel inline.
       sig do
         returns(
@@ -89,6 +95,8 @@ module Knockapi
 
       sig do
         params(
+          collection: String,
+          id: String,
           channel_data:
             T::Hash[
               Symbol,
@@ -112,6 +120,8 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
+        collection:,
+        id:,
         # A request to set channel data for a type of channel inline.
         channel_data: nil,
         # The locale of the object. Used for
@@ -135,6 +145,8 @@ module Knockapi
       sig do
         override.returns(
           {
+            collection: String,
+            id: String,
             channel_data:
               T::Hash[
                 Symbol,

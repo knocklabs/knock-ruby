@@ -1,15 +1,28 @@
 module Knockapi
   module Models
     type object_delete_params =
-      {  } & Knockapi::Internal::Type::request_parameters
+      { collection: String, id: String }
+      & Knockapi::Internal::Type::request_parameters
 
     class ObjectDeleteParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
-      def initialize: (?request_options: Knockapi::request_opts) -> void
+      attr_accessor collection: String
 
-      def to_hash: -> { request_options: Knockapi::RequestOptions }
+      attr_accessor id: String
+
+      def initialize: (
+        collection: String,
+        id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        collection: String,
+        id: String,
+        request_options: Knockapi::RequestOptions
+      }
     end
   end
 end

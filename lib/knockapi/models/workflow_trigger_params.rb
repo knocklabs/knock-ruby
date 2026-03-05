@@ -7,6 +7,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute key
+      #
+      #   @return [String]
+      required :key, String
+
       # @!attribute recipients
       #   The recipients to trigger the workflow for. Can inline identify users, objects,
       #   or use a list of user IDs. Limited to 1,000 recipients.
@@ -47,9 +52,11 @@ module Knockapi
       #   @return [String, Knockapi::Models::TenantRequest, nil]
       optional :tenant, union: -> { Knockapi::InlineTenantRequest }, nil?: true
 
-      # @!method initialize(recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {})
+      # @!method initialize(key:, recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::WorkflowTriggerParams} for more details.
+      #
+      #   @param key [String]
       #
       #   @param recipients [Array<String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest>] The recipients to trigger the workflow for. Can inline identify users, objects,
       #

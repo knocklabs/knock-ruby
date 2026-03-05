@@ -2,6 +2,8 @@ module Knockapi
   module Models
     type object_set_params =
       {
+        collection: String,
+        id: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         locale: String?,
         name: String?,
@@ -13,6 +15,10 @@ module Knockapi
     class ObjectSetParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor collection: String
+
+      attr_accessor id: String
 
       attr_reader channel_data: Knockapi::Models::Recipients::inline_channel_data_request?
 
@@ -33,6 +39,8 @@ module Knockapi
       attr_accessor timezone: String?
 
       def initialize: (
+        collection: String,
+        id: String,
         ?channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         ?locale: String?,
         ?name: String?,
@@ -42,6 +50,8 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        collection: String,
+        id: String,
         channel_data: Knockapi::Models::Recipients::inline_channel_data_request,
         locale: String?,
         name: String?,

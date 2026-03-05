@@ -11,6 +11,9 @@ module Knockapi
           T.any(Knockapi::AudienceAddMembersParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :key
+
       # A list of audience members to add. You can add up to 1,000 members per request.
       sig { returns(T::Array[Knockapi::AudienceAddMembersParams::Member]) }
       attr_accessor :members
@@ -24,12 +27,14 @@ module Knockapi
 
       sig do
         params(
+          key: String,
           members: T::Array[Knockapi::AudienceAddMembersParams::Member::OrHash],
           create_audience: T::Boolean,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        key:,
         # A list of audience members to add. You can add up to 1,000 members per request.
         members:,
         # Create the audience if it does not exist.
@@ -41,6 +46,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            key: String,
             members: T::Array[Knockapi::AudienceAddMembersParams::Member],
             create_audience: T::Boolean,
             request_options: Knockapi::RequestOptions

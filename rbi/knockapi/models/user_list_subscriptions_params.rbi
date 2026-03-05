@@ -14,6 +14,9 @@ module Knockapi
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :user_id
+
       # The cursor to fetch entries after.
       sig { returns(T.nilable(String)) }
       attr_reader :after
@@ -80,6 +83,7 @@ module Knockapi
 
       sig do
         params(
+          user_id: String,
           after: String,
           before: String,
           include:
@@ -96,6 +100,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
+        user_id:,
         # The cursor to fetch entries after.
         after: nil,
         # The cursor to fetch entries before.
@@ -113,6 +118,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            user_id: String,
             after: String,
             before: String,
             include:

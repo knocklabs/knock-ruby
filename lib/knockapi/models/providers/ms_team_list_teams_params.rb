@@ -8,6 +8,11 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute channel_id
+        #
+        #   @return [String]
+        required :channel_id, String
+
         # @!attribute ms_teams_tenant_object
         #   A JSON encoded string containing the Microsoft Teams tenant object reference.
         #
@@ -19,7 +24,9 @@ module Knockapi
         #   @return [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions, nil]
         optional :query_options, -> { Knockapi::Providers::MsTeamListTeamsParams::QueryOptions }
 
-        # @!method initialize(ms_teams_tenant_object:, query_options: nil, request_options: {})
+        # @!method initialize(channel_id:, ms_teams_tenant_object:, query_options: nil, request_options: {})
+        #   @param channel_id [String]
+        #
         #   @param ms_teams_tenant_object [String] A JSON encoded string containing the Microsoft Teams tenant object reference.
         #
         #   @param query_options [Knockapi::Models::Providers::MsTeamListTeamsParams::QueryOptions]

@@ -14,15 +14,31 @@ module Knockapi
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :collection
+
+      sig { returns(String) }
+      attr_accessor :object_id_
+
       sig do
-        params(request_options: Knockapi::RequestOptions::OrHash).returns(
-          T.attached_class
-        )
+        params(
+          collection: String,
+          object_id_: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(request_options: {})
+      def self.new(collection:, object_id_:, request_options: {})
       end
 
-      sig { override.returns({ request_options: Knockapi::RequestOptions }) }
+      sig do
+        override.returns(
+          {
+            collection: String,
+            object_id_: String,
+            request_options: Knockapi::RequestOptions
+          }
+        )
+      end
       def to_hash
       end
     end

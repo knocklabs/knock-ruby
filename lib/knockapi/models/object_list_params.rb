@@ -7,6 +7,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute collection
+      #
+      #   @return [String]
+      required :collection, String
+
       # @!attribute after
       #   The cursor to fetch entries after.
       #
@@ -31,7 +36,9 @@ module Knockapi
       #   @return [Integer, nil]
       optional :page_size, Integer
 
-      # @!method initialize(after: nil, before: nil, include: nil, page_size: nil, request_options: {})
+      # @!method initialize(collection:, after: nil, before: nil, include: nil, page_size: nil, request_options: {})
+      #   @param collection [String]
+      #
       #   @param after [String] The cursor to fetch entries after.
       #
       #   @param before [String] The cursor to fetch entries before.
