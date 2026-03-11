@@ -56,7 +56,6 @@ module Knockapi
         IS_TIMESTAMP_ON_OR_AFTER_DATE = :is_timestamp_on_or_after_date
         IS_TIMESTAMP_BEFORE_DATE = :is_timestamp_before_date
         IS_TIMESTAMP_BETWEEN = :is_timestamp_between
-        IS_BETWEEN = :is_between
         IS_AUDIENCE_MEMBER = :is_audience_member
         IS_NOT_AUDIENCE_MEMBER = :is_not_audience_member
 
