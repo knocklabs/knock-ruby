@@ -113,8 +113,6 @@ module Knockapi
             :is_timestamp_between,
             Knockapi::Condition::Operator::TaggedSymbol
           )
-        IS_BETWEEN =
-          T.let(:is_between, Knockapi::Condition::Operator::TaggedSymbol)
         IS_AUDIENCE_MEMBER =
           T.let(
             :is_audience_member,
