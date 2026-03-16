@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.34.0 (2026-03-16)
+
+Full Changelog: [v1.33.0...v1.34.0](https://github.com/knocklabs/knock-ruby/compare/v1.33.0...v1.34.0)
+
+### Features
+
+* **api:** api update ([8f572c6](https://github.com/knocklabs/knock-ruby/commit/8f572c6bb0d7deb1d20a1abe3924f1e95f21ca2d))
+* **api:** api update ([5232e1e](https://github.com/knocklabs/knock-ruby/commit/5232e1edcd1da902db9b04aff3fbb0cfae0bed90))
+* **api:** api update ([765390c](https://github.com/knocklabs/knock-ruby/commit/765390cceb4a9137a3faaa4604c9f8ab5ce78a20))
+* **api:** api update ([e83aaa6](https://github.com/knocklabs/knock-ruby/commit/e83aaa66f6fdee79b306af01052869185625d468))
+* **api:** api update ([8cfb413](https://github.com/knocklabs/knock-ruby/commit/8cfb4139f35be6b9c98e9544deda42736253c40f))
+
+
+### Bug Fixes
+
+* **client:** add types for path params, and update structure of unions nested in params ([dafc84b](https://github.com/knocklabs/knock-ruby/commit/dafc84b3aa4176307137891ac55f41d025e32ffc))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([62439f6](https://github.com/knocklabs/knock-ruby/commit/62439f62236289d132c653ee23fc832a1a78b13b))
+* **internal:** tweak CI branches ([319abd4](https://github.com/knocklabs/knock-ruby/commit/319abd497feab9f1a4a12be7ef58e6f9ea513b8c))
+* **test:** do not count install time for mock server timeout ([f6dd487](https://github.com/knocklabs/knock-ruby/commit/f6dd487a2952bf560de7373eed043173debc2529))
+
 ## 1.33.0 (2026-03-03)
 
 Full Changelog: [v1.32.1...v1.33.0](https://github.com/knocklabs/knock-ruby/compare/v1.32.1...v1.33.0)
