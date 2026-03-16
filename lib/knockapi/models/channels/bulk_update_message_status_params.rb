@@ -8,6 +8,16 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute channel_id
+        #
+        #   @return [String]
+        required :channel_id, String
+
+        # @!attribute action
+        #
+        #   @return [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action]
+        required :action, enum: -> { Knockapi::Channels::BulkUpdateMessageStatusParams::Action }
+
         # @!attribute archived
         #   Limits the results to messages with the given archived status.
         #
@@ -71,9 +81,13 @@ module Knockapi
         #   @return [Array<String>, nil]
         optional :workflows, Knockapi::Internal::Type::ArrayOf[String]
 
-        # @!method initialize(archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
+        # @!method initialize(channel_id:, action:, archived: nil, delivery_status: nil, engagement_status: nil, has_tenant: nil, newer_than: nil, older_than: nil, recipient_ids: nil, tenants: nil, trigger_data: nil, workflows: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Channels::BulkUpdateMessageStatusParams} for more details.
+        #
+        #   @param channel_id [String]
+        #
+        #   @param action [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Action]
         #
         #   @param archived [Symbol, Knockapi::Models::Channels::BulkUpdateMessageStatusParams::Archived] Limits the results to messages with the given archived status.
         #

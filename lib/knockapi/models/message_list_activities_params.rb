@@ -7,6 +7,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute message_id
+      #
+      #   @return [String]
+      required :message_id, String
+
       # @!attribute after
       #   The cursor to fetch entries after.
       #
@@ -31,7 +36,9 @@ module Knockapi
       #   @return [String, nil]
       optional :trigger_data, String
 
-      # @!method initialize(after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
+      # @!method initialize(message_id:, after: nil, before: nil, page_size: nil, trigger_data: nil, request_options: {})
+      #   @param message_id [String]
+      #
       #   @param after [String] The cursor to fetch entries after.
       #
       #   @param before [String] The cursor to fetch entries before.

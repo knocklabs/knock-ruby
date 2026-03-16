@@ -11,17 +11,22 @@ module Knockapi
           T.any(Knockapi::UserMergeParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :user_id
+
       # The user ID to merge from.
       sig { returns(String) }
       attr_accessor :from_user_id
 
       sig do
         params(
+          user_id: String,
           from_user_id: String,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        user_id:,
         # The user ID to merge from.
         from_user_id:,
         request_options: {}
@@ -30,7 +35,11 @@ module Knockapi
 
       sig do
         override.returns(
-          { from_user_id: String, request_options: Knockapi::RequestOptions }
+          {
+            user_id: String,
+            from_user_id: String,
+            request_options: Knockapi::RequestOptions
+          }
         )
       end
       def to_hash

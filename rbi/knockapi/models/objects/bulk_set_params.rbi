@@ -12,17 +12,22 @@ module Knockapi
             T.any(Knockapi::Objects::BulkSetParams, Knockapi::Internal::AnyHash)
           end
 
+        sig { returns(String) }
+        attr_accessor :collection
+
         # A list of objects.
         sig { returns(T::Array[Knockapi::Objects::BulkSetParams::Object]) }
         attr_accessor :objects
 
         sig do
           params(
+            collection: String,
             objects: T::Array[Knockapi::Objects::BulkSetParams::Object::OrHash],
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
         def self.new(
+          collection:,
           # A list of objects.
           objects:,
           request_options: {}
@@ -32,6 +37,7 @@ module Knockapi
         sig do
           override.returns(
             {
+              collection: String,
               objects: T::Array[Knockapi::Objects::BulkSetParams::Object],
               request_options: Knockapi::RequestOptions
             }

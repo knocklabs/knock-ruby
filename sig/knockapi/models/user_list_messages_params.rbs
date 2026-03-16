@@ -2,6 +2,7 @@ module Knockapi
   module Models
     type user_list_messages_params =
       {
+        user_id: String,
         after: String,
         before: String,
         channel_id: String,
@@ -22,6 +23,8 @@ module Knockapi
     class UserListMessagesParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor user_id: String
 
       attr_reader after: String?
 
@@ -86,6 +89,7 @@ module Knockapi
       def workflow_run_id=: (String) -> String
 
       def initialize: (
+        user_id: String,
         ?after: String,
         ?before: String,
         ?channel_id: String,
@@ -104,6 +108,7 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        user_id: String,
         after: String,
         before: String,
         channel_id: String,

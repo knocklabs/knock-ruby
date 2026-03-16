@@ -11,6 +11,9 @@ module Knockapi
           T.any(Knockapi::WorkflowTriggerParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :key
+
       # The recipients to trigger the workflow for. Can inline identify users, objects,
       # or use a list of user IDs. Limited to 1,000 recipients.
       sig do
@@ -63,6 +66,7 @@ module Knockapi
 
       sig do
         params(
+          key: String,
           recipients:
             T::Array[
               T.any(
@@ -86,6 +90,7 @@ module Knockapi
         ).returns(T.attached_class)
       end
       def self.new(
+        key:,
         # The recipients to trigger the workflow for. Can inline identify users, objects,
         # or use a list of user IDs. Limited to 1,000 recipients.
         recipients:,
@@ -113,6 +118,7 @@ module Knockapi
       sig do
         override.returns(
           {
+            key: String,
             recipients:
               T::Array[
                 T.any(

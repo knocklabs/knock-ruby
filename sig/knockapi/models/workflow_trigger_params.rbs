@@ -2,6 +2,7 @@ module Knockapi
   module Models
     type workflow_trigger_params =
       {
+        key: String,
         recipients: ::Array[Knockapi::Models::recipient_request],
         actor: Knockapi::Models::recipient_request?,
         cancellation_key: String?,
@@ -14,6 +15,8 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      attr_accessor key: String
+
       attr_accessor recipients: ::Array[Knockapi::Models::recipient_request]
 
       attr_accessor actor: Knockapi::Models::recipient_request?
@@ -25,6 +28,7 @@ module Knockapi
       attr_accessor tenant: Knockapi::Models::inline_tenant_request?
 
       def initialize: (
+        key: String,
         recipients: ::Array[Knockapi::Models::recipient_request],
         ?actor: Knockapi::Models::recipient_request?,
         ?cancellation_key: String?,
@@ -34,6 +38,7 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        key: String,
         recipients: ::Array[Knockapi::Models::recipient_request],
         actor: Knockapi::Models::recipient_request?,
         cancellation_key: String?,

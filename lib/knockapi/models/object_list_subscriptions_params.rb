@@ -7,6 +7,16 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute collection
+      #
+      #   @return [String]
+      required :collection, String
+
+      # @!attribute object_id_
+      #
+      #   @return [String]
+      required :object_id_, String
+
       # @!attribute after
       #   The cursor to fetch entries after.
       #
@@ -53,9 +63,13 @@ module Knockapi
       #   @return [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil]
       optional :recipients, -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::RecipientReference] }
 
-      # @!method initialize(after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
+      # @!method initialize(collection:, object_id_:, after: nil, before: nil, include: nil, mode: nil, objects: nil, page_size: nil, recipients: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::ObjectListSubscriptionsParams} for more details.
+      #
+      #   @param collection [String]
+      #
+      #   @param object_id_ [String]
       #
       #   @param after [String] The cursor to fetch entries after.
       #

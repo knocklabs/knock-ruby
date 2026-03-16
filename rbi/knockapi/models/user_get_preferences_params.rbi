@@ -11,6 +11,12 @@ module Knockapi
           T.any(Knockapi::UserGetPreferencesParams, Knockapi::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :user_id
+
+      sig { returns(String) }
+      attr_accessor :id
+
       # The unique identifier for the tenant.
       sig { returns(T.nilable(String)) }
       attr_reader :tenant
@@ -20,11 +26,15 @@ module Knockapi
 
       sig do
         params(
+          user_id: String,
+          id: String,
           tenant: String,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        user_id:,
+        id:,
         # The unique identifier for the tenant.
         tenant: nil,
         request_options: {}
@@ -33,7 +43,12 @@ module Knockapi
 
       sig do
         override.returns(
-          { tenant: String, request_options: Knockapi::RequestOptions }
+          {
+            user_id: String,
+            id: String,
+            tenant: String,
+            request_options: Knockapi::RequestOptions
+          }
         )
       end
       def to_hash

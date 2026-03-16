@@ -15,6 +15,12 @@ module Knockapi
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :user_id
+
+        sig { returns(String) }
+        attr_accessor :message_id
+
         # The unique identifier for the channel.
         sig { returns(String) }
         attr_accessor :channel_id
@@ -65,6 +71,8 @@ module Knockapi
 
         sig do
           params(
+            user_id: String,
+            message_id: String,
             channel_id: String,
             guide_id: String,
             guide_key: String,
@@ -78,6 +86,8 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
+          user_id:,
+          message_id:,
           # The unique identifier for the channel.
           channel_id:,
           # The unique identifier for the guide.
@@ -103,6 +113,8 @@ module Knockapi
         sig do
           override.returns(
             {
+              user_id: String,
+              message_id: String,
               channel_id: String,
               guide_id: String,
               guide_key: String,

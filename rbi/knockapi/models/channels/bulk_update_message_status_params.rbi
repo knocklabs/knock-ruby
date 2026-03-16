@@ -15,6 +15,16 @@ module Knockapi
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :channel_id
+
+        sig do
+          returns(
+            Knockapi::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol
+          )
+        end
+        attr_accessor :action
+
         # Limits the results to messages with the given archived status.
         sig do
           returns(
@@ -122,6 +132,9 @@ module Knockapi
 
         sig do
           params(
+            channel_id: String,
+            action:
+              Knockapi::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol,
             archived:
               Knockapi::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol,
             delivery_status:
@@ -139,6 +152,8 @@ module Knockapi
           ).returns(T.attached_class)
         end
         def self.new(
+          channel_id:,
+          action:,
           # Limits the results to messages with the given archived status.
           archived: nil,
           # Limits the results to messages with the given delivery status.
@@ -168,6 +183,9 @@ module Knockapi
         sig do
           override.returns(
             {
+              channel_id: String,
+              action:
+                Knockapi::Channels::BulkUpdateMessageStatusParams::Action::OrSymbol,
               archived:
                 Knockapi::Channels::BulkUpdateMessageStatusParams::Archived::OrSymbol,
               delivery_status:

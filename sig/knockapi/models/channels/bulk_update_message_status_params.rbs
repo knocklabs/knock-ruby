@@ -3,6 +3,8 @@ module Knockapi
     module Channels
       type bulk_update_message_status_params =
         {
+          channel_id: String,
+          action: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action,
           archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
           delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
           engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
@@ -19,6 +21,10 @@ module Knockapi
       class BulkUpdateMessageStatusParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor channel_id: String
+
+        attr_accessor action: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action
 
         attr_reader archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived?
 
@@ -67,6 +73,8 @@ module Knockapi
         def workflows=: (::Array[String]) -> ::Array[String]
 
         def initialize: (
+          channel_id: String,
+          action: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action,
           ?archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
           ?delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
           ?engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,
@@ -81,6 +89,8 @@ module Knockapi
         ) -> void
 
         def to_hash: -> {
+          channel_id: String,
+          action: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::action,
           archived: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::archived,
           delivery_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::delivery_status,
           engagement_status: Knockapi::Models::Channels::BulkUpdateMessageStatusParams::engagement_status,

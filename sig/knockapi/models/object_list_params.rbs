@@ -2,6 +2,7 @@ module Knockapi
   module Models
     type object_list_params =
       {
+        collection: String,
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::ObjectListParams::include_],
@@ -12,6 +13,8 @@ module Knockapi
     class ObjectListParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor collection: String
 
       attr_reader after: String?
 
@@ -32,6 +35,7 @@ module Knockapi
       def page_size=: (Integer) -> Integer
 
       def initialize: (
+        collection: String,
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::ObjectListParams::include_],
@@ -40,6 +44,7 @@ module Knockapi
       ) -> void
 
       def to_hash: -> {
+        collection: String,
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::ObjectListParams::include_],

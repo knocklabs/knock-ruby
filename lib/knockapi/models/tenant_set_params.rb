@@ -7,6 +7,11 @@ module Knockapi
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute resolve_full_preference_settings
       #   When true, merges environment-level default preferences into the tenant's
       #   `settings.preference_set` field before returning the response. Defaults to
@@ -37,9 +42,11 @@ module Knockapi
       #   @return [Knockapi::Models::TenantSetParams::Settings, nil]
       optional :settings, -> { Knockapi::TenantSetParams::Settings }
 
-      # @!method initialize(resolve_full_preference_settings: nil, channel_data: nil, name: nil, settings: nil, request_options: {})
+      # @!method initialize(id:, resolve_full_preference_settings: nil, channel_data: nil, name: nil, settings: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::TenantSetParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param resolve_full_preference_settings [Boolean] When true, merges environment-level default preferences into the tenant's `setti
       #

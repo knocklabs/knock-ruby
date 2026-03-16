@@ -2,21 +2,28 @@ module Knockapi
   module Models
     module Objects
       type bulk_set_params =
-        { objects: ::Array[Knockapi::Objects::BulkSetParams::Object] }
+        {
+          collection: String,
+          objects: ::Array[Knockapi::Objects::BulkSetParams::Object]
+        }
         & Knockapi::Internal::Type::request_parameters
 
       class BulkSetParams < Knockapi::Internal::Type::BaseModel
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        attr_accessor collection: String
+
         attr_accessor objects: ::Array[Knockapi::Objects::BulkSetParams::Object]
 
         def initialize: (
+          collection: String,
           objects: ::Array[Knockapi::Objects::BulkSetParams::Object],
           ?request_options: Knockapi::request_opts
         ) -> void
 
         def to_hash: -> {
+          collection: String,
           objects: ::Array[Knockapi::Objects::BulkSetParams::Object],
           request_options: Knockapi::RequestOptions
         }

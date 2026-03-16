@@ -1,21 +1,28 @@
 module Knockapi
   module Models
     type audience_remove_members_params =
-      { members: ::Array[Knockapi::AudienceRemoveMembersParams::Member] }
+      {
+        key: String,
+        members: ::Array[Knockapi::AudienceRemoveMembersParams::Member]
+      }
       & Knockapi::Internal::Type::request_parameters
 
     class AudienceRemoveMembersParams < Knockapi::Internal::Type::BaseModel
       extend Knockapi::Internal::Type::RequestParameters::Converter
       include Knockapi::Internal::Type::RequestParameters
 
+      attr_accessor key: String
+
       attr_accessor members: ::Array[Knockapi::AudienceRemoveMembersParams::Member]
 
       def initialize: (
+        key: String,
         members: ::Array[Knockapi::AudienceRemoveMembersParams::Member],
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> {
+        key: String,
         members: ::Array[Knockapi::AudienceRemoveMembersParams::Member],
         request_options: Knockapi::RequestOptions
       }

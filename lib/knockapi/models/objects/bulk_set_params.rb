@@ -8,13 +8,20 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute collection
+        #
+        #   @return [String]
+        required :collection, String
+
         # @!attribute objects
         #   A list of objects.
         #
         #   @return [Array<Knockapi::Models::Objects::BulkSetParams::Object>]
         required :objects, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Objects::BulkSetParams::Object] }
 
-        # @!method initialize(objects:, request_options: {})
+        # @!method initialize(collection:, objects:, request_options: {})
+        #   @param collection [String]
+        #
         #   @param objects [Array<Knockapi::Models::Objects::BulkSetParams::Object>] A list of objects.
         #
         #   @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}]

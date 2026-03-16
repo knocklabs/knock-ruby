@@ -8,6 +8,16 @@ module Knockapi
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
+        # @!attribute user_id
+        #
+        #   @return [String]
+        required :user_id, String
+
+        # @!attribute channel_id
+        #
+        #   @return [String]
+        required :channel_id, String
+
         # @!attribute data
         #   The data (JSON encoded object) to use for targeting and rendering guides.
         #
@@ -26,7 +36,11 @@ module Knockapi
         #   @return [String, nil]
         optional :type, String
 
-        # @!method initialize(data: nil, tenant: nil, type: nil, request_options: {})
+        # @!method initialize(user_id:, channel_id:, data: nil, tenant: nil, type: nil, request_options: {})
+        #   @param user_id [String]
+        #
+        #   @param channel_id [String]
+        #
         #   @param data [String] The data (JSON encoded object) to use for targeting and rendering guides.
         #
         #   @param tenant [String] The tenant ID to use for targeting and rendering guides.
