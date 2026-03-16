@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    knockapi (1.33.0)
+    knockapi (1.34.0)
       cgi
       connection_pool
 
