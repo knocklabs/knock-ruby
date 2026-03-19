@@ -4,8 +4,6 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   def test_list
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.tenants.list
 
     assert_pattern do
@@ -30,8 +28,6 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.tenants.delete("id")
 
     assert_pattern do
@@ -40,8 +36,6 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.tenants.get("id")
 
     assert_pattern do
@@ -59,8 +53,6 @@ class Knockapi::Test::Resources::TenantsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.tenants.set("id")
 
     assert_pattern do
