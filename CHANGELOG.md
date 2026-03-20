@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.34.1 (2026-03-20)
+
+Full Changelog: [v1.34.0...v1.34.1](https://github.com/knocklabs/knock-ruby/compare/v1.34.0...v1.34.1)
+
+### Chores
+
+* **tests:** bump steady to v0.19.4 ([2dc2203](https://github.com/knocklabs/knock-ruby/commit/2dc2203a1d59010a0ef7e29b8a8c9f7ea75140f1))
+* **tests:** bump steady to v0.19.5 ([318a377](https://github.com/knocklabs/knock-ruby/commit/318a37772cd05ffef85e21c236f126cd3a59d1e3))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([825cb06](https://github.com/knocklabs/knock-ruby/commit/825cb069ecda68a5dd702589424e75b1840534b2))
+
 ## 1.34.0 (2026-03-16)
 
 Full Changelog: [v1.33.0...v1.34.0](https://github.com/knocklabs/knock-ruby/compare/v1.33.0...v1.34.0)
