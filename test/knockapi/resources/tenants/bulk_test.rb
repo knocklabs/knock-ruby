@@ -4,8 +4,6 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Tenants::BulkTest < Knockapi::Test::ResourceTest
   def test_delete_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.tenants.bulk.delete(tenant_ids: ["string"])
 
     assert_pattern do
@@ -34,8 +32,6 @@ class Knockapi::Test::Resources::Tenants::BulkTest < Knockapi::Test::ResourceTes
   end
 
   def test_set_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.tenants.bulk.set(tenants: [{id: "tenant_1"}])
 
     assert_pattern do

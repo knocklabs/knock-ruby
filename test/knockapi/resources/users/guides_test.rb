@@ -4,8 +4,6 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTest
   def test_get_channel
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.users.guides.get_channel("user_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
@@ -23,8 +21,6 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
   end
 
   def test_mark_message_as_archived_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response =
       @knock.users.guides.mark_message_as_archived(
         "user_id",
@@ -47,8 +43,6 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
   end
 
   def test_mark_message_as_interacted_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response =
       @knock.users.guides.mark_message_as_interacted(
         "user_id",
@@ -71,8 +65,6 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
   end
 
   def test_mark_message_as_seen_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response =
       @knock.users.guides.mark_message_as_seen(
         "user_id",
