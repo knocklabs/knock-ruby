@@ -93,6 +93,8 @@ module Knockapi
           T.let(:"message.archived", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_BOUNCED =
           T.let(:"message.bounced", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_CREATED =
+          T.let(:"message.created", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_DELIVERED =
           T.let(
             :"message.delivered",
