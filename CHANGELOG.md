@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.35.0 (2026-03-27)
+
+Full Changelog: [v1.34.0...v1.35.0](https://github.com/knocklabs/knock-ruby/compare/v1.34.0...v1.35.0)
+
+### Features
+
+* **api:** api update ([76cdbf7](https://github.com/knocklabs/knock-ruby/commit/76cdbf76e57583e6fc581dc0595c29b092c10874))
+
+
+### Bug Fixes
+
+* **internal:** correct multipart form field name encoding ([95b2276](https://github.com/knocklabs/knock-ruby/commit/95b227626042bb093371123280e68b2b22fb30f3))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([c1820ad](https://github.com/knocklabs/knock-ruby/commit/c1820adcfde5cb1123a4a82b4ff66eb128bf1234))
+* **ci:** support opting out of skipping builds on metadata-only commits ([33d11b7](https://github.com/knocklabs/knock-ruby/commit/33d11b7bc77637e731b0999c07e00469b09db397))
+* **internal:** update gitignore ([754f5b7](https://github.com/knocklabs/knock-ruby/commit/754f5b79a54eeebe5edf69e5db7f9d21500425b4))
+* **tests:** bump steady to v0.19.4 ([2dc2203](https://github.com/knocklabs/knock-ruby/commit/2dc2203a1d59010a0ef7e29b8a8c9f7ea75140f1))
+* **tests:** bump steady to v0.19.5 ([318a377](https://github.com/knocklabs/knock-ruby/commit/318a37772cd05ffef85e21c236f126cd3a59d1e3))
+* **tests:** bump steady to v0.19.6 ([1c05121](https://github.com/knocklabs/knock-ruby/commit/1c05121e625f151d690ddf6cd7658011aa0faf43))
+* **tests:** bump steady to v0.19.7 ([b07462c](https://github.com/knocklabs/knock-ruby/commit/b07462ce78a6b9487f872f4ebff830d352536a6c))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([825cb06](https://github.com/knocklabs/knock-ruby/commit/825cb069ecda68a5dd702589424e75b1840534b2))
+
 ## 1.34.0 (2026-03-16)
 
 Full Changelog: [v1.33.0...v1.34.0](https://github.com/knocklabs/knock-ruby/compare/v1.33.0...v1.34.0)
