@@ -4,8 +4,6 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   def test_list
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.list("collection")
 
     assert_pattern do
@@ -32,8 +30,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.delete("collection", "id")
 
     assert_pattern do
@@ -42,8 +38,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_add_subscriptions_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.add_subscriptions("collection", "object_id", recipients: %w[user_1 user_2])
 
     assert_pattern do
@@ -52,8 +46,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_delete_subscriptions_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.delete_subscriptions("collection", "object_id", recipients: ["user_123"])
 
     assert_pattern do
@@ -62,8 +54,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.get("collection", "id")
 
     assert_pattern do
@@ -83,8 +73,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_channel_data
-    skip("Mock server doesn't support callbacks yet")
-
     response =
       @knock.objects.get_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
@@ -103,8 +91,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_preferences
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.get_preferences("collection", "object_id", "default")
 
     assert_pattern do
@@ -124,8 +110,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_messages
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.list_messages("projects", "project-123")
 
     assert_pattern do
@@ -168,8 +152,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_preferences
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.list_preferences("collection", "object_id")
 
     assert_pattern do
@@ -178,8 +160,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_schedules
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.list_schedules("collection", "id")
 
     assert_pattern do
@@ -212,8 +192,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_subscriptions
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.list_subscriptions("collection", "object_id")
 
     assert_pattern do
@@ -240,8 +218,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.set("collection", "id")
 
     assert_pattern do
@@ -261,8 +237,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_channel_data_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response =
       @knock.objects.set_channel_data(
         "collection",
@@ -286,8 +260,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_set_preferences
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.objects.set_preferences("collection", "object_id", "default")
 
     assert_pattern do
@@ -307,8 +279,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   end
 
   def test_unset_channel_data
-    skip("Mock server doesn't support callbacks yet")
-
     response =
       @knock.objects.unset_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
