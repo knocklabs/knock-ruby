@@ -4,8 +4,6 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   def test_list
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.list
 
     assert_pattern do
@@ -48,8 +46,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_archive
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.archive("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
@@ -85,8 +81,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_get
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.get("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
@@ -122,8 +116,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_get_content
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.get_content("message_id")
 
     assert_pattern do
@@ -141,8 +133,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_activities
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.list_activities("message_id")
 
     assert_pattern do
@@ -170,8 +160,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_delivery_logs
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.list_delivery_logs("message_id")
 
     assert_pattern do
@@ -199,8 +187,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_events
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.list_events("message_id")
 
     assert_pattern do
@@ -227,8 +213,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_interacted
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.mark_as_interacted("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
@@ -264,8 +248,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_read
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.mark_as_read("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
@@ -301,8 +283,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_seen
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.mark_as_seen("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
@@ -338,8 +318,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_unread
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.mark_as_unread("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
@@ -375,8 +353,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_mark_as_unseen
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.mark_as_unseen("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do
@@ -412,8 +388,6 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
   end
 
   def test_unarchive
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.messages.unarchive("1jNaXzB2RZX3LY8wVQnfCKyPnv7")
 
     assert_pattern do

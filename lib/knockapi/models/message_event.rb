@@ -68,6 +68,7 @@ module Knockapi
 
         MESSAGE_ARCHIVED = :"message.archived"
         MESSAGE_BOUNCED = :"message.bounced"
+        MESSAGE_CREATED = :"message.created"
         MESSAGE_DELIVERED = :"message.delivered"
         MESSAGE_DELIVERY_ATTEMPTED = :"message.delivery_attempted"
         MESSAGE_INTERACTED = :"message.interacted"

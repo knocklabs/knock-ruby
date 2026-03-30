@@ -4,8 +4,6 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::BulkOperationsTest < Knockapi::Test::ResourceTest
   def test_get
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.bulk_operations.get("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do

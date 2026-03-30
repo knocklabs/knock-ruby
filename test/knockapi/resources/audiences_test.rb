@@ -4,8 +4,6 @@ require_relative "../test_helper"
 
 class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   def test_add_members_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.audiences.add_members("key", members: [{user: {id: "dr_sattler"}}])
 
     assert_pattern do
@@ -14,8 +12,6 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   end
 
   def test_list_members
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.audiences.list_members("key")
 
     assert_pattern do
@@ -31,8 +27,6 @@ class Knockapi::Test::Resources::AudiencesTest < Knockapi::Test::ResourceTest
   end
 
   def test_remove_members_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.audiences.remove_members("key", members: [{user: {id: "dr_sattler"}}])
 
     assert_pattern do

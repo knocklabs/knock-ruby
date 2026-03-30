@@ -4,8 +4,6 @@ require_relative "../../test_helper"
 
 class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::ResourceTest
   def test_check_auth_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.providers.slack.check_auth("channel_id", access_token_object: "access_token_object")
 
     assert_pattern do
@@ -20,8 +18,6 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
   end
 
   def test_list_channels_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.providers.slack.list_channels("channel_id", access_token_object: "access_token_object")
 
     assert_pattern do
@@ -47,8 +43,6 @@ class Knockapi::Test::Resources::Providers::SlackTest < Knockapi::Test::Resource
   end
 
   def test_revoke_access_required_params
-    skip("Mock server doesn't support callbacks yet")
-
     response = @knock.providers.slack.revoke_access("channel_id", access_token_object: "access_token_object")
 
     assert_pattern do
