@@ -298,4 +298,12 @@ class Knockapi::Test::Resources::UsersTest < Knockapi::Test::ResourceTest
       response => nil
     end
   end
+
+  def test_unset_preferences
+    response = @knock.users.unset_preferences("user_id", "default")
+
+    assert_pattern do
+      response => nil
+    end
+  end
 end

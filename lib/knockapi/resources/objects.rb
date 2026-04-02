@@ -503,6 +503,30 @@ module Knockapi
         )
       end
 
+      # Unsets the preference set for the object, removing it entirely.
+      #
+      # @overload unset_preferences(collection, object_id_, id, request_options: {})
+      #
+      # @param collection [String] The collection this object belongs to.
+      #
+      # @param object_id_ [String] Unique identifier for the object.
+      #
+      # @param id [String] Unique identifier for the preference set.
+      #
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [nil]
+      #
+      # @see Knockapi::Models::ObjectUnsetPreferencesParams
+      def unset_preferences(collection, object_id_, id, params = {})
+        @client.request(
+          method: :delete,
+          path: ["v1/objects/%1$s/%2$s/preferences/%3$s", collection, object_id_, id],
+          model: NilClass,
+          options: params[:request_options]
+        )
+      end
+
       # @api private
       #
       # @param client [Knockapi::Client]

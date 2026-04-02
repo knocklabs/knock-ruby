@@ -1,0 +1,28 @@
+module Knockapi
+  module Models
+    type user_unset_preferences_params =
+      { user_id: String, id: String }
+      & Knockapi::Internal::Type::request_parameters
+
+    class UserUnsetPreferencesParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor user_id: String
+
+      attr_accessor id: String
+
+      def initialize: (
+        user_id: String,
+        id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        user_id: String,
+        id: String,
+        request_options: Knockapi::RequestOptions
+      }
+    end
+  end
+end

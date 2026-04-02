@@ -286,4 +286,12 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
       response => nil
     end
   end
+
+  def test_unset_preferences
+    response = @knock.objects.unset_preferences("collection", "object_id", "default")
+
+    assert_pattern do
+      response => nil
+    end
+  end
 end
