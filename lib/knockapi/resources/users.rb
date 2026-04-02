@@ -449,6 +449,28 @@ module Knockapi
         )
       end
 
+      # Unsets the preference set for the user, removing it entirely.
+      #
+      # @overload unset_preferences(user_id, id, request_options: {})
+      #
+      # @param user_id [String] The unique identifier of the user.
+      #
+      # @param id [String] Unique identifier for the preference set.
+      #
+      # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [nil]
+      #
+      # @see Knockapi::Models::UserUnsetPreferencesParams
+      def unset_preferences(user_id, id, params = {})
+        @client.request(
+          method: :delete,
+          path: ["v1/users/%1$s/preferences/%2$s", user_id, id],
+          model: NilClass,
+          options: params[:request_options]
+        )
+      end
+
       # @api private
       #
       # @param client [Knockapi::Client]

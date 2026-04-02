@@ -464,6 +464,23 @@ module Knockapi
       )
       end
 
+      # Unsets the preference set for the user, removing it entirely.
+      sig do
+        params(
+          user_id: String,
+          id: String,
+          request_options: Knockapi::RequestOptions::OrHash
+        ).void
+      end
+      def unset_preferences(
+        # The unique identifier of the user.
+        user_id,
+        # Unique identifier for the preference set.
+        id,
+        request_options: {}
+      )
+      end
+
       # @api private
       sig { params(client: Knockapi::Client).returns(T.attached_class) }
       def self.new(client:)

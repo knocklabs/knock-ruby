@@ -95,6 +95,8 @@ module Knockapi
 
   class ObjectUnsetChannelDataParams = Knockapi::Models::ObjectUnsetChannelDataParams
 
+  class ObjectUnsetPreferencesParams = Knockapi::Models::ObjectUnsetPreferencesParams
+
   class PageInfo = Knockapi::Models::PageInfo
 
   module Providers = Knockapi::Models::Providers
@@ -164,6 +166,8 @@ module Knockapi
   class UserSetPreferencesParams = Knockapi::Models::UserSetPreferencesParams
 
   class UserUnsetChannelDataParams = Knockapi::Models::UserUnsetChannelDataParams
+
+  class UserUnsetPreferencesParams = Knockapi::Models::UserUnsetPreferencesParams
 
   class UserUpdateParams = Knockapi::Models::UserUpdateParams
 
