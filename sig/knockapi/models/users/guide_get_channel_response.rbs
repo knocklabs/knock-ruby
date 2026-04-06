@@ -41,6 +41,7 @@ module Knockapi
             active: bool,
             bypass_global_group_limit: bool,
             channel_id: String,
+            dashboard_url: String,
             inserted_at: Time,
             key: String,
             semver: String,
@@ -82,6 +83,10 @@ module Knockapi
 
           def channel_id=: (String) -> String
 
+          attr_reader dashboard_url: String?
+
+          def dashboard_url=: (String) -> String
+
           attr_reader inserted_at: Time?
 
           def inserted_at=: (Time) -> Time
@@ -116,6 +121,7 @@ module Knockapi
             ?active: bool,
             ?bypass_global_group_limit: bool,
             ?channel_id: String,
+            ?dashboard_url: String,
             ?inserted_at: Time,
             ?key: String,
             ?semver: String,
@@ -132,6 +138,7 @@ module Knockapi
             active: bool,
             bypass_global_group_limit: bool,
             channel_id: String,
+            dashboard_url: String,
             inserted_at: Time,
             key: String,
             semver: String,
