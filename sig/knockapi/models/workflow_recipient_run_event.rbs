@@ -1,0 +1,73 @@
+module Knockapi
+  module Models
+    type workflow_recipient_run_event =
+      {
+        id: String,
+        _typename: String,
+        event: String,
+        inserted_at: Time,
+        status: Knockapi::Models::WorkflowRecipientRunEvent::status,
+        attempt: Integer,
+        data: ::Hash[Symbol, top]?,
+        step_ref: String?,
+        step_type: String?
+      }
+
+    class WorkflowRecipientRunEvent < Knockapi::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor event: String
+
+      attr_accessor inserted_at: Time
+
+      attr_accessor status: Knockapi::Models::WorkflowRecipientRunEvent::status
+
+      attr_reader attempt: Integer?
+
+      def attempt=: (Integer) -> Integer
+
+      attr_accessor data: ::Hash[Symbol, top]?
+
+      attr_accessor step_ref: String?
+
+      attr_accessor step_type: String?
+
+      def initialize: (
+        id: String,
+        _typename: String,
+        event: String,
+        inserted_at: Time,
+        status: Knockapi::Models::WorkflowRecipientRunEvent::status,
+        ?attempt: Integer,
+        ?data: ::Hash[Symbol, top]?,
+        ?step_ref: String?,
+        ?step_type: String?
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        _typename: String,
+        event: String,
+        inserted_at: Time,
+        status: Knockapi::Models::WorkflowRecipientRunEvent::status,
+        attempt: Integer,
+        data: ::Hash[Symbol, top]?,
+        step_ref: String?,
+        step_type: String?
+      }
+
+      type status = :ok | :error
+
+      module Status
+        extend Knockapi::Internal::Type::Enum
+
+        OK: :ok
+        ERROR: :error
+
+        def self?.values: -> ::Array[Knockapi::Models::WorkflowRecipientRunEvent::status]
+      end
+    end
+  end
+end

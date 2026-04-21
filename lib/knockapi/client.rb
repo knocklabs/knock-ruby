@@ -59,6 +59,11 @@ module Knockapi
     # @return [Knockapi::Resources::Workflows]
     attr_reader :workflows
 
+    # A workflow run represents an individual execution of a workflow for a specific
+    # recipient.
+    # @return [Knockapi::Resources::WorkflowRecipientRuns]
+    attr_reader :workflow_recipient_runs
+
     # A schedule is a per-recipient, timezone-aware configuration for when to invoke a
     # workflow.
     # @return [Knockapi::Resources::Schedules]
@@ -139,6 +144,7 @@ module Knockapi
       @providers = Knockapi::Resources::Providers.new(client: self)
       @integrations = Knockapi::Resources::Integrations.new(client: self)
       @workflows = Knockapi::Resources::Workflows.new(client: self)
+      @workflow_recipient_runs = Knockapi::Resources::WorkflowRecipientRuns.new(client: self)
       @schedules = Knockapi::Resources::Schedules.new(client: self)
       @channels = Knockapi::Resources::Channels.new(client: self)
       @audiences = Knockapi::Resources::Audiences.new(client: self)
