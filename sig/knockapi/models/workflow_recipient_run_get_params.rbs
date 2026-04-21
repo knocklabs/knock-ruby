@@ -1,0 +1,20 @@
+module Knockapi
+  module Models
+    type workflow_recipient_run_get_params =
+      { id: String } & Knockapi::Internal::Type::request_parameters
+
+    class WorkflowRecipientRunGetParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_accessor id: String
+
+      def initialize: (
+        id: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> { id: String, request_options: Knockapi::RequestOptions }
+    end
+  end
+end

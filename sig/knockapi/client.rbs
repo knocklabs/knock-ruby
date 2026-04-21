@@ -30,6 +30,8 @@ module Knockapi
 
     attr_reader workflows: Knockapi::Resources::Workflows
 
+    attr_reader workflow_recipient_runs: Knockapi::Resources::WorkflowRecipientRuns
+
     attr_reader schedules: Knockapi::Resources::Schedules
 
     attr_reader channels: Knockapi::Resources::Channels

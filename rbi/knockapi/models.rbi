@@ -179,5 +179,17 @@ module Knockapi
 
   WorkflowCancelParams = Knockapi::Models::WorkflowCancelParams
 
+  WorkflowRecipientRun = Knockapi::Models::WorkflowRecipientRun
+
+  WorkflowRecipientRunDetail = Knockapi::Models::WorkflowRecipientRunDetail
+
+  WorkflowRecipientRunEvent = Knockapi::Models::WorkflowRecipientRunEvent
+
+  WorkflowRecipientRunGetParams =
+    Knockapi::Models::WorkflowRecipientRunGetParams
+
+  WorkflowRecipientRunListParams =
+    Knockapi::Models::WorkflowRecipientRunListParams
+
   WorkflowTriggerParams = Knockapi::Models::WorkflowTriggerParams
 end
