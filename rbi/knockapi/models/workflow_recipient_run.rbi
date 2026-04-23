@@ -54,9 +54,8 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :workflow_run_id
 
-      # A reference to a recipient, either a user identifier (string) or an object
-      # reference (ID, collection).
-      sig { returns(T.nilable(Knockapi::RecipientReference::Variants)) }
+      # A recipient of a notification, which is either a user or an object.
+      sig { returns(T.nilable(Knockapi::Recipient::Variants)) }
       attr_accessor :actor
 
       # The number of errors encountered during the workflow recipient run.
@@ -88,12 +87,7 @@ module Knockapi
           workflow: String,
           workflow_run_id: String,
           actor:
-            T.nilable(
-              T.any(
-                String,
-                Knockapi::RecipientReference::ObjectReference::OrHash
-              )
-            ),
+            T.nilable(T.any(Knockapi::User::OrHash, Knockapi::Object::OrHash)),
           error_count: Integer,
           tenant: T.nilable(String)
         ).returns(T.attached_class)
@@ -120,8 +114,7 @@ module Knockapi
         # The identifier for the top-level workflow run shared across all recipients in a
         # single trigger.
         workflow_run_id:,
-        # A reference to a recipient, either a user identifier (string) or an object
-        # reference (ID, collection).
+        # A recipient of a notification, which is either a user or an object.
         actor: nil,
         # The number of errors encountered during the workflow recipient run.
         error_count: nil,
@@ -142,7 +135,7 @@ module Knockapi
             updated_at: Time,
             workflow: String,
             workflow_run_id: String,
-            actor: T.nilable(Knockapi::RecipientReference::Variants),
+            actor: T.nilable(Knockapi::Recipient::Variants),
             error_count: Integer,
             tenant: T.nilable(String)
           }

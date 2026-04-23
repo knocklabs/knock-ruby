@@ -11,7 +11,7 @@ module Knockapi
         updated_at: Time,
         workflow: String,
         workflow_run_id: String,
-        actor: Knockapi::Models::recipient_reference?,
+        actor: Knockapi::Models::recipient?,
         error_count: Integer,
         tenant: String?
       }
@@ -35,7 +35,7 @@ module Knockapi
 
       attr_accessor workflow_run_id: String
 
-      attr_accessor actor: Knockapi::Models::recipient_reference?
+      attr_accessor actor: Knockapi::Models::recipient?
 
       attr_reader error_count: Integer?
 
@@ -53,7 +53,7 @@ module Knockapi
         updated_at: Time,
         workflow: String,
         workflow_run_id: String,
-        ?actor: Knockapi::Models::recipient_reference?,
+        ?actor: Knockapi::Models::recipient?,
         ?error_count: Integer,
         ?tenant: String?
       ) -> void
@@ -68,7 +68,7 @@ module Knockapi
         updated_at: Time,
         workflow: String,
         workflow_run_id: String,
-        actor: Knockapi::Models::recipient_reference?,
+        actor: Knockapi::Models::recipient?,
         error_count: Integer,
         tenant: String?
       }

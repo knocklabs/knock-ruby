@@ -28,7 +28,7 @@ class Knockapi::Test::Resources::WorkflowRecipientRunsTest < Knockapi::Test::Res
         updated_at: Time,
         workflow: String,
         workflow_run_id: String,
-        actor: Knockapi::RecipientReference | nil,
+        actor: Knockapi::Recipient | nil,
         error_count: Integer | nil,
         tenant: String | nil
       }
