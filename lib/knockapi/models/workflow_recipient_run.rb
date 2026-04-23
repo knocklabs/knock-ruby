@@ -62,10 +62,11 @@ module Knockapi
       required :workflow_run_id, String
 
       # @!attribute actor
-      #   A recipient of a notification, which is either a user or an object.
+      #   A reference to a recipient, either a user identifier (string) or an object
+      #   reference (ID, collection).
       #
-      #   @return [Knockapi::Models::User, Knockapi::Models::Object, nil]
-      optional :actor, union: -> { Knockapi::Recipient }, nil?: true
+      #   @return [String, Knockapi::Models::RecipientReference::ObjectReference, nil]
+      optional :actor, union: -> { Knockapi::RecipientReference }, nil?: true
 
       # @!attribute error_count
       #   The number of errors encountered during the workflow recipient run.
@@ -104,7 +105,7 @@ module Knockapi
       #
       #   @param workflow_run_id [String] The identifier for the top-level workflow run shared across all recipients in a
       #
-      #   @param actor [Knockapi::Models::User, Knockapi::Models::Object, nil] A recipient of a notification, which is either a user or an object.
+      #   @param actor [String, Knockapi::Models::RecipientReference::ObjectReference, nil] A reference to a recipient, either a user identifier (string) or an object refer
       #
       #   @param error_count [Integer] The number of errors encountered during the workflow recipient run.
       #
