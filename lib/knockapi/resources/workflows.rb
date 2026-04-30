@@ -16,7 +16,7 @@ module Knockapi
       #
       # @param key [String] The key of the workflow to cancel.
       #
-      # @param cancellation_key [String] An optional key that is used to reference a specific workflow trigger request wh
+      # @param cancellation_key [String] A key that is used to reference a specific workflow trigger request when issuing
       #
       # @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
       #
@@ -53,7 +53,7 @@ module Knockapi
       #
       # @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
       #
-      # @param cancellation_key [String, nil] An optional key that is used to reference a specific workflow trigger request wh
+      # @param cancellation_key [String, nil] A key that is used to reference a specific workflow trigger request when issuing
       #
       # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 10MB lim
       #

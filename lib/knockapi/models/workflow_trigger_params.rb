@@ -28,11 +28,11 @@ module Knockapi
       optional :actor, union: -> { Knockapi::RecipientRequest }, nil?: true
 
       # @!attribute cancellation_key
-      #   An optional key that is used to reference a specific workflow trigger request
-      #   when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-      #   request. Must be provided while triggering a workflow in order to enable
-      #   subsequent cancellation. Should be unique across trigger requests to avoid
-      #   unintentional cancellations.
+      #   A key that is used to reference a specific workflow trigger request when issuing
+      #   a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+      #   be provided while triggering a workflow in order to enable subsequent
+      #   cancellation. Should be unique across trigger requests to avoid unintentional
+      #   cancellations.
       #
       #   @return [String, nil]
       optional :cancellation_key, String, nil?: true
@@ -62,7 +62,7 @@ module Knockapi
       #
       #   @param actor [String, Knockapi::Models::InlineIdentifyUserRequest, Knockapi::Models::InlineObjectRequest, nil] Specifies a recipient in a request. This can either be a user identifier (string
       #
-      #   @param cancellation_key [String, nil] An optional key that is used to reference a specific workflow trigger request wh
+      #   @param cancellation_key [String, nil] A key that is used to reference a specific workflow trigger request when issuing
       #
       #   @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 10MB lim
       #

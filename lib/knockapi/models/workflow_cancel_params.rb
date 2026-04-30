@@ -13,11 +13,11 @@ module Knockapi
       required :key, String
 
       # @!attribute cancellation_key
-      #   An optional key that is used to reference a specific workflow trigger request
-      #   when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-      #   request. Must be provided while triggering a workflow in order to enable
-      #   subsequent cancellation. Should be unique across trigger requests to avoid
-      #   unintentional cancellations.
+      #   A key that is used to reference a specific workflow trigger request when issuing
+      #   a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+      #   be provided while triggering a workflow in order to enable subsequent
+      #   cancellation. Should be unique across trigger requests to avoid unintentional
+      #   cancellations.
       #
       #   @return [String]
       required :cancellation_key, String
@@ -37,7 +37,7 @@ module Knockapi
       #
       #   @param key [String]
       #
-      #   @param cancellation_key [String] An optional key that is used to reference a specific workflow trigger request wh
+      #   @param cancellation_key [String] A key that is used to reference a specific workflow trigger request when issuing
       #
       #   @param recipients [Array<String, Knockapi::Models::RecipientReference::ObjectReference>, nil] A list of recipients to cancel the notification for. If omitted, cancels for all
       #
