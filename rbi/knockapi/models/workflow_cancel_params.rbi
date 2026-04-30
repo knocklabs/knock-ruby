@@ -14,11 +14,11 @@ module Knockapi
       sig { returns(String) }
       attr_accessor :key
 
-      # An optional key that is used to reference a specific workflow trigger request
-      # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-      # request. Must be provided while triggering a workflow in order to enable
-      # subsequent cancellation. Should be unique across trigger requests to avoid
-      # unintentional cancellations.
+      # A key that is used to reference a specific workflow trigger request when issuing
+      # a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+      # be provided while triggering a workflow in order to enable subsequent
+      # cancellation. Should be unique across trigger requests to avoid unintentional
+      # cancellations.
       sig { returns(String) }
       attr_accessor :cancellation_key
 
@@ -53,11 +53,11 @@ module Knockapi
       end
       def self.new(
         key:,
-        # An optional key that is used to reference a specific workflow trigger request
-        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-        # request. Must be provided while triggering a workflow in order to enable
-        # subsequent cancellation. Should be unique across trigger requests to avoid
-        # unintentional cancellations.
+        # A key that is used to reference a specific workflow trigger request when issuing
+        # a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+        # be provided while triggering a workflow in order to enable subsequent
+        # cancellation. Should be unique across trigger requests to avoid unintentional
+        # cancellations.
         cancellation_key:,
         # A list of recipients to cancel the notification for. If omitted, cancels for all
         # recipients associated with the cancellation key.

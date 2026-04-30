@@ -45,11 +45,11 @@ module Knockapi
       end
       attr_accessor :actor
 
-      # An optional key that is used to reference a specific workflow trigger request
-      # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-      # request. Must be provided while triggering a workflow in order to enable
-      # subsequent cancellation. Should be unique across trigger requests to avoid
-      # unintentional cancellations.
+      # A key that is used to reference a specific workflow trigger request when issuing
+      # a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+      # be provided while triggering a workflow in order to enable subsequent
+      # cancellation. Should be unique across trigger requests to avoid unintentional
+      # cancellations.
       sig { returns(T.nilable(String)) }
       attr_accessor :cancellation_key
 
@@ -98,11 +98,11 @@ module Knockapi
         # (string), an inline user request (object), or an inline object request, which is
         # determined by the presence of a `collection` property.
         actor: nil,
-        # An optional key that is used to reference a specific workflow trigger request
-        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-        # request. Must be provided while triggering a workflow in order to enable
-        # subsequent cancellation. Should be unique across trigger requests to avoid
-        # unintentional cancellations.
+        # A key that is used to reference a specific workflow trigger request when issuing
+        # a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+        # be provided while triggering a workflow in order to enable subsequent
+        # cancellation. Should be unique across trigger requests to avoid unintentional
+        # cancellations.
         cancellation_key: nil,
         # An optional map of data to pass into the workflow execution. There is a 10MB
         # limit on the size of the full `data` payload. Any individual string value
