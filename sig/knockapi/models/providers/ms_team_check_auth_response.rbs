@@ -17,16 +17,27 @@ module Knockapi
           connection: Knockapi::Models::Providers::MsTeamCheckAuthResponse::Connection
         }
 
-        type connection = { ok: bool, reason: String? }
+        type connection =
+          { ok: bool, ms_teams_tenant_id: String?, reason: String? }
 
         class Connection < Knockapi::Internal::Type::BaseModel
           attr_accessor ok: bool
 
+          attr_accessor ms_teams_tenant_id: String?
+
           attr_accessor reason: String?
 
-          def initialize: (ok: bool, ?reason: String?) -> void
+          def initialize: (
+            ok: bool,
+            ?ms_teams_tenant_id: String?,
+            ?reason: String?
+          ) -> void
 
-          def to_hash: -> { ok: bool, reason: String? }
+          def to_hash: -> {
+            ok: bool,
+            ms_teams_tenant_id: String?,
+            reason: String?
+          }
         end
       end
     end
