@@ -24,16 +24,24 @@ module Knockapi
           #   @return [Boolean]
           required :ok, Knockapi::Internal::Type::Boolean
 
+          # @!attribute ms_teams_tenant_id
+          #   The Microsoft Teams tenant ID for the connected tenant.
+          #
+          #   @return [String, nil]
+          optional :ms_teams_tenant_id, String, nil?: true
+
           # @!attribute reason
           #   The reason for the Microsoft Teams connection if it is not valid.
           #
           #   @return [String, nil]
           optional :reason, String, nil?: true
 
-          # @!method initialize(ok:, reason: nil)
+          # @!method initialize(ok:, ms_teams_tenant_id: nil, reason: nil)
           #   A Microsoft Teams connection object.
           #
           #   @param ok [Boolean] Whether the Microsoft Teams connection is valid.
+          #
+          #   @param ms_teams_tenant_id [String, nil] The Microsoft Teams tenant ID for the connected tenant.
           #
           #   @param reason [String, nil] The reason for the Microsoft Teams connection if it is not valid.
         end

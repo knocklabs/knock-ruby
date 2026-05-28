@@ -65,26 +65,40 @@ module Knockapi
           sig { returns(T::Boolean) }
           attr_accessor :ok
 
+          # The Microsoft Teams tenant ID for the connected tenant.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :ms_teams_tenant_id
+
           # The reason for the Microsoft Teams connection if it is not valid.
           sig { returns(T.nilable(String)) }
           attr_accessor :reason
 
           # A Microsoft Teams connection object.
           sig do
-            params(ok: T::Boolean, reason: T.nilable(String)).returns(
-              T.attached_class
-            )
+            params(
+              ok: T::Boolean,
+              ms_teams_tenant_id: T.nilable(String),
+              reason: T.nilable(String)
+            ).returns(T.attached_class)
           end
           def self.new(
             # Whether the Microsoft Teams connection is valid.
             ok:,
+            # The Microsoft Teams tenant ID for the connected tenant.
+            ms_teams_tenant_id: nil,
             # The reason for the Microsoft Teams connection if it is not valid.
             reason: nil
           )
           end
 
           sig do
-            override.returns({ ok: T::Boolean, reason: T.nilable(String) })
+            override.returns(
+              {
+                ok: T::Boolean,
+                ms_teams_tenant_id: T.nilable(String),
+                reason: T.nilable(String)
+              }
+            )
           end
           def to_hash
           end
