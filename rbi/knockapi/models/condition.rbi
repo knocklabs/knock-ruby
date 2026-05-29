@@ -84,8 +84,6 @@ module Knockapi
           T.let(:not_exists, Knockapi::Condition::Operator::TaggedSymbol)
         CONTAINS_ALL =
           T.let(:contains_all, Knockapi::Condition::Operator::TaggedSymbol)
-        NOT_CONTAINS_ALL =
-          T.let(:not_contains_all, Knockapi::Condition::Operator::TaggedSymbol)
         IS_TIMESTAMP =
           T.let(:is_timestamp, Knockapi::Condition::Operator::TaggedSymbol)
         IS_NOT_TIMESTAMP =
