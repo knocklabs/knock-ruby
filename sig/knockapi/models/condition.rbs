@@ -40,7 +40,6 @@ module Knockapi
         | :exists
         | :not_exists
         | :contains_all
-        | :not_contains_all
         | :is_timestamp
         | :is_not_timestamp
         | :is_timestamp_on_or_after
@@ -68,7 +67,6 @@ module Knockapi
         EXISTS: :exists
         NOT_EXISTS: :not_exists
         CONTAINS_ALL: :contains_all
-        NOT_CONTAINS_ALL: :not_contains_all
         IS_TIMESTAMP: :is_timestamp
         IS_NOT_TIMESTAMP: :is_not_timestamp
         IS_TIMESTAMP_ON_OR_AFTER: :is_timestamp_on_or_after
