@@ -122,13 +122,6 @@ module Knockapi
       #   @return [Time, nil]
       optional :read_at, Time, nil?: true
 
-      # @!attribute recipient_snapshot
-      #   Recipient contact information captured at email send time. Null for non-email
-      #   channels.
-      #
-      #   @return [Knockapi::Models::Message::RecipientSnapshot, nil]
-      optional :recipient_snapshot, -> { Knockapi::Message::RecipientSnapshot }, nil?: true
-
       # @!attribute scheduled_at
       #   Timestamp when the message was scheduled to be sent.
       #
@@ -156,7 +149,7 @@ module Knockapi
       #   @return [String, nil]
       optional :workflow, String, nil?: true
 
-      # @!method initialize(id:, _typename:, channel_id:, engagement_statuses:, inserted_at:, recipient:, source:, status:, updated_at:, actors: nil, archived_at: nil, channel: nil, clicked_at: nil, data: nil, interacted_at: nil, link_clicked_at: nil, metadata: nil, read_at: nil, recipient_snapshot: nil, scheduled_at: nil, seen_at: nil, tenant: nil, workflow: nil)
+      # @!method initialize(id:, _typename:, channel_id:, engagement_statuses:, inserted_at:, recipient:, source:, status:, updated_at:, actors: nil, archived_at: nil, channel: nil, clicked_at: nil, data: nil, interacted_at: nil, link_clicked_at: nil, metadata: nil, read_at: nil, scheduled_at: nil, seen_at: nil, tenant: nil, workflow: nil)
       #   Some parameter documentations has been truncated, see
       #   {Knockapi::Models::Message} for more details.
       #
@@ -198,8 +191,6 @@ module Knockapi
       #   @param metadata [Hash{Symbol=>Object}, nil] The metadata associated with the message.
       #
       #   @param read_at [Time, nil] Timestamp when the message was read.
-      #
-      #   @param recipient_snapshot [Knockapi::Models::Message::RecipientSnapshot, nil] Recipient contact information captured at email send time. Null for non-email ch
       #
       #   @param scheduled_at [Time, nil] Timestamp when the message was scheduled to be sent.
       #
@@ -409,29 +400,6 @@ module Knockapi
           # @!method self.values
           #   @return [Array<Symbol>]
         end
-      end
-
-      # @see Knockapi::Models::Message#recipient_snapshot
-      class RecipientSnapshot < Knockapi::Internal::Type::BaseModel
-        # @!attribute email
-        #   The email address the message was delivered to
-        #
-        #   @return [String, nil]
-        optional :email, String
-
-        # @!attribute name
-        #   The recipient name at send time
-        #
-        #   @return [String, nil]
-        optional :name, String, nil?: true
-
-        # @!method initialize(email: nil, name: nil)
-        #   Recipient contact information captured at email send time. Null for non-email
-        #   channels.
-        #
-        #   @param email [String] The email address the message was delivered to
-        #
-        #   @param name [String, nil] The recipient name at send time
       end
     end
   end
