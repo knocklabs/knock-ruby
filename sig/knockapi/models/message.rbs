@@ -20,7 +20,6 @@ module Knockapi
         link_clicked_at: Time?,
         metadata: ::Hash[Symbol, top]?,
         read_at: Time?,
-        recipient_snapshot: Knockapi::Message::RecipientSnapshot?,
         scheduled_at: Time?,
         seen_at: Time?,
         tenant: String?,
@@ -70,8 +69,6 @@ module Knockapi
 
       attr_accessor read_at: Time?
 
-      attr_accessor recipient_snapshot: Knockapi::Message::RecipientSnapshot?
-
       attr_accessor scheduled_at: Time?
 
       attr_accessor seen_at: Time?
@@ -99,7 +96,6 @@ module Knockapi
         ?link_clicked_at: Time?,
         ?metadata: ::Hash[Symbol, top]?,
         ?read_at: Time?,
-        ?recipient_snapshot: Knockapi::Message::RecipientSnapshot?,
         ?scheduled_at: Time?,
         ?seen_at: Time?,
         ?tenant: String?,
@@ -125,7 +121,6 @@ module Knockapi
         link_clicked_at: Time?,
         metadata: ::Hash[Symbol, top]?,
         read_at: Time?,
-        recipient_snapshot: Knockapi::Message::RecipientSnapshot?,
         scheduled_at: Time?,
         seen_at: Time?,
         tenant: String?,
@@ -308,20 +303,6 @@ module Knockapi
 
           def self?.values: -> ::Array[Knockapi::Models::Message::Channel::type_]
         end
-      end
-
-      type recipient_snapshot = { email: String, name: String? }
-
-      class RecipientSnapshot < Knockapi::Internal::Type::BaseModel
-        attr_reader email: String?
-
-        def email=: (String) -> String
-
-        attr_accessor name: String?
-
-        def initialize: (?email: String, ?name: String?) -> void
-
-        def to_hash: -> { email: String, name: String? }
       end
     end
   end

@@ -143,7 +143,6 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
-        recipient_snapshot: Knockapi::Message::RecipientSnapshot | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
         tenant: String | nil,

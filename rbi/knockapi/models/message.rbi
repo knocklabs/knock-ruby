@@ -108,19 +108,6 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :read_at
 
-      # Recipient contact information captured at email send time. Null for non-email
-      # channels.
-      sig { returns(T.nilable(Knockapi::Message::RecipientSnapshot)) }
-      attr_reader :recipient_snapshot
-
-      sig do
-        params(
-          recipient_snapshot:
-            T.nilable(Knockapi::Message::RecipientSnapshot::OrHash)
-        ).void
-      end
-      attr_writer :recipient_snapshot
-
       # Timestamp when the message was scheduled to be sent.
       sig { returns(T.nilable(Time)) }
       attr_accessor :scheduled_at
@@ -171,8 +158,6 @@ module Knockapi
           link_clicked_at: T.nilable(Time),
           metadata: T.nilable(T::Hash[Symbol, T.anything]),
           read_at: T.nilable(Time),
-          recipient_snapshot:
-            T.nilable(Knockapi::Message::RecipientSnapshot::OrHash),
           scheduled_at: T.nilable(Time),
           seen_at: T.nilable(Time),
           tenant: T.nilable(String),
@@ -223,9 +208,6 @@ module Knockapi
         metadata: nil,
         # Timestamp when the message was read.
         read_at: nil,
-        # Recipient contact information captured at email send time. Null for non-email
-        # channels.
-        recipient_snapshot: nil,
         # Timestamp when the message was scheduled to be sent.
         scheduled_at: nil,
         # Timestamp when the message was seen.
@@ -260,7 +242,6 @@ module Knockapi
             link_clicked_at: T.nilable(Time),
             metadata: T.nilable(T::Hash[Symbol, T.anything]),
             read_at: T.nilable(Time),
-            recipient_snapshot: T.nilable(Knockapi::Message::RecipientSnapshot),
             scheduled_at: T.nilable(Time),
             seen_at: T.nilable(Time),
             tenant: T.nilable(String),
@@ -551,46 +532,6 @@ module Knockapi
           end
           def self.values
           end
-        end
-      end
-
-      class RecipientSnapshot < Knockapi::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              Knockapi::Message::RecipientSnapshot,
-              Knockapi::Internal::AnyHash
-            )
-          end
-
-        # The email address the message was delivered to
-        sig { returns(T.nilable(String)) }
-        attr_reader :email
-
-        sig { params(email: String).void }
-        attr_writer :email
-
-        # The recipient name at send time
-        sig { returns(T.nilable(String)) }
-        attr_accessor :name
-
-        # Recipient contact information captured at email send time. Null for non-email
-        # channels.
-        sig do
-          params(email: String, name: T.nilable(String)).returns(
-            T.attached_class
-          )
-        end
-        def self.new(
-          # The email address the message was delivered to
-          email: nil,
-          # The recipient name at send time
-          name: nil
-        )
-        end
-
-        sig { override.returns({ email: String, name: T.nilable(String) }) }
-        def to_hash
         end
       end
     end
