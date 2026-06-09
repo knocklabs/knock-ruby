@@ -64,16 +64,31 @@ module Knockapi
           end
 
           class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
-            # @!attribute url
-            #   The URL of the incoming webhook for a Slack connection.
-            #
-            #   @return [String]
-            required :url, String
-
-            # @!method initialize(url:)
+            # @!attribute incoming_webhook
             #   A Slack connection incoming webhook.
             #
-            #   @param url [String] The URL of the incoming webhook for a Slack connection.
+            #   @return [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook]
+            required :incoming_webhook,
+                     -> { Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook }
+
+            # @!method initialize(incoming_webhook:)
+            #   A Slack connection incoming webhook.
+            #
+            #   @param incoming_webhook [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook] A Slack connection incoming webhook.
+
+            # @see Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection#incoming_webhook
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
+              # @!attribute url
+              #   The URL of the incoming webhook for a Slack connection.
+              #
+              #   @return [String]
+              required :url, String
+
+              # @!method initialize(url:)
+              #   A Slack connection incoming webhook.
+              #
+              #   @param url [String] The URL of the incoming webhook for a Slack connection.
+            end
           end
 
           # @!method self.variants
