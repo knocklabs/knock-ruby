@@ -52,14 +52,31 @@ module Knockapi
             }
           end
 
-          type slack_incoming_webhook_connection = { url: String }
+          type slack_incoming_webhook_connection =
+            {
+              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
+            }
 
           class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
-            attr_accessor url: String
+            attr_accessor incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
 
-            def initialize: (url: String) -> void
+            def initialize: (
+              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
+            ) -> void
 
-            def to_hash: -> { url: String }
+            def to_hash: -> {
+              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
+            }
+
+            type incoming_webhook = { url: String }
+
+            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
+              attr_accessor url: String
+
+              def initialize: (url: String) -> void
+
+              def to_hash: -> { url: String }
+            end
           end
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::SlackChannelData::connection]
