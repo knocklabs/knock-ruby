@@ -151,70 +151,20 @@ module Knockapi
                 )
               end
 
-            # A Slack connection incoming webhook.
-            sig do
-              returns(
-                Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
-              )
-            end
-            attr_reader :incoming_webhook
-
-            sig do
-              params(
-                incoming_webhook:
-                  Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook::OrHash
-              ).void
-            end
-            attr_writer :incoming_webhook
+            # The URL of the incoming webhook for a Slack connection.
+            sig { returns(String) }
+            attr_accessor :url
 
             # A Slack connection incoming webhook.
-            sig do
-              params(
-                incoming_webhook:
-                  Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook::OrHash
-              ).returns(T.attached_class)
-            end
+            sig { params(url: String).returns(T.attached_class) }
             def self.new(
-              # A Slack connection incoming webhook.
-              incoming_webhook:
+              # The URL of the incoming webhook for a Slack connection.
+              url:
             )
             end
 
-            sig do
-              override.returns(
-                {
-                  incoming_webhook:
-                    Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
-                }
-              )
-            end
+            sig { override.returns({ url: String }) }
             def to_hash
-            end
-
-            class IncomingWebhook < Knockapi::Internal::Type::BaseModel
-              OrHash =
-                T.type_alias do
-                  T.any(
-                    Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook,
-                    Knockapi::Internal::AnyHash
-                  )
-                end
-
-              # The URL of the incoming webhook for a Slack connection.
-              sig { returns(String) }
-              attr_accessor :url
-
-              # A Slack connection incoming webhook.
-              sig { params(url: String).returns(T.attached_class) }
-              def self.new(
-                # The URL of the incoming webhook for a Slack connection.
-                url:
-              )
-              end
-
-              sig { override.returns({ url: String }) }
-              def to_hash
-              end
             end
           end
 
