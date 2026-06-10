@@ -66,6 +66,8 @@ module Knockapi
             ),
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
+          settings:
+            T.nilable(Knockapi::WorkflowTriggerParams::Settings::OrHash),
           tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash)),
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(Knockapi::Models::WorkflowTriggerResponse)
@@ -91,6 +93,8 @@ module Knockapi
         # greater than 1024 bytes in length will be
         # [truncated](/developer-tools/api-logs#log-truncation) in your logs.
         data: nil,
+        # Optional settings that control how this workflow trigger is executed.
+        settings: nil,
         # An request to set a tenant inline.
         tenant: nil,
         request_options: {}
