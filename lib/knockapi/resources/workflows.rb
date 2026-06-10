@@ -45,7 +45,7 @@ module Knockapi
       # [inline identifications](/managing-recipients/identifying-recipients#inline-identifying-recipients)
       # for the `actor`, `recipient`, and `tenant` fields.
       #
-      # @overload trigger(key, recipients:, actor: nil, cancellation_key: nil, data: nil, tenant: nil, request_options: {})
+      # @overload trigger(key, recipients:, actor: nil, cancellation_key: nil, data: nil, settings: nil, tenant: nil, request_options: {})
       #
       # @param key [String] Key of the workflow to trigger.
       #
@@ -56,6 +56,8 @@ module Knockapi
       # @param cancellation_key [String, nil] A key that is used to reference a specific workflow trigger request when issuing
       #
       # @param data [Hash{Symbol=>Object}, nil] An optional map of data to pass into the workflow execution. There is a 10MB lim
+      #
+      # @param settings [Knockapi::Models::WorkflowTriggerParams::Settings, nil] Optional settings that control how this workflow trigger is executed.
       #
       # @param tenant [String, Knockapi::Models::TenantRequest, nil] An request to set a tenant inline.
       #

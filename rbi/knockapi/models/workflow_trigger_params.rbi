@@ -60,6 +60,17 @@ module Knockapi
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_accessor :data
 
+      # Optional settings that control how this workflow trigger is executed.
+      sig { returns(T.nilable(Knockapi::WorkflowTriggerParams::Settings)) }
+      attr_reader :settings
+
+      sig do
+        params(
+          settings: T.nilable(Knockapi::WorkflowTriggerParams::Settings::OrHash)
+        ).void
+      end
+      attr_writer :settings
+
       # An request to set a tenant inline.
       sig { returns(T.nilable(T.any(String, Knockapi::TenantRequest))) }
       attr_accessor :tenant
@@ -85,6 +96,8 @@ module Knockapi
             ),
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
+          settings:
+            T.nilable(Knockapi::WorkflowTriggerParams::Settings::OrHash),
           tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash)),
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -109,6 +122,8 @@ module Knockapi
         # greater than 1024 bytes in length will be
         # [truncated](/developer-tools/api-logs#log-truncation) in your logs.
         data: nil,
+        # Optional settings that control how this workflow trigger is executed.
+        settings: nil,
         # An request to set a tenant inline.
         tenant: nil,
         request_options: {}
@@ -137,12 +152,45 @@ module Knockapi
               ),
             cancellation_key: T.nilable(String),
             data: T.nilable(T::Hash[Symbol, T.anything]),
+            settings: T.nilable(Knockapi::WorkflowTriggerParams::Settings),
             tenant: T.nilable(T.any(String, Knockapi::TenantRequest)),
             request_options: Knockapi::RequestOptions
           }
         )
       end
       def to_hash
+      end
+
+      class Settings < Knockapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Knockapi::WorkflowTriggerParams::Settings,
+              Knockapi::Internal::AnyHash
+            )
+          end
+
+        # When set to true, overrides the sandbox mode for all channels in this workflow
+        # run, messages are not delivered to the underlying providers. If false or not
+        # set, the workflow delivers messages normally.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_accessor :sandbox_mode
+
+        # Optional settings that control how this workflow trigger is executed.
+        sig do
+          params(sandbox_mode: T.nilable(T::Boolean)).returns(T.attached_class)
+        end
+        def self.new(
+          # When set to true, overrides the sandbox mode for all channels in this workflow
+          # run, messages are not delivered to the underlying providers. If false or not
+          # set, the workflow delivers messages normally.
+          sandbox_mode: nil
+        )
+        end
+
+        sig { override.returns({ sandbox_mode: T.nilable(T::Boolean) }) }
+        def to_hash
+        end
       end
     end
   end
