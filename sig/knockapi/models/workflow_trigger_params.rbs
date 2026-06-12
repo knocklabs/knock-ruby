@@ -52,16 +52,14 @@ module Knockapi
         request_options: Knockapi::RequestOptions
       }
 
-      type settings = { sandbox_mode: bool?, skip_delay: bool? }
+      type settings = { sandbox_mode: bool? }
 
       class Settings < Knockapi::Internal::Type::BaseModel
         attr_accessor sandbox_mode: bool?
 
-        attr_accessor skip_delay: bool?
+        def initialize: (?sandbox_mode: bool?) -> void
 
-        def initialize: (?sandbox_mode: bool?, ?skip_delay: bool?) -> void
-
-        def to_hash: -> { sandbox_mode: bool?, skip_delay: bool? }
+        def to_hash: -> { sandbox_mode: bool? }
       end
     end
   end
