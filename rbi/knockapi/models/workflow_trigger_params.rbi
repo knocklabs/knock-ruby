@@ -176,19 +176,37 @@ module Knockapi
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :sandbox_mode
 
+        # When set to true, skips all delay steps in the workflow for this trigger
+        # request. If false or not set, delay steps execute normally.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_accessor :skip_delay
+
         # Optional settings that control how this workflow trigger is executed.
         sig do
-          params(sandbox_mode: T.nilable(T::Boolean)).returns(T.attached_class)
+          params(
+            sandbox_mode: T.nilable(T::Boolean),
+            skip_delay: T.nilable(T::Boolean)
+          ).returns(T.attached_class)
         end
         def self.new(
           # When set to true, overrides the sandbox mode for all channels in this workflow
           # run, messages are not delivered to the underlying providers. If false or not
           # set, the workflow delivers messages normally.
-          sandbox_mode: nil
+          sandbox_mode: nil,
+          # When set to true, skips all delay steps in the workflow for this trigger
+          # request. If false or not set, delay steps execute normally.
+          skip_delay: nil
         )
         end
 
-        sig { override.returns({ sandbox_mode: T.nilable(T::Boolean) }) }
+        sig do
+          override.returns(
+            {
+              sandbox_mode: T.nilable(T::Boolean),
+              skip_delay: T.nilable(T::Boolean)
+            }
+          )
+        end
         def to_hash
         end
       end
