@@ -87,13 +87,22 @@ module Knockapi
         #   @return [Boolean, nil]
         optional :sandbox_mode, Knockapi::Internal::Type::Boolean, nil?: true
 
-        # @!method initialize(sandbox_mode: nil)
+        # @!attribute skip_delay
+        #   When set to true, skips all delay steps in the workflow for this trigger
+        #   request. If false or not set, delay steps execute normally.
+        #
+        #   @return [Boolean, nil]
+        optional :skip_delay, Knockapi::Internal::Type::Boolean, nil?: true
+
+        # @!method initialize(sandbox_mode: nil, skip_delay: nil)
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::WorkflowTriggerParams::Settings} for more details.
         #
         #   Optional settings that control how this workflow trigger is executed.
         #
         #   @param sandbox_mode [Boolean, nil] When set to true, overrides the sandbox mode for all channels in this workflow r
+        #
+        #   @param skip_delay [Boolean, nil] When set to true, skips all delay steps in the workflow for this trigger request
       end
     end
   end
