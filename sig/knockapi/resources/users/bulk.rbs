@@ -13,7 +13,7 @@ module Knockapi
         ) -> Knockapi::BulkOperation
 
         def set_preferences: (
-          preferences: Knockapi::Recipients::PreferenceSetRequest,
+          preferences: Knockapi::Users::BulkSetPreferencesParams::Preferences,
           user_ids: ::Array[String],
           ?request_options: Knockapi::request_opts
         ) -> Knockapi::BulkOperation

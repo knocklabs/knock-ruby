@@ -43,13 +43,15 @@ module Knockapi
         # the preferences sent.
         sig do
           params(
-            preferences: Knockapi::Recipients::PreferenceSetRequest::OrHash,
+            preferences:
+              Knockapi::Users::BulkSetPreferencesParams::Preferences::OrHash,
             user_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(Knockapi::BulkOperation)
         end
         def set_preferences(
-          # A request to set a preference set for a recipient.
+          # A preference set to apply in a bulk operation. Always replaces existing
+          # preferences for the specified set.
           preferences:,
           # A list of user IDs.
           user_ids:,
