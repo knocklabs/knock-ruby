@@ -67,6 +67,10 @@ module Knockapi
 
         type branding =
           {
+            dark_icon_url: String?,
+            dark_logo_url: String?,
+            dark_primary_color: String?,
+            dark_primary_color_contrast: String?,
             icon_url: String?,
             logo_url: String?,
             primary_color: String?,
@@ -74,6 +78,14 @@ module Knockapi
           }
 
         class Branding < Knockapi::Internal::Type::BaseModel
+          attr_accessor dark_icon_url: String?
+
+          attr_accessor dark_logo_url: String?
+
+          attr_accessor dark_primary_color: String?
+
+          attr_accessor dark_primary_color_contrast: String?
+
           attr_accessor icon_url: String?
 
           attr_accessor logo_url: String?
@@ -83,6 +95,10 @@ module Knockapi
           attr_accessor primary_color_contrast: String?
 
           def initialize: (
+            ?dark_icon_url: String?,
+            ?dark_logo_url: String?,
+            ?dark_primary_color: String?,
+            ?dark_primary_color_contrast: String?,
             ?icon_url: String?,
             ?logo_url: String?,
             ?primary_color: String?,
@@ -90,6 +106,10 @@ module Knockapi
           ) -> void
 
           def to_hash: -> {
+            dark_icon_url: String?,
+            dark_logo_url: String?,
+            dark_primary_color: String?,
+            dark_primary_color_contrast: String?,
             icon_url: String?,
             logo_url: String?,
             primary_color: String?,

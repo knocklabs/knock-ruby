@@ -204,6 +204,24 @@ module Knockapi
               )
             end
 
+          # The icon URL for the tenant in dark mode. Falls back to `icon_url` if unset.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :dark_icon_url
+
+          # The logo URL for the tenant in dark mode. Falls back to `logo_url` if unset.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :dark_logo_url
+
+          # The primary color for the tenant in dark mode, provided as a hex value. Defaults
+          # to `#FFFFFF`.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :dark_primary_color
+
+          # The primary color contrast for the tenant in dark mode, provided as a hex value.
+          # Defaults to `#000000`.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :dark_primary_color_contrast
+
           # The icon URL for the tenant. Must point to a valid image with an image MIME
           # type.
           sig { returns(T.nilable(String)) }
@@ -225,6 +243,10 @@ module Knockapi
           # The branding for the tenant.
           sig do
             params(
+              dark_icon_url: T.nilable(String),
+              dark_logo_url: T.nilable(String),
+              dark_primary_color: T.nilable(String),
+              dark_primary_color_contrast: T.nilable(String),
               icon_url: T.nilable(String),
               logo_url: T.nilable(String),
               primary_color: T.nilable(String),
@@ -232,6 +254,16 @@ module Knockapi
             ).returns(T.attached_class)
           end
           def self.new(
+            # The icon URL for the tenant in dark mode. Falls back to `icon_url` if unset.
+            dark_icon_url: nil,
+            # The logo URL for the tenant in dark mode. Falls back to `logo_url` if unset.
+            dark_logo_url: nil,
+            # The primary color for the tenant in dark mode, provided as a hex value. Defaults
+            # to `#FFFFFF`.
+            dark_primary_color: nil,
+            # The primary color contrast for the tenant in dark mode, provided as a hex value.
+            # Defaults to `#000000`.
+            dark_primary_color_contrast: nil,
             # The icon URL for the tenant. Must point to a valid image with an image MIME
             # type.
             icon_url: nil,
@@ -248,6 +280,10 @@ module Knockapi
           sig do
             override.returns(
               {
+                dark_icon_url: T.nilable(String),
+                dark_logo_url: T.nilable(String),
+                dark_primary_color: T.nilable(String),
+                dark_primary_color_contrast: T.nilable(String),
                 icon_url: T.nilable(String),
                 logo_url: T.nilable(String),
                 primary_color: T.nilable(String),
