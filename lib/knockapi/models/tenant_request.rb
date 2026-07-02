@@ -81,6 +81,32 @@ module Knockapi
 
         # @see Knockapi::Models::TenantRequest::Settings#branding
         class Branding < Knockapi::Internal::Type::BaseModel
+          # @!attribute dark_icon_url
+          #   The icon URL for the tenant in dark mode. Falls back to `icon_url` if unset.
+          #
+          #   @return [String, nil]
+          optional :dark_icon_url, String, nil?: true
+
+          # @!attribute dark_logo_url
+          #   The logo URL for the tenant in dark mode. Falls back to `logo_url` if unset.
+          #
+          #   @return [String, nil]
+          optional :dark_logo_url, String, nil?: true
+
+          # @!attribute dark_primary_color
+          #   The primary color for the tenant in dark mode, provided as a hex value. Defaults
+          #   to `#FFFFFF`.
+          #
+          #   @return [String, nil]
+          optional :dark_primary_color, String, nil?: true
+
+          # @!attribute dark_primary_color_contrast
+          #   The primary color contrast for the tenant in dark mode, provided as a hex value.
+          #   Defaults to `#000000`.
+          #
+          #   @return [String, nil]
+          optional :dark_primary_color_contrast, String, nil?: true
+
           # @!attribute icon_url
           #   The icon URL for the tenant. Must point to a valid image with an image MIME
           #   type.
@@ -107,11 +133,19 @@ module Knockapi
           #   @return [String, nil]
           optional :primary_color_contrast, String, nil?: true
 
-          # @!method initialize(icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
+          # @!method initialize(dark_icon_url: nil, dark_logo_url: nil, dark_primary_color: nil, dark_primary_color_contrast: nil, icon_url: nil, logo_url: nil, primary_color: nil, primary_color_contrast: nil)
           #   Some parameter documentations has been truncated, see
           #   {Knockapi::Models::TenantRequest::Settings::Branding} for more details.
           #
           #   The branding for the tenant.
+          #
+          #   @param dark_icon_url [String, nil] The icon URL for the tenant in dark mode. Falls back to `icon_url` if unset.
+          #
+          #   @param dark_logo_url [String, nil] The logo URL for the tenant in dark mode. Falls back to `logo_url` if unset.
+          #
+          #   @param dark_primary_color [String, nil] The primary color for the tenant in dark mode, provided as a hex value. Defaults
+          #
+          #   @param dark_primary_color_contrast [String, nil] The primary color contrast for the tenant in dark mode, provided as a hex value.
           #
           #   @param icon_url [String, nil] The icon URL for the tenant. Must point to a valid image with an image MIME type
           #
