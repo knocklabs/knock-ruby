@@ -7,6 +7,7 @@ module Knockapi
         actor: Knockapi::Models::recipient_request?,
         cancellation_key: String?,
         data: ::Hash[Symbol, top]?,
+        settings: Knockapi::WorkflowTriggerParams::Settings?,
         tenant: Knockapi::Models::inline_tenant_request?
       }
       & Knockapi::Internal::Type::request_parameters
@@ -25,6 +26,8 @@ module Knockapi
 
       attr_accessor data: ::Hash[Symbol, top]?
 
+      attr_accessor settings: Knockapi::WorkflowTriggerParams::Settings?
+
       attr_accessor tenant: Knockapi::Models::inline_tenant_request?
 
       def initialize: (
@@ -33,6 +36,7 @@ module Knockapi
         ?actor: Knockapi::Models::recipient_request?,
         ?cancellation_key: String?,
         ?data: ::Hash[Symbol, top]?,
+        ?settings: Knockapi::WorkflowTriggerParams::Settings?,
         ?tenant: Knockapi::Models::inline_tenant_request?,
         ?request_options: Knockapi::request_opts
       ) -> void
@@ -43,9 +47,22 @@ module Knockapi
         actor: Knockapi::Models::recipient_request?,
         cancellation_key: String?,
         data: ::Hash[Symbol, top]?,
+        settings: Knockapi::WorkflowTriggerParams::Settings?,
         tenant: Knockapi::Models::inline_tenant_request?,
         request_options: Knockapi::RequestOptions
       }
+
+      type settings = { sandbox_mode: bool?, skip_delay: bool? }
+
+      class Settings < Knockapi::Internal::Type::BaseModel
+        attr_accessor sandbox_mode: bool?
+
+        attr_accessor skip_delay: bool?
+
+        def initialize: (?sandbox_mode: bool?, ?skip_delay: bool?) -> void
+
+        def to_hash: -> { sandbox_mode: bool?, skip_delay: bool? }
+      end
     end
   end
 end

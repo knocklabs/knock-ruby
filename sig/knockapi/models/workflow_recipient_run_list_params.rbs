@@ -1,0 +1,109 @@
+module Knockapi
+  module Models
+    type workflow_recipient_run_list_params =
+      {
+        after: String,
+        before: String,
+        ending_at: Time,
+        has_errors: bool,
+        page_size: Integer,
+        recipient: Knockapi::Models::recipient_reference,
+        starting_at: Time,
+        status: ::Array[Knockapi::Models::WorkflowRecipientRunListParams::status],
+        tenant: String,
+        workflow: String
+      }
+      & Knockapi::Internal::Type::request_parameters
+
+    class WorkflowRecipientRunListParams < Knockapi::Internal::Type::BaseModel
+      extend Knockapi::Internal::Type::RequestParameters::Converter
+      include Knockapi::Internal::Type::RequestParameters
+
+      attr_reader after: String?
+
+      def after=: (String) -> String
+
+      attr_reader before: String?
+
+      def before=: (String) -> String
+
+      attr_reader ending_at: Time?
+
+      def ending_at=: (Time) -> Time
+
+      attr_reader has_errors: bool?
+
+      def has_errors=: (bool) -> bool
+
+      attr_reader page_size: Integer?
+
+      def page_size=: (Integer) -> Integer
+
+      attr_reader recipient: Knockapi::Models::recipient_reference?
+
+      def recipient=: (
+        Knockapi::Models::recipient_reference
+      ) -> Knockapi::Models::recipient_reference
+
+      attr_reader starting_at: Time?
+
+      def starting_at=: (Time) -> Time
+
+      attr_reader status: ::Array[Knockapi::Models::WorkflowRecipientRunListParams::status]?
+
+      def status=: (
+        ::Array[Knockapi::Models::WorkflowRecipientRunListParams::status]
+      ) -> ::Array[Knockapi::Models::WorkflowRecipientRunListParams::status]
+
+      attr_reader tenant: String?
+
+      def tenant=: (String) -> String
+
+      attr_reader workflow: String?
+
+      def workflow=: (String) -> String
+
+      def initialize: (
+        ?after: String,
+        ?before: String,
+        ?ending_at: Time,
+        ?has_errors: bool,
+        ?page_size: Integer,
+        ?recipient: Knockapi::Models::recipient_reference,
+        ?starting_at: Time,
+        ?status: ::Array[Knockapi::Models::WorkflowRecipientRunListParams::status],
+        ?tenant: String,
+        ?workflow: String,
+        ?request_options: Knockapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        after: String,
+        before: String,
+        ending_at: Time,
+        has_errors: bool,
+        page_size: Integer,
+        recipient: Knockapi::Models::recipient_reference,
+        starting_at: Time,
+        status: ::Array[Knockapi::Models::WorkflowRecipientRunListParams::status],
+        tenant: String,
+        workflow: String,
+        request_options: Knockapi::RequestOptions
+      }
+
+      type status = :queued | :processing | :paused | :completed | :cancelled
+
+      module Status
+        extend Knockapi::Internal::Type::Enum
+
+        QUEUED: :queued
+        PROCESSING: :processing
+        PAUSED: :paused
+        COMPLETED: :completed
+        CANCELLED: :cancelled
+
+        def self?.values: -> ::Array[Knockapi::Models::WorkflowRecipientRunListParams::status]
+      end
+    end
+  end
+end

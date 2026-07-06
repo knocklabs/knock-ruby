@@ -95,6 +95,8 @@ module Knockapi
 
   class ObjectUnsetChannelDataParams = Knockapi::Models::ObjectUnsetChannelDataParams
 
+  class ObjectUnsetPreferencesParams = Knockapi::Models::ObjectUnsetPreferencesParams
+
   class PageInfo = Knockapi::Models::PageInfo
 
   module Providers = Knockapi::Models::Providers
@@ -165,9 +167,21 @@ module Knockapi
 
   class UserUnsetChannelDataParams = Knockapi::Models::UserUnsetChannelDataParams
 
+  class UserUnsetPreferencesParams = Knockapi::Models::UserUnsetPreferencesParams
+
   class UserUpdateParams = Knockapi::Models::UserUpdateParams
 
   class WorkflowCancelParams = Knockapi::Models::WorkflowCancelParams
+
+  class WorkflowRecipientRun = Knockapi::Models::WorkflowRecipientRun
+
+  class WorkflowRecipientRunDetail = Knockapi::Models::WorkflowRecipientRunDetail
+
+  class WorkflowRecipientRunEvent = Knockapi::Models::WorkflowRecipientRunEvent
+
+  class WorkflowRecipientRunGetParams = Knockapi::Models::WorkflowRecipientRunGetParams
+
+  class WorkflowRecipientRunListParams = Knockapi::Models::WorkflowRecipientRunListParams
 
   class WorkflowTriggerParams = Knockapi::Models::WorkflowTriggerParams
 end

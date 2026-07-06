@@ -127,6 +127,12 @@ module Knockapi
         ?request_options: Knockapi::request_opts
       ) -> nil
 
+      def unset_preferences: (
+        String user_id,
+        String id,
+        ?request_options: Knockapi::request_opts
+      ) -> nil
+
       def initialize: (client: Knockapi::Client) -> void
     end
   end

@@ -143,6 +143,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         link_clicked_at: Time | nil,
         metadata: ^(Knockapi::Internal::Type::HashOf[Knockapi::Internal::Type::Unknown]) | nil,
         read_at: Time | nil,
+        recipient_snapshot: Knockapi::Message::RecipientSnapshot | nil,
         scheduled_at: Time | nil,
         seen_at: Time | nil,
         tenant: String | nil,
@@ -281,6 +282,14 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
   def test_unset_channel_data
     response =
       @knock.objects.unset_channel_data("collection", "object_id", "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
+
+    assert_pattern do
+      response => nil
+    end
+  end
+
+  def test_unset_preferences
+    response = @knock.objects.unset_preferences("collection", "object_id", "default")
 
     assert_pattern do
       response => nil

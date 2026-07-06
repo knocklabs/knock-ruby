@@ -66,22 +66,22 @@ module Knockapi
       module Type
         extend Knockapi::Internal::Type::Enum
 
-        MESSAGE_ARCHIVED = :"message.archived"
-        MESSAGE_BOUNCED = :"message.bounced"
-        MESSAGE_CREATED = :"message.created"
-        MESSAGE_DELIVERED = :"message.delivered"
-        MESSAGE_DELIVERY_ATTEMPTED = :"message.delivery_attempted"
-        MESSAGE_INTERACTED = :"message.interacted"
-        MESSAGE_LINK_CLICKED = :"message.link_clicked"
-        MESSAGE_NOT_SENT = :"message.not_sent"
-        MESSAGE_QUEUED = :"message.queued"
         MESSAGE_READ = :"message.read"
-        MESSAGE_SEEN = :"message.seen"
         MESSAGE_SENT = :"message.sent"
-        MESSAGE_UNARCHIVED = :"message.unarchived"
+        MESSAGE_SEEN = :"message.seen"
+        MESSAGE_CREATED = :"message.created"
+        MESSAGE_QUEUED = :"message.queued"
+        MESSAGE_DELIVERED = :"message.delivered"
+        MESSAGE_BOUNCED = :"message.bounced"
         MESSAGE_UNDELIVERED = :"message.undelivered"
-        MESSAGE_UNREAD = :"message.unread"
+        MESSAGE_NOT_SENT = :"message.not_sent"
+        MESSAGE_DELIVERY_ATTEMPTED = :"message.delivery_attempted"
+        MESSAGE_ARCHIVED = :"message.archived"
+        MESSAGE_LINK_CLICKED = :"message.link_clicked"
+        MESSAGE_INTERACTED = :"message.interacted"
         MESSAGE_UNSEEN = :"message.unseen"
+        MESSAGE_UNREAD = :"message.unread"
+        MESSAGE_UNARCHIVED = :"message.unarchived"
 
         # @!method self.values
         #   @return [Array<Symbol>]

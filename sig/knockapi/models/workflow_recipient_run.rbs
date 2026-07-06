@@ -1,0 +1,146 @@
+module Knockapi
+  module Models
+    type workflow_recipient_run =
+      {
+        id: String,
+        _typename: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient_reference,
+        status: Knockapi::Models::WorkflowRecipientRun::status,
+        trigger_source: Knockapi::WorkflowRecipientRun::TriggerSource,
+        updated_at: Time,
+        workflow: String,
+        workflow_run_id: String,
+        actor: Knockapi::Models::recipient_reference?,
+        error_count: Integer,
+        tenant: String?
+      }
+
+    class WorkflowRecipientRun < Knockapi::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor _typename: String
+
+      attr_accessor inserted_at: Time
+
+      attr_accessor recipient: Knockapi::Models::recipient_reference
+
+      attr_accessor status: Knockapi::Models::WorkflowRecipientRun::status
+
+      attr_accessor trigger_source: Knockapi::WorkflowRecipientRun::TriggerSource
+
+      attr_accessor updated_at: Time
+
+      attr_accessor workflow: String
+
+      attr_accessor workflow_run_id: String
+
+      attr_accessor actor: Knockapi::Models::recipient_reference?
+
+      attr_reader error_count: Integer?
+
+      def error_count=: (Integer) -> Integer
+
+      attr_accessor tenant: String?
+
+      def initialize: (
+        id: String,
+        _typename: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient_reference,
+        status: Knockapi::Models::WorkflowRecipientRun::status,
+        trigger_source: Knockapi::WorkflowRecipientRun::TriggerSource,
+        updated_at: Time,
+        workflow: String,
+        workflow_run_id: String,
+        ?actor: Knockapi::Models::recipient_reference?,
+        ?error_count: Integer,
+        ?tenant: String?
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        _typename: String,
+        inserted_at: Time,
+        recipient: Knockapi::Models::recipient_reference,
+        status: Knockapi::Models::WorkflowRecipientRun::status,
+        trigger_source: Knockapi::WorkflowRecipientRun::TriggerSource,
+        updated_at: Time,
+        workflow: String,
+        workflow_run_id: String,
+        actor: Knockapi::Models::recipient_reference?,
+        error_count: Integer,
+        tenant: String?
+      }
+
+      type status = :queued | :processing | :paused | :completed | :cancelled
+
+      module Status
+        extend Knockapi::Internal::Type::Enum
+
+        QUEUED: :queued
+        PROCESSING: :processing
+        PAUSED: :paused
+        COMPLETED: :completed
+        CANCELLED: :cancelled
+
+        def self?.values: -> ::Array[Knockapi::Models::WorkflowRecipientRun::status]
+      end
+
+      type trigger_source =
+        {
+          type: Knockapi::Models::WorkflowRecipientRun::TriggerSource::type_,
+          audience_key: String?,
+          cancellation_key: String?,
+          schedule_id: String?
+        }
+
+      class TriggerSource < Knockapi::Internal::Type::BaseModel
+        attr_accessor type: Knockapi::Models::WorkflowRecipientRun::TriggerSource::type_
+
+        attr_accessor audience_key: String?
+
+        attr_accessor cancellation_key: String?
+
+        attr_accessor schedule_id: String?
+
+        def initialize: (
+          type: Knockapi::Models::WorkflowRecipientRun::TriggerSource::type_,
+          ?audience_key: String?,
+          ?cancellation_key: String?,
+          ?schedule_id: String?
+        ) -> void
+
+        def to_hash: -> {
+          type: Knockapi::Models::WorkflowRecipientRun::TriggerSource::type_,
+          audience_key: String?,
+          cancellation_key: String?,
+          schedule_id: String?
+        }
+
+        type type_ =
+          :api
+          | :audience
+          | :schedule
+          | :broadcast
+          | :workflow_step
+          | :integration
+          | :rehearsal
+
+        module Type
+          extend Knockapi::Internal::Type::Enum
+
+          API: :api
+          AUDIENCE: :audience
+          SCHEDULE: :schedule
+          BROADCAST: :broadcast
+          WORKFLOW_STEP: :workflow_step
+          INTEGRATION: :integration
+          REHEARSAL: :rehearsal
+
+          def self?.values: -> ::Array[Knockapi::Models::WorkflowRecipientRun::TriggerSource::type_]
+        end
+      end
+    end
+  end
+end

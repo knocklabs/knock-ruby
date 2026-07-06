@@ -184,6 +184,13 @@ module Knockapi
           sig { params(channel_id: String).void }
           attr_writer :channel_id
 
+          # URL to this guide in the Knock dashboard
+          sig { returns(T.nilable(String)) }
+          attr_reader :dashboard_url
+
+          sig { params(dashboard_url: String).void }
+          attr_writer :dashboard_url
+
           sig { returns(T.nilable(Time)) }
           attr_reader :inserted_at
 
@@ -252,6 +259,7 @@ module Knockapi
               active: T::Boolean,
               bypass_global_group_limit: T::Boolean,
               channel_id: String,
+              dashboard_url: String,
               inserted_at: Time,
               key: String,
               semver: String,
@@ -278,6 +286,8 @@ module Knockapi
             active: nil,
             bypass_global_group_limit: nil,
             channel_id: nil,
+            # URL to this guide in the Knock dashboard
+            dashboard_url: nil,
             inserted_at: nil,
             # The key of the guide.
             key: nil,
@@ -305,6 +315,7 @@ module Knockapi
                 active: T::Boolean,
                 bypass_global_group_limit: T::Boolean,
                 channel_id: String,
+                dashboard_url: String,
                 inserted_at: Time,
                 key: String,
                 semver: String,

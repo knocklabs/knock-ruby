@@ -27,11 +27,11 @@ module Knockapi
       def cancel(
         # The key of the workflow to cancel.
         key,
-        # An optional key that is used to reference a specific workflow trigger request
-        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-        # request. Must be provided while triggering a workflow in order to enable
-        # subsequent cancellation. Should be unique across trigger requests to avoid
-        # unintentional cancellations.
+        # A key that is used to reference a specific workflow trigger request when issuing
+        # a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+        # be provided while triggering a workflow in order to enable subsequent
+        # cancellation. Should be unique across trigger requests to avoid unintentional
+        # cancellations.
         cancellation_key:,
         # A list of recipients to cancel the notification for. If omitted, cancels for all
         # recipients associated with the cancellation key.
@@ -66,6 +66,8 @@ module Knockapi
             ),
           cancellation_key: T.nilable(String),
           data: T.nilable(T::Hash[Symbol, T.anything]),
+          settings:
+            T.nilable(Knockapi::WorkflowTriggerParams::Settings::OrHash),
           tenant: T.nilable(T.any(String, Knockapi::TenantRequest::OrHash)),
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(Knockapi::Models::WorkflowTriggerResponse)
@@ -80,17 +82,19 @@ module Knockapi
         # (string), an inline user request (object), or an inline object request, which is
         # determined by the presence of a `collection` property.
         actor: nil,
-        # An optional key that is used to reference a specific workflow trigger request
-        # when issuing a [workflow cancellation](/send-notifications/canceling-workflows)
-        # request. Must be provided while triggering a workflow in order to enable
-        # subsequent cancellation. Should be unique across trigger requests to avoid
-        # unintentional cancellations.
+        # A key that is used to reference a specific workflow trigger request when issuing
+        # a [workflow cancellation](/send-notifications/canceling-workflows) request. Must
+        # be provided while triggering a workflow in order to enable subsequent
+        # cancellation. Should be unique across trigger requests to avoid unintentional
+        # cancellations.
         cancellation_key: nil,
         # An optional map of data to pass into the workflow execution. There is a 10MB
         # limit on the size of the full `data` payload. Any individual string value
         # greater than 1024 bytes in length will be
         # [truncated](/developer-tools/api-logs#log-truncation) in your logs.
         data: nil,
+        # Optional settings that control how this workflow trigger is executed.
+        settings: nil,
         # An request to set a tenant inline.
         tenant: nil,
         request_options: {}

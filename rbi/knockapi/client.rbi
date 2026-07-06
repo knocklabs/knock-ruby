@@ -54,6 +54,11 @@ module Knockapi
     sig { returns(Knockapi::Resources::Workflows) }
     attr_reader :workflows
 
+    # A workflow run represents an individual execution of a workflow for a specific
+    # recipient.
+    sig { returns(Knockapi::Resources::WorkflowRecipientRuns) }
+    attr_reader :workflow_recipient_runs
+
     # A schedule is a per-recipient, timezone-aware configuration for when to invoke a
     # workflow.
     sig { returns(Knockapi::Resources::Schedules) }

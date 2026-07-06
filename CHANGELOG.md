@@ -1,5 +1,68 @@
 # Changelog
 
+## 1.36.0 (2026-07-06)
+
+Full Changelog: [v1.35.0...v1.36.0](https://github.com/knocklabs/knock-ruby/compare/v1.35.0...v1.36.0)
+
+### Features
+
+* **api:** added new unset preferences methods ([9b272e8](https://github.com/knocklabs/knock-ruby/commit/9b272e8ced5eb194a57d79ba442fba9539a0c0ef))
+* **api:** api update ([c066457](https://github.com/knocklabs/knock-ruby/commit/c0664574c3f3261d5d9afb01da8ca4fd0abb644a))
+* **api:** api update ([a001440](https://github.com/knocklabs/knock-ruby/commit/a00144037679d27b84ab5cfb46e5e1d1260e603c))
+* **api:** api update ([18c4951](https://github.com/knocklabs/knock-ruby/commit/18c495182324507144e63fa2fe01accddf35422f))
+* **api:** api update ([2401cbd](https://github.com/knocklabs/knock-ruby/commit/2401cbdf0b20836eb2750ade8fcb788577d7e20a))
+* **api:** api update ([6d5c451](https://github.com/knocklabs/knock-ruby/commit/6d5c451ba3f1f76bce75a505edefc72b9fc70aa6))
+* **api:** api update ([9fba1c3](https://github.com/knocklabs/knock-ruby/commit/9fba1c3f1688a4e689ece5407ab4dbda42194e7a))
+* **api:** api update ([81f4210](https://github.com/knocklabs/knock-ruby/commit/81f42102f262f168d22662496a730cafbc8e1ff6))
+* **api:** api update ([c3faad4](https://github.com/knocklabs/knock-ruby/commit/c3faad4ef7886e8310126e60890296bb5f7461b4))
+* **api:** api update ([0a184ac](https://github.com/knocklabs/knock-ruby/commit/0a184ac4c65104b9627beb4dbbf9d7079e054521))
+* **api:** api update ([033b47f](https://github.com/knocklabs/knock-ruby/commit/033b47f1f496c7430f90e4183fbabd54b2e679a1))
+* **api:** api update ([1ca76d9](https://github.com/knocklabs/knock-ruby/commit/1ca76d92a41eadb71e1e443ff74a79c56e9b590b))
+* **api:** api update ([4a24039](https://github.com/knocklabs/knock-ruby/commit/4a2403909e4acac7fc2345f7718cb91e8d7b6482))
+* **api:** api update ([1e5415d](https://github.com/knocklabs/knock-ruby/commit/1e5415d4ac03f8312a7523dface2690c2ea84530))
+* **api:** api update ([a727d66](https://github.com/knocklabs/knock-ruby/commit/a727d6642460cf4d08ddda6d8438b25d0bbe01cd))
+* **api:** api update ([e4c47e9](https://github.com/knocklabs/knock-ruby/commit/e4c47e9f7277754c46edee3ce6a77c3cc8cf62ab))
+* **api:** api update ([306d88b](https://github.com/knocklabs/knock-ruby/commit/306d88b3b83161b50475e2742cc43ca3d220b46b))
+* **api:** api update ([10d9d36](https://github.com/knocklabs/knock-ruby/commit/10d9d36a75265107ad764cd2a6632b1a5c1ee19f))
+* **api:** api update ([d6c0cff](https://github.com/knocklabs/knock-ruby/commit/d6c0cffbcfe754eb69738928ece4a7190d42949e))
+* **api:** api update ([692eda9](https://github.com/knocklabs/knock-ruby/commit/692eda92f04365b34921069ea4ceee12996dc562))
+* **api:** api update ([3c57fe3](https://github.com/knocklabs/knock-ruby/commit/3c57fe3e021d0c7ce2670d03d4666205458397da))
+* **api:** api update ([235f220](https://github.com/knocklabs/knock-ruby/commit/235f220522da41f5ec8f589858879e1885d8be67))
+* **api:** api update ([5c3a9c1](https://github.com/knocklabs/knock-ruby/commit/5c3a9c12f02fb3acbe8263f07dc7fb5d2134fc98))
+* **api:** api update ([e119cef](https://github.com/knocklabs/knock-ruby/commit/e119cef6b64fbeb3eda95e1a9418cdc5d058cd35))
+* **api:** api update ([e2d7908](https://github.com/knocklabs/knock-ruby/commit/e2d7908ccc094c06989d5f78c620ea8b6bdff6f0))
+* **api:** api update ([e697644](https://github.com/knocklabs/knock-ruby/commit/e697644fade546fea5be556f0f51024f8959228e))
+* **api:** api update ([cf13a4e](https://github.com/knocklabs/knock-ruby/commit/cf13a4eac94e30e2bd0256af75cb9547057890aa))
+* **api:** api update ([27e68a8](https://github.com/knocklabs/knock-ruby/commit/27e68a833d6045919ff9b61ee416cd65078c2aa3))
+* **api:** api update ([2d54bf7](https://github.com/knocklabs/knock-ruby/commit/2d54bf7fb14986bfcbe5a4f2cc4a797e65c8e670))
+* **api:** api update ([76bdadc](https://github.com/knocklabs/knock-ruby/commit/76bdadc2b8b10eecfbe70ed14a8f6c040e27374e))
+* **api:** api update ([373e78b](https://github.com/knocklabs/knock-ruby/commit/373e78b7f24449c77d98c0d05c897fdeb05641aa))
+* **api:** api update ([14c7bc7](https://github.com/knocklabs/knock-ruby/commit/14c7bc73e1677dc239ac48035ee0b034709750ae))
+* **api:** api update ([bd57879](https://github.com/knocklabs/knock-ruby/commit/bd578791c347de8b63caf60ba6340f19ac3a6a48))
+* **api:** api update ([da22d6e](https://github.com/knocklabs/knock-ruby/commit/da22d6e5573c3f093d081edcb6881ac23fcf9173))
+* **api:** api update ([628d4cc](https://github.com/knocklabs/knock-ruby/commit/628d4cc040ba05590a453be6824ea9329792f394))
+* **api:** api update ([f710ae2](https://github.com/knocklabs/knock-ruby/commit/f710ae264c9e1acdcf36b41b93e49cd7a8ebaf12))
+* **KNO-12791:** Add workflow recipient run APIs ([1e34f54](https://github.com/knocklabs/knock-ruby/commit/1e34f54ffff850939a1effd58cb9711b442d7a93))
+* support setting headers via env ([ad75b97](https://github.com/knocklabs/knock-ruby/commit/ad75b97225fd6634d7850dde00d5035e64d168a2))
+
+
+### Bug Fixes
+
+* align path encoding with RFC 3986 section 3.3 ([3e2268d](https://github.com/knocklabs/knock-ruby/commit/3e2268d3e0547fa66ad253e35c86da963cc36215))
+* **client:** elide content type header on requests without body ([4e8b8cf](https://github.com/knocklabs/knock-ruby/commit/4e8b8cfd2dbdd693a880d960df5e48baa29fce2b))
+* **client:** send content-type header for requests with an omitted optional body ([1baf886](https://github.com/knocklabs/knock-ruby/commit/1baf8869ccefbfe0bd34ae1034dccebf6fc3fc7a))
+* multipart encoding for file arrays ([0715076](https://github.com/knocklabs/knock-ruby/commit/0715076b3cb219501a9bedd7a449f4cedef2babb))
+* variable name typo ([cde1131](https://github.com/knocklabs/knock-ruby/commit/cde113151eb2879204409723971653616876fdee))
+
+
+### Chores
+
+* **internal:** bound formatter parallelism to CPU count ([865730b](https://github.com/knocklabs/knock-ruby/commit/865730b23c39620c27f03c6f96eeda4d20f0566d))
+* **internal:** more robust bootstrap script ([1023475](https://github.com/knocklabs/knock-ruby/commit/1023475aa6b6f5c04dae72aaf7ad397aa769e033))
+* **tests:** bump steady to v0.20.1 ([6eb6756](https://github.com/knocklabs/knock-ruby/commit/6eb6756ef89a7b99a3825bd5ab899bf2f0b030e2))
+* **tests:** bump steady to v0.20.2 ([4206b20](https://github.com/knocklabs/knock-ruby/commit/4206b20a8cd60362598da173185bbd236e659eff))
+* **tests:** bump steady to v0.22.1 ([5b37b24](https://github.com/knocklabs/knock-ruby/commit/5b37b2467d9d996161d02d5df3bbdf703f51bad7))
+
 ## 1.35.0 (2026-03-27)
 
 Full Changelog: [v1.34.0...v1.35.0](https://github.com/knocklabs/knock-ruby/compare/v1.34.0...v1.35.0)

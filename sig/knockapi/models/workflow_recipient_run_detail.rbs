@@ -1,0 +1,20 @@
+module Knockapi
+  module Models
+    type workflow_recipient_run_detail =
+      { events: ::Array[Knockapi::WorkflowRecipientRunEvent] }
+
+    class WorkflowRecipientRunDetail < Knockapi::Models::WorkflowRecipientRun
+      def events: -> ::Array[Knockapi::WorkflowRecipientRunEvent]
+
+      def events=: (
+        ::Array[Knockapi::WorkflowRecipientRunEvent] _
+      ) -> ::Array[Knockapi::WorkflowRecipientRunEvent]
+
+      def initialize: (
+        events: ::Array[Knockapi::WorkflowRecipientRunEvent]
+      ) -> void
+
+      def to_hash: -> { events: ::Array[Knockapi::WorkflowRecipientRunEvent] }
+    end
+  end
+end

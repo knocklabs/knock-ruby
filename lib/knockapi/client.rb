@@ -59,6 +59,11 @@ module Knockapi
     # @return [Knockapi::Resources::Workflows]
     attr_reader :workflows
 
+    # A workflow run represents an individual execution of a workflow for a specific
+    # recipient.
+    # @return [Knockapi::Resources::WorkflowRecipientRuns]
+    attr_reader :workflow_recipient_runs
+
     # A schedule is a per-recipient, timezone-aware configuration for when to invoke a
     # workflow.
     # @return [Knockapi::Resources::Schedules]
@@ -117,6 +122,17 @@ module Knockapi
       headers = {
         "x-knock-branch" => (@branch = branch&.to_s)
       }
+      custom_headers_env = ENV["KNOCK_CUSTOM_HEADERS"]
+      unless custom_headers_env.nil?
+        parsed = {}
+        custom_headers_env.split("\n").each do |line|
+          colon = line.index(":")
+          unless colon.nil?
+            parsed[line[0...colon].strip] = line[(colon + 1)..].strip
+          end
+        end
+        headers = parsed.merge(headers)
+      end
 
       @api_key = api_key.to_s
 
@@ -139,6 +155,7 @@ module Knockapi
       @providers = Knockapi::Resources::Providers.new(client: self)
       @integrations = Knockapi::Resources::Integrations.new(client: self)
       @workflows = Knockapi::Resources::Workflows.new(client: self)
+      @workflow_recipient_runs = Knockapi::Resources::WorkflowRecipientRuns.new(client: self)
       @schedules = Knockapi::Resources::Schedules.new(client: self)
       @channels = Knockapi::Resources::Channels.new(client: self)
       @audiences = Knockapi::Resources::Audiences.new(client: self)

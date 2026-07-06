@@ -52,6 +52,9 @@ module Knockapi
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {Knockapi::Models::Users::BulkSetPreferencesParams} for more details.
+        #
         # Bulk sets the preferences for up to 1,000 users at a time. The preference
         # set `:id` can be either `default` or a `tenant.id`. Learn more
         # about [per-tenant preferences](/preferences/tenant-preferences). Note that this
@@ -60,7 +63,7 @@ module Knockapi
         #
         # @overload set_preferences(preferences:, user_ids:, request_options: {})
         #
-        # @param preferences [Knockapi::Models::Recipients::PreferenceSetRequest] A request to set a preference set for a recipient.
+        # @param preferences [Knockapi::Models::Users::BulkSetPreferencesParams::Preferences] A preference set to apply in a bulk operation. Always replaces existing preferen
         #
         # @param user_ids [Array<String>] A list of user IDs.
         #
