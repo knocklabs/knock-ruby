@@ -41,7 +41,7 @@ module Knockapi
       optional :email, String, nil?: true
 
       # @!attribute name
-      #   Display name of the user.
+      #   The display name of the user.
       #
       #   @return [String, nil]
       optional :name, String, nil?: true
@@ -82,7 +82,7 @@ module Knockapi
       #
       #   @param email [String, nil] The primary email address for the user.
       #
-      #   @param name [String, nil] Display name of the user.
+      #   @param name [String, nil] The display name of the user.
       #
       #   @param phone_number [String, nil] The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
       #
