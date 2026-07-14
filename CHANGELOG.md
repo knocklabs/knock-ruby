@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.38.0](https://github.com/knocklabs/knock-ruby/compare/v1.37.0...v1.38.0) (2026-07-14)
+
+
+### Features
+
+* set publish release settings ([8908444](https://github.com/knocklabs/knock-ruby/commit/89084447e6caf85a9079112f6fe516d271ea9a29))
+* set up stlc automation workflows/actions ([fb922cd](https://github.com/knocklabs/knock-ruby/commit/fb922cdfb92e5138672221dc8980fcec4090dd23))
+
+
+### Chores
+
+* trivial test changes ([a52dcba](https://github.com/knocklabs/knock-ruby/commit/a52dcbaecab1282c1a1568e8663d2c2b0ff071c0))
+
 ## 1.37.0 (2026-07-13)
 
 Full Changelog: [v1.36.0...v1.37.0](https://github.com/knocklabs/knock-ruby/compare/v1.36.0...v1.37.0)
