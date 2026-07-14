@@ -110,4 +110,4 @@ walk_tree "$DIST_DIR"
 echo "::endgroup::"
 
 echo -e "${GREEN}Gem artifacts uploaded to Stainless storage.${NC}"
-echo -e "\033[32mInstallation: bundle remove knockapi && bundle add knockapi --source 'https://pkg.stainless.com/s/knock-ruby/$SHA'\033[0m"
+echo -e "\033[32mInstallation: bundle remove knockapi && bundle add knockapi --source 'https://pkg.stainless.com/s/knock-ruby-staging/$SHA'\033[0m"
