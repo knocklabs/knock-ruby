@@ -69,19 +69,19 @@ module Knockapi
         MESSAGE_READ = :"message.read"
         MESSAGE_SENT = :"message.sent"
         MESSAGE_SEEN = :"message.seen"
-        MESSAGE_NOT_SENT = :"message.not_sent"
-        MESSAGE_ARCHIVED = :"message.archived"
+        MESSAGE_CREATED = :"message.created"
         MESSAGE_QUEUED = :"message.queued"
         MESSAGE_DELIVERED = :"message.delivered"
         MESSAGE_BOUNCED = :"message.bounced"
         MESSAGE_UNDELIVERED = :"message.undelivered"
+        MESSAGE_NOT_SENT = :"message.not_sent"
         MESSAGE_DELIVERY_ATTEMPTED = :"message.delivery_attempted"
+        MESSAGE_ARCHIVED = :"message.archived"
         MESSAGE_LINK_CLICKED = :"message.link_clicked"
         MESSAGE_INTERACTED = :"message.interacted"
-        MESSAGE_UNARCHIVED = :"message.unarchived"
         MESSAGE_UNSEEN = :"message.unseen"
         MESSAGE_UNREAD = :"message.unread"
-        MESSAGE_CREATED = :"message.created"
+        MESSAGE_UNARCHIVED = :"message.unarchived"
 
         # @!method self.values
         #   @return [Array<Symbol>]
