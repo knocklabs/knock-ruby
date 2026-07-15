@@ -30,7 +30,7 @@ module Knockapi
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
-      # The display name of the user.
+      # Display name of the user.
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
@@ -75,7 +75,7 @@ module Knockapi
         created_at: nil,
         # The primary email address for the user.
         email: nil,
-        # The display name of the user.
+        # Display name of the user.
         name: nil,
         # The [E.164](https://www.twilio.com/docs/glossary/what-e164) phone number of the
         # user (required for SMS channels).
