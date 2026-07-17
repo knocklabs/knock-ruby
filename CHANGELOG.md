@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.38.1](https://github.com/knocklabs/knock-ruby/compare/v1.38.0...v1.38.1) (2026-07-17)
+
+
+### Chores
+
+* forward SDK_WRITE_TOKEN to the back-sync workflow ([b79c2b9](https://github.com/knocklabs/knock-ruby/commit/b79c2b9bfb80b385fcdf312cee231b6fd6d25f84))
+
 ## [1.38.0](https://github.com/knocklabs/knock-ruby/compare/v1.37.0...v1.38.0) (2026-07-16)
 
 
