@@ -37,10 +37,13 @@ module Knockapi
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {Knockapi::Models::Users::GuideMarkMessageAsArchivedParams} for more details.
+        #
         # Records that a guide has been archived by a user, triggering any associated
         # archived events.
         #
-        # @overload mark_message_as_archived(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
+        # @overload mark_message_as_archived(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, is_final: nil, tenant: nil, unthrottled: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
         #
@@ -54,15 +57,11 @@ module Knockapi
         #
         # @param guide_step_ref [String] The step reference of the guide.
         #
-        # @param content [Hash{Symbol=>Object}] The content of the guide.
-        #
-        # @param data [Hash{Symbol=>Object}] The data of the guide.
-        #
         # @param is_final [Boolean] Whether the guide is final.
         #
-        # @param metadata [Hash{Symbol=>Object}] The metadata of the guide.
+        # @param tenant [String] The tenant ID of the guide.
         #
-        # @param tenant [String, nil] The tenant ID of the guide.
+        # @param unthrottled [Boolean] Whether the guide bypasses its guide group's throttle settings. When true, archi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -83,7 +82,7 @@ module Knockapi
         # Records that a user has interacted with a guide, triggering any associated
         # interacted events.
         #
-        # @overload mark_message_as_interacted(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
+        # @overload mark_message_as_interacted(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, metadata: nil, tenant: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
         #
@@ -97,15 +96,9 @@ module Knockapi
         #
         # @param guide_step_ref [String] The step reference of the guide.
         #
-        # @param content [Hash{Symbol=>Object}] The content of the guide.
+        # @param metadata [Hash{Symbol=>Object}] Metadata about the interaction.
         #
-        # @param data [Hash{Symbol=>Object}] The data of the guide.
-        #
-        # @param is_final [Boolean] Whether the guide is final.
-        #
-        # @param metadata [Hash{Symbol=>Object}] The metadata of the guide.
-        #
-        # @param tenant [String, nil] The tenant ID of the guide.
+        # @param tenant [String] The tenant ID of the guide.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -126,7 +119,7 @@ module Knockapi
         # Records that a guide has been seen by a user, triggering any associated seen
         # events.
         #
-        # @overload mark_message_as_seen(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, content: nil, data: nil, is_final: nil, metadata: nil, tenant: nil, request_options: {})
+        # @overload mark_message_as_seen(user_id, message_id, channel_id:, content:, guide_id:, guide_key:, guide_step_ref:, data: nil, tenant: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
         #
@@ -134,21 +127,17 @@ module Knockapi
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
+        # @param content [Hash{Symbol=>Object}] The content of the guide.
+        #
         # @param guide_id [String] The unique identifier for the guide.
         #
         # @param guide_key [String] The key of the guide.
         #
         # @param guide_step_ref [String] The step reference of the guide.
         #
-        # @param content [Hash{Symbol=>Object}] The content of the guide.
-        #
         # @param data [Hash{Symbol=>Object}] The data of the guide.
         #
-        # @param is_final [Boolean] Whether the guide is final.
-        #
-        # @param metadata [Hash{Symbol=>Object}] The metadata of the guide.
-        #
-        # @param tenant [String, nil] The tenant ID of the guide.
+        # @param tenant [String] The tenant ID of the guide.
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

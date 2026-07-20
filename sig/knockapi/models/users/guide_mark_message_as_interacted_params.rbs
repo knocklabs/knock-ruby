@@ -9,11 +9,8 @@ module Knockapi
           guide_id: String,
           guide_key: String,
           guide_step_ref: String,
-          content: ::Hash[Symbol, top],
-          data: ::Hash[Symbol, top],
-          is_final: bool,
           metadata: ::Hash[Symbol, top],
-          tenant: String?
+          tenant: String
         }
         & Knockapi::Internal::Type::request_parameters
 
@@ -33,23 +30,13 @@ module Knockapi
 
         attr_accessor guide_step_ref: String
 
-        attr_reader content: ::Hash[Symbol, top]?
-
-        def content=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
-
-        attr_reader data: ::Hash[Symbol, top]?
-
-        def data=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
-
-        attr_reader is_final: bool?
-
-        def is_final=: (bool) -> bool
-
         attr_reader metadata: ::Hash[Symbol, top]?
 
         def metadata=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
-        attr_accessor tenant: String?
+        attr_reader tenant: String?
+
+        def tenant=: (String) -> String
 
         def initialize: (
           user_id: String,
@@ -58,11 +45,8 @@ module Knockapi
           guide_id: String,
           guide_key: String,
           guide_step_ref: String,
-          ?content: ::Hash[Symbol, top],
-          ?data: ::Hash[Symbol, top],
-          ?is_final: bool,
           ?metadata: ::Hash[Symbol, top],
-          ?tenant: String?,
+          ?tenant: String,
           ?request_options: Knockapi::request_opts
         ) -> void
 
@@ -73,11 +57,8 @@ module Knockapi
           guide_id: String,
           guide_key: String,
           guide_step_ref: String,
-          content: ::Hash[Symbol, top],
-          data: ::Hash[Symbol, top],
-          is_final: bool,
           metadata: ::Hash[Symbol, top],
-          tenant: String?,
+          tenant: String,
           request_options: Knockapi::RequestOptions
         }
       end

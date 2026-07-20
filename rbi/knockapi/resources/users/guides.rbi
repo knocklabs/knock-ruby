@@ -42,11 +42,9 @@ module Knockapi
             guide_id: String,
             guide_key: String,
             guide_step_ref: String,
-            content: T::Hash[Symbol, T.anything],
-            data: T::Hash[Symbol, T.anything],
             is_final: T::Boolean,
-            metadata: T::Hash[Symbol, T.anything],
-            tenant: T.nilable(String),
+            tenant: String,
+            unthrottled: T::Boolean,
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse)
         end
@@ -62,16 +60,13 @@ module Knockapi
           guide_key:,
           # The step reference of the guide.
           guide_step_ref:,
-          # The content of the guide.
-          content: nil,
-          # The data of the guide.
-          data: nil,
           # Whether the guide is final.
           is_final: nil,
-          # The metadata of the guide.
-          metadata: nil,
           # The tenant ID of the guide.
           tenant: nil,
+          # Whether the guide bypasses its guide group's throttle settings. When true,
+          # archiving the guide does not open a new throttle window.
+          unthrottled: nil,
           request_options: {}
         )
         end
@@ -86,11 +81,8 @@ module Knockapi
             guide_id: String,
             guide_key: String,
             guide_step_ref: String,
-            content: T::Hash[Symbol, T.anything],
-            data: T::Hash[Symbol, T.anything],
-            is_final: T::Boolean,
             metadata: T::Hash[Symbol, T.anything],
-            tenant: T.nilable(String),
+            tenant: String,
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(
             Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse
@@ -108,13 +100,7 @@ module Knockapi
           guide_key:,
           # The step reference of the guide.
           guide_step_ref:,
-          # The content of the guide.
-          content: nil,
-          # The data of the guide.
-          data: nil,
-          # Whether the guide is final.
-          is_final: nil,
-          # The metadata of the guide.
+          # Metadata about the interaction.
           metadata: nil,
           # The tenant ID of the guide.
           tenant: nil,
@@ -129,14 +115,12 @@ module Knockapi
             user_id: String,
             message_id: String,
             channel_id: String,
+            content: T::Hash[Symbol, T.anything],
             guide_id: String,
             guide_key: String,
             guide_step_ref: String,
-            content: T::Hash[Symbol, T.anything],
             data: T::Hash[Symbol, T.anything],
-            is_final: T::Boolean,
-            metadata: T::Hash[Symbol, T.anything],
-            tenant: T.nilable(String),
+            tenant: String,
             request_options: Knockapi::RequestOptions::OrHash
           ).returns(Knockapi::Models::Users::GuideMarkMessageAsSeenResponse)
         end
@@ -146,20 +130,16 @@ module Knockapi
           message_id,
           # The unique identifier for the channel.
           channel_id:,
+          # The content of the guide.
+          content:,
           # The unique identifier for the guide.
           guide_id:,
           # The key of the guide.
           guide_key:,
           # The step reference of the guide.
           guide_step_ref:,
-          # The content of the guide.
-          content: nil,
           # The data of the guide.
           data: nil,
-          # Whether the guide is final.
-          is_final: nil,
-          # The metadata of the guide.
-          metadata: nil,
           # The tenant ID of the guide.
           tenant: nil,
           request_options: {}
