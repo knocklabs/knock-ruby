@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.39.0](https://github.com/knocklabs/knock-ruby/compare/v1.38.0...v1.39.0) (2026-07-21)
+
+
+### Features
+
+* update api spec to v0.1.1599 ([e087beb](https://github.com/knocklabs/knock-ruby/commit/e087beb49fb56d8fbf123858163008c4e98dc984))
+* update api spec to v0.1.1605 ([31ddc3e](https://github.com/knocklabs/knock-ruby/commit/31ddc3e8e474b11a8df37e05fff603e4e34b28c8))
+* update api spec to v0.1.1607 ([3b5254e](https://github.com/knocklabs/knock-ruby/commit/3b5254e4f12c10a447d7ca5fbfd5a9a4d5af15c1))
+* update api spec to v0.1.1608 ([a76e7b2](https://github.com/knocklabs/knock-ruby/commit/a76e7b2aa80265a5f701374aa06c3c447be44825))
+* update api spec to v0.1.1609 ([4f22935](https://github.com/knocklabs/knock-ruby/commit/4f22935b2198ff54a122a7843cec9eec93602881))
+
+
+### Chores
+
+* forward SDK_WRITE_TOKEN to the back-sync workflow ([b79c2b9](https://github.com/knocklabs/knock-ruby/commit/b79c2b9bfb80b385fcdf312cee231b6fd6d25f84))
+
 ## [1.38.0](https://github.com/knocklabs/knock-ruby/compare/v1.37.0...v1.38.0) (2026-07-16)
 
 
