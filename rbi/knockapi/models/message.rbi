@@ -108,8 +108,9 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :read_at
 
-      # Recipient contact information captured at email send time. Null for non-email
-      # channels.
+      # The destination the message was delivered to, captured at send time. Email
+      # channels carry `email`/`name`; chat channels carry the destination `channel_id`
+      # or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
       sig { returns(T.nilable(Knockapi::Message::RecipientSnapshot)) }
       attr_reader :recipient_snapshot
 
@@ -223,8 +224,9 @@ module Knockapi
         metadata: nil,
         # Timestamp when the message was read.
         read_at: nil,
-        # Recipient contact information captured at email send time. Null for non-email
-        # channels.
+        # The destination the message was delivered to, captured at send time. Email
+        # channels carry `email`/`name`; chat channels carry the destination `channel_id`
+        # or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
         recipient_snapshot: nil,
         # Timestamp when the message was scheduled to be sent.
         scheduled_at: nil,
@@ -563,33 +565,63 @@ module Knockapi
             )
           end
 
-        # The email address the message was delivered to
+        # The chat channel the message was delivered to (chat channels)
         sig { returns(T.nilable(String)) }
-        attr_reader :email
+        attr_accessor :channel_id
 
-        sig { params(email: String).void }
-        attr_writer :email
+        # The email address the message was delivered to (email channels)
+        sig { returns(T.nilable(String)) }
+        attr_accessor :email
 
-        # The recipient name at send time
+        # The recipient name at send time (email channels)
         sig { returns(T.nilable(String)) }
         attr_accessor :name
 
-        # Recipient contact information captured at email send time. Null for non-email
-        # channels.
+        # The chat user the message was direct-messaged to (chat channels)
+        sig { returns(T.nilable(String)) }
+        attr_accessor :user_id
+
+        # Whether the chat message was delivered via an incoming webhook
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_accessor :via_incoming_webhook
+
+        # The destination the message was delivered to, captured at send time. Email
+        # channels carry `email`/`name`; chat channels carry the destination `channel_id`
+        # or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
         sig do
-          params(email: String, name: T.nilable(String)).returns(
-            T.attached_class
-          )
+          params(
+            channel_id: T.nilable(String),
+            email: T.nilable(String),
+            name: T.nilable(String),
+            user_id: T.nilable(String),
+            via_incoming_webhook: T.nilable(T::Boolean)
+          ).returns(T.attached_class)
         end
         def self.new(
-          # The email address the message was delivered to
+          # The chat channel the message was delivered to (chat channels)
+          channel_id: nil,
+          # The email address the message was delivered to (email channels)
           email: nil,
-          # The recipient name at send time
-          name: nil
+          # The recipient name at send time (email channels)
+          name: nil,
+          # The chat user the message was direct-messaged to (chat channels)
+          user_id: nil,
+          # Whether the chat message was delivered via an incoming webhook
+          via_incoming_webhook: nil
         )
         end
 
-        sig { override.returns({ email: String, name: T.nilable(String) }) }
+        sig do
+          override.returns(
+            {
+              channel_id: T.nilable(String),
+              email: T.nilable(String),
+              name: T.nilable(String),
+              user_id: T.nilable(String),
+              via_incoming_webhook: T.nilable(T::Boolean)
+            }
+          )
+        end
         def to_hash
         end
       end
