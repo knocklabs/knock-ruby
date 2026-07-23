@@ -123,9 +123,8 @@ module Knockapi
       optional :read_at, Time, nil?: true
 
       # @!attribute recipient_snapshot
-      #   The destination the message was delivered to, captured at send time. Email
-      #   channels carry `email`/`name`; chat channels carry the destination `channel_id`
-      #   or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
+      #   Recipient contact information captured at email send time. Null for non-email
+      #   channels.
       #
       #   @return [Knockapi::Models::Message::RecipientSnapshot, nil]
       optional :recipient_snapshot, -> { Knockapi::Message::RecipientSnapshot }, nil?: true
@@ -200,7 +199,7 @@ module Knockapi
       #
       #   @param read_at [Time, nil] Timestamp when the message was read.
       #
-      #   @param recipient_snapshot [Knockapi::Models::Message::RecipientSnapshot, nil] The destination the message was delivered to, captured at send time. Email chann
+      #   @param recipient_snapshot [Knockapi::Models::Message::RecipientSnapshot, nil] Recipient contact information captured at email send time. Null for non-email ch
       #
       #   @param scheduled_at [Time, nil] Timestamp when the message was scheduled to be sent.
       #
@@ -414,50 +413,25 @@ module Knockapi
 
       # @see Knockapi::Models::Message#recipient_snapshot
       class RecipientSnapshot < Knockapi::Internal::Type::BaseModel
-        # @!attribute channel_id
-        #   The chat channel the message was delivered to (chat channels)
-        #
-        #   @return [String, nil]
-        optional :channel_id, String, nil?: true
-
         # @!attribute email
-        #   The email address the message was delivered to (email channels)
+        #   The email address the message was delivered to
         #
         #   @return [String, nil]
-        optional :email, String, nil?: true
+        optional :email, String
 
         # @!attribute name
-        #   The recipient name at send time (email channels)
+        #   The recipient name at send time
         #
         #   @return [String, nil]
         optional :name, String, nil?: true
 
-        # @!attribute user_id
-        #   The chat user the message was direct-messaged to (chat channels)
+        # @!method initialize(email: nil, name: nil)
+        #   Recipient contact information captured at email send time. Null for non-email
+        #   channels.
         #
-        #   @return [String, nil]
-        optional :user_id, String, nil?: true
-
-        # @!attribute via_incoming_webhook
-        #   Whether the chat message was delivered via an incoming webhook
+        #   @param email [String] The email address the message was delivered to
         #
-        #   @return [Boolean, nil]
-        optional :via_incoming_webhook, Knockapi::Internal::Type::Boolean, nil?: true
-
-        # @!method initialize(channel_id: nil, email: nil, name: nil, user_id: nil, via_incoming_webhook: nil)
-        #   The destination the message was delivered to, captured at send time. Email
-        #   channels carry `email`/`name`; chat channels carry the destination `channel_id`
-        #   or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
-        #
-        #   @param channel_id [String, nil] The chat channel the message was delivered to (chat channels)
-        #
-        #   @param email [String, nil] The email address the message was delivered to (email channels)
-        #
-        #   @param name [String, nil] The recipient name at send time (email channels)
-        #
-        #   @param user_id [String, nil] The chat user the message was direct-messaged to (chat channels)
-        #
-        #   @param via_incoming_webhook [Boolean, nil] Whether the chat message was delivered via an incoming webhook
+        #   @param name [String, nil] The recipient name at send time
       end
     end
   end

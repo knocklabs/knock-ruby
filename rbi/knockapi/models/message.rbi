@@ -108,9 +108,8 @@ module Knockapi
       sig { returns(T.nilable(Time)) }
       attr_accessor :read_at
 
-      # The destination the message was delivered to, captured at send time. Email
-      # channels carry `email`/`name`; chat channels carry the destination `channel_id`
-      # or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
+      # Recipient contact information captured at email send time. Null for non-email
+      # channels.
       sig { returns(T.nilable(Knockapi::Message::RecipientSnapshot)) }
       attr_reader :recipient_snapshot
 
@@ -224,9 +223,8 @@ module Knockapi
         metadata: nil,
         # Timestamp when the message was read.
         read_at: nil,
-        # The destination the message was delivered to, captured at send time. Email
-        # channels carry `email`/`name`; chat channels carry the destination `channel_id`
-        # or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
+        # Recipient contact information captured at email send time. Null for non-email
+        # channels.
         recipient_snapshot: nil,
         # Timestamp when the message was scheduled to be sent.
         scheduled_at: nil,
@@ -565,63 +563,33 @@ module Knockapi
             )
           end
 
-        # The chat channel the message was delivered to (chat channels)
+        # The email address the message was delivered to
         sig { returns(T.nilable(String)) }
-        attr_accessor :channel_id
+        attr_reader :email
 
-        # The email address the message was delivered to (email channels)
-        sig { returns(T.nilable(String)) }
-        attr_accessor :email
+        sig { params(email: String).void }
+        attr_writer :email
 
-        # The recipient name at send time (email channels)
+        # The recipient name at send time
         sig { returns(T.nilable(String)) }
         attr_accessor :name
 
-        # The chat user the message was direct-messaged to (chat channels)
-        sig { returns(T.nilable(String)) }
-        attr_accessor :user_id
-
-        # Whether the chat message was delivered via an incoming webhook
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_accessor :via_incoming_webhook
-
-        # The destination the message was delivered to, captured at send time. Email
-        # channels carry `email`/`name`; chat channels carry the destination `channel_id`
-        # or `user_id`, or `via_incoming_webhook`. Null when no snapshot was captured.
+        # Recipient contact information captured at email send time. Null for non-email
+        # channels.
         sig do
-          params(
-            channel_id: T.nilable(String),
-            email: T.nilable(String),
-            name: T.nilable(String),
-            user_id: T.nilable(String),
-            via_incoming_webhook: T.nilable(T::Boolean)
-          ).returns(T.attached_class)
+          params(email: String, name: T.nilable(String)).returns(
+            T.attached_class
+          )
         end
         def self.new(
-          # The chat channel the message was delivered to (chat channels)
-          channel_id: nil,
-          # The email address the message was delivered to (email channels)
+          # The email address the message was delivered to
           email: nil,
-          # The recipient name at send time (email channels)
-          name: nil,
-          # The chat user the message was direct-messaged to (chat channels)
-          user_id: nil,
-          # Whether the chat message was delivered via an incoming webhook
-          via_incoming_webhook: nil
+          # The recipient name at send time
+          name: nil
         )
         end
 
-        sig do
-          override.returns(
-            {
-              channel_id: T.nilable(String),
-              email: T.nilable(String),
-              name: T.nilable(String),
-              user_id: T.nilable(String),
-              via_incoming_webhook: T.nilable(T::Boolean)
-            }
-          )
-        end
+        sig { override.returns({ email: String, name: T.nilable(String) }) }
         def to_hash
         end
       end
