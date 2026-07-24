@@ -68,10 +68,11 @@ module Knockapi
           required :_typename, String, api_name: :__typename
 
           # @!attribute from
-          #   The sender's email address.
+          #   The sender's email address. Can be a string email address or an object
+          #   with email and name fields.
           #
-          #   @return [String]
-          required :from, String
+          #   @return [String, Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent::From]
+          required :from, union: -> { Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent::From }
 
           # @!attribute html_body
           #   The HTML body of the email message.
@@ -120,7 +121,7 @@ module Knockapi
           #
           #   @param _typename [String] The typename of the schema.
           #
-          #   @param from [String] The sender's email address.
+          #   @param from [String, Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent::From::EmailObject] The sender's email address. Can be a string or an object with email and name fields.
           #
           #   @param html_body [String] The HTML body of the email message.
           #
@@ -135,6 +136,44 @@ module Knockapi
           #   @param cc [String, nil] The CC email addresses.
           #
           #   @param reply_to [String, nil] The reply-to email address.
+
+          # The sender's email address. Can be a string email address or an object
+          # with email and name fields.
+          #
+          # @see Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent#from
+          module From
+            extend Knockapi::Internal::Type::Union
+
+            # A simple string email address.
+            variant String
+
+            # An object with email and name fields.
+            variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent::From::EmailObject }
+
+            class EmailObject < Knockapi::Internal::Type::BaseModel
+              # @!attribute email
+              #   The sender's email address.
+              #
+              #   @return [String]
+              required :email, String
+
+              # @!attribute name
+              #   The sender's display name.
+              #
+              #   @return [String, nil]
+              optional :name, String, nil?: true
+
+              # @!method initialize(email:, name: nil)
+              #   The sender's email address as an object.
+              #
+              #   @param email [String] The sender's email address.
+              #
+              #   @param name [String, nil] The sender's display name.
+            end
+
+            # @!method self.variants
+            #   @return [Array(String, Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent::From::EmailObject)]
+          end
         end
 
         class MessageSMSContent < Knockapi::Internal::Type::BaseModel
