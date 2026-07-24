@@ -310,18 +310,41 @@ module Knockapi
         end
       end
 
-      type recipient_snapshot = { email: String, name: String? }
+      type recipient_snapshot =
+        {
+          channel_id: String?,
+          email: String?,
+          name: String?,
+          user_id: String?,
+          via_incoming_webhook: bool?
+        }
 
       class RecipientSnapshot < Knockapi::Internal::Type::BaseModel
-        attr_reader email: String?
+        attr_accessor channel_id: String?
 
-        def email=: (String) -> String
+        attr_accessor email: String?
 
         attr_accessor name: String?
 
-        def initialize: (?email: String, ?name: String?) -> void
+        attr_accessor user_id: String?
 
-        def to_hash: -> { email: String, name: String? }
+        attr_accessor via_incoming_webhook: bool?
+
+        def initialize: (
+          ?channel_id: String?,
+          ?email: String?,
+          ?name: String?,
+          ?user_id: String?,
+          ?via_incoming_webhook: bool?
+        ) -> void
+
+        def to_hash: -> {
+          channel_id: String?,
+          email: String?,
+          name: String?,
+          user_id: String?,
+          via_incoming_webhook: bool?
+        }
       end
     end
   end
