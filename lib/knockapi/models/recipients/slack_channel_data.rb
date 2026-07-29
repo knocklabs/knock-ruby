@@ -47,18 +47,26 @@ module Knockapi
             #   @return [String, nil]
             optional :channel_id, String, nil?: true
 
+            # @!attribute channel_name
+            #   Slack channel name.
+            #
+            #   @return [String, nil]
+            optional :channel_name, String, nil?: true
+
             # @!attribute user_id
             #   A Slack user ID from the Slack provider.
             #
             #   @return [String, nil]
             optional :user_id, String, nil?: true
 
-            # @!method initialize(access_token: nil, channel_id: nil, user_id: nil)
+            # @!method initialize(access_token: nil, channel_id: nil, channel_name: nil, user_id: nil)
             #   A Slack connection token.
             #
             #   @param access_token [String, nil] A Slack access token.
             #
             #   @param channel_id [String, nil] A Slack channel ID from the Slack provider.
+            #
+            #   @param channel_name [String, nil] Slack channel name.
             #
             #   @param user_id [String, nil] A Slack user ID from the Slack provider.
           end

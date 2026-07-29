@@ -107,6 +107,10 @@ module Knockapi
             sig { returns(T.nilable(String)) }
             attr_accessor :channel_id
 
+            # Slack channel name.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :channel_name
+
             # A Slack user ID from the Slack provider.
             sig { returns(T.nilable(String)) }
             attr_accessor :user_id
@@ -116,6 +120,7 @@ module Knockapi
               params(
                 access_token: T.nilable(String),
                 channel_id: T.nilable(String),
+                channel_name: T.nilable(String),
                 user_id: T.nilable(String)
               ).returns(T.attached_class)
             end
@@ -124,6 +129,8 @@ module Knockapi
               access_token: nil,
               # A Slack channel ID from the Slack provider.
               channel_id: nil,
+              # Slack channel name.
+              channel_name: nil,
               # A Slack user ID from the Slack provider.
               user_id: nil
             )
@@ -134,6 +141,7 @@ module Knockapi
                 {
                   access_token: T.nilable(String),
                   channel_id: T.nilable(String),
+                  channel_name: T.nilable(String),
                   user_id: T.nilable(String)
                 }
               )

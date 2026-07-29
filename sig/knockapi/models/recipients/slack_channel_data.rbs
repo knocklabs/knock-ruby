@@ -30,24 +30,33 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           type slack_token_connection =
-            { access_token: String?, channel_id: String?, user_id: String? }
+            {
+              access_token: String?,
+              channel_id: String?,
+              channel_name: String?,
+              user_id: String?
+            }
 
           class SlackTokenConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor access_token: String?
 
             attr_accessor channel_id: String?
 
+            attr_accessor channel_name: String?
+
             attr_accessor user_id: String?
 
             def initialize: (
               ?access_token: String?,
               ?channel_id: String?,
+              ?channel_name: String?,
               ?user_id: String?
             ) -> void
 
             def to_hash: -> {
               access_token: String?,
               channel_id: String?,
+              channel_name: String?,
               user_id: String?
             }
           end
