@@ -407,7 +407,7 @@ module Knockapi
       #
       # @param channels [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetChannelSetting}, nil] Channel preferences.
       #
-      # @param commercial_subscribed [Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting, nil] Whether the recipient is subscribed to commercial communications. When false, th
+      # @param commercial_subscribed [Boolean, nil] Whether the recipient is subscribed to commercial communications. When false, th
       #
       # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
       #

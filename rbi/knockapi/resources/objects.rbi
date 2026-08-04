@@ -471,13 +471,7 @@ module Knockapi
                 )
               ]
             ),
-          commercial_subscribed:
-            T.nilable(
-              T.any(
-                T::Boolean,
-                Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting::OrHash
-              )
-            ),
+          commercial_subscribed: T.nilable(T::Boolean),
           workflows:
             T.nilable(
               T::Hash[
@@ -509,9 +503,7 @@ module Knockapi
         # Channel preferences.
         channels: nil,
         # Whether the recipient is subscribed to commercial communications. When false,
-        # the recipient will not receive commercial workflow notifications. Can also be
-        # set to a settings object with conditions that are evaluated at notification send
-        # time.
+        # the recipient will not receive commercial workflow notifications.
         commercial_subscribed: nil,
         # An object where the key is the workflow key and the values are the preference
         # settings for that workflow.

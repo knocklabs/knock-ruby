@@ -79,19 +79,8 @@ module Knockapi
         attr_accessor :channels
 
         # Whether the recipient is subscribed to commercial communications. When false,
-        # the recipient will not receive commercial workflow notifications. Can also be
-        # set to a settings object with conditions that are evaluated at notification send
-        # time.
-        sig do
-          returns(
-            T.nilable(
-              T.any(
-                T::Boolean,
-                Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
-              )
-            )
-          )
-        end
+        # the recipient will not receive commercial workflow notifications.
+        sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :commercial_subscribed
 
         # An object where the key is the workflow key and the values are the preference
@@ -140,13 +129,7 @@ module Knockapi
                   )
                 ]
               ),
-            commercial_subscribed:
-              T.nilable(
-                T.any(
-                  T::Boolean,
-                  Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting::OrHash
-                )
-              ),
+            commercial_subscribed: T.nilable(T::Boolean),
             workflows:
               T.nilable(
                 T::Hash[
@@ -171,9 +154,7 @@ module Knockapi
           # Channel preferences.
           channels: nil,
           # Whether the recipient is subscribed to commercial communications. When false,
-          # the recipient will not receive commercial workflow notifications. Can also be
-          # set to a settings object with conditions that are evaluated at notification send
-          # time.
+          # the recipient will not receive commercial workflow notifications.
           commercial_subscribed: nil,
           # An object where the key is the workflow key and the values are the preference
           # settings for that workflow.
@@ -208,13 +189,7 @@ module Knockapi
                     )
                   ]
                 ),
-              commercial_subscribed:
-                T.nilable(
-                  T.any(
-                    T::Boolean,
-                    Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
-                  )
-                ),
+              commercial_subscribed: T.nilable(T::Boolean),
               workflows:
                 T.nilable(
                   T::Hash[
@@ -432,65 +407,6 @@ module Knockapi
             override.returns(
               T::Array[
                 Knockapi::Recipients::PreferenceSetRequest::Channel::Variants
-              ]
-            )
-          end
-          def self.variants
-          end
-        end
-
-        # Whether the recipient is subscribed to commercial communications. When false,
-        # the recipient will not receive commercial workflow notifications. Can also be
-        # set to a settings object with conditions that are evaluated at notification send
-        # time.
-        module CommercialSubscribed
-          extend Knockapi::Internal::Type::Union
-
-          Variants =
-            T.type_alias do
-              T.any(
-                T::Boolean,
-                Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
-              )
-            end
-
-          class PreferenceSetCommercialSubscribedSetting < Knockapi::Internal::Type::BaseModel
-            OrHash =
-              T.type_alias do
-                T.any(
-                  Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting,
-                  Knockapi::Internal::AnyHash
-                )
-              end
-
-            # A list of conditions to apply to the commercial subscribed preference.
-            sig { returns(T::Array[Knockapi::Condition]) }
-            attr_accessor :conditions
-
-            # A set of settings for the commercial subscribed preference. Currently, this can
-            # only be a list of conditions to apply.
-            sig do
-              params(conditions: T::Array[Knockapi::Condition::OrHash]).returns(
-                T.attached_class
-              )
-            end
-            def self.new(
-              # A list of conditions to apply to the commercial subscribed preference.
-              conditions:
-            )
-            end
-
-            sig do
-              override.returns({ conditions: T::Array[Knockapi::Condition] })
-            end
-            def to_hash
-            end
-          end
-
-          sig do
-            override.returns(
-              T::Array[
-                Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::Variants
               ]
             )
           end

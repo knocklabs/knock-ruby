@@ -37,14 +37,10 @@ module Knockapi
 
         # @!attribute commercial_subscribed
         #   Whether the recipient is subscribed to commercial communications. When false,
-        #   the recipient will not receive commercial workflow notifications. Can also be
-        #   set to a settings object with conditions that are evaluated at notification send
-        #   time.
+        #   the recipient will not receive commercial workflow notifications.
         #
-        #   @return [Boolean, Knockapi::Models::Recipients::PreferenceSet::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting, nil]
-        optional :commercial_subscribed,
-                 union: -> { Knockapi::Recipients::PreferenceSet::CommercialSubscribed },
-                 nil?: true
+        #   @return [Boolean, nil]
+        optional :commercial_subscribed, Knockapi::Internal::Type::Boolean, nil?: true
 
         # @!attribute workflows
         #   An object where the key is the workflow key and the values are the preference
@@ -72,7 +68,7 @@ module Knockapi
         #
         #   @param channels [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetChannelSetting}, nil] Channel preferences.
         #
-        #   @param commercial_subscribed [Boolean, Knockapi::Models::Recipients::PreferenceSet::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting, nil] Whether the recipient is subscribed to commercial communications. When false, th
+        #   @param commercial_subscribed [Boolean, nil] Whether the recipient is subscribed to commercial communications. When false, th
         #
         #   @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSet::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
 
@@ -149,38 +145,6 @@ module Knockapi
 
           # @!method self.variants
           #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSetChannelSetting)]
-        end
-
-        # Whether the recipient is subscribed to commercial communications. When false,
-        # the recipient will not receive commercial workflow notifications. Can also be
-        # set to a settings object with conditions that are evaluated at notification send
-        # time.
-        #
-        # @see Knockapi::Models::Recipients::PreferenceSet#commercial_subscribed
-        module CommercialSubscribed
-          extend Knockapi::Internal::Type::Union
-
-          variant Knockapi::Internal::Type::Boolean
-
-          # A set of settings for the commercial subscribed preference. Currently, this can only be a list of conditions to apply.
-          variant -> { Knockapi::Recipients::PreferenceSet::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting }
-
-          class PreferenceSetCommercialSubscribedSetting < Knockapi::Internal::Type::BaseModel
-            # @!attribute conditions
-            #   A list of conditions to apply to the commercial subscribed preference.
-            #
-            #   @return [Array<Knockapi::Models::Condition>]
-            required :conditions, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Condition] }
-
-            # @!method initialize(conditions:)
-            #   A set of settings for the commercial subscribed preference. Currently, this can
-            #   only be a list of conditions to apply.
-            #
-            #   @param conditions [Array<Knockapi::Models::Condition>] A list of conditions to apply to the commercial subscribed preference.
-          end
-
-          # @!method self.variants
-          #   @return [Array(Boolean, Knockapi::Models::Recipients::PreferenceSet::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting)]
         end
 
         # Workflow or category preferences within a preference set
