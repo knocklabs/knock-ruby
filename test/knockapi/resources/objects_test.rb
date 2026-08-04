@@ -103,7 +103,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Recipients::PreferenceSetChannelTypes | nil,
         channels: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Channel]) | nil,
-        commercial_subscribed: Knockapi::Internal::Type::Boolean | nil,
+        commercial_subscribed: Knockapi::Recipients::PreferenceSet::CommercialSubscribed | nil,
         workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
@@ -273,7 +273,7 @@ class Knockapi::Test::Resources::ObjectsTest < Knockapi::Test::ResourceTest
         categories: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Category]) | nil,
         channel_types: Knockapi::Recipients::PreferenceSetChannelTypes | nil,
         channels: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Channel]) | nil,
-        commercial_subscribed: Knockapi::Internal::Type::Boolean | nil,
+        commercial_subscribed: Knockapi::Recipients::PreferenceSet::CommercialSubscribed | nil,
         workflows: ^(Knockapi::Internal::Type::HashOf[union: Knockapi::Recipients::PreferenceSet::Workflow]) | nil
       }
     end
