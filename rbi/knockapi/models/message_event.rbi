@@ -104,20 +104,20 @@ module Knockapi
             :"message.delivered",
             Knockapi::MessageEvent::Type::TaggedSymbol
           )
-        MESSAGE_DELIVERY_ATTEMPTED =
-          T.let(
-            :"message.delivery_attempted",
-            Knockapi::MessageEvent::Type::TaggedSymbol
-          )
+        MESSAGE_BOUNCED =
+          T.let(:"message.bounced", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_UNDELIVERED =
           T.let(
             :"message.undelivered",
             Knockapi::MessageEvent::Type::TaggedSymbol
           )
-        MESSAGE_BOUNCED =
-          T.let(:"message.bounced", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_NOT_SENT =
           T.let(:"message.not_sent", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_DELIVERY_ATTEMPTED =
+          T.let(
+            :"message.delivery_attempted",
+            Knockapi::MessageEvent::Type::TaggedSymbol
+          )
         MESSAGE_ARCHIVED =
           T.let(:"message.archived", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_LINK_CLICKED =
