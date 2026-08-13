@@ -7,7 +7,7 @@ module Knockapi
           categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
           channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
           channels: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::channel]?,
-          commercial_subscribed: bool?,
+          commercial_subscribed: Knockapi::Models::Recipients::PreferenceSet::commercial_subscribed?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
         }
 
@@ -20,7 +20,7 @@ module Knockapi
 
         attr_accessor channels: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::channel]?
 
-        attr_accessor commercial_subscribed: bool?
+        attr_accessor commercial_subscribed: Knockapi::Models::Recipients::PreferenceSet::commercial_subscribed?
 
         attr_accessor workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
 
@@ -29,7 +29,7 @@ module Knockapi
           ?categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
           ?channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
           ?channels: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::channel]?,
-          ?commercial_subscribed: bool?,
+          ?commercial_subscribed: Knockapi::Models::Recipients::PreferenceSet::commercial_subscribed?,
           ?workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
         ) -> void
 
@@ -38,7 +38,7 @@ module Knockapi
           categories: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::category]?,
           channel_types: Knockapi::Recipients::PreferenceSetChannelTypes?,
           channels: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::channel]?,
-          commercial_subscribed: bool?,
+          commercial_subscribed: Knockapi::Models::Recipients::PreferenceSet::commercial_subscribed?,
           workflows: ::Hash[Symbol, Knockapi::Models::Recipients::PreferenceSet::workflow]?
         }
 
@@ -94,6 +94,27 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           def self?.variants: -> ::Array[Knockapi::Models::Recipients::PreferenceSet::channel]
+        end
+
+        type commercial_subscribed =
+          bool
+          | Knockapi::Recipients::PreferenceSet::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
+
+        module CommercialSubscribed
+          extend Knockapi::Internal::Type::Union
+
+          type preference_set_commercial_subscribed_setting =
+            { conditions: ::Array[Knockapi::Condition] }
+
+          class PreferenceSetCommercialSubscribedSetting < Knockapi::Internal::Type::BaseModel
+            attr_accessor conditions: ::Array[Knockapi::Condition]
+
+            def initialize: (conditions: ::Array[Knockapi::Condition]) -> void
+
+            def to_hash: -> { conditions: ::Array[Knockapi::Condition] }
+          end
+
+          def self?.variants: -> ::Array[Knockapi::Models::Recipients::PreferenceSet::commercial_subscribed]
         end
 
         type workflow =
