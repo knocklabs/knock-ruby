@@ -95,10 +95,10 @@ module Knockapi
           T.let(:"message.sent", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_SEEN =
           T.let(:"message.seen", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_CREATED =
-          T.let(:"message.created", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_QUEUED =
           T.let(:"message.queued", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_CREATED =
+          T.let(:"message.created", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_DELIVERED =
           T.let(
             :"message.delivered",
