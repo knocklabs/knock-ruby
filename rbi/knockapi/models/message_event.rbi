@@ -95,8 +95,6 @@ module Knockapi
           T.let(:"message.sent", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_SEEN =
           T.let(:"message.seen", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_NOT_SENT =
-          T.let(:"message.not_sent", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_CREATED =
           T.let(:"message.created", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_QUEUED =
@@ -118,6 +116,8 @@ module Knockapi
           )
         MESSAGE_BOUNCED =
           T.let(:"message.bounced", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_NOT_SENT =
+          T.let(:"message.not_sent", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_ARCHIVED =
           T.let(:"message.archived", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_LINK_CLICKED =
