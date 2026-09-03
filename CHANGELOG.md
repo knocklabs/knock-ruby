@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.40.0](https://github.com/knocklabs/knock-ruby/compare/v1.39.0...v1.40.0) (2026-09-03)
+
+
+### Features
+
+* **stlc:** refresh API stainless config with stlc autoconfig ([6efaf18](https://github.com/knocklabs/knock-ruby/commit/6efaf18a4f1175880f796efb38aec623ad04fedd))
+* update api spec to v0.1.1610 ([b65f51e](https://github.com/knocklabs/knock-ruby/commit/b65f51ef1b6ea212c472df607b49edfade13cd1f))
+* update api spec to v0.1.1611 ([7614e38](https://github.com/knocklabs/knock-ruby/commit/7614e383339d5e96f56799bffd97b497df002b3a))
+* update api spec to v0.1.1614 ([b57ec7b](https://github.com/knocklabs/knock-ruby/commit/b57ec7b41caae97b5e5d4aa41fa5bf51fbb76889))
+* update api spec to v0.1.1616 ([ff707e6](https://github.com/knocklabs/knock-ruby/commit/ff707e6c26c86dd0b79fcac7257bd144fc091a73))
+* update api spec to v0.1.1617 ([80db750](https://github.com/knocklabs/knock-ruby/commit/80db7504ef6a32a6c5ce55514f183674f3843a64))
+* update api spec to v0.1.1618 ([999a5d9](https://github.com/knocklabs/knock-ruby/commit/999a5d92b7e831879cf27a68685d33a1e776ed51))
+* update api spec to v0.1.1624 ([e1c5286](https://github.com/knocklabs/knock-ruby/commit/e1c5286dc8d174c08afd44b7358cc383884f46d9))
+* update api spec to v0.1.1627 ([7a2f372](https://github.com/knocklabs/knock-ruby/commit/7a2f372d0516ca4635ed9358bb1bbaf705c9af07))
+* update api spec to v0.1.1629 ([a01f51c](https://github.com/knocklabs/knock-ruby/commit/a01f51c838bca069dd30057eb4e84b7d9b3d6441))
+* update api spec to v0.1.1630 ([5396e07](https://github.com/knocklabs/knock-ruby/commit/5396e0752bca5be56746740aecf3cd962c616669))
+* update api spec to v0.1.1631 ([24de0a8](https://github.com/knocklabs/knock-ruby/commit/24de0a8cf2022c675c5aef0043f4eaead6ae7452))
+* update api spec to v0.1.1632 ([8010be1](https://github.com/knocklabs/knock-ruby/commit/8010be1ae272dc56131fe1e99acf9687ac7bd30e))
+* update api spec to v0.1.1636 ([a19fe99](https://github.com/knocklabs/knock-ruby/commit/a19fe996f3f234355acc4d222a4839ee31a5dd49))
+* update api spec to v0.1.1640 ([82e0daa](https://github.com/knocklabs/knock-ruby/commit/82e0daa9e78471abf3c10a594cf64ec4a84f2354))
+* update api spec to v0.1.1641 ([b75f252](https://github.com/knocklabs/knock-ruby/commit/b75f25223c96db4665dfaec7f94e0dbe10b6ee47))
+* update api spec to v0.1.1642 ([f939368](https://github.com/knocklabs/knock-ruby/commit/f939368e531addc3cb0ca7c2574f22e5556cd7eb))
+* update api spec to v0.1.1644 ([d97f09e](https://github.com/knocklabs/knock-ruby/commit/d97f09e7d86ddb2dd93ecc0ffe56dca00f4e3b96))
+* update api spec to v0.1.1649 ([fea5008](https://github.com/knocklabs/knock-ruby/commit/fea50086b5a0dab94bc10f38e4220f7789e9556a))
+* update api spec to v0.1.1651 ([0cced42](https://github.com/knocklabs/knock-ruby/commit/0cced425d2a221aecb9f48445d87f50f9adf1458))
+* update api spec to v0.1.1661 ([96b1707](https://github.com/knocklabs/knock-ruby/commit/96b170796a5ed2ddd9aafbbe5e3e93c7ba785fcc))
+* update api spec to v0.1.1662 ([1036db0](https://github.com/knocklabs/knock-ruby/commit/1036db0b2fcff875ed192b8a70a5cf22dbb87ae6))
+* update api spec to v0.1.1664 ([bbd19f1](https://github.com/knocklabs/knock-ruby/commit/bbd19f1d3f0db78120fdc7254ea494be4f17154d))
+* update api spec to v0.1.1683 ([b30cd0b](https://github.com/knocklabs/knock-ruby/commit/b30cd0b5d4ce60d177f81d8990c0c4de12d52c0d))
+* update api spec to v0.1.1686 ([b8222be](https://github.com/knocklabs/knock-ruby/commit/b8222bed86c35edf2637c9d6cc076da775f00e65))
+* update api spec to v0.1.1687 ([9468daa](https://github.com/knocklabs/knock-ruby/commit/9468daa27c0c622266151a4511907feeaca920d5))
+
 ## [1.39.0](https://github.com/knocklabs/knock-ruby/compare/v1.38.0...v1.39.0) (2026-07-21)
 
 
