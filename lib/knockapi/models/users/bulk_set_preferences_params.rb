@@ -71,7 +71,7 @@ module Knockapi
           #   set to a settings object with conditions that are evaluated at notification send
           #   time.
           #
-          #   @return [Boolean, Knockapi::Models::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting, nil]
+          #   @return [Boolean, Knockapi::Models::PreferenceSetCommercialSubscribedSetting, nil]
           optional :commercial_subscribed,
                    union: -> { Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed },
                    nil?: true
@@ -103,7 +103,7 @@ module Knockapi
           #
           #   @param channels [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetChannelSetting}, nil] Channel preferences.
           #
-          #   @param commercial_subscribed [Boolean, Knockapi::Models::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting, nil] Whether the recipient is subscribed to commercial communications. When false, th
+          #   @param commercial_subscribed [Boolean, Knockapi::Models::PreferenceSetCommercialSubscribedSetting, nil] Whether the recipient is subscribed to commercial communications. When false, th
           #
           #   @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Users::BulkSetPreferencesParams::Preferences::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
 
@@ -196,24 +196,10 @@ module Knockapi
             variant Knockapi::Internal::Type::Boolean
 
             # A set of settings for the commercial subscribed preference. Currently, this can only be a list of conditions to apply.
-            variant -> { Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting }
-
-            class PreferenceSetCommercialSubscribedSetting < Knockapi::Internal::Type::BaseModel
-              # @!attribute conditions
-              #   A list of conditions to apply to the commercial subscribed preference.
-              #
-              #   @return [Array<Knockapi::Models::Condition>]
-              required :conditions, -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Condition] }
-
-              # @!method initialize(conditions:)
-              #   A set of settings for the commercial subscribed preference. Currently, this can
-              #   only be a list of conditions to apply.
-              #
-              #   @param conditions [Array<Knockapi::Models::Condition>] A list of conditions to apply to the commercial subscribed preference.
-            end
+            variant -> { Knockapi::PreferenceSetCommercialSubscribedSetting }
 
             # @!method self.variants
-            #   @return [Array(Boolean, Knockapi::Models::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting)]
+            #   @return [Array(Boolean, Knockapi::Models::PreferenceSetCommercialSubscribedSetting)]
           end
 
           # Workflow or category preferences within a preference set

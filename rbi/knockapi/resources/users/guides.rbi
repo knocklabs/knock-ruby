@@ -37,7 +37,6 @@ module Knockapi
         sig do
           params(
             user_id: String,
-            message_id: String,
             channel_id: String,
             guide_id: String,
             guide_key: String,
@@ -46,12 +45,11 @@ module Knockapi
             tenant: String,
             unthrottled: T::Boolean,
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse)
+          ).returns(Knockapi::Users::GuideActionResponse)
         end
         def mark_message_as_archived(
           # The unique identifier of the user.
           user_id,
-          message_id,
           # The unique identifier for the channel.
           channel_id:,
           # The unique identifier for the guide.
@@ -76,7 +74,6 @@ module Knockapi
         sig do
           params(
             user_id: String,
-            message_id: String,
             channel_id: String,
             guide_id: String,
             guide_key: String,
@@ -84,14 +81,11 @@ module Knockapi
             metadata: T::Hash[Symbol, T.anything],
             tenant: String,
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(
-            Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse
-          )
+          ).returns(Knockapi::Users::GuideActionResponse)
         end
         def mark_message_as_interacted(
           # The unique identifier of the user.
           user_id,
-          message_id,
           # The unique identifier for the channel.
           channel_id:,
           # The unique identifier for the guide.
@@ -113,7 +107,6 @@ module Knockapi
         sig do
           params(
             user_id: String,
-            message_id: String,
             channel_id: String,
             content: T::Hash[Symbol, T.anything],
             guide_id: String,
@@ -122,12 +115,11 @@ module Knockapi
             data: T::Hash[Symbol, T.anything],
             tenant: String,
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(Knockapi::Models::Users::GuideMarkMessageAsSeenResponse)
+          ).returns(Knockapi::Users::GuideActionResponse)
         end
         def mark_message_as_seen(
           # The unique identifier of the user.
           user_id,
-          message_id,
           # The unique identifier for the channel.
           channel_id:,
           # The content of the guide.
@@ -140,6 +132,48 @@ module Knockapi
           guide_step_ref:,
           # The data of the guide.
           data: nil,
+          # The tenant ID of the guide.
+          tenant: nil,
+          request_options: {}
+        )
+        end
+
+        # Resets the engagement state of a guide for a user, removing the guide's
+        # engagement log entry so the next interaction creates a fresh engagement.
+        sig do
+          params(
+            user_id: String,
+            guide_key: String,
+            tenant: String,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Users::GuideActionResponse)
+        end
+        def reset_guide_engagements(
+          # The unique identifier of the user.
+          user_id,
+          # The key of the guide.
+          guide_key:,
+          # The tenant ID of the guide.
+          tenant: nil,
+          request_options: {}
+        )
+        end
+
+        # Records that a guide has been unarchived, triggering any associated unarchived
+        # events.
+        sig do
+          params(
+            user_id: String,
+            guide_key: String,
+            tenant: String,
+            request_options: Knockapi::RequestOptions::OrHash
+          ).returns(Knockapi::Users::GuideActionResponse)
+        end
+        def unarchive_guide_message(
+          # The unique identifier of the user.
+          user_id,
+          # The key of the guide.
+          guide_key:,
           # The tenant ID of the guide.
           tenant: nil,
           request_options: {}

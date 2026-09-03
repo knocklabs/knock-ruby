@@ -122,13 +122,13 @@ class Knockapi::Test::Resources::MessagesTest < Knockapi::Test::ResourceTest
     response = @knock.messages.get_content("message_id")
 
     assert_pattern do
-      response => Knockapi::Models::MessageGetContentResponse
+      response => Knockapi::MessageContents
     end
 
     assert_pattern do
       response => {
         _typename: String,
-        data: Knockapi::Models::MessageGetContentResponse::Data,
+        data: Knockapi::MessageContents::Data,
         inserted_at: Time,
         message_id: String
       }

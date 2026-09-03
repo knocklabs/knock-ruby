@@ -127,22 +127,10 @@ module Knockapi
           end
 
           type commercial_subscribed =
-            bool
-            | Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
+            bool | Knockapi::PreferenceSetCommercialSubscribedSetting
 
           module CommercialSubscribed
             extend Knockapi::Internal::Type::Union
-
-            type preference_set_commercial_subscribed_setting =
-              { conditions: ::Array[Knockapi::Condition] }
-
-            class PreferenceSetCommercialSubscribedSetting < Knockapi::Internal::Type::BaseModel
-              attr_accessor conditions: ::Array[Knockapi::Condition]
-
-              def initialize: (conditions: ::Array[Knockapi::Condition]) -> void
-
-              def to_hash: -> { conditions: ::Array[Knockapi::Condition] }
-            end
 
             def self?.variants: -> ::Array[Knockapi::Models::Users::BulkSetPreferencesParams::Preferences::commercial_subscribed]
           end

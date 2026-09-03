@@ -475,7 +475,7 @@ module Knockapi
             T.nilable(
               T.any(
                 T::Boolean,
-                Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting::OrHash
+                Knockapi::PreferenceSetCommercialSubscribedSetting::OrHash
               )
             ),
           workflows:

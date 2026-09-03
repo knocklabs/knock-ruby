@@ -1,0 +1,25 @@
+module Knockapi
+  module Models
+    type list_subscriptions_response =
+      {
+        entries: ::Array[Knockapi::Recipients::Subscription],
+        page_info: Knockapi::PageInfo
+      }
+
+    class ListSubscriptionsResponse < Knockapi::Internal::Type::BaseModel
+      attr_accessor entries: ::Array[Knockapi::Recipients::Subscription]
+
+      attr_accessor page_info: Knockapi::PageInfo
+
+      def initialize: (
+        entries: ::Array[Knockapi::Recipients::Subscription],
+        page_info: Knockapi::PageInfo
+      ) -> void
+
+      def to_hash: -> {
+        entries: ::Array[Knockapi::Recipients::Subscription],
+        page_info: Knockapi::PageInfo
+      }
+    end
+  end
+end

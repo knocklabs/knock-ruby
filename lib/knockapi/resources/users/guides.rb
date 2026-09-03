@@ -43,11 +43,9 @@ module Knockapi
         # Records that a guide has been archived by a user, triggering any associated
         # archived events.
         #
-        # @overload mark_message_as_archived(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, is_final: nil, tenant: nil, unthrottled: nil, request_options: {})
+        # @overload mark_message_as_archived(user_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, is_final: nil, tenant: nil, unthrottled: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
-        #
-        # @param message_id [String]
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
@@ -65,16 +63,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse]
+        # @return [Knockapi::Models::Users::GuideActionResponse]
         #
         # @see Knockapi::Models::Users::GuideMarkMessageAsArchivedParams
-        def mark_message_as_archived(user_id, message_id, params)
+        def mark_message_as_archived(user_id, params)
           parsed, options = Knockapi::Users::GuideMarkMessageAsArchivedParams.dump_request(params)
           @client.request(
             method: :put,
-            path: ["v1/users/%1$s/guides/messages/%2$s/archived", user_id, message_id],
+            path: ["v1/users/%1$s/guides/messages/archived", user_id],
             body: parsed,
-            model: Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse,
+            model: Knockapi::Users::GuideActionResponse,
             options: options
           )
         end
@@ -82,11 +80,9 @@ module Knockapi
         # Records that a user has interacted with a guide, triggering any associated
         # interacted events.
         #
-        # @overload mark_message_as_interacted(user_id, message_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, metadata: nil, tenant: nil, request_options: {})
+        # @overload mark_message_as_interacted(user_id, channel_id:, guide_id:, guide_key:, guide_step_ref:, metadata: nil, tenant: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
-        #
-        # @param message_id [String]
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
@@ -102,16 +98,16 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse]
+        # @return [Knockapi::Models::Users::GuideActionResponse]
         #
         # @see Knockapi::Models::Users::GuideMarkMessageAsInteractedParams
-        def mark_message_as_interacted(user_id, message_id, params)
+        def mark_message_as_interacted(user_id, params)
           parsed, options = Knockapi::Users::GuideMarkMessageAsInteractedParams.dump_request(params)
           @client.request(
             method: :put,
-            path: ["v1/users/%1$s/guides/messages/%2$s/interacted", user_id, message_id],
+            path: ["v1/users/%1$s/guides/messages/interacted", user_id],
             body: parsed,
-            model: Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse,
+            model: Knockapi::Users::GuideActionResponse,
             options: options
           )
         end
@@ -119,11 +115,9 @@ module Knockapi
         # Records that a guide has been seen by a user, triggering any associated seen
         # events.
         #
-        # @overload mark_message_as_seen(user_id, message_id, channel_id:, content:, guide_id:, guide_key:, guide_step_ref:, data: nil, tenant: nil, request_options: {})
+        # @overload mark_message_as_seen(user_id, channel_id:, content:, guide_id:, guide_key:, guide_step_ref:, data: nil, tenant: nil, request_options: {})
         #
         # @param user_id [String] The unique identifier of the user.
-        #
-        # @param message_id [String]
         #
         # @param channel_id [String] The unique identifier for the channel.
         #
@@ -141,16 +135,70 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Knockapi::Models::Users::GuideMarkMessageAsSeenResponse]
+        # @return [Knockapi::Models::Users::GuideActionResponse]
         #
         # @see Knockapi::Models::Users::GuideMarkMessageAsSeenParams
-        def mark_message_as_seen(user_id, message_id, params)
+        def mark_message_as_seen(user_id, params)
           parsed, options = Knockapi::Users::GuideMarkMessageAsSeenParams.dump_request(params)
           @client.request(
             method: :put,
-            path: ["v1/users/%1$s/guides/messages/%2$s/seen", user_id, message_id],
+            path: ["v1/users/%1$s/guides/messages/seen", user_id],
             body: parsed,
-            model: Knockapi::Models::Users::GuideMarkMessageAsSeenResponse,
+            model: Knockapi::Users::GuideActionResponse,
+            options: options
+          )
+        end
+
+        # Resets the engagement state of a guide for a user, removing the guide's
+        # engagement log entry so the next interaction creates a fresh engagement.
+        #
+        # @overload reset_guide_engagements(user_id, guide_key:, tenant: nil, request_options: {})
+        #
+        # @param user_id [String] The unique identifier of the user.
+        #
+        # @param guide_key [String] The key of the guide.
+        #
+        # @param tenant [String] The tenant ID of the guide.
+        #
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+        #
+        # @return [Knockapi::Models::Users::GuideActionResponse]
+        #
+        # @see Knockapi::Models::Users::GuideResetGuideEngagementsParams
+        def reset_guide_engagements(user_id, params)
+          parsed, options = Knockapi::Users::GuideResetGuideEngagementsParams.dump_request(params)
+          @client.request(
+            method: :put,
+            path: ["v1/users/%1$s/guides/engagements/reset", user_id],
+            body: parsed,
+            model: Knockapi::Users::GuideActionResponse,
+            options: options
+          )
+        end
+
+        # Records that a guide has been unarchived, triggering any associated unarchived
+        # events.
+        #
+        # @overload unarchive_guide_message(user_id, guide_key:, tenant: nil, request_options: {})
+        #
+        # @param user_id [String] The unique identifier of the user.
+        #
+        # @param guide_key [String] The key of the guide.
+        #
+        # @param tenant [String] The tenant ID of the guide.
+        #
+        # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
+        #
+        # @return [Knockapi::Models::Users::GuideActionResponse]
+        #
+        # @see Knockapi::Models::Users::GuideUnarchiveGuideMessageParams
+        def unarchive_guide_message(user_id, params)
+          parsed, options = Knockapi::Users::GuideUnarchiveGuideMessageParams.dump_request(params)
+          @client.request(
+            method: :delete,
+            path: ["v1/users/%1$s/guides/messages/archived", user_id],
+            body: parsed,
+            model: Knockapi::Users::GuideActionResponse,
             options: options
           )
         end

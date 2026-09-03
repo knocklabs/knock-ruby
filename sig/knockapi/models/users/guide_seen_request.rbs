@@ -1,0 +1,56 @@
+module Knockapi
+  module Models
+    module Users
+      type guide_seen_request =
+        {
+          channel_id: String,
+          content: ::Hash[Symbol, top],
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          data: ::Hash[Symbol, top],
+          tenant: String
+        }
+
+      class GuideSeenRequest < Knockapi::Internal::Type::BaseModel
+        attr_accessor channel_id: String
+
+        attr_accessor content: ::Hash[Symbol, top]
+
+        attr_accessor guide_id: String
+
+        attr_accessor guide_key: String
+
+        attr_accessor guide_step_ref: String
+
+        attr_reader data: ::Hash[Symbol, top]?
+
+        def data=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+
+        attr_reader tenant: String?
+
+        def tenant=: (String) -> String
+
+        def initialize: (
+          channel_id: String,
+          content: ::Hash[Symbol, top],
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          ?data: ::Hash[Symbol, top],
+          ?tenant: String
+        ) -> void
+
+        def to_hash: -> {
+          channel_id: String,
+          content: ::Hash[Symbol, top],
+          guide_id: String,
+          guide_key: String,
+          guide_step_ref: String,
+          data: ::Hash[Symbol, top],
+          tenant: String
+        }
+      end
+    end
+  end
+end

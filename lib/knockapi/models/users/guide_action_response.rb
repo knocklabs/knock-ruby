@@ -3,8 +3,8 @@
 module Knockapi
   module Models
     module Users
-      # @see Knockapi::Resources::Users::Guides#mark_message_as_interacted
-      class GuideMarkMessageAsInteractedResponse < Knockapi::Internal::Type::BaseModel
+      # @see Knockapi::Resources::Users::Guides#mark_message_as_archived
+      class GuideActionResponse < Knockapi::Internal::Type::BaseModel
         # @!attribute status
         #   The status of a guide's action.
         #

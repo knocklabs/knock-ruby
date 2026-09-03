@@ -1,0 +1,15 @@
+module Knockapi
+  module Models
+    module Messages
+      type batch_messages_status_request = { message_ids: ::Array[String] }
+
+      class BatchMessagesStatusRequest < Knockapi::Internal::Type::BaseModel
+        attr_accessor message_ids: ::Array[String]
+
+        def initialize: (message_ids: ::Array[String]) -> void
+
+        def to_hash: -> { message_ids: ::Array[String] }
+      end
+    end
+  end
+end

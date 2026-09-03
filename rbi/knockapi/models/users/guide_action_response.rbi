@@ -3,11 +3,11 @@
 module Knockapi
   module Models
     module Users
-      class GuideMarkMessageAsArchivedResponse < Knockapi::Internal::Type::BaseModel
+      class GuideActionResponse < Knockapi::Internal::Type::BaseModel
         OrHash =
           T.type_alias do
             T.any(
-              Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse,
+              Knockapi::Users::GuideActionResponse,
               Knockapi::Internal::AnyHash
             )
           end

@@ -3,7 +3,7 @@ module Knockapi
     type audience_add_members_params =
       {
         key: String,
-        members: ::Array[Knockapi::AudienceAddMembersParams::Member],
+        members: ::Array[Knockapi::AudienceMemberRequest],
         create_audience: bool
       }
       & Knockapi::Internal::Type::request_parameters
@@ -14,7 +14,7 @@ module Knockapi
 
       attr_accessor key: String
 
-      attr_accessor members: ::Array[Knockapi::AudienceAddMembersParams::Member]
+      attr_accessor members: ::Array[Knockapi::AudienceMemberRequest]
 
       attr_reader create_audience: bool?
 
@@ -22,36 +22,17 @@ module Knockapi
 
       def initialize: (
         key: String,
-        members: ::Array[Knockapi::AudienceAddMembersParams::Member],
+        members: ::Array[Knockapi::AudienceMemberRequest],
         ?create_audience: bool,
         ?request_options: Knockapi::request_opts
       ) -> void
 
       def to_hash: -> {
         key: String,
-        members: ::Array[Knockapi::AudienceAddMembersParams::Member],
+        members: ::Array[Knockapi::AudienceMemberRequest],
         create_audience: bool,
         request_options: Knockapi::RequestOptions
       }
-
-      type member =
-        { user: Knockapi::InlineIdentifyUserRequest, tenant: String? }
-
-      class Member < Knockapi::Internal::Type::BaseModel
-        attr_accessor user: Knockapi::InlineIdentifyUserRequest
-
-        attr_accessor tenant: String?
-
-        def initialize: (
-          user: Knockapi::InlineIdentifyUserRequest,
-          ?tenant: String?
-        ) -> void
-
-        def to_hash: -> {
-          user: Knockapi::InlineIdentifyUserRequest,
-          tenant: String?
-        }
-      end
     end
   end
 end

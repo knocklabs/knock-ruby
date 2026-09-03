@@ -13,7 +13,7 @@ module Knockapi
       #
       # @param key [String] Path param: The key of the audience.
       #
-      # @param members [Array<Knockapi::Models::AudienceAddMembersParams::Member>] Body param: A list of audience members to add. You can add up to 1,000 members p
+      # @param members [Array<Knockapi::Models::AudienceMemberRequest>] Body param: A list of audience members to add. You can add up to 1,000 members p
       #
       # @param create_audience [Boolean] Query param: Create the audience if it does not exist.
       #
@@ -65,7 +65,7 @@ module Knockapi
       #
       # @param key [String] The key of the audience.
       #
-      # @param members [Array<Knockapi::Models::AudienceRemoveMembersParams::Member>] A list of audience members to remove. You can remove up to 1,000 members per req
+      # @param members [Array<Knockapi::Models::AudienceMemberRequest>] A list of audience members to remove. You can remove up to 1,000 members per req
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

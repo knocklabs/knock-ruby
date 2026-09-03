@@ -20,6 +20,11 @@ module Knockapi
       # @return [Knockapi::Resources::Users::Bulk]
       attr_reader :bulk
 
+      # The preference center is a hosted page where users can manage their notification
+      # preferences.
+      # @return [Knockapi::Resources::Users::PreferenceCenter]
+      attr_reader :preference_center
+
       # Some parameter documentations has been truncated, see
       # {Knockapi::Models::UserUpdateParams} for more details.
       #
@@ -407,7 +412,7 @@ module Knockapi
       #
       # @param channels [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetChannelSetting}, nil] Channel preferences.
       #
-      # @param commercial_subscribed [Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting, nil] Whether the recipient is subscribed to commercial communications. When false, th
+      # @param commercial_subscribed [Boolean, Knockapi::Models::PreferenceSetCommercialSubscribedSetting, nil] Whether the recipient is subscribed to commercial communications. When false, th
       #
       # @param workflows [Hash{Symbol=>Boolean, Knockapi::Models::Recipients::PreferenceSetRequest::Workflow::PreferenceSetWorkflowCategorySettingObject}, nil] An object where the key is the workflow key and the values are the preference se
       #
@@ -479,6 +484,7 @@ module Knockapi
         @feeds = Knockapi::Resources::Users::Feeds.new(client: client)
         @guides = Knockapi::Resources::Users::Guides.new(client: client)
         @bulk = Knockapi::Resources::Users::Bulk.new(client: client)
+        @preference_center = Knockapi::Resources::Users::PreferenceCenter.new(client: client)
       end
     end
   end

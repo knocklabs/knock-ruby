@@ -2,68 +2,23 @@ module Knockapi
   module Models
     module Users
       type guide_mark_message_as_seen_params =
-        {
-          user_id: String,
-          message_id: String,
-          channel_id: String,
-          content: ::Hash[Symbol, top],
-          guide_id: String,
-          guide_key: String,
-          guide_step_ref: String,
-          data: ::Hash[Symbol, top],
-          tenant: String
-        }
-        & Knockapi::Internal::Type::request_parameters
+        { user_id: String } & Knockapi::Internal::Type::request_parameters
 
-      class GuideMarkMessageAsSeenParams < Knockapi::Internal::Type::BaseModel
+      class GuideMarkMessageAsSeenParams < Knockapi::Models::Users::GuideSeenRequest
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        attr_accessor user_id: String
+        def user_id: -> String
 
-        attr_accessor message_id: String
-
-        attr_accessor channel_id: String
-
-        attr_accessor content: ::Hash[Symbol, top]
-
-        attr_accessor guide_id: String
-
-        attr_accessor guide_key: String
-
-        attr_accessor guide_step_ref: String
-
-        attr_reader data: ::Hash[Symbol, top]?
-
-        def data=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
-
-        attr_reader tenant: String?
-
-        def tenant=: (String) -> String
+        def user_id=: (String _) -> String
 
         def initialize: (
           user_id: String,
-          message_id: String,
-          channel_id: String,
-          content: ::Hash[Symbol, top],
-          guide_id: String,
-          guide_key: String,
-          guide_step_ref: String,
-          ?data: ::Hash[Symbol, top],
-          ?tenant: String,
           ?request_options: Knockapi::request_opts
         ) -> void
 
         def to_hash: -> {
           user_id: String,
-          message_id: String,
-          channel_id: String,
-          content: ::Hash[Symbol, top],
-          guide_id: String,
-          guide_key: String,
-          guide_step_ref: String,
-          data: ::Hash[Symbol, top],
-          tenant: String,
           request_options: Knockapi::RequestOptions
         }
       end

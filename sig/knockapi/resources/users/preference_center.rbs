@@ -1,0 +1,19 @@
+module Knockapi
+  module Resources
+    class Users
+      class PreferenceCenter
+        def generate_signed_url: (
+          String user_id,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Users::PreferenceCenterGenerateSignedURLResponse
+
+        def get_config: (
+          String user_id,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Models::Users::PreferenceCenterGetConfigResponse
+
+        def initialize: (client: Knockapi::Client) -> void
+      end
+    end
+  end
+end

@@ -100,7 +100,7 @@ module Knockapi
         params(
           message_id: String,
           request_options: Knockapi::RequestOptions::OrHash
-        ).returns(Knockapi::Models::MessageGetContentResponse)
+        ).returns(Knockapi::MessageContents)
       end
       def get_content(
         # The ID of the message to fetch contents of.

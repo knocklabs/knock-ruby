@@ -13,7 +13,6 @@ module Knockapi
 
         def mark_message_as_archived: (
           String user_id,
-          String message_id,
           channel_id: String,
           guide_id: String,
           guide_key: String,
@@ -22,11 +21,10 @@ module Knockapi
           ?tenant: String,
           ?unthrottled: bool,
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse
+        ) -> Knockapi::Users::GuideActionResponse
 
         def mark_message_as_interacted: (
           String user_id,
-          String message_id,
           channel_id: String,
           guide_id: String,
           guide_key: String,
@@ -34,11 +32,10 @@ module Knockapi
           ?metadata: ::Hash[Symbol, top],
           ?tenant: String,
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse
+        ) -> Knockapi::Users::GuideActionResponse
 
         def mark_message_as_seen: (
           String user_id,
-          String message_id,
           channel_id: String,
           content: ::Hash[Symbol, top],
           guide_id: String,
@@ -47,7 +44,21 @@ module Knockapi
           ?data: ::Hash[Symbol, top],
           ?tenant: String,
           ?request_options: Knockapi::request_opts
-        ) -> Knockapi::Models::Users::GuideMarkMessageAsSeenResponse
+        ) -> Knockapi::Users::GuideActionResponse
+
+        def reset_guide_engagements: (
+          String user_id,
+          guide_key: String,
+          ?tenant: String,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Users::GuideActionResponse
+
+        def unarchive_guide_message: (
+          String user_id,
+          guide_key: String,
+          ?tenant: String,
+          ?request_options: Knockapi::request_opts
+        ) -> Knockapi::Users::GuideActionResponse
 
         def initialize: (client: Knockapi::Client) -> void
       end

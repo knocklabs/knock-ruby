@@ -1,0 +1,22 @@
+module Knockapi
+  module Models
+    type list_messages_response =
+      { items: ::Array[Knockapi::Message], page_info: Knockapi::PageInfo }
+
+    class ListMessagesResponse < Knockapi::Internal::Type::BaseModel
+      attr_accessor items: ::Array[Knockapi::Message]
+
+      attr_accessor page_info: Knockapi::PageInfo
+
+      def initialize: (
+        items: ::Array[Knockapi::Message],
+        page_info: Knockapi::PageInfo
+      ) -> void
+
+      def to_hash: -> {
+        items: ::Array[Knockapi::Message],
+        page_info: Knockapi::PageInfo
+      }
+    end
+  end
+end

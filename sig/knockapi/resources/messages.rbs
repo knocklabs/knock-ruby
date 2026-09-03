@@ -34,7 +34,7 @@ module Knockapi
       def get_content: (
         String message_id,
         ?request_options: Knockapi::request_opts
-      ) -> Knockapi::Models::MessageGetContentResponse
+      ) -> Knockapi::MessageContents
 
       def list_activities: (
         String message_id,

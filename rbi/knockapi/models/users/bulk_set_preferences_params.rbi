@@ -137,7 +137,7 @@ module Knockapi
               T.nilable(
                 T.any(
                   T::Boolean,
-                  Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
+                  Knockapi::PreferenceSetCommercialSubscribedSetting
                 )
               )
             )
@@ -194,7 +194,7 @@ module Knockapi
                 T.nilable(
                   T.any(
                     T::Boolean,
-                    Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting::OrHash
+                    Knockapi::PreferenceSetCommercialSubscribedSetting::OrHash
                   )
                 ),
               workflows:
@@ -260,7 +260,7 @@ module Knockapi
                   T.nilable(
                     T.any(
                       T::Boolean,
-                      Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
+                      Knockapi::PreferenceSetCommercialSubscribedSetting
                     )
                   ),
                 workflows:
@@ -464,42 +464,9 @@ module Knockapi
               T.type_alias do
                 T.any(
                   T::Boolean,
-                  Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting
+                  Knockapi::PreferenceSetCommercialSubscribedSetting
                 )
               end
-
-            class PreferenceSetCommercialSubscribedSetting < Knockapi::Internal::Type::BaseModel
-              OrHash =
-                T.type_alias do
-                  T.any(
-                    Knockapi::Users::BulkSetPreferencesParams::Preferences::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting,
-                    Knockapi::Internal::AnyHash
-                  )
-                end
-
-              # A list of conditions to apply to the commercial subscribed preference.
-              sig { returns(T::Array[Knockapi::Condition]) }
-              attr_accessor :conditions
-
-              # A set of settings for the commercial subscribed preference. Currently, this can
-              # only be a list of conditions to apply.
-              sig do
-                params(
-                  conditions: T::Array[Knockapi::Condition::OrHash]
-                ).returns(T.attached_class)
-              end
-              def self.new(
-                # A list of conditions to apply to the commercial subscribed preference.
-                conditions:
-              )
-              end
-
-              sig do
-                override.returns({ conditions: T::Array[Knockapi::Condition] })
-              end
-              def to_hash
-              end
-            end
 
             sig do
               override.returns(

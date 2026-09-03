@@ -1,0 +1,46 @@
+module Knockapi
+  module Models
+    type message_in_app_feed_content_block =
+      {
+        content: String,
+        name: String,
+        rendered: String,
+        type: Knockapi::Models::MessageInAppFeedContentBlock::type_
+      }
+
+    class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
+      attr_accessor content: String
+
+      attr_accessor name: String
+
+      attr_accessor rendered: String
+
+      attr_accessor type: Knockapi::Models::MessageInAppFeedContentBlock::type_
+
+      def initialize: (
+        content: String,
+        name: String,
+        rendered: String,
+        type: Knockapi::Models::MessageInAppFeedContentBlock::type_
+      ) -> void
+
+      def to_hash: -> {
+        content: String,
+        name: String,
+        rendered: String,
+        type: Knockapi::Models::MessageInAppFeedContentBlock::type_
+      }
+
+      type type_ = :markdown | :text
+
+      module Type
+        extend Knockapi::Internal::Type::Enum
+
+        MARKDOWN: :markdown
+        TEXT: :text
+
+        def self?.values: -> ::Array[Knockapi::Models::MessageInAppFeedContentBlock::type_]
+      end
+    end
+  end
+end

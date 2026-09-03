@@ -3,7 +3,7 @@
 module Knockapi
   module Models
     # @see Knockapi::Resources::Messages#get_content
-    class MessageGetContentResponse < Knockapi::Internal::Type::BaseModel
+    class MessageContents < Knockapi::Internal::Type::BaseModel
       # @!attribute _typename
       #   The typename of the schema.
       #
@@ -13,8 +13,8 @@ module Knockapi
       # @!attribute data
       #   Content data specific to the channel type.
       #
-      #   @return [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent]
-      required :data, union: -> { Knockapi::Models::MessageGetContentResponse::Data }
+      #   @return [Knockapi::Models::MessageContents::Data::MessageEmailContent, Knockapi::Models::MessageContents::Data::MessageSMSContent, Knockapi::Models::MessageContents::Data::MessagePushContent, Knockapi::Models::MessageContents::Data::MessageChatContent, Knockapi::Models::MessageContents::Data::MessageInAppFeedContent]
+      required :data, union: -> { Knockapi::MessageContents::Data }
 
       # @!attribute inserted_at
       #   Timestamp when the message content was created.
@@ -33,7 +33,7 @@ module Knockapi
       #
       #   @param _typename [String] The typename of the schema.
       #
-      #   @param data [Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent] Content data specific to the channel type.
+      #   @param data [Knockapi::Models::MessageContents::Data::MessageEmailContent, Knockapi::Models::MessageContents::Data::MessageSMSContent, Knockapi::Models::MessageContents::Data::MessagePushContent, Knockapi::Models::MessageContents::Data::MessageChatContent, Knockapi::Models::MessageContents::Data::MessageInAppFeedContent] Content data specific to the channel type.
       #
       #   @param inserted_at [Time] Timestamp when the message content was created.
       #
@@ -41,24 +41,24 @@ module Knockapi
 
       # Content data specific to the channel type.
       #
-      # @see Knockapi::Models::MessageGetContentResponse#data
+      # @see Knockapi::Models::MessageContents#data
       module Data
         extend Knockapi::Internal::Type::Union
 
         # The content of an email message.
-        variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent }
+        variant -> { Knockapi::MessageContents::Data::MessageEmailContent }
 
         # The content of an SMS message.
-        variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent }
+        variant -> { Knockapi::MessageContents::Data::MessageSMSContent }
 
         # Push channel data.
-        variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent }
+        variant -> { Knockapi::MessageContents::Data::MessagePushContent }
 
         # The content of a chat message.
-        variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent }
+        variant -> { Knockapi::MessageContents::Data::MessageChatContent }
 
         # The content of an in-app feed message.
-        variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent }
+        variant -> { Knockapi::MessageContents::Data::MessageInAppFeedContent }
 
         class MessageEmailContent < Knockapi::Internal::Type::BaseModel
           # @!attribute _typename
@@ -227,8 +227,8 @@ module Knockapi
           # @!attribute template
           #   The template structure for the chat message.
           #
-          #   @return [Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template]
-          required :template, -> { Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template }
+          #   @return [Knockapi::Models::MessageContents::Data::MessageChatContent::Template]
+          required :template, -> { Knockapi::MessageContents::Data::MessageChatContent::Template }
 
           # @!attribute metadata
           #   Additional metadata associated with the chat message.
@@ -243,18 +243,20 @@ module Knockapi
           #
           #   @param connection [Hash{Symbol=>Object}] The channel data connection from the recipient to the underlying provider.
           #
-          #   @param template [Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template] The template structure for the chat message.
+          #   @param template [Knockapi::Models::MessageContents::Data::MessageChatContent::Template] The template structure for the chat message.
           #
           #   @param metadata [Hash{Symbol=>Object}, nil] Additional metadata associated with the chat message.
 
-          # @see Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent#template
+          # @see Knockapi::Models::MessageContents::Data::MessageChatContent#template
           class Template < Knockapi::Internal::Type::BaseModel
             # @!attribute blocks
             #   The blocks of the message in a chat.
             #
-            #   @return [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block>, nil]
+            #   @return [Array<Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block>, nil]
             optional :blocks,
-                     -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block] },
+                     -> {
+                       Knockapi::Internal::Type::ArrayOf[Knockapi::MessageContents::Data::MessageChatContent::Template::Block]
+                     },
                      nil?: true
 
             # @!attribute json_content
@@ -274,7 +276,7 @@ module Knockapi
             # @!method initialize(blocks: nil, json_content: nil, summary: nil)
             #   The template structure for the chat message.
             #
-            #   @param blocks [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block>, nil] The blocks of the message in a chat.
+            #   @param blocks [Array<Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block>, nil] The blocks of the message in a chat.
             #
             #   @param json_content [Hash{Symbol=>Object}, nil] The JSON content of the message.
             #
@@ -296,9 +298,8 @@ module Knockapi
               # @!attribute type
               #   The type of block in a message in a chat (text or markdown).
               #
-              #   @return [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type]
-              required :type,
-                       enum: -> { Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type }
+              #   @return [Symbol, Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block::Type]
+              required :type, enum: -> { Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type }
 
               # @!method initialize(content:, name:, type:)
               #   A block in a message in a chat.
@@ -307,11 +308,11 @@ module Knockapi
               #
               #   @param name [String] The name of the block for identification.
               #
-              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type] The type of block in a message in a chat (text or markdown).
+              #   @param type [Symbol, Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block::Type] The type of block in a message in a chat (text or markdown).
 
               # The type of block in a message in a chat (text or markdown).
               #
-              # @see Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block#type
+              # @see Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block#type
               module Type
                 extend Knockapi::Internal::Type::Enum
 
@@ -335,161 +336,34 @@ module Knockapi
           # @!attribute blocks
           #   The blocks of the message in an app feed.
           #
-          #   @return [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock>]
+          #   @return [Array<Knockapi::Models::MessageInAppFeedContentBlock, Knockapi::Models::MessageInAppFeedButtonSetBlock>]
           required :blocks,
-                   -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block] }
+                   -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::MessageContents::Data::MessageInAppFeedContent::Block] }
 
           # @!method initialize(_typename:, blocks:)
           #   The content of an in-app feed message.
           #
           #   @param _typename [String] The typename of the schema.
           #
-          #   @param blocks [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock>] The blocks of the message in an app feed.
+          #   @param blocks [Array<Knockapi::Models::MessageInAppFeedContentBlock, Knockapi::Models::MessageInAppFeedButtonSetBlock>] The blocks of the message in an app feed.
 
           # A block in a message in an app feed.
           module Block
             extend Knockapi::Internal::Type::Union
 
             # A block in a message in an app feed.
-            variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock }
+            variant -> { Knockapi::MessageInAppFeedContentBlock }
 
             # A button set block in a message in an app feed.
-            variant -> { Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock }
-
-            class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
-              # @!attribute content
-              #   The content of the block in a message in an app feed.
-              #
-              #   @return [String]
-              required :content, String
-
-              # @!attribute name
-              #   The name of the block in a message in an app feed.
-              #
-              #   @return [String]
-              required :name, String
-
-              # @!attribute rendered
-              #   The rendered HTML version of the content.
-              #
-              #   @return [String]
-              required :rendered, String
-
-              # @!attribute type
-              #   The type of block in a message in an app feed.
-              #
-              #   @return [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type]
-              required :type,
-                       enum: -> { Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type }
-
-              # @!method initialize(content:, name:, rendered:, type:)
-              #   A block in a message in an app feed.
-              #
-              #   @param content [String] The content of the block in a message in an app feed.
-              #
-              #   @param name [String] The name of the block in a message in an app feed.
-              #
-              #   @param rendered [String] The rendered HTML version of the content.
-              #
-              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type] The type of block in a message in an app feed.
-
-              # The type of block in a message in an app feed.
-              #
-              # @see Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock#type
-              module Type
-                extend Knockapi::Internal::Type::Enum
-
-                MARKDOWN = :markdown
-                TEXT = :text
-
-                # @!method self.values
-                #   @return [Array<Symbol>]
-              end
-            end
-
-            class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
-              # @!attribute buttons
-              #   A list of buttons in an in app feed message.
-              #
-              #   @return [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button>]
-              required :buttons,
-                       -> do
-                         Knockapi::Internal::Type::ArrayOf[
-                           Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
-                         ]
-                       end
-
-              # @!attribute name
-              #   The name of the button set in a message in an app feed.
-              #
-              #   @return [String]
-              required :name, String
-
-              # @!attribute type
-              #   The type of block in a message in an app feed.
-              #
-              #   @return [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type]
-              required :type,
-                       enum: -> { Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type }
-
-              # @!method initialize(buttons:, name:, type:)
-              #   A button set block in a message in an app feed.
-              #
-              #   @param buttons [Array<Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button>] A list of buttons in an in app feed message.
-              #
-              #   @param name [String] The name of the button set in a message in an app feed.
-              #
-              #   @param type [Symbol, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type] The type of block in a message in an app feed.
-
-              class Button < Knockapi::Internal::Type::BaseModel
-                # @!attribute action
-                #   The action to take when the button is clicked.
-                #
-                #   @return [String]
-                required :action, String
-
-                # @!attribute label
-                #   The label of the button.
-                #
-                #   @return [String]
-                required :label, String
-
-                # @!attribute name
-                #   The name of the button.
-                #
-                #   @return [String]
-                required :name, String
-
-                # @!method initialize(action:, label:, name:)
-                #   A button in an in app feed message.
-                #
-                #   @param action [String] The action to take when the button is clicked.
-                #
-                #   @param label [String] The label of the button.
-                #
-                #   @param name [String] The name of the button.
-              end
-
-              # The type of block in a message in an app feed.
-              #
-              # @see Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock#type
-              module Type
-                extend Knockapi::Internal::Type::Enum
-
-                BUTTON_SET = :button_set
-
-                # @!method self.values
-                #   @return [Array<Symbol>]
-              end
-            end
+            variant -> { Knockapi::MessageInAppFeedButtonSetBlock }
 
             # @!method self.variants
-            #   @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock)]
+            #   @return [Array(Knockapi::Models::MessageInAppFeedContentBlock, Knockapi::Models::MessageInAppFeedButtonSetBlock)]
           end
         end
 
         # @!method self.variants
-        #   @return [Array(Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent, Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent, Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent, Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent, Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent)]
+        #   @return [Array(Knockapi::Models::MessageContents::Data::MessageEmailContent, Knockapi::Models::MessageContents::Data::MessageSMSContent, Knockapi::Models::MessageContents::Data::MessagePushContent, Knockapi::Models::MessageContents::Data::MessageChatContent, Knockapi::Models::MessageContents::Data::MessageInAppFeedContent)]
       end
     end
   end

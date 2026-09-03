@@ -1,0 +1,286 @@
+module Knockapi
+  module Models
+    type message_contents =
+      {
+        _typename: String,
+        data: Knockapi::Models::MessageContents::data,
+        inserted_at: Time,
+        message_id: String
+      }
+
+    class MessageContents < Knockapi::Internal::Type::BaseModel
+      attr_accessor _typename: String
+
+      attr_accessor data: Knockapi::Models::MessageContents::data
+
+      attr_accessor inserted_at: Time
+
+      attr_accessor message_id: String
+
+      def initialize: (
+        _typename: String,
+        data: Knockapi::Models::MessageContents::data,
+        inserted_at: Time,
+        message_id: String
+      ) -> void
+
+      def to_hash: -> {
+        _typename: String,
+        data: Knockapi::Models::MessageContents::data,
+        inserted_at: Time,
+        message_id: String
+      }
+
+      type data =
+        Knockapi::MessageContents::Data::MessageEmailContent
+        | Knockapi::MessageContents::Data::MessageSMSContent
+        | Knockapi::MessageContents::Data::MessagePushContent
+        | Knockapi::MessageContents::Data::MessageChatContent
+        | Knockapi::MessageContents::Data::MessageInAppFeedContent
+
+      module Data
+        extend Knockapi::Internal::Type::Union
+
+        type message_email_content =
+          {
+            _typename: String,
+            from: String,
+            html_body: String,
+            subject_line: String,
+            text_body: String,
+            to: String,
+            bcc: String?,
+            cc: String?,
+            reply_to: String?
+          }
+
+        class MessageEmailContent < Knockapi::Internal::Type::BaseModel
+          attr_accessor _typename: String
+
+          attr_accessor from: String
+
+          attr_accessor html_body: String
+
+          attr_accessor subject_line: String
+
+          attr_accessor text_body: String
+
+          attr_accessor to: String
+
+          attr_accessor bcc: String?
+
+          attr_accessor cc: String?
+
+          attr_accessor reply_to: String?
+
+          def initialize: (
+            _typename: String,
+            from: String,
+            html_body: String,
+            subject_line: String,
+            text_body: String,
+            to: String,
+            ?bcc: String?,
+            ?cc: String?,
+            ?reply_to: String?
+          ) -> void
+
+          def to_hash: -> {
+            _typename: String,
+            from: String,
+            html_body: String,
+            subject_line: String,
+            text_body: String,
+            to: String,
+            bcc: String?,
+            cc: String?,
+            reply_to: String?
+          }
+        end
+
+        type message_sms_content =
+          { _typename: String, body: String, to: String }
+
+        class MessageSMSContent < Knockapi::Internal::Type::BaseModel
+          attr_accessor _typename: String
+
+          attr_accessor body: String
+
+          attr_accessor to: String
+
+          def initialize: (_typename: String, body: String, to: String) -> void
+
+          def to_hash: -> { _typename: String, body: String, to: String }
+        end
+
+        type message_push_content =
+          {
+            token: String,
+            _typename: String,
+            body: String,
+            title: String,
+            data: ::Hash[Symbol, top]?
+          }
+
+        class MessagePushContent < Knockapi::Internal::Type::BaseModel
+          attr_accessor token: String
+
+          attr_accessor _typename: String
+
+          attr_accessor body: String
+
+          attr_accessor title: String
+
+          attr_accessor data: ::Hash[Symbol, top]?
+
+          def initialize: (
+            token: String,
+            _typename: String,
+            body: String,
+            title: String,
+            ?data: ::Hash[Symbol, top]?
+          ) -> void
+
+          def to_hash: -> {
+            token: String,
+            _typename: String,
+            body: String,
+            title: String,
+            data: ::Hash[Symbol, top]?
+          }
+        end
+
+        type message_chat_content =
+          {
+            _typename: String,
+            connection: ::Hash[Symbol, top],
+            template: Knockapi::MessageContents::Data::MessageChatContent::Template,
+            metadata: ::Hash[Symbol, top]?
+          }
+
+        class MessageChatContent < Knockapi::Internal::Type::BaseModel
+          attr_accessor _typename: String
+
+          attr_accessor connection: ::Hash[Symbol, top]
+
+          attr_accessor template: Knockapi::MessageContents::Data::MessageChatContent::Template
+
+          attr_accessor metadata: ::Hash[Symbol, top]?
+
+          def initialize: (
+            _typename: String,
+            connection: ::Hash[Symbol, top],
+            template: Knockapi::MessageContents::Data::MessageChatContent::Template,
+            ?metadata: ::Hash[Symbol, top]?
+          ) -> void
+
+          def to_hash: -> {
+            _typename: String,
+            connection: ::Hash[Symbol, top],
+            template: Knockapi::MessageContents::Data::MessageChatContent::Template,
+            metadata: ::Hash[Symbol, top]?
+          }
+
+          type template =
+            {
+              blocks: ::Array[Knockapi::MessageContents::Data::MessageChatContent::Template::Block]?,
+              json_content: ::Hash[Symbol, top]?,
+              summary: String?
+            }
+
+          class Template < Knockapi::Internal::Type::BaseModel
+            attr_accessor blocks: ::Array[Knockapi::MessageContents::Data::MessageChatContent::Template::Block]?
+
+            attr_accessor json_content: ::Hash[Symbol, top]?
+
+            attr_accessor summary: String?
+
+            def initialize: (
+              ?blocks: ::Array[Knockapi::MessageContents::Data::MessageChatContent::Template::Block]?,
+              ?json_content: ::Hash[Symbol, top]?,
+              ?summary: String?
+            ) -> void
+
+            def to_hash: -> {
+              blocks: ::Array[Knockapi::MessageContents::Data::MessageChatContent::Template::Block]?,
+              json_content: ::Hash[Symbol, top]?,
+              summary: String?
+            }
+
+            type block =
+              {
+                content: String,
+                name: String,
+                type: Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block::type_
+              }
+
+            class Block < Knockapi::Internal::Type::BaseModel
+              attr_accessor content: String
+
+              attr_accessor name: String
+
+              attr_accessor type: Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block::type_
+
+              def initialize: (
+                content: String,
+                name: String,
+                type: Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block::type_
+              ) -> void
+
+              def to_hash: -> {
+                content: String,
+                name: String,
+                type: Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block::type_
+              }
+
+              type type_ = :text | :markdown
+
+              module Type
+                extend Knockapi::Internal::Type::Enum
+
+                TEXT: :text
+                MARKDOWN: :markdown
+
+                def self?.values: -> ::Array[Knockapi::Models::MessageContents::Data::MessageChatContent::Template::Block::type_]
+              end
+            end
+          end
+        end
+
+        type message_in_app_feed_content =
+          {
+            _typename: String,
+            blocks: ::Array[Knockapi::Models::MessageContents::Data::MessageInAppFeedContent::block]
+          }
+
+        class MessageInAppFeedContent < Knockapi::Internal::Type::BaseModel
+          attr_accessor _typename: String
+
+          attr_accessor blocks: ::Array[Knockapi::Models::MessageContents::Data::MessageInAppFeedContent::block]
+
+          def initialize: (
+            _typename: String,
+            blocks: ::Array[Knockapi::Models::MessageContents::Data::MessageInAppFeedContent::block]
+          ) -> void
+
+          def to_hash: -> {
+            _typename: String,
+            blocks: ::Array[Knockapi::Models::MessageContents::Data::MessageInAppFeedContent::block]
+          }
+
+          type block =
+            Knockapi::MessageInAppFeedContentBlock
+            | Knockapi::MessageInAppFeedButtonSetBlock
+
+          module Block
+            extend Knockapi::Internal::Type::Union
+
+            def self?.variants: -> ::Array[Knockapi::Models::MessageContents::Data::MessageInAppFeedContent::block]
+          end
+        end
+
+        def self?.variants: -> ::Array[Knockapi::Models::MessageContents::data]
+      end
+    end
+  end
+end

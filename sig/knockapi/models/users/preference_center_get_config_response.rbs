@@ -1,0 +1,189 @@
+module Knockapi
+  module Models
+    module Users
+      type preference_center_get_config_response =
+        {
+          account_name: String?,
+          branding: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Branding,
+          config: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config,
+          enabled: bool,
+          user_email: String?,
+          knock_branding_required: bool
+        }
+
+      class PreferenceCenterGetConfigResponse < Knockapi::Internal::Type::BaseModel
+        attr_accessor account_name: String?
+
+        attr_accessor branding: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Branding
+
+        attr_accessor config: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config
+
+        attr_accessor enabled: bool
+
+        attr_accessor user_email: String?
+
+        attr_reader knock_branding_required: bool?
+
+        def knock_branding_required=: (bool) -> bool
+
+        def initialize: (
+          account_name: String?,
+          branding: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Branding,
+          config: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config,
+          enabled: bool,
+          user_email: String?,
+          ?knock_branding_required: bool
+        ) -> void
+
+        def to_hash: -> {
+          account_name: String?,
+          branding: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Branding,
+          config: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config,
+          enabled: bool,
+          user_email: String?,
+          knock_branding_required: bool
+        }
+
+        type branding =
+          { dark: Knockapi::Users::PreferenceCenterBrandingConfig }
+
+        class Branding < Knockapi::Models::Users::PreferenceCenterBrandingConfig
+          def dark: -> Knockapi::Users::PreferenceCenterBrandingConfig?
+
+          def dark=: (
+            Knockapi::Users::PreferenceCenterBrandingConfig _
+          ) -> Knockapi::Users::PreferenceCenterBrandingConfig
+
+          def initialize: (
+            ?dark: Knockapi::Users::PreferenceCenterBrandingConfig
+          ) -> void
+
+          def to_hash: -> {
+            dark: Knockapi::Users::PreferenceCenterBrandingConfig
+          }
+        end
+
+        type config =
+          {
+            body: String,
+            rows: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row],
+            title: String,
+            show_account_name: bool
+          }
+
+        class Config < Knockapi::Internal::Type::BaseModel
+          attr_accessor body: String
+
+          attr_accessor rows: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row]
+
+          attr_accessor title: String
+
+          attr_reader show_account_name: bool?
+
+          def show_account_name=: (bool) -> bool
+
+          def initialize: (
+            body: String,
+            rows: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row],
+            title: String,
+            ?show_account_name: bool
+          ) -> void
+
+          def to_hash: -> {
+            body: String,
+            rows: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row],
+            title: String,
+            show_account_name: bool
+          }
+
+          type row =
+            {
+              name: String,
+              type: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::type_,
+              channel_types: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::channel_type]?,
+              description: String,
+              identifier: String?
+            }
+
+          class Row < Knockapi::Internal::Type::BaseModel
+            attr_accessor name: String
+
+            attr_accessor type: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::type_
+
+            attr_accessor channel_types: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::channel_type]?
+
+            attr_reader description: String?
+
+            def description=: (String) -> String
+
+            attr_accessor identifier: String?
+
+            def initialize: (
+              name: String,
+              type: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::type_,
+              ?channel_types: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::channel_type]?,
+              ?description: String,
+              ?identifier: String?
+            ) -> void
+
+            def to_hash: -> {
+              name: String,
+              type: Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::type_,
+              channel_types: ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::channel_type]?,
+              description: String,
+              identifier: String?
+            }
+
+            type type_ =
+              :workflow
+              | :channel
+              | :category
+              | :channel_types
+              | :commercial_subscribed
+
+            module Type
+              extend Knockapi::Internal::Type::Enum
+
+              WORKFLOW: :workflow
+              CHANNEL: :channel
+              CATEGORY: :category
+              CHANNEL_TYPES: :channel_types
+              COMMERCIAL_SUBSCRIBED: :commercial_subscribed
+
+              def self?.values: -> ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::type_]
+            end
+
+            type channel_type =
+              :email
+              | :in_app
+              | :in_app_feed
+              | :in_app_guide
+              | :sms
+              | :push
+              | :chat
+              | :http
+              | :log
+              | :deferred_log
+
+            module ChannelType
+              extend Knockapi::Internal::Type::Enum
+
+              EMAIL: :email
+              IN_APP: :in_app
+              IN_APP_FEED: :in_app_feed
+              IN_APP_GUIDE: :in_app_guide
+              SMS: :sms
+              PUSH: :push
+              CHAT: :chat
+              HTTP: :http
+              LOG: :log
+              DEFERRED_LOG: :deferred_log
+
+              def self?.values: -> ::Array[Knockapi::Models::Users::PreferenceCenterGetConfigResponse::Config::Row::channel_type]
+            end
+          end
+        end
+      end
+    end
+  end
+end

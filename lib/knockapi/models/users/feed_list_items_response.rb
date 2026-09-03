@@ -32,7 +32,7 @@ module Knockapi
         # @!attribute blocks
         #   Content blocks that make up the feed item.
         #
-        #   @return [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>]
+        #   @return [Array<Knockapi::Models::MessageInAppFeedContentBlock, Knockapi::Models::MessageInAppFeedButtonSetBlock>]
         required :blocks,
                  -> { Knockapi::Internal::Type::ArrayOf[union: Knockapi::Models::Users::FeedListItemsResponse::Block] }
 
@@ -125,7 +125,7 @@ module Knockapi
         #
         #   @param actors [Array<Knockapi::Models::User, Knockapi::Models::Object>] List of actors associated with this feed item.
         #
-        #   @param blocks [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock>] Content blocks that make up the feed item.
+        #   @param blocks [Array<Knockapi::Models::MessageInAppFeedContentBlock, Knockapi::Models::MessageInAppFeedButtonSetBlock>] Content blocks that make up the feed item.
         #
         #   @param data [Hash{Symbol=>Object}, nil] Additional data associated with the feed item.
         #
@@ -158,136 +158,13 @@ module Knockapi
           extend Knockapi::Internal::Type::Union
 
           # A block in a message in an app feed.
-          variant -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock }
+          variant -> { Knockapi::MessageInAppFeedContentBlock }
 
           # A button set block in a message in an app feed.
-          variant -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock }
-
-          class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
-            # @!attribute content
-            #   The content of the block in a message in an app feed.
-            #
-            #   @return [String]
-            required :content, String
-
-            # @!attribute name
-            #   The name of the block in a message in an app feed.
-            #
-            #   @return [String]
-            required :name, String
-
-            # @!attribute rendered
-            #   The rendered HTML version of the content.
-            #
-            #   @return [String]
-            required :rendered, String
-
-            # @!attribute type
-            #   The type of block in a message in an app feed.
-            #
-            #   @return [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type]
-            required :type,
-                     enum: -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type }
-
-            # @!method initialize(content:, name:, rendered:, type:)
-            #   A block in a message in an app feed.
-            #
-            #   @param content [String] The content of the block in a message in an app feed.
-            #
-            #   @param name [String] The name of the block in a message in an app feed.
-            #
-            #   @param rendered [String] The rendered HTML version of the content.
-            #
-            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::Type] The type of block in a message in an app feed.
-
-            # The type of block in a message in an app feed.
-            #
-            # @see Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock#type
-            module Type
-              extend Knockapi::Internal::Type::Enum
-
-              MARKDOWN = :markdown
-              TEXT = :text
-
-              # @!method self.values
-              #   @return [Array<Symbol>]
-            end
-          end
-
-          class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
-            # @!attribute buttons
-            #   A list of buttons in an in app feed message.
-            #
-            #   @return [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button>]
-            required :buttons,
-                     -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button] }
-
-            # @!attribute name
-            #   The name of the button set in a message in an app feed.
-            #
-            #   @return [String]
-            required :name, String
-
-            # @!attribute type
-            #   The type of block in a message in an app feed.
-            #
-            #   @return [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type]
-            required :type,
-                     enum: -> { Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type }
-
-            # @!method initialize(buttons:, name:, type:)
-            #   A button set block in a message in an app feed.
-            #
-            #   @param buttons [Array<Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button>] A list of buttons in an in app feed message.
-            #
-            #   @param name [String] The name of the button set in a message in an app feed.
-            #
-            #   @param type [Symbol, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Type] The type of block in a message in an app feed.
-
-            class Button < Knockapi::Internal::Type::BaseModel
-              # @!attribute action
-              #   The action to take when the button is clicked.
-              #
-              #   @return [String]
-              required :action, String
-
-              # @!attribute label
-              #   The label of the button.
-              #
-              #   @return [String]
-              required :label, String
-
-              # @!attribute name
-              #   The name of the button.
-              #
-              #   @return [String]
-              required :name, String
-
-              # @!method initialize(action:, label:, name:)
-              #   A button in an in app feed message.
-              #
-              #   @param action [String] The action to take when the button is clicked.
-              #
-              #   @param label [String] The label of the button.
-              #
-              #   @param name [String] The name of the button.
-            end
-
-            # The type of block in a message in an app feed.
-            #
-            # @see Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock#type
-            module Type
-              extend Knockapi::Internal::Type::Enum
-
-              BUTTON_SET = :button_set
-
-              # @!method self.values
-              #   @return [Array<Symbol>]
-            end
-          end
+          variant -> { Knockapi::MessageInAppFeedButtonSetBlock }
 
           # @!method self.variants
-          #   @return [Array(Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock, Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock)]
+          #   @return [Array(Knockapi::Models::MessageInAppFeedContentBlock, Knockapi::Models::MessageInAppFeedButtonSetBlock)]
         end
 
         # @see Knockapi::Models::Users::FeedListItemsResponse#source

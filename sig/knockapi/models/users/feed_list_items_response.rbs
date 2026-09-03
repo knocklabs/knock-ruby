@@ -103,109 +103,11 @@ module Knockapi
         }
 
         type block =
-          Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock
-          | Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock
+          Knockapi::MessageInAppFeedContentBlock
+          | Knockapi::MessageInAppFeedButtonSetBlock
 
         module Block
           extend Knockapi::Internal::Type::Union
-
-          type message_in_app_feed_content_block =
-            {
-              content: String,
-              name: String,
-              rendered: String,
-              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
-            }
-
-          class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
-            attr_accessor content: String
-
-            attr_accessor name: String
-
-            attr_accessor rendered: String
-
-            attr_accessor type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
-
-            def initialize: (
-              content: String,
-              name: String,
-              rendered: String,
-              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
-            ) -> void
-
-            def to_hash: -> {
-              content: String,
-              name: String,
-              rendered: String,
-              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_
-            }
-
-            type type_ = :markdown | :text
-
-            module Type
-              extend Knockapi::Internal::Type::Enum
-
-              MARKDOWN: :markdown
-              TEXT: :text
-
-              def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedContentBlock::type_]
-            end
-          end
-
-          type message_in_app_feed_button_set_block =
-            {
-              buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
-              name: String,
-              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
-            }
-
-          class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
-            attr_accessor buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button]
-
-            attr_accessor name: String
-
-            attr_accessor type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
-
-            def initialize: (
-              buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
-              name: String,
-              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
-            ) -> void
-
-            def to_hash: -> {
-              buttons: ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::Button],
-              name: String,
-              type: Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_
-            }
-
-            type button = { action: String, label: String, name: String }
-
-            class Button < Knockapi::Internal::Type::BaseModel
-              attr_accessor action: String
-
-              attr_accessor label: String
-
-              attr_accessor name: String
-
-              def initialize: (
-                action: String,
-                label: String,
-                name: String
-              ) -> void
-
-              def to_hash: -> { action: String, label: String, name: String }
-            end
-
-            type type_ = :button_set
-
-            module Type
-              extend Knockapi::Internal::Type::Enum
-
-              BUTTON_SET: :button_set
-
-              def self?.values: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::Block::MessageInAppFeedButtonSetBlock::type_]
-            end
-          end
 
           def self?.variants: -> ::Array[Knockapi::Models::Users::FeedListItemsResponse::block]
         end

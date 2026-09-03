@@ -8,7 +8,7 @@ module Knockapi
       sig do
         params(
           key: String,
-          members: T::Array[Knockapi::AudienceAddMembersParams::Member::OrHash],
+          members: T::Array[Knockapi::AudienceMemberRequest::OrHash],
           create_audience: T::Boolean,
           request_options: Knockapi::RequestOptions::OrHash
         ).void
@@ -43,8 +43,7 @@ module Knockapi
       sig do
         params(
           key: String,
-          members:
-            T::Array[Knockapi::AudienceRemoveMembersParams::Member::OrHash],
+          members: T::Array[Knockapi::AudienceMemberRequest::OrHash],
           request_options: Knockapi::RequestOptions::OrHash
         ).void
       end

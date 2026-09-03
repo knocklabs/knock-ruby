@@ -20,6 +20,11 @@ module Knockapi
       sig { returns(Knockapi::Resources::Users::Bulk) }
       attr_reader :bulk
 
+      # The preference center is a hosted page where users can manage their notification
+      # preferences.
+      sig { returns(Knockapi::Resources::Users::PreferenceCenter) }
+      attr_reader :preference_center
+
       # Create or update a user with the provided identification data. When you identify
       # an existing user, the system merges the properties you specific with what is
       # currently set on the user, updating only the fields included in your requests.
@@ -412,7 +417,7 @@ module Knockapi
             T.nilable(
               T.any(
                 T::Boolean,
-                Knockapi::Recipients::PreferenceSetRequest::CommercialSubscribed::PreferenceSetCommercialSubscribedSetting::OrHash
+                Knockapi::PreferenceSetCommercialSubscribedSetting::OrHash
               )
             ),
           workflows:

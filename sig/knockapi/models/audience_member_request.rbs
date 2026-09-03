@@ -1,0 +1,22 @@
+module Knockapi
+  module Models
+    type audience_member_request =
+      { user: Knockapi::InlineIdentifyUserRequest, tenant: String? }
+
+    class AudienceMemberRequest < Knockapi::Internal::Type::BaseModel
+      attr_accessor user: Knockapi::InlineIdentifyUserRequest
+
+      attr_accessor tenant: String?
+
+      def initialize: (
+        user: Knockapi::InlineIdentifyUserRequest,
+        ?tenant: String?
+      ) -> void
+
+      def to_hash: -> {
+        user: Knockapi::InlineIdentifyUserRequest,
+        tenant: String?
+      }
+    end
+  end
+end

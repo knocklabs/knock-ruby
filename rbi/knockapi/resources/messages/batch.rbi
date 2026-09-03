@@ -25,9 +25,7 @@ module Knockapi
           params(
             message_ids: T::Array[String],
             request_options: Knockapi::RequestOptions::OrHash
-          ).returns(
-            T::Array[Knockapi::Models::Messages::BatchGetContentResponseItem]
-          )
+          ).returns(T::Array[Knockapi::MessageContents])
         end
         def get_content(
           # The IDs of the messages to fetch contents of.

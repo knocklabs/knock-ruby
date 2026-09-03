@@ -1,0 +1,18 @@
+module Knockapi
+  module Models
+    module Users
+      type preference_center_generate_signed_url_response =
+        { token: String, url: String }
+
+      class PreferenceCenterGenerateSignedURLResponse < Knockapi::Internal::Type::BaseModel
+        attr_accessor token: String
+
+        attr_accessor url: String
+
+        def initialize: (token: String, url: String) -> void
+
+        def to_hash: -> { token: String, url: String }
+      end
+    end
+  end
+end

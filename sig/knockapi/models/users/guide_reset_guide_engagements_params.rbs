@@ -1,0 +1,36 @@
+module Knockapi
+  module Models
+    module Users
+      type guide_reset_guide_engagements_params =
+        { user_id: String, guide_key: String, tenant: String }
+        & Knockapi::Internal::Type::request_parameters
+
+      class GuideResetGuideEngagementsParams < Knockapi::Internal::Type::BaseModel
+        extend Knockapi::Internal::Type::RequestParameters::Converter
+        include Knockapi::Internal::Type::RequestParameters
+
+        attr_accessor user_id: String
+
+        attr_accessor guide_key: String
+
+        attr_reader tenant: String?
+
+        def tenant=: (String) -> String
+
+        def initialize: (
+          user_id: String,
+          guide_key: String,
+          ?tenant: String,
+          ?request_options: Knockapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          user_id: String,
+          guide_key: String,
+          tenant: String,
+          request_options: Knockapi::RequestOptions
+        }
+      end
+    end
+  end
+end

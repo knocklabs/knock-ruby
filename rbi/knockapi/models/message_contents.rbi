@@ -2,13 +2,10 @@
 
 module Knockapi
   module Models
-    class MessageGetContentResponse < Knockapi::Internal::Type::BaseModel
+    class MessageContents < Knockapi::Internal::Type::BaseModel
       OrHash =
         T.type_alias do
-          T.any(
-            Knockapi::Models::MessageGetContentResponse,
-            Knockapi::Internal::AnyHash
-          )
+          T.any(Knockapi::MessageContents, Knockapi::Internal::AnyHash)
         end
 
       # The typename of the schema.
@@ -16,9 +13,7 @@ module Knockapi
       attr_accessor :_typename
 
       # Content data specific to the channel type.
-      sig do
-        returns(Knockapi::Models::MessageGetContentResponse::Data::Variants)
-      end
+      sig { returns(Knockapi::MessageContents::Data::Variants) }
       attr_accessor :data
 
       # Timestamp when the message content was created.
@@ -35,11 +30,11 @@ module Knockapi
           _typename: String,
           data:
             T.any(
-              Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent::OrHash,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent::OrHash,
-              Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent::OrHash,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::OrHash,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::OrHash
+              Knockapi::MessageContents::Data::MessageEmailContent::OrHash,
+              Knockapi::MessageContents::Data::MessageSMSContent::OrHash,
+              Knockapi::MessageContents::Data::MessagePushContent::OrHash,
+              Knockapi::MessageContents::Data::MessageChatContent::OrHash,
+              Knockapi::MessageContents::Data::MessageInAppFeedContent::OrHash
             ),
           inserted_at: Time,
           message_id: String
@@ -61,7 +56,7 @@ module Knockapi
         override.returns(
           {
             _typename: String,
-            data: Knockapi::Models::MessageGetContentResponse::Data::Variants,
+            data: Knockapi::MessageContents::Data::Variants,
             inserted_at: Time,
             message_id: String
           }
@@ -77,11 +72,11 @@ module Knockapi
         Variants =
           T.type_alias do
             T.any(
-              Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
-              Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent
+              Knockapi::MessageContents::Data::MessageEmailContent,
+              Knockapi::MessageContents::Data::MessageSMSContent,
+              Knockapi::MessageContents::Data::MessagePushContent,
+              Knockapi::MessageContents::Data::MessageChatContent,
+              Knockapi::MessageContents::Data::MessageInAppFeedContent
             )
           end
 
@@ -89,7 +84,7 @@ module Knockapi
           OrHash =
             T.type_alias do
               T.any(
-                Knockapi::Models::MessageGetContentResponse::Data::MessageEmailContent,
+                Knockapi::MessageContents::Data::MessageEmailContent,
                 Knockapi::Internal::AnyHash
               )
             end
@@ -189,7 +184,7 @@ module Knockapi
           OrHash =
             T.type_alias do
               T.any(
-                Knockapi::Models::MessageGetContentResponse::Data::MessageSMSContent,
+                Knockapi::MessageContents::Data::MessageSMSContent,
                 Knockapi::Internal::AnyHash
               )
             end
@@ -233,7 +228,7 @@ module Knockapi
           OrHash =
             T.type_alias do
               T.any(
-                Knockapi::Models::MessageGetContentResponse::Data::MessagePushContent,
+                Knockapi::MessageContents::Data::MessagePushContent,
                 Knockapi::Internal::AnyHash
               )
             end
@@ -301,7 +296,7 @@ module Knockapi
           OrHash =
             T.type_alias do
               T.any(
-                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent,
+                Knockapi::MessageContents::Data::MessageChatContent,
                 Knockapi::Internal::AnyHash
               )
             end
@@ -317,7 +312,7 @@ module Knockapi
           # The template structure for the chat message.
           sig do
             returns(
-              Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template
+              Knockapi::MessageContents::Data::MessageChatContent::Template
             )
           end
           attr_reader :template
@@ -325,7 +320,7 @@ module Knockapi
           sig do
             params(
               template:
-                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::OrHash
+                Knockapi::MessageContents::Data::MessageChatContent::Template::OrHash
             ).void
           end
           attr_writer :template
@@ -340,7 +335,7 @@ module Knockapi
               _typename: String,
               connection: T::Hash[Symbol, T.anything],
               template:
-                Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::OrHash,
+                Knockapi::MessageContents::Data::MessageChatContent::Template::OrHash,
               metadata: T.nilable(T::Hash[Symbol, T.anything])
             ).returns(T.attached_class)
           end
@@ -362,7 +357,7 @@ module Knockapi
                 _typename: String,
                 connection: T::Hash[Symbol, T.anything],
                 template:
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+                  Knockapi::MessageContents::Data::MessageChatContent::Template,
                 metadata: T.nilable(T::Hash[Symbol, T.anything])
               }
             )
@@ -374,7 +369,7 @@ module Knockapi
             OrHash =
               T.type_alias do
                 T.any(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template,
+                  Knockapi::MessageContents::Data::MessageChatContent::Template,
                   Knockapi::Internal::AnyHash
                 )
               end
@@ -384,7 +379,7 @@ module Knockapi
               returns(
                 T.nilable(
                   T::Array[
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block
+                    Knockapi::MessageContents::Data::MessageChatContent::Template::Block
                   ]
                 )
               )
@@ -405,7 +400,7 @@ module Knockapi
                 blocks:
                   T.nilable(
                     T::Array[
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::OrHash
+                      Knockapi::MessageContents::Data::MessageChatContent::Template::Block::OrHash
                     ]
                   ),
                 json_content: T.nilable(T::Hash[Symbol, T.anything]),
@@ -428,7 +423,7 @@ module Knockapi
                   blocks:
                     T.nilable(
                       T::Array[
-                        Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block
+                        Knockapi::MessageContents::Data::MessageChatContent::Template::Block
                       ]
                     ),
                   json_content: T.nilable(T::Hash[Symbol, T.anything]),
@@ -443,7 +438,7 @@ module Knockapi
               OrHash =
                 T.type_alias do
                   T.any(
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block,
+                    Knockapi::MessageContents::Data::MessageChatContent::Template::Block,
                     Knockapi::Internal::AnyHash
                   )
                 end
@@ -459,7 +454,7 @@ module Knockapi
               # The type of block in a message in a chat (text or markdown).
               sig do
                 returns(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                  Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                 )
               end
               attr_accessor :type
@@ -470,7 +465,7 @@ module Knockapi
                   content: String,
                   name: String,
                   type:
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::OrSymbol
+                    Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type::OrSymbol
                 ).returns(T.attached_class)
               end
               def self.new(
@@ -489,7 +484,7 @@ module Knockapi
                     content: String,
                     name: String,
                     type:
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                      Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                   }
                 )
               end
@@ -504,7 +499,7 @@ module Knockapi
                   T.type_alias do
                     T.all(
                       Symbol,
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type
+                      Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type
                     )
                   end
                 OrSymbol = T.type_alias { T.any(Symbol, String) }
@@ -512,18 +507,18 @@ module Knockapi
                 TEXT =
                   T.let(
                     :text,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                    Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                   )
                 MARKDOWN =
                   T.let(
                     :markdown,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                    Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                   )
 
                 sig do
                   override.returns(
                     T::Array[
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
+                      Knockapi::MessageContents::Data::MessageChatContent::Template::Block::Type::TaggedSymbol
                     ]
                   )
                 end
@@ -538,7 +533,7 @@ module Knockapi
           OrHash =
             T.type_alias do
               T.any(
-                Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent,
+                Knockapi::MessageContents::Data::MessageInAppFeedContent,
                 Knockapi::Internal::AnyHash
               )
             end
@@ -551,7 +546,7 @@ module Knockapi
           sig do
             returns(
               T::Array[
-                Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::Variants
+                Knockapi::MessageContents::Data::MessageInAppFeedContent::Block::Variants
               ]
             )
           end
@@ -564,8 +559,8 @@ module Knockapi
               blocks:
                 T::Array[
                   T.any(
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::OrHash,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::OrHash
+                    Knockapi::MessageInAppFeedContentBlock::OrHash,
+                    Knockapi::MessageInAppFeedButtonSetBlock::OrHash
                   )
                 ]
             ).returns(T.attached_class)
@@ -584,7 +579,7 @@ module Knockapi
                 _typename: String,
                 blocks:
                   T::Array[
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::Variants
+                    Knockapi::MessageContents::Data::MessageInAppFeedContent::Block::Variants
                   ]
               }
             )
@@ -599,262 +594,15 @@ module Knockapi
             Variants =
               T.type_alias do
                 T.any(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock
+                  Knockapi::MessageInAppFeedContentBlock,
+                  Knockapi::MessageInAppFeedButtonSetBlock
                 )
               end
-
-            class MessageInAppFeedContentBlock < Knockapi::Internal::Type::BaseModel
-              OrHash =
-                T.type_alias do
-                  T.any(
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock,
-                    Knockapi::Internal::AnyHash
-                  )
-                end
-
-              # The content of the block in a message in an app feed.
-              sig { returns(String) }
-              attr_accessor :content
-
-              # The name of the block in a message in an app feed.
-              sig { returns(String) }
-              attr_accessor :name
-
-              # The rendered HTML version of the content.
-              sig { returns(String) }
-              attr_accessor :rendered
-
-              # The type of block in a message in an app feed.
-              sig do
-                returns(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                )
-              end
-              attr_accessor :type
-
-              # A block in a message in an app feed.
-              sig do
-                params(
-                  content: String,
-                  name: String,
-                  rendered: String,
-                  type:
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::OrSymbol
-                ).returns(T.attached_class)
-              end
-              def self.new(
-                # The content of the block in a message in an app feed.
-                content:,
-                # The name of the block in a message in an app feed.
-                name:,
-                # The rendered HTML version of the content.
-                rendered:,
-                # The type of block in a message in an app feed.
-                type:
-              )
-              end
-
-              sig do
-                override.returns(
-                  {
-                    content: String,
-                    name: String,
-                    rendered: String,
-                    type:
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                  }
-                )
-              end
-              def to_hash
-              end
-
-              # The type of block in a message in an app feed.
-              module Type
-                extend Knockapi::Internal::Type::Enum
-
-                TaggedSymbol =
-                  T.type_alias do
-                    T.all(
-                      Symbol,
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type
-                    )
-                  end
-                OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-                MARKDOWN =
-                  T.let(
-                    :markdown,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                  )
-                TEXT =
-                  T.let(
-                    :text,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                  )
-
-                sig do
-                  override.returns(
-                    T::Array[
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedContentBlock::Type::TaggedSymbol
-                    ]
-                  )
-                end
-                def self.values
-                end
-              end
-            end
-
-            class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
-              OrHash =
-                T.type_alias do
-                  T.any(
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock,
-                    Knockapi::Internal::AnyHash
-                  )
-                end
-
-              # A list of buttons in an in app feed message.
-              sig do
-                returns(
-                  T::Array[
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
-                  ]
-                )
-              end
-              attr_accessor :buttons
-
-              # The name of the button set in a message in an app feed.
-              sig { returns(String) }
-              attr_accessor :name
-
-              # The type of block in a message in an app feed.
-              sig do
-                returns(
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                )
-              end
-              attr_accessor :type
-
-              # A button set block in a message in an app feed.
-              sig do
-                params(
-                  buttons:
-                    T::Array[
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button::OrHash
-                    ],
-                  name: String,
-                  type:
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::OrSymbol
-                ).returns(T.attached_class)
-              end
-              def self.new(
-                # A list of buttons in an in app feed message.
-                buttons:,
-                # The name of the button set in a message in an app feed.
-                name:,
-                # The type of block in a message in an app feed.
-                type:
-              )
-              end
-
-              sig do
-                override.returns(
-                  {
-                    buttons:
-                      T::Array[
-                        Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button
-                      ],
-                    name: String,
-                    type:
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                  }
-                )
-              end
-              def to_hash
-              end
-
-              class Button < Knockapi::Internal::Type::BaseModel
-                OrHash =
-                  T.type_alias do
-                    T.any(
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Button,
-                      Knockapi::Internal::AnyHash
-                    )
-                  end
-
-                # The action to take when the button is clicked.
-                sig { returns(String) }
-                attr_accessor :action
-
-                # The label of the button.
-                sig { returns(String) }
-                attr_accessor :label
-
-                # The name of the button.
-                sig { returns(String) }
-                attr_accessor :name
-
-                # A button in an in app feed message.
-                sig do
-                  params(action: String, label: String, name: String).returns(
-                    T.attached_class
-                  )
-                end
-                def self.new(
-                  # The action to take when the button is clicked.
-                  action:,
-                  # The label of the button.
-                  label:,
-                  # The name of the button.
-                  name:
-                )
-                end
-
-                sig do
-                  override.returns(
-                    { action: String, label: String, name: String }
-                  )
-                end
-                def to_hash
-                end
-              end
-
-              # The type of block in a message in an app feed.
-              module Type
-                extend Knockapi::Internal::Type::Enum
-
-                TaggedSymbol =
-                  T.type_alias do
-                    T.all(
-                      Symbol,
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type
-                    )
-                  end
-                OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-                BUTTON_SET =
-                  T.let(
-                    :button_set,
-                    Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                  )
-
-                sig do
-                  override.returns(
-                    T::Array[
-                      Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::MessageInAppFeedButtonSetBlock::Type::TaggedSymbol
-                    ]
-                  )
-                end
-                def self.values
-                end
-              end
-            end
 
             sig do
               override.returns(
                 T::Array[
-                  Knockapi::Models::MessageGetContentResponse::Data::MessageInAppFeedContent::Block::Variants
+                  Knockapi::MessageContents::Data::MessageInAppFeedContent::Block::Variants
                 ]
               )
             end
@@ -864,11 +612,7 @@ module Knockapi
         end
 
         sig do
-          override.returns(
-            T::Array[
-              Knockapi::Models::MessageGetContentResponse::Data::Variants
-            ]
-          )
+          override.returns(T::Array[Knockapi::MessageContents::Data::Variants])
         end
         def self.variants
         end

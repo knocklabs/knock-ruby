@@ -36,7 +36,7 @@ module Knockapi
         #
         # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Array<Knockapi::Models::Messages::BatchGetContentResponseItem>]
+        # @return [Array<Knockapi::Models::MessageContents>]
         #
         # @see Knockapi::Models::Messages::BatchGetContentParams
         def get_content(params)
@@ -46,7 +46,7 @@ module Knockapi
             method: :get,
             path: "v1/messages/batch/content",
             query: query,
-            model: Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem],
+            model: Knockapi::Internal::Type::ArrayOf[Knockapi::MessageContents],
             options: options
           )
         end

@@ -1,0 +1,54 @@
+module Knockapi
+  module Models
+    type message_in_app_feed_button_set_block =
+      {
+        buttons: ::Array[Knockapi::MessageInAppFeedButtonSetBlock::Button],
+        name: String,
+        type: Knockapi::Models::MessageInAppFeedButtonSetBlock::type_
+      }
+
+    class MessageInAppFeedButtonSetBlock < Knockapi::Internal::Type::BaseModel
+      attr_accessor buttons: ::Array[Knockapi::MessageInAppFeedButtonSetBlock::Button]
+
+      attr_accessor name: String
+
+      attr_accessor type: Knockapi::Models::MessageInAppFeedButtonSetBlock::type_
+
+      def initialize: (
+        buttons: ::Array[Knockapi::MessageInAppFeedButtonSetBlock::Button],
+        name: String,
+        type: Knockapi::Models::MessageInAppFeedButtonSetBlock::type_
+      ) -> void
+
+      def to_hash: -> {
+        buttons: ::Array[Knockapi::MessageInAppFeedButtonSetBlock::Button],
+        name: String,
+        type: Knockapi::Models::MessageInAppFeedButtonSetBlock::type_
+      }
+
+      type button = { action: String, label: String, name: String }
+
+      class Button < Knockapi::Internal::Type::BaseModel
+        attr_accessor action: String
+
+        attr_accessor label: String
+
+        attr_accessor name: String
+
+        def initialize: (action: String, label: String, name: String) -> void
+
+        def to_hash: -> { action: String, label: String, name: String }
+      end
+
+      type type_ = :button_set
+
+      module Type
+        extend Knockapi::Internal::Type::Enum
+
+        BUTTON_SET: :button_set
+
+        def self?.values: -> ::Array[Knockapi::Models::MessageInAppFeedButtonSetBlock::type_]
+      end
+    end
+  end
+end

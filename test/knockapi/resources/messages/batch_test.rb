@@ -21,7 +21,7 @@ class Knockapi::Test::Resources::Messages::BatchTest < Knockapi::Test::ResourceT
     response = @knock.messages.batch.get_content(message_ids: ["string"])
 
     assert_pattern do
-      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::Models::Messages::BatchGetContentResponseItem])
+      response => ^(Knockapi::Internal::Type::ArrayOf[Knockapi::MessageContents])
     end
   end
 

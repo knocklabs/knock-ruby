@@ -2,70 +2,23 @@ module Knockapi
   module Models
     module Users
       type guide_mark_message_as_archived_params =
-        {
-          user_id: String,
-          message_id: String,
-          channel_id: String,
-          guide_id: String,
-          guide_key: String,
-          guide_step_ref: String,
-          is_final: bool,
-          tenant: String,
-          unthrottled: bool
-        }
-        & Knockapi::Internal::Type::request_parameters
+        { user_id: String } & Knockapi::Internal::Type::request_parameters
 
-      class GuideMarkMessageAsArchivedParams < Knockapi::Internal::Type::BaseModel
+      class GuideMarkMessageAsArchivedParams < Knockapi::Models::Users::GuideArchivedRequest
         extend Knockapi::Internal::Type::RequestParameters::Converter
         include Knockapi::Internal::Type::RequestParameters
 
-        attr_accessor user_id: String
+        def user_id: -> String
 
-        attr_accessor message_id: String
-
-        attr_accessor channel_id: String
-
-        attr_accessor guide_id: String
-
-        attr_accessor guide_key: String
-
-        attr_accessor guide_step_ref: String
-
-        attr_reader is_final: bool?
-
-        def is_final=: (bool) -> bool
-
-        attr_reader tenant: String?
-
-        def tenant=: (String) -> String
-
-        attr_reader unthrottled: bool?
-
-        def unthrottled=: (bool) -> bool
+        def user_id=: (String _) -> String
 
         def initialize: (
           user_id: String,
-          message_id: String,
-          channel_id: String,
-          guide_id: String,
-          guide_key: String,
-          guide_step_ref: String,
-          ?is_final: bool,
-          ?tenant: String,
-          ?unthrottled: bool,
           ?request_options: Knockapi::request_opts
         ) -> void
 
         def to_hash: -> {
           user_id: String,
-          message_id: String,
-          channel_id: String,
-          guide_id: String,
-          guide_key: String,
-          guide_step_ref: String,
-          is_final: bool,
-          tenant: String,
-          unthrottled: bool,
           request_options: Knockapi::RequestOptions
         }
       end

@@ -24,7 +24,6 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
     response =
       @knock.users.guides.mark_message_as_archived(
         "user_id",
-        "message_id",
         channel_id: "123e4567-e89b-12d3-a456-426614174000",
         guide_id: "7e9dc78c-b3b1-4127-a54e-71f1899b831a",
         guide_key: "tour_notification",
@@ -32,7 +31,7 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
       )
 
     assert_pattern do
-      response => Knockapi::Models::Users::GuideMarkMessageAsArchivedResponse
+      response => Knockapi::Users::GuideActionResponse
     end
 
     assert_pattern do
@@ -46,7 +45,6 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
     response =
       @knock.users.guides.mark_message_as_interacted(
         "user_id",
-        "message_id",
         channel_id: "123e4567-e89b-12d3-a456-426614174000",
         guide_id: "7e9dc78c-b3b1-4127-a54e-71f1899b831a",
         guide_key: "tour_notification",
@@ -54,7 +52,7 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
       )
 
     assert_pattern do
-      response => Knockapi::Models::Users::GuideMarkMessageAsInteractedResponse
+      response => Knockapi::Users::GuideActionResponse
     end
 
     assert_pattern do
@@ -68,7 +66,6 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
     response =
       @knock.users.guides.mark_message_as_seen(
         "user_id",
-        "message_id",
         channel_id: "123e4567-e89b-12d3-a456-426614174000",
         content: {body: "bar", title: "bar"},
         guide_id: "7e9dc78c-b3b1-4127-a54e-71f1899b831a",
@@ -77,7 +74,35 @@ class Knockapi::Test::Resources::Users::GuidesTest < Knockapi::Test::ResourceTes
       )
 
     assert_pattern do
-      response => Knockapi::Models::Users::GuideMarkMessageAsSeenResponse
+      response => Knockapi::Users::GuideActionResponse
+    end
+
+    assert_pattern do
+      response => {
+        status: String
+      }
+    end
+  end
+
+  def test_reset_guide_engagements_required_params
+    response = @knock.users.guides.reset_guide_engagements("user_id", guide_key: "tour_notification")
+
+    assert_pattern do
+      response => Knockapi::Users::GuideActionResponse
+    end
+
+    assert_pattern do
+      response => {
+        status: String
+      }
+    end
+  end
+
+  def test_unarchive_guide_message_required_params
+    response = @knock.users.guides.unarchive_guide_message("user_id", guide_key: "tour_notification")
+
+    assert_pattern do
+      response => Knockapi::Users::GuideActionResponse
     end
 
     assert_pattern do

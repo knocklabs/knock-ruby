@@ -111,14 +111,14 @@ module Knockapi
       #
       # @param request_options [Knockapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Knockapi::Models::MessageGetContentResponse]
+      # @return [Knockapi::Models::MessageContents]
       #
       # @see Knockapi::Models::MessageGetContentParams
       def get_content(message_id, params = {})
         @client.request(
           method: :get,
           path: ["v1/messages/%1$s/content", message_id],
-          model: Knockapi::Models::MessageGetContentResponse,
+          model: Knockapi::MessageContents,
           options: params[:request_options]
         )
       end

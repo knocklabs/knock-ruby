@@ -9,6 +9,8 @@ module Knockapi
 
   AudienceMember = Knockapi::Models::AudienceMember
 
+  AudienceMemberRequest = Knockapi::Models::AudienceMemberRequest
+
   AudienceRemoveMembersParams = Knockapi::Models::AudienceRemoveMembersParams
 
   BulkOperation = Knockapi::Models::BulkOperation
@@ -29,9 +31,17 @@ module Knockapi
 
   Integrations = Knockapi::Models::Integrations
 
+  ListMessagesResponse = Knockapi::Models::ListMessagesResponse
+
+  ListSchedulesResponse = Knockapi::Models::ListSchedulesResponse
+
+  ListSubscriptionsResponse = Knockapi::Models::ListSubscriptionsResponse
+
   Message = Knockapi::Models::Message
 
   MessageArchiveParams = Knockapi::Models::MessageArchiveParams
+
+  MessageContents = Knockapi::Models::MessageContents
 
   MessageDeliveryLog = Knockapi::Models::MessageDeliveryLog
 
@@ -40,6 +50,11 @@ module Knockapi
   MessageGetContentParams = Knockapi::Models::MessageGetContentParams
 
   MessageGetParams = Knockapi::Models::MessageGetParams
+
+  MessageInAppFeedButtonSetBlock =
+    Knockapi::Models::MessageInAppFeedButtonSetBlock
+
+  MessageInAppFeedContentBlock = Knockapi::Models::MessageInAppFeedContentBlock
 
   MessageListActivitiesParams = Knockapi::Models::MessageListActivitiesParams
 
@@ -104,6 +119,9 @@ module Knockapi
   ObjectUnsetPreferencesParams = Knockapi::Models::ObjectUnsetPreferencesParams
 
   PageInfo = Knockapi::Models::PageInfo
+
+  PreferenceSetCommercialSubscribedSetting =
+    Knockapi::Models::PreferenceSetCommercialSubscribedSetting
 
   Providers = Knockapi::Models::Providers
 
