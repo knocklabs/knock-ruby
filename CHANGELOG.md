@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.41.0](https://github.com/knocklabs/knock-ruby/compare/v1.40.0...v1.41.0) (2026-09-09)
+
+
+### Features
+
+* update api spec to v0.1.1694 ([db7a540](https://github.com/knocklabs/knock-ruby/commit/db7a54026ba280c6bfc3f3ba544dba16fa6c063e))
+* update api spec to v0.1.1698 ([1319476](https://github.com/knocklabs/knock-ruby/commit/1319476e778df65eb25dd417faa6bf363480259e))
+
 ## [1.40.0](https://github.com/knocklabs/knock-ruby/compare/v1.39.0...v1.40.0) (2026-09-03)
 
 
