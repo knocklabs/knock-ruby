@@ -89,16 +89,14 @@ module Knockapi
           T.type_alias { T.all(Symbol, Knockapi::MessageEvent::Type) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        MESSAGE_READ =
-          T.let(:"message.read", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_SENT =
-          T.let(:"message.sent", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_SEEN =
-          T.let(:"message.seen", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_CREATED =
           T.let(:"message.created", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_QUEUED =
           T.let(:"message.queued", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_SENT =
+          T.let(:"message.sent", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_NOT_SENT =
+          T.let(:"message.not_sent", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_DELIVERED =
           T.let(
             :"message.delivered",
@@ -116,13 +114,19 @@ module Knockapi
           )
         MESSAGE_BOUNCED =
           T.let(:"message.bounced", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_NOT_SENT =
-          T.let(:"message.not_sent", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_READ =
+          T.let(:"message.read", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_UNREAD =
+          T.let(:"message.unread", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_SEEN =
+          T.let(:"message.seen", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_UNSEEN =
+          T.let(:"message.unseen", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_ARCHIVED =
           T.let(:"message.archived", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_LINK_CLICKED =
+        MESSAGE_UNARCHIVED =
           T.let(
-            :"message.link_clicked",
+            :"message.unarchived",
             Knockapi::MessageEvent::Type::TaggedSymbol
           )
         MESSAGE_INTERACTED =
@@ -130,13 +134,9 @@ module Knockapi
             :"message.interacted",
             Knockapi::MessageEvent::Type::TaggedSymbol
           )
-        MESSAGE_UNREAD =
-          T.let(:"message.unread", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_UNSEEN =
-          T.let(:"message.unseen", Knockapi::MessageEvent::Type::TaggedSymbol)
-        MESSAGE_UNARCHIVED =
+        MESSAGE_LINK_CLICKED =
           T.let(
-            :"message.unarchived",
+            :"message.link_clicked",
             Knockapi::MessageEvent::Type::TaggedSymbol
           )
 
