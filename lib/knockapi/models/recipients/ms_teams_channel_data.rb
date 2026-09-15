@@ -35,6 +35,14 @@ module Knockapi
           variant -> { Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection }
 
           class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
+            # @!attribute knock_tenant_id
+            #   An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            #   Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            #   this tenant, Knock prefers this connection over untagged connections.
+            #
+            #   @return [String, nil]
+            optional :knock_tenant_id, String, nil?: true
+
             # @!attribute ms_teams_channel_id
             #   Microsoft Teams channel ID.
             #
@@ -59,8 +67,14 @@ module Knockapi
             #   @return [String, nil]
             optional :ms_teams_user_id, String, nil?: true
 
-            # @!method initialize(ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil)
+            # @!method initialize(knock_tenant_id: nil, ms_teams_channel_id: nil, ms_teams_team_id: nil, ms_teams_tenant_id: nil, ms_teams_user_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsTokenConnection}
+            #   for more details.
+            #
             #   Microsoft Teams token connection.
+            #
+            #   @param knock_tenant_id [String, nil] An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection. Dis
             #
             #   @param ms_teams_channel_id [String, nil] Microsoft Teams channel ID.
             #
@@ -79,10 +93,24 @@ module Knockapi
             required :incoming_webhook,
                      -> { Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook }
 
-            # @!method initialize(incoming_webhook:)
+            # @!attribute knock_tenant_id
+            #   An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            #   Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            #   this tenant, Knock prefers this connection over untagged connections.
+            #
+            #   @return [String, nil]
+            optional :knock_tenant_id, String, nil?: true
+
+            # @!method initialize(incoming_webhook:, knock_tenant_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection}
+            #   for more details.
+            #
             #   Microsoft Teams incoming webhook connection.
             #
             #   @param incoming_webhook [Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook] Microsoft Teams incoming webhook.
+            #
+            #   @param knock_tenant_id [String, nil] An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection. Dis
 
             # @see Knockapi::Models::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel

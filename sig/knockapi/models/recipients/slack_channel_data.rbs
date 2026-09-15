@@ -34,6 +34,7 @@ module Knockapi
               access_token: String?,
               channel_id: String?,
               channel_name: String?,
+              knock_tenant_id: String?,
               user_id: String?
             }
 
@@ -44,12 +45,15 @@ module Knockapi
 
             attr_accessor channel_name: String?
 
+            attr_accessor knock_tenant_id: String?
+
             attr_accessor user_id: String?
 
             def initialize: (
               ?access_token: String?,
               ?channel_id: String?,
               ?channel_name: String?,
+              ?knock_tenant_id: String?,
               ?user_id: String?
             ) -> void
 
@@ -57,24 +61,30 @@ module Knockapi
               access_token: String?,
               channel_id: String?,
               channel_name: String?,
+              knock_tenant_id: String?,
               user_id: String?
             }
           end
 
           type slack_incoming_webhook_connection =
             {
-              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook,
+              knock_tenant_id: String?
             }
 
           class SlackIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
 
+            attr_accessor knock_tenant_id: String?
+
             def initialize: (
-              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook,
+              ?knock_tenant_id: String?
             ) -> void
 
             def to_hash: -> {
-              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook,
+              knock_tenant_id: String?
             }
 
             type incoming_webhook = { url: String }

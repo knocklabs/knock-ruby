@@ -111,6 +111,12 @@ module Knockapi
             sig { returns(T.nilable(String)) }
             attr_accessor :channel_name
 
+            # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            # this tenant, Knock prefers this connection over untagged connections.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :knock_tenant_id
+
             # A Slack user ID from the Slack provider.
             sig { returns(T.nilable(String)) }
             attr_accessor :user_id
@@ -121,6 +127,7 @@ module Knockapi
                 access_token: T.nilable(String),
                 channel_id: T.nilable(String),
                 channel_name: T.nilable(String),
+                knock_tenant_id: T.nilable(String),
                 user_id: T.nilable(String)
               ).returns(T.attached_class)
             end
@@ -131,6 +138,10 @@ module Knockapi
               channel_id: nil,
               # Slack channel name.
               channel_name: nil,
+              # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+              # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+              # this tenant, Knock prefers this connection over untagged connections.
+              knock_tenant_id: nil,
               # A Slack user ID from the Slack provider.
               user_id: nil
             )
@@ -142,6 +153,7 @@ module Knockapi
                   access_token: T.nilable(String),
                   channel_id: T.nilable(String),
                   channel_name: T.nilable(String),
+                  knock_tenant_id: T.nilable(String),
                   user_id: T.nilable(String)
                 }
               )
@@ -175,16 +187,27 @@ module Knockapi
             end
             attr_writer :incoming_webhook
 
+            # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            # this tenant, Knock prefers this connection over untagged connections.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :knock_tenant_id
+
             # A Slack connection incoming webhook.
             sig do
               params(
                 incoming_webhook:
-                  Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook::OrHash
+                  Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook::OrHash,
+                knock_tenant_id: T.nilable(String)
               ).returns(T.attached_class)
             end
             def self.new(
               # A Slack connection incoming webhook.
-              incoming_webhook:
+              incoming_webhook:,
+              # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+              # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+              # this tenant, Knock prefers this connection over untagged connections.
+              knock_tenant_id: nil
             )
             end
 
@@ -192,7 +215,8 @@ module Knockapi
               override.returns(
                 {
                   incoming_webhook:
-                    Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook
+                    Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook,
+                  knock_tenant_id: T.nilable(String)
                 }
               )
             end

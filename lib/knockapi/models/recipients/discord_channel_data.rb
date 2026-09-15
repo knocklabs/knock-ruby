@@ -34,10 +34,24 @@ module Knockapi
             #   @return [String]
             required :channel_id, String
 
-            # @!method initialize(channel_id:)
+            # @!attribute knock_tenant_id
+            #   An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            #   Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            #   this tenant, Knock prefers this connection over untagged connections.
+            #
+            #   @return [String, nil]
+            optional :knock_tenant_id, String, nil?: true
+
+            # @!method initialize(channel_id:, knock_tenant_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordChannelConnection}
+            #   for more details.
+            #
             #   Discord channel connection.
             #
             #   @param channel_id [String] Discord channel ID.
+            #
+            #   @param knock_tenant_id [String, nil] An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection. Dis
           end
 
           class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
@@ -48,10 +62,24 @@ module Knockapi
             required :incoming_webhook,
                      -> { Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook }
 
-            # @!method initialize(incoming_webhook:)
+            # @!attribute knock_tenant_id
+            #   An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            #   Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            #   this tenant, Knock prefers this connection over untagged connections.
+            #
+            #   @return [String, nil]
+            optional :knock_tenant_id, String, nil?: true
+
+            # @!method initialize(incoming_webhook:, knock_tenant_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection}
+            #   for more details.
+            #
             #   Discord incoming webhook connection.
             #
             #   @param incoming_webhook [Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook] Discord incoming webhook object.
+            #
+            #   @param knock_tenant_id [String, nil] An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection. Dis
 
             # @see Knockapi::Models::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel

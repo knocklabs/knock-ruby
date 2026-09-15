@@ -53,13 +53,25 @@ module Knockapi
             #   @return [String, nil]
             optional :channel_name, String, nil?: true
 
+            # @!attribute knock_tenant_id
+            #   An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            #   Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            #   this tenant, Knock prefers this connection over untagged connections.
+            #
+            #   @return [String, nil]
+            optional :knock_tenant_id, String, nil?: true
+
             # @!attribute user_id
             #   A Slack user ID from the Slack provider.
             #
             #   @return [String, nil]
             optional :user_id, String, nil?: true
 
-            # @!method initialize(access_token: nil, channel_id: nil, channel_name: nil, user_id: nil)
+            # @!method initialize(access_token: nil, channel_id: nil, channel_name: nil, knock_tenant_id: nil, user_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {Knockapi::Models::Recipients::SlackChannelData::Connection::SlackTokenConnection}
+            #   for more details.
+            #
             #   A Slack connection token.
             #
             #   @param access_token [String, nil] A Slack access token.
@@ -67,6 +79,8 @@ module Knockapi
             #   @param channel_id [String, nil] A Slack channel ID from the Slack provider.
             #
             #   @param channel_name [String, nil] Slack channel name.
+            #
+            #   @param knock_tenant_id [String, nil] An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection. Dis
             #
             #   @param user_id [String, nil] A Slack user ID from the Slack provider.
           end
@@ -79,10 +93,24 @@ module Knockapi
             required :incoming_webhook,
                      -> { Knockapi::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook }
 
-            # @!method initialize(incoming_webhook:)
+            # @!attribute knock_tenant_id
+            #   An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            #   Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            #   this tenant, Knock prefers this connection over untagged connections.
+            #
+            #   @return [String, nil]
+            optional :knock_tenant_id, String, nil?: true
+
+            # @!method initialize(incoming_webhook:, knock_tenant_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection}
+            #   for more details.
+            #
             #   A Slack connection incoming webhook.
             #
             #   @param incoming_webhook [Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection::IncomingWebhook] A Slack connection incoming webhook.
+            #
+            #   @param knock_tenant_id [String, nil] An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection. Dis
 
             # @see Knockapi::Models::Recipients::SlackChannelData::Connection::SlackIncomingWebhookConnection#incoming_webhook
             class IncomingWebhook < Knockapi::Internal::Type::BaseModel

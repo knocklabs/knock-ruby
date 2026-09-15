@@ -88,6 +88,12 @@ module Knockapi
                 )
               end
 
+            # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            # this tenant, Knock prefers this connection over untagged connections.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :knock_tenant_id
+
             # Microsoft Teams channel ID.
             sig { returns(T.nilable(String)) }
             attr_accessor :ms_teams_channel_id
@@ -107,6 +113,7 @@ module Knockapi
             # Microsoft Teams token connection.
             sig do
               params(
+                knock_tenant_id: T.nilable(String),
                 ms_teams_channel_id: T.nilable(String),
                 ms_teams_team_id: T.nilable(String),
                 ms_teams_tenant_id: T.nilable(String),
@@ -114,6 +121,10 @@ module Knockapi
               ).returns(T.attached_class)
             end
             def self.new(
+              # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+              # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+              # this tenant, Knock prefers this connection over untagged connections.
+              knock_tenant_id: nil,
               # Microsoft Teams channel ID.
               ms_teams_channel_id: nil,
               # Microsoft Teams team ID.
@@ -128,6 +139,7 @@ module Knockapi
             sig do
               override.returns(
                 {
+                  knock_tenant_id: T.nilable(String),
                   ms_teams_channel_id: T.nilable(String),
                   ms_teams_team_id: T.nilable(String),
                   ms_teams_tenant_id: T.nilable(String),
@@ -164,16 +176,27 @@ module Knockapi
             end
             attr_writer :incoming_webhook
 
+            # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            # this tenant, Knock prefers this connection over untagged connections.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :knock_tenant_id
+
             # Microsoft Teams incoming webhook connection.
             sig do
               params(
                 incoming_webhook:
-                  Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook::OrHash
+                  Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook::OrHash,
+                knock_tenant_id: T.nilable(String)
               ).returns(T.attached_class)
             end
             def self.new(
               # Microsoft Teams incoming webhook.
-              incoming_webhook:
+              incoming_webhook:,
+              # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+              # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+              # this tenant, Knock prefers this connection over untagged connections.
+              knock_tenant_id: nil
             )
             end
 
@@ -181,7 +204,8 @@ module Knockapi
               override.returns(
                 {
                   incoming_webhook:
-                    Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+                    Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+                  knock_tenant_id: T.nilable(String)
                 }
               )
             end

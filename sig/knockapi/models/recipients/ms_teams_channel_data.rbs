@@ -31,6 +31,7 @@ module Knockapi
 
           type ms_teams_token_connection =
             {
+              knock_tenant_id: String?,
               ms_teams_channel_id: String?,
               ms_teams_team_id: String?,
               ms_teams_tenant_id: String?,
@@ -38,6 +39,8 @@ module Knockapi
             }
 
           class MsTeamsTokenConnection < Knockapi::Internal::Type::BaseModel
+            attr_accessor knock_tenant_id: String?
+
             attr_accessor ms_teams_channel_id: String?
 
             attr_accessor ms_teams_team_id: String?
@@ -47,6 +50,7 @@ module Knockapi
             attr_accessor ms_teams_user_id: String?
 
             def initialize: (
+              ?knock_tenant_id: String?,
               ?ms_teams_channel_id: String?,
               ?ms_teams_team_id: String?,
               ?ms_teams_tenant_id: String?,
@@ -54,6 +58,7 @@ module Knockapi
             ) -> void
 
             def to_hash: -> {
+              knock_tenant_id: String?,
               ms_teams_channel_id: String?,
               ms_teams_team_id: String?,
               ms_teams_tenant_id: String?,
@@ -63,18 +68,23 @@ module Knockapi
 
           type ms_teams_incoming_webhook_connection =
             {
-              incoming_webhook: Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+              knock_tenant_id: String?
             }
 
           class MsTeamsIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor incoming_webhook: Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
 
+            attr_accessor knock_tenant_id: String?
+
             def initialize: (
-              incoming_webhook: Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+              ?knock_tenant_id: String?
             ) -> void
 
             def to_hash: -> {
-              incoming_webhook: Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::MsTeamsChannelData::Connection::MsTeamsIncomingWebhookConnection::IncomingWebhook,
+              knock_tenant_id: String?
             }
 
             type incoming_webhook = { url: String }

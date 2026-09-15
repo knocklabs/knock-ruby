@@ -24,30 +24,41 @@ module Knockapi
         module Connection
           extend Knockapi::Internal::Type::Union
 
-          type discord_channel_connection = { channel_id: String }
+          type discord_channel_connection =
+            { channel_id: String, knock_tenant_id: String? }
 
           class DiscordChannelConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor channel_id: String
 
-            def initialize: (channel_id: String) -> void
+            attr_accessor knock_tenant_id: String?
 
-            def to_hash: -> { channel_id: String }
+            def initialize: (
+              channel_id: String,
+              ?knock_tenant_id: String?
+            ) -> void
+
+            def to_hash: -> { channel_id: String, knock_tenant_id: String? }
           end
 
           type discord_incoming_webhook_connection =
             {
-              incoming_webhook: Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+              knock_tenant_id: String?
             }
 
           class DiscordIncomingWebhookConnection < Knockapi::Internal::Type::BaseModel
             attr_accessor incoming_webhook: Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
 
+            attr_accessor knock_tenant_id: String?
+
             def initialize: (
-              incoming_webhook: Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+              ?knock_tenant_id: String?
             ) -> void
 
             def to_hash: -> {
-              incoming_webhook: Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+              incoming_webhook: Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+              knock_tenant_id: String?
             }
 
             type incoming_webhook = { url: String }

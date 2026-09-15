@@ -85,15 +85,34 @@ module Knockapi
             sig { returns(String) }
             attr_accessor :channel_id
 
+            # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            # this tenant, Knock prefers this connection over untagged connections.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :knock_tenant_id
+
             # Discord channel connection.
-            sig { params(channel_id: String).returns(T.attached_class) }
+            sig do
+              params(
+                channel_id: String,
+                knock_tenant_id: T.nilable(String)
+              ).returns(T.attached_class)
+            end
             def self.new(
               # Discord channel ID.
-              channel_id:
+              channel_id:,
+              # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+              # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+              # this tenant, Knock prefers this connection over untagged connections.
+              knock_tenant_id: nil
             )
             end
 
-            sig { override.returns({ channel_id: String }) }
+            sig do
+              override.returns(
+                { channel_id: String, knock_tenant_id: T.nilable(String) }
+              )
+            end
             def to_hash
             end
           end
@@ -123,16 +142,27 @@ module Knockapi
             end
             attr_writer :incoming_webhook
 
+            # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+            # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+            # this tenant, Knock prefers this connection over untagged connections.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :knock_tenant_id
+
             # Discord incoming webhook connection.
             sig do
               params(
                 incoming_webhook:
-                  Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook::OrHash
+                  Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook::OrHash,
+                knock_tenant_id: T.nilable(String)
               ).returns(T.attached_class)
             end
             def self.new(
               # Discord incoming webhook object.
-              incoming_webhook:
+              incoming_webhook:,
+              # An optional Knock tenant ID (`knock_tenant_id`) that scopes this connection.
+              # Distinct from provider-specific tenant IDs. When a workflow is triggered with
+              # this tenant, Knock prefers this connection over untagged connections.
+              knock_tenant_id: nil
             )
             end
 
@@ -140,7 +170,8 @@ module Knockapi
               override.returns(
                 {
                   incoming_webhook:
-                    Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook
+                    Knockapi::Recipients::DiscordChannelData::Connection::DiscordIncomingWebhookConnection::IncomingWebhook,
+                  knock_tenant_id: T.nilable(String)
                 }
               )
             end
