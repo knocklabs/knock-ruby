@@ -114,6 +114,11 @@ module Knockapi
           )
         MESSAGE_BOUNCED =
           T.let(:"message.bounced", Knockapi::MessageEvent::Type::TaggedSymbol)
+        MESSAGE_COMPLAINT =
+          T.let(
+            :"message.complaint",
+            Knockapi::MessageEvent::Type::TaggedSymbol
+          )
         MESSAGE_READ =
           T.let(:"message.read", Knockapi::MessageEvent::Type::TaggedSymbol)
         MESSAGE_UNREAD =

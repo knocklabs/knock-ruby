@@ -74,6 +74,7 @@ module Knockapi
         MESSAGE_DELIVERY_ATTEMPTED = :"message.delivery_attempted"
         MESSAGE_UNDELIVERED = :"message.undelivered"
         MESSAGE_BOUNCED = :"message.bounced"
+        MESSAGE_COMPLAINT = :"message.complaint"
         MESSAGE_READ = :"message.read"
         MESSAGE_UNREAD = :"message.unread"
         MESSAGE_SEEN = :"message.seen"
