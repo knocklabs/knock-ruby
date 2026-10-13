@@ -29,7 +29,7 @@ module Knockapi
       # {Knockapi::Models::UserUpdateParams} for more details.
       #
       # Create or update a user with the provided identification data. When you identify
-      # an existing user, the system merges the properties you specific with what is
+      # an existing user, the system merges the properties you specify with what is
       # currently set on the user, updating only the fields included in your requests.
       #
       # @overload update(user_id, avatar: nil, channel_data: nil, created_at: nil, email: nil, locale: nil, name: nil, phone_number: nil, preferences: nil, timezone: nil, request_options: {})
