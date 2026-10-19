@@ -5,7 +5,6 @@ module Knockapi
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::UserListParams::include_],
-        order: Knockapi::Models::UserListParams::order,
         page_size: Integer
       }
       & Knockapi::Internal::Type::request_parameters
@@ -28,12 +27,6 @@ module Knockapi
         ::Array[Knockapi::Models::UserListParams::include_]
       ) -> ::Array[Knockapi::Models::UserListParams::include_]
 
-      attr_reader order: Knockapi::Models::UserListParams::order?
-
-      def order=: (
-        Knockapi::Models::UserListParams::order
-      ) -> Knockapi::Models::UserListParams::order
-
       attr_reader page_size: Integer?
 
       def page_size=: (Integer) -> Integer
@@ -42,7 +35,6 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::UserListParams::include_],
-        ?order: Knockapi::Models::UserListParams::order,
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> void
@@ -51,7 +43,6 @@ module Knockapi
         after: String,
         before: String,
         include: ::Array[Knockapi::Models::UserListParams::include_],
-        order: Knockapi::Models::UserListParams::order,
         page_size: Integer,
         request_options: Knockapi::RequestOptions
       }
@@ -64,17 +55,6 @@ module Knockapi
         PREFERENCES: :preferences
 
         def self?.values: -> ::Array[Knockapi::Models::UserListParams::include_]
-      end
-
-      type order = :asc | :desc
-
-      module Order
-        extend Knockapi::Internal::Type::Enum
-
-        ASC: :asc
-        DESC: :desc
-
-        def self?.values: -> ::Array[Knockapi::Models::UserListParams::order]
       end
     end
   end

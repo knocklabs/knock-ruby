@@ -324,6 +324,14 @@ module Knockapi
         sig { returns(String) }
         attr_accessor :version_id
 
+        # The branch ancestry of the step that generated the message, outermost first.
+        # Each segment is the branching step and the branch taken. Omitted when the step
+        # is not nested under a branch.
+        sig do
+          returns(T.nilable(T::Array[Knockapi::Message::Source::BranchPath]))
+        end
+        attr_accessor :branch_path
+
         # The step reference for the step in the workflow that generated the message.
         sig { returns(T.nilable(String)) }
         attr_accessor :step_ref
@@ -354,6 +362,10 @@ module Knockapi
             categories: T::Array[String],
             key: String,
             version_id: String,
+            branch_path:
+              T.nilable(
+                T::Array[Knockapi::Message::Source::BranchPath::OrHash]
+              ),
             step_ref: T.nilable(String),
             type: Knockapi::Message::Source::Type::OrSymbol,
             workflow_recipient_run_id: T.nilable(String),
@@ -368,6 +380,10 @@ module Knockapi
           key:,
           # The ID of the version of the workflow or guide that triggered the message.
           version_id:,
+          # The branch ancestry of the step that generated the message, outermost first.
+          # Each segment is the branching step and the branch taken. Omitted when the step
+          # is not nested under a branch.
+          branch_path: nil,
           # The step reference for the step in the workflow that generated the message.
           step_ref: nil,
           # Whether this message was generated from a workflow, broadcast, or guide.
@@ -388,6 +404,8 @@ module Knockapi
               categories: T::Array[String],
               key: String,
               version_id: String,
+              branch_path:
+                T.nilable(T::Array[Knockapi::Message::Source::BranchPath]),
               step_ref: T.nilable(String),
               type: Knockapi::Message::Source::Type::TaggedSymbol,
               workflow_recipient_run_id: T.nilable(String),
@@ -396,6 +414,53 @@ module Knockapi
           )
         end
         def to_hash
+        end
+
+        class BranchPath < Knockapi::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Knockapi::Message::Source::BranchPath,
+                Knockapi::Internal::AnyHash
+              )
+            end
+
+          # The ID of the branch taken.
+          sig { returns(String) }
+          attr_accessor :branch_id
+
+          # The reference of the branching step.
+          sig { returns(String) }
+          attr_accessor :step_ref
+
+          # The type of the branching step.
+          sig { returns(String) }
+          attr_accessor :step_type
+
+          sig do
+            params(
+              branch_id: String,
+              step_ref: String,
+              step_type: String
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            # The ID of the branch taken.
+            branch_id:,
+            # The reference of the branching step.
+            step_ref:,
+            # The type of the branching step.
+            step_type:
+          )
+          end
+
+          sig do
+            override.returns(
+              { branch_id: String, step_ref: String, step_type: String }
+            )
+          end
+          def to_hash
+          end
         end
 
         # Whether this message was generated from a workflow, broadcast, or guide.

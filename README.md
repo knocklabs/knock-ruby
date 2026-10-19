@@ -225,25 +225,25 @@ knock.workflows.trigger("dinosaurs-loose", **params)
 Since this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:
 
 ```ruby
-# :asc
-puts(Knockapi::UserListParams::Order::ASC)
+# :merge
+puts(Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::MERGE)
 
-# Revealed type: `T.all(Knockapi::UserListParams::Order, Symbol)`
-T.reveal_type(Knockapi::UserListParams::Order::ASC)
+# Revealed type: `T.all(Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy, Symbol)`
+T.reveal_type(Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::MERGE)
 ```
 
 Enum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:
 
 ```ruby
 # Using the enum constants preserves the tagged type information:
-knock.users.list(
-  order: Knockapi::UserListParams::Order::ASC,
+knock.users.set_preferences(
+  _persistence_strategy: Knockapi::Recipients::PreferenceSetRequest::PersistenceStrategy::MERGE,
   # …
 )
 
 # Literal values are also permissible:
-knock.users.list(
-  order: :asc,
+knock.users.set_preferences(
+  _persistence_strategy: :merge,
   # …
 )
 ```

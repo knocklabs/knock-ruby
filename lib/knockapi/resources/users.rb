@@ -70,21 +70,16 @@ module Knockapi
         )
       end
 
-      # Some parameter documentations has been truncated, see
-      # {Knockapi::Models::UserListParams} for more details.
-      #
       # Retrieve a paginated list of users in the environment. Defaults to 50 users per
       # page.
       #
-      # @overload list(after: nil, before: nil, include: nil, order: nil, page_size: nil, request_options: {})
+      # @overload list(after: nil, before: nil, include: nil, page_size: nil, request_options: {})
       #
       # @param after [String] The cursor to fetch entries after.
       #
       # @param before [String] The cursor to fetch entries before.
       #
       # @param include [Array<Symbol, Knockapi::Models::UserListParams::Include>] Associated resources to include in the response.
-      #
-      # @param order [Symbol, Knockapi::Models::UserListParams::Order] Sort by insertion order. Pass `asc` for oldest first, or `desc` for newest first
       #
       # @param page_size [Integer] The number of items per page (defaults to 50).
       #

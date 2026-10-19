@@ -250,6 +250,16 @@ module Knockapi
         #   @return [String]
         required :version_id, String
 
+        # @!attribute branch_path
+        #   The branch ancestry of the step that generated the message, outermost first.
+        #   Each segment is the branching step and the branch taken. Omitted when the step
+        #   is not nested under a branch.
+        #
+        #   @return [Array<Knockapi::Models::Message::Source::BranchPath>, nil]
+        optional :branch_path,
+                 -> { Knockapi::Internal::Type::ArrayOf[Knockapi::Message::Source::BranchPath] },
+                 nil?: true
+
         # @!attribute step_ref
         #   The step reference for the step in the workflow that generated the message.
         #
@@ -276,7 +286,7 @@ module Knockapi
         #   @return [String, nil]
         optional :workflow_run_id, String, nil?: true
 
-        # @!method initialize(_typename:, categories:, key:, version_id:, step_ref: nil, type: nil, workflow_recipient_run_id: nil, workflow_run_id: nil)
+        # @!method initialize(_typename:, categories:, key:, version_id:, branch_path: nil, step_ref: nil, type: nil, workflow_recipient_run_id: nil, workflow_run_id: nil)
         #   Some parameter documentations has been truncated, see
         #   {Knockapi::Models::Message::Source} for more details.
         #
@@ -290,6 +300,8 @@ module Knockapi
         #
         #   @param version_id [String] The ID of the version of the workflow or guide that triggered the message.
         #
+        #   @param branch_path [Array<Knockapi::Models::Message::Source::BranchPath>, nil] The branch ancestry of the step that generated the message, outermost first. Eac
+        #
         #   @param step_ref [String, nil] The step reference for the step in the workflow that generated the message.
         #
         #   @param type [Symbol, Knockapi::Models::Message::Source::Type] Whether this message was generated from a workflow, broadcast, or guide.
@@ -297,6 +309,33 @@ module Knockapi
         #   @param workflow_recipient_run_id [String, nil] The unique identifier for the workflow recipient run that generated this message
         #
         #   @param workflow_run_id [String, nil] The unique identifier for the workflow run that generated this message. Only pre
+
+        class BranchPath < Knockapi::Internal::Type::BaseModel
+          # @!attribute branch_id
+          #   The ID of the branch taken.
+          #
+          #   @return [String]
+          required :branch_id, String
+
+          # @!attribute step_ref
+          #   The reference of the branching step.
+          #
+          #   @return [String]
+          required :step_ref, String
+
+          # @!attribute step_type
+          #   The type of the branching step.
+          #
+          #   @return [String]
+          required :step_type, String
+
+          # @!method initialize(branch_id:, step_ref:, step_type:)
+          #   @param branch_id [String] The ID of the branch taken.
+          #
+          #   @param step_ref [String] The reference of the branching step.
+          #
+          #   @param step_type [String] The type of the branching step.
+        end
 
         # Whether this message was generated from a workflow, broadcast, or guide.
         #

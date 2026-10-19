@@ -153,6 +153,7 @@ module Knockapi
           categories: ::Array[String],
           key: String,
           version_id: String,
+          branch_path: ::Array[Knockapi::Message::Source::BranchPath]?,
           step_ref: String?,
           type: Knockapi::Models::Message::Source::type_,
           workflow_recipient_run_id: String?,
@@ -167,6 +168,8 @@ module Knockapi
         attr_accessor key: String
 
         attr_accessor version_id: String
+
+        attr_accessor branch_path: ::Array[Knockapi::Message::Source::BranchPath]?
 
         attr_accessor step_ref: String?
 
@@ -185,6 +188,7 @@ module Knockapi
           categories: ::Array[String],
           key: String,
           version_id: String,
+          ?branch_path: ::Array[Knockapi::Message::Source::BranchPath]?,
           ?step_ref: String?,
           ?type: Knockapi::Models::Message::Source::type_,
           ?workflow_recipient_run_id: String?,
@@ -196,11 +200,35 @@ module Knockapi
           categories: ::Array[String],
           key: String,
           version_id: String,
+          branch_path: ::Array[Knockapi::Message::Source::BranchPath]?,
           step_ref: String?,
           type: Knockapi::Models::Message::Source::type_,
           workflow_recipient_run_id: String?,
           workflow_run_id: String?
         }
+
+        type branch_path =
+          { branch_id: String, step_ref: String, step_type: String }
+
+        class BranchPath < Knockapi::Internal::Type::BaseModel
+          attr_accessor branch_id: String
+
+          attr_accessor step_ref: String
+
+          attr_accessor step_type: String
+
+          def initialize: (
+            branch_id: String,
+            step_ref: String,
+            step_type: String
+          ) -> void
+
+          def to_hash: -> {
+            branch_id: String,
+            step_ref: String,
+            step_type: String
+          }
+        end
 
         type type_ = :broadcast | :workflow | :guide
 

@@ -102,7 +102,6 @@ module Knockapi
           after: String,
           before: String,
           include: T::Array[Knockapi::UserListParams::Include::OrSymbol],
-          order: Knockapi::UserListParams::Order::OrSymbol,
           page_size: Integer,
           request_options: Knockapi::RequestOptions::OrHash
         ).returns(Knockapi::Internal::EntriesCursor[Knockapi::User])
@@ -114,9 +113,6 @@ module Knockapi
         before: nil,
         # Associated resources to include in the response.
         include: nil,
-        # Sort by insertion order. Pass `asc` for oldest first, or `desc` for newest
-        # first. Defaults to oldest first when omitted.
-        order: nil,
         # The number of items per page (defaults to 50).
         page_size: nil,
         request_options: {}
