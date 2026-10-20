@@ -27,6 +27,7 @@ module Knockapi
         ?after: String,
         ?before: String,
         ?include: ::Array[Knockapi::Models::UserListParams::include_],
+        ?order: Knockapi::Models::UserListParams::order,
         ?page_size: Integer,
         ?request_options: Knockapi::request_opts
       ) -> Knockapi::Internal::EntriesCursor[Knockapi::User]
