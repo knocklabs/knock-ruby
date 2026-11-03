@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.44.0](https://github.com/knocklabs/knock-ruby/compare/v1.43.0...v1.44.0) (2026-10-20)
+
+
+### Features
+
+* List users can now be sorted with the optional order parameter (v0.1.1783) ([84d4a1d](https://github.com/knocklabs/knock-ruby/commit/84d4a1de476370fc8ef76917e43685a3f752376b))
+
 ## [1.43.0](https://github.com/knocklabs/knock-ruby/compare/v1.42.0...v1.43.0) (2026-10-19)
 
 
